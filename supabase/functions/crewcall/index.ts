@@ -480,7 +480,7 @@ async function jobMail(S: any) {
 const WHEN: Record<string, [number, number, string, string]> = { mon: [1, 8, "Monday", "8am"], sun: [0, 18, "Sunday", "6pm"], fri: [5, 16, "Friday", "4pm"] };
 function buildDigest(S: any, C: any, m: any, TODAY: string) {
   const T = terms(C, TODAY), n = notifyOf(m), roles: string[] = m.roles || [];
-  const isActive = (p: any) => p.shoots.some((r: any) => r.to >= TODAY);
+  const isActive = (p: any) => !p.wrapped && p.shoots.some((r: any) => r.to >= TODAY);
   const bookedOn = (sid: string, d: string) => liveP(S).filter((p: any) => onProject(p, sid) && inRanges(p.shoots, d));
   const isFree = (s: any, d: string) => (s.days || []).includes(d) && bookedOn(s.id, d).length === 0;
   const horizon = addDays(TODAY, 42);
@@ -601,7 +601,7 @@ async function calendar(token: string, which: string) {
   const { S } = await load(["student", "project"]);
   const meS = S.students.find((s: any) => s.id === tok.uid) || { id: tok.uid, email: S.em[tok.uid] || "" };
   const TODAY = london().date;
-  const upcoming = liveP(S).filter((p: any) => !p.shoots.every((r: any) => r.to < TODAY));
+  const upcoming = liveP(S).filter((p: any) => !p.wrapped && !p.shoots.every((r: any) => r.to < TODAY));
   const list = which === "my" ? upcoming.filter((p: any) => onProject(p, meS.id) || runs(p, meS)) : upcoming;
   return new Response(buildIcs(S, list, which === "my" ? "Crew Call: my shoots" : "Crew Call: all shoots"), { headers: { "content-type": "text/calendar; charset=utf-8", "cache-control": "max-age=900" } });
 }

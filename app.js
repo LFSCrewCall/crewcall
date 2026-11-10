@@ -184,7 +184,9 @@
     document.querySelectorAll("details.map-open[open]").forEach(d => { if (!d.contains(e.target) || a) d.open = false; });
   });
   const isActive = p => p.shoots.some(r => r.to >= TODAY);
-  const isPast = p => p.shoots.every(r => r.to < TODAY);
+  const isPast = p => !!p.wrapped || p.shoots.every(r => r.to < TODAY);
+  const started = p => p.shoots.some(r => r.from <= TODAY);
+  const postOf = p => (S.posts || []).find(x => x.pid === p.id && !x.hidden);
   const isLfs = e => C.LFS_DOMAINS.some(d => e.toLowerCase().endsWith("@" + d));
   const listed = s => s && !s.incomplete && !s.hideMe;
   const initials = n => n.split(/\s+/).map(x => x[0]).slice(0, 2).join("").toUpperCase();
@@ -827,7 +829,7 @@
         <h2 id="modalTitle" class="m-title">${esc(p.title)}</h2>
         <p class="card-sub">Directed by ${esc(p.dsid && student(p.dsid) ? student(p.dsid).name : p.director)}${producerNames(p).length ? ` · Produced by ${esc(andList(producerNames(p)))}` : ""}</p>
       </div>
-      ${mg ? `<div class="mg-bar"><span class="mg-tag">${runs(p) ? "You run this project" : "Admin access"}</span><span class="mg-acts"><button class="btn btn-ghost btn-xs" data-edit>Edit</button><button class="btn btn-ghost btn-xs" data-handover>Hand over</button><button class="btn btn-ghost btn-xs" data-archive>${p.archived ? "Restore" : "Archive"}</button><button class="btn btn-danger btn-xs" data-delete>Delete</button></span></div>` : ""}
+      ${mg ? `<div class="mg-bar"><span class="mg-tag">${runs(p) ? "You run this project" : "Admin access"}</span><span class="mg-acts">${!past && started(p) && !p.archived ? `<button class="btn btn-accent btn-xs" data-wrap>Wrap shoot</button>` : ""}${past && !p.archived ? (postOf(p) ? `<button class="btn btn-ghost btn-xs" data-inpost>Open in Post</button>` : `<button class="btn btn-accent btn-xs" data-topost>Move to Post</button>`) : ""}${p.wrapped ? `<button class="btn btn-quiet btn-xs" data-unwrap>Undo wrap</button>` : ""}<button class="btn btn-ghost btn-xs" data-edit>Edit</button><button class="btn btn-ghost btn-xs" data-handover>Hand over</button><button class="btn btn-ghost btn-xs" data-archive>${p.archived ? "Restore" : "Archive"}</button><button class="btn btn-danger btn-xs" data-delete>Delete</button></span></div>` : ""}
       <p class="logline">${esc(p.logline)}</p>
 
       <section class="sched" aria-labelledby="schedH">
@@ -896,6 +898,10 @@
     q("[data-ics]").forEach(b => b.addEventListener("click", () => { download(`${p.title.replace(/\W+/g, "-").toLowerCase()}.ics`, buildIcs([p], `Crew Call: ${p.title}`)); toast("Downloaded. This adds the shoot as it is now. To get later changes automatically, use Sync calendar."); }));
     q("[data-edit]").forEach(b => b.addEventListener("click", () => openPostForm(p)));
     q("[data-handover]").forEach(b => b.addEventListener("click", () => openHandOver(p)));
+    q("[data-wrap]").forEach(b => b.addEventListener("click", () => openWrap(p)));
+    q("[data-topost]").forEach(b => b.addEventListener("click", () => moveToPost(p)));
+    q("[data-inpost]").forEach(b => b.addEventListener("click", () => { closeModal(); setView("post"); openPostItem(postOf(p).id); }));
+    q("[data-unwrap]").forEach(b => b.addEventListener("click", () => unwrap(p)));
     q("[data-stepdown]").forEach(b => b.addEventListener("click", () => stepDown(p, b.dataset.stepdown)));
     q("[data-stepdown-sh]").forEach(b => b.addEventListener("click", () => stepDown(p, null, +b.dataset.stepdownSh)));
     q("[data-archive]").forEach(b => b.addEventListener("click", () => { p.archived = !p.archived; toast(p.archived ? `${p.title} archived. Restore it from My shoots.` : `${p.title} restored`); closeModal(); render(); }));
@@ -1416,6 +1422,32 @@
     return count;
   }
 
+  // ---------- WRAP: finish a shoot and move it on to Post ----------
+  function openWrap(p) {
+    const later = projDays(p).filter(d => d > TODAY).length, pend = S.requests.filter(q => q.pid === p.id && q.status === "pending").length;
+    openModal(`<h2 id="modalTitle" class="m-title">Wrap ${esc(p.title)}?</h2>
+      <p class="muted"><span>It comes off the Shoot board, and everyone on the crew gets the credit on their profile.</span>${later ? ` <span>${later === 1 ? "The shoot day after today comes off the calendar, and the crew are told." : `The ${later} shoot days after today come off the calendar, and the crew are told.`}</span>` : ""}${pend ? ` <span>${pend === 1 ? "The request still waiting is closed." : `The ${pend} requests still waiting are closed.`}</span>` : ""}</p>
+      <p class="muted">Next, list it in Post to find an editor, colourist, sound designer or composer.</p>
+      <div class="form-actions"><button class="btn btn-accent" id="wrapPost">Wrap and move to Post</button><button class="btn btn-ghost" id="wrapOnly">Just wrap</button><button class="btn btn-quiet" data-close>Cancel</button></div>`);
+    $("#wrapPost").onclick = () => { doWrap(p); moveToPost(p); };
+    $("#wrapOnly").onclick = () => { doWrap(p); closeModal(); render(); toast(`${p.title} has wrapped`); };
+  }
+  function doWrap(p) {
+    const early = projDays(p).some(d => d > TODAY), m = me();
+    p.wrapped = TODAY;
+    if (early) { p.unwrapShoots = JSON.parse(JSON.stringify(p.shoots)); p.shoots = p.shoots.filter(r => r.from <= TODAY).map(r => r.to > TODAY ? { ...r, to: TODAY } : r); }
+    S.requests.filter(q => q.pid === p.id && q.status === "pending").forEach(q => { q.status = "declined"; notify(q.sid, "update", `${p.title} has wrapped, so your request for ${q.role} is closed. Thanks for offering.`, p.id); });
+    const crew = [...new Set(p.roles.filter(r => r.filledBy && !isExt(r)).map(r => r.filledBy).concat(p.shadows.map(x => x.sid)))].filter(id => id !== (m && m.id));
+    crew.forEach(id => notify(id, "update", `${p.title} has wrapped${early ? " early. The remaining shoot days are off the calendar" : ""}. Thanks for being on it. It's now a credit on your profile.`, p.id));
+  }
+  function moveToPost(p) { closeModal(); setView("post"); openPostFilmForm(null, p); }
+  function unwrap(p) {
+    confirmBox(`Undo the wrap on ${p.title}?`, p.unwrapShoots ? "The shoot days that came off the calendar go back on, and it returns to the Shoot board." : "It returns to the Shoot board until its last shoot day has passed.", "Undo wrap", () => {
+      delete p.wrapped; if (p.unwrapShoots) { p.shoots = p.unwrapShoots; delete p.unwrapShoots; }
+      closeModal(); render(); toast(`${p.title} is back on the Shoot board`);
+    }, false);
+  }
+
   // ---------- MY SHOOTS ----------
   function renderMine() {
     const m = me(), root = $("#view-mine");
@@ -1429,13 +1461,16 @@
       return `<li class="ms-row" style="--c:${projColor(p)}"><button class="ms-t link-btn" data-proj="${p.id}">${esc(p.title)}</button>
         <span class="ms-m">${p.shoots.map(fmtRange).join(" + ")} · call ${dayInfo(p, d0).call}</span>
         <span class="ms-s">${w ? `<span class="st st-pending">${w} request${w > 1 ? "s" : ""} waiting</span>` : ""}<span class="st">${o ? `${o} open` : "Crewed"}</span></span>
-        <span class="ms-a">${p.archived ? `<button class="btn btn-ghost btn-xs" data-restore="${p.id}">Restore</button>` : `<button class="btn btn-ghost btn-xs" data-proj="${p.id}">${w ? "Review" : "Open"}</button><button class="btn btn-quiet btn-xs" data-editp="${p.id}">Edit</button>`}</span></li>`; };
+        <span class="ms-a">${p.archived ? `<button class="btn btn-ghost btn-xs" data-restore="${p.id}">Restore</button>` : `<button class="btn btn-ghost btn-xs" data-proj="${p.id}">${w ? "Review" : "Open"}</button><button class="btn btn-quiet btn-xs" data-editp="${p.id}">Edit</button>${started(p) ? `<button class="btn btn-quiet btn-xs" data-wrapp="${p.id}">Wrap shoot</button>` : ""}`}</span></li>`; };
+    const wrappedMine = S.projects.filter(p => runs(p, m) && !p.archived && isPast(p) && !S.releases.some(r => r.pid === p.id)).sort((a, b) => (b.wrapped || b.shoots[b.shoots.length - 1].to).localeCompare(a.wrapped || a.shoots[a.shoots.length - 1].to)).slice(0, 6);
+    const wrapCard = p => `<li class="ms-row" style="--c:${projColor(p)}"><button class="ms-t link-btn" data-proj="${p.id}">${esc(p.title)}</button><span class="ms-m">Wrapped ${fmtDay(p.wrapped || p.shoots[p.shoots.length - 1].to)}</span><span class="ms-a">${postOf(p) ? `<button class="btn btn-ghost btn-xs" data-inpostp="${p.id}">Open in Post</button>` : `<button class="btn btn-accent btn-xs" data-topostp="${p.id}">Move to Post</button>`}</span></li>`;
     root.innerHTML = `
       <div class="view-head"><h1 class="page-title">My shoots</h1><p class="muted">Projects you run, requests you've sent and shoots you're locked on.</p>
         <div class="ms-actions"><button class="btn btn-accent btn-sm" data-action="post">Post a shoot</button><button class="btn btn-ghost btn-sm" id="msSync">Sync to Outlook or another calendar</button></div></div>
       <div class="ms-grid">
         <section class="panel"><h2 class="panel-h">Projects I run <span class="count">${active.length}</span></h2>
           ${active.length ? `<ul class="ms-list">${active.map(runCard).join("")}</ul>` : `<p class="empty-sm">You're not producing or directing anything yet.</p>`}
+          ${wrappedMine.length ? `<h3 class="panel-sub">Wrapped</h3><ul class="ms-list">${wrappedMine.map(wrapCard).join("")}</ul>` : ""}
           ${archived.length ? `<h3 class="panel-sub">Archived</h3><ul class="ms-list">${archived.map(runCard).join("")}</ul>` : ""}</section>
         <section class="panel"><h2 class="panel-h">Shoots I'm on <span class="count">${onShoots.length}</span></h2>
           ${onShoots.length ? `<ul class="ms-list">${onShoots.map(p => { const r = p.roles.find(x => x.filledBy === m.id), sh = p.shadows.find(x => x.sid === m.id), d0 = projDays(p).find(d => d >= TODAY) || projDays(p)[0], inf = dayInfo(p, d0);
@@ -1451,6 +1486,9 @@
     bindOpeners(root);
     root.querySelectorAll("[data-editp]").forEach(b => b.addEventListener("click", () => openPostForm(project(b.dataset.editp))));
     root.querySelectorAll("[data-restore]").forEach(b => b.addEventListener("click", () => { project(b.dataset.restore).archived = false; toast("Restored"); renderMine(); }));
+    root.querySelectorAll("[data-wrapp]").forEach(b => b.addEventListener("click", () => openWrap(project(b.dataset.wrapp))));
+    root.querySelectorAll("[data-topostp]").forEach(b => b.addEventListener("click", () => moveToPost(project(b.dataset.topostp))));
+    root.querySelectorAll("[data-inpostp]").forEach(b => b.addEventListener("click", () => { setView("post"); openPostItem(postOf(project(b.dataset.inpostp)).id); }));
     root.querySelectorAll("[data-wd]").forEach(b => b.addEventListener("click", () => { S.requests.find(q => q.id === b.dataset.wd).status = "withdrawn"; toast("Request withdrawn"); renderMine(); }));
     $("#msSync").addEventListener("click", openSync);
     const inv = $("#invForm");

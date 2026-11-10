@@ -6262,6 +6262,126 @@ window.CC_I18N = {
 "टाइटल और ग्राफ़िक्स",
 "Títulos e grafismo"
 ],
+"Wrap shoot": [
+"殺青",
+"杀青",
+"Clore le tournage",
+"Cerrar rodaje",
+"Завершить съёмки",
+"إنهاء التصوير",
+"शूट रैप करें",
+"Encerrar rodagem"
+],
+"Move to Post": [
+"移到後期",
+"移到后期",
+"Passer en postproduction",
+"Pasar a postproducción",
+"Перенести в постпродакшн",
+"نقل إلى ما بعد الإنتاج",
+"पोस्ट-प्रोडक्शन में ले जाएँ",
+"Passar para pós-produção"
+],
+"Open in Post": [
+"在後期中開啟",
+"在后期中打开",
+"Ouvrir en postproduction",
+"Abrir en Postproducción",
+"Открыть в постпродакшне",
+"فتح في ما بعد الإنتاج",
+"पोस्ट-प्रोडक्शन में खोलें",
+"Abrir na pós-produção"
+],
+"Wrap and move to Post": [
+"殺青並移到後期",
+"杀青并移到后期",
+"Clore et passer en postproduction",
+"Cerrar y pasar a postproducción",
+"Завершить и перенести в постпродакшн",
+"إنهاء التصوير والنقل إلى ما بعد الإنتاج",
+"रैप करें और पोस्ट-प्रोडक्शन में ले जाएँ",
+"Encerrar e passar para pós-produção"
+],
+"Just wrap": [
+"只殺青",
+"只杀青",
+"Clore seulement",
+"Solo cerrar",
+"Только завершить",
+"إنهاء التصوير فقط",
+"सिर्फ़ रैप करें",
+"Só encerrar"
+],
+"Undo wrap": [
+"取消殺青",
+"取消杀青",
+"Annuler la clôture",
+"Deshacer cierre",
+"Отменить завершение",
+"التراجع عن إنهاء التصوير",
+"रैप वापस लें",
+"Desfazer encerramento"
+],
+"It comes off the Shoot board, and everyone on the crew gets the credit on their profile.": [
+"它會從拍攝看板移除，劇組每個人的個人檔案都會加上這筆作品經歷。",
+"它会从拍摄看板移除，剧组每个人的个人文件都会加上这笔作品经历。",
+"Il quitte le tableau Tournages, et toute l'équipe reçoit le crédit sur son profil.",
+"Sale del tablero de Rodajes y todo el equipo recibe el crédito en su perfil.",
+"Проект уйдёт с доски «Съёмки», а вся команда получит титр в профиле.",
+"سيُزال من لوحة التصوير، وسيحصل كل أفراد الطاقم على الرصيد في ملفاتهم.",
+"यह शूट बोर्ड से हट जाएगा, और क्रू के हर सदस्य की प्रोफ़ाइल पर क्रेडिट जुड़ जाएगा।",
+"Sai do quadro de Rodagens, e toda a equipa recebe o crédito no perfil."
+],
+"The shoot day after today comes off the calendar, and the crew are told.": [
+"今天之後的拍攝日會從行事曆移除，並通知劇組。",
+"今天之后的拍摄日会从行事历移除，并通知剧组。",
+"Le jour de tournage après aujourd'hui est retiré du calendrier, et l'équipe est prévenue.",
+"El día de rodaje posterior a hoy sale del calendario y se avisa al equipo.",
+"Съёмочный день после сегодняшнего уйдёт из календаря, команда получит уведомление.",
+"سيُزال يوم التصوير بعد اليوم من التقويم، وسيُبلَّغ الطاقم.",
+"आज के बाद का शूट दिन कैलेंडर से हट जाएगा, और क्रू को बताया जाएगा।",
+"O dia de rodagem depois de hoje sai do calendário, e a equipa é avisada."
+],
+"The request still waiting is closed.": [
+"尚在等待的申請會被關閉。",
+"尚在等待的申请会被关闭。",
+"La demande en attente est close.",
+"La solicitud pendiente se cierra.",
+"Ожидающая заявка будет закрыта.",
+"سيُغلق الطلب المعلّق.",
+"रुका हुआ अनुरोध बंद हो जाएगा।",
+"O pedido pendente é fechado."
+],
+"Next, list it in Post to find an editor, colourist, sound designer or composer.": [
+"接著把它刊登到後期，找剪接師、調光師、聲音設計或作曲。",
+"接着把它刊登到后期，找剪接师、调光师、声音设计或作曲。",
+"Ensuite, publiez-le en postproduction pour trouver un monteur, un étalonneur, un designer sonore ou un compositeur.",
+"Después, publícalo en Postproducción para encontrar montador, etalonador, diseñador de sonido o compositor.",
+"Затем разместите его в постпродакшне, чтобы найти монтажёра, колориста, саунд-дизайнера или композитора.",
+"بعد ذلك، أضفه إلى ما بعد الإنتاج للعثور على مونتير أو مصحّح ألوان أو مصمّم صوت أو مؤلف موسيقي.",
+"फिर एडिटर, कलरिस्ट, साउंड डिज़ाइनर या कंपोज़र ढूँढने के लिए इसे पोस्ट-प्रोडक्शन में जोड़ें।",
+"Depois, publique na pós-produção para encontrar montador, colorista, designer de som ou compositor."
+],
+"The shoot days that came off the calendar go back on, and it returns to the Shoot board.": [
+"先前移除的拍攝日會回到行事曆，它也會回到拍攝看板。",
+"先前移除的拍摄日会回到行事历，它也会回到拍摄看板。",
+"Les jours de tournage retirés reviennent dans le calendrier, et il revient sur le tableau Tournages.",
+"Los días de rodaje retirados vuelven al calendario y regresa al tablero de Rodajes.",
+"Убранные съёмочные дни вернутся в календарь, а проект — на доску «Съёмки».",
+"ستعود أيام التصوير المحذوفة إلى التقويم، وسيعود إلى لوحة التصوير.",
+"हटाए गए शूट दिन कैलेंडर पर लौट आएँगे, और यह शूट बोर्ड पर वापस आ जाएगा।",
+"Os dias de rodagem retirados voltam ao calendário, e volta ao quadro de Rodagens."
+],
+"It returns to the Shoot board until its last shoot day has passed.": [
+"它會回到拍攝看板，直到最後一個拍攝日過去。",
+"它会回到拍摄看板，直到最后一个拍摄日过去。",
+"Il revient sur le tableau Tournages jusqu'à son dernier jour de tournage.",
+"Vuelve al tablero de Rodajes hasta que pase su último día de rodaje.",
+"Проект вернётся на доску «Съёмки» до последнего съёмочного дня.",
+"سيعود إلى لوحة التصوير حتى يمرّ آخر يوم تصوير.",
+"यह आख़िरी शूट दिन बीतने तक शूट बोर्ड पर लौट आएगा।",
+"Volta ao quadro de Rodagens até passar o último dia de rodagem."
+],
 "Director": [
 "導演",
 "导演",
@@ -17547,6 +17667,83 @@ window.CC_I18N = {
 "أضيف {=1}. راجع التفاصيل أدناه",
 "{=1} जुड़ा। नीचे इसका विवरण जाँचें",
 "{=1} adicionado. Confira os detalhes abaixo"
+],
+[
+"^Wrap (.+)\\?$",
+"{=1}要殺青了嗎？",
+"{=1}要杀青了吗？",
+"Clore le tournage de {=1} ?",
+"¿Cerrar el rodaje de {=1}?",
+"Завершить съёмки «{=1}»?",
+"إنهاء تصوير {=1}؟",
+"{=1} रैप करें?",
+"Encerrar a rodagem de {=1}?"
+],
+[
+"^Undo the wrap on (.+)\\?$",
+"取消{=1}的殺青嗎？",
+"取消{=1}的杀青吗？",
+"Annuler la clôture de {=1} ?",
+"¿Deshacer el cierre de {=1}?",
+"Отменить завершение «{=1}»?",
+"التراجع عن إنهاء تصوير {=1}؟",
+"{=1} का रैप वापस लें?",
+"Desfazer o encerramento de {=1}?"
+],
+[
+"^Wrapped (.+)$",
+"{1}殺青",
+"{1}杀青",
+"Terminé le {1}",
+"Terminado el {1}",
+"Снято {1}",
+"انتهى التصوير {1}",
+"{1} को रैप हुआ",
+"Encerrado a {1}"
+],
+[
+"^(.+) has wrapped$",
+"{=1}已殺青",
+"{=1}已杀青",
+"{=1} est terminé",
+"{=1} ha terminado",
+"Съёмки «{=1}» завершены",
+"انتهى تصوير {=1}",
+"{=1} रैप हो गया",
+"{=1} terminou a rodagem"
+],
+[
+"^(.+) is back on the Shoot board$",
+"{=1}已回到拍攝看板",
+"{=1}已回到拍摄看板",
+"{=1} est de retour sur le tableau Tournages",
+"{=1} vuelve al tablero de Rodajes",
+"«{=1}» снова на доске «Съёмки»",
+"عاد {=1} إلى لوحة التصوير",
+"{=1} शूट बोर्ड पर वापस आ गया",
+"{=1} voltou ao quadro de Rodagens"
+],
+[
+"^The (\\d+) shoot days after today come off the calendar, and the crew are told\\.$",
+"今天之後的 {=1} 個拍攝日會從行事曆移除，並通知劇組。",
+"今天之后的 {=1} 个拍摄日会从行事历移除，并通知剧组。",
+"Les {=1} jours de tournage après aujourd'hui sont retirés du calendrier, et l'équipe est prévenue.",
+"Los {=1} días de rodaje posteriores a hoy salen del calendario y se avisa al equipo.",
+"Съёмочные дни после сегодняшнего ({=1}) уйдут из календаря, команда получит уведомление.",
+"ستُزال أيام التصوير بعد اليوم ({=1}) من التقويم، وسيُبلَّغ الطاقم.",
+"आज के बाद के {=1} शूट दिन कैलेंडर से हट जाएँगे, और क्रू को बताया जाएगा।",
+"Os {=1} dias de rodagem depois de hoje saem do calendário, e a equipa é avisada."
+],
+[
+"^The (\\d+) requests still waiting are closed\\.$",
+"尚在等待的 {=1} 個申請會被關閉。",
+"尚在等待的 {=1} 个申请会被关闭。",
+"Les {=1} demandes en attente sont closes.",
+"Las {=1} solicitudes pendientes se cierran.",
+"Ожидающие заявки ({=1}) будут закрыты.",
+"ستُغلق الطلبات المعلّقة ({=1}).",
+"रुके हुए {=1} अनुरोध बंद हो जाएँगे।",
+"Os {=1} pedidos pendentes são fechados."
 ]
 ]
 };

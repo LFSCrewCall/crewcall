@@ -38,3 +38,16 @@ film || 部影片 || film || película
 films || 部影片 || films || películas
 Assistant Editor || 助理剪接師 || Assistant monteur || Ayudante de montaje
 Titles & Graphics || 字幕與圖像 || Génériques et graphisme || Títulos y grafismo
+# Wrap a shoot
+Wrap shoot || 殺青 || Clore le tournage || Cerrar rodaje
+Move to Post || 移到後期 || Passer en postproduction || Pasar a postproducción
+Open in Post || 在後期中開啟 || Ouvrir en postproduction || Abrir en Postproducción
+Wrap and move to Post || 殺青並移到後期 || Clore et passer en postproduction || Cerrar y pasar a postproducción
+Just wrap || 只殺青 || Clore seulement || Solo cerrar
+Undo wrap || 取消殺青 || Annuler la clôture || Deshacer cierre
+It comes off the Shoot board, and everyone on the crew gets the credit on their profile. || 它會從拍攝看板移除，劇組每個人的個人檔案都會加上這筆作品經歷。 || Il quitte le tableau Tournages, et toute l'équipe reçoit le crédit sur son profil. || Sale del tablero de Rodajes y todo el equipo recibe el crédito en su perfil.
+The shoot day after today comes off the calendar, and the crew are told. || 今天之後的拍攝日會從行事曆移除，並通知劇組。 || Le jour de tournage après aujourd'hui est retiré du calendrier, et l'équipe est prévenue. || El día de rodaje posterior a hoy sale del calendario y se avisa al equipo.
+The request still waiting is closed. || 尚在等待的申請會被關閉。 || La demande en attente est close. || La solicitud pendiente se cierra.
+Next, list it in Post to find an editor, colourist, sound designer or composer. || 接著把它刊登到後期，找剪接師、調光師、聲音設計或作曲。 || Ensuite, publiez-le en postproduction pour trouver un monteur, un étalonneur, un designer sonore ou un compositeur. || Después, publícalo en Postproducción para encontrar montador, etalonador, diseñador de sonido o compositor.
+The shoot days that came off the calendar go back on, and it returns to the Shoot board. || 先前移除的拍攝日會回到行事曆，它也會回到拍攝看板。 || Les jours de tournage retirés reviennent dans le calendrier, et il revient sur le tableau Tournages. || Los días de rodaje retirados vuelven al calendario y regresa al tablero de Rodajes.
+It returns to the Shoot board until its last shoot day has passed. || 它會回到拍攝看板，直到最後一個拍攝日過去。 || Il revient sur le tableau Tournages jusqu'à son dernier jour de tournage. || Vuelve al tablero de Rodajes hasta que pase su último día de rodaje.

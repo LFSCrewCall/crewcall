@@ -38,3 +38,16 @@ film || फ़िल्म || filme
 films || फ़िल्में || filmes
 Assistant Editor || असिस्टेंट एडिटर || Assistente de montagem
 Titles & Graphics || टाइटल और ग्राफ़िक्स || Títulos e grafismo
+# Wrap a shoot
+Wrap shoot || शूट रैप करें || Encerrar rodagem
+Move to Post || पोस्ट-प्रोडक्शन में ले जाएँ || Passar para pós-produção
+Open in Post || पोस्ट-प्रोडक्शन में खोलें || Abrir na pós-produção
+Wrap and move to Post || रैप करें और पोस्ट-प्रोडक्शन में ले जाएँ || Encerrar e passar para pós-produção
+Just wrap || सिर्फ़ रैप करें || Só encerrar
+Undo wrap || रैप वापस लें || Desfazer encerramento
+It comes off the Shoot board, and everyone on the crew gets the credit on their profile. || यह शूट बोर्ड से हट जाएगा, और क्रू के हर सदस्य की प्रोफ़ाइल पर क्रेडिट जुड़ जाएगा। || Sai do quadro de Rodagens, e toda a equipa recebe o crédito no perfil.
+The shoot day after today comes off the calendar, and the crew are told. || आज के बाद का शूट दिन कैलेंडर से हट जाएगा, और क्रू को बताया जाएगा। || O dia de rodagem depois de hoje sai do calendário, e a equipa é avisada.
+The request still waiting is closed. || रुका हुआ अनुरोध बंद हो जाएगा। || O pedido pendente é fechado.
+Next, list it in Post to find an editor, colourist, sound designer or composer. || फिर एडिटर, कलरिस्ट, साउंड डिज़ाइनर या कंपोज़र ढूँढने के लिए इसे पोस्ट-प्रोडक्शन में जोड़ें। || Depois, publique na pós-produção para encontrar montador, colorista, designer de som ou compositor.
+The shoot days that came off the calendar go back on, and it returns to the Shoot board. || हटाए गए शूट दिन कैलेंडर पर लौट आएँगे, और यह शूट बोर्ड पर वापस आ जाएगा। || Os dias de rodagem retirados voltam ao calendário, e volta ao quadro de Rodagens.
+It returns to the Shoot board until its last shoot day has passed. || यह आख़िरी शूट दिन बीतने तक शूट बोर्ड पर लौट आएगा। || Volta ao quadro de Rodagens até passar o último dia de rodagem.

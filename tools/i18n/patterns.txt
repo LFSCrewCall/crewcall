@@ -256,3 +256,10 @@
 ^(MA .+) closed\. Current cohorts carry on until they finish$ || {=1}已停止招生，目前的班級會讀到結業 || {=1} fermée. Les promos en cours continuent jusqu'à la fin || {=1} cerrado. Las promociones actuales siguen hasta terminar
 ^(MA .+) reopened$ || {=1}已重新招生 || {=1} rouverte || {=1} reabierto
 ^(.+) added\. Check its details below$ || 已新增{=1}，請在下方確認詳細資料 || {=1} ajoutée. Vérifiez les détails ci-dessous || {=1} añadido. Revisa los detalles abajo
+^Wrap (.+)\?$ || {=1}要殺青了嗎？ || Clore le tournage de {=1} ? || ¿Cerrar el rodaje de {=1}?
+^Undo the wrap on (.+)\?$ || 取消{=1}的殺青嗎？ || Annuler la clôture de {=1} ? || ¿Deshacer el cierre de {=1}?
+^Wrapped (.+)$ || {1}殺青 || Terminé le {1} || Terminado el {1}
+^(.+) has wrapped$ || {=1}已殺青 || {=1} est terminé || {=1} ha terminado
+^(.+) is back on the Shoot board$ || {=1}已回到拍攝看板 || {=1} est de retour sur le tableau Tournages || {=1} vuelve al tablero de Rodajes
+^The (\d+) shoot days after today come off the calendar, and the crew are told\.$ || 今天之後的 {=1} 個拍攝日會從行事曆移除，並通知劇組。 || Les {=1} jours de tournage après aujourd'hui sont retirés du calendrier, et l'équipe est prévenue. || Los {=1} días de rodaje posteriores a hoy salen del calendario y se avisa al equipo.
+^The (\d+) requests still waiting are closed\.$ || 尚在等待的 {=1} 個申請會被關閉。 || Les {=1} demandes en attente sont closes. || Las {=1} solicitudes pendientes se cierran.

@@ -253,3 +253,10 @@
 ^(MA .+) closed\. Current cohorts carry on until they finish$ || {=1} बंद हुआ। मौजूदा कोहोर्ट ख़त्म होने तक जारी रहेंगे || {=1} fechado. As turmas atuais continuam até terminar
 ^(MA .+) reopened$ || {=1} फिर से खुला || {=1} reaberto
 ^(.+) added\. Check its details below$ || {=1} जुड़ा। नीचे इसका विवरण जाँचें || {=1} adicionado. Confira os detalhes abaixo
+^Wrap (.+)\?$ || {=1} रैप करें? || Encerrar a rodagem de {=1}?
+^Undo the wrap on (.+)\?$ || {=1} का रैप वापस लें? || Desfazer o encerramento de {=1}?
+^Wrapped (.+)$ || {1} को रैप हुआ || Encerrado a {1}
+^(.+) has wrapped$ || {=1} रैप हो गया || {=1} terminou a rodagem
+^(.+) is back on the Shoot board$ || {=1} शूट बोर्ड पर वापस आ गया || {=1} voltou ao quadro de Rodagens
+^The (\d+) shoot days after today come off the calendar, and the crew are told\.$ || आज के बाद के {=1} शूट दिन कैलेंडर से हट जाएँगे, और क्रू को बताया जाएगा। || Os {=1} dias de rodagem depois de hoje saem do calendário, e a equipa é avisada.
+^The (\d+) requests still waiting are closed\.$ || रुके हुए {=1} अनुरोध बंद हो जाएँगे। || Os {=1} pedidos pendentes são fechados.
