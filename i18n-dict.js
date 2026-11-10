@@ -8672,6 +8672,66 @@ window.CC_I18N = {
 "पहले से पता है कि कोई भूमिका कौन करेगा? नाम लिखकर उन्हें जोड़ें। जिनकी प्रोफ़ाइल में यह भूमिका है, वे पहले दिखते हैं।",
 "Já sabe quem vai fazer uma função? Digite o nome para registrar. Quem lista a função aparece primeiro."
 ],
+"Role matches": [
+"職位配對",
+"职位配对",
+"Postes correspondants",
+"Puestos que encajan",
+"Подходящие роли",
+"أدوار مناسبة",
+"मिलती भूमिकाएँ",
+"Funções compatíveis"
+],
+"Updates": [
+"更新",
+"更新",
+"Mises à jour",
+"Novedades",
+"Обновления",
+"تحديثات",
+"अपडेट",
+"Atualizações"
+],
+"Notes": [
+"通知",
+"通知",
+"Notes",
+"Avisos",
+"Уведомления",
+"إشعارات",
+"सूचनाएँ",
+"Avisos"
+],
+"Show 1 earlier": [
+"顯示較早的 1 則",
+"显示较早的 1 则",
+"Voir 1 plus ancienne",
+"Ver 1 anterior",
+"Показать ещё 1",
+"عرض إشعار سابق واحد",
+"1 पुरानी दिखाएँ",
+"Mostrar 1 anterior"
+],
+"1 group": [
+"1 組",
+"1 组",
+"1 groupe",
+"1 grupo",
+"1 группа",
+"مجموعة واحدة",
+"1 समूह",
+"1 grupo"
+],
+"Similar notifications are grouped by project. Emails are sent together too, at most one every 10 minutes, unless you've turned that type off in My profile.": [
+"相似的通知會依專案歸在一起。電郵也會合併寄出，最多每 10 分鐘一封，除非你已在「我的檔案」中關閉該類通知。",
+"相似的通知会依项目归在一起。电邮也会合并寄出，最多每 10 分钟一封，除非你已在「我的文件」中关闭该类通知。",
+"Les notifications similaires sont regroupées par projet. Les e-mails sont aussi envoyés ensemble, au plus un toutes les 10 minutes, sauf si vous avez désactivé ce type dans Mon profil.",
+"Las notificaciones parecidas se agrupan por proyecto. Los correos también se envían juntos, como máximo uno cada 10 minutos, salvo que hayas desactivado ese tipo en Mi perfil.",
+"Похожие уведомления сгруппированы по проектам. Письма тоже приходят вместе, не чаще одного раза в 10 минут, если вы не отключили этот тип в «Моём профиле».",
+"تُجمَع الإشعارات المتشابهة حسب المشروع. وتُرسَل الرسائل الإلكترونية معًا أيضًا، رسالة واحدة كل 10 دقائق على الأكثر، ما لم توقف هذا النوع في ملفي الشخصي.",
+"मिलती-जुलती सूचनाएँ प्रोजेक्ट के हिसाब से एक साथ रखी जाती हैं। ईमेल भी एक साथ भेजे जाते हैं, हर 10 मिनट में ज़्यादा से ज़्यादा एक, जब तक आपने मेरी प्रोफ़ाइल में वह प्रकार बंद न किया हो।",
+"Notificações parecidas são agrupadas por projeto. Os e-mails também vão juntos, no máximo um a cada 10 minutos, a menos que você tenha desativado esse tipo em Meu perfil."
+],
 "Director": [
 "導演",
 "导演",
@@ -20608,6 +20668,39 @@ window.CC_I18N = {
 "ليست لديك صلاحية اللغات. اطلب من {=1} (المالك) أو من مشرف لديه صلاحية «الأشخاص» تفعيلها لك.",
 "आपके पास भाषाएँ अनुमति नहीं है। {=1} (मालिक) या लोग अनुमति वाले किसी एडमिन से इसे टिक करने को कहें।",
 "Você não tem a permissão Idiomas. Peça a {=1} (dono) ou a um admin com a permissão Pessoas para marcá-la."
+],
+[
+"^Show (\\d+) earlier$",
+"顯示較早的 {=1} 則",
+"显示较早的 {=1} 则",
+"Voir {=1} plus anciennes",
+"Ver {=1} anteriores",
+"Показать ещё {=1}",
+"عرض {=1} سابقة",
+"{=1} पुरानी दिखाएँ",
+"Mostrar {=1} anteriores"
+],
+[
+"^(\\d+) groups$",
+"{=1} 組",
+"{=1} 组",
+"{=1} groupes",
+"{=1} grupos",
+"{=1} {1|группа|группы|групп}",
+"{=1} {1|مجموعة|مجموعتان|مجموعات|مجموعة|مجموعة}",
+"{=1} समूह",
+"{=1} grupos"
+],
+[
+"^(\\d+) groups? · (\\d+) new$",
+"{=1} 組 · {=2} 則新通知",
+"{=1} 组 · {=2} 则新通知",
+"{=1} {1|groupe|groupes} · {=2} {2|nouveau|nouveaux}",
+"{=1} {1|grupo|grupos} · {=2} {2|nuevo|nuevos}",
+"{=1} {1|группа|группы|групп} · новых: {=2}",
+"{=1} {1|مجموعة|مجموعتان|مجموعات|مجموعة|مجموعة} · {=2} جديدة",
+"{=1} समूह · {=2} नई",
+"{=1} {1|grupo|grupos} · {=2} {2|nova|novas}"
 ]
 ]
 };

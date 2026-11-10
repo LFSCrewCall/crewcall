@@ -1,0 +1,7 @@
+# v21: grouped notifications
+Role matches || 職位配對 || Postes correspondants || Puestos que encajan
+Updates || 更新 || Mises à jour || Novedades
+Notes || 通知 || Notes || Avisos
+Show 1 earlier || 顯示較早的 1 則 || Voir 1 plus ancienne || Ver 1 anterior
+1 group || 1 組 || 1 groupe || 1 grupo
+Similar notifications are grouped by project. Emails are sent together too, at most one every 10 minutes, unless you've turned that type off in My profile. || 相似的通知會依專案歸在一起。電郵也會合併寄出，最多每 10 分鐘一封，除非你已在「我的檔案」中關閉該類通知。 || Les notifications similaires sont regroupées par projet. Les e-mails sont aussi envoyés ensemble, au plus un toutes les 10 minutes, sauf si vous avez désactivé ce type dans Mon profil. || Las notificaciones parecidas se agrupan por proyecto. Los correos también se envían juntos, como máximo uno cada 10 minutos, salvo que hayas desactivado ese tipo en Mi perfil.

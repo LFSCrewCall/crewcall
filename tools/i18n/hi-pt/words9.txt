@@ -1,0 +1,7 @@
+# v21: grouped notifications
+Role matches || मिलती भूमिकाएँ || Funções compatíveis
+Updates || अपडेट || Atualizações
+Notes || सूचनाएँ || Avisos
+Show 1 earlier || 1 पुरानी दिखाएँ || Mostrar 1 anterior
+1 group || 1 समूह || 1 grupo
+Similar notifications are grouped by project. Emails are sent together too, at most one every 10 minutes, unless you've turned that type off in My profile. || मिलती-जुलती सूचनाएँ प्रोजेक्ट के हिसाब से एक साथ रखी जाती हैं। ईमेल भी एक साथ भेजे जाते हैं, हर 10 मिनट में ज़्यादा से ज़्यादा एक, जब तक आपने मेरी प्रोफ़ाइल में वह प्रकार बंद न किया हो। || Notificações parecidas são agrupadas por projeto. Os e-mails também vão juntos, no máximo um a cada 10 minutos, a menos que você tenha desativado esse tipo em Meu perfil.

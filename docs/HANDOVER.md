@@ -202,7 +202,7 @@ People type the first part of their email and pick the ending from a list: @stud
 
 ## Updating the site
 
-When you change the code, raise the version number in two places so phones don't mix old and new files: `CACHE` in sw.js (crewcall-v20) and every `?v=20` in index.html.
+When you change the code, raise the version number in two places so phones don't mix old and new files: `CACHE` in sw.js (crewcall-v21) and every `?v=21` in index.html.
 
 ## Funding
 
@@ -251,7 +251,9 @@ Actor is now called Talent, and there's a new role, Supporting artist. Both sit 
 
 ## Posting and editing a shoot
 
-The form has tabs: Basics, Dates and places, Roles, Casting and Crew hub. If something's missing when you post, it jumps to the right tab and says what to add. Anything long in Crew Call uses tabs like this.
+The form has tabs: Basics, Dates and places, Roles, Casting and Crew hub. Pop-ups with tabs stay one size, and the tab bar stays at the top while you scroll, so switching tabs doesn't make the window jump. If something's missing when you post, it jumps to the right tab and says what to add.
+
+In Roles, filled roles can be changed too: change or clear the name, or press Remove. Whoever was taken off gets a notification when you save. Managers (and admins with Projects) can also reopen or fill roles on wrapped shoots, to fix credits. Anything long in Crew Call uses tabs like this.
 
 ## Paid roles and perks
 
@@ -266,6 +268,10 @@ Crew is a table, so it stays tidy as it grows. Every row is the same height; any
 ## Account menu
 
 The avatar menu is grouped: You (My profile, My availability, Messages, My shoots, Admin), Projects (1 to 5), More (Calendar, Crew, Funding, Paid) and Crew Call (Add to home screen, Privacy notice, About). The calendar's button is now My availability.
+
+## Notifications
+
+The bell groups similar notifications: one card per project and type (and per person for messages), with the newest on top and Show earlier for the rest. The red count is the number of groups with something new. Emails were already sent together, at most one every 10 minutes.
 
 ## Messages
 

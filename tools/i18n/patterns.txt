@@ -318,3 +318,7 @@
 ^(\d+) paid roles$ || {=1} 個有酬職位 || {=1} postes rémunérés || {=1} puestos remunerados
 ^(\d+) (?:person|people) in (.+)\. Add dates to check availability\.$ || {2}有 {=1} 人。加入日期以查看誰有空。 || {=1} {1|personne|personnes} en {2}. Ajoutez des dates pour voir les disponibilités. || {=1} {1|persona|personas} en {2}. Añade fechas para ver la disponibilidad.
 ^You don't have the Languages permission\. Ask (.+) \(owner\) or an admin with the People permission to tick it for you\.$ || 你沒有「語言」權限。請 {=1}（擁有者）或有「成員」權限的管理員為你勾選。 || Vous n'avez pas la permission Langues. Demandez à {=1} (propriétaire) ou à un admin ayant la permission Personnes de la cocher. || No tienes el permiso Idiomas. Pide a {=1} (propietario) o a un administrador con el permiso Personas que te lo marque.
+# v21
+^Show (\d+) earlier$ || 顯示較早的 {=1} 則 || Voir {=1} plus anciennes || Ver {=1} anteriores
+^(\d+) groups$ || {=1} 組 || {=1} groupes || {=1} grupos
+^(\d+) groups? · (\d+) new$ || {=1} 組 · {=2} 則新通知 || {=1} {1|groupe|groupes} · {=2} {2|nouveau|nouveaux} || {=1} {1|grupo|grupos} · {=2} {2|nuevo|nuevos}

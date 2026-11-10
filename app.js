@@ -445,12 +445,20 @@
     if (modal.hidden) lastFocus = document.activeElement; else if (keepDraft()) toast("Draft kept. Open the form again to carry on");
     modalBody.innerHTML = html; modal.hidden = false;
     modal.querySelector(".modal-box").classList.toggle("wide", !!wide);
+    modal.querySelector(".modal-box").classList.toggle("has-tabs", !!modalBody.querySelector(".ptabs"));
     document.body.classList.add("no-scroll");
     modal.querySelector(".modal-box").scrollTop = 0;
     modal.querySelector(".modal-x").focus();
     bindOpeners(modalBody);
     trackDraft();
   };
+  // Switching tabs in a pop-up: if you've scrolled down, the new tab starts just under the tab bar, so nothing jumps.
+  modal.addEventListener("click", e => {
+    const t = e.target.closest(".ptabs [role=tab]"); if (!t) return;
+    const box = modal.querySelector(".modal-box"), bar = t.closest(".ptabs");
+    requestAnimationFrame(() => { let nx = bar.nextElementSibling; while (nx && (nx.hidden || !nx.offsetHeight)) nx = nx.nextElementSibling; if (!nx) return; const pad = parseFloat(getComputedStyle(box).paddingTop) || 0;
+      const top = nx.getBoundingClientRect().top - box.getBoundingClientRect().top + box.scrollTop - bar.offsetHeight - pad - 8; if (box.scrollTop > top) box.scrollTop = Math.max(0, top); });
+  });
   const closeModal = () => {
     const kept = keepDraft();
     modal.hidden = true; document.body.classList.remove("no-scroll"); lastFocus && lastFocus.focus && lastFocus.focus();
@@ -476,7 +484,7 @@
     const m = me();
     acctBtn.innerHTML = m ? `<span class="avatar avatar-xs">${initials(m.name)}</span><span class="acct-n">${esc(first(m.name))}</span>` : "Sign in";
     acctBtn.classList.toggle("btn-accent-ghost", !m);
-    const unread = m ? S.notifications.filter(n => n.to === m.id && !n.read && n.kind !== "message" && n.kind !== "sent").length : 0;
+    const unread = m ? notifGroups(S.notifications.filter(n => n.to === m.id && !n.read && n.kind !== "message" && n.kind !== "sent")).length : 0;
     const unm = m ? msgUnread() : 0;
     $("#msgBtn").hidden = !m; $("#msgN").hidden = !unm; $("#msgN").textContent = unm;
     $("#msgBtn").setAttribute("aria-label", `Messages${unm ? `, ${unm} unread` : ""}`);
@@ -525,16 +533,30 @@
   $("#bellBtn").addEventListener("click", openInbox);
   $("#msgBtn").addEventListener("click", () => openMessages());
 
+  // Notifications are packed together: one group per project and kind (or per sender for messages), newest first.
+  const notifKey = n => n.kind === "message" ? "m:" + (msgFrom(n) || n.text) : n.pid ? n.kind + ":" + n.pid : n.kind;
+  function notifGroups(list) {
+    const g = new Map(); list.forEach(n => { const k = notifKey(n); if (!g.has(k)) g.set(k, []); g.get(k).push(n); });
+    return [...g.values()];
+  }
   function openInbox() {
     const m = me(); if (!m) return;
     const list = S.notifications.filter(n => n.to === m.id && n.kind !== "sent");
     const KIND = { request: "Request", match: "Role match", update: "Update", message: "Message", invite: "Invite", term: "New term" };
+    const KINDS = { request: "Requests", match: "Role matches", update: "Updates", message: "Messages", invite: "Invites", term: "New term" };
+    const groups = notifGroups(list);
+    const meta = n => `${ago(n.at)}${n.emailed ? " · emailed" : " · in app only"}`;
+    const acts = n => `${n.pid && project(n.pid) ? ` · <button class="link-btn" data-proj="${n.pid}">Open project</button>` : ""}${n.kind === "message" && msgFrom(n) ? ` · <button class="link-btn" data-thread="${msgFrom(n)}">Reply</button>` : ""}`;
+    const head = g => { const n = g[0], pj = n.pid && project(n.pid), who = n.kind === "message" && msgFrom(n) && student(msgFrom(n));
+      return `<span class="ib-kind ib-${n.kind}">${g.length > 1 ? KINDS[n.kind] || "Notes" : KIND[n.kind] || "Note"}</span>${pj ? `<span class="ib-g" data-noi18n>${esc(pj.title)}</span>` : who ? `<span class="ib-g" data-noi18n>${esc(who.name)}</span>` : ""}${g.length > 1 ? `<span class="ib-c">${g.length}</span>` : ""}`; };
+    const unread = groups.filter(g => g.some(n => !n.read)).length;
     openModal(`<h2 id="modalTitle" class="m-title">Notifications</h2>
-      <p class="muted small">Everything here is also emailed to ${esc(m.email)} unless you've turned that type off in My profile.</p>
-      ${list.length ? `<ul class="inbox">${list.map(n => `<li class="${n.read ? "" : "unread"}">
-        <span class="ib-kind ib-${n.kind}">${KIND[n.kind] || "Note"}</span>
+      <p class="muted small">Similar notifications are grouped by project. Emails are sent together too, at most one every 10 minutes, unless you've turned that type off in My profile.</p>
+      ${groups.length ? `<p class="small ib-sum">${groups.length === 1 ? "1 group" : `${groups.length} groups`}${unread ? ` · ${unread} new` : ""}</p><ul class="inbox">${groups.map(g => { const n = g[0], rest = g.slice(1);
+        return `<li class="${g.some(x => !x.read) ? "unread" : ""}"><span class="ib-h">${head(g)}</span>
         <span class="ib-t">${esc(n.text)}</span>
-        <span class="ib-m">${ago(n.at)}${n.emailed ? " · emailed" : " · in app only"}${n.pid && project(n.pid) ? ` · <button class="link-btn" data-proj="${n.pid}">Open project</button>` : ""}${n.kind === "message" && msgFrom(n) ? ` · <button class="link-btn" data-thread="${msgFrom(n)}">Reply</button>` : ""}</span></li>`).join("")}</ul>` : `<p class="empty-sm">Nothing yet.</p>`}`);
+        <span class="ib-m">${meta(n)}${acts(n)}</span>
+        ${rest.length ? `<details class="ib-more"><summary>${rest.length === 1 ? "Show 1 earlier" : `Show ${rest.length} earlier`}</summary><ul>${rest.map(x => `<li><span class="ib-t">${esc(x.text)}</span><span class="ib-m">${meta(x)}</span></li>`).join("")}</ul></details>` : ""}</li>`; }).join("")}</ul>` : `<p class="empty-sm">Nothing yet.</p>`}`);
     modalBody.querySelectorAll("[data-thread]").forEach(b => (b.onclick = () => openThread(b.dataset.thread)));
     list.forEach(n => { if (n.kind !== "message") n.read = true; }); drawHeader();
   }
@@ -948,7 +970,7 @@
 
     const lockRow = r => {
       const bh = m ? briefHtml(r) : "";
-      if (isExt(r)) { const cq = m && claimOf(p, r.rid, m.id); return `<li class="lock-row"><span class="role-name">${isCast(r) ? partLabel(r) : esc(r.role) + hodTag(r)}</span><span class="lock-name">${esc(extName(r))} <span class="tag-ext">Not on Crew Call</span></span><span class="lock-mail"></span><span class="lock-acts">${mg && !past ? `<button class="btn btn-quiet btn-xs" data-unfill="${r.rid}" aria-label="Reopen ${esc(r.role)}">Reopen</button>` : cq ? (cq.status === "pending" ? `<span class="st st-pending">Sent · waiting</span>` : cq.status === "declined" ? `<span class="st st-no">Not confirmed</span>` : "") : m && !mg && !onProject(p, m.id) ? `<button class="btn btn-quiet btn-xs" data-claimref="${r.rid}">That's me</button>` : ""}</span>${bh}</li>`; }
+      if (isExt(r)) { const cq = m && claimOf(p, r.rid, m.id); return `<li class="lock-row"><span class="role-name">${isCast(r) ? partLabel(r) : esc(r.role) + hodTag(r)}</span><span class="lock-name">${esc(extName(r))} <span class="tag-ext">Not on Crew Call</span></span><span class="lock-mail"></span><span class="lock-acts">${mg ? `<button class="btn btn-quiet btn-xs" data-unfill="${r.rid}" aria-label="Reopen ${esc(r.role)}">Reopen</button>` : cq ? (cq.status === "pending" ? `<span class="st st-pending">Sent · waiting</span>` : cq.status === "declined" ? `<span class="st st-no">Not confirmed</span>` : "") : m && !mg && !onProject(p, m.id) ? `<button class="btn btn-quiet btn-xs" data-claimref="${r.rid}">That's me</button>` : ""}</span>${bh}</li>`; }
       const s = student(r.filledBy) || { id: "", name: "Former member", email: "" };
       const sh = myReqFor(p, r.rid, "shadow");
       const canShadow = m && !mg && s.id !== m.id && !past && !onProject(p, m.id);
@@ -956,7 +978,7 @@
       const ncr = s.id ? creditsOf(s).length : 0;
       return `<li class="lock-row${mine ? " is-me" : ""}"><span class="role-name">${isCast(r) ? partLabel(r) : esc(r.role) + hodTag(r)}</span><span class="lock-who"><button class="link-btn lock-name" data-student="${s.id}">${esc(s.name)}${mine ? " (you)" : ""}</button>${ncr ? `<span class="lock-cr">${ncr === 1 ? "1 credit" : `${ncr} credits`}</span>` : ""}</span>
         <span class="lock-mail">${mg && s.email ? `<a href="mailto:${esc(s.email)}" target="_blank" rel="noopener">${esc(s.email)}</a>` : m && s.id && s.id !== m.id ? (emailVisible(s, p) ? `<a class="btn btn-quiet btn-xs" href="${mailto(s.email, `About ${p.title}`, `Hi ${first(s.name)},\n\n`)}" target="_blank" rel="noopener">Email</a>` : `<button class="btn btn-quiet btn-xs" data-msg="${s.id}">Message</button>`) : ""}</span>
-        <span class="lock-acts">${mine ? `<button class="btn btn-quiet btn-xs" data-stepdown="${r.rid}">Step down</button>` : mg && !past ? `<button class="btn btn-quiet btn-xs" data-unfill="${r.rid}" aria-label="Reopen ${esc(r.role)}">Reopen</button>` : sh ? statusChip(sh) : canShadow ? `<button class="btn btn-quiet btn-xs" data-shadow="${r.rid}">Ask to shadow</button>` : ""}</span>${bh}</li>`;
+        <span class="lock-acts">${mine ? `<button class="btn btn-quiet btn-xs" data-stepdown="${r.rid}">Step down</button>` : mg ? `<button class="btn btn-quiet btn-xs" data-unfill="${r.rid}" aria-label="Reopen ${esc(r.role)}">Reopen</button>` : sh ? statusChip(sh) : canShadow ? `<button class="btn btn-quiet btn-xs" data-shadow="${r.rid}">Ask to shadow</button>` : ""}</span>${bh}</li>`;
     };
     const lockedCrew = locked.filter(r => !isCast(r)), lockedCast = locked.filter(isCast), openCrew = open.filter(r => !isCast(r)), openCast = open.filter(isCast);
     const lockedRows = lockedCrew.map(lockRow).join("") + p.shadows.map((x, i) => { const s = student(x.sid); return s ? `<li class="lock-row shadow-row"><span class="role-name">Shadow · ${esc(x.role)}</span><button class="link-btn lock-name" data-student="${s.id}">${esc(s.name)}</button><span class="lock-mail"></span><span class="lock-acts">${m && s.id === m.id && !past ? `<button class="btn btn-quiet btn-xs" data-stepdown-sh="${i}">Step down</button>` : mg && !past ? `<button class="btn btn-quiet btn-xs" data-unshadow="${i}">Remove</button>` : ""}</span></li>` : ""; }).join("");
@@ -966,7 +988,7 @@
       const matches = m ? S.students.filter(s => listed(s) && s.roles.includes(r.role)).map(s => ({ s, n: freeDaysCount(s, futureDays) })).filter(x => x.n > 0).sort((a, b) => b.n - a.n).slice(0, 4) : [];
       const learners = m ? S.students.filter(s => listed(s) && s.learn.includes(r.role) && freeDaysCount(s, futureDays) > 0).slice(0, 3) : [];
       let acts;
-      if (past) acts = "";
+      if (past && !mg) acts = "";
       else if (!m) acts = `<button class="btn btn-ghost btn-xs" data-signin>Sign in to request</button>`;
       else if (mg) acts = `<select class="fill-sel" data-fill="${r.rid}" aria-label="Mark ${esc(r.role)} as filled"><option value="">Mark filled…</option><option value="__ext">Someone not on Crew Call…</option>${S.students.filter(s => listed(s) && s.roles.includes(r.role)).map(s => { const busy = days.some(d => bookedOn(s.id, d).length); return `<option value="${s.id}" ${busy ? "disabled" : ""}>${esc(s.name)}${busy ? " (booked on another shoot)" : ""}</option>`; }).join("")}</select>`;
       else if (mr) acts = statusChip(mr) + (mr.status === "pending" ? ` <button class="btn btn-quiet btn-xs" data-withdraw="${mr.id}">Withdraw</button>` : "");
@@ -1661,10 +1683,10 @@
       r._hod = row.querySelector(".r-hod").checked; r._paid = row.querySelector(".r-paid").checked; r._pay = row.querySelector(".r-pay").value; r._bt = row.querySelector(".r-btext").value; r._bu = row.querySelector(".r-burl").value; r._open = !row.querySelector(".rrow-brief").hidden; });
     const drawRoles = () => {
       saveRolesDom();
-      const lists = [...new Set(roles.filter(r => !wasFilled.has(r.rid)).map(r => r.role))].map(role => { if (!(role in dlId)) dlId[role] = `ccRole${dlN++}`; return `<datalist id="${dlId[role]}">${memberOptions(role)}</datalist>`; }).join("");
+      const lists = [...new Set(roles.map(r => r.role))].map(role => { if (!(role in dlId)) dlId[role] = `ccRole${dlN++}`; return `<datalist id="${dlId[role]}">${memberOptions(role)}</datalist>`; }).join("");
       $("#postRoles").innerHTML = roles.length ? lists + roles.map((r, i) => {
-        const locked = wasFilled.has(r.rid), hod = r._hod != null ? r._hod : isHod(r);
-        const who = r._who != null ? r._who : r.filledBy && !locked ? (isExt(r) ? extName(r) : student(r.filledBy) ? memberLabel(student(r.filledBy)) : "") : "";
+        const locked = false, hod = r._hod != null ? r._hod : isHod(r);
+        const who = r._who != null ? r._who : r.filledBy ? (isExt(r) ? extName(r) : student(r.filledBy) ? memberLabel(student(r.filledBy)) : "") : "";
         const bt = r._bt != null ? r._bt : (r.brief && r.brief.text) || "", bu = r._bu != null ? r._bu : shortUrl((r.brief && r.brief.url) || "");
         const open = r._open != null ? r._open : false, cast = isCast(r);
         const ch = r._ch != null ? r._ch : r.character || "", age = r._age != null ? r._age : r.age || "";
@@ -1749,18 +1771,18 @@
       // roles: assignments and briefs
       saveRolesDom();
       const pDays = shoots.flatMap(r => daysIn(r.from, r.to));
-      const assigned = [];
+      const assigned = [], offList = [];
       for (const r of roles) {
         const bt = (r._bt != null ? r._bt : (r.brief && r.brief.text) || "").trim(), buRaw = (r._bu != null ? r._bu : (r.brief && r.brief.url) || "").trim(), bu = cleanUrl(buRaw);
         if (buRaw && !bu) return (err.textContent = `The brief link for ${r.role} isn't a web address.`);
-        if (!wasFilled.has(r.rid) && r._who != null) {
+        if (r._who != null) {
           const who = r._who.trim(), mem = findMember(who), was = r.filledBy;
-          if (!who) r.filledBy = null;
+          if (!who) { r.filledBy = null; if (was && !String(was).startsWith("ext:")) offList.push([was, r.role]); }
           else if (mem) {
             const clash = pDays.find(d => bookedOn(mem.id, d).some(x => !p || x.id !== p.id));
             if (clash && mem.id !== was) return (err.textContent = `${mem.name} is booked on another shoot on ${fmtDay(clash)}.`);
-            r.filledBy = mem.id; if (mem.id !== was) assigned.push(r);
-          } else { if (r.filledBy !== "ext:" + who.slice(0, 60)) r.extBy = me().id; r.filledBy = "ext:" + who.slice(0, 60); }
+            r.filledBy = mem.id; if (mem.id !== was) { assigned.push(r); if (was && !String(was).startsWith("ext:")) offList.push([was, r.role]); }
+          } else { if (was && !String(was).startsWith("ext:")) offList.push([was, r.role]); if (r.filledBy !== "ext:" + who.slice(0, 60)) r.extBy = me().id; r.filledBy = "ext:" + who.slice(0, 60); }
         }
         const hod = r._hod != null ? r._hod : isHod(r);
         if (hod === HOD_ROLES.has(r.role)) delete r.hod; else r.hod = hod;
@@ -1776,9 +1798,11 @@
       const data = { title: f.get("title").trim(), type: f.get("type"), term: f.get("term"), director: dirMem ? dirMem.name : dirIn, dsid: dirMem ? dirMem.id : null, email: dirMem ? "" : dirEmail, locations, producers, producer: producers[0] || null, logline: f.get("logline").trim(), shoots, kitNeeded: f.get("kitNeeded").trim(), delivery: f.get("delivery") || "", cover: f.get("cover") || "", days: dayMap, hub, casting, perks: { meals: !!f.get("pkMeals"), travel: !!f.get("pkTravel"), credit: !!f.get("pkCredit") } };
       if (p) dropOldCover(p.cover, data.cover);
       if (p) {
-        const before = JSON.stringify([p.shoots, p.days]), oldR = new Set(p.roles.map(r => r.rid)), hadWa = hubOf(p).whatsapp;
+        const oldRoles = p.roles, before = JSON.stringify([p.shoots, p.days]), oldR = new Set(p.roles.map(r => r.rid)), hadWa = hubOf(p).whatsapp;
         Object.assign(p, data); p.roles = roles;
         const removed = [...oldR].filter(x => !roles.some(r => r.rid === x));
+        oldRoles.filter(r => removed.includes(r.rid) && r.filledBy && !isExt(r)).forEach(r => offList.push([r.filledBy, r.role]));
+        offList.forEach(([sid, role]) => sid !== m.id && !roles.some(r => r.filledBy === sid && r.role === role) && notify(sid, "update", `You've been taken off ${p.title} as ${role}.`, p.id));
         S.requests.filter(q => q.pid === p.id && removed.includes(q.rid) && q.status === "pending").forEach(q => { q.status = "closed"; notify(q.sid, "update", `The ${q.role} role on ${p.title} was removed, so your request was closed.`, p.id); });
         if (JSON.stringify([p.shoots, p.days]) !== before) [...new Set([...p.roles.filter(r => r.filledBy).map(r => r.filledBy), ...p.shadows.map(x => x.sid)])].forEach(sid => sid !== m.id && notify(sid, "update", `${p.title} changed: ${p.shoots.map(fmtRange).join(" + ")}, day 1 call ${dayInfo(p, projDays(p)[0]).call}.`, p.id));
         if (hub.whatsapp && hub.whatsapp !== hadWa) [...new Set([...p.roles.filter(r => r.filledBy && !isExt(r)).map(r => r.filledBy), ...p.shadows.map(x => x.sid)])].forEach(sid => sid !== m.id && notify(sid, "update", `${p.title} has a WhatsApp group. The link is in the project's crew hub.`, p.id));

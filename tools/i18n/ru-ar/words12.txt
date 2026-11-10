@@ -1,0 +1,7 @@
+# v21: grouped notifications
+Role matches || Подходящие роли || أدوار مناسبة
+Updates || Обновления || تحديثات
+Notes || Уведомления || إشعارات
+Show 1 earlier || Показать ещё 1 || عرض إشعار سابق واحد
+1 group || 1 группа || مجموعة واحدة
+Similar notifications are grouped by project. Emails are sent together too, at most one every 10 minutes, unless you've turned that type off in My profile. || Похожие уведомления сгруппированы по проектам. Письма тоже приходят вместе, не чаще одного раза в 10 минут, если вы не отключили этот тип в «Моём профиле». || تُجمَع الإشعارات المتشابهة حسب المشروع. وتُرسَل الرسائل الإلكترونية معًا أيضًا، رسالة واحدة كل 10 دقائق على الأكثر، ما لم توقف هذا النوع في ملفي الشخصي.

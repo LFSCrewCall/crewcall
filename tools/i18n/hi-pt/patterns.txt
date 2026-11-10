@@ -315,3 +315,7 @@
 ^(\d+) paid roles$ || {=1} भुगतान वाली भूमिकाएँ || {=1} funções remuneradas
 ^(\d+) (?:person|people) in (.+)\. Add dates to check availability\.$ || {2} में {=1} {1|व्यक्ति|लोग}। उपलब्धता देखने के लिए तारीख़ें जोड़ें। || {=1} {1|pessoa|pessoas} em {2}. Adicione datas para ver a disponibilidade.
 ^You don't have the Languages permission\. Ask (.+) \(owner\) or an admin with the People permission to tick it for you\.$ || आपके पास भाषाएँ अनुमति नहीं है। {=1} (मालिक) या लोग अनुमति वाले किसी एडमिन से इसे टिक करने को कहें। || Você não tem a permissão Idiomas. Peça a {=1} (dono) ou a um admin com a permissão Pessoas para marcá-la.
+# v21
+^Show (\d+) earlier$ || {=1} पुरानी दिखाएँ || Mostrar {=1} anteriores
+^(\d+) groups$ || {=1} समूह || {=1} grupos
+^(\d+) groups? · (\d+) new$ || {=1} समूह · {=2} नई || {=1} {1|grupo|grupos} · {=2} {2|nova|novas}
