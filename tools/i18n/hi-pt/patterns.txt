@@ -319,3 +319,5 @@
 ^Show (\d+) earlier$ || {=1} पुरानी दिखाएँ || Mostrar {=1} anteriores
 ^(\d+) groups$ || {=1} समूह || {=1} grupos
 ^(\d+) groups? · (\d+) new$ || {=1} समूह · {=2} नई || {=1} {1|grupo|grupos} · {=2} {2|nova|novas}
+^Main role: (.+)$ || मुख्य रोल: {1} || Função principal: {1}
+^(\d+) other roles?$ || {=1} और {1|रोल|रोल} || {=1} {1|outra função|outras funções}

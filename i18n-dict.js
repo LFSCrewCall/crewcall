@@ -8732,6 +8732,116 @@ window.CC_I18N = {
 "मिलती-जुलती सूचनाएँ प्रोजेक्ट के हिसाब से एक साथ रखी जाती हैं। ईमेल भी एक साथ भेजे जाते हैं, हर 10 मिनट में ज़्यादा से ज़्यादा एक, जब तक आपने मेरी प्रोफ़ाइल में वह प्रकार बंद न किया हो।",
 "Notificações parecidas são agrupadas por projeto. Os e-mails também vão juntos, no máximo um a cada 10 minutos, a menos que você tenha desativado esse tipo em Meu perfil."
 ],
+"the one job you most want to be hired for": [
+"你最想被找來擔任的那個職位",
+"你最想被找来担任的那个职位",
+"le poste pour lequel vous voulez surtout être recruté",
+"el puesto para el que más quieres que te llamen",
+"работа, на которую вас хотят звать в первую очередь",
+"العمل الذي تريد أن يُطلب منك أكثر من غيره",
+"वह काम जिसके लिए आप सबसे ज़्यादा बुलाए जाना चाहते हैं",
+"o trabalho para o qual você mais quer ser chamado"
+],
+"Pick one. It's shown first on your profile and in Crew, and producers looking for that role see you near the top. You can add as many other roles as you like below.": [
+"選一個。它會最先顯示在你的檔案和「劇組」頁，找這個職位的製片會先看到你。下方可以再加上任意多個其他職位。",
+"选一个。它会最先显示在你的文件和「剧组」页，找这个职位的制片会先看到你。下方可以再加上任意多个其他职位。",
+"Choisissez-en un. Il apparaît en premier sur votre profil et dans Équipe, et les producteurs qui cherchent ce poste vous voient en haut de la liste. Vous pouvez ajouter autant d'autres postes que vous voulez ci-dessous.",
+"Elige uno. Aparece primero en tu perfil y en Equipo, y los productores que buscan ese puesto te ven arriba. Abajo puedes añadir todos los demás puestos que quieras.",
+"Выберите одну. Она показывается первой в вашем профиле и в разделе «Команда», а продюсеры, которые ищут эту роль, видят вас вверху списка. Ниже можно добавить сколько угодно других ролей.",
+"اختر دورًا واحدًا. يظهر أولًا في ملفك وفي قسم الطاقم، ويراك المنتجون الباحثون عن هذا الدور في أعلى القائمة. يمكنك إضافة أي عدد من الأدوار الأخرى أدناه.",
+"एक चुनें। यह आपकी प्रोफ़ाइल और क्रू में सबसे पहले दिखता है, और इस रोल को ढूँढने वाले प्रोड्यूसर आपको ऊपर देखते हैं। नीचे आप जितने चाहें उतने और रोल जोड़ सकते हैं।",
+"Escolha uma. Ela aparece primeiro no seu perfil e em Equipe, e produtores que procuram essa função veem você no topo. Abaixo você pode adicionar quantas outras funções quiser."
+],
+"My main role": [
+"我的主要職位",
+"我的主要职位",
+"Mon poste principal",
+"Mi puesto principal",
+"Моя основная роль",
+"دوري الرئيسي",
+"मेरा मुख्य रोल",
+"Minha função principal"
+],
+"For example: a DoP who also operates camera picks DoP here, then taps Camera Operator below.": [
+"例如：同時會掌機的攝影指導，這裡選「攝影指導」，再在下方點選「攝影機操作員」。",
+"例如：同时会掌机的摄影指导，这里选「摄影指导」，再在下方点击「摄影机操作员」。",
+"Par exemple : un chef opérateur qui cadre aussi choisit Chef opérateur ici, puis touche Cadreur ci-dessous.",
+"Por ejemplo: un director de fotografía que también opera cámara elige Director de fotografía aquí y luego toca Operador de cámara abajo.",
+"Например: оператор-постановщик, который ещё и снимает с камеры, выбирает здесь «Оператор-постановщик», а ниже отмечает «Оператор камеры».",
+"مثال: مدير التصوير الذي يشغّل الكاميرا أيضًا يختار «مدير التصوير» هنا، ثم يضغط «مشغّل الكاميرا» أدناه.",
+"उदाहरण: जो DoP कैमरा भी चलाता है, वह यहाँ DoP चुने और फिर नीचे कैमरा ऑपरेटर पर टैप करे।",
+"Por exemplo: um diretor de fotografia que também opera câmera escolhe Diretor de fotografia aqui e depois toca em Operador de câmera abaixo."
+],
+"Other roles I can do": [
+"我也能擔任的其他職位",
+"我也能担任的其他职位",
+"Autres postes que je peux occuper",
+"Otros puestos que puedo hacer",
+"Другие роли, которые я могу",
+"أدوار أخرى أستطيع القيام بها",
+"और रोल जो मैं कर सकता/सकती हूँ",
+"Outras funções que posso fazer"
+],
+"tap all that apply": [
+"點選所有適用的",
+"点击所有适用的",
+"touchez tous ceux qui s'appliquent",
+"toca todos los que correspondan",
+"отметьте все подходящие",
+"اضغط على كل ما ينطبق",
+"जो भी लागू हों सब पर टैप करें",
+"toque em todas que se aplicam"
+],
+"Producers can find you for these too. Your main role is marked Main.": [
+"製片也能用這些職位找到你。你的主要職位會標示「主要」。",
+"制片也能用这些职位找到你。你的主要职位会标示「主要」。",
+"Les producteurs peuvent aussi vous trouver pour ces postes. Votre poste principal est marqué Principal.",
+"Los productores también pueden encontrarte para estos. Tu puesto principal está marcado como Principal.",
+"Продюсеры смогут найти вас и по этим ролям. Основная роль отмечена как «Основная».",
+"يمكن للمنتجين العثور عليك لهذه الأدوار أيضًا. دورك الرئيسي معلَّم بكلمة «رئيسي».",
+"प्रोड्यूसर इन रोल के लिए भी आपको ढूँढ सकते हैं। आपका मुख्य रोल \"मुख्य\" से चिह्नित है।",
+"Produtores também podem encontrar você por estas. Sua função principal está marcada como Principal."
+],
+"Main": [
+"主要",
+"主要",
+"Principal",
+"Principal",
+"Основная",
+"رئيسي",
+"मुख्य",
+"Principal"
+],
+"Choose your main role…": [
+"選擇你的主要職位…",
+"选择你的主要职位…",
+"Choisissez votre poste principal…",
+"Elige tu puesto principal…",
+"Выберите основную роль…",
+"اختر دورك الرئيسي…",
+"अपना मुख्य रोल चुनें…",
+"Escolha sua função principal…"
+],
+"No main role yet. Choose one at the top of this tab.": [
+"還沒有主要職位。請在此分頁頂端選一個。",
+"还没有主要职位。请在此分页顶端选一个。",
+"Pas encore de poste principal. Choisissez-en un en haut de cet onglet.",
+"Aún no tienes puesto principal. Elige uno arriba en esta pestaña.",
+"Основная роль не выбрана. Выберите её вверху этой вкладки.",
+"لا يوجد دور رئيسي بعد. اختر واحدًا في أعلى هذا التبويب.",
+"अभी कोई मुख्य रोल नहीं। इस टैब में सबसे ऊपर एक चुनें।",
+"Ainda sem função principal. Escolha uma no topo desta aba."
+],
+"No roles yet": [
+"尚無職位",
+"尚无职位",
+"Pas encore de postes",
+"Aún no hay puestos",
+"Ролей пока нет",
+"لا أدوار بعد",
+"अभी कोई रोल नहीं",
+"Ainda sem funções"
+],
 "Director": [
 "導演",
 "导演",
@@ -14722,16 +14832,6 @@ window.CC_I18N = {
 "कोई भुगतान वाला काम मेल नहीं खाता",
 "Nenhuma vaga paga corresponde"
 ],
-"No roles yet": [
-"尚無職位",
-"尚无职位",
-"Pas encore de postes",
-"Aún no hay puestos",
-"Ролей пока нет",
-"لا أدوار بعد",
-"अभी कोई रोल नहीं",
-"Ainda sem funções"
-],
 "No shoots match": [
 "沒有符合的拍攝",
 "没有符合的拍摄",
@@ -20701,6 +20801,28 @@ window.CC_I18N = {
 "{=1} {1|مجموعة|مجموعتان|مجموعات|مجموعة|مجموعة} · {=2} جديدة",
 "{=1} समूह · {=2} नई",
 "{=1} {1|grupo|grupos} · {=2} {2|nova|novas}"
+],
+[
+"^Main role: (.+)$",
+"主要職位：{1}",
+"主要职位：{1}",
+"Poste principal : {1}",
+"Puesto principal: {1}",
+"Основная роль: {1}",
+"الدور الرئيسي: {1}",
+"मुख्य रोल: {1}",
+"Função principal: {1}"
+],
+[
+"^(\\d+) other roles?$",
+"另有 {=1} 個職位",
+"另有 {=1} 个职位",
+"{=1} {1|autre poste|autres postes}",
+"{=1} {1|puesto más|puestos más}",
+"ещё {=1} {1|роль|роли|ролей}",
+"{=1} {1|دور آخر|دوران آخران|أدوار أخرى|دورًا آخر|دور آخر}",
+"{=1} और {1|रोल|रोल}",
+"{=1} {1|outra função|outras funções}"
 ]
 ]
 };

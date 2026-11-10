@@ -202,7 +202,7 @@ People type the first part of their email and pick the ending from a list: @stud
 
 ## Updating the site
 
-When you change the code, raise the version number in two places so phones don't mix old and new files: `CACHE` in sw.js (crewcall-v21) and every `?v=21` in index.html.
+When you change the code, raise the version number in two places so phones don't mix old and new files: `CACHE` in sw.js (crewcall-v22) and every `?v=22` in index.html.
 
 ## Funding
 
@@ -282,6 +282,8 @@ Optional: redeploy the Supabase function so message emails link straight to the 
 ## My profile
 
 My profile has tabs: Availability (first), About me, Roles, Kit, Credits, and Emails and privacy. Someone signing up for the first time starts on About me. It saves as you type, so there's no Save button to forget. About me includes Preferred name (what people call you, shown in brackets after the full name and used in greetings), Based in and From. Crew search finds people by preferred name and city.
+
+Roles tab: a highlighted Main role box at the top, with one dropdown for the job you most want to be hired for. Under it, "Other roles I can do" lists everything else you can do, and your main role is labelled Main there. On a profile, Main role and Also does are shown separately, and in Crew they're separate columns. If someone removes their main role, the tab asks them to choose a new one.
 
 ## Drafts
 

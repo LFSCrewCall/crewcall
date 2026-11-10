@@ -1502,7 +1502,8 @@
       ${s.bio ? `<p class="logline">${esc(s.bio)}</p>` : ""}
       <dl class="meta-list">
         ${s.based || s.from ? `<div><dt>Based in</dt><dd>${s.based ? esc(s.based) : `<span class="muted">Not set</span>`}${s.from ? ` <span class="muted">· from ${esc(s.from)}</span>` : ""}</dd></div>` : ""}
-        <div><dt>Roles</dt><dd><div class="chips">${[s.primary, ...s.roles.filter(r => r !== s.primary)].filter(Boolean).map(r => `<span class="chip ${r === s.primary ? "chip-primary" : ""}">${r === s.primary ? "★ " : ""}${esc(r)}</span>`).join("")}</div></dd></div>
+        <div><dt>Main role</dt><dd>${s.primary ? `<span class="chip chip-primary">${esc(s.primary)}</span>` : `<span class="muted">Not set</span>`}</dd></div>
+        ${s.roles.some(r => r !== s.primary) ? `<div><dt>Also does</dt><dd><div class="chips">${s.roles.filter(r => r !== s.primary).map(r => `<span class="chip">${esc(r)}</span>`).join("")}</div></dd></div>` : ""}
         ${s.learn.length ? `<div><dt>Wants to learn</dt><dd><div class="chips">${s.learn.map(r => `<span class="chip chip-learn">${esc(r)}</span>`).join("")}</div></dd></div>` : ""}
         <div><dt>Kit</dt><dd>${s.kit.length ? `<ul class="kit-list">${s.kit.map(k => `<li><span class="kit-cat">${esc(k.cat)}</span>${esc(k.item)}</li>`).join("")}</ul>` : `<span class="muted">No kit listed</span>`}</dd></div>
         <div><dt>Free</dt><dd class="mono">${s.avail.filter(r => r.to >= TODAY).length ? s.avail.filter(r => r.to >= TODAY).map(fmtRange).join(", ") : "No dates set"}${s.openToOffers ? ` <span class="muted">· open to offers</span>` : ""}<br><span class="upd">${esc(updatedLabel(s))}</span></dd></div>
@@ -2837,16 +2838,24 @@ ${LIVE ? "" : `<label class="toggle"><input type="checkbox" data-aus="autoSend" 
   let meRoles = new Set(), mePrimary = "", meKit = [], meLearn = new Set(), meAutoT = 0, meAutoFor = null;
   function drawRolePicker() {
     meCount("roles", meRoles.size);
+    const sel = $("#mePrimary");
+    sel.innerHTML = `<option value="">Choose your main role…</option>` + Object.entries(C.ROLE_GROUPS).map(([g, rs]) => `<optgroup label="${esc(g)}">${rs.map(r => `<option value="${esc(r)}"${r === mePrimary ? " selected" : ""}>${esc(r)}</option>`).join("")}</optgroup>`).join("");
+    sel.value = mePrimary || "";
     $("#meRoles").innerHTML = Object.entries(C.ROLE_GROUPS).map(([g, rs]) => `
       <div class="rp-group"><p class="rp-g">${esc(g)}</p><div class="chips">${rs.map(r => {
         const on = meRoles.has(r), pri = mePrimary === r;
-        return `<span class="rp-item ${on ? "on" : ""}"><button type="button" class="chip chip-toggle" aria-pressed="${on}" data-r="${esc(r)}">${esc(r)}</button>${on ? `<button type="button" class="star ${pri ? "on" : ""}" data-star="${esc(r)}" aria-label="Make ${esc(r)} my main role" aria-pressed="${pri}">★</button>` : ""}</span>`;
-      }).join("")}</div></div>`).join("") + `<p class="small muted rp-sum">${meRoles.size ? `${meRoles.size} role${meRoles.size > 1 ? "s" : ""} selected${mePrimary ? `, main: ${esc(mePrimary)}` : ". Tap ★ to set your main role"}` : "No roles yet"}</p>`;
+        return `<span class="rp-item ${on ? "on" : ""}${pri ? " is-main" : ""}"><button type="button" class="chip chip-toggle" aria-pressed="${on}" data-r="${esc(r)}"${pri ? ` aria-describedby="mainTag"` : ""}>${esc(r)}</button>${pri ? `<span class="main-tag" id="mainTag">Main</span>` : ""}</span>`;
+      }).join("")}</div></div>`).join("");
+    const others = [...meRoles].filter(r => r !== mePrimary).length;
+    $("#meRoles").insertAdjacentHTML("beforeend", `<p class="small rp-sum${mePrimary ? " muted" : " rp-warn"}">${mePrimary ? `<span>Main role: ${esc(mePrimary)}</span>${others ? ` · <span>${others === 1 ? "1 other role" : `${others} other roles`}</span>` : ""}` : meRoles.size ? "No main role yet. Choose one at the top of this tab." : "No roles yet"}</p>`);
   }
+  $("#mePrimary").addEventListener("change", e => {
+    const r = e.target.value; mePrimary = r; if (r) { meRoles.add(r); meLearn.delete(r); drawLearn(); }
+    drawRolePicker(); if (r) toast(`Main role: ${r}`);
+  });
   $("#meRoles").addEventListener("click", e => {
-    const s = e.target.closest("[data-star]"), b = e.target.closest("[data-r]");
-    if (s) mePrimary = mePrimary === s.dataset.star ? "" : s.dataset.star;
-    else if (b) { const r = b.dataset.r; if (meRoles.has(r)) { meRoles.delete(r); if (mePrimary === r) mePrimary = ""; } else { meRoles.add(r); meLearn.delete(r); if (!mePrimary) mePrimary = r; } drawLearn(); }
+    const b = e.target.closest("[data-r]"); if (!b) return;
+    const r = b.dataset.r; if (meRoles.has(r)) { meRoles.delete(r); if (mePrimary === r) mePrimary = ""; } else { meRoles.add(r); meLearn.delete(r); if (!mePrimary) mePrimary = r; } drawLearn();
     drawRolePicker();
   });
   function drawLearn() {
@@ -2968,7 +2977,7 @@ ${LIVE ? "" : `<label class="toggle"><input type="checkbox" data-aus="autoSend" 
     PORTFOLIO.forEach(([k]) => { if (meForm[k].value.trim() && !pf[k]) delete pf[k]; });
     const nm = meForm.name.value.trim();
     if (termEditable(m) && meForm.cohort.value && meForm.cohort.value !== cohortVal(m)) { setCohort(m, meForm.cohort.value); Object.assign(m, { termFor: termForToday(), termConfirmed: true }); refreshCohortFilter(); }
-    Object.assign(m, pf, { pathway: meForm.pathway.value, bio: meForm.bio.value.trim(), pref: meForm.pref.value.trim().slice(0, 40), based: meForm.based.value.trim().slice(0, 60), from: meForm.from.value.trim().slice(0, 60), roles: [...meRoles], primary: meRoles.has(mePrimary) ? mePrimary : [...meRoles][0] || "", learn: [...meLearn], kit: meKit, openToOffers: meForm.openToOffers.checked, shareEmail: meForm.shareEmail.checked, hideMe: meForm.hideMe.checked, notify: readNotify(), updated: TODAY },
+    Object.assign(m, pf, { pathway: meForm.pathway.value, bio: meForm.bio.value.trim(), pref: meForm.pref.value.trim().slice(0, 40), based: meForm.based.value.trim().slice(0, 60), from: meForm.from.value.trim().slice(0, 60), roles: [...meRoles], primary: meRoles.has(mePrimary) ? mePrimary : "", learn: [...meLearn], kit: meKit, openToOffers: meForm.openToOffers.checked, shareEmail: meForm.shareEmail.checked, hideMe: meForm.hideMe.checked, notify: readNotify(), updated: TODAY },
       nm ? { name: nm } : {});
     if (m.incomplete && meRoles.size && (!termEditable(m) || meForm.cohort.value)) m.incomplete = false;
     drawHeader();
@@ -2993,7 +3002,7 @@ ${LIVE ? "" : `<label class="toggle"><input type="checkbox" data-aus="autoSend" 
     const pf = { reel: cleanUrl(meForm.reel.value), site: cleanUrl(meForm.site.value), imdb: cleanImdb(meForm.imdb.value), insta: cleanInsta(meForm.insta.value) };
     const badPf = PORTFOLIO.find(([k]) => meForm[k].value.trim() && !pf[k]);
     if (badPf) { showMeTab("about"); $("#meSaved").textContent = `${badPf[1]}: that isn't a web address.`; $("#meSaved").className = "save-msg err"; meForm[badPf[0]].focus(); return; }
-    Object.assign(m, pf, { name: meForm.name.value.trim(), pathway: meForm.pathway.value, bio: meForm.bio.value.trim(), pref: meForm.pref.value.trim().slice(0, 40), based: meForm.based.value.trim().slice(0, 60), from: meForm.from.value.trim().slice(0, 60), roles: [...meRoles], primary: mePrimary || [...meRoles][0], learn: [...meLearn], kit: meKit, openToOffers: meForm.openToOffers.checked, shareEmail: meForm.shareEmail.checked, hideMe: meForm.hideMe.checked, notify: readNotify(), updated: TODAY, incomplete: false });
+    Object.assign(m, pf, { name: meForm.name.value.trim(), pathway: meForm.pathway.value, bio: meForm.bio.value.trim(), pref: meForm.pref.value.trim().slice(0, 40), based: meForm.based.value.trim().slice(0, 60), from: meForm.from.value.trim().slice(0, 60), roles: [...meRoles], primary: meRoles.has(mePrimary) ? mePrimary : "", learn: [...meLearn], kit: meKit, openToOffers: meForm.openToOffers.checked, shareEmail: meForm.shareEmail.checked, hideMe: meForm.hideMe.checked, notify: readNotify(), updated: TODAY, incomplete: false });
     drawHeader(); loadMe();
     $("#meSaved").textContent = m.hideMe ? "Saved. Your profile is hidden from Crew search." : "Saved. You appear in Crew search and the calendar.";
     $("#meSaved").className = "save-msg ok"; toast("Profile saved");

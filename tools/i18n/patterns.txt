@@ -322,3 +322,5 @@
 ^Show (\d+) earlier$ || 顯示較早的 {=1} 則 || Voir {=1} plus anciennes || Ver {=1} anteriores
 ^(\d+) groups$ || {=1} 組 || {=1} groupes || {=1} grupos
 ^(\d+) groups? · (\d+) new$ || {=1} 組 · {=2} 則新通知 || {=1} {1|groupe|groupes} · {=2} {2|nouveau|nouveaux} || {=1} {1|grupo|grupos} · {=2} {2|nuevo|nuevos}
+^Main role: (.+)$ || 主要職位：{1} || Poste principal : {1} || Puesto principal: {1}
+^(\d+) other roles?$ || 另有 {=1} 個職位 || {=1} {1|autre poste|autres postes} || {=1} {1|puesto más|puestos más}
