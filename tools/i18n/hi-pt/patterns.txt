@@ -298,3 +298,16 @@
 ^(.+)'s team didn't confirm you as (.+)\. If that's a mistake, message them\.$ || {=1} की टीम ने आपको {2} के रूप में पुष्टि नहीं की। अगर यह ग़लती है, तो उन्हें मैसेज करें। || A equipe de {=1} não confirmou você como {2}. Se for um erro, mande uma mensagem.
 ^Worked on this project\? Pick your role\. (.+) approves it, then it shows on your profile as a credit\.$ || इस प्रोजेक्ट पर काम किया था? अपना रोल चुनें। {=1} मंज़ूर करेंगे, फिर यह आपकी प्रोफ़ाइल पर क्रेडिट के रूप में दिखेगा। || Trabalhou neste projeto? Escolha sua função. {=1} aprova e aparece como crédito no seu perfil.
 ^Already agreed to work on this\? Pick your role\. (.+) approves it, then you're locked in and it goes on your calendar\.$ || काम करने की बात पहले से तय है? अपना रोल चुनें। {=1} मंज़ूर करेंगे, फिर आप पक्के और यह आपके कैलेंडर में। || Já combinou de trabalhar nisto? Escolha sua função. {=1} aprova, você fica confirmado e vai para o seu calendário.
+^Ask to play (.+)$ || {=1} की भूमिका माँगें || Pedir para interpretar {=1}
+^Ask to be cast as (.+)$ || {1} के रूप में भूमिका माँगें || Pedir papel como {1}
+^Playing age (.+)$ || दिखने की उम्र {=1} || Idade aparente {=1}
+^Closes (.+)$ || {1} को बंद || Encerra em {1}
+^Apply on (.+)$ || {=1} पर आवेदन करें || Inscrever-se no {=1}
+^(\d+) needed$ || {=1} चाहिए || {=1} {1|necessário|necessários}
+^(\d+) parts?$ || {=1} भूमिकाएँ || {=1} {1|papel|papéis}
+^Messages, (\d+) unread$ || संदेश, {=1} अपठित || Mensagens, {=1} não {1|lida|lidas}
+^Message (.+)$ || {=1} को संदेश भेजें || Mandar mensagem para {=1}
+^· from (.+)$ || · मूल रूप से {=1} से || · natural de {=1}
+^You: (.+)$ || आप: {=1} || Você: {=1}
+^You · (.+)$ || आप · {=1} || Você · {=1}
+^(.+) and the director get this straight away and can accept you in one tap\. Your email stays private unless you share it\.$ || {=1} और निर्देशक को यह तुरंत मिलेगा और वे एक टैप में आपको स्वीकार कर सकते हैं। जब तक आप साझा न करें, आपका ईमेल निजी रहता है। || {=1} e a direção recebem na hora e podem aceitar você com um toque. Seu e-mail fica privado, a menos que você compartilhe.

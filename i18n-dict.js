@@ -7512,6 +7512,856 @@ window.CC_I18N = {
 "वे कहते हैं कि वे इस क्रू में हैं। मंज़ूर करें तो वे पक्के हो जाएँगे।",
 "A pessoa diz que está nesta equipe. Aprove e ela fica confirmada."
 ],
+"Talent": [
+"演員",
+"演员",
+"Comédien·ne",
+"Intérprete",
+"Актёр",
+"ممثل",
+"कलाकार",
+"Elenco"
+],
+"Supporting artist": [
+"臨時演員",
+"临时演员",
+"Figurant·e",
+"Figurante",
+"Артист массовки",
+"ممثل إضافي",
+"सहायक कलाकार",
+"Figurante"
+],
+"Supporting artists": [
+"臨時演員",
+"临时演员",
+"Figurants",
+"Figurantes",
+"Массовка",
+"ممثلون إضافيون",
+"सहायक कलाकार",
+"Figurantes"
+],
+"Casting": [
+"選角",
+"选角",
+"Casting",
+"Casting",
+"Кастинг",
+"اختيار الممثلين",
+"कास्टिंग",
+"Elenco"
+],
+"Cast": [
+"演員",
+"演员",
+"Distribution",
+"Reparto",
+"Актёрский состав",
+"طاقم التمثيل",
+"कलाकार दल",
+"Elenco"
+],
+"Cast your film": [
+"為你的影片選角",
+"为你的视频选角",
+"Faire le casting de votre film",
+"Haz el casting de tu película",
+"Подберите актёров для фильма",
+"اختر ممثلي فيلمك",
+"अपनी फ़िल्म की कास्टिंग करें",
+"Monte o elenco do seu filme"
+],
+"Casting call": [
+"選角徵選",
+"选角徵选",
+"Appel à candidatures",
+"Convocatoria de casting",
+"Открытый кастинг",
+"إعلان اختيار الممثلين",
+"कास्टिंग कॉल",
+"Chamada de elenco"
+],
+"Casting call link": [
+"選角徵選連結",
+"选角徵选链接",
+"Lien de l'appel à candidatures",
+"Enlace de la convocatoria",
+"Ссылка на кастинг",
+"رابط إعلان اختيار الممثلين",
+"कास्टिंग कॉल लिंक",
+"Link da chamada de elenco"
+],
+"Casting closed": [
+"選角已截止",
+"选角已截止",
+"Casting clos",
+"Casting cerrado",
+"Кастинг закрыт",
+"انتهى اختيار الممثلين",
+"कास्टिंग बंद",
+"Seleção encerrada"
+],
+"Backstage, Spotlight, StarNow, Mandy or a form": [
+"Backstage、Spotlight、StarNow、Mandy 或表單",
+"Backstage、Spotlight、StarNow、Mandy 或表单",
+"Backstage, Spotlight, StarNow, Mandy ou un formulaire",
+"Backstage, Spotlight, StarNow, Mandy o un formulario",
+"Backstage, Spotlight, StarNow, Mandy или форма",
+"Backstage أو Spotlight أو StarNow أو Mandy أو نموذج",
+"Backstage, Spotlight, StarNow, Mandy या कोई फ़ॉर्म",
+"Backstage, Spotlight, StarNow, Mandy ou um formulário"
+],
+"Applications close": [
+"報名截止",
+"报名截止",
+"Fin des candidatures",
+"Cierre de solicitudes",
+"Приём заявок до",
+"آخر موعد للتقديم",
+"आवेदन की अंतिम तारीख़",
+"Inscrições até"
+],
+"Paid?": [
+"有酬勞嗎？",
+"有酬劳吗？",
+"Rémunéré ?",
+"¿Remunerado?",
+"Оплачивается?",
+"مدفوع؟",
+"भुगतान?",
+"Remunerado?"
+],
+"e.g. Expenses and lunch": [
+"例如：交通費和午餐",
+"例如：交通费和午餐",
+"ex. frais et déjeuner",
+"p. ej. gastos y comida",
+"например, расходы и обед",
+"مثلًا: المصاريف والغداء",
+"जैसे, ख़र्च और लंच",
+"ex.: despesas e almoço"
+],
+"Notes for actors": [
+"給演員的說明",
+"给演员的说明",
+"Notes pour les comédiens",
+"Notas para los actores",
+"Заметки для актёров",
+"ملاحظات للممثلين",
+"कलाकारों के लिए नोट्स",
+"Observações para atores"
+],
+"Self-tape or in-person audition, recall dates, what to send": [
+"自拍試鏡或現場試鏡、複試日期、要寄送的資料",
+"自拍试镜或现场试镜、复试日期、要寄送的数据",
+"Self-tape ou audition en personne, dates de callback, ce qu'il faut envoyer",
+"Self-tape o audición en persona, fechas de callback, qué enviar",
+"Самопроба или очное прослушивание, даты повторных проб, что прислать",
+"تسجيل ذاتي أو تجربة أداء حضورية، مواعيد الإعادة، وما يجب إرساله",
+"सेल्फ़-टेप या आमने-सामने ऑडिशन, कॉलबैक की तारीख़ें, क्या भेजना है",
+"Self-tape ou teste presencial, datas de callback, o que enviar"
+],
+"optional: for Talent and Supporting artist roles": [
+"選填：用於演員和臨時演員角色",
+"选填：用于演员和临时演员角色",
+"facultatif : pour les rôles de comédien et de figurant",
+"opcional: para papeles de intérprete y figurante",
+"необязательно: для ролей актёров и массовки",
+"اختياري: لأدوار الممثلين والممثلين الإضافيين",
+"वैकल्पिक: कलाकार और सहायक कलाकार भूमिकाओं के लिए",
+"opcional: para papéis de elenco e figuração"
+],
+"Add Talent or Supporting artist from the Roles list above, then use Character to name the part. Actors can request a part here, or apply through your casting call.": [
+"從上方的職位清單加入演員或臨時演員，再用「角色」填寫角色名稱。演員可以在這裡申請角色，或透過你的選角徵選報名。",
+"从上方的职位清单加入演员或临时演员，再用「角色」填写角色名称。演员可以在这里申请角色，或透过你的选角徵选报名。",
+"Ajoutez Comédien·ne ou Figurant·e depuis la liste des postes ci-dessus, puis utilisez Personnage pour nommer le rôle. Les comédiens peuvent demander un rôle ici ou postuler via votre appel à candidatures.",
+"Añade Intérprete o Figurante desde la lista de puestos de arriba y usa Personaje para nombrar el papel. Los actores pueden pedir un papel aquí o presentarse a través de tu convocatoria.",
+"Добавьте «Актёр» или «Артист массовки» из списка ролей выше, затем укажите имя персонажа. Актёры могут попросить роль здесь или подать заявку через ваш кастинг.",
+"أضف «ممثل» أو «ممثل إضافي» من قائمة الأدوار أعلاه، ثم استخدم «الشخصية» لتسمية الدور. يمكن للممثلين طلب الدور هنا أو التقديم عبر إعلان اختيار الممثلين.",
+"ऊपर की भूमिका सूची से कलाकार या सहायक कलाकार जोड़ें, फिर किरदार में भूमिका का नाम लिखें। कलाकार यहाँ भूमिका माँग सकते हैं या आपकी कास्टिंग कॉल से आवेदन कर सकते हैं।",
+"Adicione Elenco ou Figurante pela lista de funções acima e use Personagem para nomear o papel. Atores podem pedir um papel aqui ou se inscrever pela sua chamada de elenco."
+],
+"Character": [
+"角色",
+"角色",
+"Personnage",
+"Personaje",
+"Персонаж",
+"الشخصية",
+"किरदार",
+"Personagem"
+],
+"Character ✓": [
+"角色 ✓",
+"角色 ✓",
+"Personnage ✓",
+"Personaje ✓",
+"Персонаж ✓",
+"الشخصية ✓",
+"किरदार ✓",
+"Personagem ✓"
+],
+"e.g. Maya": [
+"例如：Maya",
+"例如：Maya",
+"ex. Maya",
+"p. ej. Maya",
+"например, Майя",
+"مثلًا: مايا",
+"जैसे, माया",
+"ex.: Maya"
+],
+"Playing age": [
+"飾演年齡",
+"饰演年龄",
+"Âge de jeu",
+"Edad aparente",
+"Игровой возраст",
+"العمر المؤدّى",
+"दिखने की उम्र",
+"Idade aparente"
+],
+"e.g. 25 to 35": [
+"例如：25 至 35 歲",
+"例如：25 至 35 岁",
+"ex. 25 à 35 ans",
+"p. ej. de 25 a 35",
+"например, от 25 до 35",
+"مثلًا: من 25 إلى 35",
+"जैसे, 25 से 35",
+"ex.: 25 a 35"
+],
+"About the part": [
+"關於這個角色",
+"关于这个角色",
+"À propos du rôle",
+"Sobre el papel",
+"О роли",
+"عن الدور",
+"भूमिका के बारे में",
+"Sobre o papel"
+],
+"Who they are, what the scenes ask for, accents, any intimacy or stunts, self-tape details": [
+"角色是誰、場景需要什麼、口音、是否有親密戲或特技、自拍試鏡細節",
+"角色是谁、场景需要什么、口音、是否有亲密戏或特技、自拍试镜细节",
+"Qui est le personnage, ce que demandent les scènes, accents, scènes intimes ou cascades, détails du self-tape",
+"Quién es, qué piden las escenas, acentos, escenas íntimas o especialistas, detalles del self-tape",
+"Кто этот персонаж, что требуют сцены, акценты, интимные сцены или трюки, детали самопробы",
+"من هي الشخصية، وما تتطلبه المشاهد، واللهجات، وأي مشاهد حميمة أو مخاطرة، وتفاصيل التسجيل الذاتي",
+"किरदार कौन है, दृश्यों में क्या चाहिए, लहजा, अंतरंग दृश्य या स्टंट, सेल्फ़-टेप की जानकारी",
+"Quem é o personagem, o que as cenas pedem, sotaques, cenas íntimas ou dublês, detalhes do self-tape"
+],
+"Parts to cast": [
+"待選角色",
+"待选角色",
+"Rôles à distribuer",
+"Papeles por cubrir",
+"Роли для кастинга",
+"أدوار مطلوبة",
+"भरी जाने वाली भूमिकाएँ",
+"Papéis a escalar"
+],
+"Fully cast.": [
+"角色已全部選定。",
+"角色已全部选定。",
+"Distribution complète.",
+"Reparto completo.",
+"Все роли распределены.",
+"اكتمل طاقم التمثيل.",
+"सभी भूमिकाएँ भर गईं।",
+"Elenco completo."
+],
+"Find talent on Crew Call": [
+"在 Crew Call 找演員",
+"在 Crew Call 找演员",
+"Trouver des comédiens sur Crew Call",
+"Buscar intérpretes en Crew Call",
+"Найти актёров в Crew Call",
+"ابحث عن ممثلين في Crew Call",
+"Crew Call पर कलाकार खोजें",
+"Encontrar atores no Crew Call"
+],
+"Parts": [
+"角色",
+"角色",
+"Rôles",
+"Papeles",
+"Роли",
+"الأدوار",
+"भूमिकाएँ",
+"Papéis"
+],
+"Part": [
+"角色",
+"角色",
+"Rôle",
+"Papel",
+"Роль",
+"الدور",
+"भूमिका",
+"Papel"
+],
+"Apply": [
+"報名",
+"报名",
+"Candidater",
+"Presentarse",
+"Подать заявку",
+"تقدّم",
+"आवेदन करें",
+"Inscrever-se"
+],
+"Through a casting call": [
+"透過選角徵選",
+"透过选角徵选",
+"Via un appel à candidatures",
+"A través de una convocatoria",
+"Через кастинг",
+"عبر إعلان اختيار الممثلين",
+"कास्टिंग कॉल के ज़रिए",
+"Por chamada de elenco"
+],
+"Shoots": [
+"拍攝",
+"拍摄",
+"Tournage",
+"Rodaje",
+"Съёмки",
+"التصوير",
+"शूट",
+"Filmagem"
+],
+"Closing soonest": [
+"最快截止",
+"最快截止",
+"Clôture la plus proche",
+"Cierre más próximo",
+"Скоро закрываются",
+"الأقرب إغلاقًا",
+"सबसे पहले बंद",
+"Encerra antes"
+],
+"Search part, film, director or playing age": [
+"搜尋角色、影片、導演或飾演年齡",
+"搜索角色、视频、导演或饰演年龄",
+"Rechercher un rôle, un film, un réalisateur ou un âge de jeu",
+"Buscar papel, película, director o edad aparente",
+"Поиск по роли, фильму, режиссёру или возрасту",
+"ابحث عن دور أو فيلم أو مخرج أو عمر",
+"भूमिका, फ़िल्म, निर्देशक या उम्र खोजें",
+"Buscar papel, filme, diretor ou idade"
+],
+"Search parts": [
+"搜尋角色",
+"搜索角色",
+"Rechercher des rôles",
+"Buscar papeles",
+"Поиск ролей",
+"ابحث في الأدوار",
+"भूमिकाएँ खोजें",
+"Buscar papéis"
+],
+"Parts that fit your roles": [
+"符合你職位的角色",
+"符合你职位的角色",
+"Rôles qui correspondent à vos postes",
+"Papeles que encajan con tus puestos",
+"Роли, подходящие вам",
+"أدوار تناسب أدوارك",
+"आपकी भूमिकाओं से मेल खाती भूमिकाएँ",
+"Papéis que combinam com suas funções"
+],
+"Parts in LFS films, from leads to supporting artists. Ask for a part here, apply through the film's casting call, or find actors who've worked on LFS shoots.": [
+"LFS 影片的角色，從主角到臨時演員都有。在這裡申請角色、透過影片的選角徵選報名，或找曾參與 LFS 拍攝的演員。",
+"LFS 视频的角色，从主角到临时演员都有。在这里申请角色、透过视频的选角徵选报名，或找曾参与 LFS 拍摄的演员。",
+"Des rôles dans les films de la LFS, des premiers rôles aux figurants. Demandez un rôle ici, postulez via l'appel à candidatures du film ou trouvez des comédiens qui ont tourné sur des films LFS.",
+"Papeles en películas de la LFS, de protagonistas a figurantes. Pide un papel aquí, preséntate a través de la convocatoria de la película o encuentra actores que hayan trabajado en rodajes de la LFS.",
+"Роли в фильмах LFS — от главных до массовки. Попросите роль здесь, подайте заявку через кастинг фильма или найдите актёров, снимавшихся в LFS.",
+"أدوار في أفلام LFS، من البطولة إلى الممثلين الإضافيين. اطلب دورًا هنا، أو تقدّم عبر إعلان الفيلم، أو ابحث عن ممثلين عملوا في تصوير LFS.",
+"LFS फ़िल्मों में भूमिकाएँ, मुख्य किरदारों से सहायक कलाकारों तक। यहाँ भूमिका माँगें, फ़िल्म की कास्टिंग कॉल से आवेदन करें या LFS शूट पर काम कर चुके कलाकार खोजें।",
+"Papéis em filmes da LFS, de protagonistas a figurantes. Peça um papel aqui, inscreva-se pela chamada do filme ou encontre atores que já trabalharam em filmagens da LFS."
+],
+"Talent and supporting artists": [
+"演員和臨時演員",
+"演员和临时演员",
+"Comédiens et figurants",
+"Intérpretes y figurantes",
+"Актёры и массовка",
+"الممثلون والممثلون الإضافيون",
+"कलाकार और सहायक कलाकार",
+"Elenco e figurantes"
+],
+"Has acted on an LFS film": [
+"曾在 LFS 影片中演出",
+"曾在 LFS 视频中演出",
+"A joué dans un film LFS",
+"Ha actuado en una película de la LFS",
+"Снимался в фильме LFS",
+"شارك في فيلم من LFS",
+"LFS फ़िल्म में अभिनय किया है",
+"Já atuou num filme da LFS"
+],
+"Search name, city, film or part": [
+"搜尋姓名、城市、影片或角色",
+"搜索姓名、城市、视频或角色",
+"Rechercher un nom, une ville, un film ou un rôle",
+"Buscar nombre, ciudad, película o papel",
+"Поиск по имени, городу, фильму или роли",
+"ابحث بالاسم أو المدينة أو الفيلم أو الدور",
+"नाम, शहर, फ़िल्म या भूमिका खोजें",
+"Buscar nome, cidade, filme ou papel"
+],
+"No LFS parts yet": [
+"尚無 LFS 演出經歷",
+"尚无 LFS 演出经历",
+"Aucun rôle LFS pour l'instant",
+"Aún no tiene papeles en la LFS",
+"Пока нет ролей в LFS",
+"لا أدوار في LFS بعد",
+"अभी LFS में कोई भूमिका नहीं",
+"Ainda sem papéis na LFS"
+],
+"No parts open right now": [
+"目前沒有開放的角色",
+"目前没有开放的角色",
+"Aucun rôle ouvert pour le moment",
+"No hay papeles abiertos ahora",
+"Сейчас открытых ролей нет",
+"لا توجد أدوار متاحة حاليًا",
+"अभी कोई भूमिका खुली नहीं",
+"Nenhum papel aberto agora"
+],
+"Casting a shoot? Add Talent or Supporting artist roles to it and they show up here.": [
+"要為拍攝選角？加入演員或臨時演員職位，就會顯示在這裡。",
+"要为拍摄选角？加入演员或临时演员职位，就会显示在这里。",
+"Vous faites un casting ? Ajoutez des rôles de comédien ou de figurant à votre tournage et ils apparaîtront ici.",
+"¿Buscas reparto? Añade papeles de intérprete o figurante a tu rodaje y aparecerán aquí.",
+"Ищете актёров? Добавьте в съёмку роли актёров или массовки — они появятся здесь.",
+"تبحث عن ممثلين؟ أضف أدوار ممثلين أو ممثلين إضافيين إلى تصويرك وستظهر هنا.",
+"कास्टिंग कर रहे हैं? अपने शूट में कलाकार या सहायक कलाकार भूमिकाएँ जोड़ें, वे यहाँ दिखेंगी।",
+"Montando elenco? Adicione papéis de elenco ou figuração à sua filmagem e eles aparecem aqui."
+],
+"Actors appear here once they add Talent or Supporting artist to their profile, or once they've been cast on an LFS shoot.": [
+"演員在個人檔案加入演員或臨時演員，或曾在 LFS 拍攝中獲選後，就會出現在這裡。",
+"演员在个人文件加入演员或临时演员，或曾在 LFS 拍摄中获选后，就会出现在这里。",
+"Les comédiens apparaissent ici dès qu'ils ajoutent Comédien·ne ou Figurant·e à leur profil, ou après avoir été choisis sur un tournage LFS.",
+"Los actores aparecen aquí cuando añaden Intérprete o Figurante a su perfil, o cuando han participado en un rodaje de la LFS.",
+"Актёры появляются здесь, когда добавляют «Актёр» или «Артист массовки» в профиль или после участия в съёмке LFS.",
+"يظهر الممثلون هنا بعد إضافة «ممثل» أو «ممثل إضافي» إلى ملفاتهم، أو بعد مشاركتهم في تصوير LFS.",
+"कलाकार यहाँ तब दिखते हैं जब वे प्रोफ़ाइल में कलाकार या सहायक कलाकार जोड़ते हैं, या किसी LFS शूट में चुने जा चुके हों।",
+"Os atores aparecem aqui quando adicionam Elenco ou Figurante ao perfil, ou depois de escalados numa filmagem da LFS."
+],
+"Sign in to ask": [
+"登入後申請",
+"登录后申请",
+"Connectez-vous pour demander",
+"Inicia sesión para pedirlo",
+"Войдите, чтобы попросить",
+"سجّل الدخول للطلب",
+"माँगने के लिए साइन इन करें",
+"Entre para pedir"
+],
+"Ask for this part": [
+"申請這個角色",
+"申请这个角色",
+"Demander ce rôle",
+"Pedir este papel",
+"Попросить эту роль",
+"اطلب هذا الدور",
+"यह भूमिका माँगें",
+"Pedir este papel"
+],
+"You're on this film": [
+"你在這部影片的團隊中",
+"你在这部视频的团队中",
+"Vous êtes sur ce film",
+"Estás en esta película",
+"Вы в команде этого фильма",
+"أنت في هذا الفيلم",
+"आप इस फ़िल्म में हैं",
+"Você está neste filme"
+],
+"Sign in to cast your film.": [
+"登入後才能為影片選角。",
+"登录后才能为视频选角。",
+"Connectez-vous pour faire le casting de votre film.",
+"Inicia sesión para hacer el casting de tu película.",
+"Войдите, чтобы подобрать актёров.",
+"سجّل الدخول لاختيار ممثلي فيلمك.",
+"अपनी फ़िल्म की कास्टिंग के लिए साइन इन करें।",
+"Entre para montar o elenco do seu filme."
+],
+"Sign in to see who acts on LFS films.": [
+"登入後才能查看在 LFS 影片演出的人。",
+"登录后才能查看在 LFS 视频演出的人。",
+"Connectez-vous pour voir qui joue dans les films LFS.",
+"Inicia sesión para ver quién actúa en las películas de la LFS.",
+"Войдите, чтобы увидеть актёров фильмов LFS.",
+"سجّل الدخول لترى من يمثّل في أفلام LFS.",
+"LFS फ़िल्मों के कलाकार देखने के लिए साइन इन करें।",
+"Entre para ver quem atua nos filmes da LFS."
+],
+"Add Talent or Supporting artist parts to one of your shoots, with a character name and playing age. You can also add a casting call link from Backstage, Spotlight, StarNow or Mandy.": [
+"在你的拍攝中加入演員或臨時演員角色，並填寫角色名稱和飾演年齡。也可以加入 Backstage、Spotlight、StarNow 或 Mandy 的選角徵選連結。",
+"在你的拍摄中加入演员或临时演员角色，并填写角色名称和饰演年龄。也可以加入 Backstage、Spotlight、StarNow 或 Mandy 的选角徵选链接。",
+"Ajoutez des rôles de comédien ou de figurant à l'un de vos tournages, avec le nom du personnage et l'âge de jeu. Vous pouvez aussi ajouter un lien d'appel à candidatures Backstage, Spotlight, StarNow ou Mandy.",
+"Añade papeles de intérprete o figurante a uno de tus rodajes, con el nombre del personaje y la edad aparente. También puedes añadir un enlace de convocatoria de Backstage, Spotlight, StarNow o Mandy.",
+"Добавьте в одну из съёмок роли актёров или массовки с именем персонажа и игровым возрастом. Можно также добавить ссылку на кастинг в Backstage, Spotlight, StarNow или Mandy.",
+"أضف أدوار ممثلين أو ممثلين إضافيين إلى أحد تصويراتك، مع اسم الشخصية والعمر المؤدّى. يمكنك أيضًا إضافة رابط إعلان من Backstage أو Spotlight أو StarNow أو Mandy.",
+"अपने किसी शूट में किरदार के नाम और उम्र के साथ कलाकार या सहायक कलाकार भूमिकाएँ जोड़ें। आप Backstage, Spotlight, StarNow या Mandy का कास्टिंग कॉल लिंक भी जोड़ सकते हैं।",
+"Adicione papéis de elenco ou figuração a uma das suas filmagens, com nome do personagem e idade aparente. Você também pode incluir um link de chamada do Backstage, Spotlight, StarNow ou Mandy."
+],
+"Post a new shoot instead": [
+"改為發布新的拍攝",
+"改为发布新的拍摄",
+"Publier plutôt un nouveau tournage",
+"Publicar un rodaje nuevo",
+"Лучше опубликовать новую съёмку",
+"انشر تصويرًا جديدًا بدلًا من ذلك",
+"इसके बजाय नया शूट पोस्ट करें",
+"Publicar uma nova filmagem"
+],
+"The casting call link isn't a web address.": [
+"選角徵選連結不是有效的網址。",
+"选角徵选链接不是有效的网址。",
+"Le lien de l'appel à candidatures n'est pas une adresse web.",
+"El enlace de la convocatoria no es una dirección web.",
+"Ссылка на кастинг — не веб-адрес.",
+"رابط إعلان اختيار الممثلين ليس عنوان ويب.",
+"कास्टिंग कॉल लिंक वेब पता नहीं है।",
+"O link da chamada de elenco não é um endereço web."
+],
+"Based in": [
+"所在地",
+"所在地",
+"Basé·e à",
+"Con base en",
+"Живёт в",
+"مقيم في",
+"रहते हैं",
+"Mora em"
+],
+"city and country, so people nearby can find you": [
+"城市和國家，方便附近的人找到你",
+"城市和国家，方便附近的人找到你",
+"ville et pays, pour que les personnes proches vous trouvent",
+"ciudad y país, para que la gente cercana te encuentre",
+"город и страна, чтобы вас нашли те, кто рядом",
+"المدينة والبلد، ليجدك القريبون منك",
+"शहर और देश, ताकि आस-पास के लोग आपको ढूँढ सकें",
+"cidade e país, para que pessoas por perto encontrem você"
+],
+"e.g. London, UK": [
+"例如：英國倫敦",
+"例如：英国伦敦",
+"ex. Londres, Royaume-Uni",
+"p. ej. Londres, Reino Unido",
+"например, Лондон, Великобритания",
+"مثلًا: لندن، المملكة المتحدة",
+"जैसे, लंदन, यूके",
+"ex.: Londres, Reino Unido"
+],
+"e.g. Lagos, Nigeria": [
+"例如：奈及利亞拉哥斯",
+"例如：尼日利亚拉哥斯",
+"ex. Lagos, Nigeria",
+"p. ej. Lagos, Nigeria",
+"например, Лагос, Нигерия",
+"مثلًا: لاغوس، نيجيريا",
+"जैसे, लागोस, नाइजीरिया",
+"ex.: Lagos, Nigéria"
+],
+"Search name, kit, skill, city": [
+"搜尋姓名、器材、技能、城市",
+"搜索姓名、器材、技能、城市",
+"Rechercher un nom, du matériel, une compétence, une ville",
+"Buscar nombre, equipo, habilidad, ciudad",
+"Поиск по имени, технике, навыку, городу",
+"ابحث بالاسم أو المعدات أو المهارة أو المدينة",
+"नाम, उपकरण, कौशल, शहर खोजें",
+"Buscar nome, equipamento, habilidade, cidade"
+],
+"Availability": [
+"有空時間",
+"有空时间",
+"Disponibilités",
+"Disponibilidad",
+"Доступность",
+"التوفّر",
+"उपलब्धता",
+"Disponibilidade"
+],
+"About me": [
+"關於我",
+"关于我",
+"À propos de moi",
+"Sobre mí",
+"Обо мне",
+"نبذة عني",
+"मेरे बारे में",
+"Sobre mim"
+],
+"Emails and privacy": [
+"電子郵件與隱私",
+"电子邮件与隐私",
+"E-mails et confidentialité",
+"Correos y privacidad",
+"Письма и конфиденциальность",
+"البريد والخصوصية",
+"ईमेल और गोपनीयता",
+"E-mails e privacidade"
+],
+"Saved as you type.": [
+"輸入時已自動儲存。",
+"输入时已自动保存。",
+"Enregistré au fil de la saisie.",
+"Se guarda mientras escribes.",
+"Сохраняется по мере ввода.",
+"يُحفظ أثناء الكتابة.",
+"लिखते ही सेव होता है।",
+"Salvo enquanto você digita."
+],
+"Saved as you type. Add at least one role to appear in Crew search.": [
+"輸入時已自動儲存。至少加入一個職位才會出現在劇組搜尋中。",
+"输入时已自动保存。至少加入一个职位才会出现在剧组搜索中。",
+"Enregistré au fil de la saisie. Ajoutez au moins un poste pour apparaître dans la recherche d'équipe.",
+"Se guarda mientras escribes. Añade al menos un puesto para aparecer en la búsqueda de equipo.",
+"Сохраняется по мере ввода. Добавьте хотя бы одну роль, чтобы появиться в поиске команды.",
+"يُحفظ أثناء الكتابة. أضف دورًا واحدًا على الأقل لتظهر في البحث عن الطاقم.",
+"लिखते ही सेव होता है। क्रू खोज में दिखने के लिए कम से कम एक भूमिका जोड़ें।",
+"Salvo enquanto você digita. Adicione pelo menos uma função para aparecer na busca de equipe."
+],
+"Add your name.": [
+"請填寫你的姓名。",
+"请填写你的姓名。",
+"Ajoutez votre nom.",
+"Añade tu nombre.",
+"Укажите имя.",
+"أضف اسمك.",
+"अपना नाम जोड़ें।",
+"Adicione seu nome."
+],
+"Welcome. Fill in About me, pick at least one role under Roles, and you'll appear in Crew search and on the calendar. Everything saves as you type.": [
+"歡迎。填寫「關於我」，在「職位」中至少選一個，你就會出現在劇組搜尋和行事曆上。所有內容都會在輸入時自動儲存。",
+"欢迎。填写「关于我」，在「职位」中至少选一个，你就会出现在剧组搜索和行事历上。所有内容都会在输入时自动保存。",
+"Bienvenue. Remplissez À propos de moi, choisissez au moins un poste dans Postes, et vous apparaîtrez dans la recherche d'équipe et sur le calendrier. Tout s'enregistre au fil de la saisie.",
+"Bienvenido. Rellena Sobre mí, elige al menos un puesto en Puestos y aparecerás en la búsqueda de equipo y en el calendario. Todo se guarda mientras escribes.",
+"Добро пожаловать. Заполните «Обо мне», выберите хотя бы одну роль в «Ролях» — и вы появитесь в поиске команды и в календаре. Всё сохраняется по мере ввода.",
+"أهلًا بك. املأ «نبذة عني» واختر دورًا واحدًا على الأقل في «الأدوار»، وستظهر في البحث عن الطاقم وفي التقويم. كل شيء يُحفظ أثناء الكتابة.",
+"स्वागत है। \"मेरे बारे में\" भरें, \"भूमिकाएँ\" में कम से कम एक चुनें, और आप क्रू खोज और कैलेंडर में दिखेंगे। सब कुछ लिखते ही सेव होता है।",
+"Boas-vindas. Preencha Sobre mim, escolha pelo menos uma função em Funções e você vai aparecer na busca de equipe e no calendário. Tudo é salvo enquanto você digita."
+],
+"Draft kept. Open the form again to carry on": [
+"草稿已保留。再次開啟表單即可繼續",
+"草稿已保留。再次打开表单即可继续",
+"Brouillon conservé. Rouvrez le formulaire pour continuer",
+"Borrador guardado. Abre el formulario de nuevo para continuar",
+"Черновик сохранён. Откройте форму снова, чтобы продолжить",
+"حُفظت المسودة. افتح النموذج مجددًا للمتابعة",
+"ड्राफ़्ट रखा गया। जारी रखने के लिए फ़ॉर्म फिर खोलें",
+"Rascunho guardado. Abra o formulário de novo para continuar"
+],
+"Use × or Cancel to close. Your draft is kept": [
+"請用 × 或「取消」關閉。草稿會保留",
+"请用 × 或「取消」关闭。草稿会保留",
+"Utilisez × ou Annuler pour fermer. Votre brouillon est conservé",
+"Usa × o Cancelar para cerrar. Tu borrador se guarda",
+"Закройте через × или «Отмена». Черновик сохранится",
+"استخدم × أو «إلغاء» للإغلاق. ستُحفظ مسودتك",
+"बंद करने के लिए × या रद्द करें दबाएँ। आपका ड्राफ़्ट रखा जाएगा",
+"Use × ou Cancelar para fechar. Seu rascunho fica guardado"
+],
+"Picked up where you left off.": [
+"已接續你上次停下的地方。",
+"已接续你上次停下的地方。",
+"Vous reprenez là où vous en étiez.",
+"Sigues donde lo dejaste.",
+"Продолжаем с того места, где вы остановились.",
+"تابعت من حيث توقفت.",
+"वहीं से शुरू किया जहाँ आपने छोड़ा था।",
+"Você continua de onde parou."
+],
+"Restored what you typed earlier.": [
+"已還原你稍早輸入的內容。",
+"已还原你稍早输入的内容。",
+"Ce que vous avez saisi tout à l'heure a été restauré.",
+"Se ha recuperado lo que escribiste antes.",
+"Восстановлено то, что вы ввели ранее.",
+"استُعيد ما كتبته سابقًا.",
+"आपका पहले लिखा हुआ वापस लाया गया।",
+"O que você digitou antes foi restaurado."
+],
+"Restored what you typed last time.": [
+"已還原你上次輸入的內容。",
+"已还原你上次输入的内容。",
+"Ce que vous avez saisi la dernière fois a été restauré.",
+"Se ha recuperado lo que escribiste la última vez.",
+"Восстановлено то, что вы ввели в прошлый раз.",
+"استُعيد ما كتبته في المرة الماضية.",
+"पिछली बार लिखा हुआ वापस लाया गया।",
+"O que você digitou da última vez foi restaurado."
+],
+"Start again": [
+"重新開始",
+"重新开始",
+"Recommencer",
+"Empezar de nuevo",
+"Начать заново",
+"ابدأ من جديد",
+"फिर से शुरू करें",
+"Começar de novo"
+],
+"On your device": [
+"在你的裝置上",
+"在你的设备上",
+"Sur votre appareil",
+"En tu dispositivo",
+"На вашем устройстве",
+"على جهازك",
+"आपके डिवाइस पर",
+"No seu dispositivo"
+],
+"Only your sign-in, and a draft of any form you've started but not sent, so a stray click doesn't lose your typing. Signing out clears both.": [
+"只有你的登入狀態，以及你開始填寫但尚未送出的表單草稿，避免誤點就失去輸入內容。登出會同時清除兩者。",
+"只有你的登录状态，以及你开始填写但尚未送出的表单草稿，避免误点就失去输入内容。注销会同时清除两者。",
+"Seulement votre connexion, et un brouillon de tout formulaire commencé mais non envoyé, pour qu'un clic malheureux ne fasse pas perdre votre saisie. La déconnexion efface les deux.",
+"Solo tu sesión y un borrador de cualquier formulario que hayas empezado sin enviar, para que un clic por error no borre lo que escribiste. Al cerrar sesión se borran ambos.",
+"Только ваш вход и черновик формы, которую вы начали, но не отправили, чтобы случайный клик не стёр введённое. Выход удаляет и то, и другое.",
+"تسجيل دخولك فقط، ومسودة أي نموذج بدأته ولم ترسله، حتى لا تضيع كتابتك بنقرة خاطئة. تسجيل الخروج يمسح الاثنين.",
+"सिर्फ़ आपका साइन-इन, और किसी शुरू किए पर न भेजे गए फ़ॉर्म का ड्राफ़्ट, ताकि ग़लत क्लिक से लिखा हुआ न खोए। साइन आउट करने पर दोनों मिट जाते हैं।",
+"Só o seu login e um rascunho de qualquer formulário começado e não enviado, para que um clique errado não apague o que você digitou. Sair apaga os dois."
+],
+". Your device only keeps you signed in, plus a draft of any form you haven't sent yet. Signing out clears both.": [
+"。你的裝置只會保留登入狀態，以及尚未送出的表單草稿。登出會同時清除兩者。",
+"。你的设备只会保留登录状态，以及尚未送出的表单草稿。注销会同时清除两者。",
+". Votre appareil garde seulement votre connexion et un brouillon des formulaires non envoyés. La déconnexion efface les deux.",
+". Tu dispositivo solo guarda tu sesión y un borrador de los formularios que no has enviado. Al cerrar sesión se borran ambos.",
+". Устройство хранит только ваш вход и черновики неотправленных форм. Выход удаляет и то, и другое.",
+". يحتفظ جهازك فقط بتسجيل دخولك ومسودات النماذج التي لم ترسلها. تسجيل الخروج يمسح الاثنين.",
+"। आपका डिवाइस सिर्फ़ साइन-इन और न भेजे गए फ़ॉर्म के ड्राफ़्ट रखता है। साइन आउट करने पर दोनों मिट जाते हैं।",
+". Seu dispositivo só guarda o login e rascunhos de formulários não enviados. Sair apaga os dois."
+],
+"Messages": [
+"訊息",
+"消息",
+"Messages",
+"Mensajes",
+"Сообщения",
+"الرسائل",
+"संदेश",
+"Mensagens"
+],
+"All messages": [
+"所有訊息",
+"所有消息",
+"Tous les messages",
+"Todos los mensajes",
+"Все сообщения",
+"كل الرسائل",
+"सभी संदेश",
+"Todas as mensagens"
+],
+"Reply": [
+"回覆",
+"回复",
+"Répondre",
+"Responder",
+"Ответить",
+"ردّ",
+"जवाब दें",
+"Responder"
+],
+"Write a reply": [
+"寫下回覆",
+"写下回复",
+"Écrire une réponse",
+"Escribe una respuesta",
+"Напишите ответ",
+"اكتب ردًا",
+"जवाब लिखें",
+"Escreva uma resposta"
+],
+"Conversation": [
+"對話",
+"对话",
+"Conversation",
+"Conversación",
+"Переписка",
+"المحادثة",
+"बातचीत",
+"Conversa"
+],
+"Private between you and the other person. New messages are also emailed, unless you've turned that off in My profile.": [
+"只有你和對方看得到。新訊息也會以電子郵件寄出，除非你已在「我的檔案」中關閉。",
+"只有你和对方看得到。新消息也会以电子邮件寄出，除非你已在「我的文件」中关闭。",
+"Privé entre vous et l'autre personne. Les nouveaux messages sont aussi envoyés par e-mail, sauf si vous l'avez désactivé dans Mon profil.",
+"Privado entre tú y la otra persona. Los mensajes nuevos también se envían por correo, salvo que lo hayas desactivado en Mi perfil.",
+"Видно только вам и собеседнику. Новые сообщения также приходят на почту, если вы не отключили это в профиле.",
+"خاصة بينك وبين الشخص الآخر. تُرسل الرسائل الجديدة بالبريد أيضًا، ما لم توقف ذلك في ملفك الشخصي.",
+"सिर्फ़ आपके और दूसरे व्यक्ति के बीच। नए संदेश ईमेल पर भी आते हैं, जब तक आपने इसे मेरी प्रोफ़ाइल में बंद न किया हो।",
+"Privado entre você e a outra pessoa. Novas mensagens também chegam por e-mail, a menos que você tenha desativado isso em Meu perfil."
+],
+"No messages yet. Open someone's profile in Crew or Casting and press Message.": [
+"還沒有訊息。在劇組或選角中開啟某人的個人檔案，然後按「傳訊息」。",
+"还没有消息。在剧组或选角中打开某人的个人文件，然后按「传消息」。",
+"Aucun message pour l'instant. Ouvrez un profil dans Équipe ou Casting et appuyez sur Message.",
+"Aún no hay mensajes. Abre un perfil en Equipo o Casting y pulsa Mensaje.",
+"Сообщений пока нет. Откройте профиль человека в «Команде» или «Кастинге» и нажмите «Написать».",
+"لا رسائل بعد. افتح ملف شخص في «الطاقم» أو «اختيار الممثلين» واضغط «رسالة».",
+"अभी कोई संदेश नहीं। क्रू या कास्टिंग में किसी की प्रोफ़ाइल खोलें और संदेश दबाएँ।",
+"Nenhuma mensagem ainda. Abra o perfil de alguém em Equipe ou Elenco e toque em Mensagem."
+],
+"Sign in to see your messages.": [
+"登入後才能查看訊息。",
+"登录后才能查看消息。",
+"Connectez-vous pour voir vos messages.",
+"Inicia sesión para ver tus mensajes.",
+"Войдите, чтобы увидеть сообщения.",
+"سجّل الدخول لترى رسائلك.",
+"अपने संदेश देखने के लिए साइन इन करें।",
+"Entre para ver suas mensagens."
+],
+"That person isn't on Crew Call any more": [
+"這個人已不在 Crew Call 上",
+"这个人已不在 Crew Call 上",
+"Cette personne n'est plus sur Crew Call",
+"Esa persona ya no está en Crew Call",
+"Этого человека больше нет в Crew Call",
+"هذا الشخص لم يعد في Crew Call",
+"वह व्यक्ति अब Crew Call पर नहीं है",
+"Essa pessoa não está mais no Crew Call"
+],
+"You": [
+"你",
+"你",
+"Vous",
+"Tú",
+"Вы",
+"أنت",
+"आप",
+"Você"
+],
+"They'll get this in Crew Call and by email. Your email is kept private; they reply in Crew Call.": [
+"對方會在 Crew Call 和電子郵件中收到。你的電子郵件會保密；對方會在 Crew Call 回覆。",
+"对方会在 Crew Call 和电子邮件中收到。你的电子邮件会保密；对方会在 Crew Call 回复。",
+"Ils le recevront dans Crew Call et par e-mail. Votre e-mail reste privé ; ils répondent dans Crew Call.",
+"Lo recibirán en Crew Call y por correo. Tu correo se mantiene privado; responden en Crew Call.",
+"Сообщение придёт в Crew Call и на почту. Ваш адрес останется скрытым; ответят в Crew Call.",
+"ستصلهم في Crew Call وبالبريد. يبقى بريدك خاصًا؛ وسيردّون في Crew Call.",
+"उन्हें यह Crew Call और ईमेल पर मिलेगा। आपका ईमेल निजी रहेगा; वे Crew Call में जवाब देंगे।",
+"A pessoa recebe no Crew Call e por e-mail. Seu e-mail fica privado; a resposta vem pelo Crew Call."
+],
+"They'll get this in Crew Call and by email. Your email is included so they can reply directly.": [
+"對方會在 Crew Call 和電子郵件中收到。你的電子郵件會附上，方便對方直接回覆。",
+"对方会在 Crew Call 和电子邮件中收到。你的电子邮件会附上，方便对方直接回复。",
+"Ils le recevront dans Crew Call et par e-mail. Votre e-mail est joint pour qu'ils puissent répondre directement.",
+"Lo recibirán en Crew Call y por correo. Se incluye tu correo para que puedan responder directamente.",
+"Сообщение придёт в Crew Call и на почту. Ваш адрес будет указан, чтобы вам ответили напрямую.",
+"ستصلهم في Crew Call وبالبريد. سيُرفق بريدك ليتمكنوا من الردّ مباشرة.",
+"उन्हें यह Crew Call और ईमेल पर मिलेगा। आपका ईमेल साथ जाएगा ताकि वे सीधे जवाब दे सकें।",
+"A pessoa recebe no Crew Call e por e-mail. Seu e-mail vai junto para que respondam diretamente."
+],
 "Director": [
 "導演",
 "导演",
@@ -7971,16 +8821,6 @@ window.CC_I18N = {
 "التسويق",
 "मार्केटिंग",
 "Marketing"
-],
-"Cast": [
-"演員",
-"演员",
-"Distribution",
-"Reparto",
-"Актёры",
-"الممثلون",
-"कलाकार",
-"Elenco"
 ],
 "Lenses": [
 "鏡頭",
@@ -19282,6 +20122,149 @@ window.CC_I18N = {
 "اتفقت بالفعل على العمل؟ اختر دورك. يوافق {=1}، ثم تُثبَّت ويُضاف إلى تقويمك.",
 "काम करने की बात पहले से तय है? अपना रोल चुनें। {=1} मंज़ूर करेंगे, फिर आप पक्के और यह आपके कैलेंडर में।",
 "Já combinou de trabalhar nisto? Escolha sua função. {=1} aprova, você fica confirmado e vai para o seu calendário."
+],
+[
+"^Ask to play (.+)$",
+"申請飾演 {=1}",
+"申请饰演 {=1}",
+"Demander à jouer {=1}",
+"Pedir interpretar a {=1}",
+"Попросить роль: {=1}",
+"اطلب أداء دور {=1}",
+"{=1} की भूमिका माँगें",
+"Pedir para interpretar {=1}"
+],
+[
+"^Ask to be cast as (.+)$",
+"申請擔任{1}",
+"申请担任{1}",
+"Demander un rôle de {1}",
+"Pedir un papel de {1}",
+"Попросить роль: {1}",
+"اطلب المشاركة بصفة {1}",
+"{1} के रूप में भूमिका माँगें",
+"Pedir papel como {1}"
+],
+[
+"^Playing age (.+)$",
+"飾演年齡 {=1}",
+"饰演年龄 {=1}",
+"Âge de jeu {=1}",
+"Edad aparente {=1}",
+"Игровой возраст {=1}",
+"العمر المؤدّى {=1}",
+"दिखने की उम्र {=1}",
+"Idade aparente {=1}"
+],
+[
+"^Closes (.+)$",
+"{1}截止",
+"{1}截止",
+"Clôture le {1}",
+"Cierra el {1}",
+"До {1}",
+"يُغلق {1}",
+"{1} को बंद",
+"Encerra em {1}"
+],
+[
+"^Apply on (.+)$",
+"在 {=1} 報名",
+"在 {=1} 报名",
+"Postuler sur {=1}",
+"Presentarse en {=1}",
+"Подать заявку на {=1}",
+"تقدّم عبر {=1}",
+"{=1} पर आवेदन करें",
+"Inscrever-se no {=1}"
+],
+[
+"^(\\d+) needed$",
+"需要 {=1} 人",
+"需要 {=1} 人",
+"{=1} {1|recherché|recherchés}",
+"{=1} {1|necesario|necesarios}",
+"Нужно: {=1}",
+"المطلوب: {=1}",
+"{=1} चाहिए",
+"{=1} {1|necessário|necessários}"
+],
+[
+"^(\\d+) parts?$",
+"{=1} 個角色",
+"{=1} 个角色",
+"{=1} {1|rôle|rôles}",
+"{=1} {1|papel|papeles}",
+"{=1} {1|роль|роли|ролей}",
+"{=1} {1|دور|دوران|أدوار|دورًا|دور}",
+"{=1} भूमिकाएँ",
+"{=1} {1|papel|papéis}"
+],
+[
+"^Messages, (\\d+) unread$",
+"訊息，{=1} 則未讀",
+"消息，{=1} 则未读",
+"Messages, {=1} non {1|lu|lus}",
+"Mensajes, {=1} sin leer",
+"Сообщения, непрочитанных: {=1}",
+"الرسائل، غير المقروءة: {=1}",
+"संदेश, {=1} अपठित",
+"Mensagens, {=1} não {1|lida|lidas}"
+],
+[
+"^Message (.+)$",
+"傳訊息給 {=1}",
+"传消息给 {=1}",
+"Écrire à {=1}",
+"Escribir a {=1}",
+"Написать: {=1}",
+"راسل {=1}",
+"{=1} को संदेश भेजें",
+"Mandar mensagem para {=1}"
+],
+[
+"^· from (.+)$",
+"· 來自 {=1}",
+"· 来自 {=1}",
+"· originaire de {=1}",
+"· de {=1}",
+"· родом из {=1}",
+"· من {=1}",
+"· मूल रूप से {=1} से",
+"· natural de {=1}"
+],
+[
+"^You: (.+)$",
+"你：{=1}",
+"你：{=1}",
+"Vous : {=1}",
+"Tú: {=1}",
+"Вы: {=1}",
+"أنت: {=1}",
+"आप: {=1}",
+"Você: {=1}"
+],
+[
+"^You · (.+)$",
+"你 · {=1}",
+"你 · {=1}",
+"Vous · {=1}",
+"Tú · {=1}",
+"Вы · {=1}",
+"أنت · {=1}",
+"आप · {=1}",
+"Você · {=1}"
+],
+[
+"^(.+) and the director get this straight away and can accept you in one tap\\. Your email stays private unless you share it\\.$",
+"{=1} 和導演會立即收到，一鍵即可接受你。除非你分享，否則你的電子郵件會保密。",
+"{=1} 和导演会立即收到，一键即可接受你。除非你分享，否则你的电子邮件会保密。",
+"{=1} et le réalisateur le reçoivent tout de suite et peuvent vous accepter en un clic. Votre e-mail reste privé sauf si vous le partagez.",
+"{=1} y el director lo reciben al momento y pueden aceptarte con un toque. Tu correo es privado salvo que lo compartas.",
+"{=1} и режиссёр получат это сразу и смогут принять вас в одно касание. Ваш адрес скрыт, если вы им не поделитесь.",
+"سيصل هذا فورًا إلى {=1} والمخرج، ويمكنهم قبولك بنقرة واحدة. يبقى بريدك خاصًا ما لم تشاركه.",
+"{=1} और निर्देशक को यह तुरंत मिलेगा और वे एक टैप में आपको स्वीकार कर सकते हैं। जब तक आप साझा न करें, आपका ईमेल निजी रहता है।",
+"{=1} e a direção recebem na hora e podem aceitar você com um toque. Seu e-mail fica privado, a menos que você compartilhe."
 ]
 ]
 };

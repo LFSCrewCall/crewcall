@@ -197,7 +197,7 @@ People type the first part of their email and pick the ending from a list: @stud
 
 ## Updating the site
 
-When you change the code, raise the version number in two places so phones don't mix old and new files: `CACHE` in sw.js (crewcall-v18) and every `?v=18` in index.html.
+When you change the code, raise the version number in two places so phones don't mix old and new files: `CACHE` in sw.js (crewcall-v19) and every `?v=19` in index.html.
 
 ## Funding
 
@@ -234,7 +234,31 @@ In a project's Crew tab, anyone signed in who isn't on it sees Add me to the cre
 
 ## Project window
 
-A shoot's window has tabs: Open roles, Schedule, Crew, Contact and Requests (managers only). Crew lists everyone with their number of credits and an Email or Message button. Tap a name to see their profile, then Back to the project.
+A shoot's window has tabs: Open roles, Cast, Schedule, Crew, Contact and Requests (managers only). Crew lists everyone with their number of credits and an Email or Message button. Tap a name to see their profile, then Back to the project.
+
+## Casting
+
+Actor is now called Talent, and there's a new role, Supporting artist. Both sit under Cast. Older records that say Actor are read as Talent automatically.
+
+- When posting a shoot, each Talent or Supporting artist row has Character, Playing age and About the part. The Casting box holds an optional casting call link (Backstage, Spotlight, StarNow, Mandy or a form), closing date, pay and notes.
+- The project window has a Cast tab with the casting call, the parts still to cast and the cast list.
+- The Casting tab (after Crew) has two views. Parts lists every open part, with Ask to play and Apply on Backstage when there's a link. Talent (signed-in only) lists everyone with Talent or Supporting artist on their profile, or with an LFS acting credit, so you can contact previous actors.
+
+## Messages
+
+The speech-bubble button in the header opens Messages, with a red count of unread messages. Each conversation shows as a chat and has a reply box (Ctrl or Cmd + Enter sends). Messages are private between the two people. New ones are also emailed, unless someone has turned that off. No database change was needed.
+
+Optional: redeploy the Supabase function so message emails link straight to the conversation. Open Edge Functions, then crewcall, then Code, paste in all of `supabase/functions/crewcall/index.ts` and press Deploy (as in SETUP.md, step 10). Without it, they link to the home page.
+
+## My profile
+
+My profile has tabs: Availability (first), About me, Roles, Kit, Credits, and Emails and privacy. Someone signing up for the first time starts on About me. It saves as you type, so there's no Save button to forget. About me includes Based in and From, and Crew search finds people by city.
+
+## Drafts
+
+If someone closes a form part-way, by clicking outside it or pressing Escape, nothing is lost. Clicking outside a form you've typed in doesn't close it. Use × or Cancel. Reopening the form brings the text back, with Start again to clear it. Drafts are kept on that device only and cleared when signing out.
+
+Tapping any date or time box opens the calendar picker.
 
 ## Privacy and data
 

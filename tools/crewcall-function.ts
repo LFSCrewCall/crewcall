@@ -244,7 +244,7 @@ async function jobMail(S: any) {
     const unread = list.filter(n => !n.read);
     if (!st || !email || !unread.length) { for (const n of list) await mark("x:n:" + n.id); continue; }
     const subject = unread.length === 1 ? `Crew Call: ${unread[0].text.length > 70 ? unread[0].text.slice(0, 67) + "…" : unread[0].text}` : `Crew Call: ${unread.length} updates for you`;
-    const html = simpleEmail({ title: subject, first: first(st.name), items: unread.map(n => ({ text: n.text, url: n.pid ? `${SITE}#p/${n.pid}` : undefined })), button: { label: "Open Crew Call", url: SITE } });
+    const html = simpleEmail({ title: subject, first: first(st.name), items: unread.map(n => ({ text: n.text, url: n.kind === "message" && n.from ? `${SITE}#msg/${n.from}` : n.pid ? `${SITE}#p/${n.pid}` : undefined })), button: { label: "Open Crew Call", url: SITE } });
     await send(S, { email, name: st.name }, subject, html, "n:" + unread[0].id);
     for (const n of list) await mark("x:n:" + n.id);
     out.notifications++;

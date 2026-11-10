@@ -1,0 +1,88 @@
+# v19: drafts, casting, location, messages, profile tabs
+Talent || 演員 || Comédien·ne || Intérprete
+Supporting artist || 臨時演員 || Figurant·e || Figurante
+Supporting artists || 臨時演員 || Figurants || Figurantes
+Casting || 選角 || Casting || Casting
+Cast || 演員陣容 || Distribution || Reparto
+Cast your film || 為你的影片選角 || Faire le casting de votre film || Haz el casting de tu película
+Casting call || 選角徵選 || Appel à candidatures || Convocatoria de casting
+Casting call link || 選角徵選連結 || Lien de l'appel à candidatures || Enlace de la convocatoria
+Casting closed || 選角已截止 || Casting clos || Casting cerrado
+Backstage, Spotlight, StarNow, Mandy or a form || Backstage、Spotlight、StarNow、Mandy 或表單 || Backstage, Spotlight, StarNow, Mandy ou un formulaire || Backstage, Spotlight, StarNow, Mandy o un formulario
+Applications close || 報名截止 || Fin des candidatures || Cierre de solicitudes
+Paid? || 有酬勞嗎？ || Rémunéré ? || ¿Remunerado?
+e.g. Expenses and lunch || 例如：交通費和午餐 || ex. frais et déjeuner || p. ej. gastos y comida
+Notes for actors || 給演員的說明 || Notes pour les comédiens || Notas para los actores
+Self-tape or in-person audition, recall dates, what to send || 自拍試鏡或現場試鏡、複試日期、要寄送的資料 || Self-tape ou audition en personne, dates de callback, ce qu'il faut envoyer || Self-tape o audición en persona, fechas de callback, qué enviar
+optional: for Talent and Supporting artist roles || 選填：用於演員和臨時演員角色 || facultatif : pour les rôles de comédien et de figurant || opcional: para papeles de intérprete y figurante
+Add Talent or Supporting artist from the Roles list above, then use Character to name the part. Actors can request a part here, or apply through your casting call. || 從上方的職位清單加入演員或臨時演員，再用「角色」填寫角色名稱。演員可以在這裡申請角色，或透過你的選角徵選報名。 || Ajoutez Comédien·ne ou Figurant·e depuis la liste des postes ci-dessus, puis utilisez Personnage pour nommer le rôle. Les comédiens peuvent demander un rôle ici ou postuler via votre appel à candidatures. || Añade Intérprete o Figurante desde la lista de puestos de arriba y usa Personaje para nombrar el papel. Los actores pueden pedir un papel aquí o presentarse a través de tu convocatoria.
+Character || 角色 || Personnage || Personaje
+Character ✓ || 角色 ✓ || Personnage ✓ || Personaje ✓
+e.g. Maya || 例如：Maya || ex. Maya || p. ej. Maya
+Playing age || 飾演年齡 || Âge de jeu || Edad aparente
+e.g. 25 to 35 || 例如：25 至 35 歲 || ex. 25 à 35 ans || p. ej. de 25 a 35
+About the part || 關於這個角色 || À propos du rôle || Sobre el papel
+Who they are, what the scenes ask for, accents, any intimacy or stunts, self-tape details || 角色是誰、場景需要什麼、口音、是否有親密戲或特技、自拍試鏡細節 || Qui est le personnage, ce que demandent les scènes, accents, scènes intimes ou cascades, détails du self-tape || Quién es, qué piden las escenas, acentos, escenas íntimas o especialistas, detalles del self-tape
+Parts to cast || 待選角色 || Rôles à distribuer || Papeles por cubrir
+Fully cast. || 角色已全部選定。 || Distribution complète. || Reparto completo.
+Find talent on Crew Call || 在 Crew Call 找演員 || Trouver des comédiens sur Crew Call || Buscar intérpretes en Crew Call
+Parts || 角色 || Rôles || Papeles
+Part || 角色 || Rôle || Papel
+Apply || 報名 || Candidater || Presentarse
+Through a casting call || 透過選角徵選 || Via un appel à candidatures || A través de una convocatoria
+Shoots || 拍攝 || Tournage || Rodaje
+Shooting soonest || 最快開拍 || Tournage le plus proche || Rodaje más próximo
+Closing soonest || 最快截止 || Clôture la plus proche || Cierre más próximo
+Playing age || 飾演年齡 || Âge de jeu || Edad aparente
+Search part, film, director or playing age || 搜尋角色、影片、導演或飾演年齡 || Rechercher un rôle, un film, un réalisateur ou un âge de jeu || Buscar papel, película, director o edad aparente
+Search parts || 搜尋角色 || Rechercher des rôles || Buscar papeles
+Parts that fit your roles || 符合你職位的角色 || Rôles qui correspondent à vos postes || Papeles que encajan con tus puestos
+Parts in LFS films, from leads to supporting artists. Ask for a part here, apply through the film's casting call, or find actors who've worked on LFS shoots. || LFS 影片的角色，從主角到臨時演員都有。在這裡申請角色、透過影片的選角徵選報名，或找曾參與 LFS 拍攝的演員。 || Des rôles dans les films de la LFS, des premiers rôles aux figurants. Demandez un rôle ici, postulez via l'appel à candidatures du film ou trouvez des comédiens qui ont tourné sur des films LFS. || Papeles en películas de la LFS, de protagonistas a figurantes. Pide un papel aquí, preséntate a través de la convocatoria de la película o encuentra actores que hayan trabajado en rodajes de la LFS.
+Talent and supporting artists || 演員和臨時演員 || Comédiens et figurants || Intérpretes y figurantes
+Has acted on an LFS film || 曾在 LFS 影片中演出 || A joué dans un film LFS || Ha actuado en una película de la LFS
+Search name, city, film or part || 搜尋姓名、城市、影片或角色 || Rechercher un nom, une ville, un film ou un rôle || Buscar nombre, ciudad, película o papel
+No LFS parts yet || 尚無 LFS 演出經歷 || Aucun rôle LFS pour l'instant || Aún no tiene papeles en la LFS
+No parts open right now || 目前沒有開放的角色 || Aucun rôle ouvert pour le moment || No hay papeles abiertos ahora
+Casting a shoot? Add Talent or Supporting artist roles to it and they show up here. || 要為拍攝選角？加入演員或臨時演員職位，就會顯示在這裡。 || Vous faites un casting ? Ajoutez des rôles de comédien ou de figurant à votre tournage et ils apparaîtront ici. || ¿Buscas reparto? Añade papeles de intérprete o figurante a tu rodaje y aparecerán aquí.
+Actors appear here once they add Talent or Supporting artist to their profile, or once they've been cast on an LFS shoot. || 演員在個人檔案加入演員或臨時演員，或曾在 LFS 拍攝中獲選後，就會出現在這裡。 || Les comédiens apparaissent ici dès qu'ils ajoutent Comédien·ne ou Figurant·e à leur profil, ou après avoir été choisis sur un tournage LFS. || Los actores aparecen aquí cuando añaden Intérprete o Figurante a su perfil, o cuando han participado en un rodaje de la LFS.
+Sign in to ask || 登入後申請 || Connectez-vous pour demander || Inicia sesión para pedirlo
+Ask for this part || 申請這個角色 || Demander ce rôle || Pedir este papel
+You're on this film || 你在這部影片的團隊中 || Vous êtes sur ce film || Estás en esta película
+Sign in to cast your film. || 登入後才能為影片選角。 || Connectez-vous pour faire le casting de votre film. || Inicia sesión para hacer el casting de tu película.
+Sign in to see who acts on LFS films. || 登入後才能查看在 LFS 影片演出的人。 || Connectez-vous pour voir qui joue dans les films LFS. || Inicia sesión para ver quién actúa en las películas de la LFS.
+Add Talent or Supporting artist parts to one of your shoots, with a character name and playing age. You can also add a casting call link from Backstage, Spotlight, StarNow or Mandy. || 在你的拍攝中加入演員或臨時演員角色，並填寫角色名稱和飾演年齡。也可以加入 Backstage、Spotlight、StarNow 或 Mandy 的選角徵選連結。 || Ajoutez des rôles de comédien ou de figurant à l'un de vos tournages, avec le nom du personnage et l'âge de jeu. Vous pouvez aussi ajouter un lien d'appel à candidatures Backstage, Spotlight, StarNow ou Mandy. || Añade papeles de intérprete o figurante a uno de tus rodajes, con el nombre del personaje y la edad aparente. También puedes añadir un enlace de convocatoria de Backstage, Spotlight, StarNow o Mandy.
+Post a new shoot instead || 改為發布新的拍攝 || Publier plutôt un nouveau tournage || Publicar un rodaje nuevo
+The casting call link isn't a web address. || 選角徵選連結不是有效的網址。 || Le lien de l'appel à candidatures n'est pas une adresse web. || El enlace de la convocatoria no es una dirección web.
+Based in || 所在地 || Basé·e à || Con base en
+city and country, so people nearby can find you || 城市和國家，方便附近的人找到你 || ville et pays, pour que les personnes proches vous trouvent || ciudad y país, para que la gente cercana te encuentre
+e.g. London, UK || 例如：英國倫敦 || ex. Londres, Royaume-Uni || p. ej. Londres, Reino Unido
+e.g. Lagos, Nigeria || 例如：奈及利亞拉哥斯 || ex. Lagos, Nigeria || p. ej. Lagos, Nigeria
+Search name, kit, skill, city || 搜尋姓名、器材、技能、城市 || Rechercher un nom, du matériel, une compétence, une ville || Buscar nombre, equipo, habilidad, ciudad
+Availability || 有空時間 || Disponibilités || Disponibilidad
+About me || 關於我 || À propos de moi || Sobre mí
+Emails and privacy || 電子郵件與隱私 || E-mails et confidentialité || Correos y privacidad
+Saved as you type. || 輸入時已自動儲存。 || Enregistré au fil de la saisie. || Se guarda mientras escribes.
+Saved as you type. Add at least one role to appear in Crew search. || 輸入時已自動儲存。至少加入一個職位才會出現在劇組搜尋中。 || Enregistré au fil de la saisie. Ajoutez au moins un poste pour apparaître dans la recherche d'équipe. || Se guarda mientras escribes. Añade al menos un puesto para aparecer en la búsqueda de equipo.
+Add your name. || 請填寫你的姓名。 || Ajoutez votre nom. || Añade tu nombre.
+Welcome. Fill in About me, pick at least one role under Roles, and you'll appear in Crew search and on the calendar. Everything saves as you type. || 歡迎。填寫「關於我」，在「職位」中至少選一個，你就會出現在劇組搜尋和行事曆上。所有內容都會在輸入時自動儲存。 || Bienvenue. Remplissez À propos de moi, choisissez au moins un poste dans Postes, et vous apparaîtrez dans la recherche d'équipe et sur le calendrier. Tout s'enregistre au fil de la saisie. || Bienvenido. Rellena Sobre mí, elige al menos un puesto en Puestos y aparecerás en la búsqueda de equipo y en el calendario. Todo se guarda mientras escribes.
+Draft kept. Open the form again to carry on || 草稿已保留。再次開啟表單即可繼續 || Brouillon conservé. Rouvrez le formulaire pour continuer || Borrador guardado. Abre el formulario de nuevo para continuar
+Use × or Cancel to close. Your draft is kept || 請用 × 或「取消」關閉。草稿會保留 || Utilisez × ou Annuler pour fermer. Votre brouillon est conservé || Usa × o Cancelar para cerrar. Tu borrador se guarda
+Picked up where you left off. || 已接續你上次停下的地方。 || Vous reprenez là où vous en étiez. || Sigues donde lo dejaste.
+Restored what you typed earlier. || 已還原你稍早輸入的內容。 || Ce que vous avez saisi tout à l'heure a été restauré. || Se ha recuperado lo que escribiste antes.
+Restored what you typed last time. || 已還原你上次輸入的內容。 || Ce que vous avez saisi la dernière fois a été restauré. || Se ha recuperado lo que escribiste la última vez.
+Start again || 重新開始 || Recommencer || Empezar de nuevo
+On your device || 在你的裝置上 || Sur votre appareil || En tu dispositivo
+Only your sign-in, and a draft of any form you've started but not sent, so a stray click doesn't lose your typing. Signing out clears both. || 只有你的登入狀態，以及你開始填寫但尚未送出的表單草稿，避免誤點就失去輸入內容。登出會同時清除兩者。 || Seulement votre connexion, et un brouillon de tout formulaire commencé mais non envoyé, pour qu'un clic malheureux ne fasse pas perdre votre saisie. La déconnexion efface les deux. || Solo tu sesión y un borrador de cualquier formulario que hayas empezado sin enviar, para que un clic por error no borre lo que escribiste. Al cerrar sesión se borran ambos.
+. Your device only keeps you signed in, plus a draft of any form you haven't sent yet. Signing out clears both. || 。你的裝置只會保留登入狀態，以及尚未送出的表單草稿。登出會同時清除兩者。 || . Votre appareil garde seulement votre connexion et un brouillon des formulaires non envoyés. La déconnexion efface les deux. || . Tu dispositivo solo guarda tu sesión y un borrador de los formularios que no has enviado. Al cerrar sesión se borran ambos.
+Messages || 訊息 || Messages || Mensajes
+All messages || 所有訊息 || Tous les messages || Todos los mensajes
+Reply || 回覆 || Répondre || Responder
+Write a reply || 寫下回覆 || Écrire une réponse || Escribe una respuesta
+Conversation || 對話 || Conversation || Conversación
+Private between you and the other person. New messages are also emailed, unless you've turned that off in My profile. || 只有你和對方看得到。新訊息也會以電子郵件寄出，除非你已在「我的檔案」中關閉。 || Privé entre vous et l'autre personne. Les nouveaux messages sont aussi envoyés par e-mail, sauf si vous l'avez désactivé dans Mon profil. || Privado entre tú y la otra persona. Los mensajes nuevos también se envían por correo, salvo que lo hayas desactivado en Mi perfil.
+No messages yet. Open someone's profile in Crew or Casting and press Message. || 還沒有訊息。在劇組或選角中開啟某人的個人檔案，然後按「傳訊息」。 || Aucun message pour l'instant. Ouvrez un profil dans Équipe ou Casting et appuyez sur Message. || Aún no hay mensajes. Abre un perfil en Equipo o Casting y pulsa Mensaje.
+Sign in to see your messages. || 登入後才能查看訊息。 || Connectez-vous pour voir vos messages. || Inicia sesión para ver tus mensajes.
+That person isn't on Crew Call any more || 這個人已不在 Crew Call 上 || Cette personne n'est plus sur Crew Call || Esa persona ya no está en Crew Call
+You || 你 || Vous || Tú
+They'll get this in Crew Call and by email. Your email is kept private; they reply in Crew Call. || 對方會在 Crew Call 和電子郵件中收到。你的電子郵件會保密；對方會在 Crew Call 回覆。 || Ils le recevront dans Crew Call et par e-mail. Votre e-mail reste privé ; ils répondent dans Crew Call. || Lo recibirán en Crew Call y por correo. Tu correo se mantiene privado; responden en Crew Call.
+They'll get this in Crew Call and by email. Your email is included so they can reply directly. || 對方會在 Crew Call 和電子郵件中收到。你的電子郵件會附上，方便對方直接回覆。 || Ils le recevront dans Crew Call et par e-mail. Votre e-mail est joint pour qu'ils puissent répondre directement. || Lo recibirán en Crew Call y por correo. Se incluye tu correo para que puedan responder directamente.

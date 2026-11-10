@@ -225,7 +225,7 @@
   const toggleDay = (st, d, on) => { const has = st.days.includes(d); const want = on === undefined ? !has : on; if (want && !has) st.days.push(d); if (!want && has) st.days = st.days.filter(x => x !== d); syncAvail(st); st.updated = TODAY; };
   const nextFree = s => { const f = (s.avail || []).filter(r => r.to >= TODAY); return f.length ? f.map(r => fmtRange({ from: r.from < TODAY ? TODAY : r.from, to: r.to })).slice(0, 2).join(", ") : null; };
   const creditsOf = s => S.projects.filter(p => !p.archived && isPast(p)).flatMap(p => [
-    ...p.roles.filter(r => r.filledBy === s.id).map(r => ({ p, role: r.role })),
+    ...p.roles.filter(r => r.filledBy === s.id).map(r => ({ p, role: r.role, character: r.character || "" })),
     ...p.shadows.filter(x => x.sid === s.id).map(x => ({ p, role: x.role, shadow: true }))
   ]).concat((S.releases || []).filter(x => x.pid && project(x.pid)).flatMap(x => x.attached.filter(t => t.sid === s.id).map(t => ({ p: project(x.pid), role: t.need, release: true }))))
     .concat((S.posts || []).filter(x => x.pid && project(x.pid)).flatMap(x => x.attached.filter(t => t.sid === s.id).map(t => ({ p: project(x.pid), role: POST_CREDIT[t.need] || t.need, post: true }))))
@@ -313,7 +313,7 @@
   const isHod = r => typeof r.hod === "boolean" ? r.hod : HOD_ROLES.has(r.role);
   const hodTag = r => isHod(r) ? ` <span class="tag-hod" title="Head of department">HOD</span>` : "";
   const hasBrief = r => !!(r.brief && (r.brief.text || r.brief.url));
-  const briefHtml = (r, open) => hasBrief(r) ? `<details class="brief"${open ? " open" : ""}><summary>Brief for the ${esc(r.role)}</summary>${r.brief.text ? `<p>${esc(r.brief.text).replace(/\n/g, "<br>")}</p>` : ""}${r.brief.url ? `<p class="brief-link">${linkTo(r.brief.url)}</p>` : ""}</details>` : "";
+  const briefHtml = (r, open) => hasBrief(r) ? `<details class="brief"${open ? " open" : ""}><summary>${isCast(r) ? "About the part" : `Brief for the ${esc(r.role)}`}</summary>${r.brief.text ? `<p>${esc(r.brief.text).replace(/\n/g, "<br>")}</p>` : ""}${r.brief.url ? `<p class="brief-link">${linkTo(r.brief.url)}</p>` : ""}</details>` : "";
   // everyone who can be picked for a role or hand-over: people who list the role first
   const memberLabel = s => `${s.name}${s.cohort ? " · " + s.cohort : s.guest ? " · Guest" : ""}`;
   const memberOptions = (role, skip = []) => { const ok = S.students.filter(s => !s.incomplete && !skip.includes(s.id)); const a = role ? ok.filter(s => s.roles.includes(role)) : [], b = ok.filter(s => !a.includes(s)).sort((x, y) => x.name.localeCompare(y.name)); return [...a, ...b].map(s => `<option value="${esc(memberLabel(s))}">${role && s.roles.includes(role) ? esc(role) : ""}</option>`).join(""); };
@@ -369,21 +369,96 @@
     return `<span class="muted small">Email private</span> <button class="btn btn-quiet btn-xs" data-msg="${person.id}">Message</button>`;
   }
 
+  // Tapping anywhere on a date or time box opens the calendar pop-out, not just the small icon
+  document.addEventListener("click", e => {
+    const el = e.target.closest && e.target.closest('input[type=date], input[type=time], input[type=month], input[type=datetime-local]');
+    if (!el || el.disabled || el.readOnly || typeof el.showPicker !== "function") return;
+    try { el.showPicker(); } catch (err) {}
+  });
   // ---------- modal ----------
   const modal = $("#modal"), modalBody = $("#modalBody");
   let lastFocus = null;
+  // Drafts: a form you've typed into is never thrown away by clicking outside or closing.
+  // The open form is kept in memory (with every row you added) and its typed fields are also kept on this device.
+  const NO_DRAFT = new Set(["siForm", "codeForm", "emailFix", "adminAddForm", "invForm", "cfForm"]);
+  const drafts = new Map(); let cur = null;
+  const draftForm = () => [...modalBody.querySelectorAll("form[id]")].find(f => !NO_DRAFT.has(f.id) && f.querySelector("textarea, input:not([type=hidden]):not([type=checkbox]):not([type=radio])"));
+  const draftKey = f => f.id + "|" + ((modalBody.querySelector("#modalTitle") || {}).textContent || "").trim().slice(0, 80);
+  const LS = "cc-draft:";
+  const lsGet = k => { try { return JSON.parse(localStorage.getItem(LS + k) || "null"); } catch (e) { return null; } };
+  const lsSet = (k, v) => { try { v ? localStorage.setItem(LS + k, JSON.stringify(v)) : localStorage.removeItem(LS + k); } catch (e) {} };
+  const fieldVals = f => { const o = {}; f.querySelectorAll("input[name], textarea[name], select[name]").forEach(el => { if (el.type === "file" || el.type === "hidden" || el.readOnly) return; o[el.name] = el.type === "checkbox" || el.type === "radio" ? (el.type === "radio" ? (el.checked ? el.value : o[el.name]) : el.checked) : el.value; }); return o; };
+  const putVals = (f, o) => Object.entries(o).forEach(([n, v]) => f.querySelectorAll(`[name="${n}"]`).forEach(el => { if (el.type === "checkbox") el.checked = !!v; else if (el.type === "radio") el.checked = el.value === v; else if (v != null && !el.readOnly) el.value = v; }));
+  // Keep the form that's on screen before it's closed or replaced
+  const keepDraft = () => {
+    if (!cur || !cur.dirty || cur.done || cur.sending || !modalBody.contains(cur.form)) return false;
+    drafts.set(cur.key, { nodes: [...modalBody.childNodes], wide: modal.querySelector(".modal-box").classList.contains("wide") });
+    cur = null; return true;
+  };
+  const draftBar = (msg, undo) => {
+    const bar = document.createElement("p"); bar.className = "draft-bar"; bar.setAttribute("role", "status");
+    bar.innerHTML = `<span>${esc(msg)}</span><button type="button" class="link-btn">Start again</button>`;
+    bar.querySelector("button").addEventListener("click", () => { undo(); bar.remove(); });
+    const t = modalBody.querySelector("#modalTitle"); t ? t.insertAdjacentElement("afterend", bar) : modalBody.prepend(bar);
+  };
+  const trackDraft = () => {
+    const f = draftForm(); if (!f) { cur = null; return; }
+    const key = draftKey(f), held = drafts.get(key);
+    cur = { form: f, key, dirty: false, done: false };
+    if (held) {
+      // put back the exact form they left, rows and all, once the opener has finished wiring the fresh copy
+      const fresh = [...modalBody.childNodes];
+      queueMicrotask(() => {
+        if (!cur || cur.key !== key) return;
+        drafts.delete(key); modalBody.replaceChildren(...held.nodes);
+        modal.querySelector(".modal-box").classList.toggle("wide", held.wide);
+        const old = draftForm(); cur = { form: old, key, dirty: true, done: false };
+        draftBar("Picked up where you left off.", () => { lsSet(key, null); modalBody.replaceChildren(...fresh); cur = { form: f, key, dirty: false, done: false }; bindOpeners(modalBody); });
+      });
+      return;
+    }
+    const saved = lsGet(key);
+    if (saved && saved.v && Object.values(saved.v).some(v => typeof v === "string" && v.trim())) {
+      const before = fieldVals(f); putVals(f, saved.v); cur.dirty = true;
+      f.querySelectorAll("input[type=date]").forEach(el => el.dispatchEvent(new Event("change", { bubbles: true })));
+      draftBar(`Restored what you typed ${saved.at === TODAY ? "earlier" : "last time"}.`, () => { putVals(f, before); lsSet(key, null); cur.dirty = false; });
+    }
+  };
+  let draftT = 0;
+  const noteInput = e => {
+    if (!cur || !cur.form.contains(e.target)) return;
+    cur.dirty = true; const c = cur;
+    clearTimeout(draftT); draftT = setTimeout(() => { if (!c.done) lsSet(c.key, { at: TODAY, v: fieldVals(c.form) }); }, 400);
+  };
+  modalBody.addEventListener("input", noteInput); modalBody.addEventListener("change", noteInput);
+  modalBody.addEventListener("submit", e => {
+    if (!cur || e.target !== cur.form) return; const c = cur; c.sending = true;
+    // if the form is still there afterwards, it didn't go through (a check failed), so keep the draft
+    setTimeout(() => { if (!modalBody.contains(c.form) || modal.hidden) { c.done = true; clearTimeout(draftT); lsSet(c.key, null); drafts.delete(c.key); } else c.sending = false; });
+  }, true);
   const openModal = (html, wide) => {
-    if (modal.hidden) lastFocus = document.activeElement;
+    if (modal.hidden) lastFocus = document.activeElement; else if (keepDraft()) toast("Draft kept. Open the form again to carry on");
     modalBody.innerHTML = html; modal.hidden = false;
     modal.querySelector(".modal-box").classList.toggle("wide", !!wide);
     document.body.classList.add("no-scroll");
     modal.querySelector(".modal-box").scrollTop = 0;
     modal.querySelector(".modal-x").focus();
     bindOpeners(modalBody);
+    trackDraft();
   };
-  const closeModal = () => { modal.hidden = true; document.body.classList.remove("no-scroll"); lastFocus && lastFocus.focus && lastFocus.focus(); };
-  modal.addEventListener("click", e => { if (e.target.closest("[data-close]")) closeModal(); });
-  document.addEventListener("keydown", e => { if (e.key === "Escape" && !modal.hidden) closeModal(); });
+  const closeModal = () => {
+    const kept = keepDraft();
+    modal.hidden = true; document.body.classList.remove("no-scroll"); lastFocus && lastFocus.focus && lastFocus.focus();
+    if (kept) toast("Draft kept. Open the form again to carry on");
+  };
+  const unsaved = () => cur && cur.dirty && !cur.done && !cur.sending && modalBody.contains(cur.form);
+  modal.addEventListener("click", e => {
+    if (!e.target.closest("[data-close]")) return;
+    // a stray click on the dark area round a form you've started doesn't close it
+    if (e.target.classList.contains("modal-backdrop") && unsaved()) { toast("Use × or Cancel to close. Your draft is kept"); return; }
+    closeModal();
+  });
+  document.addEventListener("keydown", e => { if (e.key === "Escape" && !modal.hidden) { if (unsaved() && document.activeElement && document.activeElement.closest("form")) { toast("Use × or Cancel to close. Your draft is kept"); return; } closeModal(); } });
   function confirmBox(title, text, okLabel, onOk, danger = true) {
     openModal(`<h2 id="modalTitle" class="m-title">${esc(title)}</h2><p class="muted">${text}</p>
       <div class="form-actions"><button class="btn ${danger ? "btn-danger" : "btn-accent"}" id="cfOk">${esc(okLabel)}</button><button class="btn btn-ghost" data-close>Cancel</button></div>`);
@@ -396,7 +471,10 @@
     const m = me();
     acctBtn.innerHTML = m ? `<span class="avatar avatar-xs">${initials(m.name)}</span><span class="acct-n">${esc(first(m.name))}</span>` : "Sign in";
     acctBtn.classList.toggle("btn-accent-ghost", !m);
-    const unread = m ? S.notifications.filter(n => n.to === m.id && !n.read).length : 0;
+    const unread = m ? S.notifications.filter(n => n.to === m.id && !n.read && n.kind !== "message" && n.kind !== "sent").length : 0;
+    const unm = m ? msgUnread() : 0;
+    $("#msgBtn").hidden = !m; $("#msgN").hidden = !unm; $("#msgN").textContent = unm;
+    $("#msgBtn").setAttribute("aria-label", `Messages${unm ? `, ${unm} unread` : ""}`);
     $("#bellBtn").hidden = !m; $("#bellN").hidden = !unread; $("#bellN").textContent = unread;
     $("#bellBtn").setAttribute("aria-label", `Notifications${unread ? `, ${unread} unread` : ""}`);
     $('[data-view="admin"]').hidden = !isAdmin();
@@ -421,8 +499,8 @@
     e.stopPropagation();
     const m = me(); if (!m) return openSignIn();
     acctMenu.innerHTML = `<p class="am-who"><b>${esc(m.name)}</b><span>${esc(m.email)}</span>${isOwner(m) ? `<span class="tag-admin">Owner</span>` : isAdmin(m) ? `<span class="tag-admin">Admin</span>` : ""}${m.guest ? `<span class="tag-guest">Guest</span>` : ""}</p>
-      <button data-go="me">My profile</button><button data-go="mine">My shoots</button>${isAdmin(m) ? `<button data-go="admin">Admin</button>` : ""}
-      <button data-go="scripts">Develop</button><button data-go="post">Post</button><button data-go="release">Release</button><button data-go="paid">Paid</button><button data-go="fund">Funding</button><button data-install>Add to home screen</button><button data-privacy>Privacy notice</button><button data-go="about">About Crew Call</button>
+      <button data-go="me">My profile</button><button data-msgs>Messages</button><button data-go="mine">My shoots</button>${isAdmin(m) ? `<button data-go="admin">Admin</button>` : ""}
+      <button data-go="scripts">Develop</button><button data-go="post">Post</button><button data-go="release">Release</button><button data-go="paid">Paid</button><button data-go="fund">Funding</button><button data-go="cast">Casting</button><button data-install>Add to home screen</button><button data-privacy>Privacy notice</button><button data-go="about">About Crew Call</button>
       ${LIVE ? "" : `<button data-switch>Switch sample person</button>`}<button data-signout>Sign out</button>`;
     acctMenu.hidden = !acctMenu.hidden; acctBtn.setAttribute("aria-expanded", String(!acctMenu.hidden));
   });
@@ -430,24 +508,27 @@
     const b = e.target.closest("button"); if (!b) return; acctMenu.hidden = true;
     if (b.dataset.go) setView(b.dataset.go);
     if (b.hasAttribute("data-switch")) openSignIn();
-    if (b.hasAttribute("data-signout") && LIVE) { toast("Signing out…"); window.CC_CLOUDAPI.signOut(); return; }
+    if (b.hasAttribute("data-msgs")) openMessages();
+    if (b.hasAttribute("data-signout") && LIVE) { toast("Signing out…"); try { Object.keys(localStorage).filter(k => k.startsWith("cc-draft:")).forEach(k => localStorage.removeItem(k)); } catch (e) {} window.CC_CLOUDAPI.signOut(); return; }
     if (b.hasAttribute("data-signout")) { S.meId = null; editMine = false; drawHeader(); setView("calendar"); toast("Signed out"); }
   });
   document.addEventListener("click", e => { if (!e.target.closest(".acct")) acctMenu.hidden = true; });
   $("#view-projects").addEventListener("click", e => { const b = e.target.closest("[data-go]"); if (b) setView(b.dataset.go); });
   $("#bellBtn").addEventListener("click", openInbox);
+  $("#msgBtn").addEventListener("click", () => openMessages());
 
   function openInbox() {
     const m = me(); if (!m) return;
-    const list = S.notifications.filter(n => n.to === m.id);
+    const list = S.notifications.filter(n => n.to === m.id && n.kind !== "sent");
     const KIND = { request: "Request", match: "Role match", update: "Update", message: "Message", invite: "Invite", term: "New term" };
     openModal(`<h2 id="modalTitle" class="m-title">Notifications</h2>
       <p class="muted small">Everything here is also emailed to ${esc(m.email)} unless you've turned that type off in My profile.</p>
       ${list.length ? `<ul class="inbox">${list.map(n => `<li class="${n.read ? "" : "unread"}">
         <span class="ib-kind ib-${n.kind}">${KIND[n.kind] || "Note"}</span>
         <span class="ib-t">${esc(n.text)}</span>
-        <span class="ib-m">${ago(n.at)}${n.emailed ? " · emailed" : " · in app only"}${n.pid && project(n.pid) ? ` · <button class="link-btn" data-proj="${n.pid}">Open project</button>` : ""}</span></li>`).join("")}</ul>` : `<p class="empty-sm">Nothing yet.</p>`}`);
-    list.forEach(n => (n.read = true)); drawHeader();
+        <span class="ib-m">${ago(n.at)}${n.emailed ? " · emailed" : " · in app only"}${n.pid && project(n.pid) ? ` · <button class="link-btn" data-proj="${n.pid}">Open project</button>` : ""}${n.kind === "message" && msgFrom(n) ? ` · <button class="link-btn" data-thread="${msgFrom(n)}">Reply</button>` : ""}</span></li>`).join("")}</ul>` : `<p class="empty-sm">Nothing yet.</p>`}`);
+    modalBody.querySelectorAll("[data-thread]").forEach(b => (b.onclick = () => openThread(b.dataset.thread)));
+    list.forEach(n => { if (n.kind !== "message") n.read = true; }); drawHeader();
   }
 
   // ---------- sign in ----------
@@ -501,7 +582,7 @@
       <form id="siForm" class="si-form">${emailField(email)}<button class="btn btn-accent" type="submit">Email me a sign-in code</button></form>
       <form id="codeForm" class="si-form" hidden><p class="muted small" id="codeSent"></p><label class="field"><span>Code from the email</span><input name="code" inputmode="numeric" autocomplete="one-time-code" required maxlength="10" placeholder="123456"></label><button class="btn btn-accent" type="submit">Sign in</button><button type="button" class="link-btn small" id="codeBack">Use a different email</button></form>
       <p class="form-err" id="siErr" role="alert"></p>
-      <p class="muted small">By signing in you agree to the <button type="button" class="link-btn" data-privacy>privacy notice</button>. Nothing is saved on your device apart from staying signed in.</p>
+      <p class="muted small">By signing in you agree to the <button type="button" class="link-btn" data-privacy>privacy notice</button>. Your device only keeps you signed in, plus a draft of any form you haven't sent yet. Signing out clears both.</p>
       <p class="small demo-link"><span>Want a look first?</span> <a href="${DEMO_URL}">Try the demo with sample people</a></p>`);
     const f = $("#siForm"), cf = $("#codeForm"), err = $("#siErr"), getMail = bindEmailField(f);
     let addr = "";
@@ -824,6 +905,22 @@
   }
 
   const projTab = {};
+  // ---------- cast ----------
+  // Cast parts are roles in the Cast group (Talent, Supporting artist), with an optional character and playing age
+  const castSet = () => new Set(["Talent", "Supporting artist", ...Object.entries(C.ROLE_GROUPS).filter(([g]) => /cast|talent|actor/i.test(g)).flatMap(([, rs]) => rs)]);
+  const isCast = r => castSet().has(typeof r === "string" ? r : r.role);
+  const castOf = p => Object.assign({ link: "", closes: "", pay: "", notes: "" }, p.casting || {});
+  const castClosed = p => { const c = castOf(p); return !!(c.closes && c.closes < TODAY); };
+  const castSite = u => { const h = (/^https?:\/\/(?:www\.)?([^/]+)/i.exec(u || "") || [])[1] || ""; const k = Object.entries({ "backstage.com": "Backstage", "spotlight.com": "Spotlight", "starnow": "StarNow", "mandy.com": "Mandy", "castingcallpro": "Mandy", "forms.gle": "Google Forms", "docs.google.com": "Google Forms" }).find(([d]) => h.includes(d)); return k ? k[1] : h; };
+  const partLabel = r => `${r.character ? `<span class="part-char">${esc(r.character)}</span> ` : ""}<span class="part-role">${esc(r.role)}</span>${r.age ? ` <span class="part-age">${esc(r.age)}</span>` : ""}`;
+
+  function castBox(p, past) {
+    const c = castOf(p), closed = castClosed(p);
+    if (!c.link && !c.notes && !c.closes && !c.pay) return "";
+    return `<div class="cast-box${closed || past ? " is-dim" : ""}"><div class="cb-top"><span class="cb-l">Casting call</span>${c.closes ? `<span class="cb-when">${closed || past ? "Closed" : `Closes ${fmtDay(c.closes)}`}</span>` : ""}</div>
+      ${c.pay ? `<p class="cb-pay">${esc(c.pay)}</p>` : ""}${c.notes ? `<p class="cb-notes">${esc(c.notes)}</p>` : ""}
+      ${c.link && !closed && !past ? `<a class="btn btn-accent btn-xs" href="${esc(c.link)}" target="_blank" rel="noopener">Apply on ${esc(castSite(c.link))}</a>` : ""}</div>`;
+  }
   function openProject(id) {
     const p = project(id); if (!p) return;
     const m = me(), mg = canManage(p), days = projDays(p), c = contactOf(p);
@@ -834,20 +931,22 @@
     const past = isPast(p);
     const futureDays = days.filter(d => d >= TODAY);
 
-    const lockedRows = locked.map(r => {
+    const lockRow = r => {
       const bh = m ? briefHtml(r) : "";
-      if (isExt(r)) { const cq = m && claimOf(p, r.rid, m.id); return `<li class="lock-row"><span class="role-name">${esc(r.role)}${hodTag(r)}</span><span class="lock-name">${esc(extName(r))} <span class="tag-ext">Not on Crew Call</span></span><span class="lock-mail"></span><span class="lock-acts">${mg && !past ? `<button class="btn btn-quiet btn-xs" data-unfill="${r.rid}" aria-label="Reopen ${esc(r.role)}">Reopen</button>` : cq ? (cq.status === "pending" ? `<span class="st st-pending">Sent · waiting</span>` : cq.status === "declined" ? `<span class="st st-no">Not confirmed</span>` : "") : m && !mg && !onProject(p, m.id) ? `<button class="btn btn-quiet btn-xs" data-claimref="${r.rid}">That's me</button>` : ""}</span>${bh}</li>`; }
+      if (isExt(r)) { const cq = m && claimOf(p, r.rid, m.id); return `<li class="lock-row"><span class="role-name">${isCast(r) ? partLabel(r) : esc(r.role) + hodTag(r)}</span><span class="lock-name">${esc(extName(r))} <span class="tag-ext">Not on Crew Call</span></span><span class="lock-mail"></span><span class="lock-acts">${mg && !past ? `<button class="btn btn-quiet btn-xs" data-unfill="${r.rid}" aria-label="Reopen ${esc(r.role)}">Reopen</button>` : cq ? (cq.status === "pending" ? `<span class="st st-pending">Sent · waiting</span>` : cq.status === "declined" ? `<span class="st st-no">Not confirmed</span>` : "") : m && !mg && !onProject(p, m.id) ? `<button class="btn btn-quiet btn-xs" data-claimref="${r.rid}">That's me</button>` : ""}</span>${bh}</li>`; }
       const s = student(r.filledBy) || { id: "", name: "Former member", email: "" };
       const sh = myReqFor(p, r.rid, "shadow");
       const canShadow = m && !mg && s.id !== m.id && !past && !onProject(p, m.id);
       const mine = m && s.id === m.id && !past;
       const ncr = s.id ? creditsOf(s).length : 0;
-      return `<li class="lock-row${mine ? " is-me" : ""}"><span class="role-name">${esc(r.role)}${hodTag(r)}</span><span class="lock-who"><button class="link-btn lock-name" data-student="${s.id}">${esc(s.name)}${mine ? " (you)" : ""}</button>${ncr ? `<span class="lock-cr">${ncr === 1 ? "1 credit" : `${ncr} credits`}</span>` : ""}</span>
+      return `<li class="lock-row${mine ? " is-me" : ""}"><span class="role-name">${isCast(r) ? partLabel(r) : esc(r.role) + hodTag(r)}</span><span class="lock-who"><button class="link-btn lock-name" data-student="${s.id}">${esc(s.name)}${mine ? " (you)" : ""}</button>${ncr ? `<span class="lock-cr">${ncr === 1 ? "1 credit" : `${ncr} credits`}</span>` : ""}</span>
         <span class="lock-mail">${mg && s.email ? `<a href="mailto:${esc(s.email)}" target="_blank" rel="noopener">${esc(s.email)}</a>` : m && s.id && s.id !== m.id ? (emailVisible(s, p) ? `<a class="btn btn-quiet btn-xs" href="${mailto(s.email, `About ${p.title}`, `Hi ${first(s.name)},\n\n`)}" target="_blank" rel="noopener">Email</a>` : `<button class="btn btn-quiet btn-xs" data-msg="${s.id}">Message</button>`) : ""}</span>
         <span class="lock-acts">${mine ? `<button class="btn btn-quiet btn-xs" data-stepdown="${r.rid}">Step down</button>` : mg && !past ? `<button class="btn btn-quiet btn-xs" data-unfill="${r.rid}" aria-label="Reopen ${esc(r.role)}">Reopen</button>` : sh ? statusChip(sh) : canShadow ? `<button class="btn btn-quiet btn-xs" data-shadow="${r.rid}">Ask to shadow</button>` : ""}</span>${bh}</li>`;
-    }).join("") + p.shadows.map((x, i) => { const s = student(x.sid); return s ? `<li class="lock-row shadow-row"><span class="role-name">Shadow · ${esc(x.role)}</span><button class="link-btn lock-name" data-student="${s.id}">${esc(s.name)}</button><span class="lock-mail"></span><span class="lock-acts">${m && s.id === m.id && !past ? `<button class="btn btn-quiet btn-xs" data-stepdown-sh="${i}">Step down</button>` : mg && !past ? `<button class="btn btn-quiet btn-xs" data-unshadow="${i}">Remove</button>` : ""}</span></li>` : ""; }).join("");
+    };
+    const lockedCrew = locked.filter(r => !isCast(r)), lockedCast = locked.filter(isCast), openCrew = open.filter(r => !isCast(r)), openCast = open.filter(isCast);
+    const lockedRows = lockedCrew.map(lockRow).join("") + p.shadows.map((x, i) => { const s = student(x.sid); return s ? `<li class="lock-row shadow-row"><span class="role-name">Shadow · ${esc(x.role)}</span><button class="link-btn lock-name" data-student="${s.id}">${esc(s.name)}</button><span class="lock-mail"></span><span class="lock-acts">${m && s.id === m.id && !past ? `<button class="btn btn-quiet btn-xs" data-stepdown-sh="${i}">Step down</button>` : mg && !past ? `<button class="btn btn-quiet btn-xs" data-unshadow="${i}">Remove</button>` : ""}</span></li>` : ""; }).join("");
 
-    const openRows = open.map(r => {
+    const openRow = r => {
       const mr = myReqFor(p, r.rid, "crew");
       const matches = m ? S.students.filter(s => listed(s) && s.roles.includes(r.role)).map(s => ({ s, n: freeDaysCount(s, futureDays) })).filter(x => x.n > 0).sort((a, b) => b.n - a.n).slice(0, 4) : [];
       const learners = m ? S.students.filter(s => listed(s) && s.learn.includes(r.role) && freeDaysCount(s, futureDays) > 0).slice(0, 3) : [];
@@ -859,14 +958,15 @@
       else if (onProject(p, m.id)) acts = `<span class="muted small">You're on this shoot</span>`;
       else acts = `<button class="btn btn-accent btn-xs" data-req="${r.rid}">Request to join</button>`;
       return `<li class="role-row open">
-        <span class="role-name">${esc(r.role)}${hodTag(r)}</span>
+        <span class="role-name">${isCast(r) ? partLabel(r) : esc(r.role) + hodTag(r)}</span>
         <span class="role-who"><span class="chip chip-open">Open</span></span>
         <span class="role-acts">${acts}</span>
         ${m && !past ? `<span class="role-match">${matches.length ? `Free to help: ${matches.map(x => `<button class="match" data-student="${x.s.id}">${esc(x.s.name)} <span class="mono">${x.n === futureDays.length ? "all days" : `${x.n}/${futureDays.length}`}</span></button>`).join("")}` : `<span class="muted">No one with this role has marked these dates free yet.</span>`}
           ${learners.length ? `<span class="learn-line">Wants to shadow: ${learners.map(s => `<button class="match match-learn" data-student="${s.id}">${esc(s.name)}</button>`).join("")}</span>` : ""}</span>` : ""}
         ${m ? briefHtml(r) : hasBrief(r) ? `<span class="brief muted small">Sign in to read the brief.</span>` : ""}
       </li>`;
-    }).join("");
+    };
+    const openRows = openCrew.map(openRow).join(""), castOpenRows = (() => { const seen = {}, out = []; openCast.forEach(r => { const k = r.role + "|" + (r.character || "").toLowerCase(); if (seen[k]) seen[k].n++; else out.push(seen[k] = { r, n: 1 }); }); return out.map(x => openRow(x.r).replace('<span class="chip chip-open">Open</span>', x.n > 1 ? `<span class="chip chip-open">${x.n} needed</span>` : '<span class="chip chip-open">Open</span>')).join(""); })(), castLockRows = lockedCast.map(lockRow).join("");
 
     const reqRows = pending.map(q => {
       const s = student(q.sid); if (!s) return "";
@@ -890,8 +990,9 @@
     const named = namedSpots(p).filter(x => x.ref === "director" || x.ref.startsWith("producer:"));
     const namedRows = named.map(x => { const cq = m && claimOf(p, x.ref, m.id); return `<li class="lock-row"><span class="role-name">${esc(x.role)}</span><span class="lock-name">${esc(x.name)} <span class="tag-ext">Not on Crew Call</span></span><span class="lock-mail"></span><span class="lock-acts">${cq ? (cq.status === "pending" ? `<span class="st st-pending">Sent · waiting</span>` : "") : m && !mg ? `<button class="btn btn-quiet btn-xs" data-claimref="${esc(x.ref)}">That's me</button>` : ""}</span></li>`; }).join("");
     const crewN = locked.length + p.shadows.length;
-    const tabs = [["roles", "Open roles", past ? null : open.length], ["sched", "Schedule", days.length], ["crew", "Crew", crewN], ["contact", "Contact", null]].concat(mg ? [["reqs", "Requests", pending.length]] : []);
-    let tab = projTab[p.id] || (mg && pending.length ? "reqs" : open.length && !past ? "roles" : "crew");
+    const cst = castOf(p), hasCast = !!(lockedCast.length || openCast.length || cst.link || cst.notes);
+    const tabs = [["roles", "Open roles", past ? null : openCrew.length]].concat(hasCast ? [["cast", "Cast", past ? lockedCast.length : openCast.length]] : [], [["sched", "Schedule", days.length], ["crew", "Crew", crewN], ["contact", "Contact", null]], mg ? [["reqs", "Requests", pending.length]] : []);
+    let tab = projTab[p.id] || (mg && pending.length ? "reqs" : openCrew.length && !past ? "roles" : openCast.length && !past ? "cast" : "crew");
     if (!tabs.some(t => t[0] === tab)) tab = "crew";
     const panel = (id, html) => `<div class="ptab-panel" id="ptp-${id}" role="tabpanel" aria-labelledby="ptb-${id}" ${tab === id ? "" : "hidden"}>${html}</div>`;
     openModal(`
@@ -907,8 +1008,13 @@
 
       <div class="ptabs" role="tablist" aria-label="Project">${tabs.map(([id, l, n]) => `<button type="button" role="tab" class="ptab${tab === id ? " on" : ""}" id="ptb-${id}" aria-controls="ptp-${id}" aria-selected="${tab === id}" data-ptab="${id}">${l}${n != null ? ` <span class="count${id === "reqs" && n ? " count-hot" : ""}">${n}</span>` : ""}</button>`).join("")}</div>
 
-      ${panel("roles", `${past ? `<p class="empty-sm">This shoot has wrapped, so its roles are closed.</p>` : open.length ? `<ul class="role-list">${openRows}</ul>` : `<p class="empty-sm ok">Fully crewed.</p>`}
+      ${panel("roles", `${past ? `<p class="empty-sm">This shoot has wrapped, so its roles are closed.</p>` : openCrew.length ? `<ul class="role-list">${openRows}</ul>` : `<p class="empty-sm ok">Fully crewed.</p>`}
         ${!m ? `<p class="proto-note">Sign in to request a role, see contact details and who's free.</p>` : ""}`)}
+
+      ${hasCast ? panel("cast", `${castBox(p, past)}
+        ${!past && openCast.length ? `<h3 class="dp-sub">Parts to cast <span class="count">${openCast.length}</span></h3><ul class="role-list">${castOpenRows}</ul>` : !past && (lockedCast.length || openCast.length) ? `<p class="empty-sm ok">Fully cast.</p>` : ""}
+        ${lockedCast.length ? `<h3 class="dp-sub">Cast <span class="count">${lockedCast.length}</span></h3><ul class="lock-list">${castLockRows}</ul>` : ""}
+        ${mg && !past ? `<p class="mt"><button type="button" class="btn btn-ghost btn-xs" data-findtalent>Find talent on Crew Call</button></p>` : ""}`) : ""}
 
       ${panel("sched", `<section class="sched" aria-labelledby="schedH">
         <div class="sec-row"><h3 class="dp-sub" id="schedH">Schedule <span class="count">${days.length} day${days.length > 1 ? "s" : ""}</span></h3><button class="btn btn-quiet btn-xs" data-ics>Add to calendar</button></div>
@@ -954,6 +1060,7 @@
     modalBody.querySelectorAll("[data-claimref]").forEach(b => (b.onclick = () => { const x = namedSpots(p).find(y => y.ref === b.dataset.claimref); if (x) { sendClaim(x); openProject(p.id); } }));
     modalBody.querySelectorAll("[data-addfund]").forEach(b => (b.onclick = () => openFundForm(null, p)));
     modalBody.querySelectorAll("[data-addme]").forEach(b => (b.onclick = () => openAddMe(p)));
+    modalBody.querySelectorAll("[data-findtalent]").forEach(b => (b.onclick = () => { closeModal(); castMode = "talent"; setView("cast"); }));
     modalBody.querySelectorAll("[data-fund]").forEach(b => (b.onclick = () => openFund(b.dataset.fund)));
     const q = s => modalBody.querySelectorAll(s);
     q("[data-fill]").forEach(sel => sel.addEventListener("change", () => {
@@ -1168,7 +1275,7 @@
     const msg = type === "shadow" ? `I'd love to shadow your ${r.role} and learn on set.` : `${m.kit.length ? `I can bring ${m.kit.map(k => k.item).join(", ")}. ` : ""}${n === fd.length ? "I'm free every shoot day." : ""}`;
     openModal(`
       <p class="eyebrow">${esc(p.title)}</p>
-      <h2 id="modalTitle" class="m-title">${type === "shadow" ? `Ask to shadow the ${esc(r.role)}` : `Request to join as ${esc(r.role)}`}</h2>
+      <h2 id="modalTitle" class="m-title">${type === "shadow" ? `Ask to shadow the ${esc(r.role)}` : isCast(r) ? (r.character ? `Ask to play ${esc(r.character)}` : `Ask to be cast as ${esc(r.role)}`) : `Request to join as ${esc(r.role)}`}</h2>
       <p class="muted">${esc(contactOf(p).name)} and the director get this straight away and can accept you in one tap. Your email stays private unless you share it.</p>
       ${type !== "shadow" ? briefHtml(r, true) : ""}
       <div class="req-facts"><span class="badge ${n === fd.length ? "badge-free" : n ? "badge-part" : "badge-off"}">${n === fd.length ? "You're free every shoot day" : `You're free ${n} of ${fd.length} days`}</span>${clash.length ? `<span class="badge badge-off">Booked elsewhere on ${clash.map(fmtDay).join(", ")}</span>` : ""}</div>
@@ -1197,14 +1304,62 @@
   }
 
   // ---------- message (email stays private) ----------
-  function openMessage(sid) {
-    const s = student(sid), m = me(); if (!s || !m) return;
-    openModal(`<h2 id="modalTitle" class="m-title">Message ${esc(s.name)}</h2>
-      <p class="muted">They'll get this in Crew Call and by email. Your email is ${m.shareEmail ? "included so they can reply directly" : "kept private; they reply in Crew Call"}.</p>
-      <form id="msgForm"><label class="field"><span>Message</span><textarea name="msg" rows="4" required maxlength="500" placeholder="Hi ${esc(first(s.name))}, are you free for…"></textarea></label>
-      <div class="form-actions"><button class="btn btn-accent" type="submit">Send</button><button class="btn btn-ghost" type="button" data-close>Cancel</button></div></form>`);
-    $("#msgForm").addEventListener("submit", e => { e.preventDefault(); notify(sid, "message", `${m.name}: “${e.target.msg.value.trim()}”`); closeModal(); toast(`Sent to ${first(s.name)}`); });
+  // ---------- MESSAGES: one conversation per person, with replies ----------
+  // A message is a notification to the other person (emailed, as before) plus a "sent" copy to yourself,
+  // so both sides can read the conversation and nobody else can.
+  const msgFrom = n => n.from || (() => { const nm = (/^(.+?): “/.exec(n.text || "") || [])[1]; const st = nm && S.students.find(s => s.name === nm); return st ? st.id : null; })();
+  const msgBody = n => n.body != null ? n.body : ((/: “([\s\S]*)”$/.exec(n.text || "") || [])[1] || n.text || "");
+  const msgStamp = n => n.ts || n.at + "T00:00";
+  function threads() {
+    const m = me(); if (!m) return [];
+    const by = {};
+    S.notifications.filter(n => n.to === m.id && (n.kind === "message" || n.kind === "sent")).forEach(n => {
+      const other = n.kind === "sent" ? n.with : msgFrom(n); if (!other) return;
+      (by[other] = by[other] || []).push({ n, mine: n.kind === "sent" });
+    });
+    return Object.entries(by).map(([sid, list]) => ({ sid, list: list.sort((a, b) => msgStamp(a.n).localeCompare(msgStamp(b.n))), unread: list.filter(x => !x.mine && !x.n.read).length }))
+      .sort((a, b) => msgStamp(b.list[b.list.length - 1].n).localeCompare(msgStamp(a.list[a.list.length - 1].n)));
   }
+  const msgUnread = () => threads().reduce((t, x) => t + x.unread, 0);
+  const msgTime = n => n.ts ? `${n.at === TODAY ? "" : fmtDay(n.at) + " · "}${n.ts.slice(11, 16)}` : ago(n.at);
+  function openMessages() {
+    const m = me(); if (!m) return openSignIn("Sign in to see your messages.");
+    const ts = threads();
+    openModal(`<h2 id="modalTitle" class="m-title">Messages</h2>
+      <p class="muted small">Private between you and the other person. New messages are also emailed, unless you've turned that off in My profile.</p>
+      ${ts.length ? `<ul class="thread-list">${ts.map(t => { const s = student(t.sid) || { name: "Former member" }, last = t.list[t.list.length - 1]; return `<li><button type="button" class="thread-row${t.unread ? " unread" : ""}" data-thread="${t.sid}">
+        <span class="avatar">${initials(s.name)}</span><span class="tr-body"><span class="tr-top"><b>${esc(s.name)}</b><span class="tr-when">${msgTime(last.n)}</span></span>
+        <span class="tr-last">${last.mine ? "You: " : ""}${esc(msgBody(last.n).slice(0, 90))}</span></span>${t.unread ? `<span class="bell-n tr-n">${t.unread}</span>` : ""}</button></li>`; }).join("")}</ul>`
+        : `<p class="empty-sm">No messages yet. Open someone's profile in Crew or Casting and press Message.</p>`}`);
+    modalBody.querySelectorAll("[data-thread]").forEach(b => (b.onclick = () => openThread(b.dataset.thread)));
+  }
+  function openThread(sid) {
+    const s = student(sid), m = me(); if (!m) return openSignIn("Sign in to see your messages.");
+    if (!s) return toast("That person isn't on Crew Call any more");
+    if (s.id === m.id) return;
+    const t = threads().find(x => x.sid === sid), list = t ? t.list : [];
+    openModal(`<button type="button" class="link-btn m-back" data-allmsg><span aria-hidden="true">←</span> <span>All messages</span></button>
+      <h2 id="modalTitle" class="m-title">Message ${esc(s.name)}</h2>
+      <p class="muted small">They'll get this in Crew Call and by email. Your email is ${m.shareEmail ? "included so they can reply directly" : "kept private; they reply in Crew Call"}.</p>
+      ${list.length ? `<ol class="msg-thread" aria-label="Conversation">${list.map(x => `<li class="msg ${x.mine ? "msg-me" : "msg-them"}"><span class="msg-b">${esc(msgBody(x.n)).replace(/\n/g, "<br>")}</span><span class="msg-t">${x.mine ? "You" : esc(first(s.name))} · ${msgTime(x.n)}</span></li>`).join("")}</ol>` : ""}
+      <form id="msgForm"><label class="field"><span>${list.length ? "Reply" : "Message"}</span><textarea name="msg" rows="3" required maxlength="1000" placeholder="${list.length ? "Write a reply" : `Hi ${esc(first(s.name))}, are you free for…`}"></textarea></label>
+      <div class="form-actions"><button class="btn btn-accent" type="submit">Send</button><button class="btn btn-ghost" type="button" data-close>Close</button><button class="btn btn-quiet" type="button" data-student="${s.id}">Profile</button></div></form>`);
+    list.forEach(x => { if (!x.mine) x.n.read = true; }); drawHeader();
+    modalBody.querySelector("[data-allmsg]").onclick = openMessages;
+    const th = modalBody.querySelector(".msg-thread"); if (th) th.lastElementChild.scrollIntoView({ block: "nearest" });
+    const ta = modalBody.querySelector("[name=msg]");
+    ta.addEventListener("keydown", e => { if (e.key === "Enter" && (e.metaKey || e.ctrlKey)) { e.preventDefault(); $("#msgForm").requestSubmit(); } });
+    $("#msgForm").addEventListener("submit", e => {
+      e.preventDefault(); const body = ta.value.trim().slice(0, 1000); if (!body) return;
+      sendMessage(s, body); openThread(sid); toast(`Sent to ${first(s.name)}`);
+    });
+  }
+  function sendMessage(s, body) {
+    const m = me(), now = new Date(), ts = TODAY + "T" + String(now.getHours()).padStart(2, "0") + ":" + String(now.getMinutes()).padStart(2, "0");
+    S.notifications.unshift({ id: uid("n"), to: s.id, kind: "message", from: m.id, body, text: `${m.name}: “${body}”`, at: TODAY, ts, read: false, emailed: true });
+    S.notifications.unshift({ id: uid("n"), to: m.id, kind: "sent", with: s.id, body, text: `To ${s.name}: “${body}”`, at: TODAY, ts, read: true, emailed: false });
+  }
+  const openMessage = sid => openThread(sid);
 
   // ---------- MULTI-SELECT DROPDOWN (roles) ----------
   // Fires a "msel" event on the wrapper with detail.values whenever a box is ticked.
@@ -1253,7 +1408,7 @@
     if (from && !to) to = from; if (to && !from) from = to; if (from && to && to < from) [from, to] = [to, from];
     const days = from ? daysIn(from, to) : null, term = $("#crewTerm").value, cohort = $("#crewCohort").value, kitOnly = $("#crewKitOnly").checked, learn = $("#crewLearn") && $("#crewLearn").checked;
     let list = S.students.filter(listed)
-      .filter(s => !q || [s.name, s.bio, s.pathway, ...s.roles, ...s.learn, ...s.kit.map(k => k.item + " " + k.cat)].join(" ").toLowerCase().includes(q))
+      .filter(s => !q || [s.name, s.bio, s.pathway, s.based, s.from, ...s.roles, ...s.learn, ...s.kit.map(k => k.item + " " + k.cat)].join(" ").toLowerCase().includes(q))
       .filter(s => !crewRoles.size || s.roles.some(r => crewRoles.has(r)) || (learn && s.learn.some(r => crewRoles.has(r))))
       .filter(s => !term || s.term === term).filter(s => !cohort || s.cohort === cohort).filter(s => !kitOnly || s.kit.length)
       .map(s => ({ s, n: days ? freeDaysCount(s, days) : null }));
@@ -1278,6 +1433,7 @@
   // [label, (row, days) => html, class, sort key]
   const CREW_COLS = [
     ["Name", x => `<button class="link-btn bt-t" data-student="${x.s.id}">${esc(x.s.name)}</button>${x.s.guest ? ` <span class="tag-guest">Guest</span>` : ""}<span class="bt-sub">${esc(x.s.pathway)}</span>`, "", x => x.s.name],
+    ["Based in", x => x.s.based ? esc(x.s.based) : `<span class="muted">Not set</span>`, "small", x => (x.s.based || "~").toLowerCase()],
     ["Main role", x => x.s.primary ? `<span class="chip chip-primary ${crewRoles.has(x.s.primary) ? "chip-hit" : ""}">${esc(x.s.primary)}</span>` : "", "", x => x.s.primary || "~"],
     ["Also does", x => { const o = x.s.roles.filter(r => r !== x.s.primary); return o.length ? `<div class="chips">${o.map(r => `<span class="chip ${crewRoles.has(r) ? "chip-hit" : ""}">${esc(r)}</span>`).join("")}</div>` : `<span class="muted small">None</span>`; }, "", x => -x.s.roles.length],
     ["Term", x => `<span class="term-tag">${esc(tLabel(x.s))}</span>`, "small", x => C.TERMS.indexOf(x.s.term)],
@@ -1287,6 +1443,7 @@
     ["Updated", x => esc(updatedLabel(x.s)), "small", x => -(D(x.s.updated || "2000-01-01").getTime())],
     ["Contact", x => crewContact(x.s), "", x => (emailVisible(x.s) ? 0 : 1)]
   ];
+  const pinIco = `<svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.1-7-11.5a7 7 0 0 1 14 0C19 14.9 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>`;
   function crewCard(s, n, days) {
     const roles = [s.primary, ...s.roles.filter(r => r !== s.primary)].filter(Boolean);
     let avail;
@@ -1296,7 +1453,7 @@
     const contact = emailVisible(s) ? `<a class="btn btn-accent btn-sm" href="${mailto(s.email, "Crewing up: are you free?", `Hi ${first(s.name)},\n\nI found you on Crew Call. `)}" target="_blank" rel="noopener">Email</a>` : `<button class="btn btn-accent btn-sm" data-msg="${s.id}">Message</button>`;
     return `<article class="card crew-card">
       <div class="crew-top"><span class="avatar avatar-lg">${initials(s.name)}</span>
-        <div><h3 class="card-t"><button class="link-btn" data-student="${s.id}">${esc(s.name)}</button>${s.guest ? ` <span class="tag-guest">Guest</span>` : ""}</h3><p class="card-sub">${esc(s.pathway)} · <span class="term-tag">${esc(tLabel(s))}</span>${cr ? ` · ${cr} credit${cr > 1 ? "s" : ""}` : ""}</p></div></div>
+        <div><h3 class="card-t"><button class="link-btn" data-student="${s.id}">${esc(s.name)}</button>${s.guest ? ` <span class="tag-guest">Guest</span>` : ""}</h3><p class="card-sub">${esc(s.pathway)} · <span class="term-tag">${esc(tLabel(s))}</span>${cr ? ` · ${cr} credit${cr > 1 ? "s" : ""}` : ""}</p>${s.based ? `<p class="based-line">${pinIco}<span>${esc(s.based)}</span></p>` : ""}</div></div>
       <div class="avail-line">${avail}<span class="upd">${esc(updatedLabel(s))}</span></div>
       <div class="chips">${roles.map(r => `<span class="chip ${r === s.primary ? "chip-primary" : ""} ${crewRoles.has(r) ? "chip-hit" : ""}">${r === s.primary ? "★ " : ""}${esc(r)}</span>`).join("")}</div>
       ${s.learn.length ? `<p class="learn-p">Learning: ${s.learn.map(r => `<span class="${crewRoles.has(r) ? "hit" : ""}">${esc(r)}</span>`).join(", ")}</p>` : ""}
@@ -1317,6 +1474,7 @@
         <div><h2 id="modalTitle" class="m-title">${esc(s.name)}</h2><p class="card-sub">${esc(s.pathway)} · <span class="term-tag">${esc(tLabel(s))}</span>${s.guest ? ` <span class="tag-guest">Guest${s.invitedBy && student(s.invitedBy) ? `, invited by ${esc(student(s.invitedBy).name)}` : ""}</span>` : ""}</p></div></div></div>
       ${s.bio ? `<p class="logline">${esc(s.bio)}</p>` : ""}
       <dl class="meta-list">
+        ${s.based || s.from ? `<div><dt>Based in</dt><dd>${s.based ? esc(s.based) : `<span class="muted">Not set</span>`}${s.from ? ` <span class="muted">· from ${esc(s.from)}</span>` : ""}</dd></div>` : ""}
         <div><dt>Roles</dt><dd><div class="chips">${[s.primary, ...s.roles.filter(r => r !== s.primary)].filter(Boolean).map(r => `<span class="chip ${r === s.primary ? "chip-primary" : ""}">${r === s.primary ? "★ " : ""}${esc(r)}</span>`).join("")}</div></dd></div>
         ${s.learn.length ? `<div><dt>Wants to learn</dt><dd><div class="chips">${s.learn.map(r => `<span class="chip chip-learn">${esc(r)}</span>`).join("")}</div></dd></div>` : ""}
         <div><dt>Kit</dt><dd>${s.kit.length ? `<ul class="kit-list">${s.kit.map(k => `<li><span class="kit-cat">${esc(k.cat)}</span>${esc(k.item)}</li>`).join("")}</ul>` : `<span class="muted">No kit listed</span>`}</dd></div>
@@ -1428,6 +1586,15 @@
           <div class="kit-add"><select id="postRoleSel">${roleOptions("DoP")}</select><input id="postRoleQty" type="number" min="1" max="10" value="1" aria-label="How many"><button type="button" class="btn btn-ghost btn-sm" id="postRoleAdd">Add role</button></div>
           ${p ? "" : `<label class="toggle mt"><input type="checkbox" name="iDirect" checked> <span>List me as Director (filled)</span></label>`}
         </fieldset>
+        <fieldset class="fs"><legend>Casting <small>optional: for Talent and Supporting artist roles</small></legend>
+          <p class="muted small">Add Talent or Supporting artist from the Roles list above, then use Character to name the part. Actors can request a part here, or apply through your casting call.</p>
+          <div class="form-grid">
+            <label class="field span-2"><span>Casting call link <small>Backstage, Spotlight, StarNow, Mandy or a form</small></span><input name="castLink" inputmode="url" autocapitalize="off" spellcheck="false" placeholder="backstage.com/casting/…" value="${esc(p && castOf(p).link ? shortUrl(castOf(p).link) : "")}"></label>
+            <label class="field"><span>Applications close</span><input name="castCloses" type="date" value="${p ? castOf(p).closes : ""}"></label>
+            <label class="field"><span>Paid? <small>optional</small></span><input name="castPay" maxlength="60" placeholder="e.g. Expenses and lunch" value="${esc(p ? castOf(p).pay : "")}"></label>
+            <label class="field span-2"><span>Notes for actors <small>optional</small></span><textarea name="castNotes" rows="2" maxlength="600" placeholder="Self-tape or in-person audition, recall dates, what to send">${esc(p ? castOf(p).notes : "")}</textarea></label>
+          </div>
+        </fieldset>
         <fieldset class="fs"><legend>Crew hub: WhatsApp, links and details</legend>
           <p class="muted small">Everything your crew need in one place. Shown only to locked crew, the producer, director and admins, unless you choose otherwise.</p>
           <label class="field"><span>WhatsApp group invite link <small>optional</small></span><input name="hubWa" inputmode="url" autocapitalize="off" spellcheck="false" placeholder="chat.whatsapp.com/…" value="${esc(p ? hubOf(p).whatsapp : "")}"></label>
@@ -1448,6 +1615,7 @@
     const dlId = {}; let dlN = 0;
     const saveRolesDom = () => $$("#postRoles .rrow").forEach(row => { const r = roles[+row.dataset.i]; if (!r) return;
       const w = row.querySelector(".r-who"); if (w) r._who = w.value;
+      const ch = row.querySelector(".r-char"); if (ch) { r._ch = ch.value; r._age = row.querySelector(".r-age").value; }
       r._hod = row.querySelector(".r-hod").checked; r._bt = row.querySelector(".r-btext").value; r._bu = row.querySelector(".r-burl").value; r._open = !row.querySelector(".rrow-brief").hidden; });
     const drawRoles = () => {
       saveRolesDom();
@@ -1456,14 +1624,16 @@
         const locked = wasFilled.has(r.rid), hod = r._hod != null ? r._hod : isHod(r);
         const who = r._who != null ? r._who : r.filledBy && !locked ? (isExt(r) ? extName(r) : student(r.filledBy) ? memberLabel(student(r.filledBy)) : "") : "";
         const bt = r._bt != null ? r._bt : (r.brief && r.brief.text) || "", bu = r._bu != null ? r._bu : shortUrl((r.brief && r.brief.url) || "");
-        const open = r._open != null ? r._open : false;
-        return `<div class="rrow" data-i="${i}"><div class="rrow-top"><span class="rrow-name">${esc(r.role)}${hod ? ` <span class="tag-hod" title="Head of department">HOD</span>` : ""}</span>
+        const open = r._open != null ? r._open : false, cast = isCast(r);
+        const ch = r._ch != null ? r._ch : r.character || "", age = r._age != null ? r._age : r.age || "";
+        return `<div class="rrow${cast ? " is-cast" : ""}" data-i="${i}"><div class="rrow-top"><span class="rrow-name">${esc(r.role)}${cast && ch ? ` <span class="rrow-char">${esc(ch)}</span>` : ""}${hod ? ` <span class="tag-hod" title="Head of department">HOD</span>` : ""}</span>
           ${locked ? `<span class="rrow-done rrow-assign">${esc(isExt(r) ? extName(r) : (student(r.filledBy) || { name: "Locked in" }).name)} · reopen it in the project window to change</span>`
             : `<input class="r-who rrow-assign" list="${dlId[r.role]}" autocomplete="off" placeholder="Open: anyone can offer. Or type a name" aria-label="Who is doing ${esc(r.role)}" value="${esc(who)}">`}
-          <button type="button" class="btn btn-quiet btn-xs r-bt" aria-expanded="${open}">${bt || bu ? "Brief ✓" : "Brief"}</button>
+          <button type="button" class="btn btn-quiet btn-xs r-bt" aria-expanded="${open}">${cast ? (ch || bt ? "Character ✓" : "Character") : bt || bu ? "Brief ✓" : "Brief"}</button>
           ${locked ? "<span></span>" : `<button type="button" class="btn btn-quiet btn-xs r-del" aria-label="Remove ${esc(r.role)}">Remove</button>`}</div>
-          <div class="rrow-brief" ${open ? "" : "hidden"}><label class="toggle"><input type="checkbox" class="r-hod" ${hod ? "checked" : ""}> <span>Head of department</span></label>
-            <label class="field"><span>Brief <small>only people signed in can read it</small></span><textarea class="r-btext" rows="3" maxlength="1500" placeholder="What they need to know: the look, references, budget, kit, deadlines">${esc(bt)}</textarea></label>
+          <div class="rrow-brief" ${open ? "" : "hidden"}>${cast ? `<div class="form-grid"><label class="field"><span>Character <small>optional</small></span><input class="r-char" maxlength="40" placeholder="e.g. Maya" value="${esc(ch)}"></label>
+            <label class="field"><span>Playing age <small>optional</small></span><input class="r-age" maxlength="20" placeholder="e.g. 25 to 35" value="${esc(age)}"></label></div>` : ""}<label class="toggle"${cast ? " hidden" : ""}><input type="checkbox" class="r-hod" ${hod ? "checked" : ""}> <span>Head of department</span></label>
+            <label class="field"><span>${cast ? "About the part" : "Brief"} <small>only people signed in can read it</small></span><textarea class="r-btext" rows="3" maxlength="1500" placeholder="${cast ? "Who they are, what the scenes ask for, accents, any intimacy or stunts, self-tape details" : "What they need to know: the look, references, budget, kit, deadlines"}">${esc(bt)}</textarea></label>
             <label class="field"><span>Brief link <small>optional: a doc, deck or moodboard</small></span><input class="r-burl" inputmode="url" autocapitalize="off" spellcheck="false" placeholder="docs.google.com/…" value="${esc(bu)}"></label></div></div>`;
       }).join("") : `<span class="muted small">No roles added yet.</span>`;
     };
@@ -1517,6 +1687,9 @@
       const hubLinks = [...$("#hubLinks").querySelectorAll(".link-row")].map(r => ({ label: r.querySelector(".h-label").value.trim(), url: cleanUrl(r.querySelector(".h-url").value) })).filter(l => l.url);
       if ([...$("#hubLinks").querySelectorAll(".h-url")].some(i => i.value.trim() && !cleanUrl(i.value))) return (err.textContent = "One of the key links isn't a web address.");
       const hub = { whatsapp: wa, links: hubLinks, details: f.get("hubDetails").trim(), vis: f.get("hubVis") };
+      const castRaw = f.get("castLink").trim(), castLink = cleanUrl(castRaw);
+      if (castRaw && !castLink) return (err.textContent = "The casting call link isn't a web address.");
+      const casting = { link: castLink, closes: f.get("castCloses") || "", pay: f.get("castPay").trim().slice(0, 60), notes: f.get("castNotes").trim().slice(0, 600) };
       // producers
       const producers = []; let prodErr = "";
       $$("#postProds .prow").forEach(row => { const nm = row.querySelector(".p-name").value.trim(), em = row.querySelector(".p-email").value.trim(); if (!nm) return; const mem = findMember(nm);
@@ -1546,12 +1719,13 @@
         const hod = r._hod != null ? r._hod : isHod(r);
         if (hod === HOD_ROLES.has(r.role)) delete r.hod; else r.hod = hod;
         if (bt || bu) r.brief = { text: bt.slice(0, 1500), url: bu }; else delete r.brief;
+        if (isCast(r)) { const ch = (r._ch != null ? r._ch : r.character || "").trim().slice(0, 40), age = (r._age != null ? r._age : r.age || "").trim().slice(0, 20); if (ch) r.character = ch; else delete r.character; if (age) r.age = age; else delete r.age; }
       }
-      roles.forEach(r => { delete r._who; delete r._hod; delete r._bt; delete r._bu; delete r._open; });
+      roles.forEach(r => { delete r._who; delete r._hod; delete r._bt; delete r._bu; delete r._open; delete r._ch; delete r._age; });
       if (!producers.length && !roles.some(r => r.role === "Producer")) roles.unshift({ role: "Producer", filledBy: null, rid: uid("r") });
       const days = shoots.flatMap(r => daysIn(r.from, r.to)), dayMap = {};
       days.forEach(d => { dayMap[d] = Object.assign({ call: "08:00", wrap: "18:00", loc: 0 }, sched[d] || {}); if (dayMap[d].loc >= locations.length) dayMap[d].loc = 0; });
-      const data = { title: f.get("title").trim(), type: f.get("type"), term: f.get("term"), director: dirMem ? dirMem.name : dirIn, dsid: dirMem ? dirMem.id : null, email: dirMem ? "" : dirEmail, locations, producers, producer: producers[0] || null, logline: f.get("logline").trim(), shoots, kitNeeded: f.get("kitNeeded").trim(), delivery: f.get("delivery") || "", cover: f.get("cover") || "", days: dayMap, hub };
+      const data = { title: f.get("title").trim(), type: f.get("type"), term: f.get("term"), director: dirMem ? dirMem.name : dirIn, dsid: dirMem ? dirMem.id : null, email: dirMem ? "" : dirEmail, locations, producers, producer: producers[0] || null, logline: f.get("logline").trim(), shoots, kitNeeded: f.get("kitNeeded").trim(), delivery: f.get("delivery") || "", cover: f.get("cover") || "", days: dayMap, hub, casting };
       if (p) dropOldCover(p.cover, data.cover);
       if (p) {
         const before = JSON.stringify([p.shoots, p.days]), oldR = new Set(p.roles.map(r => r.rid)), hadWa = hubOf(p).whatsapp;
@@ -2570,10 +2744,27 @@ ${LIVE ? "" : `<label class="toggle"><input type="checkbox" data-aus="autoSend" 
 
   // ---------- MY PROFILE ----------
   const meForm = $("#meForm");
+  // My profile is split into tabs like the project window, with Availability first
+  let meTab = null;
+  function showMeTab(k) {
+    if (!$("#mtp-" + k)) return;
+    meTab = k;
+    $$("[data-mtab]").forEach(b => { const on = b.dataset.mtab === k; b.classList.toggle("on", on); b.setAttribute("aria-selected", String(on)); b.tabIndex = on ? 0 : -1; });
+    $$(".me-panel").forEach(x => (x.hidden = x.id !== "mtp-" + k));
+  }
+  $$("[data-mtab]").forEach(b => b.addEventListener("click", () => showMeTab(b.dataset.mtab)));
+  $(".me-tabs").addEventListener("keydown", e => {
+    if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
+    const bs = $$("[data-mtab]"), i = bs.indexOf(document.activeElement); if (i < 0) return;
+    const rtl = document.dir === "rtl", fwd = (e.key === "ArrowRight") !== rtl;
+    const n = bs[(i + (fwd ? 1 : bs.length - 1)) % bs.length]; n.focus(); n.click();
+  });
+  const meCount = (k, n) => { const c = $(`[data-mcount="${k}"]`); if (c) { c.hidden = !n; c.textContent = n || ""; } };
     fillSelect(meForm.pathway, C.PATHWAYS, false);
   $("#kitCat").innerHTML = C.KIT_CATS.map(c => `<option>${c}</option>`).join("");
-  let meRoles = new Set(), mePrimary = "", meKit = [], meLearn = new Set();
+  let meRoles = new Set(), mePrimary = "", meKit = [], meLearn = new Set(), meAutoT = 0, meAutoFor = null;
   function drawRolePicker() {
+    meCount("roles", meRoles.size);
     $("#meRoles").innerHTML = Object.entries(C.ROLE_GROUPS).map(([g, rs]) => `
       <div class="rp-group"><p class="rp-g">${esc(g)}</p><div class="chips">${rs.map(r => {
         const on = meRoles.has(r), pri = mePrimary === r;
@@ -2591,6 +2782,7 @@ ${LIVE ? "" : `<label class="toggle"><input type="checkbox" data-aus="autoSend" 
   }
   $("#meLearn").addEventListener("click", e => { const b = e.target.closest("[data-l]"); if (!b) return; const r = b.dataset.l; meLearn.has(r) ? meLearn.delete(r) : meLearn.add(r); drawLearn(); });
   function drawKit() {
+    meCount("kit", meKit.length);
     $("#meKit").innerHTML = meKit.length ? `<ul class="kit-list">${meKit.map((k, i) => `<li><span class="kit-cat">${esc(k.cat)}</span>${esc(k.item)}<button type="button" class="chip-x" data-k="${i}" aria-label="Remove ${esc(k.item)}">×</button></li>`).join("")}</ul>` : `<p class="muted small">No kit added. Owning kit makes you much easier to book.</p>`;
   }
   $("#meKit").addEventListener("click", e => { const b = e.target.closest("[data-k]"); if (b) { meKit.splice(+b.dataset.k, 1); drawKit(); } });
@@ -2636,11 +2828,12 @@ ${LIVE ? "" : `<label class="toggle"><input type="checkbox" data-aus="autoSend" 
   $("#pickClear").onclick = () => bulk(() => true, false);
 
   function loadMe() {
+    if (meAutoT) { clearTimeout(meAutoT); autoSaveMe(); }
     const m = me(); if (!m) return;
     const g = $("#meGuest");
     g.hidden = !m.guest && !m.incomplete;
-    g.innerHTML = m.incomplete ? "Welcome. Add at least one role and save, and you'll appear in Crew search and on the calendar." : `You're a guest${m.invitedBy && student(m.invitedBy) ? `, invited by ${esc(student(m.invitedBy).name)}` : ""}. You can do everything except invite other people.`;
-    meForm.name.value = m.name; meForm.email.value = m.email;
+    g.innerHTML = m.incomplete ? "Welcome. Fill in About me, pick at least one role under Roles, and you'll appear in Crew search and on the calendar. Everything saves as you type." : `You're a guest${m.invitedBy && student(m.invitedBy) ? `, invited by ${esc(student(m.invitedBy).name)}` : ""}. You can do everything except invite other people.`;
+    meForm.name.value = m.name; meForm.email.value = m.email; meForm.based.value = m.based || ""; meForm.from.value = m.from || "";
     drawTermFields(m); meForm.pathway.value = m.pathway;
     meForm.reel.value = shortUrl(m.reel || ""); meForm.site.value = shortUrl(m.site || ""); meForm.imdb.value = shortUrl(m.imdb || ""); meForm.insta.value = m.insta && /instagram\.com\/([^/?#]+)/.test(m.insta) ? "@" + /instagram\.com\/([^/?#]+)/.exec(m.insta)[1] : shortUrl(m.insta || ""); meForm.bio.value = m.bio || "";
     meForm.openToOffers.checked = !!m.openToOffers; meForm.shareEmail.checked = !!m.shareEmail; meForm.hideMe.checked = !!m.hideMe;
@@ -2657,6 +2850,9 @@ ${LIVE ? "" : `<label class="toggle"><input type="checkbox" data-aus="autoSend" 
       if ($("#crAddBtn")) $("#crAddBtn").onclick = go; }
     bindOpeners($("#meCredits"));
     drawPicker(); drawRolePicker(); drawKit(); drawLearn();
+    meCount("credits", cr.length);
+    // first visit: someone new starts on About me (name, cohort and roles are what they need first); everyone else on Availability
+    showMeTab(meTab || (m.incomplete ? "about" : "days"));
     $("#meSaved").textContent = "";
   }
   function drawTermFields(m) {
@@ -2692,18 +2888,40 @@ ${LIVE ? "" : `<label class="toggle"><input type="checkbox" data-aus="autoSend" 
     drawHeader(); render();
     toast(`Previewing ${fmtFull(TODAY)}: ${n} profile${n === 1 ? "" : "s"} moved up a term and notified`);
   }
+  // Autosave: what you type on your profile is kept as you go, so leaving the page or tab loses nothing.
+  // Anything that doesn't pass a check yet (a link that isn't a web address, no roles) waits for Save.
+  function autoSaveMe() {
+    meAutoT = 0; const m = me(); if (!m || m.id !== meAutoFor) return;
+    const pf = { reel: cleanUrl(meForm.reel.value), site: cleanUrl(meForm.site.value), imdb: cleanImdb(meForm.imdb.value), insta: cleanInsta(meForm.insta.value) };
+    PORTFOLIO.forEach(([k]) => { if (meForm[k].value.trim() && !pf[k]) delete pf[k]; });
+    const nm = meForm.name.value.trim();
+    if (termEditable(m) && meForm.cohort.value && meForm.cohort.value !== cohortVal(m)) { setCohort(m, meForm.cohort.value); Object.assign(m, { termFor: termForToday(), termConfirmed: true }); refreshCohortFilter(); }
+    Object.assign(m, pf, { pathway: meForm.pathway.value, bio: meForm.bio.value.trim(), based: meForm.based.value.trim().slice(0, 60), from: meForm.from.value.trim().slice(0, 60), roles: [...meRoles], primary: meRoles.has(mePrimary) ? mePrimary : [...meRoles][0] || "", learn: [...meLearn], kit: meKit, openToOffers: meForm.openToOffers.checked, shareEmail: meForm.shareEmail.checked, hideMe: meForm.hideMe.checked, notify: readNotify(), updated: TODAY },
+      nm ? { name: nm } : {});
+    if (m.incomplete && meRoles.size && (!termEditable(m) || meForm.cohort.value)) m.incomplete = false;
+    drawHeader();
+    const msg = $("#meSaved"); msg.className = "save-msg auto-msg";
+    msg.textContent = m.incomplete ? "Saved as you type. Add at least one role to appear in Crew search." : "Saved as you type.";
+  }
+  const meChanged = () => { const m = me(); if (!m) return; meAutoFor = m.id; clearTimeout(meAutoT); meAutoT = setTimeout(autoSaveMe, 900); };
+  meForm.addEventListener("input", meChanged); meForm.addEventListener("change", meChanged);
+  ["#meRoles", "#meLearn", "#meKit", "#kitAddBtn"].forEach(sel => $(sel).addEventListener("click", meChanged));
+  window.addEventListener("pagehide", () => { if (meAutoT) { clearTimeout(meAutoT); autoSaveMe(); } });
+  document.addEventListener("visibilitychange", () => { if (document.visibilityState === "hidden" && meAutoT) { clearTimeout(meAutoT); autoSaveMe(); } });
+
   meForm.addEventListener("submit", e => {
-    e.preventDefault();
+    e.preventDefault(); clearTimeout(meAutoT); meAutoT = 0;
     const m = me();
-    if (!meRoles.size) { $("#meSaved").textContent = "Pick at least one role."; $("#meSaved").className = "save-msg err"; return; }
+    if (!meForm.name.value.trim()) { showMeTab("about"); $("#meSaved").textContent = "Add your name."; $("#meSaved").className = "save-msg err"; meForm.name.focus(); return; }
+    if (!meRoles.size) { showMeTab("roles"); $("#meSaved").textContent = "Pick at least one role."; $("#meSaved").className = "save-msg err"; return; }
     if (termEditable(m)) {
-      if (!meForm.cohort.value) { $("#meSaved").textContent = "Pick your course and cohort."; $("#meSaved").className = "save-msg err"; return; }
+      if (!meForm.cohort.value) { showMeTab("about"); $("#meSaved").textContent = "Pick your course and cohort."; $("#meSaved").className = "save-msg err"; return; }
       setCohort(m, meForm.cohort.value); Object.assign(m, { termFor: termForToday(), termConfirmed: true }); refreshCohortFilter();
     }
     const pf = { reel: cleanUrl(meForm.reel.value), site: cleanUrl(meForm.site.value), imdb: cleanImdb(meForm.imdb.value), insta: cleanInsta(meForm.insta.value) };
     const badPf = PORTFOLIO.find(([k]) => meForm[k].value.trim() && !pf[k]);
-    if (badPf) { $("#meSaved").textContent = `${badPf[1]}: that isn't a web address.`; $("#meSaved").className = "save-msg err"; meForm[badPf[0]].focus(); return; }
-    Object.assign(m, pf, { name: meForm.name.value.trim(), pathway: meForm.pathway.value, bio: meForm.bio.value.trim(), roles: [...meRoles], primary: mePrimary || [...meRoles][0], learn: [...meLearn], kit: meKit, openToOffers: meForm.openToOffers.checked, shareEmail: meForm.shareEmail.checked, hideMe: meForm.hideMe.checked, notify: readNotify(), updated: TODAY, incomplete: false });
+    if (badPf) { showMeTab("about"); $("#meSaved").textContent = `${badPf[1]}: that isn't a web address.`; $("#meSaved").className = "save-msg err"; meForm[badPf[0]].focus(); return; }
+    Object.assign(m, pf, { name: meForm.name.value.trim(), pathway: meForm.pathway.value, bio: meForm.bio.value.trim(), based: meForm.based.value.trim().slice(0, 60), from: meForm.from.value.trim().slice(0, 60), roles: [...meRoles], primary: mePrimary || [...meRoles][0], learn: [...meLearn], kit: meKit, openToOffers: meForm.openToOffers.checked, shareEmail: meForm.shareEmail.checked, hideMe: meForm.hideMe.checked, notify: readNotify(), updated: TODAY, incomplete: false });
     drawHeader(); loadMe();
     $("#meSaved").textContent = m.hideMe ? "Saved. Your profile is hidden from Crew search." : "Saved. You appear in Crew search and the calendar.";
     $("#meSaved").className = "save-msg ok"; toast("Profile saved");
@@ -3770,7 +3988,7 @@ ${LIVE ? "" : `<label class="toggle"><input type="checkbox" data-aus="autoSend" 
       <h3>Who runs Crew Call</h3><p>Crew Call is run by LFS students for LFS students. The current owner is ${esc(owner ? owner.name : "the owner")}. It isn't run by the London Film School. Questions go to <a href="mailto:${esc(replyAddr())}">${esc(replyAddr())}</a>.</p>
       <h3>What we keep</h3><ul><li>Your name, LFS email, course and cohort code</li><li>The roles, kit, credits and skills you add, your bio and portfolio links</li><li>The days you mark as free, the shoots you post, and your crew requests and messages</li><li>Reports you send, and admin actions taken on them</li></ul>
       <h3>Who can see it</h3><ul><li>Nothing about people is visible to anyone who isn't signed in. The calendar shows only shoot titles and dates.</li><li>Signed-in members see your profile, unless you hide it.</li><li>Your email is only shown if you choose to share it, or to the producer and director of a shoot you're locked onto.</li><li>Script links are only shown to people the writer attaches.</li><li>Reports are only seen by admins with the Reports and privacy permission.</li></ul>
-      <h3>What we don't do</h3><p>No adverts, no tracking cookies, and we never sell or share your data. Data is stored with Supabase in their London region.</p>
+      <h3>On your device</h3><p>Only your sign-in, and a draft of any form you've started but not sent, so a stray click doesn't lose your typing. Signing out clears both.</p><h3>What we don't do</h3><p>No adverts, no tracking cookies, and we never sell or share your data. Data is stored with Supabase in their London region.</p>
       <h3>How long we keep it</h3><p>Once you're an alumnus or a guest, your profile is deleted if you haven't signed in for ${mo} months. We email you 30 days before. Delete your profile any time from My profile.</p>
       <h3>Your rights</h3><p>You can download everything Crew Call holds about you from My profile, correct it, or delete it. If you're unhappy with how your data is handled, email us first. You can also complain to the <a href="https://ico.org.uk/make-a-complaint/" target="_blank" rel="noopener">Information Commissioner's Office</a>.</p>
       </div>`);
@@ -3856,10 +4074,126 @@ ${LIVE ? "" : `<label class="toggle"><input type="checkbox" data-aus="autoSend" 
     const rb = $("#aboutReport"); if (rb) rb.onclick = () => $("#footReport").click();
   }
 
+
+  // ---------- CASTING: parts in LFS films, and the people who act in them ----------
+  let castMode = "parts";
+  const CAST_IC = `<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v7a8 8 0 0 1-16 0z"/><path d="M8.5 9h.01M15.5 9h.01M9 13.5c1.7 1.4 4.3 1.4 6 0"/></svg>`;
+  // one item per part; a crowd of supporting artists for the same scene shows as one card with a count
+  function castItems() {
+    const out = [], seen = {};
+    live().filter(p => isActive(p)).forEach(p => p.roles.filter(r => !r.filledBy && isCast(r)).forEach(r => {
+      const k = p.id + "|" + r.role + "|" + (r.character || "").toLowerCase();
+      if (seen[k]) { seen[k].n++; return; }
+      out.push(seen[k] = { id: k, p, r, n: 1 });
+    }));
+    return out;
+  }
+  const castDay = x => x.p.shoots[0].from;
+  const castCfg = () => ({
+    placeholder: "Search part, film, director or playing age", noun: "part", matchHint: "Parts that fit your roles",
+    text: x => [x.r.character, x.r.role, x.r.age, x.p.title, x.p.type, x.p.logline, x.p.director, castOf(x.p).pay].join(" "),
+    match: (x, m) => m.roles.includes(x.r.role),
+    sink: x => castClosed(x.p), sinkLabel: "Casting closed",
+    groups: [
+      { id: "part", label: "Part", opts: [...castSet()].filter(t => castItems().some(x => x.r.role === t)), test: (x, v) => x.r.role === v },
+      { id: "type", label: "Type", opts: uniqSorted(castItems().map(x => x.p.type)), test: (x, v) => x.p.type === v },
+      { id: "how", label: "Apply", opts: ["On Crew Call", "Through a casting call"], test: (x, v) => v === "On Crew Call" || !!castOf(x.p).link },
+      { id: "when", label: "Shoots", opts: ["This month", "Next month", "Later"], test: (x, v) => { const d = daysUntil(castDay(x)); return v === "This month" ? d <= 31 : v === "Next month" ? d > 31 && d <= 62 : d > 62; } }
+    ],
+    sorts: [["shoot", "Shooting soonest", (a, b) => castDay(a).localeCompare(castDay(b)), castDay], ["closes", "Closing soonest", (a, b) => (castOf(a.p).closes || "9999").localeCompare(castOf(b.p).closes || "9999")], ["new", "Newest", (a, b) => (b.p.created || "").localeCompare(a.p.created || "")]],
+    table: { dim: x => castClosed(x.p), cols: [
+      ["Part", x => `<button class="link-btn bt-t" data-proj="${x.p.id}">${esc(x.r.character || x.r.role)}</button><span class="bt-sub">${esc(x.r.role)}${x.n > 1 ? ` ×${x.n}` : ""}</span>`, "", x => (x.r.character || x.r.role).toLowerCase()],
+      ["Playing age", x => esc(x.r.age || ""), "small", x => x.r.age || "~"],
+      ["Film", x => `${esc(x.p.title)}<span class="bt-sub">${esc(x.p.type)}</span>`, "", x => x.p.title],
+      ["Shoots", x => esc(x.p.shoots.map(fmtRange).join(" + ")), "mono small", castDay],
+      ["Apply", x => castApply(x, true), ""]
+    ] },
+    timeline: { dim: x => castClosed(x.p), label: x => `<button class="link-btn bt-t" data-proj="${x.p.id}">${esc(x.r.character || x.r.role)}</button>`, sub: x => x.p.title,
+      segs: x => x.p.shoots.map(r => ({ from: r.from, to: r.to, label: fmtRange(r) })) }
+  });
+  function castApply(x, small) {
+    const m = me(), c = castOf(x.p), closed = castClosed(x.p), sz = small ? "btn-xs" : "btn-sm";
+    if (closed) return `<span class="muted small">Casting closed</span>`;
+    const mr = m && myReqFor(x.p, x.r.rid, "crew");
+    const req = !m ? `<button class="btn btn-ghost ${sz}" data-signin>Sign in to ask</button>` : mr ? statusChip(mr) : onProject(x.p, m.id) ? `<span class="muted small">You're on this film</span>` : runs(x.p, m) ? "" : `<button class="btn ${c.link ? "btn-ghost" : "btn-accent"} ${sz}" data-castreq="${x.p.id}|${x.r.rid}">${x.r.character ? `Ask to play ${esc(x.r.character)}` : "Ask for this part"}</button>`;
+    return (c.link ? `<a class="btn btn-accent ${sz}" href="${esc(c.link)}" target="_blank" rel="noopener">Apply on ${esc(castSite(c.link))}</a>` : "") + req;
+  }
+  function castCard(x) {
+    const p = x.p, r = x.r, c = castOf(p), closed = castClosed(p), m = me();
+    return `<article class="card cast-card${closed ? " is-dim" : ""}" style="--c:${projColor(p)}">
+      <div class="proj-top"><span class="type-tag">${esc(r.role)}${x.n > 1 ? ` ×${x.n}` : ""}</span><span class="term-tag">${esc(p.type)}</span>${closed ? `<span class="tag-arch">Casting closed</span>` : c.closes ? `<span class="term-tag ${daysUntil(c.closes) <= 7 ? "tag-soon" : ""}">Closes ${fmtDay(c.closes)}</span>` : ""}</div>
+      <h3 class="card-t"><button class="link-btn" data-proj="${p.id}">${esc(r.character || (r.role === "Supporting artist" ? "Supporting artists" : r.role))}</button></h3>
+      <p class="card-sub">${r.age ? `<span class="part-age">Playing age ${esc(r.age)}</span> · ` : ""}<button class="link-btn" data-proj="${p.id}">${esc(p.title)}</button> · <span>${esc(p.director)}</span></p>
+      ${m && r.brief && r.brief.text ? `<p class="logline">${esc(r.brief.text.length > 220 ? r.brief.text.slice(0, 217) + "…" : r.brief.text)}</p>` : `<p class="logline">${esc(p.logline)}</p>`}
+      <p class="small muted mono">${esc(p.shoots.map(fmtRange).join(" + "))} · ${esc(locShort(p))}</p>
+      ${c.pay ? `<p class="small">${esc(c.pay)}</p>` : ""}
+      <div class="card-actions">${castApply(x)}</div>
+    </article>`;
+  }
+  // people who act: anyone listing a cast role, plus anyone with a cast credit, so producers can go back to actors they've worked with
+  function talentList() {
+    const cs = castSet();
+    return S.students.filter(listed).map(s => ({ s, parts: creditsOf(s).filter(x => !x.shadow && cs.has(x.role)), roles: s.roles.filter(r => cs.has(r)) })).filter(x => x.roles.length || x.parts.length);
+  }
+  function talentCard(x) {
+    const s = x.s, m = me(), nf = nextFree(s);
+    return `<article class="card crew-card talent-card">
+      <div class="crew-top"><span class="avatar avatar-lg">${initials(s.name)}</span>
+        <div><h3 class="card-t"><button class="link-btn" data-student="${s.id}">${esc(s.name)}</button>${s.guest ? ` <span class="tag-guest">Guest</span>` : ""}</h3><p class="card-sub">${esc(s.pathway)} · <span class="term-tag">${esc(tLabel(s))}</span></p>${s.based ? `<p class="based-line">${pinIco}<span>${esc(s.based)}</span></p>` : ""}</div></div>
+      <div class="avail-line">${nf ? `<span class="badge badge-free">Free ${esc(nf)}</span>` : `<span class="badge badge-off">${s.openToOffers ? "Open to offers" : "No dates set"}</span>`}</div>
+      <div class="chips">${x.roles.map(r => `<span class="chip chip-primary">${esc(r)}</span>`).join("")}</div>
+      ${x.parts.length ? `<ul class="credit-list part-list">${x.parts.slice(0, 3).map(c => `<li><span class="cr-role">${esc(c.character || c.role)}</span><button class="link-btn" data-proj="${c.p.id}">${esc(c.p.title)}</button><span class="muted">${monYear(c.p.shoots[0].from)}</span></li>`).join("")}</ul>${x.parts.length > 3 ? `<p class="small muted">and ${x.parts.length - 3} more</p>` : ""}` : `<p class="small muted">No LFS parts yet</p>`}
+      <div class="card-actions">${m && s.id === m.id ? `<span class="muted small">This is you</span>` : crewContact(s)}<button class="btn btn-ghost btn-sm" data-student="${s.id}">Profile</button></div>
+    </article>`;
+  }
+  function renderCast(partial) {
+    const root = $("#view-cast"), m = me();
+    if (castMode === "talent" && !m) castMode = "parts";
+    if (!partial || !root.querySelector(".cast-host")) {
+      root.innerHTML = `
+        <div class="view-head"><div><h1 class="page-title">Casting</h1><p class="muted">Parts in LFS films, from leads to supporting artists. Ask for a part here, apply through the film's casting call, or find actors who've worked on LFS shoots.</p></div>
+          <div class="head-acts"><button class="btn btn-accent" id="castPost">Cast your film</button></div></div>
+        <div class="seg-btn cast-mode" role="group" aria-label="Show"><button type="button" data-castmode="parts" aria-pressed="${castMode === "parts"}" class="${castMode === "parts" ? "on" : ""}">Parts</button><button type="button" data-castmode="talent" aria-pressed="${castMode === "talent"}" class="${castMode === "talent" ? "on" : ""}">Talent</button></div>
+        <div class="cast-host"></div>`;
+      $("#castPost").onclick = () => {
+        if (!m) return openSignIn("Sign in to cast your film.");
+        const mine = live().filter(p => isActive(p) && canManage(p));
+        if (!mine.length) return openPostForm();
+        openModal(`<h2 id="modalTitle" class="m-title">Cast your film</h2><p class="muted">Add Talent or Supporting artist parts to one of your shoots, with a character name and playing age. You can also add a casting call link from Backstage, Spotlight, StarNow or Mandy.</p>
+          <ul class="pick-list">${mine.map(p => `<li><button type="button" class="btn btn-ghost btn-sm" data-castedit="${p.id}">${esc(p.title)}</button> <span class="muted small mono">${esc(p.shoots.map(fmtRange).join(" + "))}</span></li>`).join("")}</ul>
+          <div class="form-actions"><button type="button" class="btn btn-quiet" id="castNew">Post a new shoot instead</button></div>`);
+        modalBody.querySelectorAll("[data-castedit]").forEach(b => (b.onclick = () => openPostForm(project(b.dataset.castedit))));
+        $("#castNew").onclick = () => openPostForm();
+      };
+      root.querySelectorAll("[data-castmode]").forEach(b => (b.onclick = () => { if (b.dataset.castmode === "talent" && !me()) return openSignIn("Sign in to see who acts on LFS films."); castMode = b.dataset.castmode; renderCast(); }));
+    }
+    const host = root.querySelector(".cast-host");
+    const wire = h => { bindOpeners(h); h.querySelectorAll("[data-castreq]").forEach(b => (b.onclick = () => { const [pid, rid] = b.dataset.castreq.split("|"); openRequest(project(pid), rid, "crew"); })); };
+    if (castMode === "parts") {
+      if (!host.querySelector(".board-host")) host.innerHTML = `<div class="board-host" data-fkey="cast"></div>`;
+      board({ key: "cast", host: host.querySelector(".board-host"), cfg: castCfg(), items: castItems(), card: castCard, partial, redraw: renderCast,
+        empty: `<div class="empty"><p class="empty-t">No parts open right now</p><p class="muted">Casting a shoot? Add Talent or Supporting artist roles to it and they show up here.</p></div>`, after: wire });
+      return;
+    }
+    if (!host.querySelector(".talent-bar")) {
+      host.innerHTML = `<div class="filters talent-bar"><input type="search" id="talQ" placeholder="Search name, city, film or part"><select id="talPart" aria-label="Part"><option value="">Talent and supporting artists</option>${[...castSet()].map(r => `<option>${esc(r)}</option>`).join("")}</select><label class="toggle"><input type="checkbox" id="talCred"> <span>Has acted on an LFS film</span></label></div><p class="result-meta" id="talMeta"></p><div class="card-grid" id="talList"></div>`;
+      ["#talQ", "#talPart", "#talCred"].forEach(sel => $(sel).addEventListener("input", () => renderCast(true)));
+      syncPickers(host);
+    }
+    const q = $("#talQ").value.trim().toLowerCase(), part = $("#talPart").value, cred = $("#talCred").checked;
+    const list = talentList().filter(x => !q || [x.s.name, x.s.based, x.s.from, x.s.bio, ...x.roles, ...x.parts.flatMap(c => [c.character, c.p.title])].join(" ").toLowerCase().includes(q))
+      .filter(x => !part || x.roles.includes(part) || x.parts.some(c => c.role === part)).filter(x => !cred || x.parts.length)
+      .sort((a, b) => b.parts.length - a.parts.length || a.s.name.localeCompare(b.s.name));
+    $("#talMeta").textContent = `${list.length} ${list.length === 1 ? "person" : "people"}`;
+    $("#talList").innerHTML = list.length ? list.map(talentCard).join("") : `<div class="empty"><p class="empty-t">No one matches yet.</p><p class="muted">Actors appear here once they add Talent or Supporting artist to their profile, or once they've been cast on an LFS shoot.</p></div>`;
+    wire($("#talList"));
+  }
+
   function render() {
     if (view === "about") renderAbout();
     if (view === "calendar") renderCalendar();
     if (view === "projects") renderProjects();
+    if (view === "cast") renderCast();
     if (!me()) return;
     if (view === "crew") renderCrew();
     if (view === "mine") renderMine();
@@ -3878,9 +4212,10 @@ ${LIVE ? "" : `<label class="toggle"><input type="checkbox" data-aus="autoSend" 
   function openHash() {
     const h = decodeURIComponent(location.hash.slice(1)); if (!h) return;
     const [a, b] = h.split("/");
-    const views = { calendar: "calendar", develop: "scripts", scripts: "scripts", shoot: "projects", projects: "projects", post: "post", release: "release", funding: "fund", fund: "fund", paid: "paid", crew: "crew", mine: "mine", me: "me", admin: "admin" };
+    const views = { calendar: "calendar", develop: "scripts", scripts: "scripts", shoot: "projects", projects: "projects", post: "post", release: "release", funding: "fund", fund: "fund", casting: "cast", cast: "cast", paid: "paid", crew: "crew", mine: "mine", me: "me", admin: "admin" };
+    if ((a === "msg" || a === "messages") && me()) { if (b) openThread(b); else openMessages(); history.replaceState(null, "", location.pathname + location.search); return; }
     if (a === "p" && b) { const p = project(b); if (p) { setView("calendar"); openProject(p.id); } else toast("That project isn't on Crew Call any more"); }
-    else if (views[a]) { setView(views[a]); if (a === "me" && b) setTimeout(() => { const el = $(b === "days" ? "#daysFs" : b === "notifications" ? "#notifyFs" : ""); if (el) el.scrollIntoView({ block: "start" }); }, 60); }
+    else if (views[a]) { setView(views[a]); if (a === "me" && b) { showMeTab(b === "notifications" ? "settings" : b); setTimeout(() => { const el = $(b === "days" ? "#daysFs" : b === "notifications" ? "#notifyFs" : ""); if (el) el.scrollIntoView({ block: "start" }); }, 60); } }
     else return;
     history.replaceState(null, "", location.pathname + location.search);
   }

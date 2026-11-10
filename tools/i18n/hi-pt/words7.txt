@@ -1,0 +1,87 @@
+# v19: drafts, casting, location, messages, profile tabs
+Talent || कलाकार || Elenco
+Supporting artist || सहायक कलाकार || Figurante
+Supporting artists || सहायक कलाकार || Figurantes
+Casting || कास्टिंग || Elenco
+Cast || कलाकार दल || Elenco
+Cast your film || अपनी फ़िल्म की कास्टिंग करें || Monte o elenco do seu filme
+Casting call || कास्टिंग कॉल || Chamada de elenco
+Casting call link || कास्टिंग कॉल लिंक || Link da chamada de elenco
+Casting closed || कास्टिंग बंद || Seleção encerrada
+Backstage, Spotlight, StarNow, Mandy or a form || Backstage, Spotlight, StarNow, Mandy या कोई फ़ॉर्म || Backstage, Spotlight, StarNow, Mandy ou um formulário
+Applications close || आवेदन की अंतिम तारीख़ || Inscrições até
+Paid? || भुगतान? || Remunerado?
+e.g. Expenses and lunch || जैसे, ख़र्च और लंच || ex.: despesas e almoço
+Notes for actors || कलाकारों के लिए नोट्स || Observações para atores
+Self-tape or in-person audition, recall dates, what to send || सेल्फ़-टेप या आमने-सामने ऑडिशन, कॉलबैक की तारीख़ें, क्या भेजना है || Self-tape ou teste presencial, datas de callback, o que enviar
+optional: for Talent and Supporting artist roles || वैकल्पिक: कलाकार और सहायक कलाकार भूमिकाओं के लिए || opcional: para papéis de elenco e figuração
+Add Talent or Supporting artist from the Roles list above, then use Character to name the part. Actors can request a part here, or apply through your casting call. || ऊपर की भूमिका सूची से कलाकार या सहायक कलाकार जोड़ें, फिर किरदार में भूमिका का नाम लिखें। कलाकार यहाँ भूमिका माँग सकते हैं या आपकी कास्टिंग कॉल से आवेदन कर सकते हैं। || Adicione Elenco ou Figurante pela lista de funções acima e use Personagem para nomear o papel. Atores podem pedir um papel aqui ou se inscrever pela sua chamada de elenco.
+Character || किरदार || Personagem
+Character ✓ || किरदार ✓ || Personagem ✓
+e.g. Maya || जैसे, माया || ex.: Maya
+Playing age || दिखने की उम्र || Idade aparente
+e.g. 25 to 35 || जैसे, 25 से 35 || ex.: 25 a 35
+About the part || भूमिका के बारे में || Sobre o papel
+Who they are, what the scenes ask for, accents, any intimacy or stunts, self-tape details || किरदार कौन है, दृश्यों में क्या चाहिए, लहजा, अंतरंग दृश्य या स्टंट, सेल्फ़-टेप की जानकारी || Quem é o personagem, o que as cenas pedem, sotaques, cenas íntimas ou dublês, detalhes do self-tape
+Parts to cast || भरी जाने वाली भूमिकाएँ || Papéis a escalar
+Fully cast. || सभी भूमिकाएँ भर गईं। || Elenco completo.
+Find talent on Crew Call || Crew Call पर कलाकार खोजें || Encontrar atores no Crew Call
+Parts || भूमिकाएँ || Papéis
+Part || भूमिका || Papel
+Apply || आवेदन करें || Inscrever-se
+Through a casting call || कास्टिंग कॉल के ज़रिए || Por chamada de elenco
+Shoots || शूट || Filmagem
+Shooting soonest || सबसे पहले शूट || Filmagem mais próxima
+Closing soonest || सबसे पहले बंद || Encerra antes
+Search part, film, director or playing age || भूमिका, फ़िल्म, निर्देशक या उम्र खोजें || Buscar papel, filme, diretor ou idade
+Search parts || भूमिकाएँ खोजें || Buscar papéis
+Parts that fit your roles || आपकी भूमिकाओं से मेल खाती भूमिकाएँ || Papéis que combinam com suas funções
+Parts in LFS films, from leads to supporting artists. Ask for a part here, apply through the film's casting call, or find actors who've worked on LFS shoots. || LFS फ़िल्मों में भूमिकाएँ, मुख्य किरदारों से सहायक कलाकारों तक। यहाँ भूमिका माँगें, फ़िल्म की कास्टिंग कॉल से आवेदन करें या LFS शूट पर काम कर चुके कलाकार खोजें। || Papéis em filmes da LFS, de protagonistas a figurantes. Peça um papel aqui, inscreva-se pela chamada do filme ou encontre atores que já trabalharam em filmagens da LFS.
+Talent and supporting artists || कलाकार और सहायक कलाकार || Elenco e figurantes
+Has acted on an LFS film || LFS फ़िल्म में अभिनय किया है || Já atuou num filme da LFS
+Search name, city, film or part || नाम, शहर, फ़िल्म या भूमिका खोजें || Buscar nome, cidade, filme ou papel
+No LFS parts yet || अभी LFS में कोई भूमिका नहीं || Ainda sem papéis na LFS
+No parts open right now || अभी कोई भूमिका खुली नहीं || Nenhum papel aberto agora
+Casting a shoot? Add Talent or Supporting artist roles to it and they show up here. || कास्टिंग कर रहे हैं? अपने शूट में कलाकार या सहायक कलाकार भूमिकाएँ जोड़ें, वे यहाँ दिखेंगी। || Montando elenco? Adicione papéis de elenco ou figuração à sua filmagem e eles aparecem aqui.
+Actors appear here once they add Talent or Supporting artist to their profile, or once they've been cast on an LFS shoot. || कलाकार यहाँ तब दिखते हैं जब वे प्रोफ़ाइल में कलाकार या सहायक कलाकार जोड़ते हैं, या किसी LFS शूट में चुने जा चुके हों। || Os atores aparecem aqui quando adicionam Elenco ou Figurante ao perfil, ou depois de escalados numa filmagem da LFS.
+Sign in to ask || माँगने के लिए साइन इन करें || Entre para pedir
+Ask for this part || यह भूमिका माँगें || Pedir este papel
+You're on this film || आप इस फ़िल्म में हैं || Você está neste filme
+Sign in to cast your film. || अपनी फ़िल्म की कास्टिंग के लिए साइन इन करें। || Entre para montar o elenco do seu filme.
+Sign in to see who acts on LFS films. || LFS फ़िल्मों के कलाकार देखने के लिए साइन इन करें। || Entre para ver quem atua nos filmes da LFS.
+Add Talent or Supporting artist parts to one of your shoots, with a character name and playing age. You can also add a casting call link from Backstage, Spotlight, StarNow or Mandy. || अपने किसी शूट में किरदार के नाम और उम्र के साथ कलाकार या सहायक कलाकार भूमिकाएँ जोड़ें। आप Backstage, Spotlight, StarNow या Mandy का कास्टिंग कॉल लिंक भी जोड़ सकते हैं। || Adicione papéis de elenco ou figuração a uma das suas filmagens, com nome do personagem e idade aparente. Você também pode incluir um link de chamada do Backstage, Spotlight, StarNow ou Mandy.
+Post a new shoot instead || इसके बजाय नया शूट पोस्ट करें || Publicar uma nova filmagem
+The casting call link isn't a web address. || कास्टिंग कॉल लिंक वेब पता नहीं है। || O link da chamada de elenco não é um endereço web.
+Based in || रहते हैं || Mora em
+city and country, so people nearby can find you || शहर और देश, ताकि आस-पास के लोग आपको ढूँढ सकें || cidade e país, para que pessoas por perto encontrem você
+e.g. London, UK || जैसे, लंदन, यूके || ex.: Londres, Reino Unido
+e.g. Lagos, Nigeria || जैसे, लागोस, नाइजीरिया || ex.: Lagos, Nigéria
+Search name, kit, skill, city || नाम, उपकरण, कौशल, शहर खोजें || Buscar nome, equipamento, habilidade, cidade
+Availability || उपलब्धता || Disponibilidade
+About me || मेरे बारे में || Sobre mim
+Emails and privacy || ईमेल और गोपनीयता || E-mails e privacidade
+Saved as you type. || लिखते ही सेव होता है। || Salvo enquanto você digita.
+Saved as you type. Add at least one role to appear in Crew search. || लिखते ही सेव होता है। क्रू खोज में दिखने के लिए कम से कम एक भूमिका जोड़ें। || Salvo enquanto você digita. Adicione pelo menos uma função para aparecer na busca de equipe.
+Add your name. || अपना नाम जोड़ें। || Adicione seu nome.
+Welcome. Fill in About me, pick at least one role under Roles, and you'll appear in Crew search and on the calendar. Everything saves as you type. || स्वागत है। "मेरे बारे में" भरें, "भूमिकाएँ" में कम से कम एक चुनें, और आप क्रू खोज और कैलेंडर में दिखेंगे। सब कुछ लिखते ही सेव होता है। || Boas-vindas. Preencha Sobre mim, escolha pelo menos uma função em Funções e você vai aparecer na busca de equipe e no calendário. Tudo é salvo enquanto você digita.
+Draft kept. Open the form again to carry on || ड्राफ़्ट रखा गया। जारी रखने के लिए फ़ॉर्म फिर खोलें || Rascunho guardado. Abra o formulário de novo para continuar
+Use × or Cancel to close. Your draft is kept || बंद करने के लिए × या रद्द करें दबाएँ। आपका ड्राफ़्ट रखा जाएगा || Use × ou Cancelar para fechar. Seu rascunho fica guardado
+Picked up where you left off. || वहीं से शुरू किया जहाँ आपने छोड़ा था। || Você continua de onde parou.
+Restored what you typed earlier. || आपका पहले लिखा हुआ वापस लाया गया। || O que você digitou antes foi restaurado.
+Restored what you typed last time. || पिछली बार लिखा हुआ वापस लाया गया। || O que você digitou da última vez foi restaurado.
+Start again || फिर से शुरू करें || Começar de novo
+On your device || आपके डिवाइस पर || No seu dispositivo
+Only your sign-in, and a draft of any form you've started but not sent, so a stray click doesn't lose your typing. Signing out clears both. || सिर्फ़ आपका साइन-इन, और किसी शुरू किए पर न भेजे गए फ़ॉर्म का ड्राफ़्ट, ताकि ग़लत क्लिक से लिखा हुआ न खोए। साइन आउट करने पर दोनों मिट जाते हैं। || Só o seu login e um rascunho de qualquer formulário começado e não enviado, para que um clique errado não apague o que você digitou. Sair apaga os dois.
+. Your device only keeps you signed in, plus a draft of any form you haven't sent yet. Signing out clears both. || । आपका डिवाइस सिर्फ़ साइन-इन और न भेजे गए फ़ॉर्म के ड्राफ़्ट रखता है। साइन आउट करने पर दोनों मिट जाते हैं। || . Seu dispositivo só guarda o login e rascunhos de formulários não enviados. Sair apaga os dois.
+Messages || संदेश || Mensagens
+All messages || सभी संदेश || Todas as mensagens
+Reply || जवाब दें || Responder
+Write a reply || जवाब लिखें || Escreva uma resposta
+Conversation || बातचीत || Conversa
+Private between you and the other person. New messages are also emailed, unless you've turned that off in My profile. || सिर्फ़ आपके और दूसरे व्यक्ति के बीच। नए संदेश ईमेल पर भी आते हैं, जब तक आपने इसे मेरी प्रोफ़ाइल में बंद न किया हो। || Privado entre você e a outra pessoa. Novas mensagens também chegam por e-mail, a menos que você tenha desativado isso em Meu perfil.
+No messages yet. Open someone's profile in Crew or Casting and press Message. || अभी कोई संदेश नहीं। क्रू या कास्टिंग में किसी की प्रोफ़ाइल खोलें और संदेश दबाएँ। || Nenhuma mensagem ainda. Abra o perfil de alguém em Equipe ou Elenco e toque em Mensagem.
+Sign in to see your messages. || अपने संदेश देखने के लिए साइन इन करें। || Entre para ver suas mensagens.
+That person isn't on Crew Call any more || वह व्यक्ति अब Crew Call पर नहीं है || Essa pessoa não está mais no Crew Call
+You || आप || Você
+They'll get this in Crew Call and by email. Your email is kept private; they reply in Crew Call. || उन्हें यह Crew Call और ईमेल पर मिलेगा। आपका ईमेल निजी रहेगा; वे Crew Call में जवाब देंगे। || A pessoa recebe no Crew Call e por e-mail. Seu e-mail fica privado; a resposta vem pelo Crew Call.
+They'll get this in Crew Call and by email. Your email is included so they can reply directly. || उन्हें यह Crew Call और ईमेल पर मिलेगा। आपका ईमेल साथ जाएगा ताकि वे सीधे जवाब दे सकें। || A pessoa recebe no Crew Call e por e-mail. Seu e-mail vai junto para que respondam diretamente.

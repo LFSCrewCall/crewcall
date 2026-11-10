@@ -301,3 +301,16 @@
 ^(.+)'s team didn't confirm you as (.+)\. If that's a mistake, message them\.$ || 《{=1}》團隊沒有確認你擔任{2}。如果弄錯了，請傳訊息給他們。 || L'équipe de {=1} n'a pas confirmé votre poste {2}. Si c'est une erreur, écrivez-leur. || El equipo de {=1} no te confirmó como {2}. Si es un error, escríbeles.
 ^Worked on this project\? Pick your role\. (.+) approves it, then it shows on your profile as a credit\.$ || 參與過這個專案？請選擇職位。{=1} 核准後就會成為你個人檔案上的作品經歷。 || Vous avez travaillé sur ce projet ? Choisissez votre poste. {=1} l'approuve, puis il apparaît comme crédit sur votre profil. || ¿Trabajaste en este proyecto? Elige tu puesto. {=1} lo aprueba y aparecerá como crédito en tu perfil.
 ^Already agreed to work on this\? Pick your role\. (.+) approves it, then you're locked in and it goes on your calendar\.$ || 已答應參與？請選擇職位。{=1} 核准後你就確定加入，並加到你的行事曆。 || Vous avez déjà accepté d'y travailler ? Choisissez votre poste. {=1} l'approuve, puis vous êtes confirmé et c'est dans votre calendrier. || ¿Ya acordaste trabajar en esto? Elige tu puesto. {=1} lo aprueba y quedas confirmado en tu calendario.
+^Ask to play (.+)$ || 申請飾演 {=1} || Demander à jouer {=1} || Pedir interpretar a {=1}
+^Ask to be cast as (.+)$ || 申請擔任{1} || Demander un rôle de {1} || Pedir un papel de {1}
+^Playing age (.+)$ || 飾演年齡 {=1} || Âge de jeu {=1} || Edad aparente {=1}
+^Closes (.+)$ || {1}截止 || Clôture le {1} || Cierra el {1}
+^Apply on (.+)$ || 在 {=1} 報名 || Postuler sur {=1} || Presentarse en {=1}
+^(\d+) needed$ || 需要 {=1} 人 || {=1} {1|recherché|recherchés} || {=1} {1|necesario|necesarios}
+^(\d+) parts?$ || {=1} 個角色 || {=1} {1|rôle|rôles} || {=1} {1|papel|papeles}
+^Messages, (\d+) unread$ || 訊息，{=1} 則未讀 || Messages, {=1} non {1|lu|lus} || Mensajes, {=1} sin leer
+^Message (.+)$ || 傳訊息給 {=1} || Écrire à {=1} || Escribir a {=1}
+^· from (.+)$ || · 來自 {=1} || · originaire de {=1} || · de {=1}
+^You: (.+)$ || 你：{=1} || Vous : {=1} || Tú: {=1}
+^You · (.+)$ || 你 · {=1} || Vous · {=1} || Tú · {=1}
+^(.+) and the director get this straight away and can accept you in one tap\. Your email stays private unless you share it\.$ || {=1} 和導演會立即收到，一鍵即可接受你。除非你分享，否則你的電子郵件會保密。 || {=1} et le réalisateur le reçoivent tout de suite et peuvent vous accepter en un clic. Votre e-mail reste privé sauf si vous le partagez. || {=1} y el director lo reciben al momento y pueden aceptarte con un toque. Tu correo es privado salvo que lo compartas.

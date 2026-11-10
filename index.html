@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Crew Call — MA film projects and crew</title>
 <meta name="description" content="Post film projects, see every shoot on one calendar, and find classmates available for the roles you need.">
-<link rel="stylesheet" href="vendor/fonts/fonts.css?v=18">
-<link rel="stylesheet" href="style.css?v=18">
+<link rel="stylesheet" href="vendor/fonts/fonts.css?v=19">
+<link rel="stylesheet" href="style.css?v=19">
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#000000">
 <link rel="icon" href="icons/icon-192.png" type="image/png">
@@ -27,12 +27,14 @@
     <button role="tab" data-view="stages" aria-selected="false">Projects</button>
     <button role="tab" data-view="paid" aria-selected="false">Paid</button>
     <button role="tab" data-view="crew" aria-selected="false">Crew</button>
+    <button role="tab" data-view="cast" aria-selected="false">Casting</button>
     <button role="tab" data-view="mine" aria-selected="false">My shoots</button>
     <button role="tab" data-view="me" aria-selected="false">My profile</button>
     <button role="tab" data-view="admin" aria-selected="false" hidden>Admin</button>
   </nav>
   <div class="top-actions">
     <div class="lang"><button class="icon-btn lang-btn" id="langBtn" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Language" title="Language"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M3 12h18M12 3c2.6 2.6 3.8 5.6 3.8 9s-1.2 6.4-3.8 9c-2.6-2.6-3.8-5.6-3.8-9S9.4 5.6 12 3Z" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><span class="lang-cur" data-lang-cur data-noi18n>EN</span></button><div class="lang-menu" id="langMenu" role="menu" aria-label="Language" hidden></div></div>
+    <button class="icon-btn bell" id="msgBtn" hidden aria-label="Messages"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg><span class="bell-n" id="msgN" hidden></span></button>
     <button class="icon-btn bell" id="bellBtn" hidden aria-label="Notifications"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9a6 6 0 1 1 12 0c0 5 2 6.5 2 6.5H4S6 14 6 9Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M10 19a2 2 0 0 0 4 0" fill="none" stroke="currentColor" stroke-width="1.7"/></svg><span class="bell-n" id="bellN" hidden></span></button>
     <div class="acct"><button class="btn btn-ghost btn-sm" id="acctBtn" aria-haspopup="true" aria-expanded="false">Sign in</button><div class="acct-menu" id="acctMenu" hidden></div></div>
     <button class="btn btn-accent" id="postProjectBtn">Post a shoot</button>
@@ -99,7 +101,7 @@
     <div class="view-head">
       <h1 class="page-title">Find crew</h1>
       <div class="filters">
-        <input type="search" id="crewSearch" placeholder="Search name, kit, skill">
+        <input type="search" id="crewSearch" placeholder="Search name, kit, skill, city">
         <label class="field-inline"><span>Free from</span><input type="date" id="crewFrom"></label>
         <label class="field-inline"><span>to</span><input type="date" id="crewTo"></label>
         <select id="crewTerm"><option value="">All terms</option></select>
@@ -120,6 +122,7 @@
   <section class="view" id="view-release" hidden aria-label="Release"></section>
   <section class="view" id="view-paid" hidden aria-label="Paid"></section>
   <section class="view" id="view-fund" hidden aria-label="Funding"></section>
+  <section class="view" id="view-cast" hidden aria-label="Casting"></section>
 
   <!-- MY SHOOTS -->
   <section class="view" id="view-mine" hidden aria-label="My shoots"></section>
@@ -138,51 +141,9 @@
       <p class="muted">List every role you can do, the kit you can bring, and the dates you're free. Directors will find you in Crew search and on the calendar.</p>
       <p class="guest-note" id="meGuest" hidden></p>
     </div>
-    <form id="meForm" class="form-card" autocomplete="on">
-      <div class="form-grid">
-        <label class="field"><span>Full name</span><input name="name" required></label>
-        <label class="field"><span>Sign-in email <small>fixed</small></span><input name="email" type="email" readonly aria-readonly="true"></label>
-        <label class="field"><span>Course and cohort <small id="termLock"></small></span><select name="cohort"></select></label>
-        <label class="field" id="cohortField"><span>Term now <small>automatic</small></span><input name="termShow" readonly aria-readonly="true"></label>
-        <p class="term-note span-2" id="termNote"></p>
-        <label class="field span-2"><span>Pathway</span><select name="pathway" required></select></label>
-        <fieldset class="fs span-2 pf-fs"><legend>Portfolio links <small>all optional, no need for https:// or www</small></legend>
-          <div class="form-grid">
-            <label class="field"><span>Showreel (Vimeo or YouTube)</span><input name="reel" inputmode="url" autocapitalize="off" spellcheck="false" placeholder="vimeo.com/yourname"></label>
-            <label class="field"><span>Website</span><input name="site" inputmode="url" autocapitalize="off" spellcheck="false" placeholder="yourname.com"></label>
-            <label class="field"><span>IMDb</span><input name="imdb" inputmode="url" autocapitalize="off" spellcheck="false" placeholder="imdb.com/name/nm1234567"></label>
-            <label class="field"><span>Instagram</span><input name="insta" autocapitalize="off" spellcheck="false" placeholder="@yourname"></label>
-          </div>
-        </fieldset>
-        <label class="field span-2"><span>Short bio</span><textarea name="bio" rows="2" maxlength="240" placeholder="What you've shot, what you want to do more of"></textarea></label>
-      </div>
-
-      <fieldset class="fs">
-        <legend>Roles I can do <small>tap all that apply, star your main one</small></legend>
-        <div class="role-picker" id="meRoles"></div>
-      </fieldset>
-
-      <fieldset class="fs">
-        <legend>Roles I want to learn <small>shadow someone on set</small></legend>
-        <p class="muted small">Producers can accept you as a shadow alongside their crew. You'll show up as "wants to shadow" on matching roles.</p>
-        <div class="role-picker rp-learn" id="meLearn"></div>
-      </fieldset>
-
-      <fieldset class="fs">
-        <legend>Credits <small>added automatically after each shoot</small></legend>
-        <div id="meCredits"></div>
-      </fieldset>
-
-      <fieldset class="fs">
-        <legend>Kit I can bring</legend>
-        <div class="kit-editor" id="meKit"></div>
-        <div class="kit-add">
-          <select id="kitCat"></select>
-          <input id="kitItem" placeholder="e.g. Sony FX3, Aputure 300d, Zoom F6">
-          <button type="button" class="btn btn-ghost btn-sm" id="kitAddBtn">Add kit</button>
-        </div>
-      </fieldset>
-
+    <form id="meForm" class="form-card" autocomplete="on" novalidate>
+      <div class="ptabs me-tabs" role="tablist" aria-label="My profile"><button type="button" role="tab" class="ptab" id="mtb-days" aria-controls="mtp-days" aria-selected="false" data-mtab="days">Availability<span class="count" data-mcount="days" hidden></span></button><button type="button" role="tab" class="ptab" id="mtb-about" aria-controls="mtp-about" aria-selected="false" data-mtab="about">About me<span class="count" data-mcount="about" hidden></span></button><button type="button" role="tab" class="ptab" id="mtb-roles" aria-controls="mtp-roles" aria-selected="false" data-mtab="roles">Roles<span class="count" data-mcount="roles" hidden></span></button><button type="button" role="tab" class="ptab" id="mtb-kit" aria-controls="mtp-kit" aria-selected="false" data-mtab="kit">Kit<span class="count" data-mcount="kit" hidden></span></button><button type="button" role="tab" class="ptab" id="mtb-credits" aria-controls="mtp-credits" aria-selected="false" data-mtab="credits">Credits<span class="count" data-mcount="credits" hidden></span></button><button type="button" role="tab" class="ptab" id="mtb-settings" aria-controls="mtp-settings" aria-selected="false" data-mtab="settings">Emails and privacy<span class="count" data-mcount="settings" hidden></span></button></div>
+      <div class="ptab-panel me-panel" id="mtp-days" role="tabpanel" aria-labelledby="mtb-days" hidden>
       <fieldset class="fs" id="daysFs">
         <legend>When I'm free</legend>
         <p class="muted small">Tap a day to mark it free, tap again to clear. Drag across days to select several at once. Days you're crewed on show as booked.</p>
@@ -203,7 +164,58 @@
         </div>
         <label class="toggle mt"><input type="checkbox" name="openToOffers"> <span>Open to offers outside these dates</span></label>
       </fieldset>
+      </div>
+      <div class="ptab-panel me-panel" id="mtp-about" role="tabpanel" aria-labelledby="mtb-about" hidden>
+      <div class="form-grid">
+        <label class="field"><span>Full name</span><input name="name" required></label>
+        <label class="field"><span>Sign-in email <small>fixed</small></span><input name="email" type="email" readonly aria-readonly="true"></label>
+        <label class="field"><span>Course and cohort <small id="termLock"></small></span><select name="cohort"></select></label>
+        <label class="field" id="cohortField"><span>Term now <small>automatic</small></span><input name="termShow" readonly aria-readonly="true"></label>
+        <p class="term-note span-2" id="termNote"></p>
+        <label class="field span-2"><span>Pathway</span><select name="pathway" required></select></label>
+        <label class="field"><span>Based in <small>city and country, so people nearby can find you</small></span><input name="based" maxlength="60" autocomplete="address-level2" placeholder="e.g. London, UK"></label>
+        <label class="field"><span>From <small>optional</small></span><input name="from" maxlength="60" autocomplete="off" placeholder="e.g. Lagos, Nigeria"></label>
+        <fieldset class="fs span-2 pf-fs"><legend>Portfolio links <small>all optional, no need for https:// or www</small></legend>
+          <div class="form-grid">
+            <label class="field"><span>Showreel (Vimeo or YouTube)</span><input name="reel" inputmode="url" autocapitalize="off" spellcheck="false" placeholder="vimeo.com/yourname"></label>
+            <label class="field"><span>Website</span><input name="site" inputmode="url" autocapitalize="off" spellcheck="false" placeholder="yourname.com"></label>
+            <label class="field"><span>IMDb</span><input name="imdb" inputmode="url" autocapitalize="off" spellcheck="false" placeholder="imdb.com/name/nm1234567"></label>
+            <label class="field"><span>Instagram</span><input name="insta" autocapitalize="off" spellcheck="false" placeholder="@yourname"></label>
+          </div>
+        </fieldset>
+        <label class="field span-2"><span>Short bio</span><textarea name="bio" rows="2" maxlength="240" placeholder="What you've shot, what you want to do more of"></textarea></label>
+      </div>
+      </div>
+      <div class="ptab-panel me-panel" id="mtp-roles" role="tabpanel" aria-labelledby="mtb-roles" hidden>
+      <fieldset class="fs">
+        <legend>Roles I can do <small>tap all that apply, star your main one</small></legend>
+        <div class="role-picker" id="meRoles"></div>
+      </fieldset>
 
+      <fieldset class="fs">
+        <legend>Roles I want to learn <small>shadow someone on set</small></legend>
+        <p class="muted small">Producers can accept you as a shadow alongside their crew. You'll show up as "wants to shadow" on matching roles.</p>
+        <div class="role-picker rp-learn" id="meLearn"></div>
+      </fieldset>
+      </div>
+      <div class="ptab-panel me-panel" id="mtp-kit" role="tabpanel" aria-labelledby="mtb-kit" hidden>
+      <fieldset class="fs">
+        <legend>Kit I can bring</legend>
+        <div class="kit-editor" id="meKit"></div>
+        <div class="kit-add">
+          <select id="kitCat"></select>
+          <input id="kitItem" placeholder="e.g. Sony FX3, Aputure 300d, Zoom F6">
+          <button type="button" class="btn btn-ghost btn-sm" id="kitAddBtn">Add kit</button>
+        </div>
+      </fieldset>
+      </div>
+      <div class="ptab-panel me-panel" id="mtp-credits" role="tabpanel" aria-labelledby="mtb-credits" hidden>
+      <fieldset class="fs">
+        <legend>Credits <small>added automatically after each shoot</small></legend>
+        <div id="meCredits"></div>
+      </fieldset>
+      </div>
+      <div class="ptab-panel me-panel" id="mtp-settings" role="tabpanel" aria-labelledby="mtb-settings" hidden>
       <fieldset class="fs" id="notifyFs">
         <legend>Email notifications</legend>
         <label class="toggle"><input type="checkbox" name="nApply" checked> <span>Email me when someone requests to join a project I run</span></label>
@@ -220,7 +232,6 @@
           <button type="button" class="btn btn-ghost btn-sm" id="digestPreview">Preview this week's digest</button>
         </div>
       </fieldset>
-
       <fieldset class="fs">
         <legend>Privacy</legend>
         <label class="toggle"><input type="checkbox" name="shareEmail"> <span>Show my email to signed-in members (otherwise people message you through Crew Call)</span></label>
@@ -229,6 +240,7 @@
         <p class="muted small mt">Read the <button type="button" class="link-btn" data-privacy>privacy notice</button>.</p>
         <div class="form-actions"><button type="button" class="btn btn-ghost btn-sm" id="downloadMe">Download my data</button><button type="button" class="btn btn-danger btn-sm" id="deleteMe">Delete my profile</button></div>
       </fieldset>
+      </div>
 
       <div class="form-actions">
         <button class="btn btn-accent" type="submit">Save profile</button>
@@ -254,11 +266,11 @@
 </div>
 <div class="toast" id="toast" role="status" hidden></div>
 
-<script src="data.js?v=18"></script>
+<script src="data.js?v=19"></script>
 <script src="config.js"></script>
-<script src="emails/digest-template.js?v=18"></script>
-<script src="emails/newsletter-template.js?v=18"></script>
+<script src="emails/digest-template.js?v=19"></script>
+<script src="emails/newsletter-template.js?v=19"></script>
 <!-- cloud.js loads app.js, i18n-dict.js and i18n.js once the data is ready -->
-<script src="cloud.js?v=18"></script>
+<script src="cloud.js?v=19"></script>
 </body>
 </html>

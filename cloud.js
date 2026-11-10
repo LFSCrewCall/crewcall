@@ -71,7 +71,11 @@
     for (const coll of Object.keys(COLL)) S[coll] = [];
     Object.assign(S, { invites: [], admins: [], owner: null, adminPerms: {}, settings: { ...demo.settings, senderEmail: "", replyTo: "", schoolAlias: "" }, customWords: {}, handover: { done: {}, notes: "", log: [] }, nlAuto: { ...demo.nlAuto, on: false }, adminVia: {}, reps: {}, ownerProposal: null, adminLog: [] });
     const em = Object.fromEntries(mails.map(m => [m.id, m.email]));
-    for (const r of recs) {
+    // "Actor" became "Talent" (with "Supporting artist" alongside), so older records read with the new name
+    const renamed = d => { const t = JSON.stringify(d); return t.includes('"Actor"') ? JSON.parse(t.replace(/"Actor"/g, '"Talent"')) : d; };
+    for (const r0 of recs) {
+      const r = { ...r0, data: renamed(r0.data) };
+      if (r.kind === "config" && r.id === "ROLE_GROUPS" && r.data && r.data.v) { const g = r.data.v, c = Object.keys(g).find(k => (g[k] || []).includes("Talent")); if (c && !g[c].includes("Supporting artist")) g[c].splice(g[c].indexOf("Talent") + 1, 0, "Supporting artist"); }
       if (r.kind === "config") { if (CONSTS.includes(r.id)) window.CC_CONST[r.id] = r.data.v; else if (SINGLE.includes(r.id)) S[r.id] = r.data.v; continue; }
       if (r.kind === "invite") { S.invites.push(r.data); continue; }
       const coll = KIND_OF[r.kind]; if (!coll) continue;

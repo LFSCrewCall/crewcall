@@ -1,0 +1,87 @@
+# v19: drafts, casting, location, messages, profile tabs
+Talent || Актёр || ممثل
+Supporting artist || Артист массовки || ممثل إضافي
+Supporting artists || Массовка || ممثلون إضافيون
+Casting || Кастинг || اختيار الممثلين
+Cast || Актёрский состав || طاقم التمثيل
+Cast your film || Подберите актёров для фильма || اختر ممثلي فيلمك
+Casting call || Открытый кастинг || إعلان اختيار الممثلين
+Casting call link || Ссылка на кастинг || رابط إعلان اختيار الممثلين
+Casting closed || Кастинг закрыт || انتهى اختيار الممثلين
+Backstage, Spotlight, StarNow, Mandy or a form || Backstage, Spotlight, StarNow, Mandy или форма || Backstage أو Spotlight أو StarNow أو Mandy أو نموذج
+Applications close || Приём заявок до || آخر موعد للتقديم
+Paid? || Оплачивается? || مدفوع؟
+e.g. Expenses and lunch || например, расходы и обед || مثلًا: المصاريف والغداء
+Notes for actors || Заметки для актёров || ملاحظات للممثلين
+Self-tape or in-person audition, recall dates, what to send || Самопроба или очное прослушивание, даты повторных проб, что прислать || تسجيل ذاتي أو تجربة أداء حضورية، مواعيد الإعادة، وما يجب إرساله
+optional: for Talent and Supporting artist roles || необязательно: для ролей актёров и массовки || اختياري: لأدوار الممثلين والممثلين الإضافيين
+Add Talent or Supporting artist from the Roles list above, then use Character to name the part. Actors can request a part here, or apply through your casting call. || Добавьте «Актёр» или «Артист массовки» из списка ролей выше, затем укажите имя персонажа. Актёры могут попросить роль здесь или подать заявку через ваш кастинг. || أضف «ممثل» أو «ممثل إضافي» من قائمة الأدوار أعلاه، ثم استخدم «الشخصية» لتسمية الدور. يمكن للممثلين طلب الدور هنا أو التقديم عبر إعلان اختيار الممثلين.
+Character || Персонаж || الشخصية
+Character ✓ || Персонаж ✓ || الشخصية ✓
+e.g. Maya || например, Майя || مثلًا: مايا
+Playing age || Игровой возраст || العمر المؤدّى
+e.g. 25 to 35 || например, от 25 до 35 || مثلًا: من 25 إلى 35
+About the part || О роли || عن الدور
+Who they are, what the scenes ask for, accents, any intimacy or stunts, self-tape details || Кто этот персонаж, что требуют сцены, акценты, интимные сцены или трюки, детали самопробы || من هي الشخصية، وما تتطلبه المشاهد، واللهجات، وأي مشاهد حميمة أو مخاطرة، وتفاصيل التسجيل الذاتي
+Parts to cast || Роли для кастинга || أدوار مطلوبة
+Fully cast. || Все роли распределены. || اكتمل طاقم التمثيل.
+Find talent on Crew Call || Найти актёров в Crew Call || ابحث عن ممثلين في Crew Call
+Parts || Роли || الأدوار
+Part || Роль || الدور
+Apply || Подать заявку || تقدّم
+Through a casting call || Через кастинг || عبر إعلان اختيار الممثلين
+Shoots || Съёмки || التصوير
+Shooting soonest || Ближайшие съёмки || الأقرب تصويرًا
+Closing soonest || Скоро закрываются || الأقرب إغلاقًا
+Search part, film, director or playing age || Поиск по роли, фильму, режиссёру или возрасту || ابحث عن دور أو فيلم أو مخرج أو عمر
+Search parts || Поиск ролей || ابحث في الأدوار
+Parts that fit your roles || Роли, подходящие вам || أدوار تناسب أدوارك
+Parts in LFS films, from leads to supporting artists. Ask for a part here, apply through the film's casting call, or find actors who've worked on LFS shoots. || Роли в фильмах LFS — от главных до массовки. Попросите роль здесь, подайте заявку через кастинг фильма или найдите актёров, снимавшихся в LFS. || أدوار في أفلام LFS، من البطولة إلى الممثلين الإضافيين. اطلب دورًا هنا، أو تقدّم عبر إعلان الفيلم، أو ابحث عن ممثلين عملوا في تصوير LFS.
+Talent and supporting artists || Актёры и массовка || الممثلون والممثلون الإضافيون
+Has acted on an LFS film || Снимался в фильме LFS || شارك في فيلم من LFS
+Search name, city, film or part || Поиск по имени, городу, фильму или роли || ابحث بالاسم أو المدينة أو الفيلم أو الدور
+No LFS parts yet || Пока нет ролей в LFS || لا أدوار في LFS بعد
+No parts open right now || Сейчас открытых ролей нет || لا توجد أدوار متاحة حاليًا
+Casting a shoot? Add Talent or Supporting artist roles to it and they show up here. || Ищете актёров? Добавьте в съёмку роли актёров или массовки — они появятся здесь. || تبحث عن ممثلين؟ أضف أدوار ممثلين أو ممثلين إضافيين إلى تصويرك وستظهر هنا.
+Actors appear here once they add Talent or Supporting artist to their profile, or once they've been cast on an LFS shoot. || Актёры появляются здесь, когда добавляют «Актёр» или «Артист массовки» в профиль или после участия в съёмке LFS. || يظهر الممثلون هنا بعد إضافة «ممثل» أو «ممثل إضافي» إلى ملفاتهم، أو بعد مشاركتهم في تصوير LFS.
+Sign in to ask || Войдите, чтобы попросить || سجّل الدخول للطلب
+Ask for this part || Попросить эту роль || اطلب هذا الدور
+You're on this film || Вы в команде этого фильма || أنت في هذا الفيلم
+Sign in to cast your film. || Войдите, чтобы подобрать актёров. || سجّل الدخول لاختيار ممثلي فيلمك.
+Sign in to see who acts on LFS films. || Войдите, чтобы увидеть актёров фильмов LFS. || سجّل الدخول لترى من يمثّل في أفلام LFS.
+Add Talent or Supporting artist parts to one of your shoots, with a character name and playing age. You can also add a casting call link from Backstage, Spotlight, StarNow or Mandy. || Добавьте в одну из съёмок роли актёров или массовки с именем персонажа и игровым возрастом. Можно также добавить ссылку на кастинг в Backstage, Spotlight, StarNow или Mandy. || أضف أدوار ممثلين أو ممثلين إضافيين إلى أحد تصويراتك، مع اسم الشخصية والعمر المؤدّى. يمكنك أيضًا إضافة رابط إعلان من Backstage أو Spotlight أو StarNow أو Mandy.
+Post a new shoot instead || Лучше опубликовать новую съёмку || انشر تصويرًا جديدًا بدلًا من ذلك
+The casting call link isn't a web address. || Ссылка на кастинг — не веб-адрес. || رابط إعلان اختيار الممثلين ليس عنوان ويب.
+Based in || Живёт в || مقيم في
+city and country, so people nearby can find you || город и страна, чтобы вас нашли те, кто рядом || المدينة والبلد، ليجدك القريبون منك
+e.g. London, UK || например, Лондон, Великобритания || مثلًا: لندن، المملكة المتحدة
+e.g. Lagos, Nigeria || например, Лагос, Нигерия || مثلًا: لاغوس، نيجيريا
+Search name, kit, skill, city || Поиск по имени, технике, навыку, городу || ابحث بالاسم أو المعدات أو المهارة أو المدينة
+Availability || Доступность || التوفّر
+About me || Обо мне || نبذة عني
+Emails and privacy || Письма и конфиденциальность || البريد والخصوصية
+Saved as you type. || Сохраняется по мере ввода. || يُحفظ أثناء الكتابة.
+Saved as you type. Add at least one role to appear in Crew search. || Сохраняется по мере ввода. Добавьте хотя бы одну роль, чтобы появиться в поиске команды. || يُحفظ أثناء الكتابة. أضف دورًا واحدًا على الأقل لتظهر في البحث عن الطاقم.
+Add your name. || Укажите имя. || أضف اسمك.
+Welcome. Fill in About me, pick at least one role under Roles, and you'll appear in Crew search and on the calendar. Everything saves as you type. || Добро пожаловать. Заполните «Обо мне», выберите хотя бы одну роль в «Ролях» — и вы появитесь в поиске команды и в календаре. Всё сохраняется по мере ввода. || أهلًا بك. املأ «نبذة عني» واختر دورًا واحدًا على الأقل في «الأدوار»، وستظهر في البحث عن الطاقم وفي التقويم. كل شيء يُحفظ أثناء الكتابة.
+Draft kept. Open the form again to carry on || Черновик сохранён. Откройте форму снова, чтобы продолжить || حُفظت المسودة. افتح النموذج مجددًا للمتابعة
+Use × or Cancel to close. Your draft is kept || Закройте через × или «Отмена». Черновик сохранится || استخدم × أو «إلغاء» للإغلاق. ستُحفظ مسودتك
+Picked up where you left off. || Продолжаем с того места, где вы остановились. || تابعت من حيث توقفت.
+Restored what you typed earlier. || Восстановлено то, что вы ввели ранее. || استُعيد ما كتبته سابقًا.
+Restored what you typed last time. || Восстановлено то, что вы ввели в прошлый раз. || استُعيد ما كتبته في المرة الماضية.
+Start again || Начать заново || ابدأ من جديد
+On your device || На вашем устройстве || على جهازك
+Only your sign-in, and a draft of any form you've started but not sent, so a stray click doesn't lose your typing. Signing out clears both. || Только ваш вход и черновик формы, которую вы начали, но не отправили, чтобы случайный клик не стёр введённое. Выход удаляет и то, и другое. || تسجيل دخولك فقط، ومسودة أي نموذج بدأته ولم ترسله، حتى لا تضيع كتابتك بنقرة خاطئة. تسجيل الخروج يمسح الاثنين.
+. Your device only keeps you signed in, plus a draft of any form you haven't sent yet. Signing out clears both. || . Устройство хранит только ваш вход и черновики неотправленных форм. Выход удаляет и то, и другое. || . يحتفظ جهازك فقط بتسجيل دخولك ومسودات النماذج التي لم ترسلها. تسجيل الخروج يمسح الاثنين.
+Messages || Сообщения || الرسائل
+All messages || Все сообщения || كل الرسائل
+Reply || Ответить || ردّ
+Write a reply || Напишите ответ || اكتب ردًا
+Conversation || Переписка || المحادثة
+Private between you and the other person. New messages are also emailed, unless you've turned that off in My profile. || Видно только вам и собеседнику. Новые сообщения также приходят на почту, если вы не отключили это в профиле. || خاصة بينك وبين الشخص الآخر. تُرسل الرسائل الجديدة بالبريد أيضًا، ما لم توقف ذلك في ملفك الشخصي.
+No messages yet. Open someone's profile in Crew or Casting and press Message. || Сообщений пока нет. Откройте профиль человека в «Команде» или «Кастинге» и нажмите «Написать». || لا رسائل بعد. افتح ملف شخص في «الطاقم» أو «اختيار الممثلين» واضغط «رسالة».
+Sign in to see your messages. || Войдите, чтобы увидеть сообщения. || سجّل الدخول لترى رسائلك.
+That person isn't on Crew Call any more || Этого человека больше нет в Crew Call || هذا الشخص لم يعد في Crew Call
+You || Вы || أنت
+They'll get this in Crew Call and by email. Your email is kept private; they reply in Crew Call. || Сообщение придёт в Crew Call и на почту. Ваш адрес останется скрытым; ответят в Crew Call. || ستصلهم في Crew Call وبالبريد. يبقى بريدك خاصًا؛ وسيردّون في Crew Call.
+They'll get this in Crew Call and by email. Your email is included so they can reply directly. || Сообщение придёт в Crew Call и на почту. Ваш адрес будет указан, чтобы вам ответили напрямую. || ستصلهم في Crew Call وبالبريد. سيُرفق بريدك ليتمكنوا من الردّ مباشرة.
