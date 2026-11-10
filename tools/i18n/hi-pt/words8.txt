@@ -1,0 +1,32 @@
+# v20: crew table, preferred names, form tabs, paid roles, perks, languages permission
+Preferred name || पसंदीदा नाम || Nome preferido
+what people call you || लोग आपको किस नाम से बुलाते हैं || como as pessoas te chamam
+e.g. Chris || जैसे Chris || ex.: Chris
+All departments || सभी विभाग || Todos os departamentos
+Department || विभाग || Departamento
+My availability || मेरी उपलब्धता || Minha disponibilidade
+Basics || बुनियादी जानकारी || O básico
+Dates and places || तारीख़ें और जगहें || Datas e locais
+Details ✓ || विवरण ✓ || Detalhes ✓
+This role is paid || इस भूमिका का भुगतान होता है || Esta função é remunerada
+e.g. £150 a day || जैसे £150 प्रति दिन || ex.: £150 por dia
+What crew get || क्रू को क्या मिलता है || O que a equipe recebe
+Meals || भोजन || Refeições
+Travel || आने-जाने का ख़र्च || Transporte
+Credit || क्रेडिट || Crédito
+Paid roles || भुगतान वाली भूमिकाएँ || Funções remuneradas
+1 paid role || 1 भुगतान वाली भूमिका || 1 função remunerada
+LFS shoot || LFS शूट || Filmagem LFS
+Also: || साथ में: || Também:
+More || और || Mais
+Add a project title. || प्रोजेक्ट का शीर्षक जोड़ें। || Adicione um título ao projeto.
+Add the director. || निर्देशक जोड़ें। || Adicione a direção.
+Add a logline. || लॉगलाइन जोड़ें। || Adicione uma logline.
+Project details || प्रोजेक्ट विवरण || Detalhes do projeto
+Approve translation suggestions and fix words in any language || अनुवाद सुझावों को मंज़ूरी दें और किसी भी भाषा में शब्द ठीक करें || Aprovar sugestões de tradução e corrigir palavras em qualquer idioma
+Try fewer roles, another department or a wider date range. || कम भूमिकाएँ, कोई दूसरा विभाग या लंबी तारीख़ सीमा आज़माएँ। || Tente menos funções, outro departamento ou um período maior.
+Use Details to add a brief or mark a role as paid. Paid roles also show on Paid. || ब्रीफ़ जोड़ने या भूमिका को भुगतान वाली बताने के लिए विवरण का उपयोग करें। भुगतान वाली भूमिकाएँ "भुगतान वाला" में भी दिखती हैं। || Use Detalhes para adicionar um briefing ou marcar uma função como remunerada. Funções remuneradas também aparecem em Pago.
+Add Talent or Supporting artist in the Roles tab, then open Details to name the character. || भूमिकाएँ टैब में कलाकार या सहायक कलाकार जोड़ें, फिर किरदार का नाम लिखने के लिए विवरण खोलें। || Adicione Elenco ou Figurante na aba Funções e abra Detalhes para nomear a personagem.
+Tick what everyone on the shoot gets. Paid roles are set on each role, under Details. || टिक करें कि शूट पर सबको क्या मिलता है। भुगतान हर भूमिका के विवरण में तय होता है। || Marque o que todos na filmagem recebem. Funções remuneradas são definidas em cada função, em Detalhes.
+Work that pays: jobs posted by students, alumni and industry contacts, plus paid roles on LFS shoots. Most school shoots are in kind, so you work for the credit, the experience and usually meals and travel. Every job shows its rate. || भुगतान वाला काम: छात्रों, पूर्व छात्रों और इंडस्ट्री संपर्कों के पोस्ट किए काम, साथ में LFS शूट की भुगतान वाली भूमिकाएँ। ज़्यादातर स्कूल शूट बिना भुगतान के होते हैं, यानी आप क्रेडिट, अनुभव और आमतौर पर भोजन और आने-जाने के ख़र्च के लिए काम करते हैं। हर काम में उसकी दर दिखती है। || Trabalho pago: vagas publicadas por estudantes, ex-alunos e contatos do setor, além de funções remuneradas em filmagens da LFS. A maioria das filmagens da escola não é paga: você trabalha pelo crédito, pela experiência e geralmente por refeições e transporte. Cada vaga mostra o valor.
+Already know who's doing a role? Type their name to put them down. People who list the role come first. || पहले से पता है कि कोई भूमिका कौन करेगा? नाम लिखकर उन्हें जोड़ें। जिनकी प्रोफ़ाइल में यह भूमिका है, वे पहले दिखते हैं। || Já sabe quem vai fazer uma função? Digite o nome para registrar. Quem lista a função aparece primeiro.

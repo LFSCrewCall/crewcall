@@ -1,0 +1,32 @@
+# v20: crew table, preferred names, form tabs, paid roles, perks, languages permission
+Preferred name || Как к вам обращаться || الاسم المفضّل
+what people call you || как вас зовут в команде || الاسم الذي يناديك به الناس
+e.g. Chris || например, Крис || مثلًا: كريس
+All departments || Все отделы || كل الأقسام
+Department || Отдел || القسم
+My availability || Моя занятость || أوقات تفرّغي
+Basics || Основное || الأساسيات
+Dates and places || Даты и места || التواريخ والأماكن
+Details ✓ || Подробнее ✓ || التفاصيل ✓
+This role is paid || Эта роль оплачивается || هذا الدور مدفوع الأجر
+e.g. £150 a day || например, £150 в день || مثلًا: 150 جنيهًا في اليوم
+What crew get || Что получает команда || ما يحصل عليه الطاقم
+Meals || Питание || الوجبات
+Travel || Проезд || المواصلات
+Credit || Титры || ذكر الاسم في الشارة
+Paid roles || Оплачиваемые роли || أدوار مدفوعة
+1 paid role || 1 оплачиваемая роль || دور مدفوع واحد
+LFS shoot || Съёмка LFS || تصوير LFS
+Also: || Также: || أيضًا:
+More || Ещё || المزيد
+Add a project title. || Добавьте название проекта. || أضف عنوان المشروع.
+Add the director. || Укажите режиссёра. || أضف المخرج.
+Add a logline. || Добавьте логлайн. || أضف ملخّصًا بسطر واحد.
+Project details || Детали проекта || تفاصيل المشروع
+Approve translation suggestions and fix words in any language || Одобрять предложения по переводу и исправлять слова на любом языке || الموافقة على اقتراحات الترجمة وتصحيح الكلمات بأي لغة
+Try fewer roles, another department or a wider date range. || Выберите меньше ролей, другой отдел или более широкий диапазон дат. || جرّب أدوارًا أقل أو قسمًا آخر أو نطاق تواريخ أوسع.
+Use Details to add a brief or mark a role as paid. Paid roles also show on Paid. || В «Подробнее» можно добавить описание или отметить роль как оплачиваемую. Оплачиваемые роли также видны в разделе «Оплачиваемая». || استخدم «التفاصيل» لإضافة وصف أو لتحديد أن الدور مدفوع. تظهر الأدوار المدفوعة أيضًا في «مدفوع».
+Add Talent or Supporting artist in the Roles tab, then open Details to name the character. || Добавьте актёра или актёра массовки на вкладке «Роли», затем откройте «Подробнее», чтобы указать персонажа. || أضف ممثلًا أو ممثلًا ثانويًا في تبويب الأدوار، ثم افتح «التفاصيل» لتسمية الشخصية.
+Tick what everyone on the shoot gets. Paid roles are set on each role, under Details. || Отметьте, что получает вся команда на съёмке. Оплата задаётся для каждой роли в «Подробнее». || حدّد ما يحصل عليه كل من في التصوير. تُضبط الأدوار المدفوعة في كل دور، ضمن «التفاصيل».
+Work that pays: jobs posted by students, alumni and industry contacts, plus paid roles on LFS shoots. Most school shoots are in kind, so you work for the credit, the experience and usually meals and travel. Every job shows its rate. || Оплачиваемая работа: вакансии от студентов, выпускников и людей из индустрии, а также оплачиваемые роли на съёмках LFS. Большинство учебных съёмок не оплачиваются: вы работаете ради титров, опыта и обычно питания и проезда. У каждой вакансии указана ставка. || عمل مدفوع: وظائف ينشرها الطلاب والخريجون ومعارف من المجال، إضافة إلى الأدوار المدفوعة في تصويرات LFS. معظم تصويرات المدرسة غير مدفوعة، فتعمل مقابل ذكر اسمك والخبرة، وغالبًا الوجبات والمواصلات. كل وظيفة تعرض أجرها.
+Already know who's doing a role? Type their name to put them down. People who list the role come first. || Уже знаете, кто займёт роль? Введите имя, чтобы записать. Сначала идут те, у кого указана эта роль. || هل تعرف من سيتولى دورًا ما؟ اكتب اسمه لتسجيله. يظهر أولًا من يذكرون هذا الدور.

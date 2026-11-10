@@ -93,7 +93,8 @@ $$;
 -- Which permission edits each setting
 create or replace function config_perm(k text) returns boolean language sql stable security definer set search_path = public as $$
   select case
-    when k in ('COURSES', 'TERM_DATES', 'ROLE_GROUPS', 'TERMS', 'PATHWAYS', 'TYPES', 'KIT_CATS', 'customWords') then has_perm('setup')
+    when k in ('COURSES', 'TERM_DATES', 'ROLE_GROUPS', 'TERMS', 'PATHWAYS', 'TYPES', 'KIT_CATS') then has_perm('setup')
+    when k = 'customWords' then has_perm('langs') or has_perm('setup')
     when k = 'settings' then has_perm('email') or is_owner()
     when k = 'nlAuto' then has_perm('news') or has_perm('send')
     when k in ('admins', 'adminPerms', 'adminVia', 'reps') then has_perm('people')
@@ -139,7 +140,7 @@ create or replace function can_write(k text, rid text, d jsonb, own uuid) return
     when k = 'report' then has_perm('safety')
     when k = 'newsletter' then has_perm('news') or has_perm('send')
     when k = 'invite' then own = auth.uid() or d ->> 'by' = auth.uid()::text or rid = my_email() or has_perm('people')
-    when k = 'transFix' then own = auth.uid() or has_perm('setup')
+    when k = 'transFix' then own = auth.uid() or has_perm('langs')
     else own = auth.uid() or is_admin() end
 $$;
 
@@ -197,7 +198,7 @@ begin
   insert into records (kind, id, data, owner) values
     ('config', 'owner', jsonb_build_object('v', uid), auth.uid()),
     ('config', 'admins', jsonb_build_object('v', jsonb_build_array(uid)), auth.uid()),
-    ('config', 'adminPerms', jsonb_build_object('v', jsonb_build_object(uid, '["people","projects","setup","email","safety","news","send"]'::jsonb)), auth.uid())
+    ('config', 'adminPerms', jsonb_build_object('v', jsonb_build_object(uid, '["people","projects","setup","langs","email","safety","news","send"]'::jsonb)), auth.uid())
   on conflict do nothing;
   return true;
 end $$;
@@ -277,3 +278,12 @@ alter table email_log enable row level security;
 
 revoke execute on function leave_project(text, text), hand_over_project(text, uuid), my_cal_token(), reset_cal_token() from public, anon;
 grant execute on function leave_project(text, text), hand_over_project(text, uuid), my_cal_token(), reset_cal_token() to authenticated;
+
+-- ---------- 10. Languages permission (added in v20) ----------
+-- Approving translations used to come with Terms and lists. It's now its own permission, Languages.
+-- The first time this runs, everyone who had Terms and lists gets Languages too, so nobody loses access.
+update records set data = jsonb_build_object('v', (
+    select coalesce(jsonb_object_agg(k, case when v ? 'setup' and not v ? 'langs' then v || '["langs"]'::jsonb else v end), '{}'::jsonb)
+    from jsonb_each(data -> 'v') as e(k, v)))
+  where kind = 'config' and id = 'adminPerms'
+    and not exists (select 1 from jsonb_each(data -> 'v') as e(k, v) where v ? 'langs');

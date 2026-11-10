@@ -311,3 +311,7 @@
 ^You: (.+)$ || आप: {=1} || Você: {=1}
 ^You · (.+)$ || आप · {=1} || Você · {=1}
 ^(.+) and the director get this straight away and can accept you in one tap\. Your email stays private unless you share it\.$ || {=1} और निर्देशक को यह तुरंत मिलेगा और वे एक टैप में आपको स्वीकार कर सकते हैं। जब तक आप साझा न करें, आपका ईमेल निजी रहता है। || {=1} e a direção recebem na hora e podem aceitar você com um toque. Seu e-mail fica privado, a menos que você compartilhe.
+# v20
+^(\d+) paid roles$ || {=1} भुगतान वाली भूमिकाएँ || {=1} funções remuneradas
+^(\d+) (?:person|people) in (.+)\. Add dates to check availability\.$ || {2} में {=1} {1|व्यक्ति|लोग}। उपलब्धता देखने के लिए तारीख़ें जोड़ें। || {=1} {1|pessoa|pessoas} em {2}. Adicione datas para ver a disponibilidade.
+^You don't have the Languages permission\. Ask (.+) \(owner\) or an admin with the People permission to tick it for you\.$ || आपके पास भाषाएँ अनुमति नहीं है। {=1} (मालिक) या लोग अनुमति वाले किसी एडमिन से इसे टिक करने को कहें। || Você não tem a permissão Idiomas. Peça a {=1} (dono) ou a um admin com a permissão Pessoas para marcá-la.

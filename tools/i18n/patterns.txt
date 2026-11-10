@@ -314,3 +314,7 @@
 ^You: (.+)$ || 你：{=1} || Vous : {=1} || Tú: {=1}
 ^You · (.+)$ || 你 · {=1} || Vous · {=1} || Tú · {=1}
 ^(.+) and the director get this straight away and can accept you in one tap\. Your email stays private unless you share it\.$ || {=1} 和導演會立即收到，一鍵即可接受你。除非你分享，否則你的電子郵件會保密。 || {=1} et le réalisateur le reçoivent tout de suite et peuvent vous accepter en un clic. Votre e-mail reste privé sauf si vous le partagez. || {=1} y el director lo reciben al momento y pueden aceptarte con un toque. Tu correo es privado salvo que lo compartas.
+# v20
+^(\d+) paid roles$ || {=1} 個有酬職位 || {=1} postes rémunérés || {=1} puestos remunerados
+^(\d+) (?:person|people) in (.+)\. Add dates to check availability\.$ || {2}有 {=1} 人。加入日期以查看誰有空。 || {=1} {1|personne|personnes} en {2}. Ajoutez des dates pour voir les disponibilités. || {=1} {1|persona|personas} en {2}. Añade fechas para ver la disponibilidad.
+^You don't have the Languages permission\. Ask (.+) \(owner\) or an admin with the People permission to tick it for you\.$ || 你沒有「語言」權限。請 {=1}（擁有者）或有「成員」權限的管理員為你勾選。 || Vous n'avez pas la permission Langues. Demandez à {=1} (propriétaire) ou à un admin ayant la permission Personnes de la cocher. || No tienes el permiso Idiomas. Pide a {=1} (propietario) o a un administrador con el permiso Personas que te lo marque.

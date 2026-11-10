@@ -37,10 +37,15 @@ The owner ticks these for each admin in Admin, then Access. Every admin can see 
 | People | Make or remove admins, remove guests, revoke invites, change someone's sign-in email |
 | Projects | Edit, archive or delete any project |
 | Terms and lists | Term dates, courses and cohort codes, fixing someone's cohort, roles and project types |
+| Languages | Approve translation suggestions and fix words in any language |
 | Email settings | Sending address, help address, school mass email alias, digest day and time |
 | Reports and privacy | Read and act on reports, delete old profiles, download and restore backups |
 | Newsletter: draft | Design newsletters, save drafts, send a test to themselves and ask for approval |
 | Newsletter: send | Approve, schedule and send a newsletter to everyone or a chosen group |
+
+Languages was added in v20. Until then, approving translations came with Terms and lists. **Re-run `supabase/schema.sql` once** (Supabase, SQL Editor, paste the whole file, Run): it gives Languages to everyone who already has Terms and lists, so nobody loses access. Until you do, only the owner can approve translations.
+
+Admins with Projects (and the owner) can edit any project, not just their own, to fix mistakes. The project window shows an Admin access box with Edit, Hand over, Archive and Delete.
 
 ## Accounts
 
@@ -181,7 +186,7 @@ Every location has an Open in menu: OpenStreetMap, Google Maps or Apple Maps. Cr
 
 ## Develop, Shoot, Post, Release
 
-The top bar is Calendar | Funding | Projects | Paid | Crew (plus My shoots, My profile and Admin). Projects holds the four stages of a film, from idea to audience, in a second row of tabs: 1 Develop, 2 Shoot, 3 Post, 4 Release. Projects remembers the last stage you opened.
+The top bar is Calendar | Funding | Projects | Paid | Crew (plus My shoots, My profile and Admin). Projects holds the four stages of a film, from idea to audience, in a second row of tabs: 1 Develop, 2 Casting, 3 Shoot, 4 Post, 5 Release. Projects remembers the last stage you opened.
 
 - Develop: screenwriters post a script (logline only) and producers post a pitch (an idea, a true story they have access to, or rights they hold). Others put their hand up for a role, and the poster brings people on. Only people brought on see the script or pitch deck link. When it's ready, the poster clicks Turn into a shoot.
 - Shoot: the projects board. Crew request roles here.
@@ -197,7 +202,7 @@ People type the first part of their email and pick the ending from a list: @stud
 
 ## Updating the site
 
-When you change the code, raise the version number in two places so phones don't mix old and new files: `CACHE` in sw.js (crewcall-v19) and every `?v=19` in index.html.
+When you change the code, raise the version number in two places so phones don't mix old and new files: `CACHE` in sw.js (crewcall-v20) and every `?v=20` in index.html.
 
 ## Funding
 
@@ -234,7 +239,7 @@ In a project's Crew tab, anyone signed in who isn't on it sees Add me to the cre
 
 ## Project window
 
-A shoot's window has tabs: Open roles, Cast, Schedule, Crew, Contact and Requests (managers only). Crew lists everyone with their number of credits and an Email or Message button. Tap a name to see their profile, then Back to the project.
+A shoot's window has tabs: Open roles, Cast, Schedule, Crew, Contact and Requests (managers only). Under the logline it shows what crew get (Meals, Travel, Credit) and how many roles are paid. Crew lists everyone with their number of credits and an Email or Message button. Tap a name to see their profile, then Back to the project.
 
 ## Casting
 
@@ -242,7 +247,25 @@ Actor is now called Talent, and there's a new role, Supporting artist. Both sit 
 
 - When posting a shoot, each Talent or Supporting artist row has Character, Playing age and About the part. The Casting box holds an optional casting call link (Backstage, Spotlight, StarNow, Mandy or a form), closing date, pay and notes.
 - The project window has a Cast tab with the casting call, the parts still to cast and the cast list.
-- The Casting tab (after Crew) has two views. Parts lists every open part, with Ask to play and Apply on Backstage when there's a link. Talent (signed-in only) lists everyone with Talent or Supporting artist on their profile, or with an LFS acting credit, so you can contact previous actors.
+- Casting is stage 2 under Projects. It has two views. Parts lists every open part, with Ask to play and Apply on Backstage when there's a link. Talent (signed-in only) lists everyone with Talent or Supporting artist on their profile, or with an LFS acting credit, so you can contact previous actors.
+
+## Posting and editing a shoot
+
+The form has tabs: Basics, Dates and places, Roles, Casting and Crew hub. If something's missing when you post, it jumps to the right tab and says what to add. Anything long in Crew Call uses tabs like this.
+
+## Paid roles and perks
+
+- Most school shoots are unpaid, but some roles are paid. In the Roles tab, open Details on a role, tick This role is paid and add the rate (for example £150 a day). Paid roles show a black rate tag.
+- What crew get: tick Meals, Travel and Credit for everyone on the shoot. New shoots start with Meals and Credit ticked.
+- Paid lists upcoming LFS shoots with paid roles (type LFS shoot) alongside jobs posted by students, alumni and industry. Tapping one opens the shoot.
+
+## Crew
+
+Crew is a table, so it stays tidy as it grows. Every row is the same height; anything too long is cut short with "…" (hover to see it all) and extra roles show as +2. Filter by department (Camera, Sound and so on), roles, term, cohort, kit and free dates.
+
+## Account menu
+
+The avatar menu is grouped: You (My profile, My availability, Messages, My shoots, Admin), Projects (1 to 5), More (Calendar, Crew, Funding, Paid) and Crew Call (Add to home screen, Privacy notice, About). The calendar's button is now My availability.
 
 ## Messages
 
@@ -252,7 +275,7 @@ Optional: redeploy the Supabase function so message emails link straight to the 
 
 ## My profile
 
-My profile has tabs: Availability (first), About me, Roles, Kit, Credits, and Emails and privacy. Someone signing up for the first time starts on About me. It saves as you type, so there's no Save button to forget. About me includes Based in and From, and Crew search finds people by city.
+My profile has tabs: Availability (first), About me, Roles, Kit, Credits, and Emails and privacy. Someone signing up for the first time starts on About me. It saves as you type, so there's no Save button to forget. About me includes Preferred name (what people call you, shown in brackets after the full name and used in greetings), Based in and From. Crew search finds people by preferred name and city.
 
 ## Drafts
 
@@ -285,6 +308,6 @@ Crew Call works in English, Traditional Chinese, Simplified Chinese, French, Spa
 - Month and weekday names come from Unicode CLDR, which is built into every browser, so they're always correct.
 - What people write themselves (project posts, bios, newsletters) stays in the language they wrote it in.
 - Emails and notification sentences are still in English.
-- In any language except English, a **Wrong word?** button sits in the bottom corner of every page. Members tap it, then tap the words that look wrong. The suggestion arrives with the page and section it came from, so admins know exactly where to look. They can also use "Suggest a better translation" in the language menu. Fixes arrive in Admin, Languages, where admins also fill in new role names from Wikidata. See [TRANSLATION.md](TRANSLATION.md) for Weblate and LibreTranslate.
+- In any language except English, a **Wrong word?** button sits in the bottom corner of every page. Members tap it, then tap the words that look wrong. The suggestion arrives with the page and section it came from, so admins know exactly where to look. They can also use "Suggest a better translation" in the language menu. Fixes arrive in Admin, Languages, where admins with the Languages permission approve them and fill in new role names from Wikidata. See [TRANSLATION.md](TRANSLATION.md) for Weblate and LibreTranslate.
 - **Before you promote a language,** have a student who speaks it check it on set terms, not word for word. The rules, glossary and checklist are in [TRANSLATION.md](TRANSLATION.md).
 - **Fixing a translation.** Edit `tools/i18n/words*.txt` (Russian and Arabic are in `tools/i18n/ru-ar/`, Hindi and Portuguese in `tools/i18n/hi-pt/`) (one line per phrase: `English || 繁體 || Français || Español`) or `patterns.txt` for sentences with names or numbers in them. Then run `python3 tools/build_i18n.py`, which also makes the Simplified Chinese. You can do this in the GitHub web editor and ask someone with Python to run the build, or have someone who codes do both.

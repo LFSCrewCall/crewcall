@@ -1,0 +1,32 @@
+# v20: crew table, preferred names, form tabs, paid roles, perks, languages permission
+Preferred name || 慣用名 || Prénom d'usage || Nombre preferido
+what people call you || 大家怎麼稱呼你 || comment on vous appelle || cómo te llaman
+e.g. Chris || 例如 Chris || ex. Chris || p. ej., Chris
+All departments || 所有部門 || Tous les départements || Todos los departamentos
+Department || 部門 || Département || Departamento
+My availability || 我的檔期 || Mes disponibilités || Mi disponibilidad
+Basics || 基本資料 || L'essentiel || Lo básico
+Dates and places || 日期與地點 || Dates et lieux || Fechas y lugares
+Details ✓ || 詳情 ✓ || Détails ✓ || Detalles ✓
+This role is paid || 此職位有酬勞 || Ce poste est rémunéré || Este puesto es remunerado
+e.g. £150 a day || 例如每天 £150 || ex. 150 £ par jour || p. ej., 150 £ al día
+What crew get || 劇組成員可獲得 || Ce que reçoit l'équipe || Lo que recibe el equipo
+Meals || 餐食 || Repas || Comidas
+Travel || 交通費 || Transport || Transporte
+Credit || 片尾署名 || Crédit au générique || Crédito
+Paid roles || 有酬職位 || Postes rémunérés || Puestos remunerados
+1 paid role || 1 個有酬職位 || 1 poste rémunéré || 1 puesto remunerado
+LFS shoot || LFS 拍攝 || Tournage LFS || Rodaje LFS
+Also: || 另有： || Aussi : || Además:
+More || 更多 || Plus || Más
+Add a project title. || 請加入專案名稱。 || Ajoutez un titre au projet. || Añade un título al proyecto.
+Add the director. || 請加入導演。 || Ajoutez le ou la réalisateur·rice. || Añade la dirección.
+Add a logline. || 請加入一句話簡介。 || Ajoutez un pitch. || Añade una sinopsis breve.
+Project details || 專案詳情 || Détails du projet || Detalles del proyecto
+Approve translation suggestions and fix words in any language || 核准翻譯建議，並修正任何語言的用詞 || Approuver les suggestions de traduction et corriger les mots dans toutes les langues || Aprobar sugerencias de traducción y corregir palabras en cualquier idioma
+Try fewer roles, another department or a wider date range. || 試試減少職位、換個部門或放寬日期範圍。 || Essayez moins de postes, un autre département ou une période plus large. || Prueba con menos puestos, otro departamento o un rango de fechas más amplio.
+Use Details to add a brief or mark a role as paid. Paid roles also show on Paid. || 用「詳情」加入說明，或標示職位有酬勞。有酬職位也會出現在「有酬工作」。 || Utilisez Détails pour ajouter un brief ou indiquer qu'un poste est rémunéré. Les postes rémunérés apparaissent aussi dans Rémunéré. || Usa Detalles para añadir un brief o marcar un puesto como remunerado. Los puestos remunerados también aparecen en Pagado.
+Add Talent or Supporting artist in the Roles tab, then open Details to name the character. || 在「職位」分頁加入演員或臨時演員，再打開「詳情」填寫角色名稱。 || Ajoutez Comédien·ne ou Figurant·e dans l'onglet Postes, puis ouvrez Détails pour nommer le personnage. || Añade Intérprete o Figurante en la pestaña Puestos y abre Detalles para nombrar al personaje.
+Tick what everyone on the shoot gets. Paid roles are set on each role, under Details. || 勾選所有拍攝成員都能獲得的項目。有酬職位請在各職位的「詳情」中設定。 || Cochez ce que reçoit toute l'équipe du tournage. Les postes rémunérés se règlent sur chaque poste, dans Détails. || Marca lo que recibe todo el equipo del rodaje. Los puestos remunerados se indican en cada puesto, en Detalles.
+Work that pays: jobs posted by students, alumni and industry contacts, plus paid roles on LFS shoots. Most school shoots are in kind, so you work for the credit, the experience and usually meals and travel. Every job shows its rate. || 有酬勞的工作：學生、校友與業界人士刊登的工作，加上 LFS 拍攝中的有酬職位。大多數學校拍攝不支薪，你換得的是署名、經驗，通常還有餐食和交通費。每份工作都會標示酬勞。 || Du travail rémunéré : offres publiées par des étudiant·es, des ancien·nes et des contacts du métier, plus les postes rémunérés sur les tournages LFS. La plupart des tournages d'école ne sont pas payés : on travaille pour le crédit, l'expérience et en général les repas et le transport. Chaque offre affiche son tarif. || Trabajo remunerado: ofertas publicadas por estudiantes, antiguos alumnos y contactos del sector, además de puestos remunerados en rodajes de la LFS. La mayoría de los rodajes de escuela no se pagan: trabajas por el crédito, la experiencia y normalmente comidas y transporte. Cada oferta muestra su tarifa.
+Already know who's doing a role? Type their name to put them down. People who list the role come first. || 已經知道誰負責某個職位？輸入名字即可填上。列出該職位的人會排在前面。 || Vous savez déjà qui occupe un poste ? Tapez son nom pour l’inscrire. Les personnes qui proposent ce poste apparaissent en premier. || ¿Ya sabes quién hará un puesto? Escribe su nombre para apuntarlo. Primero salen quienes indican ese puesto.

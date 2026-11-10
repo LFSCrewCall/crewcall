@@ -8362,6 +8362,316 @@ window.CC_I18N = {
 "उन्हें यह Crew Call और ईमेल पर मिलेगा। आपका ईमेल साथ जाएगा ताकि वे सीधे जवाब दे सकें।",
 "A pessoa recebe no Crew Call e por e-mail. Seu e-mail vai junto para que respondam diretamente."
 ],
+"Preferred name": [
+"慣用名",
+"惯用名",
+"Prénom d'usage",
+"Nombre preferido",
+"Как к вам обращаться",
+"الاسم المفضّل",
+"पसंदीदा नाम",
+"Nome preferido"
+],
+"what people call you": [
+"大家怎麼稱呼你",
+"大家怎么称呼你",
+"comment on vous appelle",
+"cómo te llaman",
+"как вас зовут в команде",
+"الاسم الذي يناديك به الناس",
+"लोग आपको किस नाम से बुलाते हैं",
+"como as pessoas te chamam"
+],
+"e.g. Chris": [
+"例如 Chris",
+"例如 Chris",
+"ex. Chris",
+"p. ej., Chris",
+"например, Крис",
+"مثلًا: كريس",
+"जैसे Chris",
+"ex.: Chris"
+],
+"All departments": [
+"所有部門",
+"所有部门",
+"Tous les départements",
+"Todos los departamentos",
+"Все отделы",
+"كل الأقسام",
+"सभी विभाग",
+"Todos os departamentos"
+],
+"Department": [
+"部門",
+"部门",
+"Département",
+"Departamento",
+"Отдел",
+"القسم",
+"विभाग",
+"Departamento"
+],
+"My availability": [
+"我的檔期",
+"我的档期",
+"Mes disponibilités",
+"Mi disponibilidad",
+"Моя занятость",
+"أوقات تفرّغي",
+"मेरी उपलब्धता",
+"Minha disponibilidade"
+],
+"Basics": [
+"基本資料",
+"基本数据",
+"L'essentiel",
+"Lo básico",
+"Основное",
+"الأساسيات",
+"बुनियादी जानकारी",
+"O básico"
+],
+"Dates and places": [
+"日期與地點",
+"日期与地点",
+"Dates et lieux",
+"Fechas y lugares",
+"Даты и места",
+"التواريخ والأماكن",
+"तारीख़ें और जगहें",
+"Datas e locais"
+],
+"Details ✓": [
+"詳情 ✓",
+"详情 ✓",
+"Détails ✓",
+"Detalles ✓",
+"Подробнее ✓",
+"التفاصيل ✓",
+"विवरण ✓",
+"Detalhes ✓"
+],
+"This role is paid": [
+"此職位有酬勞",
+"此职位有酬劳",
+"Ce poste est rémunéré",
+"Este puesto es remunerado",
+"Эта роль оплачивается",
+"هذا الدور مدفوع الأجر",
+"इस भूमिका का भुगतान होता है",
+"Esta função é remunerada"
+],
+"e.g. £150 a day": [
+"例如每天 £150",
+"例如每天 £150",
+"ex. 150 £ par jour",
+"p. ej., 150 £ al día",
+"например, £150 в день",
+"مثلًا: 150 جنيهًا في اليوم",
+"जैसे £150 प्रति दिन",
+"ex.: £150 por dia"
+],
+"What crew get": [
+"劇組成員可獲得",
+"剧组成员可获得",
+"Ce que reçoit l'équipe",
+"Lo que recibe el equipo",
+"Что получает команда",
+"ما يحصل عليه الطاقم",
+"क्रू को क्या मिलता है",
+"O que a equipe recebe"
+],
+"Meals": [
+"餐食",
+"餐食",
+"Repas",
+"Comidas",
+"Питание",
+"الوجبات",
+"भोजन",
+"Refeições"
+],
+"Travel": [
+"交通費",
+"交通费",
+"Transport",
+"Transporte",
+"Проезд",
+"المواصلات",
+"आने-जाने का ख़र्च",
+"Transporte"
+],
+"Credit": [
+"片尾署名",
+"片尾署名",
+"Crédit au générique",
+"Crédito",
+"Титры",
+"ذكر الاسم في الشارة",
+"क्रेडिट",
+"Crédito"
+],
+"Paid roles": [
+"有酬職位",
+"有酬职位",
+"Postes rémunérés",
+"Puestos remunerados",
+"Оплачиваемые роли",
+"أدوار مدفوعة",
+"भुगतान वाली भूमिकाएँ",
+"Funções remuneradas"
+],
+"1 paid role": [
+"1 個有酬職位",
+"1 个有酬职位",
+"1 poste rémunéré",
+"1 puesto remunerado",
+"1 оплачиваемая роль",
+"دور مدفوع واحد",
+"1 भुगतान वाली भूमिका",
+"1 função remunerada"
+],
+"LFS shoot": [
+"LFS 拍攝",
+"LFS 拍摄",
+"Tournage LFS",
+"Rodaje LFS",
+"Съёмка LFS",
+"تصوير LFS",
+"LFS शूट",
+"Filmagem LFS"
+],
+"Also:": [
+"另有：",
+"另有：",
+"Aussi :",
+"Además:",
+"Также:",
+"أيضًا:",
+"साथ में:",
+"Também:"
+],
+"More": [
+"更多",
+"更多",
+"Plus",
+"Más",
+"Ещё",
+"المزيد",
+"और",
+"Mais"
+],
+"Add a project title.": [
+"請加入專案名稱。",
+"请加入项目名称。",
+"Ajoutez un titre au projet.",
+"Añade un título al proyecto.",
+"Добавьте название проекта.",
+"أضف عنوان المشروع.",
+"प्रोजेक्ट का शीर्षक जोड़ें।",
+"Adicione um título ao projeto."
+],
+"Add the director.": [
+"請加入導演。",
+"请加入导演。",
+"Ajoutez le ou la réalisateur·rice.",
+"Añade la dirección.",
+"Укажите режиссёра.",
+"أضف المخرج.",
+"निर्देशक जोड़ें।",
+"Adicione a direção."
+],
+"Add a logline.": [
+"請加入一句話簡介。",
+"请加入一句话简介。",
+"Ajoutez un pitch.",
+"Añade una sinopsis breve.",
+"Добавьте логлайн.",
+"أضف ملخّصًا بسطر واحد.",
+"लॉगलाइन जोड़ें।",
+"Adicione uma logline."
+],
+"Project details": [
+"專案詳情",
+"项目详情",
+"Détails du projet",
+"Detalles del proyecto",
+"Детали проекта",
+"تفاصيل المشروع",
+"प्रोजेक्ट विवरण",
+"Detalhes do projeto"
+],
+"Approve translation suggestions and fix words in any language": [
+"核准翻譯建議，並修正任何語言的用詞",
+"核准翻译建议，并修正任何语言的用词",
+"Approuver les suggestions de traduction et corriger les mots dans toutes les langues",
+"Aprobar sugerencias de traducción y corregir palabras en cualquier idioma",
+"Одобрять предложения по переводу и исправлять слова на любом языке",
+"الموافقة على اقتراحات الترجمة وتصحيح الكلمات بأي لغة",
+"अनुवाद सुझावों को मंज़ूरी दें और किसी भी भाषा में शब्द ठीक करें",
+"Aprovar sugestões de tradução e corrigir palavras em qualquer idioma"
+],
+"Try fewer roles, another department or a wider date range.": [
+"試試減少職位、換個部門或放寬日期範圍。",
+"试试减少职位、换个部门或放宽日期范围。",
+"Essayez moins de postes, un autre département ou une période plus large.",
+"Prueba con menos puestos, otro departamento o un rango de fechas más amplio.",
+"Выберите меньше ролей, другой отдел или более широкий диапазон дат.",
+"جرّب أدوارًا أقل أو قسمًا آخر أو نطاق تواريخ أوسع.",
+"कम भूमिकाएँ, कोई दूसरा विभाग या लंबी तारीख़ सीमा आज़माएँ।",
+"Tente menos funções, outro departamento ou um período maior."
+],
+"Use Details to add a brief or mark a role as paid. Paid roles also show on Paid.": [
+"用「詳情」加入說明，或標示職位有酬勞。有酬職位也會出現在「有酬工作」。",
+"用「详情」加入说明，或标示职位有酬劳。有酬职位也会出现在「有酬工作」。",
+"Utilisez Détails pour ajouter un brief ou indiquer qu'un poste est rémunéré. Les postes rémunérés apparaissent aussi dans Rémunéré.",
+"Usa Detalles para añadir un brief o marcar un puesto como remunerado. Los puestos remunerados también aparecen en Pagado.",
+"В «Подробнее» можно добавить описание или отметить роль как оплачиваемую. Оплачиваемые роли также видны в разделе «Оплачиваемая».",
+"استخدم «التفاصيل» لإضافة وصف أو لتحديد أن الدور مدفوع. تظهر الأدوار المدفوعة أيضًا في «مدفوع».",
+"ब्रीफ़ जोड़ने या भूमिका को भुगतान वाली बताने के लिए विवरण का उपयोग करें। भुगतान वाली भूमिकाएँ \"भुगतान वाला\" में भी दिखती हैं।",
+"Use Detalhes para adicionar um briefing ou marcar uma função como remunerada. Funções remuneradas também aparecem em Pago."
+],
+"Add Talent or Supporting artist in the Roles tab, then open Details to name the character.": [
+"在「職位」分頁加入演員或臨時演員，再打開「詳情」填寫角色名稱。",
+"在「职位」分页加入演员或临时演员，再打开「详情」填写角色名称。",
+"Ajoutez Comédien·ne ou Figurant·e dans l'onglet Postes, puis ouvrez Détails pour nommer le personnage.",
+"Añade Intérprete o Figurante en la pestaña Puestos y abre Detalles para nombrar al personaje.",
+"Добавьте актёра или актёра массовки на вкладке «Роли», затем откройте «Подробнее», чтобы указать персонажа.",
+"أضف ممثلًا أو ممثلًا ثانويًا في تبويب الأدوار، ثم افتح «التفاصيل» لتسمية الشخصية.",
+"भूमिकाएँ टैब में कलाकार या सहायक कलाकार जोड़ें, फिर किरदार का नाम लिखने के लिए विवरण खोलें।",
+"Adicione Elenco ou Figurante na aba Funções e abra Detalhes para nomear a personagem."
+],
+"Tick what everyone on the shoot gets. Paid roles are set on each role, under Details.": [
+"勾選所有拍攝成員都能獲得的項目。有酬職位請在各職位的「詳情」中設定。",
+"勾选所有拍摄成员都能获得的项目。有酬职位请在各职位的「详情」中设置。",
+"Cochez ce que reçoit toute l'équipe du tournage. Les postes rémunérés se règlent sur chaque poste, dans Détails.",
+"Marca lo que recibe todo el equipo del rodaje. Los puestos remunerados se indican en cada puesto, en Detalles.",
+"Отметьте, что получает вся команда на съёмке. Оплата задаётся для каждой роли в «Подробнее».",
+"حدّد ما يحصل عليه كل من في التصوير. تُضبط الأدوار المدفوعة في كل دور، ضمن «التفاصيل».",
+"टिक करें कि शूट पर सबको क्या मिलता है। भुगतान हर भूमिका के विवरण में तय होता है।",
+"Marque o que todos na filmagem recebem. Funções remuneradas são definidas em cada função, em Detalhes."
+],
+"Work that pays: jobs posted by students, alumni and industry contacts, plus paid roles on LFS shoots. Most school shoots are in kind, so you work for the credit, the experience and usually meals and travel. Every job shows its rate.": [
+"有酬勞的工作：學生、校友與業界人士刊登的工作，加上 LFS 拍攝中的有酬職位。大多數學校拍攝不支薪，你換得的是署名、經驗，通常還有餐食和交通費。每份工作都會標示酬勞。",
+"有酬劳的工作：学生、校友与业界人士刊登的工作，加上 LFS 拍摄中的有酬职位。大多数学校拍摄不支薪，你换得的是署名、经验，通常还有餐食和交通费。每份工作都会标示酬劳。",
+"Du travail rémunéré : offres publiées par des étudiant·es, des ancien·nes et des contacts du métier, plus les postes rémunérés sur les tournages LFS. La plupart des tournages d'école ne sont pas payés : on travaille pour le crédit, l'expérience et en général les repas et le transport. Chaque offre affiche son tarif.",
+"Trabajo remunerado: ofertas publicadas por estudiantes, antiguos alumnos y contactos del sector, además de puestos remunerados en rodajes de la LFS. La mayoría de los rodajes de escuela no se pagan: trabajas por el crédito, la experiencia y normalmente comidas y transporte. Cada oferta muestra su tarifa.",
+"Оплачиваемая работа: вакансии от студентов, выпускников и людей из индустрии, а также оплачиваемые роли на съёмках LFS. Большинство учебных съёмок не оплачиваются: вы работаете ради титров, опыта и обычно питания и проезда. У каждой вакансии указана ставка.",
+"عمل مدفوع: وظائف ينشرها الطلاب والخريجون ومعارف من المجال، إضافة إلى الأدوار المدفوعة في تصويرات LFS. معظم تصويرات المدرسة غير مدفوعة، فتعمل مقابل ذكر اسمك والخبرة، وغالبًا الوجبات والمواصلات. كل وظيفة تعرض أجرها.",
+"भुगतान वाला काम: छात्रों, पूर्व छात्रों और इंडस्ट्री संपर्कों के पोस्ट किए काम, साथ में LFS शूट की भुगतान वाली भूमिकाएँ। ज़्यादातर स्कूल शूट बिना भुगतान के होते हैं, यानी आप क्रेडिट, अनुभव और आमतौर पर भोजन और आने-जाने के ख़र्च के लिए काम करते हैं। हर काम में उसकी दर दिखती है।",
+"Trabalho pago: vagas publicadas por estudantes, ex-alunos e contatos do setor, além de funções remuneradas em filmagens da LFS. A maioria das filmagens da escola não é paga: você trabalha pelo crédito, pela experiência e geralmente por refeições e transporte. Cada vaga mostra o valor."
+],
+"Already know who's doing a role? Type their name to put them down. People who list the role come first.": [
+"已經知道誰負責某個職位？輸入名字即可填上。列出該職位的人會排在前面。",
+"已经知道谁负责某个职位？输入名字即可填上。列出该职位的人会排在前面。",
+"Vous savez déjà qui occupe un poste ? Tapez son nom pour l’inscrire. Les personnes qui proposent ce poste apparaissent en premier.",
+"¿Ya sabes quién hará un puesto? Escribe su nombre para apuntarlo. Primero salen quienes indican ese puesto.",
+"Уже знаете, кто займёт роль? Введите имя, чтобы записать. Сначала идут те, у кого указана эта роль.",
+"هل تعرف من سيتولى دورًا ما؟ اكتب اسمه لتسجيله. يظهر أولًا من يذكرون هذا الدور.",
+"पहले से पता है कि कोई भूमिका कौन करेगा? नाम लिखकर उन्हें जोड़ें। जिनकी प्रोफ़ाइल में यह भूमिका है, वे पहले दिखते हैं।",
+"Já sabe quem vai fazer uma função? Digite o nome para registrar. Quem lista a função aparece primeiro."
+],
 "Director": [
 "導演",
 "导演",
@@ -20265,6 +20575,39 @@ window.CC_I18N = {
 "سيصل هذا فورًا إلى {=1} والمخرج، ويمكنهم قبولك بنقرة واحدة. يبقى بريدك خاصًا ما لم تشاركه.",
 "{=1} और निर्देशक को यह तुरंत मिलेगा और वे एक टैप में आपको स्वीकार कर सकते हैं। जब तक आप साझा न करें, आपका ईमेल निजी रहता है।",
 "{=1} e a direção recebem na hora e podem aceitar você com um toque. Seu e-mail fica privado, a menos que você compartilhe."
+],
+[
+"^(\\d+) paid roles$",
+"{=1} 個有酬職位",
+"{=1} 个有酬职位",
+"{=1} postes rémunérés",
+"{=1} puestos remunerados",
+"{=1} {1|оплачиваемая роль|оплачиваемые роли|оплачиваемых ролей}",
+"{=1} {1|دور مدفوع|دوران مدفوعان|أدوار مدفوعة|دورًا مدفوعًا|دور مدفوع}",
+"{=1} भुगतान वाली भूमिकाएँ",
+"{=1} funções remuneradas"
+],
+[
+"^(\\d+) (?:person|people) in (.+)\\. Add dates to check availability\\.$",
+"{2}有 {=1} 人。加入日期以查看誰有空。",
+"{2}有 {=1} 人。加入日期以查看谁有空。",
+"{=1} {1|personne|personnes} en {2}. Ajoutez des dates pour voir les disponibilités.",
+"{=1} {1|persona|personas} en {2}. Añade fechas para ver la disponibilidad.",
+"{=1} {1|человек|человека|человек}, отдел «{2}». Добавьте даты, чтобы проверить доступность.",
+"{=1} {1|شخص|شخصان|أشخاص|شخصًا|شخص} في قسم {2}. أضف تواريخ للتحقق من التوفّر.",
+"{2} में {=1} {1|व्यक्ति|लोग}। उपलब्धता देखने के लिए तारीख़ें जोड़ें।",
+"{=1} {1|pessoa|pessoas} em {2}. Adicione datas para ver a disponibilidade."
+],
+[
+"^You don't have the Languages permission\\. Ask (.+) \\(owner\\) or an admin with the People permission to tick it for you\\.$",
+"你沒有「語言」權限。請 {=1}（擁有者）或有「成員」權限的管理員為你勾選。",
+"你没有「语言」权限。请 {=1}（拥有者）或有「成员」权限的管理员为你勾选。",
+"Vous n'avez pas la permission Langues. Demandez à {=1} (propriétaire) ou à un admin ayant la permission Personnes de la cocher.",
+"No tienes el permiso Idiomas. Pide a {=1} (propietario) o a un administrador con el permiso Personas que te lo marque.",
+"У вас нет права «Языки». Попросите {=1} (владельца) или админа с правом «Люди» выдать его.",
+"ليست لديك صلاحية اللغات. اطلب من {=1} (المالك) أو من مشرف لديه صلاحية «الأشخاص» تفعيلها لك.",
+"आपके पास भाषाएँ अनुमति नहीं है। {=1} (मालिक) या लोग अनुमति वाले किसी एडमिन से इसे टिक करने को कहें।",
+"Você não tem a permissão Idiomas. Peça a {=1} (dono) ou a um admin com a permissão Pessoas para marcá-la."
 ]
 ]
 };

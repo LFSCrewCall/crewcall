@@ -1269,3 +1269,47 @@ input[type=date], input[type=time], input[type=month] { cursor: pointer; }
 .cast-card .card-actions { flex-wrap: wrap; }
 .me-tabs { margin: 0 0 var(--space-4); }
 .me-panel > .fs:first-child { margin-top: 0; }
+
+/* Crew: one table, every row the same height, long cells cut off with … */
+.crew-tbl .btable { table-layout: fixed; width: 100%; min-width: 1120px; }
+.crew-tbl .btable td { height: 3.6rem; padding: .5rem .8rem; vertical-align: middle; }
+.crew-tbl .cell { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; max-height: 2.6rem; }
+.crew-tbl .cell .bt-t, .crew-tbl .cell .bt-sub { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 100%; }
+.crew-tbl .cell .chip { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; display: inline-block; vertical-align: middle; }
+.crew-tbl .chips-1 { display: flex; align-items: center; gap: 6px; min-width: 0; }
+.crew-tbl .chips-1 .chip { flex: 0 1 auto; min-width: 0; }
+.more-n { flex: none; font: 700 var(--text-xs)/1 var(--font-body); color: var(--muted); background: var(--surface-3); border-radius: 999px; padding: 3px 7px; }
+.crew-tbl th:nth-child(1), .crew-tbl td:nth-child(1) { width: 13%; }
+.crew-tbl th:nth-child(2), .crew-tbl td:nth-child(2) { width: 9%; }
+.crew-tbl th:nth-child(3), .crew-tbl td:nth-child(3) { width: 10%; }
+.crew-tbl th:nth-child(4), .crew-tbl td:nth-child(4) { width: 10%; }
+.crew-tbl th:nth-child(5), .crew-tbl td:nth-child(5) { width: 9%; }
+.crew-tbl th:nth-child(6), .crew-tbl td:nth-child(6) { width: 7%; }
+.crew-tbl th:nth-child(7), .crew-tbl td:nth-child(7) { width: 10%; }
+.crew-tbl th:nth-child(8), .crew-tbl td:nth-child(8) { width: 10%; }
+.crew-tbl th:nth-child(9), .crew-tbl td:nth-child(9) { width: 5.5%; }
+.crew-tbl th:nth-child(10), .crew-tbl td:nth-child(10) { width: 8%; }
+.crew-tbl th:nth-child(11), .crew-tbl td:nth-child(11) { width: 8.5%; }
+.crew-tbl .btable td.bt-first, .crew-tbl .btable th.bt-first { min-width: 0; max-width: none; }
+.crew-tbl .btable .chips { flex-wrap: nowrap; min-width: 0; }
+.pref-n { font-weight: 400; color: var(--muted); }
+.crew-tbl .btable th { overflow: hidden; }
+.crew-tbl .th-sort { overflow: hidden; text-overflow: ellipsis; }
+/* account menu: grouped like the nav */
+.acct-menu { max-height: calc(100vh - 80px); max-height: calc(100dvh - 80px); overflow-y: auto; overscroll-behavior: contain; }
+.am-h { margin: var(--space-2) 0 2px; padding: 0 .6rem; font: 700 var(--text-xs)/1.2 var(--font-body); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.am-who + .am-h { margin-top: 0; }
+.acct-menu button { display: flex; align-items: center; gap: 8px; }
+.am-n { display: inline-grid; place-items: center; width: 18px; height: 18px; border-radius: 50%; background: var(--surface-3); font: 700 10px/1 var(--font-body); color: var(--muted); flex: none; }
+.acct-menu .tab-n { margin-inline-start: auto; }
+[dir="rtl"] .acct-menu button { text-align: right; }
+
+/* v20: what crew get, paid roles */
+.perks { list-style: none; display: flex; flex-wrap: wrap; gap: 6px 14px; margin: 8px 0 4px; padding: 0; font-size: var(--text-sm); }
+.perks li { display: inline-flex; align-items: center; gap: 5px; }
+.perk-ck { color: var(--ok, #1d7a46); font-weight: 700; }
+.perk-paid { font-weight: 700; }
+.perk-row { display: flex; flex-wrap: wrap; gap: 8px 18px; }
+.r-payrow { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 8px 14px; margin-top: 8px; }
+.r-payrow .r-payf { flex: 1 1 180px; min-width: 0; max-width: 280px; margin: 0; }
+.rrow-top .pay-tag { margin-inline-start: 6px; font-size: 0.7rem; padding: 3px 6px; }
