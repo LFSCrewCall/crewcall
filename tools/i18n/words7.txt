@@ -1,0 +1,74 @@
+# About page, open source credits, grouped Admin, key dates and cohort dates
+About Crew Call || 關於 Crew Call || À propos de Crew Call || Acerca de Crew Call
+A shared calendar and crew board for London Film School students, run by students. || 給倫敦電影學院學生用的共享行事曆和劇組招募板，由學生自己營運。 || Un calendrier partagé et un tableau d'équipes pour les étudiants de la London Film School, géré par des étudiants. || Un calendario compartido y un tablón de equipos para estudiantes de la London Film School, gestionado por estudiantes.
+What Crew Call is || Crew Call 是什麼 || Ce qu'est Crew Call || Qué es Crew Call
+LFS students make films all the time and need crew for them. Crew Call puts every shoot in one place, so you can see what's happening, mark the days you're free, and find the right person for each role. || LFS 學生一直在拍片，每部片都需要劇組。Crew Call 把所有拍攝集中在一處，讓你看到正在發生什麼、標出你有空的日子，並為每個職位找到合適的人。 || Les étudiants de la LFS tournent sans arrêt et ont besoin d'équipes. Crew Call réunit tous les tournages au même endroit : vous voyez ce qui se passe, vous indiquez vos jours libres et vous trouvez la bonne personne pour chaque poste. || Los estudiantes de la LFS ruedan constantemente y necesitan equipo. Crew Call reúne todos los rodajes en un solo sitio: ves qué está pasando, marcas los días que tienes libres y encuentras a la persona adecuada para cada puesto.
+It's free, has no adverts and doesn't track you. It isn't run by the London Film School. || 完全免費，沒有廣告，也不會追蹤你。它不是由倫敦電影學院營運的。 || C'est gratuit, sans publicité et sans pistage. Ce n'est pas géré par la London Film School. || Es gratis, sin anuncios y no te rastrea. No lo gestiona la London Film School.
+Every shoot on one calendar, and who's free on each day. || 所有拍攝都在同一個行事曆上，還能看到每天誰有空。 || Tous les tournages sur un seul calendrier, et qui est libre chaque jour. || Todos los rodajes en un solo calendario, y quién está libre cada día.
+Scripts looking for a director, producer or writer. || 正在找導演、製片或編劇的劇本。 || Des scénarios qui cherchent une réalisation, une production ou un scénariste. || Guiones que buscan dirección, producción o guionista.
+Projects crewing up, as cards, a table, a timeline or a map. || 正在組劇組的項目，可用卡片、表格、時間軸或地圖檢視。 || Les projets qui constituent leur équipe, en cartes, tableau, frise ou carte. || Proyectos formando equipo, en tarjetas, tabla, cronograma o mapa.
+Finished films looking for help with festivals, posters and screenings. || 已完成、需要影展、海報和放映協助的影片。 || Des films terminés qui cherchent de l'aide pour les festivals, les affiches et les projections. || Películas terminadas que buscan ayuda con festivales, carteles y proyecciones.
+Paid jobs and opportunities, checked by admins. || 有酬工作與機會，經管理員審核。 || Des missions rémunérées et des opportunités, vérifiées par les admins. || Trabajos remunerados y oportunidades, revisados por los administradores.
+Find people by role, kit and the days they're free. || 依職位、器材和有空的日子找人。 || Trouvez des gens par poste, matériel et jours libres. || Encuentra gente por puesto, equipo y días libres.
+What you're running, what you've asked to join, and your call times. || 你負責的項目、你申請加入的項目，以及你的集合時間。 || Ce que vous gérez, ce que vous avez demandé à rejoindre, et vos heures de convocation. || Lo que diriges, a lo que has pedido unirte y tus horas de citación.
+Who runs it || 由誰營運 || Qui s'en occupe || Quién lo gestiona
+Students run Crew Call for each other. || Crew Call 由學生為彼此營運。 || Les étudiants gèrent Crew Call les uns pour les autres. || Los estudiantes gestionan Crew Call para los demás estudiantes.
+Before the owner graduates, they hand it to a rep from a younger cohort, so it carries on. || 擁有者畢業前，會把它交給較新班級的代表，讓它延續下去。 || Avant d'obtenir son diplôme, le propriétaire le confie à un délégué d'une promotion plus jeune, pour que tout continue. || Antes de graduarse, el propietario lo pasa a un delegado de una promoción más reciente, para que siga adelante.
+Everything is run from the Admin page, so nobody needs to know code. || 一切都在管理頁面操作，不需要懂程式碼。 || Tout se gère depuis la page Admin : personne n'a besoin de savoir coder. || Todo se gestiona desde la página de administración, así que nadie necesita saber programar.
+School calendar || 學校行事曆 || Calendrier de l'école || Calendario de la escuela
+Terms, enrolment days and when each cohort finishes follow the LFS key dates, and show on the calendar. || 學期、註冊日和各班級結業日期都依照 LFS 重要日期，並顯示在行事曆上。 || Les trimestres, les jours d'inscription et la fin de chaque promotion suivent les dates clés de la LFS et s'affichent dans le calendrier. || Los trimestres, los días de matrícula y el final de cada promoción siguen las fechas clave de la LFS y aparecen en el calendario.
+Courses || 課程 || Formations || Programas
+New cohort every term || 每學期開一個新班級 || Nouvelle promotion chaque trimestre || Nueva promoción cada trimestre
+One year, starts in September || 一年制，九月開課 || Un an, rentrée en septembre || Un año, empieza en septiembre
+Term 1 at the University of Exeter, Terms 2 and 3 at LFS || 第一學期在艾克斯特大學，第二、三學期在 LFS || Trimestre 1 à l'université d'Exeter, trimestres 2 et 3 à la LFS || Trimestre 1 en la Universidad de Exeter, trimestres 2 y 3 en la LFS
+Languages || 語言 || Langues || Idiomas
+Crew Call works in English, Traditional and Simplified Chinese, French, Spanish, Russian, Arabic, Hindi and Portuguese. Film words follow what crews say on set. If something reads oddly, report it and a native speaker can fix it. || Crew Call 提供英文、繁體中文、簡體中文、法文、西班牙文、俄文、阿拉伯文、印地文和葡萄牙文。電影用語以片場實際說法為準。如果有讀起來奇怪的地方，請回報，母語人士會修正。 || Crew Call existe en anglais, chinois traditionnel et simplifié, français, espagnol, russe, arabe, hindi et portugais. Le vocabulaire suit celui des plateaux. Si une phrase sonne bizarre, signalez-la : un locuteur natif pourra la corriger. || Crew Call está en inglés, chino tradicional y simplificado, francés, español, ruso, árabe, hindi y portugués. El vocabulario sigue el que se usa en los rodajes. Si algo suena raro, avísanos y un hablante nativo lo corregirá.
+Built with open source || 以開源軟體打造 || Construit avec du logiciel libre || Hecho con código abierto
+Wherever we can, Crew Call uses open source software and open data, so it stays free and nobody is locked in. || 只要可以，Crew Call 都使用開源軟體和開放資料，讓它保持免費，也不會被任何廠商綁住。 || Dès que possible, Crew Call utilise des logiciels libres et des données ouvertes, pour rester gratuit et ne dépendre de personne. || Siempre que puede, Crew Call usa software de código abierto y datos abiertos, para seguir siendo gratis y no depender de nadie.
+Project || 項目 || Projet || Proyecto
+What it does here || 在這裡的用途 || Son rôle ici || Para qué se usa aquí
+Licence || 授權 || Licence || Licencia
+Draws the Shoot map || 繪製拍攝地圖 || Affiche la carte des tournages || Dibuja el mapa de rodajes
+Map tiles and place data, made by volunteers || 由志工製作的地圖圖磚和地點資料 || Fonds de carte et données de lieux, créés par des bénévoles || Mapas y datos de lugares, hechos por voluntarios
+Finds locations when you type an address || 輸入地址時找出地點 || Trouve les lieux quand vous tapez une adresse || Encuentra lugares cuando escribes una dirección
+Dates, months and plurals in every language, built into your browser || 各語言的日期、月份和複數規則，內建在你的瀏覽器裡 || Dates, mois et pluriels dans chaque langue, intégrés à votre navigateur || Fechas, meses y plurales en cada idioma, integrados en tu navegador
+Turns Traditional Chinese into Simplified Chinese || 把繁體中文轉成簡體中文 || Convertit le chinois traditionnel en chinois simplifié || Convierte el chino tradicional en chino simplificado
+Used to cross-check crew role names in other languages || 用來核對其他語言的劇組職位名稱 || Sert à vérifier les noms des postes dans les autres langues || Se usa para comprobar los nombres de los puestos en otros idiomas
+Typeface || 字體 || Police de caractères || Tipografía
+Typeface for times and dates || 時間和日期用的字體 || Police des heures et des dates || Tipografía de horas y fechas
+Database and sign-in for the live version || 正式版的資料庫和登入 || Base de données et connexion de la version en ligne || Base de datos e inicio de sesión de la versión real
+The open standard behind calendar sync || 行事曆同步背後的開放標準 || Le standard ouvert derrière la synchronisation des calendriers || El estándar abierto detrás de la sincronización de calendarios
+Not open source || 非開源 || Pas libre || No es de código abierto
+The code is kept on GitHub and the site is hosted on Vercel or GitHub Pages. Emails are sent with Brevo, and LFS Microsoft accounts are used to sign in. These aren't open source, but we only use their free plans, and Crew Call can move away from any of them. || 程式碼放在 GitHub，網站架在 Vercel 或 GitHub Pages。電子郵件透過 Brevo 寄出，登入使用 LFS 的 Microsoft 帳號。這些都不是開源的，但我們只用免費方案，而且 Crew Call 隨時可以換掉其中任何一個。 || Le code est sur GitHub et le site est hébergé sur Vercel ou GitHub Pages. Les e-mails partent via Brevo, et la connexion passe par les comptes Microsoft de la LFS. Ce ne sont pas des logiciels libres, mais nous n'utilisons que leurs offres gratuites et Crew Call peut se passer de chacun d'eux. || El código está en GitHub y la web se aloja en Vercel o GitHub Pages. Los correos se envían con Brevo y se inicia sesión con las cuentas Microsoft de la LFS. No son de código abierto, pero solo usamos sus planes gratuitos y Crew Call puede dejar cualquiera de ellos.
+Overview || 總覽 || Vue d'ensemble || Resumen
+Content || 內容 || Contenu || Contenido
+Settings and data || 設定與資料 || Réglages et données || Ajustes y datos
+Section || 區塊 || Rubrique || Sección
+Admin section || 管理區塊 || Rubrique admin || Sección de administración
+To do || 待辦 || À faire || Pendiente
+Read them || 查看 || Les lire || Leerlos
+Choose reps || 選代表 || Choisir les délégués || Elegir delegados
+Check || 檢查 || Vérifier || Revisar
+Nothing needs doing right now. || 目前沒有需要處理的事。 || Rien à faire pour l'instant. || No hay nada pendiente ahora mismo.
+Coming up || 即將到來 || À venir || Próximamente
+At a glance || 一覽 || En bref || De un vistazo
+Admins || 管理員 || Admins || Administradores
+Live projects || 進行中的項目 || Projets en cours || Proyectos activos
+Cohorts with a rep || 有代表的班級 || Promotions avec un délégué || Promociones con delegado
+Invites waiting || 待接受的邀請 || Invitations en attente || Invitaciones pendientes
+Nothing in the next few months. Add next year's term dates. || 未來幾個月沒有日期。請加入明年的學期日期。 || Rien dans les prochains mois. Ajoutez les dates de l'année prochaine. || Nada en los próximos meses. Añade las fechas del curso que viene.
+Holidays || 假期 || Vacances || Vacaciones
+Enrolment and induction || 註冊與新生說明會 || Inscription et accueil || Matrícula y acogida
+Enrolment and induction (new students only) || 註冊與新生說明會（僅限新生） || Inscription et accueil (nouveaux étudiants uniquement) || Matrícula y acogida (solo estudiantes nuevos)
+New student enrolment || 新生註冊 || Inscription des nouveaux étudiants || Matrícula de nuevos estudiantes
+Cohort dates || 各班級日期 || Dates des promotions || Fechas de las promociones
+When each cohort started and finishes. People stay on their course until it finishes, then become Alumni. LFS sets MA Filmmaking end dates for each intake, so enter the real date when you have it. MA Screenwriting, MA Film Producing and MA Film Marketing starting in September 2026 finish on 24 Sep 2027. || 各班級的開始和結業日期。學生在課程結束前都維持原課程，之後變成校友。MA Filmmaking 的結業日期由 LFS 依每個班級決定，拿到正式日期後請填入。2026 年 9 月入學的 MA Screenwriting、MA Film Producing 和 MA Film Marketing 於 2027 年 9 月 24 日結業。 || Début et fin de chaque promotion. Chacun reste sur sa formation jusqu'à la fin, puis devient ancien élève. La LFS fixe la date de fin du MA Filmmaking pour chaque promotion : saisissez la vraie date dès que vous l'avez. Les MA Screenwriting, MA Film Producing et MA Film Marketing commencés en septembre 2026 se terminent le 24 sept. 2027. || Cuándo empezó y termina cada promoción. Cada persona sigue en su programa hasta que termina y después pasa a antiguo alumno. La LFS fija la fecha de fin del MA Filmmaking para cada promoción, así que introduce la fecha real cuando la tengas. Los MA Screenwriting, MA Film Producing y MA Film Marketing que empiezan en septiembre de 2026 terminan el 24 sept 2027.
+Started || 開始 || Début || Inicio
+Finishes || 結業 || Fin || Fin
+Date from LFS || LFS 公布的日期 || Date donnée par la LFS || Fecha de la LFS
+Not known yet || 尚未公布 || Pas encore connue || Aún no se sabe
+School dates || 學校日期 || Dates de l'école || Fechas de la escuela
+International Film Business || 國際電影產業 || Industrie internationale du film || Industria cinematográfica internacional
+MA International Film Business || MA 國際電影產業 || MA International Film Business || MA International Film Business
+
+Nobody has marked this day free. || 沒有人把這天標為有空。 || Personne n'a indiqué être libre ce jour-là. || Nadie ha marcado este día como libre.

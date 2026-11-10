@@ -1,0 +1,168 @@
+# English || Русский || العربية
+(admin) || (админ) || (مشرف)
+A new term || Новый семестр || فصل جديد
+New term. || Новый семестр. || فصل جديد.
+Add calendar || Добавить календарь || إضافة التقويم
+Add to Apple || Добавить в Apple || إضافة إلى Apple
+Add to Google || Добавить в Google || إضافة إلى Google
+Admins with the People permission choose who has each level, in Access. || Админы с правом «Люди» выбирают, у кого какой уровень, в разделе «Доступ». || يختار المشرفون الذين لديهم صلاحية «الأشخاص» من يملك كل مستوى، في قسم الصلاحيات.
+Also does || Также || يجيد أيضًا
+Any || Любая || أي
+Archived || В архиве || مؤرشف
+Best match || Лучшее совпадение || الأكثر تطابقًا
+Booked on another shoot those days || В эти дни занят на другой съёмке || محجوز في تصوير آخر في تلك الأيام
+Change it || Изменить || تغييره
+Choose || Выбрать || اختر
+Clear || Сбросить || مسح
+Clear ticks || Снять отметки || مسح العلامات
+Couldn't find that. Try adding the street or postcode. || Не нашлось. Добавьте улицу или почтовый индекс. || تعذّر العثور عليه. جرّب إضافة الشارع أو الرمز البريدي.
+Crew Call in general || Crew Call в целом || Crew Call بشكل عام
+Dates || Даты || التواريخ
+Dates flexible || Даты гибкие || التواريخ مرنة
+Dates to agree || Даты обсуждаются || التواريخ قيد الاتفاق
+Dealt with || Решено || تمت المعالجة
+Delete project || Удалить проект || حذف المشروع
+Done editing || Готово || تم التعديل
+Download .ics file || Скачать файл .ics || تنزيل ملف ‎.ics
+Email preview || Предпросмотр письма || معاينة البريد
+Email settings saved || Настройки почты сохранены || حُفظت إعدادات البريد
+File || Файл || ملف
+Find a role || Найти роль || ابحث عن دور
+Flexible || Гибко || مرن
+Former member || Бывший участник || عضو سابق
+From URL || По URL || من عنوان URL
+Fully crewed. || Группа собрана. || اكتمل الطاقم.
+Hide script || Скрыть сценарий || إخفاء السيناريو
+I'm free every shoot day. || Я свободен во все съёмочные дни. || أنا متاح في كل أيام التصوير.
+Import || Импорт || استيراد
+Install Crew Call || Установить Crew Call || تثبيت Crew Call
+Interested || Заинтересован || مهتم
+Invite accepted. Finish your profile so producers can find you. || Приглашение принято. Заполните профиль, чтобы продюсеры могли вас найти. || قُبلت الدعوة. أكمل ملفك ليجدك المنتجون.
+It disappears from Develop. People who put their hand up are told. || Публикация исчезнет из «Разработки». Тем, кто вызвался, сообщат. || يختفي من التطوير. يُبلَّغ من تطوّعوا.
+It disappears from Paid. Anyone waiting for a reply is told. || Вакансия исчезнет из «Оплачиваемой работы». Тем, кто ждёт ответа, сообщат. || يختفي من العمل المدفوع. يُبلَّغ كل من ينتظر ردًا.
+It disappears from Release. People who offered to help are told. || Фильм исчезнет из «Проката». Тем, кто предложил помощь, сообщат. || يختفي من العرض. يُبلَّغ من عرضوا المساعدة.
+Job posted || Вакансия опубликована || نُشرت الوظيفة
+LFS Parker Street || LFS, Parker Street || LFS، Parker Street
+LFS Shelton Street || LFS, Shelton Street || LFS، Shelton Street
+LFS addresses don't need an invite. They can sign in straight away. || Адресам LFS приглашение не нужно. Они могут войти сразу. || لا تحتاج عناوين LFS إلى دعوة. يمكنها تسجيل الدخول مباشرة.
+Loading map… || Загрузка карты… || جارٍ تحميل الخريطة…
+Location TBC || Локация уточняется || الموقع قيد التأكيد
+Looking it up… || Ищем… || جارٍ البحث…
+Looks right || Всё верно || صحيح
+Main role || Основная роль || الدور الرئيسي
+Make someone an admin first, then you can transfer ownership to them. || Сначала сделайте человека админом, затем сможете передать ему владение. || عيّن أحدًا مشرفًا أولًا، ثم يمكنك نقل الملكية إليه.
+Map || Карта || الخريطة
+Map area || Область карты || نطاق الخريطة
+Map of shoot locations || Карта съёмочных локаций || خريطة مواقع التصوير
+Marked as filled || Отмечено закрытым || حُدّد كمشغول
+Most credits || Больше всего работ || الأكثر أعمالًا
+Most kit || Больше всего техники || الأكثر معدات
+Name A–Z || Имя А–Я || الاسم أ–ي
+Needs || Нужны || مطلوب
+New Calendar Subscription || Новая подписка на календарь || اشتراك تقويم جديد
+New member || Новый участник || عضو جديد
+Next to || Рядом с || بجانب
+No dates to show yet. || Пока нет дат для показа. || لا تواريخ لعرضها بعد.
+No guests. || Гостей нет. || لا ضيوف.
+No kit listed || Техника не указана || لا معدات مدرجة
+No newsletters yet. || Рассылок пока нет. || لا نشرات بعد.
+No one locked in yet. || Пока никто не утверждён. || لم يُؤكَّد أحد بعد.
+No one matches yet. || Пока никто не подходит. || لا أحد مطابق بعد.
+No open reports. || Открытых жалоб нет. || لا بلاغات مفتوحة.
+No paid jobs match || Нет подходящих оплачиваемых вакансий || لا وظائف مدفوعة مطابقة
+No roles yet || Ролей пока нет || لا أدوار بعد
+No shoots match || Нет подходящих съёмок || لا تصويرات مطابقة
+No wrapped shoots yet || Завершённых съёмок пока нет || لا تصويرات منتهية بعد
+Nobody is due. || Никого не нужно удалять. || لا أحد مستحق.
+Nobody waiting for a reply. || Ответа никто не ждёт. || لا أحد ينتظر ردًا.
+Nobody yet. || Пока никого. || لا أحد بعد.
+Nobody, fully attached || Никого, команда собрана || لا أحد، الفريق مكتمل
+None || Нет || لا شيء
+Not on Crew Call || Не в Crew Call || ليس على Crew Call
+Nothing matches || Ничего не найдено || لا نتائج مطابقة
+Nothing yet || Пока ничего || لا شيء بعد
+On a computer, open Google Calendar. || На компьютере откройте Google Календарь. || على الكمبيوتر، افتح تقويم Google.
+Open Crew Call || Открыть Crew Call || فتح Crew Call
+Open Outlook on the web and go to Calendar. || Откройте Outlook в браузере и перейдите в «Календарь». || افتح Outlook على الويب وانتقل إلى التقويم.
+Open checklist || Открыть чек-лист || فتح قائمة التحقق
+Open until filled || Открыто, пока не закроют || مفتوح حتى يُشغل
+Other calendars || Другие календари || تقويمات أخرى
+Paste the link and select || Вставьте ссылку и нажмите || الصق الرابط واختر
+Paste the link, name it Crew Call and select || Вставьте ссылку, назовите её Crew Call и нажмите || الصق الرابط وسمّه Crew Call ثم اختر
+Pick your course and cohort || Выберите курс и поток || اختر برنامجك ودفعتك
+Pin on map || Отметить на карте || تثبيت على الخريطة
+Pinned || Отмечено || مثبّت
+Pitch || Питч || فكرة
+Pitched || Предложено || مقترحة
+Post a || Опубликовать || انشر
+Recently updated || Недавно обновлённые || حُدّث مؤخرًا
+Removed the person || Человек удалён || أُزيل الشخص
+Reopened || Открыто снова || أُعيد فتحه
+Restore || Восстановить || استعادة
+Saved. Update the SMTP details in Supabase too || Сохранено. Обновите и данные SMTP в Supabase || تم الحفظ. حدّث بيانات SMTP في Supabase أيضًا
+Saved. You appear in Crew search and the calendar. || Сохранено. Вы видны в поиске группы и в календаре. || تم الحفظ. أنت تظهر في بحث الطاقم والتقويم.
+Saved. Your profile is hidden from Crew search. || Сохранено. Ваш профиль скрыт из поиска группы. || تم الحفظ. ملفك مخفي من بحث الطاقم.
+Select || Выбрать || اختر
+Selected day || Выбранный день || اليوم المختار
+Sends || Отправка || الإرسال
+Show all || Показать всё || إظهار الكل
+London || Лондон || لندن
+Sign in to mark the days you're free. || Войдите, чтобы отметить свободные дни. || سجّل الدخول لتحديد أيام توفّرك.
+Sign in to request || Войдите, чтобы попроситься || سجّل الدخول للطلب
+Sign in to request a role, see contact details and who's free. || Войдите, чтобы попроситься на роль, увидеть контакты и кто свободен. || سجّل الدخول لطلب دور ورؤية بيانات التواصل ومن هو متاح.
+Sign in to see contact || Войдите, чтобы увидеть контакт || سجّل الدخول لرؤية بيانات التواصل
+Sign in to see crew profiles. || Войдите, чтобы увидеть профили. || سجّل الدخول لرؤية ملفات الطاقم.
+Sign in to see paid work || Войдите, чтобы увидеть оплачиваемую работу || سجّل الدخول لرؤية العمل المدفوع
+Signed in. Finish your profile so producers can find you. || Вы вошли. Заполните профиль, чтобы продюсеры могли вас найти. || تم تسجيل الدخول. أكمل ملفك ليجدك المنتجون.
+Sort || Сортировка || الترتيب
+Sort by || Сортировать по || الترتيب حسب
+Sort crew || Сортировка группы || ترتيب الطاقم
+Started a fresh handover checklist || Начат новый чек-лист передачи дел || بدأ قائمة تسليم جديدة
+Subject || Тема || الموضوع
+Subscribe from web || Подписаться из интернета || الاشتراك من الويب
+Sync with your calendar || Синхронизация с календарём || المزامنة مع تقويمك
+Take down || Снять || إزالة
+Taken down || Снято с публикации || أُزيل
+Term 1 have their first exercises coming up, and Term 4 are planning graduation-year shorts. Mark your free days so directors can find you, and add the roles you want to learn so you can ask to shadow. || У первого семестра скоро первые упражнения, а четвёртый готовит дипломные короткие метры. Отметьте свободные дни, чтобы режиссёры могли вас найти, и добавьте роли, которым хотите научиться, чтобы проситься на стажировку. || طلاب الفصل الأول مقبلون على تمارينهم الأولى، وطلاب الفصل الرابع يخططون لأفلام سنة التخرّج القصيرة. حدّد أيام توفّرك ليجدك المخرجون، وأضف الأدوار التي تريد تعلّمها لتطلب المرافقة للتعلّم.
+That email has already been invited. || Эта почта уже приглашена. || تمت دعوة هذا البريد بالفعل.
+That person is already on Crew Call. || Этот человек уже в Crew Call. || هذا الشخص موجود على Crew Call بالفعل.
+The map couldn't load. Check your connection and try again. || Не удалось загрузить карту. Проверьте подключение и попробуйте снова. || تعذّر تحميل الخريطة. تحقّق من اتصالك وحاول مجددًا.
+The map lookup isn't reachable right now. You can save and pin it later. || Поиск по карте сейчас недоступен. Можно сохранить и отметить позже. || البحث في الخريطة غير متاح الآن. يمكنك الحفظ والتثبيت لاحقًا.
+Their name || Имя || اسمه
+They went with someone else this time. || В этот раз выбрали другого человека. || اختاروا شخصًا آخر هذه المرة.
+This week's digest || Сводка этой недели || ملخص هذا الأسبوع
+To be confirmed || Уточняется || قيد التأكيد
+Translations are checked by students who speak each language. Spot a wrong film term? Tell an admin. || Переводы проверяют студенты, которые говорят на каждом языке. Заметили неверный киношный термин? Сообщите админу. || يراجع الترجمات طلاب يتحدثون كل لغة. هل لاحظت مصطلحًا سينمائيًا خاطئًا؟ أخبر مشرفًا.
+Try clearing a filter, or post a script or pitch of your own. || Попробуйте сбросить фильтр или опубликуйте свой сценарий или питч. || جرّب مسح عامل تصفية، أو انشر سيناريو أو فكرة خاصة بك.
+Try clearing a filter, or post your own shoot. || Попробуйте сбросить фильтр или опубликуйте свою съёмку. || جرّب مسح عامل تصفية، أو انشر تصويرك.
+Try clearing a filter. If you hear of paid work, post it here. || Попробуйте сбросить фильтр. Если узнаете об оплачиваемой работе, опубликуйте её здесь. || جرّب مسح عامل تصفية. إذا سمعت عن عمل مدفوع، انشره هنا.
+Try fewer roles or a wider date range. || Выберите меньше ролей или шире диапазон дат. || جرّب أدوارًا أقل أو نطاق تواريخ أوسع.
+Type the place or a postcode first. || Сначала введите место или почтовый индекс. || اكتب المكان أو رمزًا بريديًا أولًا.
+Untitled || Без названия || بلا عنوان
+Updated || Обновлено || التحديث
+Updated the handover notes || Обновлены заметки передачи дел || حدّث ملاحظات التسليم
+Which shoots || Какие съёмки || أي تصويرات
+Withdrew || Отозвано || انسحب
+Written || Написан || مكتوب
+You can choose any cohort's rep. || Вы можете выбрать старосту любого потока. || يمكنك اختيار ممثل أي دفعة.
+You got this job || Вы получили эту работу || حصلت على هذه الوظيفة
+You haven't marked these days free || Вы не отмечали эти дни свободными || لم تحدد هذه الأيام متاحة
+You've put your name forward || Вы предложили свою кандидатуру || رشّحت نفسك
+Your calendar link || Ваша ссылка на календарь || رابط تقويمك
+View roles || Смотреть роли || عرض الأدوار
+Location name || Название локации || اسم الموقع
+Location or postcode, e.g. Campus Studio 1 || Место или индекс, напр. Campus Studio 1 || المكان أو الرمز البريدي، مثلًا Campus Studio 1
+Jan || янв. || يناير
+Feb || февр. || فبراير
+Mar || мар. || مارس
+Apr || апр. || أبريل
+Jun || июн. || يونيو
+Jul || июл. || يوليو
+Aug || авг. || أغسطس
+Sep || сент. || سبتمبر
+Oct || окт. || أكتوبر
+Nov || нояб. || نوفمبر
+Dec || дек. || ديسمبر
+this location || эту локацию || هذا الموقع
+View only. You need the Newsletter: draft permission to edit this. || Только просмотр. Чтобы редактировать, нужно право «Рассылка: черновик». || للعرض فقط. تحتاج صلاحية «النشرة: مسودة» لتعديل هذا.
+Name || Имя || الاسم

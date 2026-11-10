@@ -1,0 +1,488 @@
+Calendar || 行事曆 || Calendrier || Calendario
+Develop || 開發 || Développement || Desarrollo
+Shoot || 拍攝 || Tournages || Rodajes
+Release || 發行 || Diffusion || Estreno
+Crew || 劇組人員 || Équipe || Equipo
+My shoots || 我的拍攝 || Mes tournages || Mis rodajes
+My profile || 我的個人檔案 || Mon profil || Mi perfil
+Admin || 管理 || Admin || Administración
+Sign in || 登入 || Se connecter || Iniciar sesión
+Sign out || 登出 || Se déconnecter || Cerrar sesión
+Post a shoot || 發布拍攝 || Publier un tournage || Publicar un rodaje
+Post a script || 發布劇本 || Publier un scénario || Publicar un guion
+Post a pitch || 發布提案 || Publier un pitch || Publicar una propuesta
+List a film || 刊登影片 || Proposer un film || Publicar una película
+Step 1 of 3 || 第 1 步，共 3 步 || Étape 1 sur 3 || Paso 1 de 3
+Step 2 of 3 || 第 2 步，共 3 步 || Étape 2 sur 3 || Paso 2 de 3
+Step 3 of 3 || 第 3 步，共 3 步 || Étape 3 sur 3 || Paso 3 de 3
+Shoots looking for crew || 正在找人的拍攝 || Tournages qui cherchent une équipe || Rodajes que buscan equipo
+Writers post scripts and producers post pitches, then directors, writers and producers put their hand up. Only signed-in members see this page. Full scripts and pitch decks are only shared with people the poster brings on. || 編劇發布劇本、製片發布提案，導演、編劇和製片再舉手加入。只有登入的成員能看到此頁。完整劇本和提案簡報只會分享給發布者邀請加入的人。 || Les scénaristes publient leurs scénarios et les producteurs leurs pitchs, puis réalisateurs, scénaristes et producteurs se proposent. Seuls les membres connectés voient cette page. Les scénarios complets et dossiers de pitch ne sont partagés qu'avec les personnes retenues. || Los guionistas publican guiones y los productores propuestas; después, directores, guionistas y productores se ofrecen. Solo los miembros con sesión iniciada ven esta página. Los guiones completos y los dosieres solo se comparten con las personas que el autor incorpora.
+Wrapped films looking for help to reach an audience: festival plans, posters, trailers, press kits and socials. A good fit for MA Film Marketing, and every job becomes a credit on your profile. || 已殺青、正在尋求幫助觸及觀眾的影片：影展規劃、海報、預告片、新聞資料和社群。很適合 MA 電影行銷的同學，每份工作都會成為你個人檔案上的作品經歷。 || Films terminés qui cherchent de l'aide pour trouver leur public : stratégie festivals, affiches, bandes-annonces, dossiers de presse et réseaux sociaux. Idéal pour le MA Film Marketing, et chaque mission devient un crédit sur votre profil. || Películas terminadas que buscan ayuda para llegar al público: estrategia de festivales, carteles, tráileres, dossieres de prensa y redes. Ideal para el MA Film Marketing, y cada trabajo se convierte en un crédito en tu perfil.
+Search title, director, location || 搜尋片名、導演、地點 || Rechercher un titre, un réalisateur, un lieu || Buscar título, director, lugar
+Search title, logline, writer or producer || 搜尋片名、故事簡介、編劇或製片 || Rechercher un titre, un pitch, un scénariste ou un producteur || Buscar título, sinopsis, guionista o productor
+Search title, director or festival || 搜尋片名、導演或影展 || Rechercher un titre, un réalisateur ou un festival || Buscar título, director o festival
+Search name, kit, skill || 搜尋姓名、器材、技能 || Rechercher un nom, du matériel, une compétence || Buscar nombre, equipo, habilidad
+Search shoots || 搜尋拍攝 || Rechercher des tournages || Buscar rodajes
+Search posts || 搜尋貼文 || Rechercher des publications || Buscar publicaciones
+Search films || 搜尋影片 || Rechercher des films || Buscar películas
+Matches me || 適合我 || Pour moi || Para mí
+Filters || 篩選 || Filtres || Filtros
+Close filters || 關閉篩選 || Fermer les filtres || Cerrar filtros
+Clear all || 全部清除 || Tout effacer || Borrar todo
+Clear filters || 清除篩選 || Effacer les filtres || Borrar filtros
+Sort by || 排序 || Trier par || Ordenar por
+Role needed || 需要的職位 || Poste recherché || Puesto necesario
+Shooting || 拍攝時間 || Tournage || Rodaje
+Type || 類型 || Type || Tipo
+Made by || 製作者 || Réalisé par || Hecho por
+Show || 顯示 || Afficher || Mostrar
+Looking for || 正在找 || Recherche || Se busca
+Hoping to shoot || 預計拍攝 || Tournage prévu || Rodaje previsto
+Help needed || 需要的協助 || Aide recherchée || Ayuda necesaria
+Deadline || 截止日期 || Date limite || Fecha límite
+Shooting soonest || 最快開拍 || Tournage le plus proche || Rodaje más próximo
+Newest || 最新 || Plus récents || Más recientes
+Most roles open || 最多空缺 || Le plus de postes ouverts || Más puestos libres
+Shortest script || 最短劇本 || Scénario le plus court || Guion más corto
+Deadline soonest || 最快截止 || Date limite la plus proche || Fecha límite más próxima
+This week || 本週 || Cette semaine || Esta semana
+Next 2 weeks || 未來 2 週 || 2 prochaines semaines || Próximas 2 semanas
+This month || 本月 || Ce mois-ci || Este mes
+Later || 更晚 || Plus tard || Más adelante
+Next 30 days || 未來 30 天 || 30 prochains jours || Próximos 30 días
+Next 3 months || 未來 3 個月 || 3 prochains mois || Próximos 3 meses
+No deadline || 無截止日期 || Pas de date limite || Sin fecha límite
+Scripts || 劇本 || Scénarios || Guiones
+Producer pitches || 製片提案 || Pitchs de producteurs || Propuestas de productores
+Producer pitch || 製片提案 || Pitch de producteur || Propuesta de productor
+Show fully crewed shoots || 顯示人員已滿的拍攝 || Afficher les tournages complets || Mostrar rodajes completos
+Show posts that are fully attached || 顯示人員已齊的貼文 || Afficher les publications complètes || Mostrar publicaciones completas
+Show films with a full team || 顯示團隊已滿的影片 || Afficher les films à l'équipe complète || Mostrar películas con equipo completo
+Shoots with an open role that's on your profile || 有你個人檔案上職位空缺的拍攝 || Tournages avec un poste ouvert qui figure sur votre profil || Rodajes con un puesto libre que está en tu perfil
+Posts looking for a role on your profile || 正在找你個人檔案上職位的貼文 || Publications qui cherchent un poste de votre profil || Publicaciones que buscan un puesto de tu perfil
+Films needing help your profile roles cover || 需要你職位所能提供協助的影片 || Films qui ont besoin de compétences de votre profil || Películas que necesitan ayuda que cubren tus puestos
+Show more || 顯示更多 || Afficher plus || Mostrar más
+View roles || 查看職位 || Voir les postes || Ver puestos
+Details || 詳情 || Détails || Detalles
+I'm interested || 我有興趣 || Ça m'intéresse || Me interesa
+Offer to help || 提供協助 || Proposer mon aide || Ofrecer ayuda
+Manage || 管理 || Gérer || Gestionar
+Fully crewed || 人員已滿 || Équipe complète || Equipo completo
+Fully attached || 人員已齊 || Complet || Completo
+Full team || 團隊已滿 || Équipe complète || Equipo completo
+Now a shoot || 已成為拍攝 || Devenu un tournage || Ya es un rodaje
+You run this || 你負責 || Vous gérez ce projet || Lo gestionas tú
+You run this project || 這是你負責的專案 || Vous gérez ce projet || Gestionas este proyecto
+You're on this shoot || 你在這個拍攝中 || Vous êtes sur ce tournage || Estás en este rodaje
+Written by || 編劇： || Écrit par || Escrito por
+written by || 編劇： || écrit par || escrito por
+Pitched by || 提案人： || Proposé par || Propuesto por
+pitched by || 提案人： || proposé par || propuesto por
+Listed by || 刊登者： || Proposé par || Publicado por
+listed by || 刊登者： || proposé par || publicado por
+Script || 劇本 || Scénario || Guion
+Pitch deck || 提案簡報 || Dossier de pitch || Dosier
+Attached || 已加入 || Rattachés || Incorporados
+Nobody yet || 尚無人 || Personne pour l'instant || Nadie todavía
+What they have || 他們擁有的 || Ce qu'ils ont || Lo que tienen
+People interested || 有興趣的人 || Personnes intéressées || Personas interesadas
+Bring on || 邀請加入 || Intégrer || Incorporar
+Decline || 婉拒 || Refuser || Rechazar
+Turn into a shoot || 轉為拍攝 || Transformer en tournage || Convertir en rodaje
+Edit || 編輯 || Modifier || Editar
+Remove || 移除 || Retirer || Quitar
+Put your hand up || 舉手加入 || Se proposer || Ofrecerse
+As || 擔任 || En tant que || Como
+Send || 送出 || Envoyer || Enviar
+Withdraw || 撤回 || Retirer || Retirar
+Open it || 開啟 || Ouvrir || Abrir
+No link added || 未加入連結 || Aucun lien ajouté || No se ha añadido enlace
+Shared with the team || 僅分享給團隊 || Partagé avec l'équipe || Compartido con el equipo
+Nobody yet. Share the Develop page in your cohort chat. || 尚無人。把開發頁分享到你的班級群組吧。 || Personne pour l'instant. Partagez la page Développement dans le groupe de votre promo. || Nadie todavía. Comparte la página Desarrollo en el chat de tu promoción.
+Working title || 暫定片名 || Titre provisoire || Título provisional
+Title || 片名 || Titre || Título
+Pages || 頁數 || Pages || Páginas
+Logline || 故事簡介 || Pitch en une phrase || Sinopsis breve
+What you have || 你擁有的 || Ce que vous avez || Lo que tienes
+Script link || 劇本連結 || Lien du scénario || Enlace del guion
+Pitch deck or treatment link || 提案簡報或故事大綱連結 || Lien du dossier de pitch ou du traitement || Enlace del dosier o tratamiento
+only shown to you and people you bring on || 只有你和你邀請的人看得到 || visible seulement par vous et les personnes retenues || solo lo ven tú y las personas que incorpores
+only shown to you and your team || 只有你和你的團隊看得到 || visible seulement par vous et votre équipe || solo lo ven tú y tu equipo
+Not sure yet || 還不確定 || Pas encore sûr || Aún no lo sé
+Post || 發布 || Publier || Publicar
+Save || 儲存 || Enregistrer || Guardar
+Cancel || 取消 || Annuler || Cancelar
+Close || 關閉 || Fermer || Cerrar
+Post the logline here, not the script. You choose who gets the full script by bringing them on. || 這裡只發布故事簡介，不放劇本。你邀請誰加入，誰才能看到完整劇本。 || Publiez ici le pitch, pas le scénario. Vous choisissez qui reçoit le scénario complet en l'intégrant. || Publica aquí la sinopsis, no el guion. Tú decides quién recibe el guion completo al incorporarlo.
+Pitch an idea, a true story you have access to, or a story you hold the rights to. Find a writer and director to make it with. || 提出一個點子、一個你能接觸到的真實故事，或你擁有版權的故事。找編劇和導演一起完成。 || Proposez une idée, une histoire vraie à laquelle vous avez accès ou une histoire dont vous avez les droits. Trouvez un scénariste et un réalisateur pour la faire. || Propón una idea, una historia real a la que tienes acceso o una historia cuyos derechos tienes. Encuentra guionista y director para hacerla.
+e.g. Option on a short story, access to a real story, a location || 例如：短篇小說的改編權、真實故事的採訪管道、一個場地 || ex. option sur une nouvelle, accès à une histoire vraie, un lieu || p. ej., opción sobre un relato, acceso a una historia real, una localización
+Message to Aisha || 給 Aisha 的訊息 || Message à Aisha || Mensaje para Aisha
+What you like about it, and how you'd approach it || 你喜歡它的地方，以及你會怎麼處理 || Ce qui vous plaît et comment vous l'aborderiez || Qué te gusta y cómo lo enfocarías
+What you'd do, and links to anything similar you've made || 你會怎麼做，以及你做過的類似作品連結 || Ce que vous feriez, et des liens vers des travaux similaires || Qué harías y enlaces a trabajos similares que hayas hecho
+List a film for release help || 刊登影片以尋求發行協助 || Proposer un film pour de l'aide à la diffusion || Publicar una película para buscar ayuda con el estreno
+Which film || 哪部影片 || Quel film || Qué película
+A film not on Crew Call || 不在 Crew Call 上的影片 || Un film absent de Crew Call || Una película que no está en Crew Call
+Running time (minutes) || 片長（分鐘） || Durée (minutes) || Duración (minutos)
+Next deadline || 下一個截止日期 || Prochaine date limite || Próxima fecha límite
+Festivals or goals || 影展或目標 || Festivals ou objectifs || Festivales u objetivos
+e.g. Encounters, BFI Future Film || 例如：Encounters、BFI Future Film || ex. Encounters, BFI Future Film || p. ej., Encounters, BFI Future Film
+Screener link || 試映連結 || Lien de visionnage || Enlace de visionado
+Screener || 試映 || Visionnage || Visionado
+Watch the film || 觀看影片 || Voir le film || Ver la película
+List film || 刊登影片 || Proposer le film || Publicar película
+On the team || 團隊成員 || Dans l'équipe || En el equipo
+Offers || 提議 || Propositions || Ofertas
+No offers yet. || 尚無提議。 || Aucune proposition pour l'instant. || Aún no hay ofertas.
+Send offer || 送出提議 || Envoyer la proposition || Enviar oferta
+With || 協助項目 || Pour || Con
+See the shoot || 查看拍攝 || Voir le tournage || Ver el rodaje
+None set || 未設定 || Aucune || Sin fijar
+optional || 選填 || facultatif || opcional
+Report a problem || 回報問題 || Signaler un problème || Informar de un problema
+Report a problem with this film || 回報此影片的問題 || Signaler un problème avec ce film || Informar de un problema con esta película
+Report a problem with this pitch || 回報此提案的問題 || Signaler un problème avec ce pitch || Informar de un problema con esta propuesta
+Report a problem with this profile || 回報此個人檔案的問題 || Signaler un problème avec ce profil || Informar de un problema con este perfil
+Report a problem with this project || 回報此專案的問題 || Signaler un problème avec ce projet || Informar de un problema con este proyecto
+Report a problem with this script || 回報此劇本的問題 || Signaler un problème avec ce scénario || Informar de un problema con este guion
+Privacy notice || 隱私權聲明 || Avis de confidentialité || Aviso de privacidad
+privacy notice || 隱私權聲明 || avis de confidentialité || aviso de privacidad
+Add to home screen || 加到主畫面 || Ajouter à l'écran d'accueil || Añadir a la pantalla de inicio
+Prototype. Sample data only, and changes reset when you reload. Sign-in, emails and calendar links are simulated. A live version adds LFS Microsoft sign-in and a shared database. || 原型版本。僅為範例資料，重新整理後變更會重置。登入、電子郵件和行事曆連結均為模擬。正式版本會加入 LFS Microsoft 登入和共用資料庫。 || Prototype. Données d'exemple uniquement, les modifications sont réinitialisées au rechargement. La connexion, les e-mails et les liens d'agenda sont simulés. La version finale ajoute la connexion Microsoft LFS et une base de données partagée. || Prototipo. Solo datos de ejemplo; los cambios se borran al recargar. El inicio de sesión, los correos y los enlaces de calendario son simulados. La versión real añade el inicio de sesión de Microsoft de la LFS y una base de datos compartida.
+Today || 今天 || Aujourd'hui || Hoy
+Yesterday || 昨天 || Hier || Ayer
+Month || 月 || Mois || Mes
+Week || 週 || Semaine || Semana
+Day || 日 || Jour || Día
+Previous month || 上個月 || Mois précédent || Mes anterior
+Next month || 下個月 || Mois suivant || Mes siguiente
+Previous week || 上週 || Semaine précédente || Semana anterior
+Next week || 下週 || Semaine suivante || Semana siguiente
+Next || 下一個 || Suivant || Siguiente
+All roles || 所有職位 || Tous les postes || Todos los puestos
+All terms || 所有學期 || Tous les trimestres || Todos los trimestres
+All cohorts || 所有班級 || Toutes les promos || Todas las promociones
+All projects || 所有專案 || Tous les projets || Todos los proyectos
+Show crew availability || 顯示人員空檔 || Afficher les disponibilités || Mostrar disponibilidad del equipo
+Crew available || 有空的人員 || Équipe disponible || Equipo disponible
+crew available || 有空的人員 || équipe disponible || equipo disponible
+Crew available that day (matches filters) || 當天有空的人員（符合篩選條件） || Équipe disponible ce jour-là (selon les filtres) || Equipo disponible ese día (según filtros)
+Shoot day (number = open roles) || 拍攝日（數字 = 空缺職位） || Jour de tournage (chiffre = postes ouverts) || Día de rodaje (número = puestos libres)
+Free || 有空 || Libre || Libre
+free || 有空 || libre || libre
+not free || 沒空 || pas libre || no disponible
+No shoots || 沒有拍攝 || Aucun tournage || Sin rodajes
+No shoots on this day. || 這天沒有拍攝。 || Aucun tournage ce jour-là. || No hay rodajes este día.
+Edit my days || 編輯我的空檔 || Modifier mes jours || Editar mis días
+Editing your availability. Tap any day to switch between free and not free. Changes save straight away. || 正在編輯你的空檔。點任一天可在有空和沒空之間切換。變更會立即儲存。 || Vous modifiez vos disponibilités. Touchez un jour pour basculer entre libre et pas libre. Les changements sont enregistrés tout de suite. || Estás editando tu disponibilidad. Toca un día para cambiar entre libre y no disponible. Los cambios se guardan al instante.
+Editing || 編輯中 || Modification || Editando
+Done || 完成 || Terminé || Listo
+Clear month || 清除本月 || Effacer le mois || Borrar el mes
+All weekdays || 所有平日 || Tous les jours de semaine || Todos los días laborables
+All weekends || 所有週末 || Tous les week-ends || Todos los fines de semana
+You: free || 你：有空 || Vous : libre || Tú: libre
+You: booked || 你：已排班 || Vous : réservé || Tú: ocupado
+Sync calendar || 同步行事曆 || Synchroniser l'agenda || Sincronizar calendario
+Sync to Outlook or another calendar || 同步到 Outlook 或其他行事曆 || Synchroniser avec Outlook ou un autre agenda || Sincronizar con Outlook u otro calendario
+Add to calendar || 加入行事曆 || Ajouter à l'agenda || Añadir al calendario
+Calendar view || 行事曆檢視 || Vue calendrier || Vista de calendario
+Filter by role || 依職位篩選 || Filtrer par poste || Filtrar por puesto
+Role || 職位 || Poste || Puesto
+Roles || 職位 || Postes || Puestos
+Term || 學期 || Trimestre || Trimestre
+Cohort || 班級 || Promo || Promoción
+Course || 課程 || Cursus || Curso
+Pathway || 主修方向 || Spécialisation || Especialidad
+Find crew || 尋找人員 || Trouver une équipe || Buscar equipo
+Has kit || 有器材 || A du matériel || Tiene equipo
+Free from || 有空起始日 || Libre du || Libre desde
+To || 至 || Au || Hasta
+From || 從 || Du || Desde
+Kit || 器材 || Matériel || Equipo técnico
+Credits || 作品經歷 || Crédits || Créditos
+Contact || 聯絡 || Contact || Contacto
+Message || 訊息 || Message || Mensaje
+Email || 電子郵件 || E-mail || Correo
+Email private || 電子郵件不公開 || E-mail privé || Correo privado
+Reel || 作品集 || Bande démo || Reel
+Wants to learn || 想學 || Veut apprendre || Quiere aprender
+Wants to shadow: || 想見習： || Veut observer : || Quiere observar:
+Learning: || 學習中： || Apprend : || Aprendiendo:
+Free to help: || 可以幫忙： || Disponible pour aider : || Disponible para ayudar:
+This is you || 這是你 || C'est vous || Eres tú
+That's you || 那是你 || C'est vous || Eres tú
+(you) || （你） || (vous) || (tú)
+Invite to one of your projects || 邀請加入你的專案 || Inviter sur un de vos projets || Invitar a uno de tus proyectos
+No kit added. Owning kit makes you much easier to book. || 尚未加入器材。有自己的器材會讓你更容易被找上。 || Aucun matériel ajouté. Avoir du matériel vous rend beaucoup plus facile à engager. || No has añadido equipo. Tener equipo propio hace mucho más fácil que te contraten.
+Open to offers || 歡迎邀約 || Ouvert aux propositions || Abierto a ofertas
+open to offers || 歡迎邀約 || ouvert aux propositions || abierto a ofertas
+Open to offers outside these dates || 這些日期以外也歡迎邀約 || Ouvert aux propositions en dehors de ces dates || Abierto a ofertas fuera de estas fechas
+No dates set || 未設定日期 || Aucune date || Sin fechas
+Free every shoot day || 每個拍攝日都有空 || Libre tous les jours de tournage || Libre todos los días de rodaje
+You're free every shoot day || 你每個拍攝日都有空 || Vous êtes libre tous les jours de tournage || Estás libre todos los días de rodaje
+Request || 申請 || Demander || Solicitar
+Request to join || 申請加入 || Demander à rejoindre || Solicitar unirse
+Ask to shadow || 申請見習 || Demander à observer || Pedir observar
+Requested · waiting || 已申請 · 等待中 || Demandé · en attente || Solicitado · en espera
+Accepted || 已接受 || Accepté || Aceptado
+Accept || 接受 || Accepter || Aceptar
+Not this time || 這次不行 || Pas cette fois || Esta vez no
+Role filled || 職位已補 || Poste pourvu || Puesto cubierto
+Role removed || 職位已移除 || Poste supprimé || Puesto eliminado
+Withdrawn || 已撤回 || Retiré || Retirado
+Open roles || 空缺職位 || Postes ouverts || Puestos libres
+Locked crew || 已確定的人員 || Équipe confirmée || Equipo confirmado
+Locked crew only || 僅限已確定的人員 || Équipe confirmée uniquement || Solo equipo confirmado
+Shoot dates || 拍攝日期 || Dates de tournage || Fechas de rodaje
+Schedule || 時間表 || Planning || Horario
+Locations || 地點 || Lieux || Localizaciones
+Location || 地點 || Lieu || Localización
+Call || 集合 || Convocation || Citación
+Wrap || 收工 || Fin || Fin
+Map || 地圖 || Carte || Mapa
+Crew hub || 劇組資訊中心 || Espace équipe || Centro del equipo
+Join the WhatsApp group || 加入 WhatsApp 群組 || Rejoindre le groupe WhatsApp || Unirse al grupo de WhatsApp
+Key links || 重要連結 || Liens utiles || Enlaces clave
+Key details || 重要資訊 || Infos clés || Datos clave
+Visible to everyone signed in || 所有登入者可見 || Visible par tous les membres connectés || Visible para todos los que han iniciado sesión
+Crew only || 僅限劇組 || Équipe uniquement || Solo el equipo
+Everyone signed in || 所有登入者 || Tous les membres connectés || Todos con sesión iniciada
+Who can see this || 誰看得到 || Qui peut voir ceci || Quién puede verlo
+Add links and details || 加入連結和資訊 || Ajouter des liens et des infos || Añadir enlaces y datos
+Edit links and details || 編輯連結和資訊 || Modifier les liens et les infos || Editar enlaces y datos
+The WhatsApp group, call sheets and key details are shared with the crew once you're locked in. || WhatsApp 群組、通告單和重要資訊會在你確定加入後分享給你。 || Le groupe WhatsApp, les feuilles de service et les infos clés sont partagés une fois que vous êtes confirmé. || El grupo de WhatsApp, las órdenes de rodaje y los datos clave se comparten cuando te confirman.
+Add the WhatsApp group, call sheet, script or a Drive folder so your crew have everything in one place. || 加入 WhatsApp 群組、通告單、劇本或 Drive 資料夾，讓劇組在同一個地方找到所有東西。 || Ajoutez le groupe WhatsApp, la feuille de service, le scénario ou un dossier Drive pour que l'équipe ait tout au même endroit. || Añade el grupo de WhatsApp, la orden de rodaje, el guion o una carpeta de Drive para que el equipo lo tenga todo en un sitio.
+Crew hub: WhatsApp, links and details || 劇組資訊中心：WhatsApp、連結和資訊 || Espace équipe : WhatsApp, liens et infos || Centro del equipo: WhatsApp, enlaces y datos
+Everything your crew need in one place. Shown only to locked crew, the producer, director and admins, unless you choose otherwise. || 劇組需要的一切都在這裡。除非你另行設定，只有已確定的人員、製片、導演和管理員看得到。 || Tout ce dont l'équipe a besoin, au même endroit. Visible seulement par l'équipe confirmée, le producteur, le réalisateur et les admins, sauf choix contraire. || Todo lo que necesita el equipo en un sitio. Solo lo ven el equipo confirmado, el productor, el director y los administradores, salvo que elijas otra cosa.
+WhatsApp group invite link || WhatsApp 群組邀請連結 || Lien d'invitation au groupe WhatsApp || Enlace de invitación al grupo de WhatsApp
+In WhatsApp: open the group, tap its name, then Invite via link, and copy it here. || 在 WhatsApp 中：打開群組，點群組名稱，再點「透過連結邀請」，然後複製到這裡。 || Dans WhatsApp : ouvrez le groupe, touchez son nom, puis Inviter via un lien, et copiez-le ici. || En WhatsApp: abre el grupo, toca su nombre, luego Invitar mediante enlace, y cópialo aquí.
+Label, e.g. Call sheet || 標籤，例如：通告單 || Libellé, ex. Feuille de service || Etiqueta, p. ej., Orden de rodaje
+Link address || 連結網址 || Adresse du lien || Dirección del enlace
+Link label || 連結標籤 || Libellé du lien || Etiqueta del enlace
+Add another link || 再加一個連結 || Ajouter un autre lien || Añadir otro enlace
+Remove link || 移除連結 || Retirer le lien || Quitar enlace
+Nearest station, parking, meeting point, food, what to wear, kit drop-off || 最近車站、停車、集合點、餐點、穿著、器材放置處 || Gare la plus proche, parking, point de rendez-vous, repas, tenue, dépôt du matériel || Estación más cercana, aparcamiento, punto de encuentro, comida, qué ponerse, entrega de equipo
+Shot list || 分鏡表 || Liste des plans || Lista de planos
+Email all locked crew || 寄信給所有已確定的人員 || Écrire à toute l'équipe confirmée || Escribir a todo el equipo confirmado
+Archive || 封存 || Archiver || Archivar
+Delete || 刪除 || Supprimer || Eliminar
+Hide project || 隱藏專案 || Masquer le projet || Ocultar proyecto
+Mark filled… || 標記為已補… || Marquer pourvu… || Marcar cubierto…
+Someone not on Crew Call… || 不在 Crew Call 上的人… || Quelqu'un hors de Crew Call… || Alguien que no está en Crew Call…
+Reopen || 重新開放 || Rouvrir || Reabrir
+Reopen this role in the project window to remove it || 請先在專案視窗中重新開放此職位再移除 || Rouvrez ce poste dans la fenêtre du projet pour le retirer || Reabre este puesto en la ventana del proyecto para quitarlo
+Only this project's producer and director (and admins) can edit it. Locked crew are told if dates or call times change. || 只有本專案的製片和導演（以及管理員）可以編輯。日期或集合時間變更時會通知已確定的人員。 || Seuls le producteur et le réalisateur de ce projet (et les admins) peuvent le modifier. L'équipe confirmée est prévenue si les dates ou horaires changent. || Solo el productor y el director de este proyecto (y los administradores) pueden editarlo. Se avisa al equipo confirmado si cambian las fechas o las citaciones.
+Request type || 申請類型 || Type de demande || Tipo de solicitud
+Do the role || 擔任此職位 || Occuper le poste || Hacer el puesto
+Shadow and learn || 見習 || Observer et apprendre || Observar y aprender
+Send request || 送出申請 || Envoyer la demande || Enviar solicitud
+Back to project || 回到專案 || Retour au projet || Volver al proyecto
+Request sent. You'll hear back here and by email. || 申請已送出。回覆會出現在這裡並寄到你的信箱。 || Demande envoyée. Vous aurez une réponse ici et par e-mail. || Solicitud enviada. Recibirás respuesta aquí y por correo.
+Shadow || 見習 || Observation || Observación
+Project title || 專案名稱 || Titre du projet || Título del proyecto
+Director name || 導演姓名 || Nom du réalisateur || Nombre del director
+Director email || 導演電子郵件 || E-mail du réalisateur || Correo del director
+Producer name || 製片姓名 || Nom du producteur || Nombre del productor
+Producer email || 製片電子郵件 || E-mail du producteur || Correo del productor
+Leave blank if you need one || 如果你還需要找製片，請留空 || Laissez vide si vous en cherchez un || Déjalo en blanco si necesitas uno
+Location name || 地點名稱 || Nom du lieu || Nombre del lugar
+Location notes || 地點備註 || Notes sur le lieu || Notas del lugar
+Notes, e.g. interiors || 備註，例如：內景 || Notes, ex. intérieurs || Notas, p. ej., interiores
+Add another location || 再加一個地點 || Ajouter un autre lieu || Añadir otra localización
+Remove location || 移除地點 || Retirer le lieu || Quitar localización
+Add another block || 再加一段日期 || Ajouter une autre période || Añadir otro bloque
+Remove dates || 移除日期 || Retirer les dates || Quitar fechas
+Start || 開始 || Début || Inicio
+End || 結束 || Fin || Fin
+Call, wrap and location for each day || 每天的集合、收工時間和地點 || Convocation, fin et lieu pour chaque jour || Citación, fin y lugar de cada día
+Add shoot dates above and each day appears here. || 在上方加入拍攝日期，每天都會顯示在這裡。 || Ajoutez les dates de tournage ci-dessus et chaque jour apparaîtra ici. || Añade arriba las fechas de rodaje y cada día aparecerá aquí.
+Add role || 新增職位 || Ajouter un poste || Añadir puesto
+How many || 人數 || Combien || Cuántos
+List me as Director (filled) || 把我列為導演（已補） || M'inscrire comme réalisateur (pourvu) || Ponerme como director (cubierto)
+Kit wanted || 需要的器材 || Matériel recherché || Equipo que se busca
+Kit wanted (optional) || 需要的器材（選填） || Matériel recherché (facultatif) || Equipo que se busca (opcional)
+e.g. haze machine, gimbal || 例如：煙霧機、穩定器 || ex. machine à fumée, gimbal || p. ej., máquina de humo, gimbal
+Post project || 發布專案 || Publier le projet || Publicar proyecto
+Save changes || 儲存變更 || Enregistrer les modifications || Guardar cambios
+Your shoot appears on the calendar and people whose roles and free days match are notified. || 你的拍攝會出現在行事曆上，職位和空檔符合的人會收到通知。 || Votre tournage apparaît dans le calendrier et les personnes dont les postes et disponibilités correspondent sont prévenues. || Tu rodaje aparece en el calendario y se avisa a las personas cuyos puestos y días libres encajan.
+No roles added yet. || 尚未加入職位。 || Aucun poste ajouté. || Aún no hay puestos.
+Copy || 複製 || Copier || Copiar
+Copied || 已複製 || Copié || Copiado
+Projects I run || 我負責的專案 || Mes projets || Proyectos que gestiono
+Shoots I'm on || 我參與的拍攝 || Mes tournages en équipe || Rodajes en los que estoy
+My requests || 我的申請 || Mes demandes || Mis solicitudes
+Requests waiting || 待處理的申請 || Demandes en attente || Solicitudes pendientes
+Projects you run, requests you've sent and shoots you're locked on. || 你負責的專案、送出的申請，以及已確定參與的拍攝。 || Vos projets, les demandes envoyées et les tournages où vous êtes confirmé. || Tus proyectos, las solicitudes enviadas y los rodajes en los que estás confirmado.
+Projects you run, requests you've sent and shoots you're locked on all live here. || 你負責的專案、送出的申請，以及已確定參與的拍攝都在這裡。 || Vos projets, vos demandes et vos tournages confirmés sont tous ici. || Aquí están tus proyectos, tus solicitudes y los rodajes en los que estás confirmado.
+You're not producing or directing anything yet. || 你目前還沒有製片或導演任何作品。 || Vous ne produisez ni ne réalisez rien pour l'instant. || Aún no produces ni diriges nada.
+No requests right now. People who match your open roles are notified when you post or add a role. || 目前沒有申請。你發布或新增職位時，符合條件的人會收到通知。 || Aucune demande pour l'instant. Les personnes qui correspondent à vos postes ouverts sont prévenues quand vous publiez ou ajoutez un poste. || No hay solicitudes ahora. Se avisa a quienes encajan con tus puestos libres cuando publicas o añades uno.
+No requests yet. Open a project and tap Request to join. || 尚無申請。打開專案並點「申請加入」。 || Aucune demande. Ouvrez un projet et touchez Demander à rejoindre. || Aún no hay solicitudes. Abre un proyecto y toca Solicitar unirse.
+Not locked on any shoots yet. Requests that get accepted land here. || 尚未確定參與任何拍攝。被接受的申請會出現在這裡。 || Pas encore confirmé sur un tournage. Les demandes acceptées arrivent ici. || Aún no estás confirmado en ningún rodaje. Las solicitudes aceptadas aparecen aquí.
+Invite someone || 邀請某人 || Inviter quelqu'un || Invitar a alguien
+Email to invite || 要邀請的電子郵件 || E-mail à inviter || Correo a invitar
+Send invite || 送出邀請 || Envoyer l'invitation || Enviar invitación
+Invites || 邀請 || Invitations || Invitaciones
+Pending || 待處理 || En attente || Pendiente
+Joined || 已加入 || Inscrit || Unido
+Revoke || 撤銷 || Révoquer || Revocar
+For people without an LFS email, like freelance HMU artists or actors. They can sign in once with the email you invite. || 給沒有 LFS 電子郵件的人，例如自由接案的梳化師或演員。他們可以用你邀請的電子郵件登入。 || Pour les personnes sans e-mail LFS, comme des maquilleurs indépendants ou des comédiens. Elles peuvent se connecter avec l'e-mail invité. || Para personas sin correo de la LFS, como maquilladores autónomos o actores. Pueden iniciar sesión con el correo que invites.
+You're a guest. You can do everything except invite other people. || 你是訪客。除了邀請別人之外，你可以使用所有功能。 || Vous êtes invité. Vous pouvez tout faire sauf inviter d'autres personnes. || Eres invitado. Puedes hacer todo menos invitar a otras personas.
+My crew profile || 我的劇組檔案 || Mon profil d'équipe || Mi perfil de equipo
+List every role you can do, the kit you can bring, and the dates you're free. Directors will find you in Crew search and on the calendar. || 列出你能擔任的所有職位、能帶的器材，以及有空的日期。導演會在人員搜尋和行事曆上找到你。 || Indiquez tous les postes que vous pouvez occuper, le matériel que vous pouvez apporter et vos dates libres. Les réalisateurs vous trouveront dans la recherche et le calendrier. || Indica todos los puestos que puedes hacer, el equipo que puedes llevar y tus fechas libres. Los directores te encontrarán en la búsqueda y en el calendario.
+Full name || 全名 || Nom complet || Nombre completo
+Course and cohort || 課程和班級 || Cursus et promo || Curso y promoción
+Term now || 目前學期 || Trimestre actuel || Trimestre actual
+Short bio || 簡短自我介紹 || Courte bio || Biografía breve
+What you've shot, what you want to do more of || 你拍過什麼、想多做什麼 || Ce que vous avez tourné, ce que vous voulez faire davantage || Qué has rodado y qué quieres hacer más
+Showreel or portfolio link || 作品集或個人網站連結 || Lien vers la bande démo ou le portfolio || Enlace al reel o portafolio
+Roles I can do || 我能擔任的職位 || Postes que je peux occuper || Puestos que puedo hacer
+tap all that apply, star your main one || 點選所有符合的，並為主要職位加星號 || touchez tous ceux qui s'appliquent, mettez une étoile au principal || toca todos los que apliquen y marca con estrella el principal
+Clear roles || 清除職位 || Effacer les postes || Borrar puestos
+Roles I want to learn || 我想學的職位 || Postes que je veux apprendre || Puestos que quiero aprender
+shadow someone on set || 在片場見習 || observer quelqu'un sur le plateau || observar a alguien en el set
+Producers can accept you as a shadow alongside their crew. You'll show up as "wants to shadow" on matching roles. || 製片可以接受你以見習生身分加入他們的劇組。你會在符合的職位上顯示為「想見習」。 || Les producteurs peuvent vous accepter en observation aux côtés de leur équipe. Vous apparaîtrez comme « veut observer » sur les postes correspondants. || Los productores pueden aceptarte como observador junto a su equipo. Aparecerás como «quiere observar» en los puestos que encajen.
+Kit I can bring || 我能帶的器材 || Matériel que je peux apporter || Equipo que puedo llevar
+e.g. Sony FX3, Aputure 300d, Zoom F6 || 例如：Sony FX3、Aputure 300d、Zoom F6 || ex. Sony FX3, Aputure 300d, Zoom F6 || p. ej., Sony FX3, Aputure 300d, Zoom F6
+Add kit || 新增器材 || Ajouter du matériel || Añadir equipo
+When I'm free || 我有空的時間 || Mes disponibilités || Cuándo estoy libre
+Tap a day to mark it free, tap again to clear. Drag across days to select several at once. Days you're crewed on show as booked. || 點一天標記為有空，再點一次清除。拖曳可一次選取多天。你已排班的日子會顯示為已排班。 || Touchez un jour pour le marquer libre, touchez encore pour effacer. Faites glisser pour en sélectionner plusieurs. Les jours où vous êtes engagé apparaissent comme réservés. || Toca un día para marcarlo libre y otra vez para borrarlo. Arrastra para elegir varios a la vez. Los días en que trabajas aparecen como ocupados.
+added automatically after each shoot || 每次拍攝後自動加入 || ajouté automatiquement après chaque tournage || se añade automáticamente tras cada rodaje
+Once a shoot you're locked on wraps, it's added here automatically. || 你參與的拍攝殺青後，會自動加到這裡。 || Quand un tournage où vous êtes confirmé se termine, il est ajouté ici automatiquement. || Cuando termina un rodaje en el que estás confirmado, se añade aquí automáticamente.
+Email notifications || 電子郵件通知 || Notifications par e-mail || Notificaciones por correo
+Email me when someone requests to join a project I run || 有人申請加入我負責的專案時寄信給我 || M'écrire quand quelqu'un demande à rejoindre un de mes projets || Avisarme cuando alguien pida unirse a un proyecto mío
+Email me when a new role matches my roles and free days || 有新職位符合我的職位和空檔時寄信給我 || M'écrire quand un nouveau poste correspond à mes postes et disponibilités || Avisarme cuando un puesto nuevo encaje con mis puestos y días libres
+Email me when my requests are answered or a shoot I'm on changes || 我的申請有回覆或我參與的拍攝有變動時寄信給我 || M'écrire quand on répond à mes demandes ou qu'un de mes tournages change || Avisarme cuando respondan a mis solicitudes o cambie un rodaje en el que estoy
+Send me a weekly digest of open roles || 每週寄給我空缺職位摘要 || M'envoyer un résumé hebdomadaire des postes ouverts || Enviarme un resumen semanal de puestos libres
+Digest includes || 摘要內容 || Le résumé contient || El resumen incluye
+Every open role || 所有空缺職位 || Tous les postes ouverts || Todos los puestos libres
+Only my roles on days I'm free || 只有我有空那幾天的我的職位 || Seulement mes postes les jours où je suis libre || Solo mis puestos los días que estoy libre
+Include people who want to shadow || 包括想見習的人 || Inclure les personnes qui veulent observer || Incluir a quienes quieren observar
+Preview this week's digest || 預覽本週摘要 || Aperçu du résumé de la semaine || Ver el resumen de esta semana
+Show my email to signed-in members (otherwise people message you through Crew Call) || 向登入成員顯示我的電子郵件（否則大家會透過 Crew Call 傳訊息給你） || Montrer mon e-mail aux membres connectés (sinon on vous écrit via Crew Call) || Mostrar mi correo a los miembros con sesión iniciada (si no, te escriben por Crew Call)
+Hide my profile from Crew search and the calendar || 在人員搜尋和行事曆中隱藏我的個人檔案 || Masquer mon profil de la recherche et du calendrier || Ocultar mi perfil de la búsqueda y del calendario
+Nothing here is visible to anyone who isn't signed in. Producers and directors you're locked in with can always see your email. || 未登入的人看不到這裡的任何內容。與你確定合作的製片和導演一定看得到你的電子郵件。 || Rien ici n'est visible sans être connecté. Les producteurs et réalisateurs avec qui vous êtes confirmé voient toujours votre e-mail. || Nada de esto es visible sin iniciar sesión. Los productores y directores con los que estás confirmado siempre ven tu correo.
+Save profile || 儲存個人檔案 || Enregistrer le profil || Guardar perfil
+Profile saved || 個人檔案已儲存 || Profil enregistré || Perfil guardado
+Download my data || 下載我的資料 || Télécharger mes données || Descargar mis datos
+Delete my profile || 刪除我的個人檔案 || Supprimer mon profil || Eliminar mi perfil
+Delete your profile? || 要刪除你的個人檔案嗎？ || Supprimer votre profil ? || ¿Eliminar tu perfil?
+This removes your profile, availability, requests and notifications for good, and reopens any roles you're locked on. Producers on those shoots are told. You can sign in again later and start fresh. || 這會永久刪除你的個人檔案、空檔、申請和通知，並重新開放你已確定的職位。相關拍攝的製片會收到通知。你之後可以重新登入，從頭開始。 || Cela supprime définitivement votre profil, vos disponibilités, demandes et notifications, et rouvre les postes où vous étiez confirmé. Les producteurs concernés sont prévenus. Vous pourrez vous reconnecter plus tard et repartir de zéro. || Esto elimina para siempre tu perfil, disponibilidad, solicitudes y notificaciones, y reabre los puestos en los que estabas confirmado. Se avisa a los productores de esos rodajes. Puedes volver a iniciar sesión más adelante y empezar de cero.
+Notifications || 通知 || Notifications || Notificaciones
+Nothing yet. || 目前沒有。 || Rien pour l'instant. || Nada todavía.
+Open project || 開啟專案 || Ouvrir le projet || Abrir proyecto
+emailed || 已寄信 || envoyé par e-mail || enviado por correo
+in app only || 僅在應用程式內 || dans l'app uniquement || solo en la app
+Request || 申請 || Demande || Solicitud
+Role match || 職位符合 || Poste correspondant || Puesto que encaja
+Update || 更新 || Mise à jour || Novedad
+Invite || 邀請 || Invitation || Invitación
+New term || 新學期 || Nouveau trimestre || Nuevo trimestre
+Note || 備註 || Note || Nota
+Switch sample person || 切換範例人物 || Changer de personne d'exemple || Cambiar de persona de ejemplo
+Sign in to Crew Call || 登入 Crew Call || Se connecter à Crew Call || Iniciar sesión en Crew Call
+Continue with Microsoft (LFS) || 使用 Microsoft (LFS) 繼續 || Continuer avec Microsoft (LFS) || Continuar con Microsoft (LFS)
+Email me a sign-in link || 寄登入連結給我 || M'envoyer un lien de connexion || Enviarme un enlace de acceso
+or, if you were invited || 或者，如果你受邀 || ou, si vous avez été invité || o, si te han invitado
+Prototype: sign in as a sample person || 原型版本：以範例人物登入 || Prototype : se connecter avec une personne d'exemple || Prototipo: iniciar sesión como persona de ejemplo
+By signing in you agree to the || 登入即表示你同意 || En vous connectant, vous acceptez l' || Al iniciar sesión aceptas el
+LFS students and staff sign in with their LFS Microsoft account. Anyone without an LFS email, such as a freelance HMU artist, needs an invite from an LFS member first. || LFS 學生和教職員使用 LFS Microsoft 帳號登入。沒有 LFS 電子郵件的人（例如自由接案的梳化師）需要先獲得 LFS 成員邀請。 || Les étudiants et le personnel de la LFS se connectent avec leur compte Microsoft LFS. Les personnes sans e-mail LFS, comme un maquilleur indépendant, ont d'abord besoin d'une invitation d'un membre LFS. || Los estudiantes y el personal de la LFS inician sesión con su cuenta Microsoft de la LFS. Quien no tenga correo de la LFS, como un maquillador autónomo, necesita antes una invitación de un miembro de la LFS.
+In the live app this opens the LFS Microsoft login. Try an email or sample person below. || 正式版本會在這裡開啟 LFS Microsoft 登入。請試試下方的電子郵件或範例人物。 || Dans la version finale, cela ouvre la connexion Microsoft LFS. Essayez un e-mail ou une personne d'exemple ci-dessous. || En la app real esto abre el acceso de Microsoft de la LFS. Prueba con un correo o una persona de ejemplo abajo.
+Signed out || 已登出 || Déconnecté || Sesión cerrada
+Sign in to find crew || 登入以尋找人員 || Connectez-vous pour trouver une équipe || Inicia sesión para buscar equipo
+Crew profiles, availability and contact details are only visible to signed-in LFS members and invited guests. || 人員檔案、空檔和聯絡資料只有登入的 LFS 成員和受邀訪客看得到。 || Les profils, disponibilités et coordonnées ne sont visibles que par les membres LFS connectés et les invités. || Los perfiles, la disponibilidad y los datos de contacto solo los ven los miembros de la LFS con sesión iniciada y los invitados.
+Sign in to see your shoots || 登入以查看你的拍攝 || Connectez-vous pour voir vos tournages || Inicia sesión para ver tus rodajes
+Sign in to set up your profile || 登入以設定個人檔案 || Connectez-vous pour créer votre profil || Inicia sesión para configurar tu perfil
+Add your roles, kit and free days so producers can find you. || 加入你的職位、器材和空檔，讓製片找得到你。 || Ajoutez vos postes, votre matériel et vos jours libres pour que les producteurs vous trouvent. || Añade tus puestos, equipo y días libres para que los productores te encuentren.
+Sign in to see Develop || 登入以查看開發 || Connectez-vous pour voir Développement || Inicia sesión para ver Desarrollo
+Scripts and producer pitches are only visible to signed-in LFS members, to protect writers' and producers' ideas. || 劇本和製片提案只有登入的 LFS 成員看得到，以保護編劇和製片的創意。 || Les scénarios et pitchs ne sont visibles que par les membres LFS connectés, pour protéger les idées des auteurs et producteurs. || Los guiones y las propuestas solo los ven los miembros de la LFS con sesión iniciada, para proteger las ideas de guionistas y productores.
+Sign in to see Release || 登入以查看發行 || Connectez-vous pour voir Diffusion || Inicia sesión para ver Estreno
+Wrapped films looking for posters, trailers, press kits and festival plans. Only visible to signed-in members, to protect unreleased films. || 已殺青、正在找海報、預告片、新聞資料和影展規劃的影片。只有登入的成員看得到，以保護尚未發表的影片。 || Films terminés qui cherchent affiches, bandes-annonces, dossiers de presse et stratégie festivals. Visible seulement par les membres connectés, pour protéger les films inédits. || Películas terminadas que buscan carteles, tráileres, dossieres de prensa y estrategia de festivales. Solo visible para miembros con sesión iniciada, para proteger las películas inéditas.
+Admins only || 僅限管理員 || Réservé aux admins || Solo administradores
+Sign in with an admin account to manage Crew Call. || 使用管理員帳號登入以管理 Crew Call。 || Connectez-vous avec un compte admin pour gérer Crew Call. || Inicia sesión con una cuenta de administrador para gestionar Crew Call.
+Sign in to post a project. || 登入以發布專案。 || Connectez-vous pour publier un projet. || Inicia sesión para publicar un proyecto.
+Sign in to report a problem. || 登入以回報問題。 || Connectez-vous pour signaler un problème. || Inicia sesión para informar de un problema.
+Add Crew Call to your home screen || 把 Crew Call 加到主畫面 || Ajouter Crew Call à l'écran d'accueil || Añadir Crew Call a la pantalla de inicio
+It opens full screen like an app, with no app store needed. || 它會像應用程式一樣全螢幕開啟，不需要應用程式商店。 || Il s'ouvre en plein écran comme une app, sans passer par un store. || Se abre a pantalla completa como una app, sin tienda de apps.
+Open Crew Call in Safari. || 在 Safari 中開啟 Crew Call。 || Ouvrez Crew Call dans Safari. || Abre Crew Call en Safari.
+Tap Share, the square with an arrow. || 點「分享」，就是有箭頭的方框。 || Touchez Partager, le carré avec une flèche. || Toca Compartir, el cuadrado con una flecha.
+Tap Add to Home Screen, then Add. || 點「加入主畫面」，再點「新增」。 || Touchez Sur l'écran d'accueil, puis Ajouter. || Toca Añadir a pantalla de inicio y luego Añadir.
+Open Crew Call in Chrome. || 在 Chrome 中開啟 Crew Call。 || Ouvrez Crew Call dans Chrome. || Abre Crew Call en Chrome.
+Tap the three-dot menu. || 點三個點的選單。 || Touchez le menu à trois points. || Toca el menú de tres puntos.
+Tap Add to Home screen or Install app. || 點「加到主畫面」或「安裝應用程式」。 || Touchez Ajouter à l'écran d'accueil ou Installer l'application. || Toca Añadir a pantalla de inicio o Instalar aplicación.
+About || 關於 || À propos de || Sobre
+What's wrong || 發生什麼問題 || Quel est le problème || Qué ocurre
+What happened || 發生了什麼 || Ce qui s'est passé || Qué pasó
+Dates, what was said or done, anything the admins need to know || 日期、說了或做了什麼，以及管理員需要知道的任何事 || Dates, ce qui a été dit ou fait, tout ce que les admins doivent savoir || Fechas, qué se dijo o hizo, lo que los administradores necesiten saber
+Send report || 送出回報 || Envoyer le signalement || Enviar informe
+If someone is in danger right now, call 999. || 如果有人現在有危險，請撥打 999。 || Si quelqu'un est en danger maintenant, appelez le 999. || Si alguien está en peligro ahora mismo, llama al 999.
+For anything serious, also tell LFS Student Services. Crew Call admins are students, not the school. || 任何嚴重的事情，也請告知 LFS 學生服務處。Crew Call 管理員是學生，不是學校。 || Pour tout problème grave, prévenez aussi les services étudiants de la LFS. Les admins de Crew Call sont des étudiants, pas l'école. || Para algo grave, avisa también a Servicios al Estudiante de la LFS. Los administradores de Crew Call son estudiantes, no la escuela.
+About anything: a shoot that isn't listed, something that happened on set, or a problem with Crew Call. This goes to Crew Call's admins only. The person or crew you report aren't told who reported them. || 任何事都可以：未刊登的拍攝、片場發生的事，或 Crew Call 的問題。這只會送給 Crew Call 管理員。被回報的人或劇組不會知道是誰回報的。 || Pour tout sujet : un tournage non publié, un incident sur le plateau ou un problème avec Crew Call. Seuls les admins de Crew Call le reçoivent. La personne ou l'équipe signalée ne sait pas qui l'a signalée. || Sobre cualquier cosa: un rodaje que no aparece, algo que pasó en el set o un problema con Crew Call. Solo lo reciben los administradores de Crew Call. La persona o el equipo no sabrán quién informó.
+. This goes to Crew Call's admins only. The person or crew you report aren't told who reported them. || 。這只會送給 Crew Call 管理員。被回報的人或劇組不會知道是誰回報的。 || . Seuls les admins de Crew Call le reçoivent. La personne ou l'équipe signalée ne sait pas qui l'a signalée. || . Solo lo reciben los administradores de Crew Call. La persona o el equipo no sabrán quién informó.
+Report sent to the admins. Thank you. || 回報已送給管理員。謝謝你。 || Signalement envoyé aux admins. Merci. || Informe enviado a los administradores. Gracias.
+Safety on set || 片場安全 || Sécurité sur le plateau || Seguridad en el set
+Harassment or bullying || 騷擾或霸凌 || Harcèlement ou intimidation || Acoso o intimidación
+Discrimination || 歧視 || Discrimination || Discriminación
+Inappropriate content || 不當內容 || Contenu inapproprié || Contenido inapropiado
+Spam or fake profile || 垃圾訊息或假帳號 || Spam ou faux profil || Spam o perfil falso
+Something else || 其他 || Autre chose || Otra cosa
+Who runs Crew Call || 誰經營 Crew Call || Qui gère Crew Call || Quién gestiona Crew Call
+What we keep || 我們保存什麼 || Ce que nous conservons || Qué guardamos
+Who can see it || 誰看得到 || Qui peut le voir || Quién puede verlo
+What we don't do || 我們不做什麼 || Ce que nous ne faisons pas || Qué no hacemos
+How long we keep it || 我們保存多久 || Combien de temps nous le gardons || Cuánto tiempo lo guardamos
+Your rights || 你的權利 || Vos droits || Tus derechos
+Your name, LFS email, course and cohort code || 你的姓名、LFS 電子郵件、課程和班級代碼 || Votre nom, e-mail LFS, cursus et code de promo || Tu nombre, correo de la LFS, curso y código de promoción
+The roles, kit, credits and skills you add, your bio and reel link || 你加入的職位、器材、作品經歷和技能，以及自我介紹和作品集連結 || Les postes, le matériel, les crédits et compétences que vous ajoutez, votre bio et votre bande démo || Los puestos, equipo, créditos y habilidades que añades, tu biografía y tu reel
+The days you mark as free, the shoots you post, and your crew requests and messages || 你標記為有空的日子、你發布的拍攝，以及你的申請和訊息 || Les jours marqués libres, les tournages publiés, vos demandes et messages || Los días que marcas libres, los rodajes que publicas y tus solicitudes y mensajes
+Reports you send, and admin actions taken on them || 你送出的回報，以及管理員的處理紀錄 || Les signalements envoyés et les actions des admins || Los informes que envías y lo que hacen los administradores con ellos
+Nothing about people is visible to anyone who isn't signed in. The calendar shows only shoot titles and dates. || 未登入的人看不到任何人的資料。行事曆只顯示拍攝名稱和日期。 || Rien sur les personnes n'est visible sans être connecté. Le calendrier n'affiche que les titres et dates des tournages. || Nada sobre las personas es visible sin iniciar sesión. El calendario solo muestra títulos y fechas de rodaje.
+Signed-in members see your profile, unless you hide it. || 除非你隱藏，登入的成員都看得到你的個人檔案。 || Les membres connectés voient votre profil, sauf si vous le masquez. || Los miembros con sesión iniciada ven tu perfil, salvo que lo ocultes.
+Your email is only shown if you choose to share it, or to the producer and director of a shoot you're locked onto. || 只有你選擇分享時，或對你已確定參與之拍攝的製片和導演，才會顯示你的電子郵件。 || Votre e-mail n'est affiché que si vous le partagez, ou au producteur et au réalisateur d'un tournage où vous êtes confirmé. || Tu correo solo se muestra si decides compartirlo, o al productor y director de un rodaje en el que estás confirmado.
+Script links are only shown to people the writer attaches. || 劇本連結只會顯示給編劇邀請加入的人。 || Les liens des scénarios ne sont montrés qu'aux personnes retenues par l'auteur. || Los enlaces de los guiones solo se muestran a las personas que incorpora el guionista.
+Reports are only seen by admins with the Reports and privacy permission. || 只有擁有「回報與隱私」權限的管理員看得到回報。 || Seuls les admins ayant la permission Signalements et confidentialité voient les signalements. || Solo los administradores con el permiso de Informes y privacidad ven los informes.
+No adverts, no tracking cookies, and we never sell or share your data. Data is stored with Supabase in their London region. || 沒有廣告、沒有追蹤 Cookie，我們絕不出售或分享你的資料。資料存放在 Supabase 的倫敦區域。 || Pas de publicité, pas de cookies de suivi, et nous ne vendons ni ne partageons jamais vos données. Elles sont hébergées chez Supabase, dans leur région de Londres. || Sin anuncios ni cookies de seguimiento, y nunca vendemos ni compartimos tus datos. Se guardan en Supabase, en su región de Londres.
+You can download everything Crew Call holds about you from My profile, correct it, or delete it. If you're unhappy with how your data is handled, email us first. You can also complain to the || 你可以在「我的個人檔案」下載 Crew Call 保存的所有關於你的資料，並更正或刪除。如果你不滿意資料的處理方式，請先寫信給我們。你也可以向以下單位投訴： || Vous pouvez télécharger tout ce que Crew Call détient sur vous depuis Mon profil, le corriger ou le supprimer. Si vous n'êtes pas satisfait, écrivez-nous d'abord. Vous pouvez aussi porter plainte auprès de l' || Puedes descargar todo lo que Crew Call guarda sobre ti desde Mi perfil, corregirlo o eliminarlo. Si no estás conforme con cómo se tratan tus datos, escríbenos primero. También puedes reclamar ante la
+Information Commissioner's Office || 英國資訊專員辦公室 (ICO) || Information Commissioner's Office (ICO) || Information Commissioner's Office (ICO)
+Downloaded your data || 已下載你的資料 || Données téléchargées || Datos descargados
+Links need to start with https:// || 連結必須以 https:// 開頭 || Les liens doivent commencer par https:// || Los enlaces deben empezar por https://
+Pick at least one role you're looking for. || 請至少選一個你在找的職位。 || Choisissez au moins un poste recherché. || Elige al menos un puesto que buscas.
+Pick at least one role. || 請至少選一個職位。 || Choisissez au moins un poste. || Elige al menos un puesto.
+Pick at least one thing you need help with. || 請至少選一項你需要的協助。 || Choisissez au moins un type d'aide. || Elige al menos una cosa con la que necesitas ayuda.
+Add at least one location. || 請至少加入一個地點。 || Ajoutez au moins un lieu. || Añade al menos una localización.
+Add at least one role. || 請至少加入一個職位。 || Ajoutez au moins un poste. || Añade al menos un puesto.
+Add at least one shoot date. || 請至少加入一個拍攝日期。 || Ajoutez au moins une date de tournage. || Añade al menos una fecha de rodaje.
+End date is before the start || 結束日期早於開始日期 || La date de fin est avant le début || La fecha de fin es anterior al inicio
+Pick your course and cohort. || 請選擇你的課程和班級。 || Choisissez votre cursus et votre promo. || Elige tu curso y promoción.
+Saved || 已儲存 || Enregistré || Guardado
+Removed || 已移除 || Retiré || Quitado
+Deleted || 已刪除 || Supprimé || Eliminado
+Restored || 已還原 || Restauré || Restaurado
+Pitch posted || 提案已發布 || Pitch publié || Propuesta publicada
+Script posted || 劇本已發布 || Scénario publié || Guion publicado
+Film listed || 影片已刊登 || Film proposé || Película publicada
+Request withdrawn || 申請已撤回 || Demande retirée || Solicitud retirada
+Declined. They've been told politely. || 已婉拒，對方已收到禮貌的通知。 || Refusé. La personne a été prévenue poliment. || Rechazado. Se le ha avisado con amabilidad.
+That role is already filled || 這個職位已經補上了 || Ce poste est déjà pourvu || Ese puesto ya está cubierto
+That day has passed || 那天已經過了 || Ce jour est passé || Ese día ya ha pasado
+You're booked on a shoot that day || 你那天已排了拍攝 || Vous êtes pris sur un tournage ce jour-là || Ese día tienes un rodaje
+Add your roles to your profile first || 請先在個人檔案中加入你的職位 || Ajoutez d'abord vos postes à votre profil || Primero añade tus puestos a tu perfil
+Shoot form filled in from your post. Add the dates and roles. || 已依你的貼文填好拍攝表單。請加入日期和職位。 || Formulaire de tournage prérempli depuis votre publication. Ajoutez les dates et les postes. || Formulario de rodaje rellenado con tu publicación. Añade fechas y puestos.
+Prototype: the feed goes live with the real app. Use Download .ics for now. || 原型版本：正式版才會啟用訂閱。目前請先使用下載 .ics。 || Prototype : le flux sera actif dans la vraie app. Utilisez Télécharger .ics pour l'instant. || Prototipo: el feed funcionará en la app real. De momento usa Descargar .ics.
+Downloaded. This adds the shoot as it is now. To get later changes automatically, use Sync calendar. || 已下載。這會加入拍攝目前的狀態。如要自動取得之後的變更，請使用同步行事曆。 || Téléchargé. Cela ajoute le tournage tel qu'il est maintenant. Pour recevoir les changements automatiquement, utilisez Synchroniser l'agenda. || Descargado. Esto añade el rodaje tal como está ahora. Para recibir cambios automáticamente, usa Sincronizar calendario.
+Only the producer or director can edit this project || 只有製片或導演可以編輯這個專案 || Seuls le producteur ou le réalisateur peuvent modifier ce projet || Solo el productor o el director pueden editar este proyecto
+Someone already uses that email. || 已有人使用這個電子郵件。 || Quelqu'un utilise déjà cet e-mail. || Alguien ya usa ese correo.
+WhatsApp invite links start with https://chat.whatsapp.com/ || WhatsApp 邀請連結以 https://chat.whatsapp.com/ 開頭 || Les liens d'invitation WhatsApp commencent par https://chat.whatsapp.com/ || Los enlaces de invitación de WhatsApp empiezan por https://chat.whatsapp.com/
+One of the key links isn't a web address. || 其中一個重要連結不是網址。 || Un des liens utiles n'est pas une adresse web. || Uno de los enlaces clave no es una dirección web.
+Add the producer's email so they can sign in and manage the project. || 請加入製片的電子郵件，讓他們能登入並管理專案。 || Ajoutez l'e-mail du producteur pour qu'il puisse se connecter et gérer le projet. || Añade el correo del productor para que pueda iniciar sesión y gestionar el proyecto.
+Invite revoked || 邀請已撤銷 || Invitation révoquée || Invitación revocada
+Notes saved || 備註已儲存 || Notes enregistrées || Notas guardadas
+Report closed || 回報已結案 || Signalement clos || Informe cerrado
+Backup restored || 備份已還原 || Sauvegarde restaurée || Copia restaurada
+That file isn't a Crew Call backup || 這個檔案不是 Crew Call 備份 || Ce fichier n'est pas une sauvegarde Crew Call || Ese archivo no es una copia de Crew Call
+Tick at least one permission || 請至少勾選一個權限 || Cochez au moins une permission || Marca al menos un permiso
+That's already their email. || 那已經是他們的電子郵件了。 || C'est déjà son e-mail. || Ese ya es su correo.
+No more term dates set || 沒有更多學期日期 || Plus de dates de trimestre || No hay más fechas de trimestre
+Profile deleted || 個人檔案已刪除 || Profil supprimé || Perfil eliminado
+You own Crew Call. Transfer ownership in Admin before deleting your profile || 你是 Crew Call 的擁有者。刪除個人檔案前，請先在管理頁移轉擁有權 || Vous êtes propriétaire de Crew Call. Transférez la propriété dans Admin avant de supprimer votre profil || Eres el propietario de Crew Call. Transfiere la propiedad en Administración antes de eliminar tu perfil
+Restore this backup? || 要還原這個備份嗎？ || Restaurer cette sauvegarde ? || ¿Restaurar esta copia?
+Start a fresh checklist? || 要開始新的檢查清單嗎？ || Commencer une nouvelle liste ? || ¿Empezar una lista nueva?
+Language || 語言 || Langue || Idioma

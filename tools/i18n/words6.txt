@@ -1,0 +1,168 @@
+# Map view, sorting, Crew table and strings found missing in November 2026
+(admin) || （管理員） || (admin) || (admin)
+A new term || 新學期 || Nouveau trimestre || Nuevo trimestre
+New term. || 新學期。 || Nouveau trimestre. || Nuevo trimestre.
+Add calendar || 新增行事曆 || Ajouter le calendrier || Añadir calendario
+Add to Apple || 加入 Apple || Ajouter à Apple || Añadir a Apple
+Add to Google || 加入 Google || Ajouter à Google || Añadir a Google
+Admins with the People permission choose who has each level, in Access. || 擁有「成員」權限的管理員可在「權限」中決定誰擁有各個等級。 || Les admins ayant le droit Personnes choisissent qui a chaque niveau, dans Accès. || Los administradores con el permiso Personas eligen quién tiene cada nivel, en Acceso.
+Also does || 也能擔任 || Fait aussi || También hace
+Any || 不限 || Tous || Cualquiera
+Archived || 已封存 || Archivé || Archivado
+Best match || 最相符 || Meilleure correspondance || Mejor coincidencia
+Booked on another shoot those days || 這幾天已有其他拍攝 || Pris sur un autre tournage ces jours-là || Ocupado en otro rodaje esos días
+Change it || 修改 || Modifier || Cambiarlo
+Choose || 選擇 || Choisir || Elegir
+Clear || 清除 || Effacer || Borrar
+Clear ticks || 清除勾選 || Décocher tout || Quitar marcas
+Couldn't find that. Try adding the street or postcode. || 找不到這個地點。試著加上街道或郵遞區號。 || Introuvable. Essayez d'ajouter la rue ou le code postal. || No se encontró. Prueba a añadir la calle o el código postal.
+Crew Call in general || Crew Call 整體 || Crew Call en général || Crew Call en general
+Dates || 日期 || Dates || Fechas
+Dates flexible || 日期可調整 || Dates flexibles || Fechas flexibles
+Dates to agree || 日期待定 || Dates à convenir || Fechas por acordar
+Dealt with || 已處理 || Traité || Resuelto
+Delete project || 刪除專案 || Supprimer le projet || Eliminar proyecto
+Done editing || 完成編輯 || Terminer || Terminar de editar
+Download .ics file || 下載 .ics 檔案 || Télécharger le fichier .ics || Descargar archivo .ics
+Email preview || 電郵預覽 || Aperçu de l'e-mail || Vista previa del correo
+Email settings saved || 電郵設定已儲存 || Réglages e-mail enregistrés || Ajustes de correo guardados
+File || 檔案 || Fichier || Archivo
+Find a role || 搜尋職位 || Chercher un poste || Buscar un puesto
+Flexible || 可調整 || Flexible || Flexible
+Former member || 前成員 || Ancien membre || Antiguo miembro
+From URL || 從網址 || À partir d'une URL || Desde URL
+Fully crewed. || 人員已齊。 || Équipe complète. || Equipo completo.
+Hide script || 隱藏劇本 || Masquer le scénario || Ocultar guion
+I'm free every shoot day. || 我每個拍攝日都有空。 || Je suis libre tous les jours de tournage. || Estoy libre todos los días de rodaje.
+Import || 匯入 || Importer || Importar
+Install Crew Call || 安裝 Crew Call || Installer Crew Call || Instalar Crew Call
+Interested || 有興趣 || Intéressé || Interesado
+Invite accepted. Finish your profile so producers can find you. || 已接受邀請。完成個人檔案，製片才找得到你。 || Invitation acceptée. Complétez votre profil pour que les producteurs vous trouvent. || Invitación aceptada. Completa tu perfil para que los productores te encuentren.
+It disappears from Develop. People who put their hand up are told. || 它會從「開發」消失，已表達意願的人會收到通知。 || Il disparaît de Développement. Les personnes qui se sont proposées sont prévenues. || Desaparece de Desarrollo. Se avisa a quienes se ofrecieron.
+It disappears from Paid. Anyone waiting for a reply is told. || 它會從「有薪」消失，等待回覆的人會收到通知。 || Elle disparaît de Rémunéré. Les personnes en attente de réponse sont prévenues. || Desaparece de Pagado. Se avisa a quien espera respuesta.
+It disappears from Release. People who offered to help are told. || 它會從「發行」消失，提出幫忙的人會收到通知。 || Il disparaît de Diffusion. Les personnes qui ont proposé leur aide sont prévenues. || Desaparece de Estreno. Se avisa a quienes ofrecieron ayuda.
+Job posted || 職缺已發布 || Offre publiée || Trabajo publicado
+LFS Parker Street || LFS Parker Street || LFS Parker Street || LFS Parker Street
+LFS Shelton Street || LFS Shelton Street || LFS Shelton Street || LFS Shelton Street
+LFS addresses don't need an invite. They can sign in straight away. || LFS 信箱不需要邀請，可直接登入。 || Les adresses LFS n'ont pas besoin d'invitation. Elles peuvent se connecter tout de suite. || Las direcciones de la LFS no necesitan invitación. Pueden entrar directamente.
+Loading map… || 正在載入地圖… || Chargement de la carte… || Cargando mapa…
+Location TBC || 地點待定 || Lieu à confirmer || Localización por confirmar
+Looking it up… || 查詢中… || Recherche… || Buscando…
+Looks right || 沒錯 || C'est bon || Es correcto
+Main role || 主要職位 || Poste principal || Puesto principal
+Make someone an admin first, then you can transfer ownership to them. || 先把某人設為管理員，才能把擁有權轉交給他。 || Nommez d'abord quelqu'un admin, puis transférez-lui la propriété. || Haz primero administrador a alguien y luego podrás transferirle la propiedad.
+Map || 地圖 || Carte || Mapa
+Map area || 地圖範圍 || Zone de la carte || Zona del mapa
+Map of shoot locations || 拍攝地點地圖 || Carte des lieux de tournage || Mapa de localizaciones
+Marked as filled || 已標示為額滿 || Marqué comme pourvu || Marcado como cubierto
+Most credits || 作品最多 || Le plus de crédits || Más créditos
+Most kit || 器材最多 || Le plus de matériel || Más equipo
+Name A–Z || 姓名 A–Z || Nom A–Z || Nombre A–Z
+Needs || 需要 || Recherche || Busca
+New Calendar Subscription || 新增行事曆訂閱 || Nouvel abonnement à un calendrier || Nueva suscripción de calendario
+New member || 新成員 || Nouveau membre || Nuevo miembro
+Next to || 在 || À côté de || Junto a
+No dates to show yet. || 暫無日期可顯示。 || Aucune date à afficher pour l'instant. || Aún no hay fechas que mostrar.
+No guests. || 沒有訪客。 || Aucun invité. || No hay invitados.
+No kit listed || 未列出器材 || Aucun matériel indiqué || Sin equipo indicado
+No newsletters yet. || 尚無電子報。 || Pas encore de newsletter. || Aún no hay boletines.
+No one locked in yet. || 尚未確定任何人。 || Personne n'est encore confirmé. || Aún no hay nadie confirmado.
+No one matches yet. || 暫時沒有符合的人。 || Personne ne correspond pour l'instant. || Aún no coincide nadie.
+No open reports. || 沒有未處理的檢舉。 || Aucun signalement ouvert. || No hay informes abiertos.
+No paid jobs match || 沒有符合的有薪工作 || Aucune offre rémunérée ne correspond || Ningún trabajo pagado coincide
+No roles yet || 尚無職位 || Pas encore de postes || Aún no hay puestos
+No shoots match || 沒有符合的拍攝 || Aucun tournage ne correspond || Ningún rodaje coincide
+No wrapped shoots yet || 尚無已殺青的拍攝 || Pas encore de tournage terminé || Aún no hay rodajes terminados
+Nobody is due. || 目前沒有到期的人。 || Personne n'est concerné. || No hay nadie pendiente.
+Nobody waiting for a reply. || 沒有人在等回覆。 || Personne n'attend de réponse. || Nadie espera respuesta.
+Nobody yet. || 還沒有人。 || Personne pour l'instant. || Nadie todavía.
+Nobody, fully attached || 沒有，團隊已齊 || Personne, équipe complète || Nadie, equipo completo
+None || 無 || Aucun || Ninguno
+Not on Crew Call || 不在 Crew Call 上 || Pas sur Crew Call || No está en Crew Call
+Nothing matches || 沒有符合的項目 || Aucun résultat || No hay coincidencias
+Nothing yet || 還沒有 || Rien pour l'instant || Nada todavía
+On a computer, open Google Calendar. || 在電腦上開啟 Google 日曆。 || Sur un ordinateur, ouvrez Google Agenda. || En un ordenador, abre Google Calendar.
+Open Crew Call || 開啟 Crew Call || Ouvrir Crew Call || Abrir Crew Call
+Open Outlook on the web and go to Calendar. || 在網頁版 Outlook 前往「行事曆」。 || Ouvrez Outlook sur le Web et allez dans Calendrier. || Abre Outlook en la web y ve a Calendario.
+Open checklist || 開啟檢查清單 || Ouvrir la checklist || Abrir la lista
+Open until filled || 額滿為止 || Ouvert jusqu'à pourvu || Abierto hasta cubrirse
+Other calendars || 其他日曆 || Autres agendas || Otros calendarios
+Paste the link and select || 貼上連結並選擇 || Collez le lien et sélectionnez || Pega el enlace y selecciona
+Paste the link, name it Crew Call and select || 貼上連結，命名為 Crew Call，然後選擇 || Collez le lien, nommez-le Crew Call et sélectionnez || Pega el enlace, llámalo Crew Call y selecciona
+Pick your course and cohort || 選擇你的課程與班級 || Choisissez votre cursus et votre promo || Elige tu curso y promoción
+Pin on map || 在地圖上標記 || Placer sur la carte || Marcar en el mapa
+Pinned || 已標記 || Placé || Marcado
+Pitch || 提案 || Pitch || Pitch
+Pitched || 已提案 || Pitché || Presentado
+Post a || 發布 || Publier un || Publicar un
+Recently updated || 最近更新 || Mis à jour récemment || Actualizado recientemente
+Removed the person || 已移除此人 || Personne retirée || Persona eliminada
+Reopened || 已重新開放 || Rouvert || Reabierto
+Restore || 還原 || Restaurer || Restaurar
+Saved. Update the SMTP details in Supabase too || 已儲存。也請在 Supabase 更新 SMTP 資料 || Enregistré. Mettez aussi à jour les infos SMTP dans Supabase || Guardado. Actualiza también los datos SMTP en Supabase
+Saved. You appear in Crew search and the calendar. || 已儲存。你會出現在人員搜尋和行事曆中。 || Enregistré. Vous apparaissez dans la recherche d'équipe et le calendrier. || Guardado. Apareces en la búsqueda de equipo y en el calendario.
+Saved. Your profile is hidden from Crew search. || 已儲存。你的檔案已從人員搜尋中隱藏。 || Enregistré. Votre profil est masqué de la recherche d'équipe. || Guardado. Tu perfil está oculto en la búsqueda de equipo.
+Select || 選擇 || Sélectionner || Seleccionar
+Selected day || 已選日期 || Jour sélectionné || Día seleccionado
+Sends || 寄送 || Envoi || Envío
+Show all || 全部顯示 || Tout afficher || Mostrar todo
+London || 倫敦 || Londres || Londres
+Sign in to mark the days you're free. || 登入以標記你有空的日子。 || Connectez-vous pour indiquer vos jours libres. || Inicia sesión para marcar tus días libres.
+Sign in to request || 登入以申請 || Connectez-vous pour postuler || Inicia sesión para pedir
+Sign in to request a role, see contact details and who's free. || 登入以申請職位、查看聯絡方式和誰有空。 || Connectez-vous pour postuler, voir les contacts et qui est libre. || Inicia sesión para pedir un puesto y ver contactos y quién está libre.
+Sign in to see contact || 登入以查看聯絡方式 || Connectez-vous pour voir le contact || Inicia sesión para ver el contacto
+Sign in to see crew profiles. || 登入以查看人員檔案。 || Connectez-vous pour voir les profils. || Inicia sesión para ver los perfiles del equipo.
+Sign in to see paid work || 登入以查看有薪工作 || Connectez-vous pour voir le travail rémunéré || Inicia sesión para ver trabajos pagados
+Signed in. Finish your profile so producers can find you. || 已登入。完成個人檔案，製片才找得到你。 || Connecté. Complétez votre profil pour que les producteurs vous trouvent. || Sesión iniciada. Completa tu perfil para que los productores te encuentren.
+Sort || 排序 || Trier || Ordenar
+Sort by || 排序方式 || Trier par || Ordenar por
+Sort crew || 排序人員 || Trier l'équipe || Ordenar equipo
+Started a fresh handover checklist || 開始了新的交接清單 || A lancé une nouvelle checklist de passation || Empezó una nueva lista de traspaso
+Subject || 主旨 || Objet || Asunto
+Subscribe from web || 從網路訂閱 || S'abonner depuis le Web || Suscribirse desde la web
+Sync with your calendar || 與你的行事曆同步 || Synchroniser avec votre agenda || Sincronizar con tu calendario
+Take down || 下架 || Retirer || Retirar
+Taken down || 已下架 || Retiré || Retirado
+Term 1 have their first exercises coming up, and Term 4 are planning graduation-year shorts. Mark your free days so directors can find you, and add the roles you want to learn so you can ask to shadow. || 第一學期即將開始第一批練習，第四學期正在籌備畢業年短片。標記你有空的日子讓導演找到你，並加入你想學的職位，以便申請見習。 || Les Term 1 ont leurs premiers exercices, et les Term 4 préparent leurs courts de dernière année. Indiquez vos jours libres pour que les réalisateurs vous trouvent, et ajoutez les postes que vous voulez apprendre pour pouvoir demander à observer. || El trimestre 1 tiene sus primeros ejercicios y el trimestre 4 prepara los cortos de último año. Marca tus días libres para que los directores te encuentren y añade los puestos que quieras aprender para pedir observación.
+That email has already been invited. || 這個信箱已經邀請過了。 || Cette adresse a déjà été invitée. || Ese correo ya ha sido invitado.
+That person is already on Crew Call. || 這個人已經在 Crew Call 上。 || Cette personne est déjà sur Crew Call. || Esa persona ya está en Crew Call.
+The map couldn't load. Check your connection and try again. || 地圖無法載入。請檢查網路連線後再試。 || La carte n'a pas pu se charger. Vérifiez votre connexion et réessayez. || No se pudo cargar el mapa. Comprueba tu conexión y vuelve a intentarlo.
+The map lookup isn't reachable right now. You can save and pin it later. || 目前無法連上地圖查詢。你可以先儲存，稍後再標記。 || La recherche sur la carte est indisponible. Vous pouvez enregistrer et placer le lieu plus tard. || La búsqueda del mapa no está disponible ahora. Puedes guardar y marcarlo luego.
+Their name || 對方姓名 || Son nom || Su nombre
+They went with someone else this time. || 這次他們選了別人。 || Ils ont choisi quelqu'un d'autre cette fois. || Esta vez eligieron a otra persona.
+This week's digest || 本週摘要 || Le récap de la semaine || El resumen de esta semana
+To be confirmed || 待確認 || À confirmer || Por confirmar
+Translations are checked by students who speak each language. Spot a wrong film term? Tell an admin. || 翻譯由會說該語言的學生校對。發現電影術語有誤？請告訴管理員。 || Les traductions sont relues par des étudiants qui parlent chaque langue. Un terme de cinéma vous semble faux ? Prévenez un admin. || Las traducciones las revisan estudiantes que hablan cada idioma. ¿Ves un término de cine incorrecto? Avisa a un administrador.
+Try clearing a filter, or post a script or pitch of your own. || 試著清除篩選，或發布你自己的劇本或提案。 || Essayez d'effacer un filtre, ou publiez votre propre scénario ou pitch. || Prueba a quitar un filtro o publica tu propio guion o pitch.
+Try clearing a filter, or post your own shoot. || 試著清除篩選，或發布你自己的拍攝。 || Essayez d'effacer un filtre, ou publiez votre tournage. || Prueba a quitar un filtro o publica tu propio rodaje.
+Try clearing a filter. If you hear of paid work, post it here. || 試著清除篩選。如果聽到有薪工作，請在這裡發布。 || Essayez d'effacer un filtre. Si vous entendez parler d'un travail rémunéré, publiez-le ici. || Prueba a quitar un filtro. Si sabes de trabajo pagado, publícalo aquí.
+Try fewer roles or a wider date range. || 試著減少職位或擴大日期範圍。 || Essayez moins de postes ou une période plus large. || Prueba con menos puestos o un rango de fechas más amplio.
+Type the place or a postcode first. || 請先輸入地點或郵遞區號。 || Saisissez d'abord le lieu ou un code postal. || Escribe primero el lugar o un código postal.
+Untitled || 未命名 || Sans titre || Sin título
+Updated || 更新 || Mis à jour || Actualizado
+Updated the handover notes || 更新了交接筆記 || A mis à jour les notes de passation || Actualizó las notas de traspaso
+Which shoots || 哪些拍攝 || Quels tournages || Qué rodajes
+Withdrew || 已撤回 || Retiré || Retirado
+Written || 已完成劇本 || Écrit || Escrito
+You can choose any cohort's rep. || 你可以選擇任何班級的代表。 || Vous pouvez choisir le délégué de n'importe quelle promo. || Puedes elegir al delegado de cualquier promoción.
+You got this job || 你獲得了這份工作 || Vous avez obtenu ce poste || Has conseguido este trabajo
+You haven't marked these days free || 你沒有把這些日子標為有空 || Vous n'avez pas indiqué ces jours comme libres || No has marcado estos días como libres
+You've put your name forward || 你已自薦 || Vous avez proposé votre candidature || Te has presentado
+Your calendar link || 你的行事曆連結 || Votre lien d'agenda || Tu enlace de calendario
+View roles || 查看職位 || Voir les postes || Ver puestos
+Location name || 地點名稱 || Nom du lieu || Nombre de la localización
+Location or postcode, e.g. Campus Studio 1 || 地點或郵遞區號，例如 Campus Studio 1 || Lieu ou code postal, ex. Campus Studio 1 || Lugar o código postal, p. ej. Campus Studio 1
+Jan || 1月 || janv. || ene
+Feb || 2月 || févr. || feb
+Mar || 3月 || mars || mar
+Apr || 4月 || avr. || abr
+Jun || 6月 || juin || jun
+Jul || 7月 || juil. || jul
+Aug || 8月 || août || ago
+Sep || 9月 || sept. || sept
+Oct || 10月 || oct. || oct
+Nov || 11月 || nov. || nov
+Dec || 12月 || déc. || dic
+this location || 這個地點 || ce lieu || esta localización
+View only. You need the Newsletter: draft permission to edit this. || 僅供檢視。你需要「電子報：草稿」權限才能編輯。 || Lecture seule. Il vous faut le droit Newsletter : brouillon pour modifier ceci. || Solo lectura. Necesitas el permiso Boletín: borrador para editarlo.
+Name || 姓名 || Nom || Nombre

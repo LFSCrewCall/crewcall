@@ -1,0 +1,82 @@
+# Map choice, course editor, cohort changes, Languages admin
+Add course || Добавить программу || إضافة برنامج
+Added in the app || Добавлено в приложении || أضيفت في التطبيق
+Any role || Любая роль || أي دور
+Close to new students || Закрыть набор || إيقاف قبول طلاب جدد
+Reopen to new students || Возобновить набор || استئناف قبول طلاب جدد
+Closed to new students || Набор закрыт || لا يقبل طلابًا جددًا
+Taking new students || Идёт набор || يقبل طلابًا جددًا
+Code prefix || Префикс кода || بادئة الرمز
+Course name || Название программы || اسم البرنامج
+Dismiss || Отклонить || تجاهل
+Download translations (JSON) || Скачать переводы (JSON) || تنزيل الترجمات (JSON)
+End of Summer term || Конец летнего семестра || نهاية الفصل الصيفي
+End of the last term || Конец последнего семестра || نهاية الفصل الأخير
+English || Английский || الإنجليزية
+Every September || Каждый сентябрь || كل سبتمبر
+New cohort every September || Новый поток каждый сентябрь || دفعة جديدة كل سبتمبر
+New cohort every term || Новый поток каждый семестр || دفعة جديدة كل فصل
+Everyone picks their course and cohort once, and Crew Call works out their term from it each term. Edit a course here if LFS changes it. If the cohort numbering ever drifts (for example an intake is skipped), set which code is in which term now and everyone else follows. || Каждый один раз выбирает программу и поток, а Crew Call сам определяет семестр каждый семестр. Если LFS меняет программу, исправьте её здесь. Если нумерация потоков сбилась (например, набор пропустили), укажите, какой код сейчас в каком семестре, и остальные пересчитаются. || يختار كل شخص برنامجه ودفعته مرة واحدة، ويحسب Crew Call فصله منها في كل فصل. عدّل البرنامج هنا إذا غيّرته LFS. وإذا اختلّ ترقيم الدفعات (مثلًا إذا لم يُفتح قبول في فصل ما)، فحدّد أي رمز في أي فصل الآن وسيتبعه الباقون.
+From members who spotted a wrong word, and from Wikidata when a role is added. Check the wording, then use it. It changes for everyone straight away. || От участников, заметивших неточность, и из Wikidata при добавлении роли. Проверьте формулировку и примените её. Изменение сразу видно всем. || من أعضاء لاحظوا كلمة خاطئة، ومن Wikidata عند إضافة دور. راجع الصياغة ثم استخدمها. يتغيّر النص للجميع فورًا.
+Late September after || Конец следующего сентября || أواخر سبتمبر التالي
+Length || Длительность || المدة
+LibreTranslate server || Сервер LibreTranslate || خادم LibreTranslate
+LibreTranslate server, e.g. https://translate.example.org || Сервер LibreTranslate, например https://translate.example.org || خادم LibreTranslate، مثل https://translate.example.org
+Look up || Найти || بحث
+Look up on Wikidata || Найти в Wikidata || البحث في Wikidata
+New course, e.g. MA Documentary || Новая программа, например MA Documentary || برنامج جديد، مثل MA Documentary
+No change || Без изменений || لا تغيير
+Numbering: Term || Нумерация: семестр || الترقيم: الفصل
+now is || сейчас — || الآن هو
+Open in Apple Maps || Открыть в Apple Картах || فتح في خرائط Apple
+Open in Google Maps || Открыть в Google Картах || فتح في خرائط Google
+Open in OpenStreetMap || Открыть в OpenStreetMap || فتح في OpenStreetMap
+Directions || Маршрут || الاتجاهات
+Optional || Необязательно || اختياري
+Role names || Названия ролей || أسماء الأدوار
+Roles translated into every language. For the rest, look them up on Wikidata, where film role names are free to use, then check them. Short forms like DIT and VFX are often kept in English, which is fine. || Роли, переведённые на все языки. Остальные найдите в Wikidata, где названия кинопрофессий можно свободно использовать, и проверьте. Сокращения вроде DIT и VFX часто оставляют на английском — это нормально. || أدوار مترجمة إلى كل اللغات. ابحث عن البقية في Wikidata، حيث أسماء المهن السينمائية متاحة للاستخدام مجانًا، ثم راجعها. الاختصارات مثل DIT وVFX تبقى غالبًا بالإنجليزية، ولا بأس بذلك.
+Save server || Сохранить сервер || حفظ الخادم
+See changes || Посмотреть изменения || عرض التغييرات
+Short name || Краткое название || الاسم المختصر
+Suggest a better translation || Предложить перевод получше || اقترح ترجمة أفضل
+Suggestions || Предложения || الاقتراحات
+Thank you. An admin checks it and it changes for everyone. || Спасибо. Администратор проверит, и текст изменится для всех. || شكرًا. سيراجعها مشرف وتتغيّر للجميع.
+Use || Применить || استخدام
+Use this || Применить || استخدم هذه
+What it says now || Как сейчас || النص الحالي
+What it should say || Как должно быть || النص الصحيح
+When the next term starts || Когда начнётся следующий семестр || عند بدء الفصل التالي
+Where translations come from || Откуда берутся переводы || من أين تأتي الترجمات
+Why, optional || Почему (необязательно) || السبب (اختياري)
+e.g. On set we say… || например: на площадке говорят… || مثلًا: في موقع التصوير نقول…
+e.g. Term 1 at a partner university || например: семестр 1 в университете-партнёре || مثلًا: الفصل 1 في جامعة شريكة
+Draft missing role names || Черновики недостающих ролей || مسودات لأسماء الأدوار الناقصة
+Which meaning? || Какое значение? || أي معنى؟
+Searching… || Поиск… || جارٍ البحث…
+Save translations || Сохранить переводы || حفظ الترجمات
+Looking it up on Wikidata, the free knowledge base anyone can use (CC0). || Ищем в Wikidata — свободной базе знаний, которой может пользоваться каждый (CC0). || جارٍ البحث في Wikidata، قاعدة المعرفة المجانية المتاحة للجميع (CC0).
+Nothing on Wikidata. Type the translations yourself, or ask a student who speaks the language. || В Wikidata ничего нет. Введите переводы сами или попросите студента, который говорит на этом языке. || لا شيء في Wikidata. اكتب الترجمات بنفسك، أو اسأل طالبًا يتحدث اللغة.
+Check film terms with someone who works in that language. Wikidata's name for a job isn't always what crews say on set. || Проверьте кинотермины с тем, кто работает на этом языке. Название профессии в Wikidata не всегда совпадает с тем, как говорят на площадке. || راجع المصطلحات السينمائية مع شخص يعمل بهذه اللغة. اسم المهنة في Wikidata ليس دائمًا ما يقوله الطاقم في موقع التصوير.
+Couldn't reach Wikidata. Check the connection, or type the translations yourself. || Не удалось связаться с Wikidata. Проверьте подключение или введите переводы сами. || تعذّر الوصول إلى Wikidata. تحقق من الاتصال، أو اكتب الترجمات بنفسك.
+Sign in to suggest a better translation. || Войдите, чтобы предложить перевод получше. || سجّل الدخول لاقتراح ترجمة أفضل.
+Copy the words from the page || Скопируйте текст со страницы || انسخ الكلمات من الصفحة
+Suggestion sent to the admins. Thank you. || Предложение отправлено администраторам. Спасибо. || أُرسل الاقتراح إلى المشرفين. شكرًا.
+Every role has a name in every language. || У каждой роли есть название на каждом языке. || لكل دور اسم بكل لغة.
+No suggestions waiting. || Нет предложений. || لا توجد اقتراحات بانتظار المراجعة.
+Translation saved || Перевод сохранён || حُفظت الترجمة
+Dismissed || Отклонено || تم التجاهل
+Nothing changed || Ничего не изменилось || لم يتغيّر شيء
+The English words || Текст на английском || النص بالإنجليزية
+Add the English words first, so Crew Call knows what to replace || Сначала добавьте английский текст, чтобы Crew Call знал, что заменить || أضف النص الإنجليزي أولًا ليعرف Crew Call ما الذي يستبدله
+Couldn't reach the LibreTranslate server || Не удалось связаться с сервером LibreTranslate || تعذّر الوصول إلى خادم LibreTranslate
+Drafting with LibreTranslate… || Готовим черновики в LibreTranslate… || جارٍ إعداد المسودات عبر LibreTranslate…
+Nothing missing || Всё на месте || لا شيء ناقص
+Translations saved here apply straight away. To keep them in the code too, download the file and add it to GitHub with this name. The next build folds it in. || Переводы, сохранённые здесь, применяются сразу. Чтобы сохранить их и в коде, скачайте файл и добавьте его в GitHub под этим именем. Следующая сборка их подхватит. || الترجمات المحفوظة هنا تُطبَّق فورًا. للاحتفاظ بها في الكود أيضًا، نزّل الملف وأضفه إلى GitHub بهذا الاسم. سيضمّها البناء التالي.
+Built into the browser. Gives month and day names, date order, plurals, lists such as "A, B and C", and phrases such as "yesterday" and "3 days ago". Always right, nothing to edit. || Встроен в браузер. Даёт названия месяцев и дней, порядок дат, формы множественного числа, перечисления вроде «A, B и C» и фразы вроде «вчера» и «3 дня назад». Всегда верно, ничего править не нужно. || مدمج في المتصفح. يوفّر أسماء الأشهر والأيام وترتيب التاريخ وصيغ الجمع والقوائم مثل «أ وب وج» وعبارات مثل «أمس» و«قبل 3 أيام». صحيح دائمًا، ولا يحتاج إلى تعديل.
+Role names in many languages, free to use (CC0). Used when you add a role or press Look up. || Названия ролей на многих языках, свободные для использования (CC0). Используются, когда вы добавляете роль или нажимаете «Найти». || أسماء الأدوار بلغات كثيرة، متاحة مجانًا (CC0). تُستخدم عند إضافة دور أو الضغط على «بحث».
+Makes Simplified Chinese from Traditional when the code is built. || При сборке делает упрощённый китайский из традиционного. || يحوّل الصينية التقليدية إلى المبسّطة عند بناء الكود.
+A translation website where volunteers fix wording without touching code. The build writes files Weblate can read and edit. It's free for open-source projects; the steps are in the translation guide. || Сайт для переводов, где волонтёры правят текст, не трогая код. Сборка создаёт файлы, которые Weblate умеет читать и править. Для проектов с открытым кодом он бесплатен; шаги описаны в руководстве по переводу. || موقع ترجمة يصحّح فيه المتطوعون الصياغة دون لمس الكود. يكتب البناء ملفات يستطيع Weblate قراءتها وتعديلها. وهو مجاني للمشاريع مفتوحة المصدر، والخطوات في دليل الترجمة.
+Open-source machine translation you can run on a free server. Drafts only. Always have a speaker check. || Машинный перевод с открытым кодом, который можно запустить на бесплатном сервере. Только черновики. Всегда давайте проверить носителю языка. || ترجمة آلية مفتوحة المصدر يمكن تشغيلها على خادم مجاني. للمسودات فقط. اطلب دائمًا من متحدث باللغة مراجعتها.
+Translations are checked by students who speak each language. Spot a wrong film term? || Переводы проверяют студенты, которые говорят на этих языках. Заметили неверный кинотермин? || يراجع الترجمات طلاب يتحدثون كل لغة. لاحظت مصطلحًا سينمائيًا خاطئًا؟
+from || от || من
+Using || Источник: || المصدر:

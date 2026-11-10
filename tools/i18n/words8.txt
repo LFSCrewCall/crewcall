@@ -1,0 +1,82 @@
+# Map choice, course editor, cohort changes, Languages admin
+Add course || 新增課程 || Ajouter une formation || Añadir programa
+Added in the app || 在應用程式中新增 || Ajoutées dans l'appli || Añadidas en la app
+Any role || 任何職位 || N'importe quel poste || Cualquier puesto
+Close to new students || 停止招收新生 || Fermer aux nouveaux étudiants || Cerrar a nuevos estudiantes
+Reopen to new students || 重新招收新生 || Rouvrir aux nouveaux étudiants || Reabrir a nuevos estudiantes
+Closed to new students || 不再招收新生 || Fermée aux nouveaux étudiants || Cerrado a nuevos estudiantes
+Taking new students || 招收新生中 || Ouverte aux nouveaux étudiants || Admite nuevos estudiantes
+Code prefix || 代碼前綴 || Préfixe du code || Prefijo del código
+Course name || 課程名稱 || Nom de la formation || Nombre del programa
+Dismiss || 略過 || Ignorer || Descartar
+Download translations (JSON) || 下載翻譯（JSON） || Télécharger les traductions (JSON) || Descargar traducciones (JSON)
+End of Summer term || 夏季學期結束時 || Fin du trimestre d'été || Final del trimestre de verano
+End of the last term || 最後一個學期結束時 || Fin du dernier trimestre || Final del último trimestre
+English || 英文 || Anglais || Inglés
+Every September || 每年九月 || Chaque septembre || Cada septiembre
+New cohort every September || 每年九月新班級 || Nouvelle promo chaque septembre || Nueva promoción cada septiembre
+New cohort every term || 每學期新班級 || Nouvelle promo chaque trimestre || Nueva promoción cada trimestre
+Everyone picks their course and cohort once, and Crew Call works out their term from it each term. Edit a course here if LFS changes it. If the cohort numbering ever drifts (for example an intake is skipped), set which code is in which term now and everyone else follows. || 每個人只需選一次課程和班級，Crew Call 每學期會據此算出他們在第幾學期。如果 LFS 調整課程，就在這裡修改。如果班級編號出現偏差（例如某次沒有招生），設定現在哪個代碼在哪個學期，其他人會自動跟著調整。 || Chacun choisit sa formation et sa promo une fois, et Crew Call en déduit son trimestre à chaque trimestre. Modifiez une formation ici si la LFS la change. Si la numérotation des promos se décale (par exemple si une rentrée est sautée), indiquez quel code est dans quel trimestre maintenant, et tout le monde suit. || Cada persona elige su programa y su promoción una vez, y Crew Call calcula su trimestre a partir de eso cada trimestre. Edita un programa aquí si la LFS lo cambia. Si la numeración de las promociones se desajusta (por ejemplo, si se salta una admisión), indica qué código está en qué trimestre ahora y el resto se ajusta solo.
+From members who spotted a wrong word, and from Wikidata when a role is added. Check the wording, then use it. It changes for everyone straight away. || 來自發現用詞有誤的成員，以及新增職位時來自 Wikidata 的建議。確認用詞後再採用，所有人會立即看到更新。 || Proposées par des membres qui ont repéré un mauvais mot, et par Wikidata quand un poste est ajouté. Vérifiez la formulation, puis utilisez-la. Le changement s'applique tout de suite pour tout le monde. || De miembros que han visto una palabra incorrecta, y de Wikidata cuando se añade un puesto. Revisa la redacción y úsala. Cambia para todos al momento.
+Late September after || 之後的九月下旬 || Fin septembre suivant || A finales del septiembre siguiente
+Length || 長度 || Durée || Duración
+LibreTranslate server || LibreTranslate 伺服器 || Serveur LibreTranslate || Servidor de LibreTranslate
+LibreTranslate server, e.g. https://translate.example.org || LibreTranslate 伺服器，例如 https://translate.example.org || Serveur LibreTranslate, par ex. https://translate.example.org || Servidor de LibreTranslate, p. ej. https://translate.example.org
+Look up || 查詢 || Rechercher || Buscar
+Look up on Wikidata || 在 Wikidata 查詢 || Rechercher sur Wikidata || Buscar en Wikidata
+New course, e.g. MA Documentary || 新課程，例如 MA Documentary || Nouvelle formation, par ex. MA Documentary || Nuevo programa, p. ej. MA Documentary
+No change || 沒有變動 || Pas de changement || Sin cambios
+Numbering: Term || 編號：學期 || Numérotation : trimestre || Numeración: trimestre
+now is || 現在是 || correspond à || corresponde a
+Open in Apple Maps || 在 Apple 地圖開啟 || Ouvrir dans Plans (Apple) || Abrir en Apple Maps
+Open in Google Maps || 在 Google 地圖開啟 || Ouvrir dans Google Maps || Abrir en Google Maps
+Open in OpenStreetMap || 在 OpenStreetMap 開啟 || Ouvrir dans OpenStreetMap || Abrir en OpenStreetMap
+Directions || 路線 || Itinéraire || Cómo llegar
+Optional || 選填 || Facultatif || Opcional
+Role names || 職位名稱 || Noms des postes || Nombres de puestos
+Roles translated into every language. For the rest, look them up on Wikidata, where film role names are free to use, then check them. Short forms like DIT and VFX are often kept in English, which is fine. || 已翻譯成所有語言的職位。其餘的可在 Wikidata 查詢（電影職位名稱可免費使用），再確認一下。DIT、VFX 這類縮寫通常保留英文，這沒問題。 || Postes traduits dans toutes les langues. Pour les autres, cherchez-les sur Wikidata, où les noms des métiers du cinéma sont libres d'usage, puis vérifiez-les. Les sigles comme DIT et VFX restent souvent en anglais, et c'est très bien. || Puestos traducidos a todos los idiomas. Para el resto, búscalos en Wikidata, donde los nombres de los oficios de cine son de uso libre, y revísalos. Las siglas como DIT y VFX suelen quedarse en inglés, y no pasa nada.
+Save server || 儲存伺服器 || Enregistrer le serveur || Guardar servidor
+See changes || 查看變動 || Voir les changements || Ver cambios
+Short name || 簡稱 || Nom court || Nombre corto
+Suggest a better translation || 建議更好的翻譯 || Proposer une meilleure traduction || Sugerir una traducción mejor
+Suggestions || 建議 || Suggestions || Sugerencias
+Thank you. An admin checks it and it changes for everyone. || 謝謝。管理員確認後，所有人都會看到更新。 || Merci. Un admin vérifie, puis le changement s'applique pour tout le monde. || Gracias. Un administrador lo revisa y cambia para todos.
+Use || 採用 || Utiliser || Usar
+Use this || 採用這個 || Utiliser celle-ci || Usar esta
+What it says now || 現在的寫法 || Texte actuel || Lo que dice ahora
+What it should say || 應該怎麼寫 || Texte proposé || Lo que debería decir
+When the next term starts || 下學期開始時 || Au début du prochain trimestre || Cuando empiece el próximo trimestre
+Where translations come from || 翻譯從哪裡來 || D'où viennent les traductions || De dónde salen las traducciones
+Why, optional || 原因（選填） || Pourquoi (facultatif) || Por qué (opcional)
+e.g. On set we say… || 例如：在片場我們會說… || par ex. Sur un tournage, on dit… || p. ej. En rodaje decimos…
+e.g. Term 1 at a partner university || 例如：第 1 學期在合作大學 || par ex. Trimestre 1 dans une université partenaire || p. ej. Trimestre 1 en una universidad asociada
+Draft missing role names || 起草缺少的職位名稱 || Ébaucher les noms de postes manquants || Redactar borradores de los puestos que faltan
+Which meaning? || 哪個意思？ || Quel sens ? || ¿Qué significado?
+Searching… || 搜尋中… || Recherche… || Buscando…
+Save translations || 儲存翻譯 || Enregistrer les traductions || Guardar traducciones
+Looking it up on Wikidata, the free knowledge base anyone can use (CC0). || 正在 Wikidata 查詢。這是任何人都能免費使用的知識庫（CC0）。 || Recherche sur Wikidata, la base de connaissances libre que tout le monde peut utiliser (CC0). || Buscando en Wikidata, la base de conocimiento libre que cualquiera puede usar (CC0).
+Nothing on Wikidata. Type the translations yourself, or ask a student who speaks the language. || Wikidata 上找不到。請自行輸入翻譯，或請會說這種語言的同學幫忙。 || Rien sur Wikidata. Tapez les traductions vous-même, ou demandez à un étudiant qui parle la langue. || No hay nada en Wikidata. Escribe tú las traducciones o pregunta a un estudiante que hable el idioma.
+Check film terms with someone who works in that language. Wikidata's name for a job isn't always what crews say on set. || 請和用這種語言工作的人確認電影術語。Wikidata 上的職稱不一定是片場的說法。 || Vérifiez les termes de cinéma avec quelqu'un qui travaille dans cette langue. Le nom d'un métier sur Wikidata n'est pas toujours celui qu'on emploie sur un tournage. || Revisa los términos de cine con alguien que trabaje en ese idioma. El nombre de un oficio en Wikidata no siempre es el que se usa en rodaje.
+Couldn't reach Wikidata. Check the connection, or type the translations yourself. || 無法連上 Wikidata。請檢查網路，或自行輸入翻譯。 || Impossible de joindre Wikidata. Vérifiez la connexion, ou tapez les traductions vous-même. || No se ha podido conectar con Wikidata. Revisa la conexión o escribe tú las traducciones.
+Sign in to suggest a better translation. || 登入後即可建議更好的翻譯。 || Connectez-vous pour proposer une meilleure traduction. || Inicia sesión para sugerir una traducción mejor.
+Copy the words from the page || 從頁面複製文字 || Copiez les mots depuis la page || Copia las palabras de la página
+Suggestion sent to the admins. Thank you. || 建議已送給管理員。謝謝。 || Suggestion envoyée aux admins. Merci. || Sugerencia enviada a los administradores. Gracias.
+Every role has a name in every language. || 每個職位在每種語言都有名稱。 || Chaque poste a un nom dans chaque langue. || Todos los puestos tienen nombre en todos los idiomas.
+No suggestions waiting. || 沒有待處理的建議。 || Aucune suggestion en attente. || No hay sugerencias pendientes.
+Translation saved || 翻譯已儲存 || Traduction enregistrée || Traducción guardada
+Dismissed || 已略過 || Ignorée || Descartada
+Nothing changed || 沒有變更 || Rien n'a changé || No ha cambiado nada
+The English words || 英文原文 || Les mots en anglais || Las palabras en inglés
+Add the English words first, so Crew Call knows what to replace || 請先填寫英文原文，Crew Call 才知道要替換哪裡 || Ajoutez d'abord les mots en anglais, pour que Crew Call sache quoi remplacer || Añade primero las palabras en inglés, para que Crew Call sepa qué sustituir
+Couldn't reach the LibreTranslate server || 無法連上 LibreTranslate 伺服器 || Impossible de joindre le serveur LibreTranslate || No se ha podido conectar con el servidor de LibreTranslate
+Drafting with LibreTranslate… || 正在用 LibreTranslate 起草… || Ébauche avec LibreTranslate… || Redactando con LibreTranslate…
+Nothing missing || 沒有缺漏 || Rien ne manque || No falta nada
+Translations saved here apply straight away. To keep them in the code too, download the file and add it to GitHub with this name. The next build folds it in. || 在這裡儲存的翻譯會立即生效。若也要保存在程式碼裡，請下載檔案並以這個名稱加到 GitHub，下次建置時會一併納入。 || Les traductions enregistrées ici s'appliquent tout de suite. Pour les garder aussi dans le code, téléchargez le fichier et ajoutez-le sur GitHub sous ce nom. Le prochain build les intègre. || Las traducciones guardadas aquí se aplican al momento. Para guardarlas también en el código, descarga el archivo y súbelo a GitHub con este nombre. La próxima compilación las incorpora.
+Built into the browser. Gives month and day names, date order, plurals, lists such as "A, B and C", and phrases such as "yesterday" and "3 days ago". Always right, nothing to edit. || 內建在瀏覽器裡。提供月份和星期名稱、日期順序、複數、「A、B和C」這類列表，以及「昨天」、「3 天前」這類說法。一定正確，不需要編輯。 || Intégré au navigateur. Fournit les noms des mois et des jours, l'ordre des dates, les pluriels, les listes comme « A, B et C » et les expressions comme « hier » ou « il y a 3 jours ». Toujours juste, rien à modifier. || Incluido en el navegador. Da los nombres de meses y días, el orden de las fechas, los plurales, listas como «A, B y C» y expresiones como «ayer» o «hace 3 días». Siempre correcto, no hay que editar nada.
+Role names in many languages, free to use (CC0). Used when you add a role or press Look up. || 多種語言的職位名稱，可免費使用（CC0）。新增職位或按「查詢」時會用到。 || Les noms des postes dans de nombreuses langues, libres d'usage (CC0). Utilisé quand vous ajoutez un poste ou appuyez sur Rechercher. || Nombres de puestos en muchos idiomas, de uso libre (CC0). Se usa al añadir un puesto o pulsar Buscar.
+Makes Simplified Chinese from Traditional when the code is built. || 建置程式碼時，把繁體中文轉成簡體中文。 || Produit le chinois simplifié à partir du traditionnel lors du build. || Genera el chino simplificado a partir del tradicional al compilar el código.
+A translation website where volunteers fix wording without touching code. The build writes files Weblate can read and edit. It's free for open-source projects; the steps are in the translation guide. || 一個翻譯網站，志工不用碰程式碼就能修正用詞。建置時會產生 Weblate 能讀取和編輯的檔案。開源專案可免費使用，步驟寫在翻譯指南裡。 || Un site de traduction où des bénévoles corrigent la formulation sans toucher au code. Le build crée des fichiers que Weblate peut lire et modifier. C'est gratuit pour les projets open source ; les étapes sont dans le guide de traduction. || Una web de traducción donde voluntarios corrigen la redacción sin tocar código. La compilación genera archivos que Weblate puede leer y editar. Es gratis para proyectos de código abierto; los pasos están en la guía de traducción.
+Open-source machine translation you can run on a free server. Drafts only. Always have a speaker check. || 開源機器翻譯，可架在免費伺服器上。只能當草稿，一定要請懂這種語言的人確認。 || Traduction automatique open source, à installer sur un serveur gratuit. Brouillons uniquement. Faites toujours vérifier par quelqu'un qui parle la langue. || Traducción automática de código abierto que puedes instalar en un servidor gratuito. Solo borradores. Que siempre lo revise alguien que hable el idioma.
+Translations are checked by students who speak each language. Spot a wrong film term? || 翻譯由會說各種語言的學生檢查。發現電影術語有誤？ || Les traductions sont vérifiées par des étudiants qui parlent chaque langue. Un terme de cinéma vous semble faux ? || Las traducciones las revisan estudiantes que hablan cada idioma. ¿Ves un término de cine incorrecto?
+from || 來自 || de || de
+Using || 採用 || Source : || Fuente:

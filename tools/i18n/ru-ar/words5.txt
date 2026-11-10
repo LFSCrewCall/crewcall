@@ -1,0 +1,5 @@
+# The "Wrong word?" page button
+Wrong word? || Неверное слово? || كلمة خاطئة؟
+Tap the words that look wrong. || Нажмите на слова, которые выглядят неправильно. || انقر على الكلمات التي تبدو خاطئة.
+Describe it instead || Лучше описать || صِفها بدلًا من ذلك
+Page || Страница || الصفحة

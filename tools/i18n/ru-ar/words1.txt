@@ -1,0 +1,1017 @@
+# English || Русский || العربية
+Calendar || Календарь || التقويم
+Develop || Разработка || التطوير
+Shoot || Съёмки || التصوير
+Release || Прокат || العرض
+Crew || Группа || الطاقم
+My shoots || Мои съёмки || تصويراتي
+My profile || Мой профиль || ملفي الشخصي
+Admin || Админ || الإدارة
+Sign in || Войти || تسجيل الدخول
+Sign out || Выйти || تسجيل الخروج
+Post a shoot || Опубликовать съёмку || نشر تصوير
+Post a script || Опубликовать сценарий || نشر سيناريو
+Post a pitch || Опубликовать питч || نشر عرض فكرة
+List a film || Добавить фильм || إضافة فيلم
+Step 1 of 3 || Шаг 1 из 3 || الخطوة 1 من 3
+Step 2 of 3 || Шаг 2 из 3 || الخطوة 2 من 3
+Step 3 of 3 || Шаг 3 из 3 || الخطوة 3 من 3
+Shoots looking for crew || Съёмки, которым нужна группа || تصويرات تبحث عن طاقم
+Writers post scripts and producers post pitches, then directors, writers and producers put their hand up. Only signed-in members see this page. Full scripts and pitch decks are only shared with people the poster brings on. || Сценаристы публикуют сценарии, продюсеры — питчи, а режиссёры, сценаристы и продюсеры откликаются. Эту страницу видят только участники, вошедшие в систему. Полные сценарии и питч-деки получают только те, кого автор берёт в команду. || ينشر الكتّاب سيناريوهاتهم وينشر المنتجون أفكارهم، ثم يتقدّم المخرجون والكتّاب والمنتجون للمشاركة. لا يرى هذه الصفحة إلا الأعضاء المسجّلون. لا تُشارك السيناريوهات الكاملة وملفات العرض إلا مع من يضمّهم صاحب المنشور.
+Wrapped films looking for help to reach an audience: festival plans, posters, trailers, press kits and socials. A good fit for MA Film Marketing, and every job becomes a credit on your profile. || Готовые фильмы, которым нужна помощь, чтобы найти зрителя: фестивальная стратегия, постеры, трейлеры, пресс-киты и соцсети. Отлично подходит для MA Film Marketing, и каждая работа становится титром в вашем профиле. || أفلام منتهية تحتاج مساعدة للوصول إلى جمهورها: خطط المهرجانات والملصقات والإعلانات الترويجية والملفات الصحفية ومواقع التواصل. مناسبة لطلاب ماجستير تسويق الأفلام، وكل مهمة تصبح رصيدًا في ملفك.
+Search title, director, location || Поиск: название, режиссёр, локация || ابحث بالعنوان أو المخرج أو الموقع
+Search title, logline, writer or producer || Поиск: название, логлайн, сценарист или продюсер || ابحث بالعنوان أو الملخص أو الكاتب أو المنتج
+Search title, director or festival || Поиск: название, режиссёр или фестиваль || ابحث بالعنوان أو المخرج أو المهرجان
+Search name, kit, skill || Поиск: имя, техника, навык || ابحث بالاسم أو المعدات أو المهارة
+Search shoots || Поиск съёмок || ابحث في التصويرات
+Search posts || Поиск публикаций || ابحث في المنشورات
+Search films || Поиск фильмов || ابحث في الأفلام
+Matches me || Подходит мне || يناسبني
+Filters || Фильтры || عوامل التصفية
+Close filters || Закрыть фильтры || إغلاق عوامل التصفية
+Clear all || Сбросить всё || مسح الكل
+Clear filters || Сбросить фильтры || مسح عوامل التصفية
+Sort by || Сортировка || الترتيب حسب
+Role needed || Нужна роль || الدور المطلوب
+Shooting || Съёмки || التصوير
+Type || Тип || النوع
+Made by || Курс || من إنتاج
+Show || Показать || عرض
+Looking for || Ищут || يبحث عن
+Hoping to shoot || Хотят снимать || موعد التصوير المأمول
+Help needed || Нужна помощь || المساعدة المطلوبة
+Deadline || Дедлайн || الموعد النهائي
+Shooting soonest || Ближайшие съёмки || الأقرب تصويرًا
+Newest || Новые || الأحدث
+Most roles open || Больше открытых ролей || الأكثر أدوارًا شاغرة
+Shortest script || Короткие сценарии || الأقصر سيناريو
+Deadline soonest || Ближайший дедлайн || الأقرب موعدًا نهائيًا
+This week || На этой неделе || هذا الأسبوع
+Next 2 weeks || В ближайшие 2 недели || خلال الأسبوعين القادمين
+This month || В этом месяце || هذا الشهر
+Later || Позже || لاحقًا
+Next 30 days || Ближайшие 30 дней || الأيام الثلاثون القادمة
+Next 3 months || Ближайшие 3 месяца || الأشهر الثلاثة القادمة
+No deadline || Без дедлайна || بلا موعد نهائي
+Scripts || Сценарии || السيناريوهات
+Producer pitches || Питчи продюсеров || أفكار المنتجين
+Producer pitch || Питч продюсера || فكرة منتج
+Show fully crewed shoots || Показать съёмки с полной группой || عرض التصويرات مكتملة الطاقم
+Show posts that are fully attached || Показать публикации, где все роли закрыты || عرض المنشورات المكتملة
+Show films with a full team || Показать фильмы с полной командой || عرض الأفلام ذات الفريق المكتمل
+Shoots with an open role that's on your profile || Съёмки с открытой ролью из вашего профиля || تصويرات فيها دور شاغر من أدوار ملفك
+Posts looking for a role on your profile || Публикации, которым нужна роль из вашего профиля || منشورات تبحث عن دور من أدوار ملفك
+Films needing help your profile roles cover || Фильмы, которым нужна помощь по вашим ролям || أفلام تحتاج مساعدة تغطيها أدوار ملفك
+Show more || Показать ещё || عرض المزيد
+View roles || Смотреть роли || عرض الأدوار
+Details || Подробнее || التفاصيل
+I'm interested || Мне интересно || أنا مهتم
+Offer to help || Предложить помощь || عرض المساعدة
+Manage || Управлять || إدارة
+Fully crewed || Группа собрана || الطاقم مكتمل
+Fully attached || Все роли закрыты || مكتمل
+Full team || Команда собрана || الفريق مكتمل
+Now a shoot || Уже съёмка || أصبح تصويرًا
+You run this || Это ваше || أنت تديره
+You run this project || Это ваш проект || أنت تدير هذا المشروع
+You're on this shoot || Вы в этой съёмке || أنت في هذا التصوير
+Written by || Сценарист || كتابة
+written by || сценарий: || كتابة
+Pitched by || Автор питча || صاحب الفكرة
+pitched by || питч: || فكرة من
+Listed by || Добавил(а) || أضافه
+listed by || добавил(а) || أضافه
+Script || Сценарий || السيناريو
+Pitch deck || Питч-дек || ملف العرض
+Attached || В команде || منضمّون
+Nobody yet || Пока никого || لا أحد بعد
+What they have || Что есть || ما لديهم
+People interested || Заинтересованные || المهتمون
+Bring on || Взять в команду || ضمّ إلى الفريق
+Decline || Отклонить || رفض
+Turn into a shoot || Сделать съёмкой || تحويله إلى تصوير
+Edit || Изменить || تعديل
+Remove || Удалить || إزالة
+Put your hand up || Откликнуться || أبدِ اهتمامك
+As || Как || بصفة
+Send || Отправить || إرسال
+Withdraw || Отозвать || سحب
+Open it || Открыть || افتحه
+No link added || Ссылка не добавлена || لم يُضف رابط
+Shared with the team || Доступно команде || مُشارك مع الفريق
+Nobody yet. Share the Develop page in your cohort chat. || Пока никого. Поделитесь страницей «Разработка» в чате курса. || لا أحد بعد. شارك صفحة التطوير في مجموعة دفعتك.
+Working title || Рабочее название || العنوان المؤقت
+Title || Название || العنوان
+Pages || Страниц || الصفحات
+Logline || Логлайн || الملخص (لوغلاين)
+What you have || Что у вас есть || ما لديك
+Script link || Ссылка на сценарий || رابط السيناريو
+Pitch deck or treatment link || Ссылка на питч-дек или тритмент || رابط ملف العرض أو المعالجة
+only shown to you and people you bring on || видно только вам и тем, кого вы возьмёте в команду || يظهر لك ولمن تضمّهم فقط
+only shown to you and your team || видно только вам и вашей команде || يظهر لك ولفريقك فقط
+Not sure yet || Пока не знаю || لست متأكدًا بعد
+Post || Опубликовать || نشر
+Save || Сохранить || حفظ
+Cancel || Отмена || إلغاء
+Close || Закрыть || إغلاق
+Post the logline here, not the script. You choose who gets the full script by bringing them on. || Публикуйте здесь логлайн, а не сценарий. Полный сценарий получат только те, кого вы возьмёте в команду. || انشر الملخص هنا وليس السيناريو. أنت تختار من يحصل على السيناريو الكامل عندما تضمّه.
+Pitch an idea, a true story you have access to, or a story you hold the rights to. Find a writer and director to make it with. || Предложите идею, реальную историю, к которой у вас есть доступ, или историю, на которую у вас есть права. Найдите сценариста и режиссёра, чтобы сделать фильм вместе. || اعرض فكرة، أو قصة حقيقية لديك وصول إليها، أو قصة تملك حقوقها. وابحث عن كاتب ومخرج لصناعتها معك.
+e.g. Option on a short story, access to a real story, a location || напр. опцион на рассказ, доступ к реальной истории, локация || مثلًا: خيار على قصة قصيرة، وصول إلى قصة حقيقية، موقع تصوير
+Message to Aisha || Сообщение для Aisha || رسالة إلى Aisha
+What you like about it, and how you'd approach it || Что вам нравится и как бы вы к этому подошли || ما الذي أعجبك، وكيف ستتناوله
+What you'd do, and links to anything similar you've made || Что вы сделаете, и ссылки на похожие ваши работы || ما الذي ستقدّمه، وروابط لأعمال مشابهة صنعتها
+List a film for release help || Добавить фильм для помощи с прокатом || أضف فيلمًا للحصول على مساعدة في العرض
+Which film || Какой фильм || أيّ فيلم
+A film not on Crew Call || Фильм не из Crew Call || فيلم غير موجود على Crew Call
+Running time (minutes) || Хронометраж (минуты) || مدة العرض (بالدقائق)
+Next deadline || Ближайший дедлайн || الموعد النهائي القادم
+Festivals or goals || Фестивали или цели || المهرجانات أو الأهداف
+e.g. Encounters, BFI Future Film || напр. Encounters, BFI Future Film || مثلًا: Encounters وBFI Future Film
+Screener link || Ссылка на скринер || رابط نسخة المشاهدة
+Screener || Скринер || نسخة المشاهدة
+Watch the film || Смотреть фильм || شاهد الفيلم
+List film || Добавить фильм || إضافة الفيلم
+On the team || В команде || في الفريق
+Offers || Предложения || العروض
+No offers yet. || Предложений пока нет. || لا عروض بعد.
+Send offer || Отправить предложение || إرسال عرض
+With || С || مع
+See the shoot || Смотреть съёмку || عرض التصوير
+None set || Не указано || غير محدد
+optional || необязательно || اختياري
+Report a problem || Сообщить о проблеме || الإبلاغ عن مشكلة
+Report a problem with this film || Сообщить о проблеме с этим фильмом || الإبلاغ عن مشكلة في هذا الفيلم
+Report a problem with this pitch || Сообщить о проблеме с этим питчем || الإبلاغ عن مشكلة في هذه الفكرة
+Report a problem with this profile || Сообщить о проблеме с этим профилем || الإبلاغ عن مشكلة في هذا الملف
+Report a problem with this project || Сообщить о проблеме с этим проектом || الإبلاغ عن مشكلة في هذا المشروع
+Report a problem with this script || Сообщить о проблеме с этим сценарием || الإبلاغ عن مشكلة في هذا السيناريو
+Privacy notice || Политика конфиденциальности || إشعار الخصوصية
+privacy notice || политика конфиденциальности || إشعار الخصوصية
+Add to home screen || На главный экран || أضف إلى الشاشة الرئيسية
+Prototype. Sample data only, and changes reset when you reload. Sign-in, emails and calendar links are simulated. A live version adds LFS Microsoft sign-in and a shared database. || Прототип. Только тестовые данные, изменения сбрасываются при перезагрузке. Вход, письма и ссылки календаря имитируются. В рабочей версии будет вход через Microsoft LFS и общая база данных. || نموذج أولي. بيانات تجريبية فقط، وتُمحى التغييرات عند إعادة التحميل. تسجيل الدخول والرسائل وروابط التقويم محاكاة. تضيف النسخة الفعلية تسجيل الدخول بحساب Microsoft الخاص بـ LFS وقاعدة بيانات مشتركة.
+Today || Сегодня || اليوم
+Yesterday || Вчера || أمس
+Month || Месяц || شهر
+Week || Неделя || أسبوع
+Day || День || يوم
+Previous month || Предыдущий месяц || الشهر السابق
+Next month || Следующий месяц || الشهر التالي
+Previous week || Предыдущая неделя || الأسبوع السابق
+Next week || Следующая неделя || الأسبوع التالي
+Next || Далее || التالي
+All roles || Все роли || كل الأدوار
+All terms || Все семестры || كل الفصول
+All cohorts || Все потоки || كل الدفعات
+All projects || Все проекты || كل المشاريع
+Show crew availability || Показать свободных || إظهار توفّر الطاقم
+Crew available || Свободные || طاقم متاح
+crew available || свободны || متاحون
+Crew available that day (matches filters) || Свободны в этот день (по фильтрам) || طاقم متاح في ذلك اليوم (حسب عوامل التصفية)
+Shoot day (number = open roles) || Съёмочный день (число = открытые роли) || يوم تصوير (الرقم = الأدوار الشاغرة)
+Free || Свободен || متاح
+free || свободен || متاح
+not free || занят || غير متاح
+No shoots || Нет съёмок || لا تصويرات
+No shoots on this day. || В этот день съёмок нет. || لا تصويرات في هذا اليوم.
+Edit my days || Мои дни || تعديل أيامي
+Editing your availability. Tap any day to switch between free and not free. Changes save straight away. || Вы меняете свою доступность. Нажмите на день, чтобы переключить «свободен» / «занят». Изменения сохраняются сразу. || أنت تعدّل أيام توفّرك. اضغط أي يوم للتبديل بين متاح وغير متاح. تُحفظ التغييرات فورًا.
+Editing || Редактирование || تعديل
+Done || Готово || تم
+Clear month || Очистить месяц || مسح الشهر
+All weekdays || Все будни || كل أيام الأسبوع
+All weekends || Все выходные || كل عطلات نهاية الأسبوع
+You: free || Вы: свободны || أنت: متاح
+You: booked || Вы: заняты || أنت: محجوز
+Sync calendar || Синхронизировать календарь || مزامنة التقويم
+Sync to Outlook or another calendar || Синхронизация с Outlook или другим календарём || مزامنة مع Outlook أو تقويم آخر
+Add to calendar || Добавить в календарь || أضف إلى التقويم
+Calendar view || Вид календаря || عرض التقويم
+Filter by role || Фильтр по роли || تصفية حسب الدور
+Role || Роль || الدور
+Roles || Роли || الأدوار
+Term || Семестр || الفصل
+Cohort || Поток || الدفعة
+Course || Программа || البرنامج
+Pathway || Специализация || المسار
+Find crew || Найти людей || ابحث عن طاقم
+Has kit || Есть техника || لديه معدات
+Free from || Свободен с || متاح من
+To || По || إلى
+From || С || من
+Kit || Техника || المعدات
+Credits || Титры || الأعمال السابقة
+Contact || Контакт || التواصل
+Message || Сообщение || رسالة
+Email || Эл. почта || البريد الإلكتروني
+Email private || Почта скрыта || البريد خاص
+Reel || Шоурил || ريل الأعمال
+Wants to learn || Хочет научиться || يريد أن يتعلّم
+Wants to shadow: || Хочет стажироваться: || يريد المرافقة للتعلّم:
+Learning: || Учится: || يتعلّم:
+Free to help: || Может помочь: || متاح للمساعدة:
+This is you || Это вы || هذا أنت
+That's you || Это вы || هذا أنت
+(you) || (вы) || (أنت)
+Invite to one of your projects || Пригласить в свой проект || ادعُه إلى أحد مشاريعك
+No kit added. Owning kit makes you much easier to book. || Техника не указана. С собственной техникой вас позовут гораздо охотнее. || لم تُضف معدات. امتلاك المعدات يجعل حجزك أسهل بكثير.
+Open to offers || Открыт(а) к предложениям || منفتح على العروض
+open to offers || открыт(а) к предложениям || منفتح على العروض
+Open to offers outside these dates || Открыт(а) к предложениям вне этих дат || منفتح على العروض خارج هذه التواريخ
+No dates set || Даты не указаны || لم تُحدَّد تواريخ
+Free every shoot day || Свободен во все съёмочные дни || متاح في كل أيام التصوير
+You're free every shoot day || Вы свободны во все съёмочные дни || أنت متاح في كل أيام التصوير
+Request || Запросить || طلب
+Request to join || Попроситься в группу || طلب الانضمام
+Ask to shadow || Попроситься на стажировку || طلب المرافقة للتعلّم
+Requested · waiting || Запрос отправлен · ждём || تم الطلب · بانتظار الرد
+Accepted || Принят || مقبول
+Accept || Принять || قبول
+Not this time || Не в этот раз || ليس هذه المرة
+Role filled || Роль занята || الدور مشغول
+Role removed || Роль удалена || أُزيل الدور
+Withdrawn || Отозван || مسحوب
+Open roles || Открытые роли || الأدوار الشاغرة
+Locked crew || Утверждённая группа || الطاقم المؤكَّد
+Locked crew only || Только утверждённая группа || الطاقم المؤكَّد فقط
+Shoot dates || Даты съёмок || تواريخ التصوير
+Schedule || График || الجدول
+Locations || Локации || المواقع
+Location || Локация || الموقع
+Call || Сбор || موعد الحضور
+Wrap || Конец смены || انتهاء التصوير
+Map || Карта || الخريطة
+Crew hub || Штаб группы || مركز الطاقم
+Join the WhatsApp group || Вступить в группу WhatsApp || انضم إلى مجموعة WhatsApp
+Key links || Важные ссылки || روابط مهمة
+Key details || Важные детали || تفاصيل مهمة
+Visible to everyone signed in || Видно всем, кто вошёл || مرئي لكل المسجّلين
+Crew only || Только группа || الطاقم فقط
+Everyone signed in || Все, кто вошёл || كل المسجّلين
+Who can see this || Кто это видит || من يمكنه رؤية هذا
+Add links and details || Добавить ссылки и детали || إضافة روابط وتفاصيل
+Edit links and details || Изменить ссылки и детали || تعديل الروابط والتفاصيل
+The WhatsApp group, call sheets and key details are shared with the crew once you're locked in. || Группа в WhatsApp, вызывные листы и важные детали откроются, когда вас утвердят. || تُشارَك مجموعة WhatsApp وأوراق الاستدعاء والتفاصيل المهمة مع الطاقم بعد تأكيدك.
+Add the WhatsApp group, call sheet, script or a Drive folder so your crew have everything in one place. || Добавьте группу WhatsApp, вызывной лист, сценарий или папку на Drive, чтобы у группы всё было в одном месте. || أضف مجموعة WhatsApp أو ورقة الاستدعاء أو السيناريو أو مجلد Drive ليجد طاقمك كل شيء في مكان واحد.
+Crew hub: WhatsApp, links and details || Штаб группы: WhatsApp, ссылки и детали || مركز الطاقم: WhatsApp والروابط والتفاصيل
+Everything your crew need in one place. Shown only to locked crew, the producer, director and admins, unless you choose otherwise. || Всё, что нужно группе, в одном месте. Видно только утверждённой группе, продюсеру, режиссёру и админам, если вы не решите иначе. || كل ما يحتاجه طاقمك في مكان واحد. يظهر فقط للطاقم المؤكَّد والمنتج والمخرج والمشرفين، ما لم تختر غير ذلك.
+WhatsApp group invite link || Ссылка-приглашение в группу WhatsApp || رابط دعوة مجموعة WhatsApp
+In WhatsApp: open the group, tap its name, then Invite via link, and copy it here. || В WhatsApp: откройте группу, нажмите на её название, затем «Пригласить по ссылке» и скопируйте её сюда. || في WhatsApp: افتح المجموعة، واضغط اسمها، ثم «الدعوة عبر رابط»، وانسخه هنا.
+Label, e.g. Call sheet || Подпись, напр. Вызывной лист || التسمية، مثلًا: ورقة الاستدعاء
+Link address || Адрес ссылки || عنوان الرابط
+Link label || Подпись ссылки || تسمية الرابط
+Add another link || Добавить ещё ссылку || إضافة رابط آخر
+Remove link || Удалить ссылку || إزالة الرابط
+Nearest station, parking, meeting point, food, what to wear, kit drop-off || Ближайшая станция, парковка, место сбора, еда, что надеть, где оставить технику || أقرب محطة، المواقف، نقطة اللقاء، الطعام، ماذا ترتدي، تسليم المعدات
+Shot list || Раскадровка (шот-лист) || قائمة اللقطات
+Email all locked crew || Написать всей утверждённой группе || راسل كل الطاقم المؤكَّد
+Archive || В архив || أرشفة
+Delete || Удалить || حذف
+Hide project || Скрыть проект || إخفاء المشروع
+Mark filled… || Отметить занятой… || تحديد كمشغول…
+Someone not on Crew Call… || Человек не из Crew Call… || شخص غير موجود على Crew Call…
+Reopen || Открыть снова || إعادة فتح
+Reopen this role in the project window to remove it || Откройте эту роль снова в окне проекта, чтобы удалить её || أعد فتح هذا الدور من نافذة المشروع لإزالته
+Only this project's producer and director (and admins) can edit it. Locked crew are told if dates or call times change. || Редактировать проект могут только его продюсер и режиссёр (и админы). Утверждённую группу уведомят, если изменятся даты или время сбора. || لا يعدّل هذا المشروع إلا منتجه ومخرجه (والمشرفون). يُبلَّغ الطاقم المؤكَّد إذا تغيّرت التواريخ أو مواعيد الحضور.
+Request type || Тип запроса || نوع الطلب
+Do the role || Работать на позиции || أداء الدور
+Shadow and learn || Стажироваться и учиться || المرافقة والتعلّم
+Send request || Отправить запрос || إرسال الطلب
+Back to project || Назад к проекту || العودة إلى المشروع
+Request sent. You'll hear back here and by email. || Запрос отправлен. Ответ придёт сюда и на почту. || أُرسل الطلب. سيصلك الرد هنا وعبر البريد.
+Shadow || Стажёр || مرافق للتعلّم
+Project title || Название проекта || عنوان المشروع
+Director name || Имя режиссёра || اسم المخرج
+Director email || Почта режиссёра || بريد المخرج
+Producer name || Имя продюсера || اسم المنتج
+Producer email || Почта продюсера || بريد المنتج
+Leave blank if you need one || Оставьте пустым, если продюсер нужен || اتركه فارغًا إن كنت تحتاج منتجًا
+Location name || Название локации || اسم الموقع
+Location notes || Заметки о локации || ملاحظات الموقع
+Notes, e.g. interiors || Заметки, напр. интерьеры || ملاحظات، مثلًا: مشاهد داخلية
+Add another location || Добавить ещё локацию || إضافة موقع آخر
+Remove location || Удалить локацию || إزالة الموقع
+Add another block || Добавить ещё блок || إضافة فترة أخرى
+Remove dates || Удалить даты || إزالة التواريخ
+Start || Начало || البداية
+End || Конец || النهاية
+Call, wrap and location for each day || Сбор, конец смены и локация на каждый день || موعد الحضور والانتهاء والموقع لكل يوم
+Add shoot dates above and each day appears here. || Добавьте даты съёмок выше, и дни появятся здесь. || أضف تواريخ التصوير أعلاه وستظهر الأيام هنا.
+Add role || Добавить роль || إضافة دور
+How many || Сколько || العدد
+List me as Director (filled) || Указать меня режиссёром (занято) || أدرجني مخرجًا (مشغول)
+Kit wanted || Нужна техника || معدات مطلوبة
+Kit wanted (optional) || Нужна техника (необязательно) || معدات مطلوبة (اختياري)
+e.g. haze machine, gimbal || напр. дым-машина, стабилизатор || مثلًا: آلة ضباب، جيمبال
+Post project || Опубликовать проект || نشر المشروع
+Save changes || Сохранить изменения || حفظ التغييرات
+Your shoot appears on the calendar and people whose roles and free days match are notified. || Ваша съёмка появится в календаре, а люди с подходящими ролями и свободными днями получат уведомление. || يظهر تصويرك في التقويم ويُبلَّغ من تتطابق أدوارهم وأيام توفّرهم.
+No roles added yet. || Роли пока не добавлены. || لم تُضف أدوار بعد.
+Copy || Копировать || نسخ
+Copied || Скопировано || تم النسخ
+Projects I run || Мои проекты || مشاريع أديرها
+Shoots I'm on || Съёмки, где я в группе || تصويرات أشارك فيها
+My requests || Мои запросы || طلباتي
+Requests waiting || Ждут ответа || طلبات بانتظار الرد
+Projects you run, requests you've sent and shoots you're locked on. || Ваши проекты, отправленные запросы и съёмки, где вас утвердили. || مشاريعك، والطلبات التي أرسلتها، والتصويرات المؤكَّدة لك.
+Projects you run, requests you've sent and shoots you're locked on all live here. || Ваши проекты, отправленные запросы и съёмки, где вас утвердили, — всё здесь. || مشاريعك، والطلبات التي أرسلتها، والتصويرات المؤكَّدة لك، كلها هنا.
+You're not producing or directing anything yet. || Вы пока ничего не продюсируете и не режиссируете. || أنت لا تنتج ولا تخرج أي شيء بعد.
+No requests right now. People who match your open roles are notified when you post or add a role. || Запросов пока нет. Люди с подходящими ролями получают уведомление, когда вы публикуете съёмку или добавляете роль. || لا طلبات حاليًا. يُبلَّغ المناسبون لأدوارك الشاغرة عندما تنشر أو تضيف دورًا.
+No requests yet. Open a project and tap Request to join. || Запросов пока нет. Откройте проект и нажмите «Попроситься в группу». || لا طلبات بعد. افتح مشروعًا واضغط «طلب الانضمام».
+Not locked on any shoots yet. Requests that get accepted land here. || Вас пока не утвердили ни на одну съёмку. Принятые запросы появятся здесь. || لم تُؤكَّد في أي تصوير بعد. تظهر هنا الطلبات المقبولة.
+Invite someone || Пригласить человека || دعوة شخص
+Email to invite || Почта для приглашения || البريد للدعوة
+Send invite || Отправить приглашение || إرسال الدعوة
+Invites || Приглашения || الدعوات
+Pending || Ожидает || قيد الانتظار
+Joined || Присоединился || انضم
+Revoke || Отозвать || إلغاء
+For people without an LFS email, like freelance HMU artists or actors. They can sign in once with the email you invite. || Для тех, у кого нет почты LFS, например фрилансеров-гримёров или актёров. Они смогут войти с почтой, на которую вы их пригласили. || للأشخاص الذين ليس لديهم بريد LFS، مثل فناني الشعر والمكياج المستقلين أو الممثلين. يمكنهم الدخول بالبريد الذي دعوتهم به.
+You're a guest. You can do everything except invite other people. || Вы гость. Вам доступно всё, кроме приглашения других людей. || أنت ضيف. يمكنك فعل كل شيء ما عدا دعوة الآخرين.
+My crew profile || Мой профиль в группе || ملفي في الطاقم
+List every role you can do, the kit you can bring, and the dates you're free. Directors will find you in Crew search and on the calendar. || Укажите все роли, которые вы можете выполнять, технику, которую можете принести, и даты, когда вы свободны. Режиссёры найдут вас в поиске группы и в календаре. || أدرج كل الأدوار التي تجيدها، والمعدات التي يمكنك إحضارها، والأيام التي تكون فيها متاحًا. سيجدك المخرجون في بحث الطاقم وفي التقويم.
+Full name || Полное имя || الاسم الكامل
+Course and cohort || Программа и поток || البرنامج والدفعة
+Term now || Текущий семестр || الفصل الحالي
+Short bio || Коротко о себе || نبذة قصيرة
+What you've shot, what you want to do more of || Что вы снимали и чем хотите заниматься больше || ما الذي صوّرته، وما الذي تريد المزيد منه
+Showreel or portfolio link || Ссылка на шоурил или портфолио || رابط ريل الأعمال أو ملف الأعمال
+Roles I can do || Мои роли || الأدوار التي أجيدها
+tap all that apply, star your main one || отметьте все подходящие и звёздочкой — основную || اختر كل ما ينطبق، وضع نجمة على دورك الرئيسي
+Clear roles || Сбросить роли || مسح الأدوار
+Roles I want to learn || Роли, которым хочу научиться || أدوار أريد تعلّمها
+shadow someone on set || стажировка на площадке || رافق أحدهم في موقع التصوير
+Producers can accept you as a shadow alongside their crew. You'll show up as "wants to shadow" on matching roles. || Продюсеры могут взять вас стажёром вместе с группой. Вы будете отмечены как «хочет стажироваться» в подходящих ролях. || يمكن للمنتجين قبولك مرافقًا للتعلّم إلى جانب طاقمهم. ستظهر بعبارة «يريد المرافقة للتعلّم» في الأدوار المطابقة.
+Kit I can bring || Моя техника || معدات يمكنني إحضارها
+e.g. Sony FX3, Aputure 300d, Zoom F6 || напр. Sony FX3, Aputure 300d, Zoom F6 || مثلًا: Sony FX3 وAputure 300d وZoom F6
+Add kit || Добавить технику || إضافة معدات
+When I'm free || Когда я свободен || متى أكون متاحًا
+Tap a day to mark it free, tap again to clear. Drag across days to select several at once. Days you're crewed on show as booked. || Нажмите на день, чтобы отметить его свободным, нажмите ещё раз, чтобы снять отметку. Проведите по дням, чтобы выбрать несколько сразу. Дни, когда вы в группе, отмечены как занятые. || اضغط يومًا لتحديده متاحًا، واضغط مجددًا للمسح. اسحب عبر الأيام لاختيار عدة أيام دفعة واحدة. تظهر الأيام التي تعمل فيها كمحجوزة.
+added automatically after each shoot || добавляются автоматически после каждой съёмки || تُضاف تلقائيًا بعد كل تصوير
+Once a shoot you're locked on wraps, it's added here automatically. || Когда съёмка, где вас утвердили, закончится, она появится здесь автоматически. || عند انتهاء تصوير أنت مؤكَّد فيه، يُضاف هنا تلقائيًا.
+Email notifications || Уведомления на почту || إشعارات البريد
+Email me when someone requests to join a project I run || Писать мне, когда кто-то просится в мой проект || راسلني عندما يطلب أحد الانضمام إلى مشروع أديره
+Email me when a new role matches my roles and free days || Писать мне, когда новая роль совпадает с моими ролями и свободными днями || راسلني عندما يطابق دور جديد أدواري وأيام توفّري
+Email me when my requests are answered or a shoot I'm on changes || Писать мне, когда на мои запросы ответили или изменилась моя съёмка || راسلني عند الرد على طلباتي أو تغيّر تصوير أشارك فيه
+Send me a weekly digest of open roles || Присылать еженедельную сводку открытых ролей || أرسل لي ملخصًا أسبوعيًا للأدوار الشاغرة
+Digest includes || В сводке || يتضمن الملخص
+Every open role || Все открытые роли || كل الأدوار الشاغرة
+Only my roles on days I'm free || Только мои роли в мои свободные дни || أدواري فقط في أيام توفّري
+Include people who want to shadow || Показывать тех, кто хочет стажироваться || تضمين من يريدون المرافقة للتعلّم
+Preview this week's digest || Посмотреть сводку этой недели || معاينة ملخص هذا الأسبوع
+Show my email to signed-in members (otherwise people message you through Crew Call) || Показывать мою почту участникам, вошедшим в систему (иначе вам пишут через Crew Call) || أظهر بريدي للأعضاء المسجّلين (وإلا يراسلك الناس عبر Crew Call)
+Hide my profile from Crew search and the calendar || Скрыть мой профиль из поиска группы и календаря || أخفِ ملفي من بحث الطاقم والتقويم
+Nothing here is visible to anyone who isn't signed in. Producers and directors you're locked in with can always see your email. || Ничего из этого не видно тем, кто не вошёл. Продюсеры и режиссёры съёмок, где вас утвердили, всегда видят вашу почту. || لا يظهر شيء هنا لغير المسجّلين. يرى المنتجون والمخرجون الذين أنت مؤكَّد معهم بريدك دائمًا.
+Save profile || Сохранить профиль || حفظ الملف
+Profile saved || Профиль сохранён || تم حفظ الملف
+Download my data || Скачать мои данные || تنزيل بياناتي
+Delete my profile || Удалить мой профиль || حذف ملفي
+Delete your profile? || Удалить профиль? || حذف ملفك؟
+This removes your profile, availability, requests and notifications for good, and reopens any roles you're locked on. Producers on those shoots are told. You can sign in again later and start fresh. || Это навсегда удалит ваш профиль, доступность, запросы и уведомления и снова откроет роли, на которые вас утвердили. Продюсеров этих съёмок уведомят. Позже вы сможете войти снова и начать заново. || يحذف هذا ملفك وأيام توفّرك وطلباتك وإشعاراتك نهائيًا، ويعيد فتح أي أدوار أنت مؤكَّد فيها. يُبلَّغ منتجو تلك التصويرات. يمكنك الدخول لاحقًا والبدء من جديد.
+Notifications || Уведомления || الإشعارات
+Nothing yet. || Пока ничего. || لا شيء بعد.
+Open project || Открыть проект || فتح المشروع
+emailed || отправлено на почту || أُرسل بالبريد
+in app only || только в приложении || داخل التطبيق فقط
+Role match || Подходящая роль || دور مطابق
+Update || Обновление || تحديث
+Invite || Приглашение || دعوة
+New term || Новый семестр || فصل جديد
+Note || Заметка || ملاحظة
+Switch sample person || Сменить тестового пользователя || تبديل الشخص التجريبي
+Sign in to Crew Call || Вход в Crew Call || تسجيل الدخول إلى Crew Call
+Continue with Microsoft (LFS) || Войти через Microsoft (LFS) || المتابعة بحساب Microsoft ‏(LFS)
+Email me a sign-in link || Прислать ссылку для входа || أرسل لي رابط الدخول
+or, if you were invited || или, если вас пригласили || أو إذا تمت دعوتك
+Prototype: sign in as a sample person || Прототип: войти как тестовый пользователь || نموذج أولي: ادخل كشخص تجريبي
+By signing in you agree to the || Входя, вы соглашаетесь с || بتسجيل الدخول فإنك توافق على
+LFS students and staff sign in with their LFS Microsoft account. Anyone without an LFS email, such as a freelance HMU artist, needs an invite from an LFS member first. || Студенты и сотрудники LFS входят через учётную запись Microsoft LFS. Тем, у кого нет почты LFS, например фрилансерам-гримёрам, сначала нужно приглашение от участника LFS. || يدخل طلاب LFS وموظفوها بحساب Microsoft الخاص بـ LFS. ومن ليس لديه بريد LFS، مثل فناني الشعر والمكياج المستقلين، يحتاج أولًا إلى دعوة من عضو في LFS.
+In the live app this opens the LFS Microsoft login. Try an email or sample person below. || В рабочей версии здесь откроется вход Microsoft LFS. Попробуйте почту или тестового пользователя ниже. || في التطبيق الفعلي يفتح هذا تسجيل دخول Microsoft الخاص بـ LFS. جرّب بريدًا أو شخصًا تجريبيًا أدناه.
+Signed out || Вы вышли || تم تسجيل الخروج
+Sign in to find crew || Войдите, чтобы найти людей || سجّل الدخول للبحث عن طاقم
+Crew profiles, availability and contact details are only visible to signed-in LFS members and invited guests. || Профили, доступность и контакты видны только участникам LFS, вошедшим в систему, и приглашённым гостям. || لا تظهر ملفات الطاقم وأيام التوفّر وبيانات التواصل إلا لأعضاء LFS المسجّلين والضيوف المدعوين.
+Sign in to see your shoots || Войдите, чтобы увидеть свои съёмки || سجّل الدخول لرؤية تصويراتك
+Sign in to set up your profile || Войдите, чтобы заполнить профиль || سجّل الدخول لإعداد ملفك
+Add your roles, kit and free days so producers can find you. || Добавьте роли, технику и свободные дни, чтобы продюсеры могли вас найти. || أضف أدوارك ومعداتك وأيام توفّرك ليجدك المنتجون.
+Sign in to see Develop || Войдите, чтобы открыть «Разработку» || سجّل الدخول لرؤية التطوير
+Scripts and producer pitches are only visible to signed-in LFS members, to protect writers' and producers' ideas. || Сценарии и питчи продюсеров видны только участникам LFS, вошедшим в систему, — чтобы защитить идеи сценаристов и продюсеров. || لا تظهر السيناريوهات وأفكار المنتجين إلا لأعضاء LFS المسجّلين، حمايةً لأفكار الكتّاب والمنتجين.
+Sign in to see Release || Войдите, чтобы открыть «Прокат» || سجّل الدخول لرؤية العرض
+Wrapped films looking for posters, trailers, press kits and festival plans. Only visible to signed-in members, to protect unreleased films. || Готовые фильмы, которым нужны постеры, трейлеры, пресс-киты и фестивальная стратегия. Видно только вошедшим участникам — чтобы защитить невыпущенные фильмы. || أفلام منتهية تبحث عن ملصقات وإعلانات ترويجية وملفات صحفية وخطط مهرجانات. لا تظهر إلا للأعضاء المسجّلين حمايةً للأفلام غير المعروضة.
+Admins only || Только для админов || للمشرفين فقط
+Sign in with an admin account to manage Crew Call. || Войдите с учётной записью админа, чтобы управлять Crew Call. || سجّل الدخول بحساب مشرف لإدارة Crew Call.
+Sign in to post a project. || Войдите, чтобы опубликовать проект. || سجّل الدخول لنشر مشروع.
+Sign in to report a problem. || Войдите, чтобы сообщить о проблеме. || سجّل الدخول للإبلاغ عن مشكلة.
+Add Crew Call to your home screen || Добавьте Crew Call на главный экран || أضف Crew Call إلى شاشتك الرئيسية
+It opens full screen like an app, with no app store needed. || Открывается на весь экран, как приложение, без магазина приложений. || يفتح بملء الشاشة مثل التطبيق، دون الحاجة إلى متجر تطبيقات.
+Open Crew Call in Safari. || Откройте Crew Call в Safari. || افتح Crew Call في Safari.
+Tap Share, the square with an arrow. || Нажмите «Поделиться» — квадрат со стрелкой. || اضغط «مشاركة»، المربع الذي فيه سهم.
+Tap Add to Home Screen, then Add. || Нажмите «На экран „Домой“», затем «Добавить». || اضغط «إضافة إلى الشاشة الرئيسية» ثم «إضافة».
+Open Crew Call in Chrome. || Откройте Crew Call в Chrome. || افتح Crew Call في Chrome.
+Tap the three-dot menu. || Нажмите меню с тремя точками. || اضغط قائمة النقاط الثلاث.
+Tap Add to Home screen or Install app. || Нажмите «Добавить на главный экран» или «Установить приложение». || اضغط «إضافة إلى الشاشة الرئيسية» أو «تثبيت التطبيق».
+About || О чём || بخصوص
+What's wrong || Что не так || ما المشكلة
+What happened || Что произошло || ماذا حدث
+Dates, what was said or done, anything the admins need to know || Даты, что было сказано или сделано — всё, что нужно знать админам || التواريخ، وما قيل أو فُعل، وأي شيء يحتاج المشرفون معرفته
+Send report || Отправить жалобу || إرسال البلاغ
+If someone is in danger right now, call 999. || Если кому-то прямо сейчас угрожает опасность, звоните 999. || إذا كان أحد في خطر الآن، اتصل بالرقم 999.
+For anything serious, also tell LFS Student Services. Crew Call admins are students, not the school. || О серьёзных случаях также сообщите в LFS Student Services. Админы Crew Call — студенты, а не школа. || في الأمور الجدية، أبلغ أيضًا خدمات الطلاب في LFS. مشرفو Crew Call طلاب وليسوا المدرسة.
+About anything: a shoot that isn't listed, something that happened on set, or a problem with Crew Call. This goes to Crew Call's admins only. The person or crew you report aren't told who reported them. || О чём угодно: о съёмке, которой нет в списке, о том, что случилось на площадке, или о проблеме с Crew Call. Это увидят только админы Crew Call. Человеку или группе, на которых вы жалуетесь, не скажут, кто сообщил. || عن أي شيء: تصوير غير مدرج، أو أمر حدث في موقع التصوير، أو مشكلة في Crew Call. يصل هذا إلى مشرفي Crew Call فقط. لا يُخبَر الشخص أو الطاقم المُبلَّغ عنه بهوية المُبلِّغ.
+. This goes to Crew Call's admins only. The person or crew you report aren't told who reported them. || . Это увидят только админы Crew Call. Человеку или группе, на которых вы жалуетесь, не скажут, кто сообщил. || . يصل هذا إلى مشرفي Crew Call فقط. لا يُخبَر الشخص أو الطاقم المُبلَّغ عنه بهوية المُبلِّغ.
+Report sent to the admins. Thank you. || Жалоба отправлена админам. Спасибо. || أُرسل البلاغ إلى المشرفين. شكرًا لك.
+Safety on set || Безопасность на площадке || السلامة في موقع التصوير
+Harassment or bullying || Домогательства или травля || تحرّش أو تنمّر
+Discrimination || Дискриминация || تمييز
+Inappropriate content || Неуместный контент || محتوى غير لائق
+Spam or fake profile || Спам или фейковый профиль || رسائل مزعجة أو ملف مزيّف
+Something else || Другое || أمر آخر
+Who runs Crew Call || Кто ведёт Crew Call || من يدير Crew Call
+What we keep || Что мы храним || ما الذي نحتفظ به
+Who can see it || Кто это видит || من يمكنه رؤيته
+What we don't do || Чего мы не делаем || ما الذي لا نفعله
+How long we keep it || Как долго мы храним данные || مدة الاحتفاظ
+Your rights || Ваши права || حقوقك
+Your name, LFS email, course and cohort code || Ваше имя, почта LFS, программа и код потока || اسمك وبريد LFS والبرنامج ورمز الدفعة
+The roles, kit, credits and skills you add, your bio and reel link || Роли, техника, титры и навыки, которые вы добавляете, ваше описание и ссылка на шоурил || الأدوار والمعدات والأعمال السابقة والمهارات التي تضيفها، ونبذتك ورابط الريل
+The days you mark as free, the shoots you post, and your crew requests and messages || Дни, отмеченные как свободные, опубликованные съёмки, ваши запросы и сообщения || الأيام التي تحددها متاحة، والتصويرات التي تنشرها، وطلباتك ورسائلك
+Reports you send, and admin actions taken on them || Ваши жалобы и действия админов по ним || البلاغات التي ترسلها، والإجراءات التي يتخذها المشرفون بشأنها
+Nothing about people is visible to anyone who isn't signed in. The calendar shows only shoot titles and dates. || Тем, кто не вошёл, ничего о людях не видно. Календарь показывает только названия и даты съёмок. || لا يظهر شيء عن الأشخاص لغير المسجّلين. يعرض التقويم عناوين التصويرات وتواريخها فقط.
+Signed-in members see your profile, unless you hide it. || Участники, вошедшие в систему, видят ваш профиль, если вы его не скрыли. || يرى الأعضاء المسجّلون ملفك ما لم تخفه.
+Your email is only shown if you choose to share it, or to the producer and director of a shoot you're locked onto. || Ваша почта видна, только если вы решили ею поделиться, или продюсеру и режиссёру съёмки, где вас утвердили. || لا يظهر بريدك إلا إذا اخترت مشاركته، أو لمنتج ومخرج التصوير المؤكَّد لك.
+Script links are only shown to people the writer attaches. || Ссылки на сценарии видят только те, кого сценарист взял в команду. || لا تظهر روابط السيناريو إلا لمن يضمّهم الكاتب.
+Reports are only seen by admins with the Reports and privacy permission. || Жалобы видят только админы с правом «Жалобы и конфиденциальность». || لا يرى البلاغات إلا المشرفون الذين لديهم صلاحية البلاغات والخصوصية.
+No adverts, no tracking cookies, and we never sell or share your data. Data is stored with Supabase in their London region. || Никакой рекламы, никаких отслеживающих cookie, и мы никогда не продаём и не передаём ваши данные. Данные хранятся в Supabase в лондонском регионе. || لا إعلانات ولا ملفات تعريف تتبّع، ولا نبيع بياناتك أو نشاركها أبدًا. تُخزَّن البيانات لدى Supabase في منطقة لندن.
+You can download everything Crew Call holds about you from My profile, correct it, or delete it. If you're unhappy with how your data is handled, email us first. You can also complain to the || Вы можете скачать всё, что Crew Call хранит о вас, в разделе «Мой профиль», исправить или удалить это. Если вас не устраивает, как обрабатываются ваши данные, сначала напишите нам. Вы также можете пожаловаться в || يمكنك تنزيل كل ما يحتفظ به Crew Call عنك من ملفك الشخصي، وتصحيحه أو حذفه. إذا لم تكن راضيًا عن طريقة التعامل مع بياناتك، راسلنا أولًا. ويمكنك أيضًا تقديم شكوى إلى
+Information Commissioner's Office || Управление комиссара по информации (ICO) || مكتب مفوض المعلومات (ICO)
+Downloaded your data || Ваши данные скачаны || تم تنزيل بياناتك
+Links need to start with https:// || Ссылки должны начинаться с https:// || يجب أن تبدأ الروابط بـ https://
+Pick at least one role you're looking for. || Выберите хотя бы одну роль, которую ищете. || اختر دورًا واحدًا على الأقل تبحث عنه.
+Pick at least one role. || Выберите хотя бы одну роль. || اختر دورًا واحدًا على الأقل.
+Pick at least one thing you need help with. || Выберите хотя бы одно, с чем нужна помощь. || اختر شيئًا واحدًا على الأقل تحتاج المساعدة فيه.
+Add at least one location. || Добавьте хотя бы одну локацию. || أضف موقعًا واحدًا على الأقل.
+Add at least one role. || Добавьте хотя бы одну роль. || أضف دورًا واحدًا على الأقل.
+Add at least one shoot date. || Добавьте хотя бы одну дату съёмки. || أضف تاريخ تصوير واحدًا على الأقل.
+End date is before the start || Дата окончания раньше начала || تاريخ النهاية قبل البداية
+Pick your course and cohort. || Выберите программу и поток. || اختر البرنامج والدفعة.
+Saved || Сохранено || تم الحفظ
+Removed || Удалено || تمت الإزالة
+Deleted || Удалено || تم الحذف
+Restored || Восстановлено || تمت الاستعادة
+Pitch posted || Питч опубликован || نُشرت الفكرة
+Script posted || Сценарий опубликован || نُشر السيناريو
+Film listed || Фильм добавлен || أُضيف الفيلم
+Request withdrawn || Запрос отозван || سُحب الطلب
+Declined. They've been told politely. || Отклонено. Человеку вежливо сообщили. || تم الرفض. أُبلغ الشخص بلطف.
+That role is already filled || Эта роль уже занята || هذا الدور مشغول بالفعل
+That day has passed || Этот день уже прошёл || مضى هذا اليوم
+You're booked on a shoot that day || В этот день у вас съёмка || أنت محجوز في تصوير ذلك اليوم
+Add your roles to your profile first || Сначала добавьте роли в профиль || أضف أدوارك إلى ملفك أولًا
+Shoot form filled in from your post. Add the dates and roles. || Форма съёмки заполнена из вашей публикации. Добавьте даты и роли. || مُلئ نموذج التصوير من منشورك. أضف التواريخ والأدوار.
+Prototype: the feed goes live with the real app. Use Download .ics for now. || Прототип: подписка заработает в рабочей версии. Пока используйте «Скачать .ics». || نموذج أولي: يعمل الاشتراك مع التطبيق الفعلي. استخدم «تنزيل ‎.ics» حاليًا.
+Downloaded. This adds the shoot as it is now. To get later changes automatically, use Sync calendar. || Скачано. Съёмка добавлена в текущем виде. Чтобы получать изменения автоматически, используйте «Синхронизировать календарь». || تم التنزيل. يضيف هذا التصوير كما هو الآن. لتلقّي التغييرات اللاحقة تلقائيًا، استخدم مزامنة التقويم.
+Only the producer or director can edit this project || Редактировать проект могут только продюсер или режиссёр || لا يعدّل هذا المشروع إلا المنتج أو المخرج
+Someone already uses that email. || Эта почта уже используется. || هذا البريد مستخدم بالفعل.
+WhatsApp invite links start with https://chat.whatsapp.com/ || Ссылки-приглашения WhatsApp начинаются с https://chat.whatsapp.com/ || تبدأ روابط دعوة WhatsApp بـ https://chat.whatsapp.com/
+One of the key links isn't a web address. || Одна из ссылок — не веб-адрес. || أحد الروابط المهمة ليس عنوان ويب.
+Add the producer's email so they can sign in and manage the project. || Добавьте почту продюсера, чтобы он мог войти и управлять проектом. || أضف بريد المنتج ليتمكن من الدخول وإدارة المشروع.
+Invite revoked || Приглашение отозвано || أُلغيت الدعوة
+Notes saved || Заметки сохранены || حُفظت الملاحظات
+Report closed || Жалоба закрыта || أُغلق البلاغ
+Backup restored || Резервная копия восстановлена || استُعيدت النسخة الاحتياطية
+That file isn't a Crew Call backup || Этот файл — не резервная копия Crew Call || هذا الملف ليس نسخة احتياطية من Crew Call
+Tick at least one permission || Отметьте хотя бы одно право || حدّد صلاحية واحدة على الأقل
+That's already their email. || Это уже их почта. || هذا بريده بالفعل.
+No more term dates set || Даты следующих семестров не заданы || لا توجد تواريخ فصول أخرى
+Profile deleted || Профиль удалён || حُذف الملف
+You own Crew Call. Transfer ownership in Admin before deleting your profile || Вы владелец Crew Call. Передайте владение в разделе «Админ», прежде чем удалять профиль || أنت مالك Crew Call. انقل الملكية من الإدارة قبل حذف ملفك
+Restore this backup? || Восстановить эту резервную копию? || استعادة هذه النسخة الاحتياطية؟
+Start a fresh checklist? || Начать новый чек-лист? || بدء قائمة تحقق جديدة؟
+Language || Язык || اللغة
+Director || Режиссёр || الإخراج
+Producer || Продюсер || الإنتاج
+Screenwriter || Сценарист || كتابة السيناريو
+1st AD || Первый ассистент режиссёра || مساعد المخرج الأول
+2nd AD || Второй ассистент режиссёра || مساعد المخرج الثاني
+Script Supervisor || Скрипт-супервайзер || مشرف الاستمرارية (سكريبت)
+Runner || Ранер || مساعد إنتاج (رانر)
+Line Producer || Линейный продюсер || المنتج المنفذ الميداني (لاين بروديوسر)
+Production Manager || Директор производства || مدير الإنتاج
+Production Coordinator || Координатор производства || منسق الإنتاج
+Location Manager || Локейшн-менеджер || مدير مواقع التصوير
+DoP || Оператор-постановщик || مدير التصوير
+Camera Operator || Оператор камеры || مشغّل الكاميرا
+1st AC / Focus Puller || Первый ассистент оператора / фокус-пуллер || مساعد الكاميرا الأول / ضابط البؤرة
+2nd AC || Второй ассистент оператора || مساعد الكاميرا الثاني
+DIT || DIT || فني البيانات الرقمية (DIT)
+Stills / BTS || Фотограф на площадке / BTS || مصوّر فوتوغرافي / كواليس
+Gaffer || Гаффер (бригадир осветителей) || رئيس الإضاءة (غافر)
+Spark || Осветитель || فني إضاءة
+Key Grip || Ки-грип (бригадир грипов) || رئيس فنيي المعدات (كي غريب)
+Grip || Грип || فني معدات (غريب)
+Sound Recordist || Звукорежиссёр на площадке || مهندس الصوت الميداني
+Boom Operator || Бум-оператор || مشغّل ذراع الميكروفون (بوم)
+Sound Designer || Саунд-дизайнер || مصمّم الصوت
+Composer || Композитор || المؤلف الموسيقي
+Production Designer || Художник-постановщик || مصمّم الإنتاج
+Art Director || Арт-директор || المدير الفني
+Costume || Костюмы || الأزياء
+Hair & Make-up || Грим и причёски || الشعر والمكياج
+Editor || Монтажёр || المونتير
+Colourist || Колорист || مصحّح الألوان
+VFX || VFX || المؤثرات البصرية (VFX)
+Unit Publicist || PR-менеджер проекта || مسؤول الإعلام للفيلم
+Social Media & BTS || Соцсети и BTS || التواصل الاجتماعي والكواليس
+Key Art & Poster || Ключевой арт и постер || التصميم الرئيسي والملصق
+Festival Strategy || Фестивальная стратегия || استراتيجية المهرجانات
+Actor || Актёр || ممثل
+Script Editor || Script-редактор || محرّر السيناريو
+Direction & production || Режиссура и продюсирование || الإخراج والإنتاج
+Production office || Производственный офис || مكتب الإنتاج
+Camera || Камера || الكاميرا
+Lighting & grip || Свет и грип || الإضاءة والمعدات
+Sound || Звук || الصوت
+Art & costume || Художники и костюмы || الديكور والأزياء
+Marketing || Маркетинг || التسويق
+Cast || Актёры || الممثلون
+Lenses || Объективы || العدسات
+Lighting || Свет || الإضاءة
+Other || Другое || أخرى
+Term 1 || Семестр 1 || الفصل 1
+Term 2 || Семестр 2 || الفصل 2
+Term 3 || Семестр 3 || الفصل 3
+Term 4 || Семестр 4 || الفصل 4
+Term 5 || Семестр 5 || الفصل 5
+Graduation term || Выпускной семестр || فصل التخرّج
+Screenwriting || Сценарное мастерство || كتابة السيناريو
+Producing || Продюсирование || الإنتاج
+Film Marketing || Киномаркетинг || تسويق الأفلام
+Alumni || Выпускники || الخرّيجون
+Guest || Гость || ضيف
+Guests || Гости || الضيوف
+MA Filmmaking || MA Filmmaking || ماجستير صناعة الأفلام
+MA Screenwriting || MA Screenwriting || ماجستير كتابة السيناريو
+MA Film Producing || MA Film Producing || ماجستير إنتاج الأفلام
+MA Film Marketing || MA Film Marketing || ماجستير تسويق الأفلام
+External || Внешний || خارجي
+Directing || Режиссура || الإخراج
+Cinematography || Операторское мастерство || التصوير السينمائي
+Production Design || Художественная постановка || تصميم الإنتاج
+Documentary || Документальный || وثائقي
+Short fiction || Игровой короткий метр || فيلم روائي قصير
+Music video || Музыкальный клип || فيديو موسيقي
+Commercial || Реклама || إعلان تجاري
+Experimental || Экспериментальный || تجريبي
+Graduation film || Дипломный фильм || فيلم التخرّج
+Festival strategy || Фестивальная стратегия || استراتيجية المهرجانات
+Poster & key art || Постер и ключевой арт || الملصق والتصميم الرئيسي
+Trailer || Трейлер || إعلان ترويجي
+Socials & BTS || Соцсети и BTS || التواصل الاجتماعي والكواليس
+Press kit || Пресс-кит || الملف الصحفي
+Stills || Фотокадры || صور ثابتة
+Mon || Пн || الاثنين
+Tue || Вт || الثلاثاء
+Wed || Ср || الأربعاء
+Thu || Чт || الخميس
+Fri || Пт || الجمعة
+Sat || Сб || السبت
+Sun || Вс || الأحد
+Monday || Понедельник || الاثنين
+Tuesday || Вторник || الثلاثاء
+Wednesday || Среда || الأربعاء
+Thursday || Четверг || الخميس
+Friday || Пятница || الجمعة
+Saturday || Суббота || السبت
+Sunday || Воскресенье || الأحد
+January || Январь || يناير
+February || Февраль || فبراير
+March || Март || مارس
+April || Апрель || أبريل
+May || Май || مايو
+June || Июнь || يونيو
+July || Июль || يوليو
+August || Август || أغسطس
+September || Сентябрь || سبتمبر
+October || Октябрь || أكتوبر
+November || Ноябрь || نوفمبر
+December || Декабрь || ديسمبر
+Upcoming || Скоро || قادم
+Wrapped || Снято || انتهى التصوير
+Live || Идёт || جارٍ الآن
+Now || Сейчас || الآن
+Right now || Прямо сейчас || في هذه اللحظة
+Due now || Пора || مستحق الآن
+Starts next term || Начнётся в следующем семестре || يبدأ الفصل القادم
+studying now || учится сейчас || يدرس حاليًا
+Graduation term now || Сейчас выпускной семестр || في فصل التخرّج حاليًا
+Guest, not an LFS student || Гость, не студент LFS || ضيف، ليس طالبًا في LFS
+Guests don't have a course, term or cohort. || У гостей нет курса, семестра или потока. || ليس للضيوف برنامج أو فصل أو دفعة.
+A new LFS student || Новый студент LFS || طالب جديد في LFS
+Starts with an empty profile. || Начинает с пустого профиля. || يبدأ بملف فارغ.
+main contact || основной контакт || جهة الاتصال الرئيسية
+locked || заблокировано || مقفل
+fixed || фиксировано || ثابت
+automatic || автоматически || تلقائي
+view only || только просмотр || للعرض فقط
+View only || Только просмотр || للعرض فقط
+Run Crew Call without touching code. Changes apply for everyone straight away. You're the owner. || Управляйте Crew Call без кода. Изменения сразу применяются для всех. Вы владелец. || أدِر Crew Call دون لمس الشيفرة. تُطبَّق التغييرات على الجميع فورًا. أنت المالك.
+Run Crew Call without touching code. Changes apply for everyone straight away. You're an admin. || Управляйте Crew Call без кода. Изменения сразу применяются для всех. Вы админ. || أدِر Crew Call دون لمس الشيفرة. تُطبَّق التغييرات على الجميع فورًا. أنت مشرف.
+Admin sections || Разделы админки || أقسام الإدارة
+Sections || Разделы || الأقسام
+Access || Доступ || الصلاحيات
+Handover || Передача дел || التسليم
+People || Люди || الأشخاص
+Projects || Проекты || المشاريع
+Terms and cohorts || Семестры и потоки || الفصول والدفعات
+Terms and lists || Семестры и списки || الفصول والقوائم
+Email settings || Настройки почты || إعدادات البريد
+Reports || Жалобы || البلاغات
+Reports and privacy || Жалобы и конфиденциальность || البلاغات والخصوصية
+Privacy and data || Конфиденциальность и данные || الخصوصية والبيانات
+Privacy || Конфиденциальность || الخصوصية
+Activity || Журнал || السجل
+Admin activity || Журнал админов || سجل المشرفين
+Admins and permissions || Админы и права || المشرفون والصلاحيات
+Admin access || Доступ админов || صلاحيات المشرفين
+Add an admin || Добавить админа || إضافة مشرف
+Make admin || Сделать админом || تعيين مشرفًا
+Owner || Владелец || المالك
+Every admin || Все права || كل الصلاحيات
+Can't be removed || Нельзя удалить || لا يمكن إزالته
+Make or remove admins, remove guests, revoke invites and change sign-in emails || Назначать и снимать админов, удалять гостей, отзывать приглашения и менять почту для входа || تعيين المشرفين وإزالتهم، وإزالة الضيوف، وإلغاء الدعوات، وتغيير بريد الدخول
+Edit, archive or delete any project || Редактировать, архивировать или удалять любой проект || تعديل أي مشروع أو أرشفته أو حذفه
+Term dates, courses and cohort codes, fixing someone's cohort, roles and project types || Даты семестров, курсы и коды потоков, исправление потока, роли и типы проектов || تواريخ الفصول والبرامج ورموز الدفعات، وتصحيح دفعة شخص، والأدوار وأنواع المشاريع
+Sending address, help address, school mass email alias and digest timing || Адрес отправки, адрес помощи, школьная рассылка и время сводки || عنوان الإرسال وعنوان المساعدة وعنوان البريد الجماعي للمدرسة وتوقيت الملخص
+Read and act on reports, delete old profiles, download and restore backups || Читать жалобы и реагировать, удалять старые профили, скачивать и восстанавливать резервные копии || قراءة البلاغات والتصرف بشأنها، وحذف الملفات القديمة، وتنزيل النسخ الاحتياطية واستعادتها
+Pick someone with an LFS email who has signed in, and tick what they can do. Guests can't be admins. || Выберите человека с почтой LFS, который уже входил, и отметьте, что ему можно. Гости не могут быть админами. || اختر شخصًا لديه بريد LFS سبق أن سجّل الدخول، وحدّد ما يمكنه فعله. لا يمكن للضيوف أن يكونوا مشرفين.
+You need the People permission to add admins. || Чтобы добавлять админов, нужно право «Люди». || تحتاج صلاحية «الأشخاص» لإضافة مشرفين.
+You need the People permission to change someone's email. || Чтобы менять чью-то почту, нужно право «Люди». || تحتاج صلاحية «الأشخاص» لتغيير بريد أحدهم.
+The owner has every permission, can't be removed, and is the only person who can hand ownership on. They should also hold the Crew Call Gmail login. || У владельца все права, его нельзя удалить, и только он может передать владение. У него же должен быть логин от Gmail Crew Call. || للمالك كل الصلاحيات، ولا يمكن إزالته، وهو الوحيد الذي يستطيع نقل الملكية. وينبغي أن يحتفظ أيضًا ببيانات دخول Gmail الخاص بـ Crew Call.
+Transfer ownership || Передать владение || نقل الملكية
+Transfer || Передать || نقل
+New owner || Новый владелец || المالك الجديد
+Transfer ownership to the person who will hold the Crew Call Gmail login. || Передайте владение тому, у кого будет логин от Gmail Crew Call. || انقل الملكية إلى من سيحتفظ ببيانات دخول Gmail الخاص بـ Crew Call.
+You'll stay an admin with every permission until someone removes you. || Вы останетесь админом со всеми правами, пока вас не удалят. || ستبقى مشرفًا بكل الصلاحيات حتى يزيلك أحد.
+Owners so far || Владельцы || المالكون حتى الآن
+Added automatically when ownership is transferred. || Добавляются автоматически при передаче владения. || يُضافون تلقائيًا عند نقل الملكية.
+Change a sign-in email || Сменить почту для входа || تغيير بريد الدخول
+For a new address, a typo or a name change. Students must use an LFS address. The person is told, and their projects follow them. || При новом адресе, опечатке или смене имени. Студенты должны использовать адрес LFS. Человеку сообщат, а его проекты останутся за ним. || لعنوان جديد أو خطأ إملائي أو تغيير اسم. يجب أن يستخدم الطلاب عنوان LFS. يُبلَّغ الشخص وتنتقل مشاريعه معه.
+In the live app, a code goes to the new address and the change only happens once it's entered. || В рабочей версии на новый адрес придёт код, и смена произойдёт только после его ввода. || في التطبيق الفعلي يُرسل رمز إلى العنوان الجديد ولا يتم التغيير إلا بعد إدخاله.
+Person || Человек || الشخص
+New email || Новая почта || البريد الجديد
+Change || Сменить || تغيير
+Members || Участники || الأعضاء
+Status || Статус || الحالة
+Edit the options people pick from. Removing an item doesn't change existing projects or profiles. || Редактируйте варианты для выбора. Удаление пункта не меняет существующие проекты и профили. || عدّل الخيارات التي يختار منها الناس. حذف عنصر لا يغيّر المشاريع أو الملفات الحالية.
+Lists || Списки || القوائم
+Crew roles || Роли в группе || أدوار الطاقم
+New role, e.g. Drone Operator || Новая роль, напр. оператор дрона || دور جديد، مثلًا: مشغّل درون
+Project types || Типы проектов || أنواع المشاريع
+Add a project type || Добавить тип проекта || إضافة نوع مشروع
+Add a type || Добавить тип || إضافة نوع
+Terms || Семестры || الفصول
+Add a term || Добавить семестр || إضافة فصل
+Add term || Добавить семестр || إضافة فصل
+Add || Добавить || إضافة
+Term dates || Даты семестров || تواريخ الفصول
+Term name || Название семестра || اسم الفصل
+e.g. Autumn 2029 || напр. Осень 2029 || مثلًا: خريف 2029
+Starts || Начало || يبدأ
+Ends || Конец || ينتهي
+From the LFS key dates. Everyone moves up one term when each term starts, and gets a notification to check it. Dates lock once a term has started. || По ключевым датам LFS. С началом каждого семестра все переходят на следующий и получают уведомление проверить это. Даты блокируются, когда семестр начался. || من التواريخ الرئيسية لـ LFS. ينتقل الجميع فصلًا واحدًا عند بدء كل فصل ويتلقّون إشعارًا للتحقق. تُقفل التواريخ بعد بدء الفصل.
+LFS key dates || Ключевые даты LFS || التواريخ الرئيسية لـ LFS
+Check next year's term dates against the LFS key dates page. || Сверьте даты семестров следующего года со страницей ключевых дат LFS. || تحقّق من تواريخ فصول العام القادم مقابل صفحة التواريخ الرئيسية لـ LFS.
+Courses and cohort codes || Курсы и коды потоков || البرامج ورموز الدفعات
+Cohort codes || Коды потоков || رموز الدفعات
+Cohorts || Потоки || الدفعات
+Cohort number || Номер потока || رقم الدفعة
+Code prefix, optional || Префикс кода, необязательно || بادئة الرمز، اختيارية
+Every term || Каждый семестр || كل فصل
+Every September, one year || Каждый сентябрь, один год || كل سبتمبر، سنة واحدة
+Everyone picks their cohort once. Crew Call works out their term from it every term, so nobody has to update their profile. If the numbering ever drifts, correct one cohort here and everyone else follows. || Каждый выбирает поток один раз. Crew Call сам вычисляет семестр каждый семестр, так что никому не нужно обновлять профиль. Если нумерация собьётся, исправьте здесь один поток, и остальные подстроятся. || يختار الجميع دفعتهم مرة واحدة. يحسب Crew Call فصلهم منها كل فصل، فلا يحتاج أحد إلى تحديث ملفه. إذا انحرف الترقيم، صحّح دفعة واحدة هنا وسيتبعها الباقون.
+Cohort codes are worked out from each course. Edit them in || Коды потоков вычисляются из каждого курса. Редактируйте их в || تُحسب رموز الدفعات من كل برنامج. عدّلها في
+Fix someone's cohort || Исправить поток человека || تصحيح دفعة شخص
+For anyone repeating a term, intermitting or who picked the wrong code. Their term updates from the new cohort. || Для тех, кто повторяет семестр, берёт академический отпуск или выбрал не тот код. Семестр обновится по новому потоку. || لمن يعيد فصلًا أو يؤجّل الدراسة أو اختار رمزًا خاطئًا. يتحدّث فصله من الدفعة الجديدة.
+New cohort || Новый поток || الدفعة الجديدة
+People can change their cohort for the first || Сменить поток можно в течение первых || يمكن تغيير الدفعة خلال أول
+weeks of each term || недель каждого семестра || أسابيع من كل فصل
+now is MAF || сейчас MAF || حاليًا MAF
+Sender name || Имя отправителя || اسم المرسل
+Sending address || Адрес отправки || عنوان الإرسال
+Help and reply-to address || Адрес помощи и для ответов || عنوان المساعدة والرد
+School mass email alias || Школьный адрес рассылки || عنوان البريد الجماعي للمدرسة
+for announcements || для объявлений || للإعلانات
+Weekly digest day || День еженедельной сводки || يوم الملخص الأسبوعي
+Digest time || Время сводки || وقت الملخص
+Save email settings || Сохранить настройки почты || حفظ إعدادات البريد
+How it looks in an inbox || Как это выглядит во входящих || كيف يظهر في صندوق الوارد
+Reply to || Ответ на || الرد إلى
+Digest || Сводка || الملخص
+Announcements || Объявления || الإعلانات
+If you change the sending address || Если вы меняете адрес отправки || إذا غيّرت عنوان الإرسال
+Make an app password for it. || Создайте для него пароль приложения. || أنشئ كلمة مرور تطبيق له.
+In Supabase, open Authentication, then Emails, then SMTP settings, and swap in the new address and app password. || В Supabase откройте Authentication, затем Emails, затем SMTP settings и укажите новый адрес и пароль приложения. || في Supabase افتح Authentication ثم Emails ثم SMTP settings، وضع العنوان الجديد وكلمة مرور التطبيق.
+Save the new address here so the app and digest footer match. || Сохраните новый адрес здесь, чтобы приложение и подпись сводки совпадали. || احفظ العنوان الجديد هنا ليتطابق التطبيق وتذييل الملخص.
+Changing the help address or the alias needs nothing else. || Смена адреса помощи или рассылки больше ничего не требует. || تغيير عنوان المساعدة أو العنوان الجماعي لا يتطلب شيئًا آخر.
+View only. You need the Email settings permission to change these. || Только просмотр. Чтобы менять это, нужно право «Настройки почты». || للعرض فقط. تحتاج صلاحية «إعدادات البريد» لتغيير هذه.
+Mondays at 08:00, for people who turn it on || По понедельникам в 08:00 для тех, кто включил || أيام الاثنين الساعة 08:00، لمن يفعّله
+Anyone signed in can report a profile, project or script. Treat these as private. For anything involving safety, harassment or discrimination, pass it to LFS Student Services as well. Crew Call admins are students, not investigators. || Любой вошедший может пожаловаться на профиль, проект или сценарий. Относитесь к этому конфиденциально. Всё, что касается безопасности, домогательств или дискриминации, передавайте также в LFS Student Services. Админы Crew Call — студенты, а не следователи. || يمكن لأي مسجّل الإبلاغ عن ملف أو مشروع أو سيناريو. تعامل معها بسرية. وفي كل ما يتعلق بالسلامة أو التحرّش أو التمييز، أحِله أيضًا إلى خدمات الطلاب في LFS. مشرفو Crew Call طلاب وليسوا محقّقين.
+Open || Открытые || مفتوح
+Open reports || Открытые жалобы || البلاغات المفتوحة
+Open Reports || Открыть «Жалобы» || فتح البلاغات
+Open Access || Открыть «Доступ» || فتح الصلاحيات
+Open Email || Открыть «Почту» || فتح البريد
+Mark dealt with || Отметить как решённое || تحديد كمُعالَج
+What you did, for the record || Что вы сделали — для записи || ما الذي فعلته، للتوثيق
+Review || Проверить || مراجعة
+Old profiles || Старые профили || الملفات القديمة
+Alumni and guests are deleted after || Выпускники и гости удаляются через || يُحذف الخرّيجون والضيوف بعد
+Months || Месяцы || أشهر
+Send warning || Отправить предупреждение || إرسال تنبيه
+Backups || Резервные копии || النسخ الاحتياطية
+Download a backup (JSON) || Скачать резервную копию (JSON) || تنزيل نسخة احتياطية (JSON)
+Restore from a backup || Восстановить из резервной копии || الاستعادة من نسخة احتياطية
+Supabase's free plan doesn't back up your database, so the GitHub repository includes a nightly backup job (see docs/BACKUPS.md). You can also download a copy here at any time, and restore one if something goes wrong. || Бесплатный тариф Supabase не делает резервных копий базы, поэтому в репозитории GitHub есть ночное резервное копирование (см. docs/BACKUPS.md). Скачать копию можно и здесь в любой момент, а при проблемах — восстановить. || لا تنسخ خطة Supabase المجانية قاعدة بياناتك احتياطيًا، لذا يتضمن مستودع GitHub مهمة نسخ احتياطي ليلية (راجع docs/BACKUPS.md). ويمكنك أيضًا تنزيل نسخة من هنا في أي وقت، واستعادتها إذا حدث خطأ.
+Shown in the footer and when people sign in. It's a draft: ask LFS to check it before launch. || Показывается в подвале и при входе. Это черновик: попросите LFS проверить его до запуска. || يظهر في التذييل وعند تسجيل الدخول. إنه مسودة: اطلب من LFS مراجعته قبل الإطلاق.
+Read the privacy notice || Прочитать уведомление о конфиденциальности || اقرأ إشعار الخصوصية
+Read the || Прочитайте || اقرأ
+Export backup || Экспорт резервной копии || تصدير نسخة احتياطية
+Export all data (JSON) || Экспорт всех данных (JSON) || تصدير كل البيانات (JSON)
+Every change to admins, ownership, emails and settings, so the next owner can see what happened. || Все изменения админов, владения, почты и настроек — чтобы следующий владелец видел, что происходило. || كل تغيير على المشرفين والملكية والبريد والإعدادات، ليرى المالك التالي ما حدث.
+Handover checklist || Чек-лист передачи дел || قائمة التحقق للتسليم
+Work through this before the owner graduates. Ticks are shared, so successors can see what's been done. || Пройдите его до выпуска владельца. Отметки общие, так что преемники видят, что сделано. || أنجزها قبل تخرّج المالك. العلامات مشتركة ليرى الخلفاء ما أُنجز.
+Full handover document || Полный документ о передаче дел || وثيقة التسليم الكاملة
+Start a fresh checklist || Начать новый чек-лист || بدء قائمة تحقق جديدة
+Notes for the next owner || Заметки для следующего владельца || ملاحظات للمالك التالي
+Where the logins live, who to ask at school, anything that's broken || Где хранятся логины, к кому обращаться в школе, что сломано || أين بيانات الدخول، ومن تسأل في المدرسة، وأي شيء معطّل
+Save notes || Сохранить заметки || حفظ الملاحظات
+The accounts (outside the app) || Учётные записи (вне приложения) || الحسابات (خارج التطبيق)
+In the app || В приложении || داخل التطبيق
+Before you go || Перед уходом || قبل أن تغادر
+the Crew Call Gmail || Gmail Crew Call || Gmail الخاص بـ Crew Call
+Choose two successors, ideally from the intake below yours, so someone is always still at school. Make them admins. || Выберите двух преемников, лучше из потока младше вашего, чтобы кто-то всегда оставался в школе. Сделайте их админами. || اختر خليفتين، ويُفضَّل من الدفعة التي تليك، ليبقى أحد دائمًا في المدرسة. عيّنهما مشرفين.
+Tick the permissions each successor needs. Give at least one of them every permission. || Отметьте права, нужные каждому преемнику. Хотя бы одному дайте все права. || حدّد الصلاحيات التي يحتاجها كل خليفة. امنح أحدهما على الأقل كل الصلاحيات.
+Create the new Gmail and turn on 2-Step Verification. || Создайте новый Gmail и включите двухэтапную аутентификацию. || أنشئ Gmail جديدًا وفعّل التحقق بخطوتين.
+Gmail: change the password, then swap in the new owner's recovery phone and email and remove yours (Google Account, then Security). || Gmail: смените пароль, затем укажите резервный телефон и почту нового владельца и удалите свои (Аккаунт Google, затем Безопасность). || Gmail: غيّر كلمة المرور، ثم ضع هاتف وبريد الاسترداد للمالك الجديد واحذف بياناتك (حساب Google ثم الأمان).
+Gmail: make new 2-Step Verification backup codes and a new app password. Paste the new app password into Supabase (Authentication, then Emails, then SMTP settings). || Gmail: создайте новые резервные коды двухэтапной аутентификации и новый пароль приложения. Вставьте новый пароль приложения в Supabase (Authentication, затем Emails, затем SMTP settings). || Gmail: أنشئ رموزًا احتياطية جديدة للتحقق بخطوتين وكلمة مرور تطبيق جديدة. الصق كلمة مرور التطبيق الجديدة في Supabase ‏(Authentication ثم Emails ثم SMTP settings).
+GitHub and Supabase sign in with the Crew Call Gmail, and Vercel signs in with GitHub, so they all move with the Gmail. The new owner should sign in to each once to check. || GitHub и Supabase входят через Gmail Crew Call, а Vercel — через GitHub, поэтому всё переходит вместе с Gmail. Новому владельцу стоит один раз войти в каждый сервис для проверки. || يدخل GitHub وSupabase بـ Gmail الخاص بـ Crew Call، ويدخل Vercel عبر GitHub، فتنتقل كلها مع Gmail. ينبغي أن يسجّل المالك الجديد الدخول إلى كل منها مرة للتحقق.
+Share the new logins through a shared password manager folder, not by email or WhatsApp. || Передавайте новые логины через общую папку менеджера паролей, а не по почте или WhatsApp. || شارك بيانات الدخول الجديدة عبر مجلد مشترك في مدير كلمات المرور، لا عبر البريد أو WhatsApp.
+Check the help address and school mass email alias are still right. || Проверьте, что адрес помощи и школьный адрес рассылки актуальны. || تحقّق من أن عنوان المساعدة وعنوان البريد الجماعي للمدرسة ما زالا صحيحين.
+Check the nightly backups in GitHub Actions are green, and that the next owner can see them. || Проверьте, что ночные резервные копии в GitHub Actions зелёные и что следующий владелец их видит. || تحقّق من أن النسخ الاحتياطية الليلية في GitHub Actions ناجحة، وأن المالك التالي يستطيع رؤيتها.
+Check there are no open reports, and that the LFS safety contact is written in the notes below. || Проверьте, что открытых жалоб нет и что контакт LFS по безопасности записан в заметках ниже. || تحقّق من عدم وجود بلاغات مفتوحة، وأن جهة اتصال السلامة في LFS مكتوبة في الملاحظات أدناه.
+Export a backup and keep it somewhere the course team can reach. || Экспортируйте резервную копию и храните её там, где до неё доберётся команда курса. || صدّر نسخة احتياطية واحفظها حيث يمكن لفريق البرنامج الوصول إليها.
+Once your successors have signed in, remove graduating admins, including yourself. || Когда преемники войдут, удалите выпускающихся админов, включая себя. || بعد دخول خلفائك، أزل المشرفين المتخرّجين، بمن فيهم أنت.
+Write anything the next owner should know in the notes below. || Запишите всё, что нужно знать следующему владельцу, в заметках ниже. || اكتب كل ما ينبغي أن يعرفه المالك التالي في الملاحظات أدناه.
+Sees this page, the handover checklist and the activity log. || Видит эту страницу, чек-лист передачи дел и журнал. || يرى هذه الصفحة وقائمة التسليم وسجل النشاط.
+Crew Call || Crew Call || Crew Call
+LFS || LFS || LFS
+iPhone || iPhone || iPhone
+Android || Android || Android
+today || сегодня || اليوم
+yesterday || вчера || أمس
+Updated today || Обновлено сегодня || حُدّث اليوم
+Updated yesterday || Обновлено вчера || حُدّث أمس
+sent today || отправлено сегодня || أُرسل اليوم
+sent yesterday || отправлено вчера || أُرسل أمس
+Profile || Профиль || الملف الشخصي
+Free crew || Свободные люди || طاقم متاح
+Not set || Не указано || غير محدد
+None picked || Ничего не выбрано || لم يُختر شيء
+Sign-in email || Почта для входа || بريد الدخول
+all days || все дни || كل الأيام
+about the project || о проекте || عن المشروع
+to see who. || , чтобы увидеть кто. || لمعرفة من.
+Arrives || Приходит || يصل
+Booked on || Занят на || محجوز في
+No one with this role has marked these dates free yet. || Пока никто с этой ролью не отметил эти даты свободными. || لم يحدد أحد بهذا الدور هذه التواريخ متاحة بعد.
+am || утра || ص
+pm || дня || م
+Ask Student Services for the address || Адрес уточните в Student Services || اطلب العنوان من خدمات الطلاب
+Director: || Режиссёр: || المخرج:
+Festival strategy: || Фестивальная стратегия: || استراتيجية المهرجانات:
+no producer yet || продюсера пока нет || لا منتج بعد
+as || как || بصفة
+for || для || لـ
+to || для || إلى
+Admins with the People permission choose who has each level, in Access. Every admin can read newsletters and the history. || Админы с правом «Люди» выбирают, у кого какой уровень, в разделе «Доступ». Каждый админ может читать рассылки и историю. || يختار المشرفون الذين لديهم صلاحية «الأشخاص» من يملك كل مستوى، في قسم الصلاحيات. يمكن لكل مشرف قراءة النشرات والسجل.
+. Every admin can read newsletters and the history. || . Каждый админ может читать рассылки и историю. || . يمكن لكل مشرف قراءة النشرات والسجل.
+Change who has each level in || Изменить, у кого какой уровень, можно в || غيّر من يملك كل مستوى في
+Approve and send || Утвердить и отправить || الموافقة والإرسال
+Approve, schedule and send newsletters to everyone or a chosen group || Утверждать, планировать и отправлять рассылки всем или выбранной группе || الموافقة على النشرات وجدولتها وإرسالها للجميع أو لمجموعة مختارة
+Approve, schedule and send to everyone or a chosen group. || Утверждать, планировать и отправлять всем или выбранной группе. || الموافقة والجدولة والإرسال للجميع أو لمجموعة مختارة.
+Approved by || Утвердил(а) || وافق عليها
+Ask for approval || Отправить на утверждение || طلب الموافقة
+Asked for approval || Отправлено на утверждение || طُلبت الموافقة
+Blocks || Блоки || الكتل
+Button || Кнопка || زر
+Button text || Текст кнопки || نص الزر
+Cancel the schedule || Отменить расписание || إلغاء الجدولة
+Cancel the schedule to make changes. || Отмените расписание, чтобы внести изменения. || ألغِ الجدولة لإجراء تغييرات.
+Caption || Подпись || تعليق
+Changes save as you type. || Изменения сохраняются по мере ввода. || تُحفظ التغييرات أثناء الكتابة.
+Computer || Компьютер || الكمبيوتر
+Copy made || Копия создана || أُنشئت نسخة
+Date || Дата || التاريخ
+Delete this newsletter? || Удалить эту рассылку? || حذف هذه النشرة؟
+Describe the image || Опишите изображение || صِف الصورة
+Design newsletters, save drafts, send a test to yourself and ask for approval || Создавать рассылки, сохранять черновики, отправлять себе тест и просить утверждения || تصميم النشرات وحفظ المسودات وإرسال نسخة تجريبية لنفسك وطلب الموافقة
+Design newsletters, save drafts, send a test to yourself and ask for approval. || Создавать рассылки, сохранять черновики, отправлять себе тест и просить утверждения. || تصميم النشرات وحفظ المسودات وإرسال نسخة تجريبية لنفسك وطلب الموافقة.
+Develop posts || Публикации в «Разработке» || منشورات التطوير
+Divider || Разделитель || فاصل
+Draft || Черновик || مسودة
+Drafted by || Автор черновика || كتب المسودة
+Email me the Crew Call newsletter || Присылать мне рассылку Crew Call || أرسل لي نشرة Crew Call
+Everyone on Crew Call || Все в Crew Call || الجميع على Crew Call
+Filled in from Crew Call when it's sent. || Заполняется из Crew Call при отправке. || يُملأ من Crew Call عند الإرسال.
+Goes out || Выходит || يُرسل في
+Heading || Заголовок || عنوان
+Image || Изображение || صورة
+Image link || Ссылка на изображение || رابط الصورة
+Issue label || Метка выпуска || تسمية العدد
+Last edited by || Последним редактировал(а) || آخر تعديل بواسطة
+Leave a blank line between paragraphs. || Разделяйте абзацы пустой строкой. || اترك سطرًا فارغًا بين الفقرات.
+Link || Ссылка || رابط
+LFS students and staff (no guests) || Студенты и сотрудники LFS (без гостей) || طلاب LFS وموظفوها (دون ضيوف)
+Make a copy || Сделать копию || إنشاء نسخة
+New newsletter || Новая рассылка || نشرة جديدة
+Newsletter || Рассылка || النشرة
+Newsletter preview || Предпросмотр рассылки || معاينة النشرة
+Newsletter: draft || Рассылка: черновик || النشرة: مسودة
+Newsletter: send || Рассылка: отправка || النشرة: إرسال
+Newsletters || Рассылки || النشرات
+Opens when tapped || Открывается по нажатию || يفتح عند الضغط
+Phone || Телефон || الهاتف
+Preview || Предпросмотр || معاينة
+Preview line || Строка предпросмотра || سطر المعاينة
+Preview size || Размер предпросмотра || حجم المعاينة
+Release films || Фильмы в прокате || أفلام للعرض
+Schedule cancelled || Расписание отменено || أُلغيت الجدولة
+Scheduled || Запланировано || مجدولة
+Second approval || Второе утверждение || موافقة ثانية
+Needs a second admin to send || Для отправки нужен второй админ || تحتاج مشرفًا ثانيًا للإرسال
+Send back to draft || Вернуть в черновик || إعادة إلى المسودة
+Send me a test || Прислать мне тест || أرسل لي نسخة تجريبية
+Send newsletter || Отправить рассылку || إرسال النشرة
+Send now || Отправить сейчас || إرسال الآن
+Send to || Кому || إرسال إلى
+Sent || Отправлено || أُرسلت
+Sent by || Отправил(а) || أرسلها
+Sent newsletters can't be changed. Make a copy to reuse it. || Отправленные рассылки нельзя менять. Сделайте копию, чтобы использовать снова. || لا يمكن تغيير النشرات المرسلة. أنشئ نسخة لإعادة استخدامها.
+Sign-off || Подпись в конце || الختام
+Started a new newsletter || Начата новая рассылка || بدأت نشرة جديدة
+Subject line || Тема письма || سطر الموضوع
+Text || Текст || نص
+The draft is deleted for everyone. This can't be undone. || Черновик удалится у всех. Это нельзя отменить. || تُحذف المسودة لدى الجميع. لا يمكن التراجع عن ذلك.
+Time || Время || الوقت
+Untitled newsletter || Рассылка без названия || نشرة بلا عنوان
+Upcoming shoots || Ближайшие съёмки || التصويرات القادمة
+Waiting for approval || Ждёт утверждения || بانتظار الموافقة
+When this is on, the person who wrote or last edited a newsletter can't also send it, as long as another admin can. || Если включено, автор или последний редактор рассылки не может сам её отправить, если это может сделать другой админ. || عند التفعيل، لا يستطيع من كتب النشرة أو عدّلها أخيرًا أن يرسلها بنفسه، ما دام مشرف آخر يستطيع ذلك.
+Who controls the newsletter || Кто управляет рассылкой || من يتحكم في النشرة
+shown under the subject in most inboxes || показывается под темой в большинстве почтовых клиентов || يظهر تحت الموضوع في معظم صناديق البريد
+Add a subject line first || Сначала добавьте тему письма || أضف سطر الموضوع أولًا
+Add at least one block || Добавьте хотя бы один блок || أضف كتلة واحدة على الأقل
+Back to draft || Возвращено в черновик || أُعيدت إلى المسودة
+Newsletter deleted || Рассылка удалена || حُذفت النشرة
+Sent for approval || Отправлено на утверждение || أُرسلت للموافقة
+Newsletter sent to the school list || Рассылка отправлена по школьному списку || أُرسلت النشرة إلى قائمة المدرسة
+Second approval on || Второе утверждение включено || الموافقة الثانية مفعّلة
+Second approval off || Второе утверждение выключено || الموافقة الثانية معطّلة
+Cards || Карточки || بطاقات
+Table || Таблица || جدول
+Timeline || Таймлайн || خط زمني
+Crewed || Группа собрана || اكتمل الطاقم
+Developing || В разработке || قيد التطوير
+Aiming for || Цель || الهدف
+Paid || Оплачиваемая || مدفوع
+Paid work || Оплачиваемая работа || عمل مدفوع
+Paid opportunities || Оплачиваемые предложения || فرص مدفوعة
+Most of Crew Call is school shoots, which are in kind: you work for the credit, the experience and usually food and travel. This page is only for work that pays, posted by students, alumni and industry contacts. Every job shows its rate. || Большинство проектов в Crew Call — школьные съёмки без оплаты: вы работаете за титры, опыт и обычно еду и проезд. Эта страница — только для оплачиваемой работы, которую публикуют студенты, выпускники и контакты из индустрии. У каждой вакансии указана ставка. || معظم Crew Call تصويرات مدرسية بلا أجر نقدي: تعمل مقابل الاسم في التترات والخبرة، وعادةً الطعام والمواصلات. هذه الصفحة للأعمال المدفوعة فقط، ينشرها الطلاب والخرّيجون وجهات من الصناعة. يظهر الأجر في كل وظيفة.
+Check who you're working for before you agree. Crew Call admins don't vet jobs or handle money. If a job doesn't pay what it says, report it. || Прежде чем соглашаться, проверьте, на кого работаете. Админы Crew Call не проверяют вакансии и не занимаются деньгами. Если работа оплачивается не так, как обещано, пожалуйтесь. || تحقّق ممن ستعمل لديه قبل الموافقة. لا يدقّق مشرفو Crew Call الوظائف ولا يتعاملون بالمال. إذا لم تدفع وظيفة ما وعدت به، أبلغ عنها.
+School shoots are in kind: you work for the credit, the experience and usually food and travel. Paid jobs are under || Школьные съёмки — без оплаты: вы работаете за титры, опыт и обычно еду и проезд. Оплачиваемая работа — в разделе || التصويرات المدرسية بلا أجر نقدي: تعمل مقابل الاسم في التترات والخبرة، وعادةً الطعام والمواصلات. الوظائف المدفوعة في
+Only for work that pays. Unpaid or in-kind shoots go on Shoot. || Только оплачиваемая работа. Неоплачиваемые съёмки публикуйте в «Съёмках». || للأعمال المدفوعة فقط. التصويرات غير المدفوعة تُنشر في التصوير.
+Post a paid job || Опубликовать вакансию || نشر وظيفة مدفوعة
+Post job || Опубликовать || نشر الوظيفة
+Search job, company, role or place || Поиск по вакансии, компании, роли или месту || ابحث عن وظيفة أو شركة أو دور أو مكان
+Search jobs || Поиск вакансий || البحث في الوظائف
+Paid jobs for a role on your profile || Оплачиваемая работа для ролей из моего профиля || وظائف مدفوعة لدور في ملفك
+Show filled and closed jobs || Показать закрытые вакансии || إظهار الوظائف المشغولة والمغلقة
+Job || Вакансия || الوظيفة
+Job title || Название вакансии || المسمّى الوظيفي
+Company or client || Компания или заказчик || الشركة أو العميل
+Pay || Оплата || الأجر
+Paid as || Тип оплаты || طريقة الدفع
+Day rate || Ставка за смену || أجر يومي
+Flat fee || Фиксированный гонорар || مبلغ مقطوع
+Hourly || Почасовая || بالساعة
+(Day rate) || (за смену) || (أجر يومي)
+(Flat fee) || (фиксированно) || (مبلغ مقطوع)
+(Hourly) || (в час) || (بالساعة)
+Corporate or event || Корпоратив или мероприятие || شركات أو فعاليات
+Feature or series || Полный метр или сериал || فيلم طويل أو مسلسل
+Short film || Короткий метр || فيلم قصير
+Post-production || Постпродакшн || ما بعد الإنتاج
+Remote || Удалённо || عن بُعد
+Where || Где || المكان
+Working || Работа || العمل
+Working soonest || Ближайшая работа || العمل الأقرب أولًا
+Apply by || Подать до || التقديم قبل
+Apply by soonest || Ближайший срок подачи || آخر موعد أقرب أولًا
+Posted || Опубликовано || نُشرت
+How to apply || Как откликнуться || طريقة التقديم
+Application link || Ссылка для отклика || رابط التقديم
+Apply on their site || Откликнуться на их сайте || قدّم عبر موقعهم
+optional, otherwise people reply through Crew Call || необязательно, иначе отвечают через Crew Call || اختياري، وإلا يرد الناس عبر Crew Call
+Put your name forward || Предложить свою кандидатуру || رشّح نفسك
+Your experience, kit and a link to your reel || Ваш опыт, техника и ссылка на шоурил || خبرتك ومعداتك ورابط ريل أعمالك
+What the job is, hours, kit, and anything people should know || Что за работа, часы, техника и всё, что нужно знать || ما هي الوظيفة، والساعات، والمعدات، وأي شيء ينبغي معرفته
+e.g. Gaffer for a coffee brand film || напр. гаффер для ролика кофейного бренда || مثلًا: رئيس إضاءة لفيلم علامة قهوة
+e.g. Hackney Wick, or Remote || напр. Hackney Wick или удалённо || مثلًا: Hackney Wick، أو عن بُعد
+e.g. £250 a day || напр. £250 за смену || مثلًا: 250 جنيهًا في اليوم
+Pick one or more || Выберите одно или несколько || اختر واحدًا أو أكثر
+Add more dates || Добавить даты || إضافة تواريخ أخرى
+Take this job down || Снять вакансию || إزالة هذه الوظيفة
+Report a problem with this job || Сообщить о проблеме с вакансией || الإبلاغ عن مشكلة في هذه الوظيفة
+Hire || Нанять || توظيف
+Hired || Нанят || تم التوظيف
+Mark as filled || Отметить закрытой || تحديد كمشغولة
+Filled || Закрыта || مشغولة
+Closed || Закрыта || مغلقة
+Rep || Староста || ممثل الدفعة
+Cohort reps || Старосты потоков || ممثلو الدفعات
+No rep yet || Старосты пока нет || لا ممثل بعد
+Change rep… || Сменить старосту… || تغيير الممثل…
+Choose a rep… || Выбрать старосту… || اختر ممثلًا…
+Make rep || Назначить старостой || تعيين ممثلًا
+One rep per cohort keeps Crew Call going when people graduate. Reps become admins, can hand their rep role to someone in their cohort, and can propose a new owner. || По одному старосте на поток — так Crew Call продолжает работать, когда люди выпускаются. Старосты становятся админами, могут передать роль кому-то из своего потока и предложить нового владельца. || ممثل واحد لكل دفعة يُبقي Crew Call مستمرًا عند تخرّج الناس. يصبح الممثلون مشرفين، ويمكنهم تسليم دورهم لشخص من دفعتهم، واقتراح مالك جديد.
+One rep per cohort keeps Crew Call going when people graduate. Reps become admins, can hand their rep role to someone in their cohort, and can propose a new owner. You can choose any cohort's rep. || По одному старосте на поток — так Crew Call продолжает работать, когда люди выпускаются. Старосты становятся админами, могут передать роль кому-то из своего потока и предложить нового владельца. Вы можете выбрать старосту любого потока. || ممثل واحد لكل دفعة يُبقي Crew Call مستمرًا عند تخرّج الناس. يصبح الممثلون مشرفين، ويمكنهم تسليم دورهم لشخص من دفعتهم، واقتراح مالك جديد. يمكنك اختيار ممثل أي دفعة.
+Handing on ownership || Передача владения || نقل الملكية
+Reps can propose a new owner || Старосты могут предложить нового владельца || يمكن للممثلين اقتراح مالك جديد
+The owner accepts, or, if the owner has graduated or not signed in for 30 days, a second rep agrees. || Владелец соглашается, а если он выпустился или не входил 30 дней — соглашается второй староста. || يقبل المالك، أو إذا تخرّج أو لم يسجّل الدخول منذ 30 يومًا، يوافق ممثل ثانٍ.
+Propose as owner || Предложить владельцем || اقتراحه مالكًا
+Proposed owner || Предложенный владелец || المالك المقترح
+Proposal sent || Предложение отправлено || أُرسل الاقتراح
+Accept and transfer || Принять и передать || القبول والنقل
+Agree || Согласиться || موافقة
+Declined || Отклонено || مرفوض
+Only you can hand on ownership || Передать владение можете только вы || أنت وحدك من يستطيع نقل الملكية
+Withdrew the ownership proposal || Предложение о владении отозвано || سُحب اقتراح الملكية
+Let reps propose a new owner || Разрешить старостам предлагать нового владельца || السماح للممثلين باقتراح مالك جديد
+Stopped reps propose a new owner || Старостам запрещено предлагать нового владельца || أُوقف اقتراح الممثلين لمالك جديد
+The owner signs in with their own school email, has every permission and can't be removed. They also own the GitHub and Supabase organisations. Before they graduate, they hand ownership to a cohort rep. || Владелец входит со своей школьной почтой, имеет все права, и его нельзя удалить. Ему же принадлежат организации GitHub и Supabase. Перед выпуском он передаёт владение старосте потока. || يسجّل المالك الدخول ببريده المدرسي، ولديه كل الصلاحيات ولا يمكن إزالته. ويملك أيضًا منظمتَي GitHub وSupabase. قبل تخرّجه ينقل الملكية إلى ممثل دفعة.
+Make sure every cohort has a rep, then transfer ownership to one of them (ideally a rep from a younger cohort). || Убедитесь, что у каждого потока есть староста, затем передайте владение одному из них (лучше старосте младшего потока). || تأكد أن لكل دفعة ممثلًا، ثم انقل الملكية إلى أحدهم (ويُفضَّل ممثل دفعة أحدث).
+GitHub: invite the new owner to the Crew Call organisation as an Owner (organisation, then People). Add the reps as members. Wait until they accept before you leave. || GitHub: пригласите нового владельца в организацию Crew Call как Owner (организация, затем People). Добавьте старост как участников. Дождитесь, пока они примут приглашение, прежде чем уходить. || GitHub: ادعُ المالك الجديد إلى منظمة Crew Call بصفة Owner ‏(المنظمة ثم People). أضف الممثلين أعضاء. انتظر قبولهم قبل أن تغادر.
+Supabase: invite the new owner to the Crew Call organisation as Owner, and the reps as Developer or Admin (organisation, then Team). An organisation always needs one Owner, so invite first, then leave. || Supabase: пригласите нового владельца в организацию Crew Call как Owner, а старост — как Developer или Admin (организация, затем Team). В организации всегда должен быть один Owner, поэтому сначала пригласите, потом уходите. || Supabase: ادعُ المالك الجديد إلى منظمة Crew Call بصفة Owner، والممثلين بصفة Developer أو Admin ‏(المنظمة ثم Team). تحتاج المنظمة دائمًا إلى Owner واحد، فادعُ أولًا ثم غادر.
+Email sender: if you set up a sending-only login (Brevo, or a Gmail used just for sending), move it to the new owner and put the new SMTP password into Supabase (Authentication, then Emails, then SMTP settings). Nobody signs in with it. || Отправитель писем: если вы настроили логин только для отправки (Brevo или Gmail только для отправки), передайте его новому владельцу и укажите новый пароль SMTP в Supabase (Authentication, затем Emails, затем SMTP settings). Через него никто не входит. || مُرسل البريد: إذا أعددت حسابًا للإرسال فقط (Brevo، أو Gmail للإرسال فقط)، انقله إلى المالك الجديد وضع كلمة مرور SMTP الجديدة في Supabase ‏(Authentication ثم Emails ثم SMTP settings). لا يسجّل أحد الدخول به.
+Set up the new sender: an LFS shared mailbox if the school gives you one, or Brevo's free plan, or a Gmail used only for sending. || Настройте нового отправителя: общий ящик LFS, если школа его даст, бесплатный тариф Brevo или Gmail только для отправки. || أعدّ المُرسل الجديد: صندوق بريد مشترك من LFS إن وفّرته المدرسة، أو خطة Brevo المجانية، أو Gmail للإرسال فقط.
+Get its SMTP login (for Gmail, an app password). || Получите его логин SMTP (для Gmail — пароль приложения). || احصل على بيانات دخول SMTP الخاصة به (في Gmail: كلمة مرور تطبيق).
+In Supabase, open Authentication, then Emails, then SMTP settings, and swap in the new address and password. || В Supabase откройте Authentication, затем Emails, затем SMTP settings и укажите новый адрес и пароль. || في Supabase افتح Authentication ثم Emails ثم SMTP settings، وضع العنوان الجديد وكلمة المرور.
+the SMTP sender in Supabase || отправитель SMTP в Supabase || مُرسل SMTP في Supabase
+empty = the owner's email || пусто = почта владельца || فارغ = بريد المالك
+Not set up yet || Ещё не настроено || لم يُعدّ بعد
+<not set up yet> || <ещё не настроено> || <لم يُعدّ بعد>
+not set up yet || ещё не настроено || لم يُعدّ بعد
+In the prototype nothing is really emailed. In the live version, sends go from the sending address in Email settings and people can turn the newsletter off in My profile. || В прототипе письма на самом деле не отправляются. В рабочей версии они уходят с адреса отправки из настроек почты, а отключить рассылку можно в разделе «Мой профиль». || في النموذج الأولي لا يُرسل أي بريد فعليًا. في النسخة الفعلية تُرسل الرسائل من عنوان الإرسال في إعدادات البريد، ويمكن للناس إيقاف النشرة من ملفهم الشخصي.
+Designed issues || Оформленные выпуски || أعداد مصمّمة
+Automatic || Автоматическая || تلقائية
+Newsletter type || Тип рассылки || نوع النشرة
+Automatic edition || Автоматический выпуск || العدد التلقائي
+Automatic edition on || Автоматический выпуск включён || العدد التلقائي مفعّل
+Automatic newsletter preview || Предпросмотр автоматической рассылки || معاينة النشرة التلقائية
+Crew Call builds this one itself from what's on the site: open roles, upcoming shoots, paid work and more. The design stays the same so every issue looks like Crew Call. You can change any heading and text. || Crew Call собирает её сам из того, что есть на сайте: открытые роли, ближайшие съёмки, оплачиваемая работа и другое. Дизайн не меняется, чтобы каждый выпуск выглядел как Crew Call. Любой заголовок и текст можно изменить. || يبني Crew Call هذه النشرة بنفسه مما على الموقع: الأدوار الشاغرة والتصويرات القادمة والعمل المدفوع وغيرها. يبقى التصميم ثابتًا ليبدو كل عدد مثل Crew Call. يمكنك تغيير أي عنوان أو نص.
+Changes save as you type. The design stays the same so every issue looks like Crew Call. You can change any heading and text. || Изменения сохраняются по мере ввода. Дизайн не меняется, чтобы каждый выпуск выглядел как Crew Call. Любой заголовок и текст можно изменить. || تُحفظ التغييرات أثناء الكتابة. يبقى التصميم ثابتًا ليبدو كل عدد مثل Crew Call. يمكنك تغيير أي عنوان أو نص.
+How often || Как часто || كم مرة
+Monthly (first Monday) || Ежемесячно (первый понедельник) || شهريًا (أول اثنين)
+Every two weeks (Monday) || Раз в две недели (понедельник) || كل أسبوعين (الاثنين)
+Send it without asking || Отправлять без подтверждения || إرسالها دون سؤال
+Words || Текст || الكلمات
+Intro || Вступление || المقدمة
+{month} becomes the month || {month} заменяется на месяц || يصبح {month} اسم الشهر
+This month's issue, live || Выпуск этого месяца, вживую || عدد هذا الشهر، مباشرة
+Make an editable copy || Сделать редактируемую копию || إنشاء نسخة قابلة للتعديل
+Editable copy made || Редактируемая копия создана || أُنشئت نسخة قابلة للتعديل
+Save version || Сохранить версию || حفظ النسخة
+Saved version || Сохранённая версия || نسخة محفوظة
+Version saved || Версия сохранена || حُفظت النسخة
+Versions || Версии || النسخ
+View || Открыть || عرض
+Older version restored || Старая версия восстановлена || استُعيدت نسخة أقدم
+No saved versions yet. A version is saved when you ask for approval, when it's sent, and whenever you press Save version. || Сохранённых версий пока нет. Версия сохраняется, когда вы отправляете на утверждение, при отправке и каждый раз, когда вы нажимаете «Сохранить версию». || لا نسخ محفوظة بعد. تُحفظ نسخة عند طلب الموافقة، وعند الإرسال، وكلما ضغطت «حفظ النسخة».
+View only. You need the Newsletter: draft permission to change the words. || Только просмотр. Чтобы менять текст, нужно право «Рассылка: черновик». || للعرض فقط. تحتاج صلاحية «النشرة: مسودة» لتغيير الكلمات.
+Send another || Отправить ещё || إرسال عدد آخر
+Sent newsletters can't be changed. Press Send another to start the next issue with the same layout. || Отправленные рассылки нельзя менять. Нажмите «Отправить ещё», чтобы начать следующий выпуск с тем же макетом. || لا يمكن تغيير النشرات المرسلة. اضغط «إرسال عدد آخر» لبدء العدد التالي بالتصميم نفسه.
+New issue started with the same layout. Change the words and send. || Новый выпуск начат с тем же макетом. Измените текст и отправьте. || بدأ عدد جديد بالتصميم نفسه. غيّر الكلمات وأرسل.
+Made an editable copy of the automatic newsletter || Создана редактируемая копия автоматической рассылки || أُنشئت نسخة قابلة للتعديل من النشرة التلقائية
+Turned the automatic newsletter on || Автоматическая рассылка включена || فُعّلت النشرة التلقائية
+Turned the automatic newsletter off || Автоматическая рассылка выключена || عُطّلت النشرة التلقائية
+Set the automatic newsletter to send by itself || Автоматическая рассылка будет уходить сама || ضُبطت النشرة التلقائية لتُرسل وحدها
+Set the automatic newsletter to wait for an admin to send it || Автоматическая рассылка будет ждать отправки админом || ضُبطت النشرة التلقائية لتنتظر إرسال مشرف لها
+Set the automatic newsletter to monthly || Автоматическая рассылка — ежемесячно || ضُبطت النشرة التلقائية لتكون شهرية
+Set the automatic newsletter to fortnightly || Автоматическая рассылка — раз в две недели || ضُبطت النشرة التلقائية لتكون كل أسبوعين
+Saved by hand || Сохранено вручную || حُفظت يدويًا
+Before restoring an older version || Перед восстановлением старой версии || قبل استعادة نسخة أقدم
+Turned off. Nothing is built or sent. || Выключено. Ничего не собирается и не отправляется. || معطّلة. لا يُبنى أو يُرسل شيء.
+Only admins with Newsletter: send can change these four settings. || Эти четыре настройки могут менять только админы с правом «Рассылка: отправка». || لا يغيّر هذه الإعدادات الأربعة إلا المشرفون الذين لديهم صلاحية «النشرة: إرسال».
+It goes out by itself at 09:00. || Она уходит сама в 09:00. || تُرسل وحدها الساعة 09:00.
+proposed || предложен || مقترح
+Everything runs on the owner's school email. GitHub and Supabase are organisations: Sofia (rep, MAF217) is already an Owner on both. The email sender login is in the shared Bitwarden folder "Crew Call". || Всё работает на школьной почте владельца. GitHub и Supabase — организации: София (староста, MAF217) уже Owner в обеих. Логин отправителя писем — в общей папке Bitwarden «Crew Call». || كل شيء يعمل على البريد المدرسي للمالك. GitHub وSupabase منظمتان: صوفيا (ممثلة، MAF217) مالكة فيهما بالفعل. بيانات دخول مُرسل البريد في مجلد Bitwarden المشترك «Crew Call».
+required || обязательно || مطلوب
+View only. You need the Newsletter: draft permission to design one. || Только просмотр. Чтобы создать рассылку, нужно право «Рассылка: черновик». || للعرض فقط. تحتاج صلاحية «النشرة: مسودة» لتصميم نشرة.

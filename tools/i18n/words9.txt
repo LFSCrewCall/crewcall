@@ -1,0 +1,5 @@
+# The "Wrong word?" page button
+Wrong word? || 用詞有誤？ || Mot incorrect ? || ¿Palabra incorrecta?
+Tap the words that look wrong. || 點選看起來不對的文字。 || Touchez les mots qui semblent faux. || Toca las palabras que parezcan incorrectas.
+Describe it instead || 改用文字描述 || Le décrire plutôt || Descríbelo mejor
+Page || 頁面 || Page || Página

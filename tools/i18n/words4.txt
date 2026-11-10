@@ -1,0 +1,87 @@
+Admins with the People permission choose who has each level, in Access. Every admin can read newsletters and the history. || 擁有「成員」權限的管理員可在「存取權限」中指定各級別的負責人。所有管理員都能查看電子報及其紀錄。 || Les admins ayant le droit Personnes choisissent qui a chaque niveau, dans Accès. Tous les admins peuvent lire les newsletters et l'historique. || Los administradores con el permiso Personas eligen quién tiene cada nivel, en Acceso. Todos los administradores pueden leer los boletines y el historial.
+. Every admin can read newsletters and the history. || 。所有管理員都能查看電子報及其紀錄。 || . Tous les admins peuvent lire les newsletters et l'historique. || . Todos los administradores pueden leer los boletines y el historial.
+Change who has each level in || 更改各級別負責人： || Changez qui a chaque niveau dans || Cambia quién tiene cada nivel en
+Approve and send || 核准並寄出 || Approuver et envoyer || Aprobar y enviar
+Approve, schedule and send newsletters to everyone or a chosen group || 核准、排程並寄送電子報給所有人或指定群組 || Approuver, programmer et envoyer les newsletters à tous ou à un groupe choisi || Aprobar, programar y enviar boletines a todos o a un grupo elegido
+Approve, schedule and send to everyone or a chosen group. || 核准、排程並寄送給所有人或指定群組。 || Approuver, programmer et envoyer à tous ou à un groupe choisi. || Aprobar, programar y enviar a todos o a un grupo elegido.
+Approved by || 核准者 || Approuvé par || Aprobado por
+Ask for approval || 申請核准 || Demander l'approbation || Pedir aprobación
+Asked for approval || 已申請核准 || Approbation demandée par || Aprobación pedida por
+Blocks || 區塊 || Blocs || Bloques
+Button || 按鈕 || Bouton || Botón
+Button text || 按鈕文字 || Texte du bouton || Texto del botón
+Cancel the schedule || 取消排程 || Annuler la programmation || Cancelar la programación
+Cancel the schedule to make changes. || 取消排程後才能修改。 || Annulez la programmation pour faire des modifications. || Cancela la programación para hacer cambios.
+Caption || 說明文字 || Légende || Pie de foto
+Changes save as you type. || 輸入時會自動儲存。 || Les modifications s'enregistrent au fil de la saisie. || Los cambios se guardan mientras escribes.
+Computer || 電腦 || Ordinateur || Ordenador
+Copy made || 已建立副本 || Copie créée || Copia creada
+Date || 日期 || Date || Fecha
+Delete this newsletter? || 要刪除這份電子報嗎？ || Supprimer cette newsletter ? || ¿Eliminar este boletín?
+Describe the image || 描述這張圖片 || Décrivez l'image || Describe la imagen
+Design newsletters, save drafts, send a test to yourself and ask for approval || 設計電子報、儲存草稿、寄測試信給自己並申請核准 || Concevoir des newsletters, enregistrer des brouillons, s'envoyer un test et demander l'approbation || Diseñar boletines, guardar borradores, enviarte una prueba y pedir aprobación
+Design newsletters, save drafts, send a test to yourself and ask for approval. || 設計電子報、儲存草稿、寄測試信給自己並申請核准。 || Concevoir des newsletters, enregistrer des brouillons, s'envoyer un test et demander l'approbation. || Diseñar boletines, guardar borradores, enviarte una prueba y pedir aprobación.
+Develop posts || 開發中作品 || Projets en développement || Proyectos en desarrollo
+Divider || 分隔線 || Séparateur || Separador
+Draft || 草稿 || Brouillon || Borrador
+Drafted by || 撰寫者 || Rédigé par || Redactado por
+Email me the Crew Call newsletter || 寄 Crew Call 電子報給我 || M'envoyer la newsletter Crew Call || Enviarme el boletín de Crew Call
+Everyone on Crew Call || Crew Call 上的所有人 || Tout le monde sur Crew Call || Todos en Crew Call
+Filled in from Crew Call when it's sent. || 寄出時會自動從 Crew Call 填入。 || Rempli depuis Crew Call à l'envoi. || Se rellena desde Crew Call al enviarlo.
+Goes out || 寄出時間 || Envoi || Se envía
+Heading || 標題 || Titre || Título
+Image || 圖片 || Image || Imagen
+Image link || 圖片連結 || Lien de l'image || Enlace de la imagen
+Issue label || 期號標籤 || Libellé du numéro || Etiqueta del número
+Last edited by || 最後編輯者 || Dernière modification par || Última edición por
+Leave a blank line between paragraphs. || 段落之間請空一行。 || Laissez une ligne vide entre les paragraphes. || Deja una línea en blanco entre párrafos.
+Link || 連結 || Lien || Enlace
+LFS students and staff (no guests) || LFS 學生和教職員（不含訪客） || Étudiants et personnel de la LFS (sans invités) || Estudiantes y personal de la LFS (sin invitados)
+Make a copy || 建立副本 || Faire une copie || Hacer una copia
+New newsletter || 新增電子報 || Nouvelle newsletter || Nuevo boletín
+Newsletter || 電子報 || Newsletter || Boletín
+Newsletter preview || 電子報預覽 || Aperçu de la newsletter || Vista previa del boletín
+Newsletter: draft || 電子報：撰寫 || Newsletter : rédiger || Boletín: redactar
+Newsletter: send || 電子報：寄送 || Newsletter : envoyer || Boletín: enviar
+Newsletters || 電子報 || Newsletters || Boletines
+Open roles || 開放職位 || Postes à pourvoir || Puestos abiertos
+Opens when tapped || 點按後開啟 || S'ouvre au toucher || Se abre al tocarlo
+Phone || 手機 || Téléphone || Móvil
+Preview || 預覽 || Aperçu || Vista previa
+Preview line || 預覽文字 || Ligne d'aperçu || Línea de vista previa
+Preview size || 預覽尺寸 || Taille de l'aperçu || Tamaño de la vista previa
+Release films || 待發行影片 || Films à diffuser || Películas para estrenar
+Schedule cancelled || 已取消排程 || Programmation annulée || Programación cancelada
+Scheduled || 已排程 || Programmée || Programado
+Second approval || 第二位核准 || Double validation || Segunda aprobación
+Needs a second admin to send || 需要第二位管理員才能寄出 || Un second admin doit envoyer || Necesita un segundo administrador para enviar
+Sections || 段落 || Sections || Secciones
+Send back to draft || 退回草稿 || Renvoyer en brouillon || Devolver a borrador
+Send me a test || 寄測試信給我 || M'envoyer un test || Enviarme una prueba
+Send newsletter || 寄送電子報 || Envoyer la newsletter || Enviar boletín
+Send now || 立即寄出 || Envoyer maintenant || Enviar ahora
+Send to || 寄送對象 || Destinataires || Enviar a
+Sent || 已寄出 || Envoyée || Enviado
+Sent by || 寄出者 || Envoyé par || Enviado por
+Sent newsletters can't be changed. Make a copy to reuse it. || 已寄出的電子報無法修改。可建立副本再使用。 || Une newsletter envoyée ne peut pas être modifiée. Faites une copie pour la réutiliser. || Los boletines enviados no se pueden cambiar. Haz una copia para reutilizarlo.
+Sign-off || 結語 || Signature || Despedida
+Started a new newsletter || 新增了一份電子報 || A commencé une nouvelle newsletter || Empezó un nuevo boletín
+Subject line || 郵件主旨 || Objet || Asunto
+Text || 文字 || Texte || Texto
+The draft is deleted for everyone. This can't be undone. || 草稿會為所有人刪除，且無法復原。 || Le brouillon est supprimé pour tout le monde. Action irréversible. || El borrador se elimina para todos. No se puede deshacer.
+Time || 時間 || Heure || Hora
+Untitled newsletter || 未命名電子報 || Newsletter sans titre || Boletín sin título
+Upcoming shoots || 即將拍攝 || Tournages à venir || Próximos rodajes
+Waiting for approval || 等待核准 || En attente d'approbation || Esperando aprobación
+When this is on, the person who wrote or last edited a newsletter can't also send it, as long as another admin can. || 開啟後，撰寫或最後編輯電子報的人不能自己寄出，前提是有其他管理員可以寄送。 || Si cette option est activée, la personne qui a rédigé ou modifié en dernier une newsletter ne peut pas l'envoyer elle-même, tant qu'un autre admin le peut. || Si está activado, quien redactó o editó por última vez un boletín no puede enviarlo, siempre que otro administrador pueda.
+Who controls the newsletter || 誰管理電子報 || Qui gère la newsletter || Quién gestiona el boletín
+shown under the subject in most inboxes || 多數收件匣會顯示在主旨下方 || affichée sous l'objet dans la plupart des boîtes || se muestra bajo el asunto en la mayoría de bandejas
+Notifications || 通知 || Notifications || Notificaciones
+Add a subject line first || 請先加入郵件主旨 || Ajoutez d'abord un objet || Añade primero un asunto
+Add at least one block || 請至少加入一個區塊 || Ajoutez au moins un bloc || Añade al menos un bloque
+Back to draft || 已退回草稿 || Remis en brouillon || Devuelto a borrador
+Newsletter deleted || 已刪除電子報 || Newsletter supprimée || Boletín eliminado
+Sent for approval || 已送出核准申請 || Envoyée pour approbation || Enviado para aprobación
+Newsletter sent to the school list || 電子報已寄到學校郵件清單 || Newsletter envoyée à la liste de l'école || Boletín enviado a la lista de la escuela
+Second approval on || 已開啟第二位核准 || Double validation activée || Segunda aprobación activada
+Second approval off || 已關閉第二位核准 || Double validation désactivée || Segunda aprobación desactivada

@@ -1,0 +1,1333 @@
+# English || हिन्दी || Português (Brasil)
+# Draft translations. Please have a Hindi speaker and a Brazilian Portuguese speaker check them.
+Calendar || कैलेंडर || Calendário
+Develop || डेवलप || Desenvolver
+Shoot || शूट || Filmagem
+Release || रिलीज़ || Lançamento
+Crew || क्रू || Equipe
+My shoots || मेरे शूट || Minhas filmagens
+My profile || मेरी प्रोफ़ाइल || Meu perfil
+Admin || एडमिन || Admin
+Sign in || साइन इन करें || Entrar
+Sign out || साइन आउट करें || Sair
+Post a shoot || शूट पोस्ट करें || Publicar filmagem
+Post a script || स्क्रिप्ट पोस्ट करें || Publicar roteiro
+Post a pitch || पिच पोस्ट करें || Publicar pitch
+List a film || फ़िल्म जोड़ें || Cadastrar filme
+Step 1 of 3 || चरण 1 / 3 || Etapa 1 de 3
+Step 2 of 3 || चरण 2 / 3 || Etapa 2 de 3
+Step 3 of 3 || चरण 3 / 3 || Etapa 3 de 3
+Shoots looking for crew || क्रू ढूँढ रहे शूट || Filmagens procurando equipe
+Writers post scripts and producers post pitches, then directors, writers and producers put their hand up. Only signed-in members see this page. Full scripts and pitch decks are only shared with people the poster brings on. || लेखक स्क्रिप्ट और प्रोड्यूसर पिच पोस्ट करते हैं, फिर डायरेक्टर, लेखक और प्रोड्यूसर हाथ उठाते हैं। यह पेज सिर्फ़ साइन इन किए सदस्य देखते हैं। पूरी स्क्रिप्ट और पिच डेक सिर्फ़ उन्हीं से साझा होते हैं जिन्हें पोस्ट करने वाला टीम में लेता है। || Roteiristas publicam roteiros e produtores publicam pitches; depois diretores, roteiristas e produtores levantam a mão. Só membros conectados veem esta página. Roteiros completos e pitch decks só são compartilhados com quem o autor chamar para o projeto.
+Wrapped films looking for help to reach an audience: festival plans, posters, trailers, press kits and socials. A good fit for MA Film Marketing, and every job becomes a credit on your profile. || पूरी हो चुकी फ़िल्में जिन्हें दर्शकों तक पहुँचने में मदद चाहिए: फ़ेस्टिवल प्लान, पोस्टर, ट्रेलर, प्रेस किट और सोशल मीडिया। MA Film Marketing के लिए बढ़िया, और हर काम आपकी प्रोफ़ाइल पर क्रेडिट बनता है। || Filmes finalizados que precisam de ajuda para chegar ao público: plano de festivais, cartazes, trailers, press kits e redes sociais. Ótimo para MA Film Marketing, e cada trabalho vira um crédito no seu perfil.
+Search title, director, location || शीर्षक, डायरेक्टर, लोकेशन खोजें || Buscar título, diretor, locação
+Search title, logline, writer or producer || शीर्षक, लॉगलाइन, लेखक या प्रोड्यूसर खोजें || Buscar título, logline, roteirista ou produtor
+Search title, director or festival || शीर्षक, डायरेक्टर या फ़ेस्टिवल खोजें || Buscar título, diretor ou festival
+Search name, kit, skill || नाम, किट, हुनर खोजें || Buscar nome, equipamento, habilidade
+Search shoots || शूट खोजें || Buscar filmagens
+Search posts || पोस्ट खोजें || Buscar publicações
+Search films || फ़िल्में खोजें || Buscar filmes
+Matches me || मेरे लायक || Para mim
+Filters || फ़िल्टर || Filtros
+Close filters || फ़िल्टर बंद करें || Fechar filtros
+Clear all || सब हटाएँ || Limpar tudo
+Clear filters || फ़िल्टर हटाएँ || Limpar filtros
+Sort by || क्रम || Ordenar por
+Role needed || चाहिए रोल || Função necessária
+Shooting || शूटिंग || Filmagem
+Type || प्रकार || Tipo
+Made by || किसने बनाया || Feito por
+Show || दिखाएँ || Mostrar
+Looking for || तलाश || Procurando
+Hoping to shoot || शूट करने की योजना || Pretende filmar
+Help needed || चाहिए मदद || Ajuda necessária
+Deadline || आख़िरी तारीख़ || Prazo
+Shooting soonest || सबसे पहले शूट || Filmagem mais próxima
+Newest || सबसे नया || Mais recentes
+Most roles open || सबसे ज़्यादा खाली रोल || Mais funções abertas
+Shortest script || सबसे छोटी स्क्रिप्ट || Roteiro mais curto
+Deadline soonest || सबसे नज़दीकी आख़िरी तारीख़ || Prazo mais próximo
+This week || इस हफ़्ते || Esta semana
+Next 2 weeks || अगले 2 हफ़्ते || Próximas 2 semanas
+This month || इस महीने || Este mês
+Later || बाद में || Mais tarde
+Next 30 days || अगले 30 दिन || Próximos 30 dias
+Next 3 months || अगले 3 महीने || Próximos 3 meses
+No deadline || कोई आख़िरी तारीख़ नहीं || Sem prazo
+Scripts || स्क्रिप्ट || Roteiros
+Producer pitches || प्रोड्यूसर पिच || Pitches de produtores
+Producer pitch || प्रोड्यूसर पिच || Pitch de produtor
+Show fully crewed shoots || पूरी क्रू वाले शूट दिखाएँ || Mostrar filmagens com equipe completa
+Show posts that are fully attached || पूरी टीम वाली पोस्ट दिखाएँ || Mostrar publicações com equipe fechada
+Show films with a full team || पूरी टीम वाली फ़िल्में दिखाएँ || Mostrar filmes com equipe completa
+Shoots with an open role that's on your profile || ऐसे शूट जिनमें आपकी प्रोफ़ाइल का कोई रोल खाली है || Filmagens com uma função aberta que está no seu perfil
+Posts looking for a role on your profile || ऐसी पोस्ट जिन्हें आपकी प्रोफ़ाइल का कोई रोल चाहिए || Publicações procurando uma função do seu perfil
+Films needing help your profile roles cover || ऐसी फ़िल्में जिन्हें आपकी प्रोफ़ाइल के रोल वाली मदद चाहिए || Filmes que precisam de ajuda nas funções do seu perfil
+Show more || और दिखाएँ || Mostrar mais
+View roles || रोल देखें || Ver funções
+Details || विवरण || Detalhes
+I'm interested || मेरी दिलचस्पी है || Tenho interesse
+Offer to help || मदद की पेशकश करें || Oferecer ajuda
+Manage || प्रबंधित करें || Gerenciar
+Fully crewed || पूरी क्रू || Equipe completa
+Fully attached || टीम पूरी || Equipe fechada
+Full team || पूरी टीम || Equipe completa
+Now a shoot || अब शूट बन गया || Virou filmagem
+You run this || यह आप चलाते हैं || Você coordena
+You run this project || यह प्रोजेक्ट आप चलाते हैं || Você coordena este projeto
+You're on this shoot || आप इस शूट पर हैं || Você está nesta filmagem
+Written by || लेखक || Escrito por
+written by || लेखक || escrito por
+Pitched by || पिच किया || Pitch de
+pitched by || पिच किया || pitch de
+Listed by || जोड़ा || Cadastrado por
+listed by || जोड़ा || cadastrado por
+Script || स्क्रिप्ट || Roteiro
+Pitch deck || पिच डेक || Pitch deck
+Attached || जुड़े हुए || Na equipe
+Nobody yet || अभी कोई नहीं || Ninguém ainda
+What they have || उनके पास क्या है || O que eles têm
+People interested || दिलचस्पी रखने वाले || Interessados
+Bring on || टीम में लें || Chamar
+Decline || मना करें || Recusar
+Turn into a shoot || शूट में बदलें || Transformar em filmagem
+Edit || बदलें || Editar
+Remove || हटाएँ || Remover
+Put your hand up || हाथ उठाएँ || Levantar a mão
+As || बतौर || Como
+Send || भेजें || Enviar
+Withdraw || वापस लें || Retirar
+Open it || खोलें || Abrir
+No link added || कोई लिंक नहीं जोड़ा || Nenhum link adicionado
+Shared with the team || टीम के साथ साझा || Compartilhado com a equipe
+Nobody yet. Share the Develop page in your cohort chat. || अभी कोई नहीं। Develop पेज अपनी कोहोर्ट चैट में शेयर करें। || Ninguém ainda. Compartilhe a página Desenvolver no chat da sua turma.
+Working title || वर्किंग टाइटल || Título provisório
+Title || शीर्षक || Título
+Pages || पेज || Páginas
+Logline || लॉगलाइन || Logline
+What you have || आपके पास क्या है || O que você tem
+Script link || स्क्रिप्ट लिंक || Link do roteiro
+Pitch deck or treatment link || पिच डेक या ट्रीटमेंट लिंक || Link do pitch deck ou tratamento
+only shown to you and people you bring on || सिर्फ़ आपको और टीम में लिए लोगों को दिखता है || só aparece para você e para quem você chamar
+only shown to you and your team || सिर्फ़ आपको और आपकी टीम को दिखता है || só aparece para você e sua equipe
+Not sure yet || अभी तय नहीं || Ainda não sei
+Post || पोस्ट करें || Publicar
+Save || सेव करें || Salvar
+Cancel || रद्द करें || Cancelar
+Close || बंद करें || Fechar
+Post the logline here, not the script. You choose who gets the full script by bringing them on. || यहाँ लॉगलाइन पोस्ट करें, स्क्रिप्ट नहीं। पूरी स्क्रिप्ट किसे मिले, यह आप तय करते हैं, उन्हें टीम में लेकर। || Publique aqui a logline, não o roteiro. Você escolhe quem recebe o roteiro completo ao chamar a pessoa.
+Pitch an idea, a true story you have access to, or a story you hold the rights to. Find a writer and director to make it with. || कोई आइडिया, कोई सच्ची कहानी जिस तक आपकी पहुँच है, या जिसके अधिकार आपके पास हैं, पिच करें। उसे बनाने के लिए लेखक और डायरेक्टर ढूँढें। || Apresente uma ideia, uma história real a que você tem acesso ou uma história cujos direitos você tem. Encontre roteirista e diretor para realizá-la.
+e.g. Option on a short story, access to a real story, a location || जैसे: किसी कहानी पर ऑप्शन, किसी सच्ची कहानी तक पहुँच, कोई लोकेशन || ex.: opção sobre um conto, acesso a uma história real, uma locação
+Message to Aisha || Aisha को संदेश || Mensagem para Aisha
+What you like about it, and how you'd approach it || आपको इसमें क्या पसंद है, और आप इसे कैसे बनाएँगे || O que você gosta nele e como abordaria
+What you'd do, and links to anything similar you've made || आप क्या करेंगे, और आपके बनाए मिलते-जुलते काम के लिंक || O que você faria e links de trabalhos parecidos que já fez
+List a film for release help || रिलीज़ में मदद के लिए फ़िल्म जोड़ें || Cadastrar filme para ajuda no lançamento
+Which film || कौन-सी फ़िल्म || Qual filme
+A film not on Crew Call || Crew Call पर नहीं है ऐसी फ़िल्म || Um filme que não está no Crew Call
+Running time (minutes) || अवधि (मिनट) || Duração (minutos)
+Next deadline || अगली आख़िरी तारीख़ || Próximo prazo
+Festivals or goals || फ़ेस्टिवल या लक्ष्य || Festivais ou metas
+e.g. Encounters, BFI Future Film || जैसे: Encounters, BFI Future Film || ex.: Encounters, BFI Future Film
+Screener link || स्क्रीनर लिंक || Link do screener
+Screener || स्क्रीनर || Screener
+Watch the film || फ़िल्म देखें || Assistir ao filme
+List film || फ़िल्म जोड़ें || Cadastrar filme
+On the team || टीम में || Na equipe
+Offers || पेशकश || Ofertas
+No offers yet. || अभी कोई पेशकश नहीं। || Nenhuma oferta ainda.
+Send offer || पेशकश भेजें || Enviar oferta
+With || साथ में || Com
+See the shoot || शूट देखें || Ver a filmagem
+None set || तय नहीं || Não definido
+optional || वैकल्पिक || opcional
+Report a problem || समस्या की रिपोर्ट करें || Relatar um problema
+Report a problem with this film || इस फ़िल्म में समस्या की रिपोर्ट करें || Relatar um problema com este filme
+Report a problem with this pitch || इस पिच में समस्या की रिपोर्ट करें || Relatar um problema com este pitch
+Report a problem with this profile || इस प्रोफ़ाइल में समस्या की रिपोर्ट करें || Relatar um problema com este perfil
+Report a problem with this project || इस प्रोजेक्ट में समस्या की रिपोर्ट करें || Relatar um problema com este projeto
+Report a problem with this script || इस स्क्रिप्ट में समस्या की रिपोर्ट करें || Relatar um problema com este roteiro
+Privacy notice || गोपनीयता सूचना || Aviso de privacidade
+privacy notice || गोपनीयता सूचना || aviso de privacidade
+Add to home screen || होम स्क्रीन पर जोड़ें || Adicionar à tela inicial
+Prototype. Sample data only, and changes reset when you reload. Sign-in, emails and calendar links are simulated. A live version adds LFS Microsoft sign-in and a shared database. || प्रोटोटाइप। सिर्फ़ नमूना डेटा, और रीलोड करने पर बदलाव मिट जाते हैं। साइन इन, ईमेल और कैलेंडर लिंक नक़ली हैं। लाइव वर्शन में LFS Microsoft साइन इन और साझा डेटाबेस जुड़ते हैं। || Protótipo. Só dados de exemplo, e as mudanças somem ao recarregar. Login, e-mails e links de calendário são simulados. A versão ao vivo adiciona login Microsoft da LFS e um banco de dados compartilhado.
+Today || आज || Hoje
+Yesterday || कल || Ontem
+Month || महीना || Mês
+Week || हफ़्ता || Semana
+Day || दिन || Dia
+Previous month || पिछला महीना || Mês anterior
+Next month || अगला महीना || Próximo mês
+Previous week || पिछला हफ़्ता || Semana anterior
+Next week || अगला हफ़्ता || Próxima semana
+Next || अगला || Próximo
+All roles || सभी रोल || Todas as funções
+All terms || सभी टर्म || Todos os períodos
+All cohorts || सभी कोहोर्ट || Todas as turmas
+All projects || सभी प्रोजेक्ट || Todos os projetos
+Show crew availability || क्रू की उपलब्धता दिखाएँ || Mostrar disponibilidade da equipe
+Crew available || उपलब्ध क्रू || Equipe disponível
+crew available || उपलब्ध क्रू || equipe disponível
+Crew available that day (matches filters) || उस दिन उपलब्ध क्रू (फ़िल्टर से मेल) || Equipe disponível nesse dia (de acordo com os filtros)
+Shoot day (number = open roles) || शूट का दिन (संख्या = खाली रोल) || Dia de filmagem (número = funções abertas)
+Free || खाली || Livre
+free || खाली || livre
+not free || व्यस्त || ocupado
+No shoots || कोई शूट नहीं || Nenhuma filmagem
+No shoots on this day. || इस दिन कोई शूट नहीं। || Nenhuma filmagem neste dia.
+Edit my days || मेरे दिन बदलें || Editar meus dias
+Editing your availability. Tap any day to switch between free and not free. Changes save straight away. || आप अपनी उपलब्धता बदल रहे हैं। किसी भी दिन पर टैप करके खाली और व्यस्त के बीच बदलें। बदलाव तुरंत सेव होते हैं। || Editando sua disponibilidade. Toque em qualquer dia para alternar entre livre e ocupado. As mudanças são salvas na hora.
+Editing || बदल रहे हैं || Editando
+Done || हो गया || Pronto
+Clear month || महीना साफ़ करें || Limpar mês
+All weekdays || सभी कामकाजी दिन || Todos os dias úteis
+All weekends || सभी वीकेंड || Todos os fins de semana
+You: free || आप: खाली || Você: livre
+You: booked || आप: बुक || Você: reservado
+Sync calendar || कैलेंडर सिंक करें || Sincronizar calendário
+Sync to Outlook or another calendar || Outlook या किसी दूसरे कैलेंडर से सिंक करें || Sincronizar com o Outlook ou outro calendário
+Add to calendar || कैलेंडर में जोड़ें || Adicionar ao calendário
+Calendar view || कैलेंडर व्यू || Visualização de calendário
+Filter by role || रोल से फ़िल्टर करें || Filtrar por função
+Role || रोल || Função
+Roles || रोल || Funções
+Term || टर्म || Período
+Cohort || कोहोर्ट || Turma
+Course || कोर्स || Curso
+Pathway || पाथवे || Especialização
+Find crew || क्रू ढूँढें || Encontrar equipe
+Has kit || किट है || Tem equipamento
+Free from || खाली कब से || Livre de
+To || तक || Até
+From || से || De
+Kit || किट || Equipamento
+Credits || क्रेडिट || Créditos
+Contact || संपर्क || Contato
+Message || संदेश || Mensagem
+Email || ईमेल || E-mail
+Email private || ईमेल निजी || E-mail privado
+Reel || रील || Reel
+Wants to learn || सीखना चाहते हैं || Quer aprender
+Wants to shadow: || शैडो करना चाहते हैं: || Quer acompanhar:
+Learning: || सीख रहे हैं: || Aprendendo:
+Free to help: || मदद के लिए खाली: || Livre para ajudar:
+This is you || यह आप हैं || Este é você
+That's you || यह आप हैं || É você
+(you) || (आप) || (você)
+Invite to one of your projects || अपने किसी प्रोजेक्ट में बुलाएँ || Convidar para um dos seus projetos
+No kit added. Owning kit makes you much easier to book. || कोई किट नहीं जोड़ी। अपनी किट होने से आपको बुक करना कहीं आसान हो जाता है। || Nenhum equipamento adicionado. Ter equipamento próprio facilita muito ser chamado.
+Open to offers || ऑफ़र के लिए तैयार || Aberto a propostas
+open to offers || ऑफ़र के लिए तैयार || aberto a propostas
+Open to offers outside these dates || इन तारीख़ों के अलावा भी ऑफ़र के लिए तैयार || Aberto a propostas fora dessas datas
+No dates set || कोई तारीख़ तय नहीं || Nenhuma data definida
+Free every shoot day || हर शूट के दिन खाली || Livre em todos os dias de filmagem
+You're free every shoot day || आप हर शूट के दिन खाली हैं || Você está livre em todos os dias de filmagem
+Request || अनुरोध || Pedido
+Request to join || जुड़ने का अनुरोध करें || Pedir para participar
+Ask to shadow || शैडो करने के लिए पूछें || Pedir para acompanhar
+Requested · waiting || अनुरोध भेजा · इंतज़ार || Pedido enviado · aguardando
+Accepted || स्वीकार || Aceito
+Accept || स्वीकार करें || Aceitar
+Not this time || इस बार नहीं || Desta vez não
+Role filled || रोल भर गया || Função preenchida
+Role removed || रोल हटाया गया || Função removida
+Withdrawn || वापस लिया || Retirado
+Open roles || खाली रोल || Funções abertas
+Locked crew || पक्की क्रू || Equipe confirmada
+Locked crew only || सिर्फ़ पक्की क्रू || Só a equipe confirmada
+Shoot dates || शूट की तारीख़ें || Datas de filmagem
+Schedule || शेड्यूल || Cronograma
+Locations || लोकेशन || Locações
+Location || लोकेशन || Locação
+Call || कॉल || Chamada
+Wrap || रैप || Fim
+Map || नक्शा || Mapa
+Crew hub || क्रू हब || Central da equipe
+Join the WhatsApp group || WhatsApp ग्रुप में जुड़ें || Entrar no grupo do WhatsApp
+Key links || ज़रूरी लिंक || Links importantes
+Key details || ज़रूरी जानकारी || Informações importantes
+Visible to everyone signed in || साइन इन किए सभी को दिखता है || Visível para todos os conectados
+Crew only || सिर्फ़ क्रू || Só a equipe
+Everyone signed in || साइन इन किए सभी || Todos os conectados
+Who can see this || इसे कौन देख सकता है || Quem pode ver isto
+Add links and details || लिंक और जानकारी जोड़ें || Adicionar links e informações
+Edit links and details || लिंक और जानकारी बदलें || Editar links e informações
+The WhatsApp group, call sheets and key details are shared with the crew once you're locked in. || पक्के होने के बाद WhatsApp ग्रुप, कॉल शीट और ज़रूरी जानकारी क्रू के साथ साझा की जाती है। || O grupo do WhatsApp, as ordens do dia e as informações importantes são compartilhados com a equipe depois que você é confirmado.
+Add the WhatsApp group, call sheet, script or a Drive folder so your crew have everything in one place. || WhatsApp ग्रुप, कॉल शीट, स्क्रिप्ट या Drive फ़ोल्डर जोड़ें ताकि आपकी क्रू के पास सब कुछ एक जगह हो। || Adicione o grupo do WhatsApp, a ordem do dia, o roteiro ou uma pasta do Drive para a equipe ter tudo num só lugar.
+Crew hub: WhatsApp, links and details || क्रू हब: WhatsApp, लिंक और जानकारी || Central da equipe: WhatsApp, links e informações
+Everything your crew need in one place. Shown only to locked crew, the producer, director and admins, unless you choose otherwise. || आपकी क्रू को जो कुछ चाहिए, सब एक जगह। सिर्फ़ पक्की क्रू, प्रोड्यूसर, डायरेक्टर और एडमिन को दिखता है, जब तक आप कुछ और न चुनें। || Tudo o que a equipe precisa num só lugar. Só aparece para a equipe confirmada, o produtor, o diretor e os admins, a menos que você escolha outra opção.
+WhatsApp group invite link || WhatsApp ग्रुप का इनवाइट लिंक || Link de convite do grupo do WhatsApp
+In WhatsApp: open the group, tap its name, then Invite via link, and copy it here. || WhatsApp में: ग्रुप खोलें, उसके नाम पर टैप करें, फिर लिंक से इनवाइट करें, और लिंक यहाँ कॉपी करें। || No WhatsApp: abra o grupo, toque no nome dele, depois em Convidar via link, e copie aqui.
+Label, e.g. Call sheet || लेबल, जैसे कॉल शीट || Rótulo, ex.: Ordem do dia
+Link address || लिंक का पता || Endereço do link
+Link label || लिंक का लेबल || Rótulo do link
+Add another link || एक और लिंक जोड़ें || Adicionar outro link
+Remove link || लिंक हटाएँ || Remover link
+Nearest station, parking, meeting point, food, what to wear, kit drop-off || नज़दीकी स्टेशन, पार्किंग, मिलने की जगह, खाना, क्या पहनें, किट कहाँ छोड़ें || Estação mais próxima, estacionamento, ponto de encontro, comida, o que vestir, entrega de equipamento
+Shot list || शॉट लिस्ट || Lista de planos
+Email all locked crew || सारी पक्की क्रू को ईमेल करें || Enviar e-mail para toda a equipe confirmada
+Archive || आर्काइव करें || Arquivar
+Delete || डिलीट करें || Excluir
+Hide project || प्रोजेक्ट छिपाएँ || Ocultar projeto
+Mark filled… || भरा हुआ बताएँ… || Marcar como preenchida…
+Someone not on Crew Call… || कोई जो Crew Call पर नहीं है… || Alguém que não está no Crew Call…
+Reopen || फिर से खोलें || Reabrir
+Reopen this role in the project window to remove it || इसे हटाने के लिए प्रोजेक्ट विंडो में यह रोल फिर से खोलें || Reabra esta função na janela do projeto para removê-la
+Only this project's producer and director (and admins) can edit it. Locked crew are told if dates or call times change. || इसे सिर्फ़ इस प्रोजेक्ट के प्रोड्यूसर और डायरेक्टर (और एडमिन) बदल सकते हैं। तारीख़ या कॉल टाइम बदलने पर पक्की क्रू को बताया जाता है। || Só o produtor e o diretor deste projeto (e os admins) podem editá-lo. A equipe confirmada é avisada se as datas ou os horários de chamada mudarem.
+Request type || अनुरोध का प्रकार || Tipo de pedido
+Do the role || रोल निभाएँ || Fazer a função
+Shadow and learn || शैडो करें और सीखें || Acompanhar e aprender
+Send request || अनुरोध भेजें || Enviar pedido
+Back to project || प्रोजेक्ट पर वापस || Voltar ao projeto
+Request sent. You'll hear back here and by email. || अनुरोध भेज दिया। जवाब यहीं और ईमेल से मिलेगा। || Pedido enviado. Você terá resposta aqui e por e-mail.
+Shadow || शैडो || Acompanhamento
+Project title || प्रोजेक्ट का शीर्षक || Título do projeto
+Director name || डायरेक्टर का नाम || Nome do diretor
+Director email || डायरेक्टर का ईमेल || E-mail do diretor
+Producer name || प्रोड्यूसर का नाम || Nome do produtor
+Producer email || प्रोड्यूसर का ईमेल || E-mail do produtor
+Leave blank if you need one || अगर चाहिए तो ख़ाली छोड़ें || Deixe em branco se precisar de um
+Location name || लोकेशन का नाम || Nome da locação
+Location notes || लोकेशन के नोट्स || Observações da locação
+Notes, e.g. interiors || नोट्स, जैसे इंटीरियर || Observações, ex.: interiores
+Add another location || एक और लोकेशन जोड़ें || Adicionar outra locação
+Remove location || लोकेशन हटाएँ || Remover locação
+Add another block || एक और ब्लॉक जोड़ें || Adicionar outro bloco
+Remove dates || तारीख़ें हटाएँ || Remover datas
+Start || शुरू || Início
+End || अंत || Fim
+Call, wrap and location for each day || हर दिन का कॉल, रैप और लोकेशन || Chamada, fim e locação de cada dia
+Add shoot dates above and each day appears here. || ऊपर शूट की तारीख़ें जोड़ें और हर दिन यहाँ दिखेगा। || Adicione as datas de filmagem acima e cada dia aparece aqui.
+Add role || रोल जोड़ें || Adicionar função
+How many || कितने || Quantos
+List me as Director (filled) || मुझे डायरेक्टर के रूप में दिखाएँ (भरा हुआ) || Me colocar como Diretor (preenchida)
+Kit wanted || चाहिए किट || Equipamento necessário
+Kit wanted (optional) || चाहिए किट (वैकल्पिक) || Equipamento necessário (opcional)
+e.g. haze machine, gimbal || जैसे: हेज़ मशीन, जिम्बल || ex.: máquina de fumaça, gimbal
+Post project || प्रोजेक्ट पोस्ट करें || Publicar projeto
+Save changes || बदलाव सेव करें || Salvar alterações
+Your shoot appears on the calendar and people whose roles and free days match are notified. || आपका शूट कैलेंडर पर दिखेगा और जिनके रोल और खाली दिन मेल खाते हैं उन्हें सूचना मिलेगी। || Sua filmagem aparece no calendário e quem tem funções e dias livres compatíveis é avisado.
+No roles added yet. || अभी कोई रोल नहीं जोड़ा। || Nenhuma função adicionada ainda.
+Copy || कॉपी करें || Copiar
+Copied || कॉपी हो गया || Copiado
+Projects I run || मेरे चलाए प्रोजेक्ट || Projetos que coordeno
+Shoots I'm on || शूट जिन पर मैं हूँ || Filmagens em que estou
+My requests || मेरे अनुरोध || Meus pedidos
+Requests waiting || इंतज़ार में अनुरोध || Pedidos aguardando
+Projects you run, requests you've sent and shoots you're locked on. || आपके चलाए प्रोजेक्ट, आपके भेजे अनुरोध और वे शूट जिन पर आप पक्के हैं। || Projetos que você coordena, pedidos que enviou e filmagens em que está confirmado.
+Projects you run, requests you've sent and shoots you're locked on all live here. || आपके चलाए प्रोजेक्ट, आपके भेजे अनुरोध और वे शूट जिन पर आप पक्के हैं, सब यहाँ हैं। || Projetos que você coordena, pedidos que enviou e filmagens em que está confirmado ficam todos aqui.
+You're not producing or directing anything yet. || आप अभी कुछ भी प्रोड्यूस या डायरेक्ट नहीं कर रहे। || Você ainda não está produzindo nem dirigindo nada.
+No requests right now. People who match your open roles are notified when you post or add a role. || अभी कोई अनुरोध नहीं। आपके खाली रोल से मेल खाने वालों को पोस्ट करने या रोल जोड़ने पर सूचना मिलती है। || Nenhum pedido agora. Quem combina com suas funções abertas é avisado quando você publica ou adiciona uma função.
+No requests yet. Open a project and tap Request to join. || अभी कोई अनुरोध नहीं। कोई प्रोजेक्ट खोलें और जुड़ने का अनुरोध करें पर टैप करें। || Nenhum pedido ainda. Abra um projeto e toque em Pedir para participar.
+Not locked on any shoots yet. Requests that get accepted land here. || अभी किसी शूट पर पक्के नहीं। स्वीकार हुए अनुरोध यहाँ आते हैं। || Ainda não está confirmado em nenhuma filmagem. Pedidos aceitos aparecem aqui.
+Invite someone || किसी को बुलाएँ || Convidar alguém
+Email to invite || बुलाने के लिए ईमेल || E-mail para convidar
+Send invite || इनवाइट भेजें || Enviar convite
+Invites || इनवाइट || Convites
+Pending || बाक़ी || Pendente
+Joined || जुड़ गए || Entrou
+Revoke || रद्द करें || Revogar
+For people without an LFS email, like freelance HMU artists or actors. They can sign in once with the email you invite. || जिनके पास LFS ईमेल नहीं है, जैसे फ़्रीलांस HMU आर्टिस्ट या एक्टर। वे उसी ईमेल से साइन इन कर सकते हैं जिस पर आप बुलाते हैं। || Para quem não tem e-mail da LFS, como maquiadores freelancers ou atores. Eles entram com o e-mail que você convidar.
+You're a guest. You can do everything except invite other people. || आप मेहमान हैं। आप दूसरों को बुलाने के अलावा सब कुछ कर सकते हैं। || Você é convidado. Pode fazer tudo, menos convidar outras pessoas.
+My crew profile || मेरी क्रू प्रोफ़ाइल || Meu perfil de equipe
+List every role you can do, the kit you can bring, and the dates you're free. Directors will find you in Crew search and on the calendar. || हर वह रोल लिखें जो आप कर सकते हैं, जो किट ला सकते हैं, और जिन तारीख़ों पर आप खाली हैं। डायरेक्टर आपको क्रू खोज और कैलेंडर पर ढूँढेंगे। || Liste todas as funções que você faz, o equipamento que pode levar e as datas em que está livre. Os diretores vão te encontrar na busca de equipe e no calendário.
+Full name || पूरा नाम || Nome completo
+Course and cohort || कोर्स और कोहोर्ट || Curso e turma
+Term now || अभी का टर्म || Período atual
+Short bio || छोटा परिचय || Bio curta
+What you've shot, what you want to do more of || आपने क्या शूट किया है, और क्या ज़्यादा करना चाहते हैं || O que você já filmou e o que quer fazer mais
+Showreel or portfolio link || शोरील या पोर्टफ़ोलियो लिंक || Link do showreel ou portfólio
+Roles I can do || रोल जो मैं कर सकता/सकती हूँ || Funções que faço
+tap all that apply, star your main one || जो लागू हों सब पर टैप करें, मुख्य पर स्टार लगाएँ || toque em todas que se aplicam e marque a principal com estrela
+Clear roles || रोल हटाएँ || Limpar funções
+Roles I want to learn || रोल जो मैं सीखना चाहता/चाहती हूँ || Funções que quero aprender
+shadow someone on set || सेट पर किसी को शैडो करें || acompanhar alguém no set
+Producers can accept you as a shadow alongside their crew. You'll show up as "wants to shadow" on matching roles. || प्रोड्यूसर आपको अपनी क्रू के साथ शैडो के रूप में ले सकते हैं। मेल खाते रोल पर आप "शैडो करना चाहते हैं" के रूप में दिखेंगे। || Os produtores podem aceitar você como acompanhante junto da equipe. Você aparece como "quer acompanhar" nas funções correspondentes.
+Kit I can bring || किट जो मैं ला सकता/सकती हूँ || Equipamento que posso levar
+e.g. Sony FX3, Aputure 300d, Zoom F6 || जैसे: Sony FX3, Aputure 300d, Zoom F6 || ex.: Sony FX3, Aputure 300d, Zoom F6
+Add kit || किट जोड़ें || Adicionar equipamento
+When I'm free || मैं कब खाली हूँ || Quando estou livre
+Tap a day to mark it free, tap again to clear. Drag across days to select several at once. Days you're crewed on show as booked. || किसी दिन को खाली बताने के लिए टैप करें, हटाने के लिए फिर टैप करें। कई दिन एक साथ चुनने के लिए उन पर खींचें। जिन दिनों आप क्रू में हैं वे बुक दिखते हैं। || Toque num dia para marcá-lo como livre e toque de novo para limpar. Arraste sobre vários dias para selecioná-los de uma vez. Os dias em que você está numa equipe aparecem como reservados.
+added automatically after each shoot || हर शूट के बाद अपने-आप जुड़ता है || adicionado automaticamente após cada filmagem
+Once a shoot you're locked on wraps, it's added here automatically. || जिस शूट पर आप पक्के हैं उसका रैप होते ही वह यहाँ अपने-आप जुड़ जाता है। || Quando uma filmagem em que você está confirmado termina, ela é adicionada aqui automaticamente.
+Email notifications || ईमेल सूचनाएँ || Notificações por e-mail
+Email me when someone requests to join a project I run || जब कोई मेरे चलाए प्रोजेक्ट में जुड़ने का अनुरोध करे, तो मुझे ईमेल करें || Me avisar por e-mail quando alguém pedir para entrar num projeto que coordeno
+Email me when a new role matches my roles and free days || जब कोई नया रोल मेरे रोल और खाली दिनों से मेल खाए, तो मुझे ईमेल करें || Me avisar por e-mail quando uma nova função combinar com minhas funções e dias livres
+Email me when my requests are answered or a shoot I'm on changes || जब मेरे अनुरोधों का जवाब आए या मेरे किसी शूट में बदलाव हो, तो मुझे ईमेल करें || Me avisar por e-mail quando meus pedidos forem respondidos ou uma filmagem em que estou mudar
+Send me a weekly digest of open roles || मुझे खाली रोल का साप्ताहिक सार भेजें || Me enviar um resumo semanal das funções abertas
+Digest includes || सार में शामिल || O resumo inclui
+Every open role || हर खाली रोल || Todas as funções abertas
+Only my roles on days I'm free || सिर्फ़ मेरे रोल, उन दिनों जब मैं खाली हूँ || Só minhas funções nos dias em que estou livre
+Include people who want to shadow || शैडो करना चाहने वालों को भी शामिल करें || Incluir quem quer acompanhar
+Preview this week's digest || इस हफ़्ते का सार देखें || Ver o resumo desta semana
+Show my email to signed-in members (otherwise people message you through Crew Call) || साइन इन किए सदस्यों को मेरा ईमेल दिखाएँ (वरना लोग Crew Call के ज़रिए संदेश भेजेंगे) || Mostrar meu e-mail para membros conectados (senão as pessoas me escrevem pelo Crew Call)
+Hide my profile from Crew search and the calendar || मेरी प्रोफ़ाइल क्रू खोज और कैलेंडर से छिपाएँ || Ocultar meu perfil da busca de equipe e do calendário
+Nothing here is visible to anyone who isn't signed in. Producers and directors you're locked in with can always see your email. || यहाँ की कोई भी चीज़ साइन इन न किए किसी व्यक्ति को नहीं दिखती। जिन प्रोड्यूसर और डायरेक्टर के साथ आप पक्के हैं, वे हमेशा आपका ईमेल देख सकते हैं। || Nada aqui é visível para quem não está conectado. Produtores e diretores com quem você está confirmado sempre veem seu e-mail.
+Save profile || प्रोफ़ाइल सेव करें || Salvar perfil
+Profile saved || प्रोफ़ाइल सेव हो गई || Perfil salvo
+Download my data || मेरा डेटा डाउनलोड करें || Baixar meus dados
+Delete my profile || मेरी प्रोफ़ाइल डिलीट करें || Excluir meu perfil
+Delete your profile? || अपनी प्रोफ़ाइल डिलीट करें? || Excluir seu perfil?
+This removes your profile, availability, requests and notifications for good, and reopens any roles you're locked on. Producers on those shoots are told. You can sign in again later and start fresh. || इससे आपकी प्रोफ़ाइल, उपलब्धता, अनुरोध और सूचनाएँ हमेशा के लिए हट जाती हैं, और जिन रोल पर आप पक्के हैं वे फिर खुल जाते हैं। उन शूट के प्रोड्यूसर को बताया जाता है। आप बाद में फिर साइन इन करके नए सिरे से शुरू कर सकते हैं। || Isso apaga de vez seu perfil, disponibilidade, pedidos e notificações, e reabre as funções em que você está confirmado. Os produtores dessas filmagens são avisados. Você pode entrar de novo depois e começar do zero.
+Notifications || सूचनाएँ || Notificações
+Nothing yet. || अभी कुछ नहीं। || Nada ainda.
+Open project || प्रोजेक्ट खोलें || Abrir projeto
+emailed || ईमेल किया || enviado por e-mail
+in app only || सिर्फ़ ऐप में || só no app
+Role match || रोल मेल || Função compatível
+Update || अपडेट || Atualização
+Invite || इनवाइट || Convite
+New term || नया टर्म || Novo período
+Note || नोट || Nota
+Switch sample person || नमूना व्यक्ति बदलें || Trocar pessoa de exemplo
+Sign in to Crew Call || Crew Call में साइन इन करें || Entrar no Crew Call
+Continue with Microsoft (LFS) || Microsoft (LFS) से जारी रखें || Continuar com Microsoft (LFS)
+Email me a sign-in link || मुझे साइन इन लिंक ईमेल करें || Enviar link de acesso por e-mail
+or, if you were invited || या, अगर आपको बुलाया गया है || ou, se você foi convidado
+Prototype: sign in as a sample person || प्रोटोटाइप: नमूना व्यक्ति के रूप में साइन इन करें || Protótipo: entrar como pessoa de exemplo
+By signing in you agree to the || साइन इन करके आप सहमत होते हैं || Ao entrar, você concorda com o
+LFS students and staff sign in with their LFS Microsoft account. Anyone without an LFS email, such as a freelance HMU artist, needs an invite from an LFS member first. || LFS के छात्र और स्टाफ़ अपने LFS Microsoft अकाउंट से साइन इन करते हैं। जिनके पास LFS ईमेल नहीं है, जैसे फ़्रीलांस HMU आर्टिस्ट, उन्हें पहले किसी LFS सदस्य का इनवाइट चाहिए। || Alunos e funcionários da LFS entram com a conta Microsoft da LFS. Quem não tem e-mail da LFS, como um maquiador freelancer, precisa antes de um convite de um membro da LFS.
+In the live app this opens the LFS Microsoft login. Try an email or sample person below. || लाइव ऐप में यह LFS Microsoft लॉगिन खोलता है। नीचे कोई ईमेल या नमूना व्यक्ति आज़माएँ। || No app ao vivo, isto abre o login Microsoft da LFS. Teste um e-mail ou uma pessoa de exemplo abaixo.
+Signed out || साइन आउट हो गए || Você saiu
+Sign in to find crew || क्रू ढूँढने के लिए साइन इन करें || Entre para encontrar equipe
+Crew profiles, availability and contact details are only visible to signed-in LFS members and invited guests. || क्रू प्रोफ़ाइल, उपलब्धता और संपर्क विवरण सिर्फ़ साइन इन किए LFS सदस्यों और बुलाए गए मेहमानों को दिखते हैं। || Perfis, disponibilidade e contatos da equipe só aparecem para membros da LFS conectados e convidados.
+Sign in to see your shoots || अपने शूट देखने के लिए साइन इन करें || Entre para ver suas filmagens
+Sign in to set up your profile || अपनी प्रोफ़ाइल बनाने के लिए साइन इन करें || Entre para criar seu perfil
+Add your roles, kit and free days so producers can find you. || अपने रोल, किट और खाली दिन जोड़ें ताकि प्रोड्यूसर आपको ढूँढ सकें। || Adicione suas funções, equipamento e dias livres para os produtores te encontrarem.
+Sign in to see Develop || Develop देखने के लिए साइन इन करें || Entre para ver Desenvolver
+Scripts and producer pitches are only visible to signed-in LFS members, to protect writers' and producers' ideas. || लेखकों और प्रोड्यूसरों के आइडिया की रक्षा के लिए, स्क्रिप्ट और प्रोड्यूसर पिच सिर्फ़ साइन इन किए LFS सदस्यों को दिखती हैं। || Roteiros e pitches de produtores só aparecem para membros da LFS conectados, para proteger as ideias de roteiristas e produtores.
+Sign in to see Release || Release देखने के लिए साइन इन करें || Entre para ver Lançamento
+Wrapped films looking for posters, trailers, press kits and festival plans. Only visible to signed-in members, to protect unreleased films. || पूरी हो चुकी फ़िल्में जिन्हें पोस्टर, ट्रेलर, प्रेस किट और फ़ेस्टिवल प्लान चाहिए। अनरिलीज़्ड फ़िल्मों की रक्षा के लिए सिर्फ़ साइन इन किए सदस्यों को दिखती हैं। || Filmes finalizados procurando cartazes, trailers, press kits e plano de festivais. Só aparecem para membros conectados, para proteger filmes inéditos.
+Admins only || सिर्फ़ एडमिन || Só admins
+Sign in with an admin account to manage Crew Call. || Crew Call संभालने के लिए एडमिन अकाउंट से साइन इन करें। || Entre com uma conta de admin para gerenciar o Crew Call.
+Sign in to post a project. || प्रोजेक्ट पोस्ट करने के लिए साइन इन करें। || Entre para publicar um projeto.
+Sign in to report a problem. || समस्या की रिपोर्ट करने के लिए साइन इन करें। || Entre para relatar um problema.
+Add Crew Call to your home screen || Crew Call को अपनी होम स्क्रीन पर जोड़ें || Adicione o Crew Call à sua tela inicial
+It opens full screen like an app, with no app store needed. || यह ऐप की तरह पूरी स्क्रीन पर खुलता है, किसी ऐप स्टोर की ज़रूरत नहीं। || Ele abre em tela cheia como um app, sem precisar de loja de apps.
+Open Crew Call in Safari. || Crew Call को Safari में खोलें। || Abra o Crew Call no Safari.
+Tap Share, the square with an arrow. || शेयर पर टैप करें, तीर वाला चौकोर। || Toque em Compartilhar, o quadrado com uma seta.
+Tap Add to Home Screen, then Add. || होम स्क्रीन पर जोड़ें पर टैप करें, फिर जोड़ें। || Toque em Adicionar à Tela de Início e depois em Adicionar.
+Open Crew Call in Chrome. || Crew Call को Chrome में खोलें। || Abra o Crew Call no Chrome.
+Tap the three-dot menu. || तीन बिंदुओं वाले मेनू पर टैप करें। || Toque no menu de três pontos.
+Tap Add to Home screen or Install app. || होम स्क्रीन पर जोड़ें या ऐप इंस्टॉल करें पर टैप करें। || Toque em Adicionar à tela inicial ou Instalar app.
+About || बारे में || Sobre
+What's wrong || क्या गड़बड़ है || O que está errado
+What happened || क्या हुआ || O que aconteceu
+Dates, what was said or done, anything the admins need to know || तारीख़ें, क्या कहा या किया गया, एडमिन को जो कुछ भी जानना चाहिए || Datas, o que foi dito ou feito, tudo o que os admins precisam saber
+Send report || रिपोर्ट भेजें || Enviar relato
+If someone is in danger right now, call 999. || अगर कोई अभी ख़तरे में है, तो 999 पर कॉल करें। || Se alguém estiver em perigo agora, ligue 999.
+For anything serious, also tell LFS Student Services. Crew Call admins are students, not the school. || किसी भी गंभीर बात के लिए LFS Student Services को भी बताएँ। Crew Call के एडमिन छात्र हैं, स्कूल नहीं। || Em casos sérios, avise também o LFS Student Services. Os admins do Crew Call são alunos, não a escola.
+About anything: a shoot that isn't listed, something that happened on set, or a problem with Crew Call. This goes to Crew Call's admins only. The person or crew you report aren't told who reported them. || किसी भी बारे में: कोई शूट जो लिस्ट नहीं है, सेट पर हुई कोई बात, या Crew Call में कोई समस्या। यह सिर्फ़ Crew Call के एडमिन तक जाता है। जिस व्यक्ति या क्रू की आप रिपोर्ट करते हैं, उन्हें नहीं बताया जाता कि रिपोर्ट किसने की। || Sobre qualquer coisa: uma filmagem que não está na lista, algo que aconteceu no set ou um problema com o Crew Call. Isto vai só para os admins do Crew Call. A pessoa ou equipe relatada não fica sabendo quem fez o relato.
+. This goes to Crew Call's admins only. The person or crew you report aren't told who reported them. || । यह सिर्फ़ Crew Call के एडमिन तक जाता है। जिस व्यक्ति या क्रू की आप रिपोर्ट करते हैं, उन्हें नहीं बताया जाता कि रिपोर्ट किसने की। || . Isto vai só para os admins do Crew Call. A pessoa ou equipe relatada não fica sabendo quem fez o relato.
+Report sent to the admins. Thank you. || रिपोर्ट एडमिन को भेज दी गई। धन्यवाद। || Relato enviado aos admins. Obrigado.
+Safety on set || सेट पर सुरक्षा || Segurança no set
+Harassment or bullying || उत्पीड़न या धमकाना || Assédio ou intimidação
+Discrimination || भेदभाव || Discriminação
+Inappropriate content || अनुचित सामग्री || Conteúdo impróprio
+Spam or fake profile || स्पैम या नक़ली प्रोफ़ाइल || Spam ou perfil falso
+Something else || कुछ और || Outra coisa
+Who runs Crew Call || Crew Call कौन चलाता है || Quem administra o Crew Call
+What we keep || हम क्या रखते हैं || O que guardamos
+Who can see it || इसे कौन देख सकता है || Quem pode ver
+What we don't do || हम क्या नहीं करते || O que não fazemos
+How long we keep it || हम इसे कितने समय तक रखते हैं || Por quanto tempo guardamos
+Your rights || आपके अधिकार || Seus direitos
+Your name, LFS email, course and cohort code || आपका नाम, LFS ईमेल, कोर्स और कोहोर्ट कोड || Seu nome, e-mail da LFS, curso e código da turma
+The roles, kit, credits and skills you add, your bio and reel link || आपके जोड़े रोल, किट, क्रेडिट और हुनर, आपका परिचय और रील लिंक || As funções, equipamentos, créditos e habilidades que você adiciona, sua bio e o link do reel
+The days you mark as free, the shoots you post, and your crew requests and messages || जिन दिनों को आप खाली बताते हैं, जो शूट आप पोस्ट करते हैं, और आपके क्रू अनुरोध और संदेश || Os dias que você marca como livres, as filmagens que publica e seus pedidos e mensagens de equipe
+Reports you send, and admin actions taken on them || आपकी भेजी रिपोर्ट, और उन पर एडमिन की कार्रवाई || Relatos que você envia e as ações dos admins sobre eles
+Nothing about people is visible to anyone who isn't signed in. The calendar shows only shoot titles and dates. || साइन इन न किए किसी को भी लोगों के बारे में कुछ नहीं दिखता। कैलेंडर सिर्फ़ शूट के शीर्षक और तारीख़ें दिखाता है। || Nada sobre as pessoas aparece para quem não está conectado. O calendário mostra só títulos e datas das filmagens.
+Signed-in members see your profile, unless you hide it. || साइन इन किए सदस्य आपकी प्रोफ़ाइल देखते हैं, जब तक आप उसे छिपा न दें। || Membros conectados veem seu perfil, a menos que você o oculte.
+Your email is only shown if you choose to share it, or to the producer and director of a shoot you're locked onto. || आपका ईमेल सिर्फ़ तभी दिखता है जब आप उसे साझा करना चुनें, या उस शूट के प्रोड्यूसर और डायरेक्टर को जिस पर आप पक्के हैं। || Seu e-mail só aparece se você escolher compartilhá-lo, ou para o produtor e o diretor de uma filmagem em que você está confirmado.
+Script links are only shown to people the writer attaches. || स्क्रिप्ट लिंक सिर्फ़ उन्हें दिखते हैं जिन्हें लेखक जोड़ता है। || Links de roteiro só aparecem para quem o roteirista chamar.
+Reports are only seen by admins with the Reports and privacy permission. || रिपोर्ट सिर्फ़ रिपोर्ट और गोपनीयता अनुमति वाले एडमिन देखते हैं। || Os relatos só são vistos por admins com a permissão Relatos e privacidade.
+No adverts, no tracking cookies, and we never sell or share your data. Data is stored with Supabase in their London region. || कोई विज्ञापन नहीं, कोई ट्रैकिंग कुकी नहीं, और हम आपका डेटा कभी बेचते या साझा नहीं करते। डेटा Supabase के लंदन क्षेत्र में रखा जाता है। || Sem anúncios, sem cookies de rastreamento, e nunca vendemos nem compartilhamos seus dados. Os dados ficam no Supabase, na região de Londres.
+You can download everything Crew Call holds about you from My profile, correct it, or delete it. If you're unhappy with how your data is handled, email us first. You can also complain to the || Crew Call के पास आपके बारे में जो कुछ है, उसे आप मेरी प्रोफ़ाइल से डाउनलोड कर सकते हैं, सुधार सकते हैं या डिलीट कर सकते हैं। अगर आप अपने डेटा के इस्तेमाल से ख़ुश नहीं हैं, तो पहले हमें ईमेल करें। आप यहाँ शिकायत भी कर सकते हैं: || Você pode baixar tudo o que o Crew Call guarda sobre você em Meu perfil, corrigir ou excluir. Se não estiver satisfeito com o tratamento dos seus dados, escreva para nós primeiro. Você também pode reclamar ao
+Information Commissioner's Office || Information Commissioner's Office || Information Commissioner's Office
+Downloaded your data || आपका डेटा डाउनलोड हो गया || Seus dados foram baixados
+Links need to start with https:// || लिंक https:// से शुरू होने चाहिए || Os links precisam começar com https://
+Pick at least one role you're looking for. || कम से कम एक रोल चुनें जिसकी आपको तलाश है। || Escolha pelo menos uma função que você procura.
+Pick at least one role. || कम से कम एक रोल चुनें। || Escolha pelo menos uma função.
+Pick at least one thing you need help with. || कम से कम एक चीज़ चुनें जिसमें आपको मदद चाहिए। || Escolha pelo menos uma coisa em que precisa de ajuda.
+Add at least one location. || कम से कम एक लोकेशन जोड़ें। || Adicione pelo menos uma locação.
+Add at least one role. || कम से कम एक रोल जोड़ें। || Adicione pelo menos uma função.
+Add at least one shoot date. || शूट की कम से कम एक तारीख़ जोड़ें। || Adicione pelo menos uma data de filmagem.
+End date is before the start || अंत की तारीख़ शुरू से पहले है || A data final é anterior à inicial
+Pick your course and cohort. || अपना कोर्स और कोहोर्ट चुनें। || Escolha seu curso e turma.
+Saved || सेव हो गया || Salvo
+Removed || हटा दिया || Removido
+Deleted || डिलीट हो गया || Excluído
+Restored || वापस आ गया || Restaurado
+Pitch posted || पिच पोस्ट हो गई || Pitch publicado
+Script posted || स्क्रिप्ट पोस्ट हो गई || Roteiro publicado
+Film listed || फ़िल्म जुड़ गई || Filme cadastrado
+Request withdrawn || अनुरोध वापस लिया || Pedido retirado
+Declined. They've been told politely. || मना कर दिया। उन्हें विनम्रता से बता दिया गया है। || Recusado. A pessoa foi avisada com educação.
+That role is already filled || वह रोल पहले ही भर चुका है || Essa função já está preenchida
+That day has passed || वह दिन बीत चुका है || Esse dia já passou
+You're booked on a shoot that day || उस दिन आप किसी शूट पर बुक हैं || Você está reservado numa filmagem nesse dia
+Add your roles to your profile first || पहले अपनी प्रोफ़ाइल में अपने रोल जोड़ें || Adicione primeiro suas funções ao perfil
+Shoot form filled in from your post. Add the dates and roles. || शूट फ़ॉर्म आपकी पोस्ट से भर दिया गया। तारीख़ें और रोल जोड़ें। || Formulário de filmagem preenchido a partir da sua publicação. Adicione as datas e as funções.
+Prototype: the feed goes live with the real app. Use Download .ics for now. || प्रोटोटाइप: फ़ीड असली ऐप के साथ चालू होगी। अभी .ics डाउनलोड करें इस्तेमाल करें। || Protótipo: o feed entra no ar com o app real. Por enquanto, use Baixar .ics.
+Downloaded. This adds the shoot as it is now. To get later changes automatically, use Sync calendar. || डाउनलोड हो गया। यह शूट को अभी जैसा है वैसा जोड़ता है। बाद के बदलाव अपने-आप पाने के लिए कैलेंडर सिंक करें इस्तेमाल करें। || Baixado. Isto adiciona a filmagem como está agora. Para receber as mudanças automaticamente, use Sincronizar calendário.
+Only the producer or director can edit this project || इस प्रोजेक्ट को सिर्फ़ प्रोड्यूसर या डायरेक्टर बदल सकते हैं || Só o produtor ou o diretor pode editar este projeto
+Someone already uses that email. || वह ईमेल कोई और पहले से इस्तेमाल कर रहा है। || Alguém já usa esse e-mail.
+WhatsApp invite links start with https://chat.whatsapp.com/ || WhatsApp इनवाइट लिंक https://chat.whatsapp.com/ से शुरू होते हैं || Links de convite do WhatsApp começam com https://chat.whatsapp.com/
+One of the key links isn't a web address. || ज़रूरी लिंक में से एक वेब पता नहीं है। || Um dos links importantes não é um endereço web.
+Add the producer's email so they can sign in and manage the project. || प्रोड्यूसर का ईमेल जोड़ें ताकि वे साइन इन करके प्रोजेक्ट संभाल सकें। || Adicione o e-mail do produtor para ele poder entrar e gerenciar o projeto.
+Invite revoked || इनवाइट रद्द हो गया || Convite revogado
+Notes saved || नोट्स सेव हो गए || Notas salvas
+Report closed || रिपोर्ट बंद हो गई || Relato encerrado
+Backup restored || बैकअप वापस आ गया || Backup restaurado
+That file isn't a Crew Call backup || वह फ़ाइल Crew Call का बैकअप नहीं है || Esse arquivo não é um backup do Crew Call
+Tick at least one permission || कम से कम एक अनुमति पर टिक करें || Marque pelo menos uma permissão
+That's already their email. || वह पहले से उनका ईमेल है। || Esse já é o e-mail da pessoa.
+No more term dates set || आगे के टर्म की तारीख़ें तय नहीं || Não há mais datas de período definidas
+Profile deleted || प्रोफ़ाइल डिलीट हो गई || Perfil excluído
+You own Crew Call. Transfer ownership in Admin before deleting your profile || Crew Call के मालिक आप हैं। प्रोफ़ाइल डिलीट करने से पहले एडमिन में मालिकाना हक़ सौंपें || Você é o dono do Crew Call. Transfira a propriedade em Admin antes de excluir seu perfil
+Restore this backup? || यह बैकअप वापस लाएँ? || Restaurar este backup?
+Start a fresh checklist? || नई चेकलिस्ट शुरू करें? || Começar uma nova checklist?
+Language || भाषा || Idioma
+Director || डायरेक्टर || Diretor
+Producer || प्रोड्यूसर || Produtor
+Screenwriter || स्क्रीनराइटर || Roteirista
+1st AD || फ़र्स्ट AD || 1º assistente de direção
+2nd AD || सेकंड AD || 2º assistente de direção
+Script Supervisor || स्क्रिप्ट सुपरवाइज़र || Continuísta
+Runner || रनर || Assistente de produção (runner)
+Line Producer || लाइन प्रोड्यूसर || Produtor executivo de linha
+Production Manager || प्रोडक्शन मैनेजर || Gerente de produção
+Production Coordinator || प्रोडक्शन कोऑर्डिनेटर || Coordenador de produção
+Location Manager || लोकेशन मैनेजर || Produtor de locação
+DoP || DoP || Diretor de fotografia
+Camera Operator || कैमरा ऑपरेटर || Operador de câmera
+1st AC / Focus Puller || फ़र्स्ट AC / फ़ोकस पुलर || 1º assistente de câmera / Foquista
+2nd AC || सेकंड AC || 2º assistente de câmera
+DIT || DIT || DIT
+Stills / BTS || स्टिल्स / BTS || Still / Making of
+Gaffer || गैफ़र || Gaffer
+Spark || लाइटमैन || Eletricista
+Key Grip || की ग्रिप || Maquinista-chefe
+Grip || ग्रिप || Maquinista
+Sound Recordist || साउंड रिकॉर्डिस्ट || Técnico de som direto
+Boom Operator || बूम ऑपरेटर || Microfonista
+Sound Designer || साउंड डिज़ाइनर || Designer de som
+Composer || कंपोज़र || Compositor
+Production Designer || प्रोडक्शन डिज़ाइनर || Diretor de arte (production designer)
+Art Director || आर्ट डायरेक्टर || Diretor de arte
+Costume || कॉस्ट्यूम || Figurino
+Hair & Make-up || हेयर और मेकअप || Cabelo e maquiagem
+Editor || एडिटर || Montador
+Colourist || कलरिस्ट || Colorista
+VFX || VFX || VFX
+Unit Publicist || यूनिट पब्लिसिस्ट || Assessor de imprensa
+Social Media & BTS || सोशल मीडिया और BTS || Redes sociais e making of
+Key Art & Poster || की आर्ट और पोस्टर || Key art e cartaz
+Festival Strategy || फ़ेस्टिवल रणनीति || Estratégia de festivais
+Actor || एक्टर || Ator
+Script Editor || स्क्रिप्ट एडिटर || Consultor de roteiro
+Direction & production || निर्देशन और प्रोडक्शन || Direção e produção
+Production office || प्रोडक्शन ऑफ़िस || Escritório de produção
+Camera || कैमरा || Câmera
+Lighting & grip || लाइटिंग और ग्रिप || Iluminação e maquinaria
+Sound || साउंड || Som
+Art & costume || आर्ट और कॉस्ट्यूम || Arte e figurino
+Marketing || मार्केटिंग || Marketing
+Cast || कलाकार || Elenco
+Lenses || लेंस || Lentes
+Lighting || लाइटिंग || Iluminação
+Other || अन्य || Outros
+Term 1 || टर्म 1 || Período 1
+Term 2 || टर्म 2 || Período 2
+Term 3 || टर्म 3 || Período 3
+Term 4 || टर्म 4 || Período 4
+Term 5 || टर्म 5 || Período 5
+Graduation term || ग्रेजुएशन टर्म || Período de formatura
+Screenwriting || स्क्रीनराइटिंग || Roteiro
+Producing || प्रोड्यूसिंग || Produção
+Film Marketing || फ़िल्म मार्केटिंग || Marketing de cinema
+Alumni || पूर्व छात्र || Ex-alunos
+Guest || मेहमान || Convidado
+Guests || मेहमान || Convidados
+MA Filmmaking || MA Filmmaking || MA Filmmaking
+MA Screenwriting || MA Screenwriting || MA Screenwriting
+MA Film Producing || MA Film Producing || MA Film Producing
+MA Film Marketing || MA Film Marketing || MA Film Marketing
+External || बाहरी || Externo
+Directing || डायरेक्शन || Direção
+Cinematography || सिनेमैटोग्राफ़ी || Fotografia
+Production Design || प्रोडक्शन डिज़ाइन || Direção de arte
+Documentary || डॉक्यूमेंट्री || Documentário
+Short fiction || शॉर्ट फ़िक्शन || Curta de ficção
+Music video || म्यूज़िक वीडियो || Videoclipe
+Commercial || विज्ञापन || Publicidade
+Experimental || प्रयोगात्मक || Experimental
+Graduation film || ग्रेजुएशन फ़िल्म || Filme de formatura
+Festival strategy || फ़ेस्टिवल रणनीति || Estratégia de festivais
+Poster & key art || पोस्टर और की आर्ट || Cartaz e key art
+Trailer || ट्रेलर || Trailer
+Socials & BTS || सोशल मीडिया और BTS || Redes sociais e making of
+Press kit || प्रेस किट || Press kit
+Stills || स्टिल्स || Still
+Mon || सोम || seg.
+Tue || मंगल || ter.
+Wed || बुध || qua.
+Thu || गुरु || qui.
+Fri || शुक्र || sex.
+Sat || शनि || sáb.
+Sun || रवि || dom.
+Monday || सोमवार || Segunda-feira
+Tuesday || मंगलवार || Terça-feira
+Wednesday || बुधवार || Quarta-feira
+Thursday || गुरुवार || Quinta-feira
+Friday || शुक्रवार || Sexta-feira
+Saturday || शनिवार || Sábado
+Sunday || रविवार || Domingo
+January || जनवरी || Janeiro
+February || फ़रवरी || Fevereiro
+March || मार्च || Março
+April || अप्रैल || Abril
+May || मई || Maio
+June || जून || Junho
+July || जुलाई || Julho
+August || अगस्त || Agosto
+September || सितंबर || Setembro
+October || अक्तूबर || Outubro
+November || नवंबर || Novembro
+December || दिसंबर || Dezembro
+Upcoming || आने वाले || Próximos
+Wrapped || रैप हो गया || Finalizado
+Live || चालू || No ar
+Now || अभी || Agora
+Right now || ठीक अभी || Neste momento
+Due now || अभी देय || Vence agora
+Starts next term || अगले टर्म से शुरू || Começa no próximo período
+studying now || अभी पढ़ रहे हैं || estudando agora
+Graduation term now || अभी ग्रेजुएशन टर्म || Período de formatura agora
+Guest, not an LFS student || मेहमान, LFS छात्र नहीं || Convidado, não é aluno da LFS
+Guests don't have a course, term or cohort. || मेहमानों का कोई कोर्स, टर्म या कोहोर्ट नहीं होता। || Convidados não têm curso, período nem turma.
+A new LFS student || नया LFS छात्र || Um novo aluno da LFS
+Starts with an empty profile. || ख़ाली प्रोफ़ाइल से शुरू होता है। || Começa com um perfil vazio.
+main contact || मुख्य संपर्क || contato principal
+locked || पक्का || confirmado
+fixed || तय || fixo
+automatic || अपने-आप || automático
+view only || सिर्फ़ देखने के लिए || só leitura
+View only || सिर्फ़ देखने के लिए || Só leitura
+Run Crew Call without touching code. Changes apply for everyone straight away. You're the owner. || बिना कोड छुए Crew Call चलाएँ। बदलाव तुरंत सबके लिए लागू होते हैं। आप मालिक हैं। || Administre o Crew Call sem mexer em código. As mudanças valem para todos na hora. Você é o dono.
+Run Crew Call without touching code. Changes apply for everyone straight away. You're an admin. || बिना कोड छुए Crew Call चलाएँ। बदलाव तुरंत सबके लिए लागू होते हैं। आप एडमिन हैं। || Administre o Crew Call sem mexer em código. As mudanças valem para todos na hora. Você é admin.
+Admin sections || एडमिन सेक्शन || Seções de admin
+Sections || सेक्शन || Seções
+Access || एक्सेस || Acesso
+Handover || हैंडओवर || Passagem de bastão
+People || लोग || Pessoas
+Projects || प्रोजेक्ट || Projetos
+Terms and cohorts || टर्म और कोहोर्ट || Períodos e turmas
+Terms and lists || टर्म और सूचियाँ || Períodos e listas
+Email settings || ईमेल सेटिंग्स || Configurações de e-mail
+Reports || रिपोर्ट || Relatos
+Reports and privacy || रिपोर्ट और गोपनीयता || Relatos e privacidade
+Privacy and data || गोपनीयता और डेटा || Privacidade e dados
+Privacy || गोपनीयता || Privacidade
+Activity || गतिविधि || Atividade
+Admin activity || एडमिन गतिविधि || Atividade dos admins
+Admins and permissions || एडमिन और अनुमतियाँ || Admins e permissões
+Admin access || एडमिन एक्सेस || Acesso de admin
+Add an admin || एडमिन जोड़ें || Adicionar admin
+Make admin || एडमिन बनाएँ || Tornar admin
+Owner || मालिक || Dono
+Every admin || हर एडमिन || Todos os admins
+Can't be removed || हटाया नहीं जा सकता || Não pode ser removido
+Make or remove admins, remove guests, revoke invites and change sign-in emails || एडमिन बनाएँ या हटाएँ, मेहमानों को हटाएँ, इनवाइट रद्द करें और साइन इन ईमेल बदलें || Tornar ou remover admins, remover convidados, revogar convites e alterar e-mails de acesso
+Edit, archive or delete any project || कोई भी प्रोजेक्ट बदलें, आर्काइव या डिलीट करें || Editar, arquivar ou excluir qualquer projeto
+Term dates, courses and cohort codes, fixing someone's cohort, roles and project types || टर्म की तारीख़ें, कोर्स और कोहोर्ट कोड, किसी का कोहोर्ट ठीक करना, रोल और प्रोजेक्ट के प्रकार || Datas dos períodos, cursos e códigos de turma, corrigir a turma de alguém, funções e tipos de projeto
+Sending address, help address, school mass email alias and digest timing || भेजने का पता, सहायता पता, स्कूल का सामूहिक ईमेल पता और डाइजेस्ट का समय || Endereço de envio, endereço de ajuda, alias de e-mail em massa da escola e horário do resumo
+Read and act on reports, delete old profiles, download and restore backups || रिपोर्ट पढ़ें और उन पर कार्रवाई करें, पुरानी प्रोफ़ाइल डिलीट करें, बैकअप डाउनलोड करें और वापस लाएँ || Ler e agir sobre relatos, excluir perfis antigos, baixar e restaurar backups
+Pick someone with an LFS email who has signed in, and tick what they can do. Guests can't be admins. || LFS ईमेल वाला कोई व्यक्ति चुनें जिसने साइन इन किया हो, और टिक करें कि वे क्या कर सकते हैं। मेहमान एडमिन नहीं बन सकते। || Escolha alguém com e-mail da LFS que já tenha entrado e marque o que pode fazer. Convidados não podem ser admins.
+You need the People permission to add admins. || एडमिन जोड़ने के लिए आपको लोग अनुमति चाहिए। || Você precisa da permissão Pessoas para adicionar admins.
+You need the People permission to change someone's email. || किसी का ईमेल बदलने के लिए आपको लोग अनुमति चाहिए। || Você precisa da permissão Pessoas para alterar o e-mail de alguém.
+The owner has every permission, can't be removed, and is the only person who can hand ownership on. They should also hold the Crew Call Gmail login. || मालिक के पास हर अनुमति होती है, उन्हें हटाया नहीं जा सकता, और सिर्फ़ वही मालिकाना हक़ आगे सौंप सकते हैं। Crew Call का Gmail लॉगिन भी उन्हीं के पास होना चाहिए। || O dono tem todas as permissões, não pode ser removido e é o único que pode passar a propriedade adiante. Ele também deve guardar o login do Gmail do Crew Call.
+Transfer ownership || मालिकाना हक़ सौंपें || Transferir propriedade
+Transfer || सौंपें || Transferir
+New owner || नए मालिक || Novo dono
+Transfer ownership to the person who will hold the Crew Call Gmail login. || मालिकाना हक़ उस व्यक्ति को सौंपें जिसके पास Crew Call का Gmail लॉगिन रहेगा। || Transfira a propriedade para quem vai guardar o login do Gmail do Crew Call.
+You'll stay an admin with every permission until someone removes you. || जब तक कोई आपको हटा न दे, आप हर अनुमति के साथ एडमिन बने रहेंगे। || Você continua admin com todas as permissões até alguém remover você.
+Owners so far || अब तक के मालिक || Donos até agora
+Added automatically when ownership is transferred. || मालिकाना हक़ सौंपे जाने पर अपने-आप जुड़ता है। || Adicionado automaticamente quando a propriedade é transferida.
+Change a sign-in email || साइन इन ईमेल बदलें || Alterar um e-mail de acesso
+For a new address, a typo or a name change. Students must use an LFS address. The person is told, and their projects follow them. || नए पते, टाइपो या नाम बदलने के लिए। छात्रों को LFS पता ही इस्तेमाल करना होगा। व्यक्ति को बताया जाता है, और उनके प्रोजेक्ट उनके साथ जाते हैं। || Para um endereço novo, um erro de digitação ou mudança de nome. Alunos precisam usar um endereço da LFS. A pessoa é avisada e os projetos dela a acompanham.
+In the live app, a code goes to the new address and the change only happens once it's entered. || असली ऐप में, नए पते पर एक कोड जाता है और कोड डालने पर ही बदलाव होता है। || No app real, um código vai para o novo endereço e a mudança só acontece depois que ele é digitado.
+Person || व्यक्ति || Pessoa
+New email || नया ईमेल || Novo e-mail
+Change || बदलें || Alterar
+Members || सदस्य || Membros
+Status || स्थिति || Status
+Edit the options people pick from. Removing an item doesn't change existing projects or profiles. || वे विकल्प बदलें जिनमें से लोग चुनते हैं। कोई आइटम हटाने से मौजूदा प्रोजेक्ट या प्रोफ़ाइल नहीं बदलते। || Edite as opções que as pessoas escolhem. Remover um item não altera projetos ou perfis existentes.
+Lists || सूचियाँ || Listas
+Crew roles || क्रू रोल || Funções da equipe
+New role, e.g. Drone Operator || नया रोल, जैसे ड्रोन ऑपरेटर || Nova função, por ex. Operador de drone
+Project types || प्रोजेक्ट के प्रकार || Tipos de projeto
+Add a project type || प्रोजेक्ट का प्रकार जोड़ें || Adicionar um tipo de projeto
+Add a type || प्रकार जोड़ें || Adicionar tipo
+Terms || टर्म || Períodos
+Add a term || टर्म जोड़ें || Adicionar um período
+Add term || टर्म जोड़ें || Adicionar período
+Add || जोड़ें || Adicionar
+Term dates || टर्म की तारीख़ें || Datas dos períodos
+Term name || टर्म का नाम || Nome do período
+e.g. Autumn 2029 || जैसे Autumn 2029 || por ex. Autumn 2029
+Starts || शुरू || Início
+Ends || अंत || Fim
+From the LFS key dates. Everyone moves up one term when each term starts, and gets a notification to check it. Dates lock once a term has started. || LFS की मुख्य तारीख़ों से। हर टर्म शुरू होने पर सब एक टर्म आगे बढ़ते हैं, और जाँचने के लिए सूचना पाते हैं। टर्म शुरू होने के बाद तारीख़ें लॉक हो जाती हैं। || Das datas-chave da LFS. Todos avançam um período quando cada período começa e recebem uma notificação para conferir. As datas ficam travadas depois que o período começa.
+LFS key dates || LFS की मुख्य तारीख़ें || Datas-chave da LFS
+Check next year's term dates against the LFS key dates page. || अगले साल की टर्म की तारीख़ें LFS के मुख्य तारीख़ों वाले पेज से मिलाएँ। || Confira as datas dos períodos do próximo ano na página de datas-chave da LFS.
+Courses and cohort codes || कोर्स और कोहोर्ट कोड || Cursos e códigos de turma
+Cohort codes || कोहोर्ट कोड || Códigos de turma
+Cohorts || कोहोर्ट || Turmas
+Cohort number || कोहोर्ट संख्या || Número da turma
+Code prefix, optional || कोड उपसर्ग, वैकल्पिक || Prefixo do código, opcional
+Every term || हर टर्म || Todo período
+Every September, one year || हर सितंबर, एक साल || Todo setembro, um ano
+Everyone picks their cohort once. Crew Call works out their term from it every term, so nobody has to update their profile. If the numbering ever drifts, correct one cohort here and everyone else follows. || हर कोई एक बार अपना कोहोर्ट चुनता है। Crew Call हर टर्म उसी से उनका टर्म निकालता है, इसलिए किसी को अपनी प्रोफ़ाइल अपडेट नहीं करनी पड़ती। अगर नंबरिंग कभी गड़बड़ाए, तो यहाँ एक कोहोर्ट ठीक करें और बाक़ी सब उसके हिसाब से चलेंगे। || Cada pessoa escolhe sua turma uma vez. O Crew Call calcula o período a partir dela a cada período, então ninguém precisa atualizar o perfil. Se a numeração sair do lugar, corrija uma turma aqui e as outras acompanham.
+Cohort codes are worked out from each course. Edit them in || कोहोर्ट कोड हर कोर्स से निकाले जाते हैं। इन्हें यहाँ बदलें: || Os códigos de turma são calculados a partir de cada curso. Edite-os em
+Fix someone's cohort || किसी का कोहोर्ट ठीक करें || Corrigir a turma de alguém
+For anyone repeating a term, intermitting or who picked the wrong code. Their term updates from the new cohort. || जो टर्म दोहरा रहे हैं, ब्रेक पर हैं, या जिन्होंने ग़लत कोड चुना है। उनका टर्म नए कोहोर्ट से अपडेट होता है। || Para quem está repetindo um período, trancou o curso ou escolheu o código errado. O período é atualizado a partir da nova turma.
+New cohort || नया कोहोर्ट || Nova turma
+People can change their cohort for the first || लोग अपना कोहोर्ट बदल सकते हैं, हर टर्म के पहले || As pessoas podem mudar de turma nas primeiras
+weeks of each term || हफ़्तों में || semanas de cada período
+now is MAF || अभी MAF है || agora é MAF
+Sender name || भेजने वाले का नाम || Nome do remetente
+Sending address || भेजने का पता || Endereço de envio
+Help and reply-to address || सहायता और जवाब का पता || Endereço de ajuda e resposta
+School mass email alias || स्कूल का सामूहिक ईमेल पता || Alias de e-mail em massa da escola
+for announcements || घोषणाओं के लिए || para anúncios
+Weekly digest day || साप्ताहिक डाइजेस्ट का दिन || Dia do resumo semanal
+Digest time || डाइजेस्ट का समय || Horário do resumo
+Save email settings || ईमेल सेटिंग्स सेव करें || Salvar configurações de e-mail
+How it looks in an inbox || इनबॉक्स में यह कैसा दिखता है || Como aparece na caixa de entrada
+Reply to || जवाब दें || Responder para
+Digest || डाइजेस्ट || Resumo
+Announcements || घोषणाएँ || Anúncios
+If you change the sending address || अगर आप भेजने का पता बदलते हैं || Se você mudar o endereço de envio
+Make an app password for it. || उसके लिए एक ऐप पासवर्ड बनाएँ। || Crie uma senha de app para ele.
+In Supabase, open Authentication, then Emails, then SMTP settings, and swap in the new address and app password. || Supabase में Authentication, फिर Emails, फिर SMTP settings खोलें, और नया पता और ऐप पासवर्ड डालें। || No Supabase, abra Authentication, depois Emails, depois SMTP settings, e troque pelo novo endereço e senha de app.
+Save the new address here so the app and digest footer match. || नया पता यहाँ सेव करें ताकि ऐप और डाइजेस्ट का फ़ुटर मेल खाएँ। || Salve o novo endereço aqui para que o app e o rodapé do resumo fiquem iguais.
+Changing the help address or the alias needs nothing else. || सहायता पता या सामूहिक पता बदलने के लिए और कुछ नहीं करना पड़ता। || Mudar o endereço de ajuda ou o alias não exige mais nada.
+View only. You need the Email settings permission to change these. || सिर्फ़ देखने के लिए। इन्हें बदलने के लिए आपको ईमेल सेटिंग्स अनुमति चाहिए। || Só leitura. Você precisa da permissão Configurações de e-mail para alterar isto.
+Mondays at 08:00, for people who turn it on || सोमवार सुबह 08:00 बजे, उन लोगों के लिए जो इसे चालू करते हैं || Às segundas às 08:00, para quem ativar
+Anyone signed in can report a profile, project or script. Treat these as private. For anything involving safety, harassment or discrimination, pass it to LFS Student Services as well. Crew Call admins are students, not investigators. || साइन इन किया कोई भी व्यक्ति किसी प्रोफ़ाइल, प्रोजेक्ट या स्क्रिप्ट की रिपोर्ट कर सकता है। इन्हें गोपनीय रखें। सुरक्षा, उत्पीड़न या भेदभाव से जुड़ी किसी भी बात को LFS Student Services को भी भेजें। Crew Call के एडमिन छात्र हैं, जाँचकर्ता नहीं। || Qualquer pessoa conectada pode relatar um perfil, projeto ou roteiro. Trate tudo como confidencial. Em qualquer caso de segurança, assédio ou discriminação, encaminhe também ao LFS Student Services. Os admins do Crew Call são alunos, não investigadores.
+Open || खुली || Abertos
+Open reports || खुली रिपोर्ट || Relatos abertos
+Open Reports || रिपोर्ट खोलें || Abrir Relatos
+Open Access || एक्सेस खोलें || Abrir Acesso
+Open Email || ईमेल खोलें || Abrir E-mail
+Mark dealt with || निपटा हुआ मार्क करें || Marcar como resolvido
+What you did, for the record || आपने क्या किया, रिकॉर्ड के लिए || O que você fez, para registro
+Review || समीक्षा || Revisar
+Old profiles || पुरानी प्रोफ़ाइल || Perfis antigos
+Alumni and guests are deleted after || पूर्व छात्रों और मेहमानों को इतने समय बाद डिलीट किया जाता है: || Ex-alunos e convidados são excluídos depois de
+Months || महीने || Meses
+Send warning || चेतावनी भेजें || Enviar aviso
+Backups || बैकअप || Backups
+Download a backup (JSON) || बैकअप डाउनलोड करें (JSON) || Baixar um backup (JSON)
+Restore from a backup || बैकअप से वापस लाएँ || Restaurar de um backup
+Supabase's free plan doesn't back up your database, so the GitHub repository includes a nightly backup job (see docs/BACKUPS.md). You can also download a copy here at any time, and restore one if something goes wrong. || Supabase का मुफ़्त प्लान आपके डेटाबेस का बैकअप नहीं लेता, इसलिए GitHub रिपॉज़िटरी में एक रात्रिकालीन बैकअप जॉब है (docs/BACKUPS.md देखें)। आप यहाँ कभी भी एक कॉपी डाउनलोड कर सकते हैं, और कुछ गड़बड़ होने पर उसे वापस ला सकते हैं। || O plano gratuito do Supabase não faz backup do banco de dados, então o repositório no GitHub inclui uma tarefa de backup noturna (veja docs/BACKUPS.md). Você também pode baixar uma cópia aqui a qualquer momento e restaurá-la se algo der errado.
+Shown in the footer and when people sign in. It's a draft: ask LFS to check it before launch. || फ़ुटर में और साइन इन करते समय दिखता है। यह मसौदा है: लॉन्च से पहले LFS से जँचवाएँ। || Aparece no rodapé e quando as pessoas entram. É um rascunho: peça à LFS para revisar antes do lançamento.
+Read the privacy notice || गोपनीयता सूचना पढ़ें || Ler o aviso de privacidade
+Read the || पढ़ें: || Leia o
+Export backup || बैकअप एक्सपोर्ट करें || Exportar backup
+Export all data (JSON) || सारा डेटा एक्सपोर्ट करें (JSON) || Exportar todos os dados (JSON)
+Every change to admins, ownership, emails and settings, so the next owner can see what happened. || एडमिन, मालिकाना हक़, ईमेल और सेटिंग्स में हर बदलाव, ताकि अगले मालिक देख सकें कि क्या हुआ। || Cada mudança em admins, propriedade, e-mails e configurações, para o próximo dono ver o que aconteceu.
+Handover checklist || हैंडओवर चेकलिस्ट || Checklist de passagem de bastão
+Work through this before the owner graduates. Ticks are shared, so successors can see what's been done. || मालिक के ग्रेजुएट होने से पहले इसे पूरा करें। टिक सबके साथ साझा होते हैं, ताकि उत्तराधिकारी देख सकें कि क्या हो चुका है। || Faça isto antes de o dono se formar. As marcações são compartilhadas, para os sucessores verem o que já foi feito.
+Full handover document || पूरा हैंडओवर दस्तावेज़ || Documento completo de passagem de bastão
+Start a fresh checklist || नई चेकलिस्ट शुरू करें || Começar uma checklist nova
+Notes for the next owner || अगले मालिक के लिए नोट्स || Notas para o próximo dono
+Where the logins live, who to ask at school, anything that's broken || लॉगिन कहाँ हैं, स्कूल में किससे पूछें, क्या टूटा हुआ है || Onde ficam os logins, a quem perguntar na escola, o que está quebrado
+Save notes || नोट्स सेव करें || Salvar notas
+The accounts (outside the app) || अकाउंट (ऐप के बाहर) || As contas (fora do app)
+In the app || ऐप में || No app
+Before you go || जाने से पहले || Antes de sair
+the Crew Call Gmail || Crew Call का Gmail || o Gmail do Crew Call
+Choose two successors, ideally from the intake below yours, so someone is always still at school. Make them admins. || दो उत्तराधिकारी चुनें, बेहतर हो आपके बाद वाले बैच से, ताकि कोई न कोई हमेशा स्कूल में रहे। उन्हें एडमिन बनाएँ। || Escolha dois sucessores, de preferência da turma abaixo da sua, para sempre haver alguém na escola. Torne-os admins.
+Tick the permissions each successor needs. Give at least one of them every permission. || हर उत्तराधिकारी को जो अनुमतियाँ चाहिए उन पर टिक करें। कम से कम एक को हर अनुमति दें। || Marque as permissões de que cada sucessor precisa. Dê todas as permissões a pelo menos um deles.
+Create the new Gmail and turn on 2-Step Verification. || नया Gmail बनाएँ और 2-Step Verification चालू करें। || Crie o novo Gmail e ative a verificação em duas etapas.
+Gmail: change the password, then swap in the new owner's recovery phone and email and remove yours (Google Account, then Security). || Gmail: पासवर्ड बदलें, फिर नए मालिक का रिकवरी फ़ोन और ईमेल डालें और अपना हटाएँ (Google Account, फिर Security)। || Gmail: troque a senha, depois coloque o telefone e o e-mail de recuperação do novo dono e remova os seus (Conta do Google, depois Segurança).
+Gmail: make new 2-Step Verification backup codes and a new app password. Paste the new app password into Supabase (Authentication, then Emails, then SMTP settings). || Gmail: नए 2-Step Verification बैकअप कोड और नया ऐप पासवर्ड बनाएँ। नया ऐप पासवर्ड Supabase में डालें (Authentication, फिर Emails, फिर SMTP settings)। || Gmail: gere novos códigos de backup da verificação em duas etapas e uma nova senha de app. Cole a nova senha de app no Supabase (Authentication, depois Emails, depois SMTP settings).
+GitHub and Supabase sign in with the Crew Call Gmail, and Vercel signs in with GitHub, so they all move with the Gmail. The new owner should sign in to each once to check. || GitHub और Supabase में Crew Call के Gmail से साइन इन होता है, और Vercel में GitHub से, इसलिए ये सब Gmail के साथ चले जाते हैं। नए मालिक को जाँचने के लिए हर एक में एक बार साइन इन करना चाहिए। || GitHub e Supabase entram com o Gmail do Crew Call, e o Vercel entra com o GitHub, então tudo acompanha o Gmail. O novo dono deve entrar em cada um uma vez para conferir.
+Share the new logins through a shared password manager folder, not by email or WhatsApp. || नए लॉगिन साझा पासवर्ड मैनेजर फ़ोल्डर से दें, ईमेल या WhatsApp से नहीं। || Compartilhe os novos logins por uma pasta compartilhada de gerenciador de senhas, não por e-mail nem WhatsApp.
+Check the help address and school mass email alias are still right. || जाँचें कि सहायता पता और स्कूल का सामूहिक ईमेल पता अब भी सही हैं। || Confira se o endereço de ajuda e o alias de e-mail em massa da escola continuam certos.
+Check the nightly backups in GitHub Actions are green, and that the next owner can see them. || जाँचें कि GitHub Actions में रात्रिकालीन बैकअप हरे हैं, और अगले मालिक उन्हें देख सकते हैं। || Confira se os backups noturnos no GitHub Actions estão verdes e se o próximo dono consegue vê-los.
+Check there are no open reports, and that the LFS safety contact is written in the notes below. || जाँचें कि कोई खुली रिपोर्ट नहीं है, और LFS सुरक्षा संपर्क नीचे नोट्स में लिखा है। || Confira se não há relatos abertos e se o contato de segurança da LFS está escrito nas notas abaixo.
+Export a backup and keep it somewhere the course team can reach. || एक बैकअप एक्सपोर्ट करें और उसे ऐसी जगह रखें जहाँ कोर्स टीम पहुँच सके। || Exporte um backup e guarde num lugar que a equipe do curso consiga acessar.
+Once your successors have signed in, remove graduating admins, including yourself. || जब आपके उत्तराधिकारी साइन इन कर लें, तो ग्रेजुएट हो रहे एडमिन हटाएँ, ख़ुद को भी। || Depois que seus sucessores entrarem, remova os admins que estão se formando, incluindo você.
+Write anything the next owner should know in the notes below. || अगले मालिक को जो कुछ जानना चाहिए, नीचे नोट्स में लिखें। || Escreva nas notas abaixo tudo o que o próximo dono deve saber.
+Sees this page, the handover checklist and the activity log. || यह पेज, हैंडओवर चेकलिस्ट और गतिविधि लॉग देखते हैं। || Vê esta página, a checklist de passagem de bastão e o registro de atividades.
+Crew Call || Crew Call || Crew Call
+LFS || LFS || LFS
+iPhone || iPhone || iPhone
+Android || Android || Android
+today || आज || hoje
+yesterday || कल || ontem
+Updated today || आज अपडेट हुआ || Atualizado hoje
+Updated yesterday || कल अपडेट हुआ || Atualizado ontem
+sent today || आज भेजा || enviado hoje
+sent yesterday || कल भेजा || enviado ontem
+Profile || प्रोफ़ाइल || Perfil
+Free crew || ख़ाली क्रू || Equipe livre
+Not set || तय नहीं || Não definido
+None picked || कुछ नहीं चुना || Nada escolhido
+Sign-in email || साइन इन ईमेल || E-mail de acesso
+all days || सभी दिन || todos os dias
+about the project || प्रोजेक्ट के बारे में || sobre o projeto
+to see who. || यह देखने के लिए कि कौन। || para ver quem.
+Arrives || पहुँचता है || Chega
+Booked on || बुक है || Reservado em
+No one with this role has marked these dates free yet. || इस रोल वाले किसी ने अभी तक इन तारीख़ों को ख़ाली नहीं बताया है। || Ninguém com esta função marcou estas datas como livres ainda.
+am || सुबह || manhã
+pm || दोपहर बाद || tarde
+Ask Student Services for the address || पता Student Services से पूछें || Peça o endereço ao Student Services
+Director: || डायरेक्टर: || Diretor:
+Festival strategy: || फ़ेस्टिवल रणनीति: || Estratégia de festivais:
+no producer yet || अभी कोई प्रोड्यूसर नहीं || ainda sem produtor
+as || के रूप में || como
+for || के लिए || para
+to || को || para
+Admins with the People permission choose who has each level, in Access. Every admin can read newsletters and the history. || लोग अनुमति वाले एडमिन एक्सेस में तय करते हैं कि हर स्तर किसके पास हो। हर एडमिन न्यूज़लेटर और इतिहास पढ़ सकता है। || Admins com a permissão Pessoas escolhem quem tem cada nível, em Acesso. Todos os admins podem ler os boletins e o histórico.
+. Every admin can read newsletters and the history. || । हर एडमिन न्यूज़लेटर और इतिहास पढ़ सकता है। || . Todos os admins podem ler os boletins e o histórico.
+Change who has each level in || हर स्तर किसके पास है, यह यहाँ बदलें: || Mude quem tem cada nível em
+Approve and send || मंज़ूर करें और भेजें || Aprovar e enviar
+Approve, schedule and send newsletters to everyone or a chosen group || न्यूज़लेटर मंज़ूर करें, शेड्यूल करें और सबको या चुने हुए समूह को भेजें || Aprovar, agendar e enviar boletins para todos ou para um grupo escolhido
+Approve, schedule and send to everyone or a chosen group. || मंज़ूर करें, शेड्यूल करें और सबको या चुने हुए समूह को भेजें। || Aprovar, agendar e enviar para todos ou para um grupo escolhido.
+Approved by || मंज़ूर करने वाले || Aprovado por
+Ask for approval || मंज़ूरी माँगें || Pedir aprovação
+Asked for approval || मंज़ूरी माँगी || Aprovação pedida
+Blocks || ब्लॉक || Blocos
+Button || बटन || Botão
+Button text || बटन का टेक्स्ट || Texto do botão
+Cancel the schedule || शेड्यूल रद्द करें || Cancelar o agendamento
+Cancel the schedule to make changes. || बदलाव करने के लिए शेड्यूल रद्द करें। || Cancele o agendamento para fazer mudanças.
+Caption || कैप्शन || Legenda
+Changes save as you type. || टाइप करते ही बदलाव सेव होते हैं। || As mudanças são salvas enquanto você digita.
+Computer || कंप्यूटर || Computador
+Copy made || कॉपी बन गई || Cópia criada
+Date || तारीख़ || Data
+Delete this newsletter? || यह न्यूज़लेटर डिलीट करें? || Excluir este boletim?
+Describe the image || तस्वीर का विवरण दें || Descreva a imagem
+Design newsletters, save drafts, send a test to yourself and ask for approval || न्यूज़लेटर डिज़ाइन करें, मसौदे सेव करें, ख़ुद को टेस्ट भेजें और मंज़ूरी माँगें || Criar boletins, salvar rascunhos, enviar um teste para si e pedir aprovação
+Design newsletters, save drafts, send a test to yourself and ask for approval. || न्यूज़लेटर डिज़ाइन करें, मसौदे सेव करें, ख़ुद को टेस्ट भेजें और मंज़ूरी माँगें। || Criar boletins, salvar rascunhos, enviar um teste para si e pedir aprovação.
+Develop posts || पोस्ट तैयार करें || Desenvolver publicações
+Divider || डिवाइडर || Divisor
+Draft || मसौदा || Rascunho
+Drafted by || मसौदा बनाने वाले || Rascunho de
+Email me the Crew Call newsletter || मुझे Crew Call न्यूज़लेटर ईमेल करें || Quero receber o boletim do Crew Call por e-mail
+Everyone on Crew Call || Crew Call पर सभी || Todos no Crew Call
+Filled in from Crew Call when it's sent. || भेजते समय Crew Call से भरा जाता है। || Preenchido pelo Crew Call no envio.
+Goes out || जाता है || Sai em
+Heading || शीर्षक || Título
+Image || तस्वीर || Imagem
+Image link || तस्वीर का लिंक || Link da imagem
+Issue label || अंक का लेबल || Rótulo da edição
+Last edited by || आख़िरी बार बदलने वाले || Última edição por
+Leave a blank line between paragraphs. || पैराग्राफ़ों के बीच एक ख़ाली लाइन छोड़ें। || Deixe uma linha em branco entre os parágrafos.
+Link || लिंक || Link
+LFS students and staff (no guests) || LFS के छात्र और स्टाफ़ (मेहमान नहीं) || Alunos e funcionários da LFS (sem convidados)
+Make a copy || कॉपी बनाएँ || Fazer uma cópia
+New newsletter || नया न्यूज़लेटर || Novo boletim
+Newsletter || न्यूज़लेटर || Boletim
+Newsletter preview || न्यूज़लेटर प्रीव्यू || Prévia do boletim
+Newsletter: draft || न्यूज़लेटर: मसौदा || Boletim: rascunho
+Newsletter: send || न्यूज़लेटर: भेजें || Boletim: enviar
+Newsletters || न्यूज़लेटर || Boletins
+Opens when tapped || टैप करने पर खुलता है || Abre ao tocar
+Phone || फ़ोन || Celular
+Preview || प्रीव्यू || Prévia
+Preview line || प्रीव्यू लाइन || Linha de prévia
+Preview size || प्रीव्यू का आकार || Tamanho da prévia
+Release films || फ़िल्में रिलीज़ करें || Lançar filmes
+Schedule cancelled || शेड्यूल रद्द हुआ || Agendamento cancelado
+Scheduled || शेड्यूल हुआ || Agendado
+Second approval || दूसरी मंज़ूरी || Segunda aprovação
+Needs a second admin to send || भेजने के लिए दूसरे एडमिन की ज़रूरत || Precisa de um segundo admin para enviar
+Send back to draft || वापस मसौदे में भेजें || Voltar para rascunho
+Send me a test || मुझे टेस्ट भेजें || Enviar um teste para mim
+Send newsletter || न्यूज़लेटर भेजें || Enviar boletim
+Send now || अभी भेजें || Enviar agora
+Send to || किसे भेजें || Enviar para
+Sent || भेजा गया || Enviado
+Sent by || भेजने वाले || Enviado por
+Sent newsletters can't be changed. Make a copy to reuse it. || भेजे गए न्यूज़लेटर बदले नहीं जा सकते। दोबारा इस्तेमाल के लिए कॉपी बनाएँ। || Boletins enviados não podem ser alterados. Faça uma cópia para reutilizar.
+Sign-off || समापन || Despedida
+Started a new newsletter || नया न्यूज़लेटर शुरू किया || Começou um novo boletim
+Subject line || विषय पंक्ति || Assunto
+Text || टेक्स्ट || Texto
+The draft is deleted for everyone. This can't be undone. || मसौदा सबके लिए डिलीट हो जाएगा। इसे वापस नहीं लाया जा सकता। || O rascunho é excluído para todos. Isto não pode ser desfeito.
+Time || समय || Horário
+Untitled newsletter || बिना शीर्षक का न्यूज़लेटर || Boletim sem título
+Upcoming shoots || आने वाले शूट || Próximas filmagens
+Waiting for approval || मंज़ूरी का इंतज़ार || Aguardando aprovação
+When this is on, the person who wrote or last edited a newsletter can't also send it, as long as another admin can. || यह चालू होने पर, जिसने न्यूज़लेटर लिखा या आख़िरी बार बदला, वह उसे भेज नहीं सकता, बशर्ते कोई और एडमिन भेज सके। || Quando isto está ativado, quem escreveu ou editou por último um boletim não pode enviá-lo, desde que outro admin possa.
+Who controls the newsletter || न्यूज़लेटर कौन नियंत्रित करता है || Quem controla o boletim
+shown under the subject in most inboxes || ज़्यादातर इनबॉक्स में विषय के नीचे दिखता है || aparece abaixo do assunto na maioria das caixas de entrada
+Add a subject line first || पहले विषय पंक्ति जोड़ें || Adicione um assunto primeiro
+Add at least one block || कम से कम एक ब्लॉक जोड़ें || Adicione pelo menos um bloco
+Back to draft || वापस मसौदे में || De volta ao rascunho
+Newsletter deleted || न्यूज़लेटर डिलीट हुआ || Boletim excluído
+Sent for approval || मंज़ूरी के लिए भेजा || Enviado para aprovação
+Newsletter sent to the school list || न्यूज़लेटर स्कूल की सूची को भेजा गया || Boletim enviado para a lista da escola
+Second approval on || दूसरी मंज़ूरी चालू || Segunda aprovação ativada
+Second approval off || दूसरी मंज़ूरी बंद || Segunda aprovação desativada
+Cards || कार्ड || Cartões
+Table || टेबल || Tabela
+Timeline || टाइमलाइन || Linha do tempo
+Crewed || क्रू पूरा || Com equipe
+Developing || तैयार हो रहा है || Em desenvolvimento
+Aiming for || लक्ष्य || Previsto para
+Paid || भुगतान वाला || Pago
+Paid work || भुगतान वाला काम || Trabalho pago
+Paid opportunities || भुगतान वाले मौक़े || Oportunidades pagas
+Most of Crew Call is school shoots, which are in kind: you work for the credit, the experience and usually food and travel. This page is only for work that pays, posted by students, alumni and industry contacts. Every job shows its rate. || Crew Call का ज़्यादातर हिस्सा स्कूल के शूट हैं, जो बिना भुगतान के होते हैं: आप क्रेडिट, अनुभव और आमतौर पर खाने और आने-जाने के लिए काम करते हैं। यह पेज सिर्फ़ भुगतान वाले काम के लिए है, जिसे छात्र, पूर्व छात्र और इंडस्ट्री के संपर्क पोस्ट करते हैं। हर काम अपनी दर दिखाता है। || A maior parte do Crew Call são filmagens da escola, sem cachê: você trabalha pelo crédito, pela experiência e geralmente por comida e transporte. Esta página é só para trabalhos pagos, publicados por alunos, ex-alunos e contatos do mercado. Cada vaga mostra o valor.
+Check who you're working for before you agree. Crew Call admins don't vet jobs or handle money. If a job doesn't pay what it says, report it. || हाँ कहने से पहले जाँच लें कि आप किसके लिए काम कर रहे हैं। Crew Call के एडमिन कामों की जाँच नहीं करते या पैसे नहीं संभालते। अगर कोई काम बताया गया भुगतान नहीं देता, तो रिपोर्ट करें। || Confira para quem vai trabalhar antes de aceitar. Os admins do Crew Call não verificam vagas nem lidam com dinheiro. Se uma vaga não pagar o que promete, relate.
+School shoots are in kind: you work for the credit, the experience and usually food and travel. Paid jobs are under || स्कूल के शूट बिना भुगतान के होते हैं: आप क्रेडिट, अनुभव और आमतौर पर खाने और आने-जाने के लिए काम करते हैं। भुगतान वाले काम यहाँ हैं: || Filmagens da escola são sem cachê: você trabalha pelo crédito, pela experiência e geralmente por comida e transporte. Os trabalhos pagos ficam em
+Only for work that pays. Unpaid or in-kind shoots go on Shoot. || सिर्फ़ भुगतान वाले काम के लिए। बिना भुगतान वाले शूट शूट में जाते हैं। || Só para trabalho pago. Filmagens sem cachê vão em Filmagem.
+Post a paid job || भुगतान वाला काम पोस्ट करें || Publicar um trabalho pago
+Post job || काम पोस्ट करें || Publicar vaga
+Search job, company, role or place || काम, कंपनी, रोल या जगह खोजें || Buscar vaga, empresa, função ou lugar
+Search jobs || काम खोजें || Buscar vagas
+Paid jobs for a role on your profile || आपकी प्रोफ़ाइल के किसी रोल के लिए भुगतान वाले काम || Trabalhos pagos para uma função do seu perfil
+Show filled and closed jobs || भरे और बंद काम दिखाएँ || Mostrar vagas preenchidas e encerradas
+Job || काम || Vaga
+Job title || काम का शीर्षक || Título da vaga
+Company or client || कंपनी या क्लाइंट || Empresa ou cliente
+Pay || भुगतान || Pagamento
+Paid as || भुगतान का तरीक़ा || Pago por
+Day rate || दिन की दर || Diária
+Flat fee || तय फ़ीस || Valor fechado
+Hourly || प्रति घंटा || Por hora
+(Day rate) || (दिन की दर) || (Diária)
+(Flat fee) || (तय फ़ीस) || (Valor fechado)
+(Hourly) || (प्रति घंटा) || (Por hora)
+Corporate or event || कॉर्पोरेट या इवेंट || Corporativo ou evento
+Feature or series || फ़ीचर या सीरीज़ || Longa ou série
+Short film || शॉर्ट फ़िल्म || Curta-metragem
+Post-production || पोस्ट-प्रोडक्शन || Pós-produção
+Remote || रिमोट || Remoto
+Where || कहाँ || Onde
+Working || काम की तारीख़ || Trabalho
+Working soonest || सबसे जल्दी काम || Trabalho mais próximo
+Apply by || आवेदन की आख़िरी तारीख़ || Inscrições até
+Apply by soonest || सबसे जल्दी आख़िरी तारीख़ || Prazo mais próximo
+Posted || पोस्ट किया || Publicado
+How to apply || आवेदन कैसे करें || Como se candidatar
+Application link || आवेदन लिंक || Link de inscrição
+Apply on their site || उनकी साइट पर आवेदन करें || Candidate-se no site deles
+optional, otherwise people reply through Crew Call || वैकल्पिक, वरना लोग Crew Call से जवाब देते हैं || opcional; senão, as pessoas respondem pelo Crew Call
+Put your name forward || अपना नाम आगे करें || Candidatar-se
+Your experience, kit and a link to your reel || आपका अनुभव, किट और आपकी रील का लिंक || Sua experiência, equipamento e um link para o seu reel
+What the job is, hours, kit, and anything people should know || काम क्या है, घंटे, किट, और जो कुछ लोगों को जानना चाहिए || O que é o trabalho, horário, equipamento e o que mais as pessoas devem saber
+e.g. Gaffer for a coffee brand film || जैसे किसी कॉफ़ी ब्रांड फ़िल्म के लिए गैफ़र || por ex. Gaffer para um filme de marca de café
+e.g. Hackney Wick, or Remote || जैसे Hackney Wick, या रिमोट || por ex. Hackney Wick, ou Remoto
+e.g. £250 a day || जैसे £250 प्रति दिन || por ex. £250 por dia
+Pick one or more || एक या ज़्यादा चुनें || Escolha uma ou mais
+Add more dates || और तारीख़ें जोड़ें || Adicionar mais datas
+Take this job down || यह काम हटाएँ || Retirar esta vaga
+Report a problem with this job || इस काम में समस्या की रिपोर्ट करें || Relatar um problema com esta vaga
+Hire || रखें || Contratar
+Hired || रखा गया || Contratado
+Mark as filled || भरा हुआ मार्क करें || Marcar como preenchida
+Filled || भरा हुआ || Preenchida
+Closed || बंद || Encerrada
+Rep || रेप || Representante
+Cohort reps || कोहोर्ट रेप || Representantes de turma
+No rep yet || अभी कोई रेप नहीं || Ainda sem representante
+Change rep… || रेप बदलें… || Trocar representante…
+Choose a rep… || रेप चुनें… || Escolher representante…
+Make rep || रेप बनाएँ || Tornar representante
+One rep per cohort keeps Crew Call going when people graduate. Reps become admins, can hand their rep role to someone in their cohort, and can propose a new owner. || हर कोहोर्ट का एक रेप लोगों के ग्रेजुएट होने पर भी Crew Call को चालू रखता है। रेप एडमिन बनते हैं, अपना रेप रोल अपने कोहोर्ट के किसी को दे सकते हैं, और नए मालिक का प्रस्ताव रख सकते हैं। || Um representante por turma mantém o Crew Call funcionando quando as pessoas se formam. Representantes viram admins, podem passar o papel para alguém da turma e podem propor um novo dono.
+One rep per cohort keeps Crew Call going when people graduate. Reps become admins, can hand their rep role to someone in their cohort, and can propose a new owner. You can choose any cohort's rep. || हर कोहोर्ट का एक रेप लोगों के ग्रेजुएट होने पर भी Crew Call को चालू रखता है। रेप एडमिन बनते हैं, अपना रेप रोल अपने कोहोर्ट के किसी को दे सकते हैं, और नए मालिक का प्रस्ताव रख सकते हैं। आप किसी भी कोहोर्ट का रेप चुन सकते हैं। || Um representante por turma mantém o Crew Call funcionando quando as pessoas se formam. Representantes viram admins, podem passar o papel para alguém da turma e podem propor um novo dono. Você pode escolher o representante de qualquer turma.
+Handing on ownership || मालिकाना हक़ आगे सौंपना || Passar a propriedade adiante
+Reps can propose a new owner || रेप नए मालिक का प्रस्ताव रख सकते हैं || Representantes podem propor um novo dono
+The owner accepts, or, if the owner has graduated or not signed in for 30 days, a second rep agrees. || मालिक मंज़ूर करते हैं, या अगर मालिक ग्रेजुएट हो चुके हैं या 30 दिनों से साइन इन नहीं किया, तो दूसरा रेप सहमति देता है। || O dono aceita ou, se o dono já se formou ou não entra há 30 dias, um segundo representante concorda.
+Propose as owner || मालिक के रूप में प्रस्ताव रखें || Propor como dono
+Proposed owner || प्रस्तावित मालिक || Dono proposto
+Proposal sent || प्रस्ताव भेजा गया || Proposta enviada
+Accept and transfer || मंज़ूर करें और सौंपें || Aceitar e transferir
+Agree || सहमत || Concordar
+Declined || अस्वीकार || Recusada
+Only you can hand on ownership || मालिकाना हक़ सिर्फ़ आप सौंप सकते हैं || Só você pode passar a propriedade adiante
+Withdrew the ownership proposal || मालिकाना हक़ का प्रस्ताव वापस लिया || Retirou a proposta de propriedade
+Let reps propose a new owner || रेप को नए मालिक का प्रस्ताव रखने दें || Permitir que representantes proponham um novo dono
+Stopped reps propose a new owner || रेप का नए मालिक का प्रस्ताव रखना बंद किया || Impediu representantes de propor um novo dono
+The owner signs in with their own school email, has every permission and can't be removed. They also own the GitHub and Supabase organisations. Before they graduate, they hand ownership to a cohort rep. || मालिक अपने स्कूल ईमेल से साइन इन करते हैं, उनके पास हर अनुमति होती है और उन्हें हटाया नहीं जा सकता। GitHub और Supabase संगठनों के मालिक भी वही होते हैं। ग्रेजुएट होने से पहले वे मालिकाना हक़ किसी कोहोर्ट रेप को सौंपते हैं। || O dono entra com o próprio e-mail da escola, tem todas as permissões e não pode ser removido. Também é dono das organizações no GitHub e no Supabase. Antes de se formar, passa a propriedade a um representante de turma.
+Make sure every cohort has a rep, then transfer ownership to one of them (ideally a rep from a younger cohort). || पक्का करें कि हर कोहोर्ट का एक रेप है, फिर मालिकाना हक़ उनमें से किसी एक को सौंपें (बेहतर हो किसी नए कोहोर्ट के रेप को)। || Garanta que toda turma tenha um representante e transfira a propriedade para um deles (de preferência de uma turma mais nova).
+GitHub: invite the new owner to the Crew Call organisation as an Owner (organisation, then People). Add the reps as members. Wait until they accept before you leave. || GitHub: नए मालिक को Crew Call संगठन में Owner के रूप में आमंत्रित करें (organisation, फिर People)। रेप को सदस्य के रूप में जोड़ें। जाने से पहले उनके स्वीकार करने तक रुकें। || GitHub: convide o novo dono para a organização do Crew Call como Owner (organização, depois People). Adicione os representantes como membros. Espere que aceitem antes de sair.
+Supabase: invite the new owner to the Crew Call organisation as Owner, and the reps as Developer or Admin (organisation, then Team). An organisation always needs one Owner, so invite first, then leave. || Supabase: नए मालिक को Crew Call संगठन में Owner के रूप में, और रेप को Developer या Admin के रूप में आमंत्रित करें (organisation, फिर Team)। संगठन में हमेशा एक Owner चाहिए, इसलिए पहले आमंत्रित करें, फिर छोड़ें। || Supabase: convide o novo dono para a organização do Crew Call como Owner, e os representantes como Developer ou Admin (organização, depois Team). Uma organização sempre precisa de um Owner, então convide primeiro e saia depois.
+Email sender: if you set up a sending-only login (Brevo, or a Gmail used just for sending), move it to the new owner and put the new SMTP password into Supabase (Authentication, then Emails, then SMTP settings). Nobody signs in with it. || ईमेल भेजने वाला: अगर आपने सिर्फ़ भेजने वाला लॉगिन बनाया है (Brevo, या सिर्फ़ भेजने के लिए एक Gmail), तो उसे नए मालिक को सौंपें और नया SMTP पासवर्ड Supabase में डालें (Authentication, फिर Emails, फिर SMTP settings)। इससे कोई साइन इन नहीं करता। || Remetente de e-mail: se você criou um login só para envio (Brevo, ou um Gmail usado só para enviar), passe-o ao novo dono e coloque a nova senha SMTP no Supabase (Authentication, depois Emails, depois SMTP settings). Ninguém entra com ele.
+Set up the new sender: an LFS shared mailbox if the school gives you one, or Brevo's free plan, or a Gmail used only for sending. || नया भेजने वाला सेट करें: अगर स्कूल दे तो LFS का साझा मेलबॉक्स, या Brevo का मुफ़्त प्लान, या सिर्फ़ भेजने के लिए एक Gmail। || Configure o novo remetente: uma caixa compartilhada da LFS, se a escola fornecer, ou o plano gratuito do Brevo, ou um Gmail usado só para enviar.
+Get its SMTP login (for Gmail, an app password). || उसका SMTP लॉगिन लें (Gmail के लिए, एक ऐप पासवर्ड)। || Pegue o login SMTP dele (no Gmail, uma senha de app).
+In Supabase, open Authentication, then Emails, then SMTP settings, and swap in the new address and password. || Supabase में Authentication, फिर Emails, फिर SMTP settings खोलें, और नया पता और पासवर्ड डालें। || No Supabase, abra Authentication, depois Emails, depois SMTP settings, e troque pelo novo endereço e senha.
+the SMTP sender in Supabase || Supabase में SMTP भेजने वाला || o remetente SMTP no Supabase
+empty = the owner's email || ख़ाली = मालिक का ईमेल || vazio = e-mail do dono
+Not set up yet || अभी सेट नहीं हुआ || Ainda não configurado
+<not set up yet> || <अभी सेट नहीं हुआ> || <ainda não configurado>
+not set up yet || अभी सेट नहीं हुआ || ainda não configurado
+In the prototype nothing is really emailed. In the live version, sends go from the sending address in Email settings and people can turn the newsletter off in My profile. || प्रोटोटाइप में सच में कुछ ईमेल नहीं होता। असली संस्करण में, ईमेल सेटिंग्स के भेजने वाले पते से भेजा जाता है और लोग मेरी प्रोफ़ाइल में न्यूज़लेटर बंद कर सकते हैं। || No protótipo, nada é enviado de verdade por e-mail. Na versão real, os envios saem do endereço de envio em Configurações de e-mail e as pessoas podem desativar o boletim em Meu perfil.
+Designed issues || डिज़ाइन किए अंक || Edições criadas
+Automatic || अपने-आप || Automático
+Newsletter type || न्यूज़लेटर का प्रकार || Tipo de boletim
+Automatic edition || अपने-आप बना संस्करण || Edição automática
+Automatic edition on || अपने-आप बना संस्करण चालू || Edição automática ativada
+Automatic newsletter preview || अपने-आप बने न्यूज़लेटर का प्रीव्यू || Prévia do boletim automático
+Crew Call builds this one itself from what's on the site: open roles, upcoming shoots, paid work and more. The design stays the same so every issue looks like Crew Call. You can change any heading and text. || Crew Call इसे साइट पर मौजूद चीज़ों से ख़ुद बनाता है: खुले रोल, आने वाले शूट, भुगतान वाले काम और बहुत कुछ। डिज़ाइन वही रहता है ताकि हर अंक Crew Call जैसा दिखे। आप कोई भी शीर्षक और टेक्स्ट बदल सकते हैं। || O Crew Call monta este sozinho com o que está no site: funções abertas, próximas filmagens, trabalhos pagos e mais. O design continua o mesmo para toda edição parecer Crew Call. Você pode mudar qualquer título e texto.
+Changes save as you type. The design stays the same so every issue looks like Crew Call. You can change any heading and text. || टाइप करते ही बदलाव सेव होते हैं। डिज़ाइन वही रहता है ताकि हर अंक Crew Call जैसा दिखे। आप कोई भी शीर्षक और टेक्स्ट बदल सकते हैं। || As mudanças são salvas enquanto você digita. O design continua o mesmo para toda edição parecer Crew Call. Você pode mudar qualquer título e texto.
+How often || कितनी बार || Frequência
+Monthly (first Monday) || मासिक (पहला सोमवार) || Mensal (primeira segunda-feira)
+Every two weeks (Monday) || हर दो हफ़्ते (सोमवार) || A cada duas semanas (segunda-feira)
+Send it without asking || बिना पूछे भेजें || Enviar sem perguntar
+Words || शब्द || Textos
+Intro || परिचय || Introdução
+{month} becomes the month || {month} महीना बन जाता है || {month} vira o mês
+This month's issue, live || इस महीने का अंक, लाइव || A edição deste mês, ao vivo
+Make an editable copy || बदलने लायक़ कॉपी बनाएँ || Fazer uma cópia editável
+Editable copy made || बदलने लायक़ कॉपी बन गई || Cópia editável criada
+Save version || संस्करण सेव करें || Salvar versão
+Saved version || सेव किया संस्करण || Versão salva
+Version saved || संस्करण सेव हुआ || Versão salva
+Versions || संस्करण || Versões
+View || देखें || Ver
+Older version restored || पुराना संस्करण वापस आया || Versão anterior restaurada
+No saved versions yet. A version is saved when you ask for approval, when it's sent, and whenever you press Save version. || अभी कोई सेव किया संस्करण नहीं। मंज़ूरी माँगने पर, भेजने पर, और जब भी आप संस्करण सेव करें दबाते हैं, एक संस्करण सेव होता है। || Ainda não há versões salvas. Uma versão é salva quando você pede aprovação, quando envia e sempre que toca em Salvar versão.
+View only. You need the Newsletter: draft permission to change the words. || सिर्फ़ देखने के लिए। शब्द बदलने के लिए आपको न्यूज़लेटर: मसौदा अनुमति चाहिए। || Só leitura. Você precisa da permissão Boletim: rascunho para mudar os textos.
+Send another || एक और भेजें || Enviar outro
+Sent newsletters can't be changed. Press Send another to start the next issue with the same layout. || भेजे गए न्यूज़लेटर बदले नहीं जा सकते। उसी लेआउट से अगला अंक शुरू करने के लिए एक और भेजें दबाएँ। || Boletins enviados não podem ser alterados. Toque em Enviar outro para começar a próxima edição com o mesmo layout.
+New issue started with the same layout. Change the words and send. || उसी लेआउट से नया अंक शुरू हुआ। शब्द बदलें और भेजें। || Nova edição iniciada com o mesmo layout. Mude os textos e envie.
+Made an editable copy of the automatic newsletter || अपने-आप बने न्यूज़लेटर की बदलने लायक़ कॉपी बनाई || Fez uma cópia editável do boletim automático
+Turned the automatic newsletter on || अपने-आप बनने वाला न्यूज़लेटर चालू किया || Ativou o boletim automático
+Turned the automatic newsletter off || अपने-आप बनने वाला न्यूज़लेटर बंद किया || Desativou o boletim automático
+Set the automatic newsletter to send by itself || अपने-आप बनने वाले न्यूज़लेटर को ख़ुद भेजने के लिए सेट किया || Configurou o boletim automático para ser enviado sozinho
+Set the automatic newsletter to wait for an admin to send it || अपने-आप बनने वाले न्यूज़लेटर को एडमिन के भेजने का इंतज़ार करने के लिए सेट किया || Configurou o boletim automático para esperar um admin enviar
+Set the automatic newsletter to monthly || अपने-आप बनने वाले न्यूज़लेटर को मासिक किया || Configurou o boletim automático como mensal
+Set the automatic newsletter to fortnightly || अपने-आप बनने वाले न्यूज़लेटर को हर दो हफ़्ते किया || Configurou o boletim automático como quinzenal
+Saved by hand || हाथ से सेव किया || Salvo manualmente
+Before restoring an older version || पुराना संस्करण वापस लाने से पहले || Antes de restaurar uma versão anterior
+Turned off. Nothing is built or sent. || बंद है। कुछ भी बनाया या भेजा नहीं जाता। || Desativado. Nada é montado nem enviado.
+Only admins with Newsletter: send can change these four settings. || ये चार सेटिंग्स सिर्फ़ न्यूज़लेटर: भेजें अनुमति वाले एडमिन बदल सकते हैं। || Só admins com Boletim: enviar podem mudar estas quatro configurações.
+It goes out by itself at 09:00. || यह 09:00 बजे अपने-आप जाता है। || Ele sai sozinho às 09:00.
+proposed || प्रस्तावित || proposto
+Everything runs on the owner's school email. GitHub and Supabase are organisations: Sofia (rep, MAF217) is already an Owner on both. The email sender login is in the shared Bitwarden folder "Crew Call". || सब कुछ मालिक के स्कूल ईमेल पर चलता है। GitHub और Supabase संगठन हैं: Sofia (रेप, MAF217) दोनों पर पहले से Owner हैं। ईमेल भेजने वाले का लॉगिन साझा Bitwarden फ़ोल्डर "Crew Call" में है। || Tudo funciona com o e-mail da escola do dono. GitHub e Supabase são organizações: Sofia (representante, MAF217) já é Owner nas duas. O login do remetente de e-mail está na pasta compartilhada do Bitwarden "Crew Call".
+required || ज़रूरी || obrigatório
+View only. You need the Newsletter: draft permission to design one. || सिर्फ़ देखने के लिए। डिज़ाइन करने के लिए आपको न्यूज़लेटर: मसौदा अनुमति चाहिए। || Só leitura. Você precisa da permissão Boletim: rascunho para criar um.
+(admin) || (एडमिन) || (admin)
+A new term || नया टर्म || Um novo período
+New term. || नया टर्म। || Novo período.
+Add calendar || कैलेंडर जोड़ें || Adicionar calendário
+Add to Apple || Apple में जोड़ें || Adicionar ao Apple
+Add to Google || Google में जोड़ें || Adicionar ao Google
+Admins with the People permission choose who has each level, in Access. || लोग अनुमति वाले एडमिन एक्सेस में तय करते हैं कि हर स्तर किसके पास हो। || Admins com a permissão Pessoas escolhem quem tem cada nível, em Acesso.
+Also does || यह भी करते हैं || Também faz
+Any || कोई भी || Qualquer
+Archived || आर्काइव किया || Arquivado
+Best match || सबसे अच्छा मेल || Melhor correspondência
+Booked on another shoot those days || उन दिनों किसी और शूट पर बुक || Reservado em outra filmagem nesses dias
+Change it || बदलें || Alterar
+Choose || चुनें || Escolher
+Clear || साफ़ करें || Limpar
+Clear ticks || टिक हटाएँ || Desmarcar tudo
+Couldn't find that. Try adding the street or postcode. || वह नहीं मिला। गली या पोस्टकोड जोड़कर देखें। || Não encontramos. Tente adicionar a rua ou o código postal.
+Crew Call in general || Crew Call सामान्य रूप से || O Crew Call em geral
+Dates || तारीख़ें || Datas
+Dates flexible || तारीख़ें लचीली || Datas flexíveis
+Dates to agree || तारीख़ें तय करनी हैं || Datas a combinar
+Dealt with || निपटा दिया || Resolvido
+Delete project || प्रोजेक्ट डिलीट करें || Excluir projeto
+Done editing || बदलाव पूरे || Concluir edição
+Download .ics file || .ics फ़ाइल डाउनलोड करें || Baixar arquivo .ics
+Email preview || ईमेल प्रीव्यू || Prévia do e-mail
+Email settings saved || ईमेल सेटिंग्स सेव हुईं || Configurações de e-mail salvas
+File || फ़ाइल || Arquivo
+Find a role || रोल खोजें || Encontrar uma função
+Flexible || लचीला || Flexível
+Former member || पूर्व सदस्य || Ex-membro
+From URL || URL से || Por URL
+Fully crewed. || क्रू पूरा है। || Equipe completa.
+Hide script || स्क्रिप्ट छिपाएँ || Ocultar roteiro
+I'm free every shoot day. || मैं शूट के हर दिन ख़ाली हूँ। || Estou livre em todos os dias de filmagem.
+Import || इम्पोर्ट करें || Importar
+Install Crew Call || Crew Call इंस्टॉल करें || Instalar o Crew Call
+Interested || इच्छुक || Interessado
+Invite accepted. Finish your profile so producers can find you. || इनवाइट स्वीकार हुआ। अपनी प्रोफ़ाइल पूरी करें ताकि प्रोड्यूसर आपको ढूँढ सकें। || Convite aceito. Complete seu perfil para os produtores encontrarem você.
+It disappears from Develop. People who put their hand up are told. || यह डेवलप से हट जाता है। जिन्होंने हाथ उठाया था उन्हें बताया जाता है। || Some de Desenvolver. Quem se ofereceu é avisado.
+It disappears from Paid. Anyone waiting for a reply is told. || यह भुगतान वाले से हट जाता है। जवाब का इंतज़ार कर रहे लोगों को बताया जाता है। || Some de Pago. Quem está esperando resposta é avisado.
+It disappears from Release. People who offered to help are told. || यह रिलीज़ से हट जाता है। जिन्होंने मदद की पेशकश की थी उन्हें बताया जाता है। || Some de Lançamento. Quem se ofereceu para ajudar é avisado.
+Job posted || काम पोस्ट हुआ || Vaga publicada
+LFS Parker Street || LFS Parker Street || LFS Parker Street
+LFS Shelton Street || LFS Shelton Street || LFS Shelton Street
+LFS addresses don't need an invite. They can sign in straight away. || LFS पतों को इनवाइट की ज़रूरत नहीं। वे सीधे साइन इन कर सकते हैं। || Endereços da LFS não precisam de convite. Podem entrar direto.
+Loading map… || नक़्शा लोड हो रहा है… || Carregando o mapa…
+Location TBC || लोकेशन तय होनी है || Locação a confirmar
+Looking it up… || खोज रहे हैं… || Procurando…
+Looks right || सही लगता है || Parece certo
+Main role || मुख्य रोल || Função principal
+Make someone an admin first, then you can transfer ownership to them. || पहले किसी को एडमिन बनाएँ, फिर आप मालिकाना हक़ उन्हें सौंप सकते हैं। || Primeiro torne alguém admin; depois você pode transferir a propriedade para essa pessoa.
+Map area || नक़्शे का क्षेत्र || Área do mapa
+Map of shoot locations || शूट लोकेशन का नक़्शा || Mapa das locações de filmagem
+Marked as filled || भरा हुआ मार्क किया || Marcada como preenchida
+Most credits || सबसे ज़्यादा क्रेडिट || Mais créditos
+Most kit || सबसे ज़्यादा किट || Mais equipamento
+Name A–Z || नाम A–Z || Nome A–Z
+Needs || ज़रूरत || Precisa de
+New Calendar Subscription || New Calendar Subscription || New Calendar Subscription
+New member || नए सदस्य || Novo membro
+Next to || बगल में || Ao lado de
+No dates to show yet. || दिखाने के लिए अभी कोई तारीख़ नहीं। || Ainda não há datas para mostrar.
+No guests. || कोई मेहमान नहीं। || Nenhum convidado.
+No kit listed || कोई किट नहीं || Nenhum equipamento cadastrado
+No newsletters yet. || अभी कोई न्यूज़लेटर नहीं। || Ainda não há boletins.
+No one locked in yet. || अभी कोई पक्का नहीं। || Ninguém confirmado ainda.
+No one matches yet. || अभी कोई मेल नहीं खाता। || Ninguém corresponde ainda.
+No open reports. || कोई खुली रिपोर्ट नहीं। || Nenhum relato aberto.
+No paid jobs match || कोई भुगतान वाला काम मेल नहीं खाता || Nenhuma vaga paga corresponde
+No roles yet || अभी कोई रोल नहीं || Ainda sem funções
+No shoots match || कोई शूट मेल नहीं खाता || Nenhuma filmagem corresponde
+No wrapped shoots yet || अभी कोई रैप हुआ शूट नहीं || Ainda não há filmagens finalizadas
+Nobody is due. || किसी की बारी नहीं। || Ninguém está no prazo.
+Nobody waiting for a reply. || कोई जवाब का इंतज़ार नहीं कर रहा। || Ninguém esperando resposta.
+Nobody yet. || अभी कोई नहीं। || Ninguém ainda.
+Nobody, fully attached || कोई नहीं, सब जुड़े हैं || Ninguém, equipe toda vinculada
+None || कुछ नहीं || Nenhum
+Not on Crew Call || Crew Call पर नहीं || Fora do Crew Call
+Nothing matches || कुछ मेल नहीं खाता || Nada corresponde
+Nothing yet || अभी कुछ नहीं || Nada ainda
+On a computer, open Google Calendar. || कंप्यूटर पर Google Calendar खोलें। || No computador, abra o Google Agenda.
+Open Crew Call || Crew Call खोलें || Abrir o Crew Call
+Open Outlook on the web and go to Calendar. || वेब पर Outlook खोलें और Calendar में जाएँ। || Abra o Outlook na web e vá para Calendário.
+Open checklist || चेकलिस्ट खोलें || Abrir checklist
+Open until filled || भरने तक खुला || Aberta até ser preenchida
+Other calendars || Other calendars || Outras agendas
+Paste the link and select || लिंक पेस्ट करें और चुनें || Cole o link e selecione
+Paste the link, name it Crew Call and select || लिंक पेस्ट करें, नाम Crew Call रखें और चुनें || Cole o link, dê o nome Crew Call e selecione
+Pick your course and cohort || अपना कोर्स और कोहोर्ट चुनें || Escolha seu curso e turma
+Pin on map || नक़्शे पर पिन करें || Fixar no mapa
+Pinned || पिन किया || Fixado
+Pitch || पिच || Pitch
+Pitched || पिच किया || Pitch feito
+Post a || पोस्ट करें: || Publique um
+Recently updated || हाल में अपडेट || Atualizados recentemente
+Removed the person || व्यक्ति को हटाया || Removeu a pessoa
+Reopened || फिर से खोला || Reaberto
+Restore || वापस लाएँ || Restaurar
+Saved. Update the SMTP details in Supabase too || सेव हुआ। Supabase में भी SMTP विवरण अपडेट करें || Salvo. Atualize também os dados SMTP no Supabase
+Saved. You appear in Crew search and the calendar. || सेव हुआ। आप क्रू खोज और कैलेंडर में दिखते हैं। || Salvo. Você aparece na busca de Equipe e no calendário.
+Saved. Your profile is hidden from Crew search. || सेव हुआ। आपकी प्रोफ़ाइल क्रू खोज से छिपी है। || Salvo. Seu perfil está oculto na busca de Equipe.
+Select || चुनें || Selecionar
+Selected day || चुना हुआ दिन || Dia selecionado
+Sends || भेजता है || Envia
+Show all || सब दिखाएँ || Mostrar tudo
+London || लंदन || Londres
+Sign in to mark the days you're free. || जिन दिनों आप ख़ाली हैं उन्हें मार्क करने के लिए साइन इन करें। || Entre para marcar os dias em que está livre.
+Sign in to request || अनुरोध के लिए साइन इन करें || Entre para pedir
+Sign in to request a role, see contact details and who's free. || रोल का अनुरोध करने, संपर्क विवरण और कौन ख़ाली है देखने के लिए साइन इन करें। || Entre para pedir uma função e ver contatos e quem está livre.
+Sign in to see contact || संपर्क देखने के लिए साइन इन करें || Entre para ver o contato
+Sign in to see crew profiles. || क्रू प्रोफ़ाइल देखने के लिए साइन इन करें। || Entre para ver os perfis da equipe.
+Sign in to see paid work || भुगतान वाला काम देखने के लिए साइन इन करें || Entre para ver os trabalhos pagos
+Signed in. Finish your profile so producers can find you. || साइन इन हो गया। अपनी प्रोफ़ाइल पूरी करें ताकि प्रोड्यूसर आपको ढूँढ सकें। || Você entrou. Complete seu perfil para os produtores encontrarem você.
+Sort || क्रम || Ordenar
+Sort crew || क्रू का क्रम || Ordenar equipe
+Started a fresh handover checklist || नई हैंडओवर चेकलिस्ट शुरू की || Começou uma checklist nova de passagem de bastão
+Subject || विषय || Assunto
+Subscribe from web || वेब से सब्सक्राइब करें || Assinar pela web
+Sync with your calendar || अपने कैलेंडर से सिंक करें || Sincronizar com seu calendário
+Take down || हटाएँ || Retirar
+Taken down || हटा दिया || Retirado
+Term 1 have their first exercises coming up, and Term 4 are planning graduation-year shorts. Mark your free days so directors can find you, and add the roles you want to learn so you can ask to shadow. || टर्म 1 की पहली एक्सरसाइज़ आने वाली हैं, और टर्म 4 ग्रेजुएशन साल की शॉर्ट फ़िल्मों की योजना बना रहा है। अपने ख़ाली दिन मार्क करें ताकि डायरेक्टर आपको ढूँढ सकें, और वे रोल जोड़ें जो आप सीखना चाहते हैं ताकि आप शैडो करने को कह सकें। || O Período 1 tem os primeiros exercícios chegando e o Período 4 está planejando os curtas do ano de formatura. Marque seus dias livres para os diretores encontrarem você e adicione as funções que quer aprender para pedir para acompanhar.
+That email has already been invited. || उस ईमेल को पहले ही इनवाइट किया जा चुका है। || Esse e-mail já foi convidado.
+That person is already on Crew Call. || वह व्यक्ति पहले से Crew Call पर है। || Essa pessoa já está no Crew Call.
+The map couldn't load. Check your connection and try again. || नक़्शा लोड नहीं हुआ। अपना कनेक्शन जाँचें और फिर कोशिश करें। || O mapa não carregou. Verifique sua conexão e tente de novo.
+The map lookup isn't reachable right now. You can save and pin it later. || नक़्शे की खोज अभी उपलब्ध नहीं है। आप सेव करके बाद में पिन कर सकते हैं। || A busca do mapa não está disponível agora. Você pode salvar e fixar depois.
+Their name || उनका नाम || Nome da pessoa
+They went with someone else this time. || इस बार उन्होंने किसी और को चुना। || Desta vez escolheram outra pessoa.
+This week's digest || इस हफ़्ते का डाइजेस्ट || Resumo desta semana
+To be confirmed || तय होना है || A confirmar
+Translations are checked by students who speak each language. Spot a wrong film term? Tell an admin. || अनुवाद हर भाषा बोलने वाले छात्र जाँचते हैं। कोई ग़लत फ़िल्मी शब्द दिखा? किसी एडमिन को बताएँ। || As traduções são revisadas por alunos que falam cada idioma. Viu um termo de cinema errado? Avise um admin.
+Try clearing a filter, or post a script or pitch of your own. || कोई फ़िल्टर हटाकर देखें, या अपनी स्क्रिप्ट या पिच पोस्ट करें। || Tente limpar um filtro ou publique um roteiro ou pitch seu.
+Try clearing a filter, or post your own shoot. || कोई फ़िल्टर हटाकर देखें, या अपना शूट पोस्ट करें। || Tente limpar um filtro ou publique sua filmagem.
+Try clearing a filter. If you hear of paid work, post it here. || कोई फ़िल्टर हटाकर देखें। अगर आपको भुगतान वाले काम का पता चले, तो यहाँ पोस्ट करें। || Tente limpar um filtro. Se souber de trabalho pago, publique aqui.
+Try fewer roles or a wider date range. || कम रोल या बड़ी तारीख़ सीमा आज़माएँ। || Tente menos funções ou um período de datas maior.
+Type the place or a postcode first. || पहले जगह या पोस्टकोड टाइप करें। || Digite primeiro o lugar ou um código postal.
+Untitled || बिना शीर्षक || Sem título
+Updated || अपडेट किया || Atualizado
+Updated the handover notes || हैंडओवर नोट्स अपडेट किए || Atualizou as notas de passagem de bastão
+Which shoots || कौन से शूट || Quais filmagens
+Withdrew || वापस लिया || Retirou
+Written || लिखा गया || Escrito
+You can choose any cohort's rep. || आप किसी भी कोहोर्ट का रेप चुन सकते हैं। || Você pode escolher o representante de qualquer turma.
+You got this job || आपको यह काम मिल गया || Você conseguiu esta vaga
+You haven't marked these days free || आपने इन दिनों को ख़ाली नहीं बताया है || Você não marcou estes dias como livres
+You've put your name forward || आपने अपना नाम आगे किया है || Você se candidatou
+Your calendar link || आपका कैलेंडर लिंक || Seu link de calendário
+Location or postcode, e.g. Campus Studio 1 || लोकेशन या पोस्टकोड, जैसे Campus Studio 1 || Locação ou código postal, por ex. Campus Studio 1
+Jan || जन || jan.
+Feb || फ़र || fev.
+Mar || मार्च || mar.
+Apr || अप्रै || abr.
+Jun || जून || jun.
+Jul || जुला || jul.
+Aug || अग || ago.
+Sep || सित || set.
+Oct || अक्तू || out.
+Nov || नव || nov.
+Dec || दिस || dez.
+this location || यह लोकेशन || esta locação
+View only. You need the Newsletter: draft permission to edit this. || सिर्फ़ देखने के लिए। इसे बदलने के लिए आपको न्यूज़लेटर: मसौदा अनुमति चाहिए। || Só leitura. Você precisa da permissão Boletim: rascunho para editar isto.
+Name || नाम || Nome
+About Crew Call || Crew Call के बारे में || Sobre o Crew Call
+A shared calendar and crew board for London Film School students, run by students. || London Film School के छात्रों के लिए एक साझा कैलेंडर और क्रू बोर्ड, छात्रों द्वारा चलाया जाता है। || Um calendário compartilhado e quadro de equipes para alunos da London Film School, administrado por alunos.
+What Crew Call is || Crew Call क्या है || O que é o Crew Call
+LFS students make films all the time and need crew for them. Crew Call puts every shoot in one place, so you can see what's happening, mark the days you're free, and find the right person for each role. || LFS के छात्र लगातार फ़िल्में बनाते हैं और उन्हें क्रू चाहिए। Crew Call हर शूट को एक जगह रखता है, ताकि आप देख सकें कि क्या हो रहा है, अपने ख़ाली दिन मार्क कर सकें, और हर रोल के लिए सही व्यक्ति ढूँढ सकें। || Os alunos da LFS fazem filmes o tempo todo e precisam de equipe. O Crew Call reúne todas as filmagens num só lugar, para você ver o que está acontecendo, marcar os dias livres e encontrar a pessoa certa para cada função.
+It's free, has no adverts and doesn't track you. It isn't run by the London Film School. || यह मुफ़्त है, इसमें विज्ञापन नहीं हैं और यह आपको ट्रैक नहीं करता। इसे London Film School नहीं चलाता। || É gratuito, não tem anúncios e não rastreia você. Não é administrado pela London Film School.
+Every shoot on one calendar, and who's free on each day. || हर शूट एक कैलेंडर पर, और हर दिन कौन ख़ाली है। || Todas as filmagens num calendário e quem está livre em cada dia.
+Scripts looking for a director, producer or writer. || डायरेक्टर, प्रोड्यूसर या लेखक की तलाश में स्क्रिप्ट। || Roteiros procurando diretor, produtor ou roteirista.
+Projects crewing up, as cards, a table, a timeline or a map. || क्रू जुटा रहे प्रोजेक्ट, कार्ड, टेबल, टाइमलाइन या नक़्शे के रूप में। || Projetos montando equipe, em cartões, tabela, linha do tempo ou mapa.
+Finished films looking for help with festivals, posters and screenings. || पूरी हुई फ़िल्में जिन्हें फ़ेस्टिवल, पोस्टर और स्क्रीनिंग में मदद चाहिए। || Filmes prontos procurando ajuda com festivais, cartazes e exibições.
+Paid jobs and opportunities, checked by admins. || भुगतान वाले काम और मौक़े, एडमिन द्वारा जाँचे गए। || Trabalhos e oportunidades pagas, verificados pelos admins.
+Find people by role, kit and the days they're free. || रोल, किट और ख़ाली दिनों के हिसाब से लोग ढूँढें। || Encontre pessoas por função, equipamento e dias livres.
+What you're running, what you've asked to join, and your call times. || आप क्या चला रहे हैं, किसमें शामिल होने को कहा है, और आपके कॉल टाइम। || O que você está tocando, onde pediu para entrar e seus horários de chamada.
+Who runs it || इसे कौन चलाता है || Quem administra
+Students run Crew Call for each other. || छात्र एक-दूसरे के लिए Crew Call चलाते हैं। || Os alunos administram o Crew Call uns para os outros.
+Before the owner graduates, they hand it to a rep from a younger cohort, so it carries on. || ग्रेजुएट होने से पहले मालिक इसे किसी नए कोहोर्ट के रेप को सौंपते हैं, ताकि यह चलता रहे। || Antes de se formar, o dono passa para um representante de uma turma mais nova, para continuar funcionando.
+Everything is run from the Admin page, so nobody needs to know code. || सब कुछ एडमिन पेज से चलता है, इसलिए किसी को कोड जानने की ज़रूरत नहीं। || Tudo é feito pela página Admin, então ninguém precisa saber programar.
+School calendar || स्कूल कैलेंडर || Calendário da escola
+Terms, enrolment days and when each cohort finishes follow the LFS key dates, and show on the calendar. || टर्म, एनरोलमेंट के दिन और हर कोहोर्ट कब ख़त्म होता है, यह LFS की मुख्य तारीख़ों के हिसाब से होता है और कैलेंडर पर दिखता है। || Períodos, dias de matrícula e o fim de cada turma seguem as datas-chave da LFS e aparecem no calendário.
+Courses || कोर्स || Cursos
+New cohort every term || हर टर्म नया कोहोर्ट || Nova turma a cada período
+One year, starts in September || एक साल, सितंबर से शुरू || Um ano, começa em setembro
+Term 1 at the University of Exeter, Terms 2 and 3 at LFS || टर्म 1 University of Exeter में, टर्म 2 और 3 LFS में || Período 1 na University of Exeter, Períodos 2 e 3 na LFS
+Languages || भाषाएँ || Idiomas
+Crew Call works in English, Traditional and Simplified Chinese, French, Spanish, Russian, Arabic, Hindi and Portuguese. Film words follow what crews say on set. If something reads oddly, report it and a native speaker can fix it. || Crew Call अंग्रेज़ी, पारंपरिक और सरलीकृत चीनी, फ़्रेंच, स्पेनिश, रूसी, अरबी, हिन्दी और पुर्तगाली में चलता है। फ़िल्मी शब्द वैसे ही हैं जैसे क्रू सेट पर बोलते हैं। अगर कुछ अजीब लगे, तो रिपोर्ट करें और कोई मूल वक्ता उसे ठीक कर सकता है। || O Crew Call funciona em inglês, chinês tradicional e simplificado, francês, espanhol, russo, árabe, hindi e português. Os termos de cinema seguem o que as equipes dizem no set. Se algo soar estranho, relate e um falante nativo pode corrigir.
+Built with open source || ओपन सोर्स से बना || Feito com código aberto
+Wherever we can, Crew Call uses open source software and open data, so it stays free and nobody is locked in. || जहाँ भी हो सके, Crew Call ओपन सोर्स सॉफ़्टवेयर और ओपन डेटा इस्तेमाल करता है, ताकि यह मुफ़्त रहे और कोई बँधा न रहे। || Sempre que possível, o Crew Call usa software livre e dados abertos, para continuar gratuito e ninguém ficar preso.
+Project || प्रोजेक्ट || Projeto
+What it does here || यहाँ यह क्या करता है || O que faz aqui
+Licence || लाइसेंस || Licença
+Draws the Shoot map || शूट का नक़्शा बनाता है || Desenha o mapa de Filmagem
+Map tiles and place data, made by volunteers || नक़्शे की टाइलें और जगहों का डेटा, स्वयंसेवकों द्वारा बनाया गया || Blocos de mapa e dados de lugares, feitos por voluntários
+Finds locations when you type an address || पता टाइप करने पर लोकेशन ढूँढता है || Encontra locações quando você digita um endereço
+Dates, months and plurals in every language, built into your browser || हर भाषा में तारीख़ें, महीने और बहुवचन, आपके ब्राउज़र में पहले से मौजूद || Datas, meses e plurais em todos os idiomas, já incluídos no navegador
+Turns Traditional Chinese into Simplified Chinese || पारंपरिक चीनी को सरलीकृत चीनी में बदलता है || Converte chinês tradicional em chinês simplificado
+Used to cross-check crew role names in other languages || दूसरी भाषाओं में क्रू रोल के नाम मिलाने के लिए इस्तेमाल होता है || Usado para conferir nomes de funções em outros idiomas
+Typeface || टाइपफ़ेस || Fonte
+Typeface for times and dates || समय और तारीख़ों के लिए टाइपफ़ेस || Fonte para horários e datas
+Database and sign-in for the live version || असली संस्करण के लिए डेटाबेस और साइन इन || Banco de dados e acesso da versão real
+The open standard behind calendar sync || कैलेंडर सिंक के पीछे का खुला मानक || O padrão aberto por trás da sincronização de calendário
+Not open source || ओपन सोर्स नहीं || Não é código aberto
+The code is kept on GitHub and the site is hosted on Vercel or GitHub Pages. Emails are sent with Brevo, and LFS Microsoft accounts are used to sign in. These aren't open source, but we only use their free plans, and Crew Call can move away from any of them. || कोड GitHub पर रखा है और साइट Vercel या GitHub Pages पर होस्ट है। ईमेल Brevo से भेजे जाते हैं, और साइन इन के लिए LFS के Microsoft अकाउंट इस्तेमाल होते हैं। ये ओपन सोर्स नहीं हैं, लेकिन हम सिर्फ़ इनके मुफ़्त प्लान इस्तेमाल करते हैं, और Crew Call इनमें से किसी से भी हट सकता है। || O código fica no GitHub e o site é hospedado no Vercel ou no GitHub Pages. Os e-mails são enviados pelo Brevo, e as contas Microsoft da LFS são usadas para entrar. Eles não são código aberto, mas usamos só os planos gratuitos, e o Crew Call pode sair de qualquer um deles.
+Overview || सारांश || Visão geral
+Content || सामग्री || Conteúdo
+Settings and data || सेटिंग्स और डेटा || Configurações e dados
+Section || सेक्शन || Seção
+Admin section || एडमिन सेक्शन || Seção de admin
+To do || करने को || A fazer
+Read them || इन्हें पढ़ें || Ler
+Choose reps || रेप चुनें || Escolher representantes
+Check || जाँचें || Conferir
+Nothing needs doing right now. || अभी कुछ करने की ज़रूरत नहीं। || Nada para fazer agora.
+Coming up || आगे आने वाला || Em breve
+At a glance || एक नज़र में || Num relance
+Admins || एडमिन || Admins
+Live projects || चालू प्रोजेक्ट || Projetos ativos
+Cohorts with a rep || रेप वाले कोहोर्ट || Turmas com representante
+Invites waiting || इंतज़ार में इनवाइट || Convites pendentes
+Nothing in the next few months. Add next year's term dates. || अगले कुछ महीनों में कुछ नहीं। अगले साल की टर्म की तारीख़ें जोड़ें। || Nada nos próximos meses. Adicione as datas dos períodos do próximo ano.
+Holidays || छुट्टियाँ || Férias
+Enrolment and induction || एनरोलमेंट और इंडक्शन || Matrícula e integração
+Enrolment and induction (new students only) || एनरोलमेंट और इंडक्शन (सिर्फ़ नए छात्र) || Matrícula e integração (só alunos novos)
+New student enrolment || नए छात्रों का एनरोलमेंट || Matrícula de alunos novos
+Cohort dates || कोहोर्ट की तारीख़ें || Datas das turmas
+When each cohort started and finishes. People stay on their course until it finishes, then become Alumni. LFS sets MA Filmmaking end dates for each intake, so enter the real date when you have it. MA Screenwriting, MA Film Producing and MA Film Marketing starting in September 2026 finish on 24 Sep 2027. || हर कोहोर्ट कब शुरू हुआ और कब ख़त्म होगा। लोग कोर्स ख़त्म होने तक उस पर रहते हैं, फिर पूर्व छात्र बन जाते हैं। LFS हर बैच के लिए MA Filmmaking की अंतिम तारीख़ तय करता है, इसलिए असली तारीख़ मिलने पर डालें। सितंबर 2026 में शुरू होने वाले MA Screenwriting, MA Film Producing और MA Film Marketing 24 सितंबर 2027 को ख़त्म होते हैं। || Quando cada turma começou e termina. As pessoas ficam no curso até ele terminar e depois viram ex-alunos. A LFS define as datas de término do MA Filmmaking para cada entrada, então coloque a data real quando tiver. MA Screenwriting, MA Film Producing e MA Film Marketing que começam em setembro de 2026 terminam em 24 de set. de 2027.
+Started || शुरू हुआ || Começou
+Finishes || ख़त्म होता है || Termina
+Date from LFS || LFS से तारीख़ || Data da LFS
+Not known yet || अभी पता नहीं || Ainda não se sabe
+School dates || स्कूल की तारीख़ें || Datas da escola
+International Film Business || International Film Business || International Film Business
+MA International Film Business || MA International Film Business || MA International Film Business
+Nobody has marked this day free. || किसी ने इस दिन को ख़ाली नहीं बताया है। || Ninguém marcou este dia como livre.
+Add course || कोर्स जोड़ें || Adicionar curso
+Added in the app || ऐप में जोड़ा गया || Adicionado no app
+Any role || कोई भी रोल || Qualquer função
+Close to new students || नए छात्रों के लिए बंद करें || Fechar para alunos novos
+Reopen to new students || नए छात्रों के लिए फिर खोलें || Reabrir para alunos novos
+Closed to new students || नए छात्रों के लिए बंद || Fechado para alunos novos
+Taking new students || नए छात्र ले रहा है || Aceitando alunos novos
+Code prefix || कोड उपसर्ग || Prefixo do código
+Course name || कोर्स का नाम || Nome do curso
+Dismiss || ख़ारिज करें || Dispensar
+Download translations (JSON) || अनुवाद डाउनलोड करें (JSON) || Baixar traduções (JSON)
+End of Summer term || समर टर्म का अंत || Fim do período de verão
+End of the last term || आख़िरी टर्म का अंत || Fim do último período
+English || English || English
+Every September || हर सितंबर || Todo setembro
+New cohort every September || हर सितंबर नया कोहोर्ट || Nova turma todo setembro
+Everyone picks their course and cohort once, and Crew Call works out their term from it each term. Edit a course here if LFS changes it. If the cohort numbering ever drifts (for example an intake is skipped), set which code is in which term now and everyone else follows. || हर कोई एक बार अपना कोर्स और कोहोर्ट चुनता है, और Crew Call हर टर्म उसी से उनका टर्म निकालता है। अगर LFS कोई कोर्स बदले तो उसे यहाँ बदलें। अगर कोहोर्ट नंबरिंग कभी गड़बड़ाए (जैसे कोई बैच छूट जाए), तो तय करें कि अभी कौन सा कोड किस टर्म में है और बाक़ी सब उसके हिसाब से चलेंगे। || Cada pessoa escolhe curso e turma uma vez, e o Crew Call calcula o período a partir disso a cada período. Edite um curso aqui se a LFS mudá-lo. Se a numeração das turmas sair do lugar (por exemplo, uma entrada for pulada), defina qual código está em qual período agora e as outras acompanham.
+From members who spotted a wrong word, and from Wikidata when a role is added. Check the wording, then use it. It changes for everyone straight away. || उन सदस्यों से जिन्होंने कोई ग़लत शब्द देखा, और रोल जोड़ने पर Wikidata से। शब्द जाँचें, फिर इस्तेमाल करें। यह तुरंत सबके लिए बदल जाता है। || De membros que viram uma palavra errada e do Wikidata quando uma função é adicionada. Confira o texto e depois use. Muda para todos na hora.
+Late September after || सितंबर के आख़िर में, इसके बाद: || Fim de setembro depois de
+Length || अवधि || Duração
+LibreTranslate server || LibreTranslate सर्वर || Servidor LibreTranslate
+LibreTranslate server, e.g. https://translate.example.org || LibreTranslate सर्वर, जैसे https://translate.example.org || Servidor LibreTranslate, por ex. https://translate.example.org
+Look up || खोजें || Consultar
+Look up on Wikidata || Wikidata पर खोजें || Consultar no Wikidata
+New course, e.g. MA Documentary || नया कोर्स, जैसे MA Documentary || Novo curso, por ex. MA Documentary
+No change || कोई बदलाव नहीं || Sem alteração
+Numbering: Term || नंबरिंग: टर्म || Numeração: Período
+now is || अभी है || agora é
+Open in Apple Maps || Apple Maps में खोलें || Abrir no Apple Maps
+Open in Google Maps || Google Maps में खोलें || Abrir no Google Maps
+Open in OpenStreetMap || OpenStreetMap में खोलें || Abrir no OpenStreetMap
+Directions || रास्ता || Rotas
+Optional || वैकल्पिक || Opcional
+Role names || रोल के नाम || Nomes das funções
+Roles translated into every language. For the rest, look them up on Wikidata, where film role names are free to use, then check them. Short forms like DIT and VFX are often kept in English, which is fine. || हर भाषा में अनूदित रोल। बाक़ी के लिए उन्हें Wikidata पर खोजें, जहाँ फ़िल्म रोल के नाम मुफ़्त इस्तेमाल हो सकते हैं, फिर जाँचें। DIT और VFX जैसे छोटे रूप अक्सर अंग्रेज़ी में रखे जाते हैं, जो ठीक है। || Funções traduzidas em todos os idiomas. Para o resto, consulte no Wikidata, onde os nomes de funções de cinema são de uso livre, e depois confira. Siglas como DIT e VFX costumam ficar em inglês, e tudo bem.
+Save server || सर्वर सेव करें || Salvar servidor
+See changes || बदलाव देखें || Ver mudanças
+Short name || छोटा नाम || Nome curto
+Suggest a better translation || बेहतर अनुवाद सुझाएँ || Sugerir uma tradução melhor
+Suggestions || सुझाव || Sugestões
+Thank you. An admin checks it and it changes for everyone. || धन्यवाद। एक एडमिन इसे जाँचता है और यह सबके लिए बदल जाता है। || Obrigado. Um admin confere e muda para todos.
+Use || इस्तेमाल करें || Usar
+Use this || यह इस्तेमाल करें || Usar este
+What it says now || अभी क्या लिखा है || O que diz agora
+What it should say || क्या लिखा होना चाहिए || O que deveria dizer
+When the next term starts || अगला टर्म कब शुरू होता है || Quando o próximo período começa
+Where translations come from || अनुवाद कहाँ से आते हैं || De onde vêm as traduções
+Why, optional || क्यों, वैकल्पिक || Por quê, opcional
+e.g. On set we say… || जैसे सेट पर हम कहते हैं… || por ex. No set a gente diz…
+e.g. Term 1 at a partner university || जैसे किसी साझेदार यूनिवर्सिटी में टर्म 1 || por ex. Período 1 numa universidade parceira
+Draft missing role names || छूटे रोल नामों का मसौदा बनाएँ || Rascunhar nomes de funções que faltam
+Which meaning? || कौन सा अर्थ? || Qual sentido?
+Searching… || खोज रहे हैं… || Buscando…
+Save translations || अनुवाद सेव करें || Salvar traduções
+Looking it up on Wikidata, the free knowledge base anyone can use (CC0). || Wikidata पर खोज रहे हैं, वह मुफ़्त ज्ञानकोश जिसे कोई भी इस्तेमाल कर सकता है (CC0)। || Consultando o Wikidata, a base de conhecimento livre que qualquer um pode usar (CC0).
+Nothing on Wikidata. Type the translations yourself, or ask a student who speaks the language. || Wikidata पर कुछ नहीं मिला। अनुवाद ख़ुद टाइप करें, या उस भाषा को बोलने वाले किसी छात्र से पूछें। || Nada no Wikidata. Digite as traduções você mesmo ou pergunte a um aluno que fale o idioma.
+Check film terms with someone who works in that language. Wikidata's name for a job isn't always what crews say on set. || फ़िल्मी शब्द उस भाषा में काम करने वाले किसी व्यक्ति से जँचवाएँ। Wikidata में किसी काम का नाम हमेशा वह नहीं होता जो क्रू सेट पर बोलते हैं। || Confira os termos de cinema com alguém que trabalha nesse idioma. O nome de uma função no Wikidata nem sempre é o que a equipe fala no set.
+Couldn't reach Wikidata. Check the connection, or type the translations yourself. || Wikidata तक नहीं पहुँच पाए। कनेक्शन जाँचें, या अनुवाद ख़ुद टाइप करें। || Não foi possível acessar o Wikidata. Verifique a conexão ou digite as traduções você mesmo.
+Sign in to suggest a better translation. || बेहतर अनुवाद सुझाने के लिए साइन इन करें। || Entre para sugerir uma tradução melhor.
+Copy the words from the page || पेज से शब्द कॉपी करें || Copie as palavras da página
+Suggestion sent to the admins. Thank you. || सुझाव एडमिन को भेजा गया। धन्यवाद। || Sugestão enviada aos admins. Obrigado.
+Every role has a name in every language. || हर रोल का हर भाषा में नाम है। || Toda função tem nome em todos os idiomas.
+No suggestions waiting. || कोई सुझाव इंतज़ार में नहीं। || Nenhuma sugestão pendente.
+Translation saved || अनुवाद सेव हुआ || Tradução salva
+Dismissed || ख़ारिज किया || Dispensado
+Nothing changed || कुछ नहीं बदला || Nada mudou
+The English words || अंग्रेज़ी शब्द || As palavras em inglês
+Add the English words first, so Crew Call knows what to replace || पहले अंग्रेज़ी शब्द जोड़ें, ताकि Crew Call को पता हो कि क्या बदलना है || Adicione primeiro as palavras em inglês, para o Crew Call saber o que substituir
+Couldn't reach the LibreTranslate server || LibreTranslate सर्वर तक नहीं पहुँच पाए || Não foi possível acessar o servidor LibreTranslate
+Drafting with LibreTranslate… || LibreTranslate से मसौदा बना रहे हैं… || Rascunhando com LibreTranslate…
+Nothing missing || कुछ छूटा नहीं || Nada faltando
+Translations saved here apply straight away. To keep them in the code too, download the file and add it to GitHub with this name. The next build folds it in. || यहाँ सेव किए अनुवाद तुरंत लागू होते हैं। उन्हें कोड में भी रखने के लिए, फ़ाइल डाउनलोड करें और इसी नाम से GitHub में जोड़ें। अगला बिल्ड उसे शामिल कर लेता है। || As traduções salvas aqui valem na hora. Para mantê-las também no código, baixe o arquivo e adicione ao GitHub com este nome. O próximo build incorpora.
+Built into the browser. Gives month and day names, date order, plurals, lists such as "A, B and C", and phrases such as "yesterday" and "3 days ago". Always right, nothing to edit. || ब्राउज़र में पहले से मौजूद। महीनों और दिनों के नाम, तारीख़ का क्रम, बहुवचन, "A, B और C" जैसी सूचियाँ, और "कल" और "3 दिन पहले" जैसे वाक्यांश देता है। हमेशा सही, बदलने को कुछ नहीं। || Já vem no navegador. Fornece nomes de meses e dias, ordem das datas, plurais, listas como "A, B e C" e expressões como "ontem" e "há 3 dias". Sempre certo, nada para editar.
+Role names in many languages, free to use (CC0). Used when you add a role or press Look up. || कई भाषाओं में रोल के नाम, मुफ़्त इस्तेमाल के लिए (CC0)। रोल जोड़ने या खोजें दबाने पर इस्तेमाल होता है। || Nomes de funções em muitos idiomas, de uso livre (CC0). Usado quando você adiciona uma função ou toca em Consultar.
+Makes Simplified Chinese from Traditional when the code is built. || कोड बिल्ड होने पर पारंपरिक से सरलीकृत चीनी बनाता है। || Gera chinês simplificado a partir do tradicional quando o código é montado.
+A translation website where volunteers fix wording without touching code. The build writes files Weblate can read and edit. It's free for open-source projects; the steps are in the translation guide. || एक अनुवाद वेबसाइट जहाँ स्वयंसेवक कोड छुए बिना शब्द ठीक करते हैं। बिल्ड ऐसी फ़ाइलें लिखता है जिन्हें Weblate पढ़ और बदल सकता है। ओपन सोर्स प्रोजेक्ट के लिए यह मुफ़्त है; चरण अनुवाद गाइड में हैं। || Um site de tradução onde voluntários corrigem textos sem mexer no código. O build gera arquivos que o Weblate consegue ler e editar. É gratuito para projetos de código aberto; os passos estão no guia de tradução.
+Open-source machine translation you can run on a free server. Drafts only. Always have a speaker check. || ओपन सोर्स मशीन अनुवाद जिसे आप मुफ़्त सर्वर पर चला सकते हैं। सिर्फ़ मसौदे। हमेशा किसी वक्ता से जँचवाएँ। || Tradução automática de código aberto que você pode rodar num servidor gratuito. Só rascunhos. Sempre peça para um falante revisar.
+Translations are checked by students who speak each language. Spot a wrong film term? || अनुवाद हर भाषा बोलने वाले छात्र जाँचते हैं। कोई ग़लत फ़िल्मी शब्द दिखा? || As traduções são revisadas por alunos que falam cada idioma. Viu um termo de cinema errado?
+from || से || de
+Using || इस्तेमाल करके || Usando

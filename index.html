@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Crew Call — MA film projects and crew</title>
+<meta name="description" content="Post film projects, see every shoot on one calendar, and find classmates available for the roles you need.">
+<link rel="stylesheet" href="vendor/fonts/fonts.css">
+<link rel="stylesheet" href="style.css">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="icons/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-title" content="Crew Call">
+<meta name="apple-mobile-web-app-capable" content="yes">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <svg class="brand-mark" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="8" width="18" height="12" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3 8l2.5-4.5h15L18 8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8.5 3.5L6 8M13.5 3.5L11 8M18.5 3.5L16 8" stroke="currentColor" stroke-width="1.8"/></svg>
+    <span class="brand-name">Crew Call</span>
+    <span class="brand-sub">LFS</span>
+  </div>
+  <nav class="tabs" role="tablist" aria-label="Sections">
+    <button role="tab" data-view="calendar" aria-selected="true">Calendar</button>
+    <button role="tab" data-view="scripts" aria-selected="false">Develop</button>
+    <button role="tab" data-view="projects" aria-selected="false">Shoot</button>
+    <button role="tab" data-view="release" aria-selected="false">Release</button>
+    <button role="tab" data-view="paid" aria-selected="false">Paid</button>
+    <button role="tab" data-view="crew" aria-selected="false">Crew</button>
+    <button role="tab" data-view="mine" aria-selected="false">My shoots</button>
+    <button role="tab" data-view="me" aria-selected="false">My profile</button>
+    <button role="tab" data-view="admin" aria-selected="false" hidden>Admin</button>
+  </nav>
+  <div class="top-actions">
+    <div class="lang"><button class="icon-btn lang-btn" id="langBtn" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Language" title="Language"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M3 12h18M12 3c2.6 2.6 3.8 5.6 3.8 9s-1.2 6.4-3.8 9c-2.6-2.6-3.8-5.6-3.8-9S9.4 5.6 12 3Z" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><span class="lang-cur" data-lang-cur data-noi18n>EN</span></button><div class="lang-menu" id="langMenu" role="menu" aria-label="Language" hidden></div></div>
+    <button class="icon-btn bell" id="bellBtn" hidden aria-label="Notifications"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9a6 6 0 1 1 12 0c0 5 2 6.5 2 6.5H4S6 14 6 9Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M10 19a2 2 0 0 0 4 0" fill="none" stroke="currentColor" stroke-width="1.7"/></svg><span class="bell-n" id="bellN" hidden></span></button>
+    <div class="acct"><button class="btn btn-ghost btn-sm" id="acctBtn" aria-haspopup="true" aria-expanded="false">Sign in</button><div class="acct-menu" id="acctMenu" hidden></div></div>
+    <button class="btn btn-accent" id="postProjectBtn">Post a shoot</button>
+  </div>
+</header>
+
+<main id="app">
+  <div class="term-banner" id="termBanner" role="status" hidden></div>
+  <!-- CALENDAR -->
+  <section class="view" id="view-calendar" aria-label="Calendar">
+    <div class="view-head">
+      <div class="month-nav">
+        <button class="icon-btn" id="prevMonth" aria-label="Previous month">‹</button>
+        <h1 id="monthLabel" class="page-title">Month</h1>
+        <button class="icon-btn" id="nextMonth" aria-label="Next month">›</button>
+        <button class="btn btn-ghost btn-sm" id="todayBtn">Today</button>
+        <div class="seg seg-btn" role="group" aria-label="Calendar view"><button type="button" id="modeMonth" aria-pressed="true">Month</button><button type="button" id="modeWeek" aria-pressed="false">Week</button></div>
+      </div>
+      <div class="cal-filters">
+        <label class="field-inline">
+          <span>Role</span>
+          <select id="calRole"><option value="">All roles</option></select>
+        </label>
+        <label class="field-inline">
+          <span>Term</span>
+          <select id="calTerm"><option value="">All terms</option></select>
+        </label>
+        <label class="toggle"><input type="checkbox" id="calShowFree" checked> <span>Show crew availability</span></label>
+        <button class="btn btn-ghost btn-sm" id="editMineBtn" aria-pressed="false">Edit my days</button>
+        <button class="btn btn-ghost btn-sm" id="syncBtn"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M3.5 10h17M8 3v4M16 3v4" stroke="currentColor" stroke-width="1.7"/></svg>Sync calendar</button>
+      </div>
+      <p class="edit-hint" id="editHint" hidden>Editing your availability. Tap any day to switch between free and not free. Changes save straight away.</p>
+    </div>
+    <div class="cal-layout">
+      <div class="cal-wrap">
+        <div class="cal-grid-head" aria-hidden="true">
+          <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+        </div>
+        <div class="cal-grid" id="calGrid"></div>
+        <p class="legend"><span class="lg"><span class="dot dot-shoot"></span>Shoot day (number = open roles)</span><span class="lg"><span class="crew-key" aria-hidden="true"><svg class="crew-ic" viewBox="0 0 16 16"><circle cx="6" cy="5" r="2.3"/><path d="M1.8 13.5c0-2.4 1.9-4.2 4.2-4.2s4.2 1.8 4.2 4.2"/><circle cx="11.4" cy="5.6" r="1.8"/><path d="M11 9.4c1.9.2 3.3 1.8 3.3 4"/></svg></span>Crew available that day (matches filters)</span></p>
+      </div>
+      <aside class="day-panel" id="dayPanel" aria-live="polite"></aside>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="view" id="view-projects" hidden aria-label="Shoot">
+    <div class="view-head">
+      <div><p class="eyebrow">Step 2 of 3</p><h1 class="page-title">Shoots looking for crew</h1><p class="muted">School shoots are in kind: you work for the credit, the experience and usually food and travel. Paid jobs are under <button type="button" class="link-btn" data-go="paid">Paid</button>.</p></div>
+      <div class="head-acts"><button class="btn btn-accent" data-action="post">Post a shoot</button></div>
+    </div>
+    <div id="projList" class="board-host" data-fkey="shoot"></div>
+  </section>
+
+  <!-- CREW -->
+  <section class="view" id="view-crew" hidden aria-label="Crew">
+    <div class="view-head">
+      <h1 class="page-title">Find crew</h1>
+      <div class="filters">
+        <input type="search" id="crewSearch" placeholder="Search name, kit, skill">
+        <label class="field-inline"><span>Free from</span><input type="date" id="crewFrom"></label>
+        <label class="field-inline"><span>to</span><input type="date" id="crewTo"></label>
+        <select id="crewTerm"><option value="">All terms</option></select>
+        <select id="crewCohort" aria-label="Cohort"><option value="">All cohorts</option></select>
+        <label class="toggle"><input type="checkbox" id="crewKitOnly"> <span>Has kit</span></label>
+      </div>
+      <div class="crew-bar2" id="crewRoleChips"></div>
+    </div>
+    <div class="crew-meta-row"><p class="result-meta" id="crewMeta"></p>
+      <div class="crew-ctl"><label class="fsort"><span>Sort</span><select id="crewSort" aria-label="Sort crew"><option value="best">Best match</option><option value="name">Name A–Z</option><option value="updated">Recently updated</option><option value="credits">Most credits</option><option value="kit">Most kit</option></select></label>
+      <div class="seg-btn vtoggle" role="group" aria-label="View"><button type="button" class="on" data-cview="cards" aria-pressed="true">Cards</button><button type="button" data-cview="table" aria-pressed="false">Table</button></div></div></div>
+    <div class="card-grid" id="crewList"></div>
+  </section>
+
+  <!-- SCRIPTS -->
+  <section class="view" id="view-scripts" hidden aria-label="Develop"></section>
+  <section class="view" id="view-release" hidden aria-label="Release"></section>
+  <section class="view" id="view-paid" hidden aria-label="Paid"></section>
+
+  <!-- MY SHOOTS -->
+  <section class="view" id="view-mine" hidden aria-label="My shoots"></section>
+
+  <!-- ADMIN -->
+  <section class="view" id="view-admin" hidden aria-label="Admin"></section>
+  <section class="view" id="view-about" hidden aria-label="About Crew Call"></section>
+
+  <!-- SIGN-IN GATE -->
+  <section class="view" id="view-gate" hidden aria-label="Sign in"></section>
+
+  <!-- ME -->
+  <section class="view" id="view-me" hidden aria-label="My profile">
+    <div class="view-head">
+      <h1 class="page-title">My crew profile</h1>
+      <p class="muted">List every role you can do, the kit you can bring, and the dates you're free. Directors will find you in Crew search and on the calendar.</p>
+      <p class="guest-note" id="meGuest" hidden></p>
+    </div>
+    <form id="meForm" class="form-card" autocomplete="on">
+      <div class="form-grid">
+        <label class="field"><span>Full name</span><input name="name" required></label>
+        <label class="field"><span>Sign-in email <small>fixed</small></span><input name="email" type="email" readonly aria-readonly="true"></label>
+        <label class="field"><span>Course and cohort <small id="termLock"></small></span><select name="cohort"></select></label>
+        <label class="field" id="cohortField"><span>Term now <small>automatic</small></span><input name="termShow" readonly aria-readonly="true"></label>
+        <p class="term-note span-2" id="termNote"></p>
+        <label class="field span-2"><span>Pathway</span><select name="pathway" required></select></label>
+        <label class="field span-2"><span>Showreel or portfolio link</span><input name="reel" type="url" placeholder="https://vimeo.com/..."></label>
+        <label class="field span-2"><span>Short bio</span><textarea name="bio" rows="2" maxlength="240" placeholder="What you've shot, what you want to do more of"></textarea></label>
+      </div>
+
+      <fieldset class="fs">
+        <legend>Roles I can do <small>tap all that apply, star your main one</small></legend>
+        <div class="role-picker" id="meRoles"></div>
+      </fieldset>
+
+      <fieldset class="fs">
+        <legend>Roles I want to learn <small>shadow someone on set</small></legend>
+        <p class="muted small">Producers can accept you as a shadow alongside their crew. You'll show up as "wants to shadow" on matching roles.</p>
+        <div class="role-picker rp-learn" id="meLearn"></div>
+      </fieldset>
+
+      <fieldset class="fs">
+        <legend>Credits <small>added automatically after each shoot</small></legend>
+        <div id="meCredits"></div>
+      </fieldset>
+
+      <fieldset class="fs">
+        <legend>Kit I can bring</legend>
+        <div class="kit-editor" id="meKit"></div>
+        <div class="kit-add">
+          <select id="kitCat"></select>
+          <input id="kitItem" placeholder="e.g. Sony FX3, Aputure 300d, Zoom F6">
+          <button type="button" class="btn btn-ghost btn-sm" id="kitAddBtn">Add kit</button>
+        </div>
+      </fieldset>
+
+      <fieldset class="fs">
+        <legend>When I'm free</legend>
+        <p class="muted small">Tap a day to mark it free, tap again to clear. Drag across days to select several at once. Days you're crewed on show as booked.</p>
+        <div class="picker">
+          <div class="pick-head">
+            <button type="button" class="icon-btn icon-sm" id="pickPrev" aria-label="Previous month">‹</button>
+            <span class="pick-label" id="pickLabel"></span>
+            <button type="button" class="icon-btn icon-sm" id="pickNext" aria-label="Next month">›</button>
+            <span class="pick-quick">
+              <button type="button" class="btn btn-quiet btn-xs" id="pickWeekdays">All weekdays</button>
+              <button type="button" class="btn btn-quiet btn-xs" id="pickWeekends">All weekends</button>
+              <button type="button" class="btn btn-quiet btn-xs" id="pickClear">Clear month</button>
+            </span>
+          </div>
+          <div class="pick-dow" aria-hidden="true"><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span></div>
+          <div class="pick-grid" id="pickGrid"></div>
+          <div class="pick-foot"><span id="pickSum"></span><span class="upd" id="pickSaved"></span></div>
+        </div>
+        <label class="toggle mt"><input type="checkbox" name="openToOffers"> <span>Open to offers outside these dates</span></label>
+      </fieldset>
+
+      <fieldset class="fs" id="notifyFs">
+        <legend>Email notifications</legend>
+        <label class="toggle"><input type="checkbox" name="nApply" checked> <span>Email me when someone requests to join a project I run</span></label>
+        <label class="toggle mt"><input type="checkbox" name="nMatch" checked> <span>Email me when a new role matches my roles and free days</span></label>
+        <label class="toggle mt"><input type="checkbox" name="nUpdates" checked> <span>Email me when my requests are answered or a shoot I'm on changes</span></label>
+        <label class="toggle mt"><input type="checkbox" name="nNews" checked> <span>Email me the Crew Call newsletter</span></label>
+        <label class="toggle mt"><input type="checkbox" name="nDigest"> <span>Send me a weekly digest of open roles</span></label>
+        <div class="digest-opts" id="digestOpts">
+          <label class="field-inline"><span>Arrives</span><select name="nWhen"><option value="mon">Monday, 8am</option><option value="sun">Sunday, 6pm</option><option value="fri">Friday, 4pm</option></select></label>
+          <div class="seg" role="radiogroup" aria-label="Digest includes">
+            <label><input type="radio" name="nScope" value="match" checked> <span>Only my roles on days I'm free</span></label>
+            <label><input type="radio" name="nScope" value="all"> <span>Every open role</span></label>
+          </div>
+          <button type="button" class="btn btn-ghost btn-sm" id="digestPreview">Preview this week's digest</button>
+        </div>
+      </fieldset>
+
+      <fieldset class="fs">
+        <legend>Privacy</legend>
+        <label class="toggle"><input type="checkbox" name="shareEmail"> <span>Show my email to signed-in members (otherwise people message you through Crew Call)</span></label>
+        <label class="toggle mt"><input type="checkbox" name="hideMe"> <span>Hide my profile from Crew search and the calendar</span></label>
+        <p class="muted small mt">Nothing here is visible to anyone who isn't signed in. Producers and directors you're locked in with can always see your email.</p>
+        <p class="muted small mt">Read the <button type="button" class="link-btn" data-privacy>privacy notice</button>.</p>
+        <div class="form-actions"><button type="button" class="btn btn-ghost btn-sm" id="downloadMe">Download my data</button><button type="button" class="btn btn-danger btn-sm" id="deleteMe">Delete my profile</button></div>
+      </fieldset>
+
+      <div class="form-actions">
+        <button class="btn btn-accent" type="submit">Save profile</button>
+        <span class="save-msg" id="meSaved" role="status"></span>
+      </div>
+    </form>
+  </section>
+</main>
+
+<footer class="foot">
+  <p id="protoFoot">Prototype. Sample data only, and changes reset when you reload. Sign-in, emails and calendar links are simulated. A live version adds LFS Microsoft sign-in and a shared database.</p>
+  <p class="foot-links"><button type="button" class="link-btn" id="footAbout">About Crew Call</button><button type="button" class="link-btn" data-privacy>Privacy notice</button><button type="button" class="link-btn" data-install>Add to home screen</button><button type="button" class="link-btn" id="footReport">Report a problem</button></p>
+  <p class="foot-lang" role="group" aria-label="Language"><button type="button" class="link-btn" data-setlang="en" lang="en-GB" data-noi18n>English</button><button type="button" class="link-btn" data-setlang="zh-Hant" lang="zh-Hant" data-noi18n>繁體中文</button><button type="button" class="link-btn" data-setlang="zh-Hans" lang="zh-Hans" data-noi18n>简体中文</button><button type="button" class="link-btn" data-setlang="fr" lang="fr" data-noi18n>Français</button><button type="button" class="link-btn" data-setlang="es" lang="es" data-noi18n>Español</button><button type="button" class="link-btn" data-setlang="ru" lang="ru" data-noi18n>Русский</button><button type="button" class="link-btn" data-setlang="ar" lang="ar" dir="rtl" data-noi18n>العربية</button><button type="button" class="link-btn" data-setlang="hi" lang="hi" data-noi18n>हिन्दी</button><button type="button" class="link-btn" data-setlang="pt" lang="pt" data-noi18n>Português</button></p>
+</footer>
+
+<!-- Modal -->
+<div class="modal" id="modal" hidden>
+  <div class="modal-backdrop" data-close></div>
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button class="icon-btn modal-x" data-close aria-label="Close">×</button>
+    <div id="modalBody"></div>
+  </div>
+</div>
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script src="data.js"></script>
+<script src="config.js"></script>
+<script src="emails/digest-template.js"></script>
+<script src="emails/newsletter-template.js"></script>
+<!-- cloud.js loads app.js, i18n-dict.js and i18n.js once the data is ready -->
+<script src="cloud.js"></script>
+</body>
+</html>

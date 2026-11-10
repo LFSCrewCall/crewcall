@@ -1,0 +1,152 @@
+# Views, Paid, reps, ownership, automatic newsletter, versions
+Cards || 卡片 || Cartes || Tarjetas
+Table || 表格 || Tableau || Tabla
+Timeline || 時間軸 || Chronologie || Cronología
+Crewed || 已找齊人員 || Équipe complète || Equipo completo
+Developing || 開發中 || En développement || En desarrollo
+Aiming for || 目標 || Visé pour || Objetivo
+No deadline || 沒有截止日期 || Pas de date limite || Sin fecha límite
+Today || 今天 || Aujourd'hui || Hoy
+Paid || 有酬工作 || Rémunéré || Pagado
+Paid work || 有酬工作 || Travail rémunéré || Trabajo pagado
+Paid opportunities || 有酬工作機會 || Offres rémunérées || Oportunidades pagadas
+Most of Crew Call is school shoots, which are in kind: you work for the credit, the experience and usually food and travel. This page is only for work that pays, posted by students, alumni and industry contacts. Every job shows its rate. || Crew Call 上大多是學校拍攝，屬於無償互助：你換來的是片尾名單、經驗，通常還有餐點和交通。這一頁只放有酬工作，由學生、校友和業界人士張貼，每份工作都會註明酬勞。 || Sur Crew Call, la plupart des tournages sont des tournages d'école, en nature : vous travaillez pour le générique, l'expérience et en général les repas et le transport. Cette page est réservée au travail rémunéré, publié par des étudiants, des anciens et des contacts du secteur. Chaque offre indique son tarif. || La mayoría de Crew Call son rodajes de la escuela, sin pago en dinero: trabajas por el crédito, la experiencia y normalmente comida y transporte. Esta página es solo para trabajo pagado, publicado por estudiantes, exalumnos y contactos del sector. Cada oferta indica su tarifa.
+Check who you're working for before you agree. Crew Call admins don't vet jobs or handle money. If a job doesn't pay what it says, report it. || 答應之前請先確認對方是誰。Crew Call 管理員不會審核工作，也不經手款項。如果工作沒有支付所寫的酬勞，請檢舉。 || Vérifiez pour qui vous travaillez avant d'accepter. Les admins de Crew Call ne vérifient pas les offres et ne gèrent pas l'argent. Si une offre ne paie pas ce qu'elle annonce, signalez-la. || Comprueba para quién trabajas antes de aceptar. Los administradores de Crew Call no revisan las ofertas ni gestionan dinero. Si una oferta no paga lo que dice, denúnciala.
+School shoots are in kind: you work for the credit, the experience and usually food and travel. Paid jobs are under || 學校拍攝屬於無償互助：你換來的是片尾名單、經驗，通常還有餐點和交通。有酬工作在 || Les tournages d'école sont en nature : vous travaillez pour le générique, l'expérience et en général les repas et le transport. Les offres rémunérées sont dans || Los rodajes de la escuela no se pagan en dinero: trabajas por el crédito, la experiencia y normalmente comida y transporte. Los trabajos pagados están en
+Only for work that pays. Unpaid or in-kind shoots go on Shoot. || 只限有酬工作。無酬或無償互助的拍攝請放在「拍攝」。 || Uniquement pour le travail rémunéré. Les tournages non payés ou en nature vont dans Tournage. || Solo para trabajo pagado. Los rodajes sin pago van en Rodaje.
+Post a paid job || 張貼有酬工作 || Publier une offre rémunérée || Publicar un trabajo pagado
+Post job || 張貼工作 || Publier l'offre || Publicar trabajo
+Search job, company, role or place || 搜尋工作、公司、職位或地點 || Rechercher une offre, une entreprise, un poste ou un lieu || Buscar trabajo, empresa, puesto o lugar
+Search jobs || 搜尋工作 || Rechercher des offres || Buscar trabajos
+Paid jobs for a role on your profile || 符合你個人檔案職位的有酬工作 || Offres rémunérées pour un poste de votre profil || Trabajos pagados para un puesto de tu perfil
+Show filled and closed jobs || 顯示已找到人和已截止的工作 || Afficher les offres pourvues et closes || Mostrar trabajos cubiertos y cerrados
+Job || 工作 || Offre || Trabajo
+Job title || 工作名稱 || Intitulé || Título del trabajo
+Company or client || 公司或客戶 || Entreprise ou client || Empresa o cliente
+Pay || 酬勞 || Rémunération || Pago
+Paid as || 計費方式 || Payé à || Se paga por
+Day rate || 日薪 || Tarif journalier || Tarifa por día
+Flat fee || 固定酬勞 || Forfait || Tarifa fija
+Hourly || 時薪 || À l'heure || Por hora
+(Day rate) || （日薪） || (tarif journalier) || (tarifa por día)
+(Flat fee) || （固定酬勞） || (forfait) || (tarifa fija)
+(Hourly) || （時薪） || (à l'heure) || (por hora)
+Commercial || 廣告 || Publicité || Publicidad
+Music video || 音樂錄影帶 || Clip || Videoclip
+Corporate or event || 企業或活動 || Entreprise ou événement || Corporativo o evento
+Feature or series || 長片或影集 || Long métrage ou série || Largometraje o serie
+Short film || 短片 || Court métrage || Cortometraje
+Post-production || 後製 || Postproduction || Posproducción
+Remote || 遠端 || À distance || En remoto
+Where || 地點 || Où || Dónde
+Working || 工作日期 || Travail || Trabajo
+Working soonest || 最快開工 || Travail le plus proche || Trabajo más próximo
+Apply by || 截止申請 || Candidater avant le || Solicitar antes del
+Apply by soonest || 最快截止 || Date limite la plus proche || Fecha límite más próxima
+Posted || 張貼日期 || Publié || Publicado
+How to apply || 如何申請 || Comment candidater || Cómo solicitar
+Application link || 申請連結 || Lien de candidature || Enlace de solicitud
+Apply on their site || 到對方網站申請 || Candidater sur leur site || Solicitar en su web
+optional, otherwise people reply through Crew Call || 選填，否則大家會透過 Crew Call 回覆 || facultatif, sinon les gens répondent via Crew Call || opcional, si no la gente responde a través de Crew Call
+Put your name forward || 報名 || Proposer sa candidature || Presentarte
+Your experience, kit and a link to your reel || 你的經驗、器材和作品集連結 || Votre expérience, votre matériel et un lien vers votre bande démo || Tu experiencia, tu equipo y un enlace a tu reel
+What the job is, hours, kit, and anything people should know || 工作內容、時數、器材及其他須知 || En quoi consiste le travail, les horaires, le matériel et tout ce qu'il faut savoir || En qué consiste el trabajo, horario, equipo y todo lo que hay que saber
+e.g. Gaffer for a coffee brand film || 例如：咖啡品牌影片的燈光師 || p. ex. Chef électro pour un film de marque de café || p. ej. Gaffer para un vídeo de una marca de café
+e.g. Hackney Wick, or Remote || 例如：Hackney Wick，或遠端 || p. ex. Hackney Wick, ou à distance || p. ej. Hackney Wick, o en remoto
+e.g. £250 a day || 例如：每天 £250 || p. ex. 250 £ par jour || p. ej. 250 £ al día
+Pick one or more || 選一個或多個 || Choisissez-en un ou plusieurs || Elige uno o más
+Add more dates || 新增更多日期 || Ajouter d'autres dates || Añadir más fechas
+Take this job down || 撤下這份工作 || Retirer cette offre || Retirar este trabajo
+Report a problem with this job || 檢舉這份工作的問題 || Signaler un problème avec cette offre || Denunciar un problema con este trabajo
+Hire || 錄用 || Embaucher || Contratar
+Hired || 已錄用 || Embauché || Contratado
+Mark as filled || 標記為已找到人 || Marquer comme pourvue || Marcar como cubierto
+Reopen || 重新開放 || Rouvrir || Reabrir
+Filled || 已找到人 || Pourvue || Cubierto
+Closed || 已截止 || Close || Cerrado
+Rep || 代表 || Délégué || Delegado
+Cohort reps || 班級代表 || Délégués de promotion || Delegados de promoción
+No rep yet || 尚無代表 || Pas encore de délégué || Aún sin delegado
+Change rep… || 更換代表… || Changer de délégué… || Cambiar delegado…
+Choose a rep… || 選擇代表… || Choisir un délégué… || Elegir delegado…
+Make rep || 設為代表 || Nommer délégué || Nombrar delegado
+One rep per cohort keeps Crew Call going when people graduate. Reps become admins, can hand their rep role to someone in their cohort, and can propose a new owner. || 每個班級一位代表，讓 Crew Call 在大家畢業後還能繼續運作。代表會成為管理員，可以把代表職務交給同班同學，也可以提名新的擁有者。 || Un délégué par promotion permet à Crew Call de continuer quand les gens obtiennent leur diplôme. Les délégués deviennent admins, peuvent passer leur rôle à quelqu'un de leur promotion et proposer un nouveau propriétaire. || Un delegado por promoción mantiene Crew Call en marcha cuando la gente se gradúa. Los delegados pasan a ser administradores, pueden pasar su papel a alguien de su promoción y proponer un nuevo propietario.
+One rep per cohort keeps Crew Call going when people graduate. Reps become admins, can hand their rep role to someone in their cohort, and can propose a new owner. You can choose any cohort's rep. || 每個班級一位代表，讓 Crew Call 在大家畢業後還能繼續運作。代表會成為管理員，可以把代表職務交給同班同學，也可以提名新的擁有者。你可以指定任何班級的代表。 || Un délégué par promotion permet à Crew Call de continuer quand les gens obtiennent leur diplôme. Les délégués deviennent admins, peuvent passer leur rôle à quelqu'un de leur promotion et proposer un nouveau propriétaire. Vous pouvez choisir le délégué de n'importe quelle promotion. || Un delegado por promoción mantiene Crew Call en marcha cuando la gente se gradúa. Los delegados pasan a ser administradores, pueden pasar su papel a alguien de su promoción y proponer un nuevo propietario. Puedes elegir el delegado de cualquier promoción.
+Handing on ownership || 移交擁有權 || Transmettre la propriété || Traspasar la propiedad
+Reps can propose a new owner || 代表可以提名新的擁有者 || Les délégués peuvent proposer un nouveau propriétaire || Los delegados pueden proponer un nuevo propietario
+The owner accepts, or, if the owner has graduated or not signed in for 30 days, a second rep agrees. || 由擁有者接受；如果擁有者已畢業或 30 天沒有登入，則由第二位代表同意。 || Le propriétaire accepte, ou, s'il a obtenu son diplôme ou ne s'est pas connecté depuis 30 jours, un deuxième délégué donne son accord. || El propietario acepta o, si se ha graduado o no ha iniciado sesión en 30 días, un segundo delegado da su acuerdo.
+Propose as owner || 提名為擁有者 || Proposer comme propriétaire || Proponer como propietario
+Proposed owner || 提名的擁有者 || Propriétaire proposé || Propietario propuesto
+Proposal sent || 已送出提名 || Proposition envoyée || Propuesta enviada
+Accept and transfer || 接受並移交 || Accepter et transférer || Aceptar y traspasar
+Withdraw || 撤回 || Retirer || Retirar
+Withdrawn || 已撤回 || Retirée || Retirada
+Agree || 同意 || Accepter || Estar de acuerdo
+Declined || 已拒絕 || Refusée || Rechazada
+Only you can hand on ownership || 只有你可以移交擁有權 || Vous seul pouvez transmettre la propriété || Solo tú puedes traspasar la propiedad
+Withdrew the ownership proposal || 撤回了擁有者提名 || A retiré la proposition de propriétaire || Retiró la propuesta de propietario
+Let reps propose a new owner || 允許代表提名新的擁有者 || A autorisé les délégués à proposer un nouveau propriétaire || Permitió que los delegados propongan un nuevo propietario
+Stopped reps propose a new owner || 停止讓代表提名新的擁有者 || A empêché les délégués de proposer un nouveau propriétaire || Impidió que los delegados propongan un nuevo propietario
+The owner signs in with their own school email, has every permission and can't be removed. They also own the GitHub and Supabase organisations. Before they graduate, they hand ownership to a cohort rep. || 擁有者用自己的學校信箱登入，擁有所有權限且無法被移除，同時也是 GitHub 和 Supabase 組織的擁有者。畢業前，擁有者要把擁有權交給一位班級代表。 || Le propriétaire se connecte avec son propre e-mail d'école, a tous les droits et ne peut pas être retiré. Il possède aussi les organisations GitHub et Supabase. Avant son diplôme, il transmet la propriété à un délégué de promotion. || El propietario inicia sesión con su propio correo de la escuela, tiene todos los permisos y no se le puede quitar. También es propietario de las organizaciones de GitHub y Supabase. Antes de graduarse, traspasa la propiedad a un delegado de promoción.
+Make sure every cohort has a rep, then transfer ownership to one of them (ideally a rep from a younger cohort). || 確認每個班級都有代表，再把擁有權移交給其中一位（最好是較晚入學班級的代表）。 || Vérifiez que chaque promotion a un délégué, puis transférez la propriété à l'un d'eux (idéalement d'une promotion plus jeune). || Asegúrate de que cada promoción tenga delegado y luego traspasa la propiedad a uno de ellos (mejor de una promoción más joven).
+GitHub: invite the new owner to the Crew Call organisation as an Owner (organisation, then People). Add the reps as members. Wait until they accept before you leave. || GitHub：邀請新的擁有者以 Owner 身分加入 Crew Call 組織（組織 → People），並把代表加為成員。等對方接受後再離開。 || GitHub : invitez le nouveau propriétaire dans l'organisation Crew Call en tant qu'Owner (organisation, puis People). Ajoutez les délégués comme membres. Attendez qu'ils acceptent avant de partir. || GitHub: invita al nuevo propietario a la organización Crew Call como Owner (organización, luego People). Añade a los delegados como miembros. Espera a que acepten antes de irte.
+Supabase: invite the new owner to the Crew Call organisation as Owner, and the reps as Developer or Admin (organisation, then Team). An organisation always needs one Owner, so invite first, then leave. || Supabase：邀請新的擁有者以 Owner 身分加入 Crew Call 組織，代表則設為 Developer 或 Admin（組織 → Team）。組織一定要有一位 Owner，所以先邀請，再離開。 || Supabase : invitez le nouveau propriétaire dans l'organisation Crew Call en tant qu'Owner, et les délégués en Developer ou Admin (organisation, puis Team). Une organisation a toujours besoin d'un Owner : invitez d'abord, partez ensuite. || Supabase: invita al nuevo propietario a la organización Crew Call como Owner, y a los delegados como Developer o Admin (organización, luego Team). Una organización siempre necesita un Owner, así que primero invita y luego vete.
+Email sender: if you set up a sending-only login (Brevo, or a Gmail used just for sending), move it to the new owner and put the new SMTP password into Supabase (Authentication, then Emails, then SMTP settings). Nobody signs in with it. || 寄件帳號：如果你設了一個只用來寄信的帳號（Brevo，或只用來寄信的 Gmail），請交給新的擁有者，並把新的 SMTP 密碼填入 Supabase（Authentication → Emails → SMTP settings）。沒有人用它登入。 || Expéditeur : si vous avez créé un compte uniquement pour l'envoi (Brevo, ou un Gmail réservé à l'envoi), transmettez-le au nouveau propriétaire et mettez le nouveau mot de passe SMTP dans Supabase (Authentication, puis Emails, puis SMTP settings). Personne ne s'y connecte. || Remitente: si creaste una cuenta solo para enviar (Brevo, o un Gmail usado solo para enviar), pásala al nuevo propietario y pon la nueva contraseña SMTP en Supabase (Authentication, luego Emails, luego SMTP settings). Nadie inicia sesión con ella.
+Set up the new sender: an LFS shared mailbox if the school gives you one, or Brevo's free plan, or a Gmail used only for sending. || 設定新的寄件帳號：學校提供的 LFS 共用信箱，或 Brevo 免費方案，或只用來寄信的 Gmail。 || Créez le nouvel expéditeur : une boîte partagée LFS si l'école vous en donne une, ou l'offre gratuite de Brevo, ou un Gmail réservé à l'envoi. || Configura el nuevo remitente: un buzón compartido de LFS si la escuela te lo da, o el plan gratuito de Brevo, o un Gmail usado solo para enviar.
+Get its SMTP login (for Gmail, an app password). || 取得它的 SMTP 登入資料（Gmail 的話是應用程式密碼）。 || Récupérez ses identifiants SMTP (pour Gmail, un mot de passe d'application). || Consigue sus datos SMTP (para Gmail, una contraseña de aplicación).
+In Supabase, open Authentication, then Emails, then SMTP settings, and swap in the new address and password. || 在 Supabase 開啟 Authentication → Emails → SMTP settings，換上新的地址和密碼。 || Dans Supabase, ouvrez Authentication, puis Emails, puis SMTP settings, et mettez la nouvelle adresse et le nouveau mot de passe. || En Supabase, abre Authentication, luego Emails, luego SMTP settings, y pon la nueva dirección y contraseña.
+the SMTP sender in Supabase || Supabase 中的 SMTP 寄件者 || l'expéditeur SMTP dans Supabase || el remitente SMTP en Supabase
+empty = the owner's email || 留空＝擁有者的信箱 || vide = l'e-mail du propriétaire || vacío = el correo del propietario
+Not set up yet || 尚未設定 || Pas encore configuré || Aún sin configurar
+<not set up yet> || <尚未設定> || <pas encore configuré> || <aún sin configurar>
+not set up yet || 尚未設定 || pas encore configuré || aún sin configurar
+In the prototype nothing is really emailed. In the live version, sends go from the sending address in Email settings and people can turn the newsletter off in My profile. || 原型中不會真的寄出任何信件。正式版會從「電子郵件設定」中的寄件地址寄出，大家也可以在「我的個人檔案」關閉電子報。 || Dans le prototype, rien n'est vraiment envoyé. Dans la version en ligne, les envois partent de l'adresse d'envoi des réglages e-mail et chacun peut désactiver la newsletter dans Mon profil. || En el prototipo no se envía nada de verdad. En la versión real, los envíos salen de la dirección de envío de Ajustes de correo y cada persona puede desactivar el boletín en Mi perfil.
+Designed issues || 自訂設計的期數 || Numéros conçus || Números diseñados
+Automatic || 自動 || Automatique || Automático
+Newsletter type || 電子報類型 || Type de newsletter || Tipo de boletín
+Automatic edition || 自動版 || Édition automatique || Edición automática
+Automatic edition on || 開啟自動版 || Édition automatique activée || Edición automática activada
+Automatic newsletter preview || 自動電子報預覽 || Aperçu de la newsletter automatique || Vista previa del boletín automático
+Crew Call builds this one itself from what's on the site: open roles, upcoming shoots, paid work and more. The design stays the same so every issue looks like Crew Call. You can change any heading and text. || 這一份由 Crew Call 根據網站上的內容自動產生：招募中的職位、即將開拍的作品、有酬工作等。設計保持不變，讓每一期看起來都像 Crew Call。你可以修改任何標題和文字。 || Crew Call la compose seule à partir du site : postes ouverts, tournages à venir, travail rémunéré, etc. Le design reste le même pour que chaque numéro ressemble à Crew Call. Vous pouvez modifier les titres et les textes. || Crew Call la crea sola a partir de lo que hay en el sitio: puestos abiertos, próximos rodajes, trabajo pagado y más. El diseño se mantiene para que cada número parezca de Crew Call. Puedes cambiar cualquier título y texto.
+Changes save as you type. The design stays the same so every issue looks like Crew Call. You can change any heading and text. || 輸入時會自動儲存。設計保持不變，讓每一期看起來都像 Crew Call。你可以修改任何標題和文字。 || Les modifications s'enregistrent au fil de la saisie. Le design reste le même pour que chaque numéro ressemble à Crew Call. Vous pouvez modifier les titres et les textes. || Los cambios se guardan mientras escribes. El diseño se mantiene para que cada número parezca de Crew Call. Puedes cambiar cualquier título y texto.
+How often || 頻率 || Fréquence || Frecuencia
+Monthly (first Monday) || 每月（第一個星期一） || Mensuelle (premier lundi) || Mensual (primer lunes)
+Every two weeks (Monday) || 每兩週（星期一） || Toutes les deux semaines (lundi) || Cada dos semanas (lunes)
+Send it without asking || 不經確認直接寄出 || L'envoyer sans demander || Enviarlo sin preguntar
+Words || 文字 || Textes || Textos
+Intro || 開場文字 || Introduction || Introducción
+Sections || 區塊 || Sections || Secciones
+{month} becomes the month || {month} 會換成月份 || {month} devient le mois || {month} se convierte en el mes
+This month's issue, live || 本月這一期（即時） || Le numéro du mois, en direct || El número de este mes, en directo
+Make an editable copy || 建立可編輯的副本 || Faire une copie modifiable || Hacer una copia editable
+Editable copy made || 已建立可編輯的副本 || Copie modifiable créée || Copia editable creada
+Save version || 儲存版本 || Enregistrer la version || Guardar versión
+Saved version || 已儲存的版本 || Version enregistrée || Versión guardada
+Version saved || 已儲存版本 || Version enregistrée || Versión guardada
+Versions || 版本 || Versions || Versiones
+View || 查看 || Voir || Ver
+Older version restored || 已還原舊版本 || Ancienne version restaurée || Versión anterior restaurada
+No saved versions yet. A version is saved when you ask for approval, when it's sent, and whenever you press Save version. || 還沒有儲存的版本。申請核准、寄出時，以及每次按「儲存版本」時都會儲存一個版本。 || Pas encore de version enregistrée. Une version est enregistrée quand vous demandez l'approbation, à l'envoi et chaque fois que vous appuyez sur Enregistrer la version. || Aún no hay versiones guardadas. Se guarda una versión cuando pides aprobación, cuando se envía y cada vez que pulsas Guardar versión.
+View only. You need the Newsletter: draft permission to change the words. || 僅供查看。你需要「電子報：草稿」權限才能修改文字。 || Lecture seule. Il vous faut le droit Newsletter : brouillon pour modifier les textes. || Solo lectura. Necesitas el permiso Boletín: borrador para cambiar los textos.
+Send another || 再寄一期 || Envoyer un autre numéro || Enviar otro número
+Sent newsletters can't be changed. Press Send another to start the next issue with the same layout. || 已寄出的電子報無法修改。按「再寄一期」即可用相同版面開始下一期。 || Une newsletter envoyée ne peut pas être modifiée. Appuyez sur Envoyer un autre numéro pour commencer le suivant avec la même mise en page. || Los boletines enviados no se pueden cambiar. Pulsa Enviar otro número para empezar el siguiente con el mismo diseño.
+New issue started with the same layout. Change the words and send. || 已用相同版面開始新一期。修改文字後即可寄出。 || Nouveau numéro commencé avec la même mise en page. Changez les textes et envoyez. || Nuevo número empezado con el mismo diseño. Cambia los textos y envía.
+Made an editable copy of the automatic newsletter || 建立了自動電子報的可編輯副本 || A fait une copie modifiable de la newsletter automatique || Hizo una copia editable del boletín automático
+Turned the automatic newsletter on || 開啟了自動電子報 || A activé la newsletter automatique || Activó el boletín automático
+Turned the automatic newsletter off || 關閉了自動電子報 || A désactivé la newsletter automatique || Desactivó el boletín automático
+Set the automatic newsletter to send by itself || 將自動電子報設為自動寄出 || A réglé la newsletter automatique pour qu'elle parte seule || Configuró el boletín automático para que se envíe solo
+Set the automatic newsletter to wait for an admin to send it || 將自動電子報設為等待管理員寄出 || A réglé la newsletter automatique pour attendre qu'un admin l'envoie || Configuró el boletín automático para esperar a que un administrador lo envíe
+Set the automatic newsletter to monthly || 將自動電子報設為每月 || A réglé la newsletter automatique sur mensuelle || Configuró el boletín automático como mensual
+Set the automatic newsletter to fortnightly || 將自動電子報設為每兩週 || A réglé la newsletter automatique sur toutes les deux semaines || Configuró el boletín automático cada dos semanas
+Saved || 已儲存 || Enregistré || Guardado
+Saved by hand || 手動儲存 || Enregistrée à la main || Guardada a mano
+Before restoring an older version || 還原舊版本之前 || Avant de restaurer une ancienne version || Antes de restaurar una versión anterior
+Asked for approval || 申請核准 || Approbation demandée || Aprobación pedida
+Sent || 已寄出 || Envoyée || Enviado
+Turned off. Nothing is built or sent. || 已關閉，不會產生或寄出任何內容。 || Désactivée. Rien n'est créé ni envoyé. || Desactivado. No se crea ni se envía nada.
+Only admins with Newsletter: send can change these four settings. || 只有擁有「電子報：寄送」權限的管理員才能更改這四項設定。 || Seuls les admins ayant le droit Newsletter : envoi peuvent modifier ces quatre réglages. || Solo los administradores con Boletín: enviar pueden cambiar estos cuatro ajustes.
+It goes out by itself at 09:00. || 會在 09:00 自動寄出。 || Elle part seule à 09:00. || Se envía sola a las 09:00.
+proposed || 提名了 || a proposé || propuso
+Everything runs on the owner's school email. GitHub and Supabase are organisations: Sofia (rep, MAF217) is already an Owner on both. The email sender login is in the shared Bitwarden folder "Crew Call". || 一切都綁在擁有者的學校信箱上。GitHub 和 Supabase 都是組織：Sofia（MAF217 代表）已經是兩邊的 Owner。寄件帳號的登入資料在共用的 Bitwarden 資料夾「Crew Call」裡。 || Tout fonctionne avec l'e-mail d'école du propriétaire. GitHub et Supabase sont des organisations : Sofia (déléguée, MAF217) est déjà Owner des deux. L'identifiant de l'expéditeur est dans le dossier Bitwarden partagé « Crew Call ». || Todo funciona con el correo de la escuela del propietario. GitHub y Supabase son organizaciones: Sofia (delegada, MAF217) ya es Owner en ambas. El acceso del remitente está en la carpeta compartida de Bitwarden «Crew Call».
+required || 必填 || obligatoire || obligatorio
+View only. You need the Newsletter: draft permission to design one. || 僅供查看。你需要「電子報：草稿」權限才能設計電子報。 || Lecture seule. Il vous faut le droit Newsletter : brouillon pour en concevoir une. || Solo lectura. Necesitas el permiso Boletín: borrador para diseñar uno.

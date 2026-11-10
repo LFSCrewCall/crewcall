@@ -1,0 +1,37 @@
+today || 今天 || aujourd'hui || hoy
+yesterday || 昨天 || hier || ayer
+Updated today || 今天更新 || Mis à jour aujourd'hui || Actualizado hoy
+Updated yesterday || 昨天更新 || Mis à jour hier || Actualizado ayer
+sent today || 今天寄出 || envoyé aujourd'hui || enviado hoy
+sent yesterday || 昨天寄出 || envoyé hier || enviado ayer
+Profile || 個人檔案 || Profil || Perfil
+Free crew || 有空的劇組人員 || Équipe disponible || Equipo libre
+Not set || 未設定 || Non défini || Sin definir
+None picked || 未選擇 || Aucun choix || Nada elegido
+Sign-in email || 登入電子郵件 || E-mail de connexion || Correo de acceso
+all days || 全部日期 || tous les jours || todos los días
+about the project || 關於這個專案 || sur le projet || sobre el proyecto
+to see who. || 以查看是誰。 || pour voir qui. || para ver quién.
+Arrives || 抵達 || Arrivée || Llegada
+Booked on || 已排入 || Pris sur || Ocupado en
+No one with this role has marked these dates free yet. || 還沒有這個職位的人把這些日期標為有空。 || Personne avec ce poste n'a encore indiqué être libre à ces dates. || Nadie con este puesto ha marcado aún estas fechas como libres.
+Shadow || 見習 || Observation || Observación
+am || 上午 || am || a. m.
+pm || 下午 || pm || p. m.
+open to offers || 歡迎邀請 || ouvert aux propositions || abierto a ofertas
+Ask Student Services for the address || 地址請洽學生服務處 || Demandez l'adresse aux services étudiants || Pide la dirección a Servicios al Estudiante
+Director: || 導演： || Réalisation : || Dirección:
+Festival strategy: || 影展策略： || Stratégie festivals : || Estrategia de festivales:
+written by || 編劇 || écrit par || escrito por
+pitched by || 提案人 || proposé par || propuesto por
+listed by || 刊登者 || proposé par || publicado por
+no producer yet || 尚無製片 || pas encore de producteur || aún sin productor
+as || 擔任 || comme || como
+for || 應徵 || pour || para
+to || 至 || à || a
+Nearest station, parking, meeting point, food, what to wear, kit drop-off || 最近車站、停車、集合點、餐點、穿著、器材交接 || Gare la plus proche, parking, point de rendez-vous, repas, tenue, dépôt du matériel || Estación más cercana, aparcamiento, punto de encuentro, comida, qué ponerse, entrega de equipo
+What you like about it, and how you'd approach it || 你喜歡它的地方，以及你會怎麼處理 || Ce qui vous plaît, et comment vous l'aborderiez || Qué te gusta y cómo lo abordarías
+What you'd do, and links to anything similar you've made || 你會做什麼，以及你做過的類似作品連結 || Ce que vous feriez, et des liens vers des travaux similaires || Qué harías y enlaces a trabajos similares que hayas hecho
+What you've shot, what you want to do more of || 你拍過什麼、想多做什麼 || Ce que vous avez tourné, ce que vous voulez faire davantage || Qué has rodado y qué quieres hacer más
+Where the logins live, who to ask at school, anything that's broken || 登入資料放在哪裡、學校該問誰、哪裡壞了 || Où sont les accès, qui contacter à l'école, ce qui ne marche pas || Dónde están los accesos, a quién preguntar en la escuela, qué está roto
+Dates, what was said or done, anything the admins need to know || 日期、說了或做了什麼、管理員需要知道的任何事 || Dates, ce qui a été dit ou fait, tout ce que les admins doivent savoir || Fechas, qué se dijo o hizo, todo lo que los administradores deban saber

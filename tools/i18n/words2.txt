@@ -1,0 +1,284 @@
+Director || 導演 || Réalisation || Dirección
+Producer || 製片 || Production || Producción
+Screenwriter || 編劇 || Scénario || Guion
+1st AD || 第一副導 || 1er assistant réal. || 1.er ayudante de dirección
+2nd AD || 第二副導 || 2e assistant réal. || 2.º ayudante de dirección
+Script Supervisor || 場記 || Scripte || Continuidad
+Runner || 劇組助理 || Runner || Auxiliar de producción
+Line Producer || 執行製片 || Direction de production || Jefatura de producción
+Production Manager || 製片經理 || Régie générale || Gerencia de producción
+Production Coordinator || 製片統籌 || Coordination de production || Coordinación de producción
+Location Manager || 場地經理 || Repérages et régie || Localizaciones
+DoP || 攝影指導 || Chef opérateur || Dirección de fotografía
+Camera Operator || 攝影師 || Cadrage || Operación de cámara
+1st AC / Focus Puller || 第一攝助／跟焦 || 1er assistant caméra (point) || 1.er ayudante de cámara (foquista)
+2nd AC || 第二攝助 || 2e assistant caméra || 2.º ayudante de cámara
+DIT || 數位影像技師 || DIT || DIT
+Stills / BTS || 劇照／幕後花絮 || Photo de plateau / making-of || Foto fija / making of
+Gaffer || 燈光指導 || Chef électricien || Jefe de eléctricos
+Spark || 燈光助理 || Électricien || Eléctrico
+Key Grip || 場務領班 || Chef machiniste || Jefe de maquinistas
+Grip || 場務 || Machinerie || Maquinaria
+Sound Recordist || 現場錄音師 || Chef opérateur son || Sonidista
+Boom Operator || 收音桿操作員 || Perchman || Microfonista
+Sound Designer || 聲音設計 || Sound design || Diseño de sonido
+Composer || 作曲 || Composition musicale || Composición musical
+Production Designer || 美術指導 || Chef décorateur || Diseño de producción
+Art Director || 美術設計 || Direction artistique || Dirección de arte
+Costume || 服裝 || Costumes || Vestuario
+Hair & Make-up || 梳化 || Coiffure et maquillage || Peluquería y maquillaje
+Editor || 剪接師 || Montage || Montaje
+Colourist || 調光師 || Étalonnage || Etalonaje
+VFX || 視覺特效 || VFX || VFX
+Unit Publicist || 劇組宣傳 || Attaché de presse || Jefatura de prensa
+Social Media & BTS || 社群與幕後花絮 || Réseaux sociaux et making-of || Redes sociales y making of
+Key Art & Poster || 主視覺與海報 || Affiche et visuels || Cartel y arte clave
+Festival Strategy || 影展策略 || Stratégie festivals || Estrategia de festivales
+Actor || 演員 || Comédien·ne || Actor/actriz
+Script Editor || 劇本顧問 || Consultant scénario || Asesoría de guion
+Direction & production || 導演與製片 || Réalisation et production || Dirección y producción
+Production office || 製片辦公室 || Bureau de production || Oficina de producción
+Camera || 攝影 || Caméra || Cámara
+Lighting & grip || 燈光與場務 || Lumière et machinerie || Iluminación y maquinaria
+Sound || 聲音 || Son || Sonido
+Art & costume || 美術與服裝 || Décors et costumes || Arte y vestuario
+Post || 後期 || Postproduction || Postproducción
+Marketing || 行銷 || Marketing || Marketing
+Cast || 演員 || Distribution || Reparto
+Lenses || 鏡頭 || Objectifs || Ópticas
+Lighting || 燈光 || Éclairage || Iluminación
+Other || 其他 || Autre || Otro
+Term 1 || 第 1 學期 || Trimestre 1 || Trimestre 1
+Term 2 || 第 2 學期 || Trimestre 2 || Trimestre 2
+Term 3 || 第 3 學期 || Trimestre 3 || Trimestre 3
+Term 4 || 第 4 學期 || Trimestre 4 || Trimestre 4
+Term 5 || 第 5 學期 || Trimestre 5 || Trimestre 5
+Graduation term || 畢業學期 || Trimestre de fin d'études || Trimestre de graduación
+Screenwriting || 編劇 || Scénario || Guion
+Producing || 製片 || Production || Producción
+Film Marketing || 電影行銷 || Marketing du film || Marketing cinematográfico
+Alumni || 校友 || Anciens élèves || Exalumnos
+Guest || 訪客 || Invité || Invitado
+Guests || 訪客 || Invités || Invitados
+MA Filmmaking || MA 電影製作 || MA Filmmaking || MA Filmmaking
+MA Screenwriting || MA 編劇 || MA Screenwriting || MA Screenwriting
+MA Film Producing || MA 電影製片 || MA Film Producing || MA Film Producing
+MA Film Marketing || MA 電影行銷 || MA Film Marketing || MA Film Marketing
+External || 校外 || Externe || Externo
+Directing || 導演 || Réalisation || Dirección
+Cinematography || 攝影 || Image || Fotografía
+Editing || 剪接 || Montage || Montaje
+Production Design || 美術設計 || Décors || Diseño de producción
+Documentary || 紀錄片 || Documentaire || Documental
+Short fiction || 劇情短片 || Court métrage de fiction || Cortometraje de ficción
+Music video || 音樂錄影帶 || Clip musical || Videoclip
+Commercial || 廣告 || Publicité || Anuncio
+Experimental || 實驗片 || Expérimental || Experimental
+Graduation film || 畢業製作 || Film de fin d'études || Película de graduación
+Festival strategy || 影展策略 || Stratégie festivals || Estrategia de festivales
+Poster & key art || 海報與主視覺 || Affiche et visuels || Cartel y arte clave
+Trailer || 預告片 || Bande-annonce || Tráiler
+Socials & BTS || 社群與幕後花絮 || Réseaux sociaux et making-of || Redes y making of
+Press kit || 新聞資料袋 || Dossier de presse || Dossier de prensa
+Stills || 劇照 || Photos || Fotos fijas
+Mon || 週一 || lun. || lun
+Tue || 週二 || mar. || mar
+Wed || 週三 || mer. || mié
+Thu || 週四 || jeu. || jue
+Fri || 週五 || ven. || vie
+Sat || 週六 || sam. || sáb
+Sun || 週日 || dim. || dom
+Monday || 星期一 || lundi || lunes
+Tuesday || 星期二 || mardi || martes
+Wednesday || 星期三 || mercredi || miércoles
+Thursday || 星期四 || jeudi || jueves
+Friday || 星期五 || vendredi || viernes
+Saturday || 星期六 || samedi || sábado
+Sunday || 星期日 || dimanche || domingo
+January || 一月 || janvier || enero
+February || 二月 || février || febrero
+March || 三月 || mars || marzo
+April || 四月 || avril || abril
+May || 五月 || mai || mayo
+June || 六月 || juin || junio
+July || 七月 || juillet || julio
+August || 八月 || août || agosto
+September || 九月 || septembre || septiembre
+October || 十月 || octobre || octubre
+November || 十一月 || novembre || noviembre
+December || 十二月 || décembre || diciembre
+Upcoming || 即將到來 || À venir || Próximos
+Wrapped || 已殺青 || Terminé || Terminado
+Live || 進行中 || En cours || En curso
+Now || 現在 || Maintenant || Ahora
+Right now || 現在 || En ce moment || Ahora mismo
+Due now || 已到期 || À traiter || Vence ya
+Starts next term || 下學期開始 || Commence au prochain trimestre || Empieza el próximo trimestre
+studying now || 在學中 || en cours d'études || estudiando ahora
+Graduation term now || 目前為畢業學期 || En trimestre de fin d'études || Ahora en trimestre de graduación
+Guest, not an LFS student || 訪客，非 LFS 學生 || Invité, pas étudiant à la LFS || Invitado, no estudiante de la LFS
+Guests don't have a course, term or cohort. || 訪客沒有課程、學期或班級。 || Les invités n'ont ni cursus, ni trimestre, ni promo. || Los invitados no tienen curso, trimestre ni promoción.
+A new LFS student || 新的 LFS 學生 || Un nouvel étudiant LFS || Un nuevo estudiante de la LFS
+Starts with an empty profile. || 從空白的個人檔案開始。 || Commence avec un profil vide. || Empieza con un perfil vacío.
+main contact || 主要聯絡人 || contact principal || contacto principal
+locked || 已確定 || confirmé || confirmado
+fixed || 固定 || fixe || fijo
+automatic || 自動 || automatique || automático
+view only || 僅供檢視 || lecture seule || solo lectura
+View only || 僅供檢視 || Lecture seule || Solo lectura
+Run Crew Call without touching code. Changes apply for everyone straight away. You're the owner. || 不用碰程式碼就能經營 Crew Call。變更會立即套用到所有人。你是擁有者。 || Gérez Crew Call sans toucher au code. Les changements s'appliquent à tous immédiatement. Vous êtes propriétaire. || Gestiona Crew Call sin tocar código. Los cambios se aplican a todos al instante. Eres el propietario.
+Run Crew Call without touching code. Changes apply for everyone straight away. You're an admin. || 不用碰程式碼就能經營 Crew Call。變更會立即套用到所有人。你是管理員。 || Gérez Crew Call sans toucher au code. Les changements s'appliquent à tous immédiatement. Vous êtes admin. || Gestiona Crew Call sin tocar código. Los cambios se aplican a todos al instante. Eres administrador.
+Admin sections || 管理區塊 || Sections admin || Secciones de administración
+Sections || 區塊 || Sections || Secciones
+Access || 權限 || Accès || Acceso
+Handover || 交接 || Passation || Traspaso
+People || 成員 || Personnes || Personas
+Projects || 專案 || Projets || Proyectos
+Terms and cohorts || 學期與班級 || Trimestres et promos || Trimestres y promociones
+Terms and lists || 學期與清單 || Trimestres et listes || Trimestres y listas
+Email settings || 電子郵件設定 || Réglages e-mail || Ajustes de correo
+Reports || 回報 || Signalements || Informes
+Reports and privacy || 回報與隱私 || Signalements et confidentialité || Informes y privacidad
+Privacy and data || 隱私與資料 || Confidentialité et données || Privacidad y datos
+Privacy || 隱私 || Confidentialité || Privacidad
+Activity || 活動紀錄 || Activité || Actividad
+Admin activity || 管理活動紀錄 || Activité des admins || Actividad de administración
+Admins and permissions || 管理員與權限 || Admins et permissions || Administradores y permisos
+Admin access || 管理權限 || Accès admin || Acceso de administración
+Add an admin || 新增管理員 || Ajouter un admin || Añadir administrador
+Make admin || 設為管理員 || Nommer admin || Hacer administrador
+Owner || 擁有者 || Propriétaire || Propietario
+Every admin || 所有管理員 || Tous les admins || Todos los administradores
+Can't be removed || 無法移除 || Ne peut pas être retiré || No se puede quitar
+Make or remove admins, remove guests, revoke invites and change sign-in emails || 新增或移除管理員、移除訪客、撤銷邀請和更改登入電子郵件 || Nommer ou retirer des admins, retirer des invités, révoquer des invitations et changer les e-mails de connexion || Añadir o quitar administradores, quitar invitados, revocar invitaciones y cambiar correos de acceso
+Edit, archive or delete any project || 編輯、封存或刪除任何專案 || Modifier, archiver ou supprimer n'importe quel projet || Editar, archivar o eliminar cualquier proyecto
+Term dates, courses and cohort codes, fixing someone's cohort, roles and project types || 學期日期、課程和班級代碼、修正某人的班級、職位和專案類型 || Dates des trimestres, cursus et codes de promo, corriger la promo de quelqu'un, postes et types de projet || Fechas de trimestre, cursos y códigos de promoción, corregir la promoción de alguien, puestos y tipos de proyecto
+Sending address, help address, school mass email alias and digest timing || 寄件地址、協助地址、學校群發郵件別名和摘要寄送時間 || Adresse d'envoi, adresse d'aide, alias d'envoi groupé de l'école et horaire du résumé || Dirección de envío, dirección de ayuda, alias de correo masivo de la escuela y horario del resumen
+Read and act on reports, delete old profiles, download and restore backups || 閱讀並處理回報、刪除舊的個人檔案、下載和還原備份 || Lire et traiter les signalements, supprimer les anciens profils, télécharger et restaurer des sauvegardes || Leer y gestionar informes, eliminar perfiles antiguos, descargar y restaurar copias
+Pick someone with an LFS email who has signed in, and tick what they can do. Guests can't be admins. || 選一位已登入且有 LFS 電子郵件的人，並勾選他們能做的事。訪客不能成為管理員。 || Choisissez une personne avec un e-mail LFS qui s'est déjà connectée, et cochez ce qu'elle peut faire. Les invités ne peuvent pas être admins. || Elige a alguien con correo de la LFS que haya iniciado sesión y marca lo que puede hacer. Los invitados no pueden ser administradores.
+You need the People permission to add admins. || 你需要「成員」權限才能新增管理員。 || Il vous faut la permission Personnes pour ajouter des admins. || Necesitas el permiso Personas para añadir administradores.
+You need the People permission to change someone's email. || 你需要「成員」權限才能更改他人的電子郵件。 || Il vous faut la permission Personnes pour changer l'e-mail de quelqu'un. || Necesitas el permiso Personas para cambiar el correo de alguien.
+The owner has every permission, can't be removed, and is the only person who can hand ownership on. They should also hold the Crew Call Gmail login. || 擁有者擁有所有權限、無法被移除，也是唯一能移轉擁有權的人。擁有者也應該保管 Crew Call 的 Gmail 登入資料。 || Le propriétaire a toutes les permissions, ne peut pas être retiré et est le seul à pouvoir transmettre la propriété. Il doit aussi détenir l'accès Gmail de Crew Call. || El propietario tiene todos los permisos, no se puede quitar y es el único que puede traspasar la propiedad. También debe tener el acceso a la cuenta de Gmail de Crew Call.
+Transfer ownership || 移轉擁有權 || Transférer la propriété || Transferir la propiedad
+Transfer || 移轉 || Transférer || Transferir
+New owner || 新擁有者 || Nouveau propriétaire || Nuevo propietario
+Transfer ownership to the person who will hold the Crew Call Gmail login. || 把擁有權移轉給將保管 Crew Call Gmail 登入資料的人。 || Transférez la propriété à la personne qui détiendra l'accès Gmail de Crew Call. || Transfiere la propiedad a quien tendrá el acceso a Gmail de Crew Call.
+You'll stay an admin with every permission until someone removes you. || 在有人移除你之前，你會保留所有權限的管理員身分。 || Vous resterez admin avec toutes les permissions jusqu'à ce qu'on vous retire. || Seguirás siendo administrador con todos los permisos hasta que alguien te quite.
+Owners so far || 歷任擁有者 || Propriétaires successifs || Propietarios hasta ahora
+Added automatically when ownership is transferred. || 移轉擁有權時自動加入。 || Ajouté automatiquement lors d'un transfert de propriété. || Se añade automáticamente al transferir la propiedad.
+Change a sign-in email || 更改登入電子郵件 || Changer un e-mail de connexion || Cambiar un correo de acceso
+For a new address, a typo or a name change. Students must use an LFS address. The person is told, and their projects follow them. || 用於新地址、拼字錯誤或改名。學生必須使用 LFS 地址。當事人會收到通知，他們的專案也會跟著轉移。 || Pour une nouvelle adresse, une faute de frappe ou un changement de nom. Les étudiants doivent utiliser une adresse LFS. La personne est prévenue et ses projets la suivent. || Para una dirección nueva, una errata o un cambio de nombre. Los estudiantes deben usar una dirección de la LFS. Se avisa a la persona y sus proyectos la siguen.
+In the live app, a code goes to the new address and the change only happens once it's entered. || 正式版本會寄驗證碼到新地址，輸入後才會變更。 || Dans la version finale, un code est envoyé à la nouvelle adresse et le changement n'a lieu qu'une fois saisi. || En la app real se envía un código a la nueva dirección y el cambio solo se hace al introducirlo.
+Person || 人員 || Personne || Persona
+New email || 新電子郵件 || Nouvel e-mail || Nuevo correo
+Change || 更改 || Changer || Cambiar
+Members || 成員 || Membres || Miembros
+Status || 狀態 || Statut || Estado
+Edit the options people pick from. Removing an item doesn't change existing projects or profiles. || 編輯大家可選的選項。移除項目不會影響現有的專案或個人檔案。 || Modifiez les options proposées. Retirer un élément ne change pas les projets ou profils existants. || Edita las opciones disponibles. Quitar un elemento no cambia los proyectos ni perfiles existentes.
+Lists || 清單 || Listes || Listas
+Crew roles || 劇組職位 || Postes d'équipe || Puestos del equipo
+New role, e.g. Drone Operator || 新職位，例如：空拍操作員 || Nouveau poste, ex. télépilote de drone || Nuevo puesto, p. ej., piloto de dron
+Project types || 專案類型 || Types de projet || Tipos de proyecto
+Add a project type || 新增專案類型 || Ajouter un type de projet || Añadir tipo de proyecto
+Add a type || 新增類型 || Ajouter un type || Añadir tipo
+Terms || 學期 || Trimestres || Trimestres
+Add a term || 新增學期 || Ajouter un trimestre || Añadir trimestre
+Add term || 新增學期 || Ajouter le trimestre || Añadir trimestre
+Add || 新增 || Ajouter || Añadir
+Term dates || 學期日期 || Dates des trimestres || Fechas de trimestre
+Term name || 學期名稱 || Nom du trimestre || Nombre del trimestre
+e.g. Autumn 2029 || 例如：2029 秋季 || ex. Automne 2029 || p. ej., Otoño 2029
+Starts || 開始 || Début || Empieza
+Ends || 結束 || Fin || Termina
+From the LFS key dates. Everyone moves up one term when each term starts, and gets a notification to check it. Dates lock once a term has started. || 依據 LFS 重要日期。每學期開始時，所有人自動升一個學期，並收到確認通知。學期開始後日期即鎖定。 || D'après les dates clés de la LFS. Chacun passe au trimestre suivant au début de chaque trimestre et reçoit une notification pour vérifier. Les dates sont verrouillées une fois le trimestre commencé. || Según las fechas clave de la LFS. Todos suben un trimestre al empezar cada uno y reciben un aviso para comprobarlo. Las fechas se bloquean cuando empieza el trimestre.
+LFS key dates || LFS 重要日期 || Dates clés de la LFS || Fechas clave de la LFS
+Check next year's term dates against the LFS key dates page. || 請對照 LFS 重要日期頁面確認明年的學期日期。 || Vérifiez les dates de l'an prochain sur la page des dates clés de la LFS. || Comprueba las fechas del próximo año en la página de fechas clave de la LFS.
+Courses and cohort codes || 課程與班級代碼 || Cursus et codes de promo || Cursos y códigos de promoción
+Cohort codes || 班級代碼 || Codes de promo || Códigos de promoción
+Cohorts || 班級 || Promos || Promociones
+Cohort number || 班級編號 || Numéro de promo || Número de promoción
+Code prefix, optional || 代碼前綴（選填） || Préfixe du code, facultatif || Prefijo del código, opcional
+Every term || 每學期 || Chaque trimestre || Cada trimestre
+Every September, one year || 每年九月，為期一年 || Chaque septembre, un an || Cada septiembre, un año
+Everyone picks their cohort once. Crew Call works out their term from it every term, so nobody has to update their profile. If the numbering ever drifts, correct one cohort here and everyone else follows. || 每個人只需選一次班級。Crew Call 每學期會據此算出他們的學期，所以沒有人需要更新個人檔案。如果編號有誤，在這裡修正一個班級，其他人就會跟著更新。 || Chacun choisit sa promo une seule fois. Crew Call en déduit son trimestre à chaque trimestre, personne n'a donc à mettre à jour son profil. Si la numérotation se décale, corrigez une promo ici et toutes les autres suivent. || Cada persona elige su promoción una vez. Crew Call calcula su trimestre cada trimestre, así que nadie tiene que actualizar su perfil. Si la numeración se desvía, corrige una promoción aquí y las demás la siguen.
+Cohort codes are worked out from each course. Edit them in || 班級代碼由各課程自動計算。請在此編輯： || Les codes de promo sont calculés depuis chaque cursus. Modifiez-les dans || Los códigos de promoción se calculan a partir de cada curso. Edítalos en
+Fix someone's cohort || 修正某人的班級 || Corriger la promo de quelqu'un || Corregir la promoción de alguien
+For anyone repeating a term, intermitting or who picked the wrong code. Their term updates from the new cohort. || 適用於重讀、休學或選錯代碼的人。他們的學期會依新班級更新。 || Pour quelqu'un qui redouble un trimestre, interrompt ses études ou a choisi le mauvais code. Son trimestre se met à jour depuis la nouvelle promo. || Para quien repite un trimestre, interrumpe sus estudios o eligió el código equivocado. Su trimestre se actualiza con la nueva promoción.
+New cohort || 新班級 || Nouvelle promo || Nueva promoción
+People can change their cohort for the first || 大家可以在每學期開始的前 || Chacun peut changer sa promo pendant les || Se puede cambiar la promoción durante las primeras
+weeks of each term || 週內更改班級 || premières semaines de chaque trimestre || semanas de cada trimestre
+now is MAF || 目前為 MAF || correspond maintenant à MAF || ahora es MAF
+Email || 電子郵件 || E-mail || Correo
+Sender name || 寄件者名稱 || Nom de l'expéditeur || Nombre del remitente
+Sending address || 寄件地址 || Adresse d'envoi || Dirección de envío
+Help and reply-to address || 協助與回覆地址 || Adresse d'aide et de réponse || Dirección de ayuda y respuesta
+School mass email alias || 學校群發郵件別名 || Alias d'envoi groupé de l'école || Alias de correo masivo de la escuela
+for announcements || 用於公告 || pour les annonces || para anuncios
+Weekly digest day || 每週摘要寄送日 || Jour du résumé hebdomadaire || Día del resumen semanal
+Digest time || 摘要寄送時間 || Heure du résumé || Hora del resumen
+Save email settings || 儲存電子郵件設定 || Enregistrer les réglages e-mail || Guardar ajustes de correo
+How it looks in an inbox || 在收件匣中的樣子 || Aperçu dans une boîte de réception || Cómo se ve en la bandeja de entrada
+Reply to || 回覆至 || Répondre à || Responder a
+Digest || 摘要 || Résumé || Resumen
+Announcements || 公告 || Annonces || Anuncios
+If you change the sending address || 如果你更改寄件地址 || Si vous changez l'adresse d'envoi || Si cambias la dirección de envío
+Make an app password for it. || 為它建立應用程式密碼。 || Créez-lui un mot de passe d'application. || Crea una contraseña de aplicación para ella.
+In Supabase, open Authentication, then Emails, then SMTP settings, and swap in the new address and app password. || 在 Supabase 中，依序開啟 Authentication、Emails、SMTP settings，換上新地址和應用程式密碼。 || Dans Supabase, ouvrez Authentication, puis Emails, puis SMTP settings, et remplacez l'adresse et le mot de passe d'application. || En Supabase, abre Authentication, luego Emails y después SMTP settings, y cambia la dirección y la contraseña de aplicación.
+Save the new address here so the app and digest footer match. || 在這裡儲存新地址，讓應用程式和摘要頁尾一致。 || Enregistrez la nouvelle adresse ici pour que l'app et le pied du résumé correspondent. || Guarda aquí la nueva dirección para que la app y el pie del resumen coincidan.
+Changing the help address or the alias needs nothing else. || 更改協助地址或別名不需要其他步驟。 || Changer l'adresse d'aide ou l'alias ne demande rien d'autre. || Cambiar la dirección de ayuda o el alias no requiere nada más.
+View only. You need the Email settings permission to change these. || 僅供檢視。你需要「電子郵件設定」權限才能更改。 || Lecture seule. Il vous faut la permission Réglages e-mail pour les modifier. || Solo lectura. Necesitas el permiso Ajustes de correo para cambiarlos.
+Mondays at 08:00, for people who turn it on || 每週一 08:00，寄給開啟此功能的人 || Le lundi à 08:00, pour ceux qui l'activent || Los lunes a las 08:00, para quien lo active
+Anyone signed in can report a profile, project or script. Treat these as private. For anything involving safety, harassment or discrimination, pass it to LFS Student Services as well. Crew Call admins are students, not investigators. || 任何登入的人都可以回報個人檔案、專案或劇本。請保密處理。涉及安全、騷擾或歧視的事，也請轉交 LFS 學生服務處。Crew Call 管理員是學生，不是調查人員。 || Tout membre connecté peut signaler un profil, un projet ou un scénario. Traitez-les de manière confidentielle. Pour tout ce qui touche à la sécurité, au harcèlement ou à la discrimination, transmettez aussi aux services étudiants de la LFS. Les admins de Crew Call sont des étudiants, pas des enquêteurs. || Cualquiera con sesión iniciada puede informar de un perfil, proyecto o guion. Trátalos como privados. Si hay temas de seguridad, acoso o discriminación, pásalos también a Servicios al Estudiante de la LFS. Los administradores de Crew Call son estudiantes, no investigadores.
+Open || 未處理 || Ouvert || Abierto
+Open reports || 未處理的回報 || Signalements ouverts || Informes abiertos
+Open Reports || 開啟回報 || Ouvrir les signalements || Abrir informes
+Open Access || 開啟權限 || Ouvrir les accès || Abrir acceso
+Open Email || 開啟電子郵件 || Ouvrir l'e-mail || Abrir correo
+Mark dealt with || 標記為已處理 || Marquer comme traité || Marcar como resuelto
+What you did, for the record || 你做了什麼（留存紀錄） || Ce que vous avez fait, pour mémoire || Qué hiciste, para que conste
+Review || 檢視 || Examiner || Revisar
+Old profiles || 舊的個人檔案 || Anciens profils || Perfiles antiguos
+Alumni and guests are deleted after || 校友和訪客在多久未登入後刪除： || Les anciens élèves et invités sont supprimés après || Los exalumnos e invitados se eliminan tras
+Months || 個月 || Mois || Meses
+Send warning || 寄送提醒 || Envoyer un avertissement || Enviar aviso
+Backups || 備份 || Sauvegardes || Copias de seguridad
+Download a backup (JSON) || 下載備份 (JSON) || Télécharger une sauvegarde (JSON) || Descargar copia (JSON)
+Restore from a backup || 從備份還原 || Restaurer une sauvegarde || Restaurar desde una copia
+Supabase's free plan doesn't back up your database, so the GitHub repository includes a nightly backup job (see docs/BACKUPS.md). You can also download a copy here at any time, and restore one if something goes wrong. || Supabase 免費方案不會備份你的資料庫，因此 GitHub 儲存庫內含每晚自動備份（見 docs/BACKUPS.md）。你也可以隨時在這裡下載備份，出問題時再還原。 || L'offre gratuite de Supabase ne sauvegarde pas votre base, le dépôt GitHub contient donc une sauvegarde nocturne (voir docs/BACKUPS.md). Vous pouvez aussi télécharger une copie ici à tout moment et la restaurer en cas de problème. || El plan gratuito de Supabase no hace copias de tu base de datos, así que el repositorio de GitHub incluye una copia nocturna (ver docs/BACKUPS.md). También puedes descargar una copia aquí cuando quieras y restaurarla si algo falla.
+Shown in the footer and when people sign in. It's a draft: ask LFS to check it before launch. || 顯示在頁尾和登入時。這是草稿：上線前請 LFS 確認。 || Affiché dans le pied de page et à la connexion. C'est un brouillon : demandez à la LFS de le vérifier avant le lancement. || Se muestra en el pie y al iniciar sesión. Es un borrador: pide a la LFS que lo revise antes del lanzamiento.
+Read the privacy notice || 閱讀隱私權聲明 || Lire l'avis de confidentialité || Leer el aviso de privacidad
+Read the || 閱讀 || Lire le || Lee el
+Export backup || 匯出備份 || Exporter la sauvegarde || Exportar copia
+Export all data (JSON) || 匯出所有資料 (JSON) || Exporter toutes les données (JSON) || Exportar todos los datos (JSON)
+Every change to admins, ownership, emails and settings, so the next owner can see what happened. || 所有關於管理員、擁有權、電子郵件和設定的變更，讓下一任擁有者了解發生過什麼。 || Chaque changement d'admins, de propriété, d'e-mails et de réglages, pour que le prochain propriétaire sache ce qui s'est passé. || Cada cambio de administradores, propiedad, correos y ajustes, para que el próximo propietario sepa qué pasó.
+Handover checklist || 交接檢查清單 || Liste de passation || Lista de traspaso
+Work through this before the owner graduates. Ticks are shared, so successors can see what's been done. || 請在擁有者畢業前完成這份清單。勾選狀態是共用的，接任者可以看到已完成的項目。 || À faire avant que le propriétaire ne termine ses études. Les cases cochées sont partagées, les successeurs voient ce qui est fait. || Complétalo antes de que el propietario se gradúe. Las marcas se comparten, así que los sucesores ven lo hecho.
+Full handover document || 完整交接文件 || Document de passation complet || Documento de traspaso completo
+Start a fresh checklist || 開始新的檢查清單 || Commencer une nouvelle liste || Empezar una lista nueva
+Notes for the next owner || 給下一任擁有者的備註 || Notes pour le prochain propriétaire || Notas para el próximo propietario
+Where the logins live, who to ask at school, anything that's broken || 登入資料放在哪裡、學校該問誰、哪裡壞了 || Où sont les accès, qui contacter à l'école, ce qui ne marche pas || Dónde están los accesos, a quién preguntar en la escuela, qué está roto
+Save notes || 儲存備註 || Enregistrer les notes || Guardar notas
+The accounts (outside the app) || 帳號（應用程式外） || Les comptes (hors de l'app) || Las cuentas (fuera de la app)
+In the app || 應用程式內 || Dans l'app || En la app
+Before you go || 離開前 || Avant de partir || Antes de irte
+the Crew Call Gmail || Crew Call 的 Gmail || le Gmail de Crew Call || el Gmail de Crew Call
+Choose two successors, ideally from the intake below yours, so someone is always still at school. Make them admins. || 選兩位接任者，最好是比你晚一屆的同學，確保總有人還在學校。把他們設為管理員。 || Choisissez deux successeurs, idéalement de la promo suivante, pour qu'il reste toujours quelqu'un à l'école. Nommez-les admins. || Elige dos sucesores, idealmente de la promoción siguiente, para que siempre quede alguien en la escuela. Hazlos administradores.
+Tick the permissions each successor needs. Give at least one of them every permission. || 勾選每位接任者需要的權限。至少給其中一位所有權限。 || Cochez les permissions dont chaque successeur a besoin. Donnez-les toutes à au moins l'un d'eux. || Marca los permisos que necesita cada sucesor. Da todos los permisos al menos a uno.
+Create the new Gmail and turn on 2-Step Verification. || 建立新的 Gmail 並開啟兩步驟驗證。 || Créez le nouveau Gmail et activez la validation en deux étapes. || Crea el nuevo Gmail y activa la verificación en dos pasos.
+Gmail: change the password, then swap in the new owner's recovery phone and email and remove yours (Google Account, then Security). || Gmail：更改密碼，換上新擁有者的備援電話和電子郵件，並移除你的（Google 帳戶 > 安全性）。 || Gmail : changez le mot de passe, remplacez le téléphone et l'e-mail de récupération par ceux du nouveau propriétaire et retirez les vôtres (Compte Google, puis Sécurité). || Gmail: cambia la contraseña, pon el teléfono y correo de recuperación del nuevo propietario y quita los tuyos (Cuenta de Google y luego Seguridad).
+Gmail: make new 2-Step Verification backup codes and a new app password. Paste the new app password into Supabase (Authentication, then Emails, then SMTP settings). || Gmail：產生新的兩步驟驗證備用碼和新的應用程式密碼。把新密碼貼到 Supabase（Authentication > Emails > SMTP settings）。 || Gmail : générez de nouveaux codes de secours et un nouveau mot de passe d'application. Collez-le dans Supabase (Authentication, puis Emails, puis SMTP settings). || Gmail: crea nuevos códigos de respaldo y una nueva contraseña de aplicación. Pégala en Supabase (Authentication, luego Emails y después SMTP settings).
+GitHub and Supabase sign in with the Crew Call Gmail, and Vercel signs in with GitHub, so they all move with the Gmail. The new owner should sign in to each once to check. || GitHub 和 Supabase 用 Crew Call 的 Gmail 登入，Vercel 用 GitHub 登入，所以全部會跟著 Gmail 移轉。新擁有者應各登入一次確認。 || GitHub et Supabase se connectent avec le Gmail de Crew Call, et Vercel avec GitHub : tout suit donc le Gmail. Le nouveau propriétaire doit se connecter une fois à chacun pour vérifier. || GitHub y Supabase inician sesión con el Gmail de Crew Call, y Vercel con GitHub, así que todo se mueve con el Gmail. El nuevo propietario debe entrar una vez en cada uno para comprobarlo.
+Share the new logins through a shared password manager folder, not by email or WhatsApp. || 請透過共用密碼管理器資料夾分享新的登入資料，不要用電子郵件或 WhatsApp。 || Partagez les nouveaux accès via un dossier de gestionnaire de mots de passe partagé, pas par e-mail ni WhatsApp. || Comparte los nuevos accesos con una carpeta compartida de gestor de contraseñas, no por correo ni WhatsApp.
+Transfer ownership to the person who will hold the Crew Call Gmail login. || 把擁有權移轉給將保管 Crew Call Gmail 登入資料的人。 || Transférez la propriété à la personne qui détiendra l'accès Gmail de Crew Call. || Transfiere la propiedad a quien tendrá el acceso a Gmail de Crew Call.
+Check the help address and school mass email alias are still right. || 確認協助地址和學校群發郵件別名仍然正確。 || Vérifiez que l'adresse d'aide et l'alias d'envoi groupé sont toujours bons. || Comprueba que la dirección de ayuda y el alias de correo masivo siguen siendo correctos.
+Check the nightly backups in GitHub Actions are green, and that the next owner can see them. || 確認 GitHub Actions 的每晚備份都是綠燈，且下一任擁有者看得到。 || Vérifiez que les sauvegardes nocturnes dans GitHub Actions sont au vert et que le prochain propriétaire y a accès. || Comprueba que las copias nocturnas en GitHub Actions están en verde y que el próximo propietario puede verlas.
+Check there are no open reports, and that the LFS safety contact is written in the notes below. || 確認沒有未處理的回報，且 LFS 安全聯絡人已寫在下方備註中。 || Vérifiez qu'aucun signalement n'est ouvert et que le contact sécurité de la LFS figure dans les notes ci-dessous. || Comprueba que no hay informes abiertos y que el contacto de seguridad de la LFS está en las notas de abajo.
+Export a backup and keep it somewhere the course team can reach. || 匯出備份並存放在課程團隊找得到的地方。 || Exportez une sauvegarde et gardez-la là où l'équipe pédagogique peut y accéder. || Exporta una copia y guárdala donde el equipo del curso pueda acceder.
+Once your successors have signed in, remove graduating admins, including yourself. || 接任者登入後，移除即將畢業的管理員，包括你自己。 || Une fois vos successeurs connectés, retirez les admins qui partent, vous compris. || Cuando tus sucesores hayan iniciado sesión, quita a los administradores que se gradúan, incluido tú.
+Write anything the next owner should know in the notes below. || 把下一任擁有者應該知道的事寫在下方備註中。 || Écrivez dans les notes ci-dessous tout ce que le prochain propriétaire doit savoir. || Escribe en las notas de abajo lo que el próximo propietario deba saber.
+Sees this page, the handover checklist and the activity log. || 可以看到此頁、交接檢查清單和活動紀錄。 || Voit cette page, la liste de passation et le journal d'activité. || Ve esta página, la lista de traspaso y el registro de actividad.
+Delete my profile || 刪除我的個人檔案 || Supprimer mon profil || Eliminar mi perfil
+Crew Call || Crew Call || Crew Call || Crew Call
+LFS || LFS || LFS || LFS
+iPhone || iPhone || iPhone || iPhone
+Android || Android || Android || Android

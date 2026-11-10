@@ -1,0 +1,255 @@
+# Regular expression || हिन्दी || Português (Brasil)  (same order as ../patterns.txt). Drafts: please have speakers check.
+^(\d+) shoots?$ || {=1} शूट || {=1} {1|filmagem|filmagens}
+^(\d+) posts?$ || {=1} {1|पोस्ट|पोस्ट} || {=1} {1|publicação|publicações}
+^(\d+) films?$ || {=1} {1|फ़िल्म|फ़िल्में} || {=1} {1|filme|filmes}
+^(\d+) days?$ || {=1} {1|दिन|दिन} || {=1} {1|dia|dias}
+^(\d+) min$ || {=1} मिनट || {=1} min
+^(\d+) pages?$ || {=1} {1|पेज|पेज} || {=1} {1|página|páginas}
+^(\d+) credits?$ || {=1} {1|क्रेडिट|क्रेडिट} || {=1} {1|crédito|créditos}
+^(\d+)/(\d+) crewed$ || {=1}/{=2} भरे || {=1}/{=2} com equipe
+^(\d+) of (\d+) roles filled$ || {=2} में से {=1} रोल भरे || {=1} de {=2} funções preenchidas
+^(\d+) of (\d+) done$ || {=2} में से {=1} पूरे || {=1} de {=2} feitos
+^(\d+) open$ || {=1} खुले || {=1} {1|aberta|abertas}
+^(\d+) interested$ || {=1} इच्छुक || {=1} {1|interessado|interessados}
+^(\d+) offers?$ || {=1} {1|ऑफ़र|ऑफ़र} || {=1} {1|oferta|ofertas}
+^(\d+) requests? waiting$ || {=1} {1|अनुरोध|अनुरोध} इंतज़ार में || {=1} {1|pedido pendente|pedidos pendentes}
+^(\d+) (?:person is|people are) waiting for your reply\.$ || {=1} {1|व्यक्ति|लोग} आपके जवाब का इंतज़ार कर रहे हैं। || {=1} {1|pessoa está|pessoas estão} esperando sua resposta.
+^(\d+) free days? in (\S+) · (\d+) upcoming in total$ || {2} में {=1} ख़ाली {1|दिन|दिन} · कुल {=3} आने वाले || {=1} {1|dia livre|dias livres} em {2} · {=3} próximos no total
+^(\d+) (?:person is|people are) free\.$ || {=1} {1|व्यक्ति ख़ाली है|लोग ख़ाली हैं}। || {=1} {1|pessoa está livre|pessoas estão livres}.
+^(\d+) (?:person|people)\. Add dates to check availability\.$ || {=1} {1|व्यक्ति|लोग}। उपलब्धता देखने के लिए तारीख़ें जोड़ें। || {=1} {1|pessoa|pessoas}. Adicione datas para ver a disponibilidade.
+^(\d+) roles? selected, main: (.+)$ || {=1} {1|रोल|रोल} चुने, मुख्य: {2} || {=1} {1|função escolhida|funções escolhidas}, principal: {2}
+^(\d+) with LFS email · (\d+) guests?$ || {=1} LFS ईमेल वाले · {=2} {2|मेहमान|मेहमान} || {=1} com e-mail da LFS · {=2} {2|convidado|convidados}
+^(\d+) days? ago$ || {=1} {1|दिन|दिन} पहले || há {=1} {1|dia|dias}
+^Updated (\d+) days? ago$ || {=1} {1|दिन|दिन} पहले अपडेट हुआ || Atualizado há {=1} {1|dia|dias}
+^Updated (\d+) days? ago\. Changes save automatically\.$ || {=1} {1|दिन|दिन} पहले अपडेट हुआ। बदलाव अपने-आप सेव होते हैं। || Atualizado há {=1} {1|dia|dias}. As mudanças são salvas automaticamente.
+^Updated (today|yesterday)\. Changes save automatically\.$ || {1} अपडेट हुआ। बदलाव अपने-आप सेव होते हैं। || Atualizado {1}. As mudanças são salvas automaticamente.
+^Call (\d\d:\d\d)$ || कॉल {=1} || Chamada {=1}
+^call (\d\d:\d\d)$ || कॉल {=1} || chamada {=1}
+^Wrap (\d\d:\d\d)( \+1)?$ || रैप {=1}{=2} || Fim {=1}{=2}
+^Call time, (.+)$ || कॉल टाइम, {1} || Horário de chamada, {1}
+^Wrap time, (.+)$ || रैप टाइम, {1} || Horário de término, {1}
+^Location, (.+)$ || लोकेशन, {1} || Locação, {1}
+^Free (.+)$ || ख़ाली {1} || Livre {1}
+^Deadline (.+)$ || आख़िरी तारीख़ {1} || Prazo {1}
+^Deletes (.+)$ || {1} को डिलीट होगा || Excluído em {1}
+^(.+), booked on (.+)$ || {1}, {2} पर बुक || {1}, reservado em {2}
+^(.+), crew available$ || {1}, क्रू उपलब्ध || {1}, equipe disponível
+^(.+), free$ || {1}, ख़ाली || {1}, livre
+^(.+), not free$ || {1}, ख़ाली नहीं || {1}, não está livre
+^(.+): (\d+) shoots?, crew available$ || {1}: {=2} शूट, क्रू उपलब्ध || {1}: {=2} {2|filmagem|filmagens}, equipe disponível
+^(.+): (\d+) shoots?$ || {1}: {=2} शूट || {1}: {=2} {2|filmagem|filmagens}
+^Autumn (\d{4})$ || ऑटम {=1} || Outono {=1}
+^Spring (\d{4})$ || स्प्रिंग {=1} || Primavera {=1}
+^Summer (\d{4})$ || समर {=1} || Verão {=1}
+^(.+) start$ || {1} की शुरुआत || Início de {1}
+^(.+) end$ || {1} का अंत || Fim de {1}
+^e\.g\. Autumn (\d{4})$ || जैसे ऑटम {=1} || por ex. Outono {=1}
+^(\w+day)s at (\d\d:\d\d), for people who turn it on$ || हर {1} {=2} बजे, उन लोगों के लिए जो इसे चालू करते हैं || Toda {1} às {=2}, para quem ativar
+^Directed by (.+)$ || निर्देशक: {1} || Dirigido por {1}
+^Produced by (.+)$ || निर्माता: {1} || Produzido por {1}
+^Needs (.+)$ || ज़रूरत: {1} || Precisa de {1}
+^Learning: (.+)$ || सीख रहे हैं: {1} || Aprendendo: {1}
+^Aiming for: (.+)$ || लक्ष्य: {1} || Objetivo: {1}
+^Has: (.+)$ || पास है: {1} || Tem: {1}
+^★ (.+)$ || ★ {1} || ★ {1}
+^Remove (.+)$ || {1} हटाएँ || Remover {1}
+^Mark (.+) as filled$ || {1} को भरा हुआ मार्क करें || Marcar {1} como preenchida
+^Make (.+) my main role$ || {1} को मेरा मुख्य रोल बनाएँ || Tornar {1} minha função principal
+^Reopen (.+)$ || {1} फिर से खोलें || Reabrir {1}
+^Message to (.+)$ || {=1} को संदेश || Mensagem para {=1}
+^Shared with people (.+) brings on$ || उन लोगों के साथ साझा जिन्हें {=1} जोड़ते हैं || Compartilhado com as pessoas que {=1} chamar
+^Edit (.+)$ || {=1} बदलें || Editar {=1}
+^Request to join as (.+)$ || {1} के रूप में जुड़ने का अनुरोध करें || Pedir para entrar como {1}
+^Signed in as (.+)$ || {=1} के रूप में साइन इन || Conectado como {=1}
+^Sent to (.+)$ || {=1} को भेजा || Enviado para {=1}
+^Offer sent to (.+)$ || {=1} को ऑफ़र भेजा || Oferta enviada para {=1}
+^Invite sent to (.+)$ || {=1} को इनवाइट भेजा || Convite enviado para {=1}
+^Warning sent to (.+)$ || {=1} को चेतावनी भेजी || Aviso enviado para {=1}
+^invited by (.+)$ || {=1} द्वारा इनवाइट किया || convidado por {=1}
+^by (.+)$ || {=1} द्वारा || por {=1}
+^(.+) brought on$ || {=1} जुड़े || {=1} entrou
+^(.+) is on the team$ || {=1} टीम में हैं || {=1} está na equipe
+^You've put your hand up as (.+?)\. (.+) will reply and you'll get a notification\.$ || आपने {1} के लिए हाथ उठाया है। {=2} जवाब देंगे और आपको सूचना मिलेगी। || Você se ofereceu como {1}. {=2} vai responder e você recebe uma notificação.
+^You've put your hand up as (.+)$ || आपने {1} के लिए हाथ उठाया है || Você se ofereceu como {1}
+^You've posted (\d+)\.$ || आपने {=1} पोस्ट किए हैं। || Você publicou {=1}.
+^You've posted (\d+)\. Nobody waiting for a reply\.$ || आपने {=1} पोस्ट किए हैं। कोई जवाब का इंतज़ार नहीं कर रहा। || Você publicou {=1}. Ninguém esperando resposta.
+^Show (\d+) results?$ || {=1} {1|नतीजा|नतीजे} दिखाएँ || Mostrar {=1} {1|resultado|resultados}
+^Show (\d+) more$ || {=1} और दिखाएँ || Mostrar mais {=1}
+^Step (\d+) of (\d+)$ || चरण {=1}/{=2} || Passo {=1} de {=2}
+^Day (\d+)$ || दिन {=1} || Dia {=1}
+^Locations \((\d+)\)$ || लोकेशन ({=1}) || Locações ({=1})
+^Copy day (\d+) times to every day$ || दिन {=1} का समय हर दिन पर कॉपी करें || Copiar os horários do dia {=1} para todos os dias
+^(.+) ×(\d+)$ || {1} ×{=2} || {1} ×{=2}
+^Notifications, (\d+) unread$ || सूचनाएँ, {=1} बिना पढ़ी || Notificações, {=1} não {1|lida|lidas}
+^Next (\d+) days$ || अगले {=1} दिन || Próximos {=1} dias
+^Next (\d+) weeks$ || अगले {=1} हफ़्ते || Próximas {=1} semanas
+^Next (\d+) months$ || अगले {=1} महीने || Próximos {=1} meses
+^Term (\d+)$ || टर्म {=1} || Período {=1}
+^Term (\d+) now$ || अभी टर्म {=1} || Agora no Período {=1}
+^(Screenwriting|Producing|Film Marketing|International Film Business) (\d{4}–\d\d)$ || {1} {=2} || {1} {=2}
+^(.+) \(booked on another shoot\)$ || {=1} (किसी और शूट पर बुक) || {=1} (reservado em outra filmagem)
+^sent (.+)$ || {1} भेजा || enviado {1}
+^hoping to shoot (.+)$ || {1} शूट करने की उम्मीद || quer filmar em {1}
+^shot (.+)$ || {1} शूट हुआ || filmado em {1}
+^(.+) code prefix$ || {1} कोड उपसर्ग || Prefixo do código de {1}
+^Prototype: preview (.+) starting$ || प्रोटोटाइप: {1} की शुरुआत का प्रीव्यू || Protótipo: prévia do início de {1}
+^Prototype: preview (.+)$ || प्रोटोटाइप: प्रीव्यू {1} || Protótipo: prévia {1}
+^Locked for (.+?)\. Changes closed on (.+?)\. When (.+?) starts on (.+?) you'll become Term (\d+) automatically, and we'll ask you to check it\. Wrong\? Ask an admin to fix it\.$ || {1} के लिए लॉक। बदलाव {2} को बंद हुए। जब {3} {4} को शुरू होगा, आप अपने-आप टर्म {=5} में चले जाएँगे, और हम आपसे जाँचने को कहेंगे। ग़लत है? किसी एडमिन से ठीक करवाएँ। || Travado para {1}. As mudanças fecharam em {2}. Quando {3} começar em {4}, você passa automaticamente para o Período {=5} e vamos pedir para você conferir. Está errado? Peça a um admin para corrigir.
+^Locked for (.+?)\. Changes closed on (.+?)\. Wrong\? Ask an admin to fix it\.$ || {1} के लिए लॉक। बदलाव {2} को बंद हुए। ग़लत है? किसी एडमिन से ठीक करवाएँ। || Travado para {1}. As mudanças fecharam em {2}. Está errado? Peça a um admin para corrigir.
+^Everything here is also emailed to (\S+) unless you've turned that type off in My profile\.$ || यहाँ की हर चीज़ {=1} पर भी ईमेल होती है, जब तक आपने मेरी प्रोफ़ाइल में वह प्रकार बंद न किया हो। || Tudo aqui também é enviado para {=1}, a menos que você tenha desativado esse tipo em Meu perfil.
+^You're a guest, invited by (.+)\. You can do everything except invite other people\.$ || आप मेहमान हैं, {=1} द्वारा इनवाइट किए गए। आप दूसरों को इनवाइट करने के अलावा सब कुछ कर सकते हैं। || Você é convidado de {=1}. Pode fazer tudo, menos convidar outras pessoas.
+^Only members with an LFS email can invite people\. You joined as a guest thanks to (.+)\.$ || सिर्फ़ LFS ईमेल वाले सदस्य लोगों को इनवाइट कर सकते हैं। आप {=1} की वजह से मेहमान के रूप में जुड़े। || Só membros com e-mail da LFS podem convidar pessoas. Você entrou como convidado graças a {=1}.
+^You don't have the Reports and privacy permission\. Ask (.+) \(owner\) or an admin with the People permission to tick it for you\.$ || आपके पास रिपोर्ट और गोपनीयता अनुमति नहीं है। {=1} (मालिक) या लोग अनुमति वाले किसी एडमिन से इसे टिक करने को कहें। || Você não tem a permissão Relatos e privacidade. Peça a {=1} (dono) ou a um admin com a permissão Pessoas para marcá-la.
+^Only (.+) can transfer ownership\.$ || सिर्फ़ {=1} मालिकाना हक़ सौंप सकते हैं। || Só {=1} pode transferir a propriedade.
+^Crew Call is run by LFS students for LFS students\. The current owner is (.+)\. It isn't run by the London Film School\. Questions go to$ || Crew Call को LFS के छात्र LFS के छात्रों के लिए चलाते हैं। अभी के मालिक {=1} हैं। इसे London Film School नहीं चलाता। सवाल यहाँ भेजें: || O Crew Call é administrado por alunos da LFS para alunos da LFS. O dono atual é {=1}. Não é administrado pela London Film School. Dúvidas para
+^Draft for LFS to check before launch\. Last updated (.+)\.$ || लॉन्च से पहले LFS के जाँचने के लिए मसौदा। आख़िरी अपडेट {1}। || Rascunho para a LFS revisar antes do lançamento. Última atualização: {1}.
+^Wrapped films looking for help to reach an audience: festival plans, posters, trailers, press kits and socials\. A good fit for (.+), and every job becomes a credit on your profile\.$ || पूरी हुई फ़िल्में जिन्हें दर्शकों तक पहुँचने में मदद चाहिए: फ़ेस्टिवल योजना, पोस्टर, ट्रेलर, प्रेस किट और सोशल मीडिया। {1} के लिए बढ़िया, और हर काम आपकी प्रोफ़ाइल पर एक क्रेडिट बनता है। || Filmes prontos procurando ajuda para chegar ao público: plano de festivais, cartazes, trailers, press kits e redes sociais. Ótimo para {1}, e cada trabalho vira um crédito no seu perfil.
+^months without signing in\. The live version does this every night: it emails a warning (\d+) days before, and keeps the profile if they sign in\. Admins are never removed automatically\.$ || महीने बिना साइन इन के। असली संस्करण यह हर रात करता है: {=1} दिन पहले चेतावनी ईमेल करता है, और अगर वे साइन इन करें तो प्रोफ़ाइल रखता है। एडमिन कभी अपने-आप नहीं हटाए जाते। || meses sem entrar. A versão real faz isto toda noite: envia um aviso por e-mail {=1} dias antes e mantém o perfil se a pessoa entrar. Admins nunca são removidos automaticamente.
+^(.+) — (.+)$ || {1} — {2} || {1} — {2}
+^(.+) – (.+)$ || {1} – {2} || {1} – {2}
+^(.+) \+ (\d+) more$ || {1} + {=2} और || {1} + mais {=2}
+^(.+) \+ (.+)$ || {1} + {2} || {1} + {2}
+^(.+) or your invited email$ || {=1} या आपका इनवाइट वाला ईमेल || {=1} ou o e-mail do seu convite
+^from (.+) \((.+)\)$ || {=1} से ({2}) || de {=1} ({2})
+^from ([^·]+)$ || {=1} से || de {=1}
+^(\w+), (\d+)(am|pm)$ || {1}, {=2}{3} || {1}, {=2}{3}
+^Shadow (.+)$ || शैडो {1} || Acompanhar {1}
+^· (.+)$ || · {1} || · {1}
+^(.+) ·$ || {1} · || {1} ·
+^(.+): (Email settings|People|Projects|Reports and privacy|Terms and lists|Newsletter: draft|Newsletter: send)$ || {=1}: {2} || {=1}: {2}
+^([^:]{2,40}): (.+)$ || {!1}: {2} || {!1}: {2}
+^([^:]{2,40}):$ || {!1}: || {!1}:
+^(.+) asked to join (.+) as (.+)$ || {=1} ने {=2} में {3} के रूप में जुड़ने को कहा || {=1} pediu para entrar em {=2} como {3}
+^Hi (.+), are you free for…$ || नमस्ते {=1}, क्या आप ख़ाली हैं… || Oi, {=1}, você está livre para…
+^/ (.+)$ || / {1} || / {1}
+^(.+) to (\d+) people$ || {!1}, {=2} लोगों को || {!1}, para {=2} pessoas
+^(.+) at (\d\d:\d\d)$ || {!1}, {=2} बजे || {!1} às {=2}
+^Cohort (.+)$ || कोहोर्ट {1} || Turma {1}
+^(.+) \(MA Filmmaking\)$ || {1} (MA Filmmaking) || {1} (MA Filmmaking)
+^Graduation term$ || ग्रेजुएशन टर्म || Período de formatura
+^Move (.+) (up|down)$ || {1} को {2|ऊपर|नीचे} ले जाएँ || Mover {1} para {2|cima|baixo}
+^Goes to (\d+) people, not counting anyone who has turned the newsletter off\.$ || {=1} लोगों को जाता है, उन्हें छोड़कर जिन्होंने न्यूज़लेटर बंद किया है। || Vai para {=1} pessoas, sem contar quem desativou o boletim.
+^It goes to (.+): (\d+) people\.$ || यह {1} को जाता है: {=2} लोग। || Vai para {1}: {=2} pessoas.
+^Newsletter sent to (\d+) people$ || न्यूज़लेटर {=1} लोगों को भेजा गया || Boletim enviado para {=1} pessoas
+^Only (\S+) \(owner\) can change this\.$ || इसे सिर्फ़ {=1} (मालिक) बदल सकते हैं। || Só {=1} (dono) pode mudar isto.
+^Waiting for (.+) to approve it\. You can keep editing until then\.$ || {=1} की मंज़ूरी का इंतज़ार। तब तक आप बदलाव करते रह सकते हैं। || Aguardando {=1} aprovar. Até lá, você pode continuar editando.
+^You can't send newsletters yourself\. Ask for approval and (.+) will get a notification\.$ || आप ख़ुद न्यूज़लेटर नहीं भेज सकते। मंज़ूरी माँगें और {=1} को सूचना मिलेगी। || Você não pode enviar boletins sozinho. Peça aprovação e {=1} recebe uma notificação.
+^Scheduled for (.+)$ || {1} के लिए शेड्यूल || Agendado para {1}
+^Schedule “(.+)”$ || “{=1}” शेड्यूल करें || Agendar “{=1}”
+^Send “(.+)” now\?$ || “{=1}” अभी भेजें? || Enviar “{=1}” agora?
+^(.+) · Drafted by (.+)$ || {1} · मसौदा: {=2} || {1} · Rascunho de {=2}
+^(.+) · Asked by (.+) on (.+)$ || {1} · {=2} ने {3} को माँगा || {1} · Pedido por {=2} em {3}
+^(.+) · Sent (.+) by (.+) to (\d+) people$ || {1} · {2} को {=3} ने {=4} लोगों को भेजा || {1} · Enviado em {2} por {=3} para {=4} pessoas
+^Sent the newsletter “(.+)” to (\d+) people$ || न्यूज़लेटर “{=1}” {=2} लोगों को भेजा || Enviou o boletim “{=1}” para {=2} pessoas
+^Scheduled the newsletter “(.+)” for (.+)$ || न्यूज़लेटर “{=1}” {2} के लिए शेड्यूल किया || Agendou o boletim “{=1}” para {2}
+^Cancelled the scheduled newsletter “(.+)”$ || शेड्यूल किया न्यूज़लेटर “{=1}” रद्द किया || Cancelou o boletim agendado “{=1}”
+^Copied the newsletter “(.+)”$ || न्यूज़लेटर “{=1}” कॉपी किया || Copiou o boletim “{=1}”
+^Asked for approval to send the newsletter “(.+)”$ || न्यूज़लेटर “{=1}” भेजने की मंज़ूरी माँगी || Pediu aprovação para enviar o boletim “{=1}”
+^(.+) \(copy\)$ || {=1} (कॉपी) || {=1} (cópia)
+^Test sent to (\S+)$ || {=1} को टेस्ट भेजा || Teste enviado para {=1}
+^Rep · (.+)$ || रेप · {=1} || Representante · {=1}
+^Rep for (.+)$ || {=1} के रेप || Representante de {=1}
+^(.+) · Rep for (.+)$ || {=1} · {=2} के रेप || {=1} · representante de {=2}
+^(\d+) jobs? · (\d+) filled or closed hidden$ || {=1} काम · {=2} भरे या बंद छिपे || {=1} {1|vaga|vagas} · {=2} {2|preenchida ou encerrada oculta|preenchidas ou encerradas ocultas}
+^(\d+) jobs?$ || {=1} काम || {=1} {1|vaga|vagas}
+^Apply by (.+)$ || {=1} तक आवेदन करें || Inscrições até {=1}
+^Make (.+) the rep for (.+)\?$ || {=1} को {=2} का रेप बनाएँ? || Tornar {=1} representante de {=2}?
+^(.+) becomes an admin with the Projects permission and gets a notification\.$ || {=1} प्रोजेक्ट अनुमति के साथ एडमिन बनते हैं और उन्हें सूचना मिलती है। || {=1} vira admin com a permissão Projetos e recebe uma notificação.
+^(.+) becomes an admin and gets a notification\.$ || {=1} एडमिन बनते हैं और उन्हें सूचना मिलती है। || {=1} vira admin e recebe uma notificação.
+^(.+) gets every permission\. You stay an admin\.$ || {=1} को हर अनुमति मिलती है। आप एडमिन बने रहते हैं। || {=1} recebe todas as permissões. Você continua admin.
+^(.+) is still active, so the owner has to accept it\.$ || {=1} अभी भी सक्रिय हैं, इसलिए मालिक को इसे मंज़ूर करना होगा। || {=1} ainda está ativo, então o dono precisa aceitar.
+^(.+) looks to have left or gone quiet, so one more rep agreeing is enough\.$ || लगता है {=1} जा चुके हैं या निष्क्रिय हैं, इसलिए एक और रेप की सहमति काफ़ी है। || Parece que {=1} saiu ou sumiu, então basta mais um representante concordar.
+^Proposed (.+) as the new owner$ || {=1} को नए मालिक के रूप में प्रस्तावित किया || Propôs {=1} como novo dono
+^(.+) proposed themselves as the new owner of Crew Call\. Accept or decline in Admin, then Access\.$ || {=1} ने ख़ुद को Crew Call के नए मालिक के रूप में प्रस्तावित किया। एडमिन, फिर एक्सेस में मंज़ूर या अस्वीकार करें। || {=1} se propôs como novo dono do Crew Call. Aceite ou recuse em Admin, depois Acesso.
+^(.+) proposed (.+) as the new owner of Crew Call\. Accept or decline in Admin, then Access\.$ || {=1} ने {=2} को Crew Call के नए मालिक के रूप में प्रस्तावित किया। एडमिन, फिर एक्सेस में मंज़ूर या अस्वीकार करें। || {=1} propôs {=2} como novo dono do Crew Call. Aceite ou recuse em Admin, depois Acesso.
+^(.+) proposed (.+) as the new owner of Crew Call\. See Admin, then Access\.$ || {=1} ने {=2} को Crew Call के नए मालिक के रूप में प्रस्तावित किया। एडमिन, फिर एक्सेस देखें। || {=1} propôs {=2} como novo dono do Crew Call. Veja em Admin, depois Acesso.
+^(.+) made you the Crew Call rep for (.+)\. You're now an admin: see Admin, then Access\.$ || {=1} ने आपको {=2} का Crew Call रेप बनाया। अब आप एडमिन हैं: एडमिन, फिर एक्सेस देखें। || {=1} tornou você representante do Crew Call de {=2}. Agora você é admin: veja em Admin, depois Acesso.
+^(.+) made (.+) the rep for (.+)\. Thanks for doing it\.$ || {=1} ने {=2} को {=3} का रेप बनाया। यह करने के लिए धन्यवाद। || {=1} tornou {=2} representante de {=3}. Obrigado por fazer isso.
+^Made (.+) the rep for (.+?)( \(was (.+)\))?$ || {=1} को {=2} का रेप बनाया || Tornou {=1} representante de {=2}
+^(.+) is the rep for (.+)$ || {=1} {=2} के रेप हैं || {=1} é representante de {=2}
+^(.+) is now the owner$ || {=1} अब मालिक हैं || {=1} agora é o dono
+^Next issue: (.+?)\. (.+)$ || अगला अंक: {=1}। {2} || Próxima edição: {=1}. {2}
+^It's ready as a draft that morning and (.+) gets a notification to check and send it\.( Only admins with Newsletter: send can change these four settings\.)?$ || उस सुबह यह मसौदे के रूप में तैयार होता है और {=1} को जाँचने और भेजने की सूचना मिलती है।{2} || Fica pronto como rascunho naquela manhã e {=1} recebe uma notificação para conferir e enviar.{2}
+^It goes out by itself at 09:00\. Only admins with Newsletter: send can change these four settings\.$ || यह 09:00 बजे अपने-आप जाता है। ये चार सेटिंग्स सिर्फ़ न्यूज़लेटर: भेजें अनुमति वाले एडमिन बदल सकते हैं। || Ele sai sozinho às 09:00. Só admins com Boletim: enviar podem mudar estas quatro configurações.
+^ Only admins with Newsletter: send can change these four settings\.$ || ये चार सेटिंग्स सिर्फ़ न्यूज़लेटर: भेजें अनुमति वाले एडमिन बदल सकते हैं। || Só admins com Boletim: enviar podem mudar estas quatro configurações.
+^Last sent (.+)\.$ || आख़िरी बार भेजा: {=1}। || Último envio: {=1}.
+^Last sent never\.$ || कभी नहीं भेजा। || Nunca enviado.
+^· (.+)$ || · {1} || · {1}
+^Restored the automatic newsletter to the version from (.+)$ || अपने-आप बनने वाले न्यूज़लेटर को {=1} के संस्करण पर वापस लाया || Restaurou o boletim automático para a versão de {=1}
+^Restored “(.+)” to the version from (.+)$ || “{=1}” को {=2} के संस्करण पर वापस लाया || Restaurou “{=1}” para a versão de {=2}
+^Started a new issue from “(.+)”$ || “{=1}” से नया अंक शुरू किया || Começou uma nova edição a partir de “{=1}”
+^Sent the automatic newsletter “(.+)” to (\d+) people$ || अपने-आप बना न्यूज़लेटर “{=1}” {=2} लोगों को भेजा || Enviou o boletim automático “{=1}” para {=2} pessoas
+^Sent to (\d+) people$ || {=1} लोगों को भेजा || Enviado para {=1} pessoas
+^Set the automatic newsletter to go to (.+)$ || अपने-आप बनने वाले न्यूज़लेटर को इन्हें भेजने के लिए सेट किया: {1} || Configurou o boletim automático para ir para: {1}
+^(.+) proposed$ || {=1} ने प्रस्ताव रखा || {=1} propôs
+^as the new owner on (.+)\.$ || {=1} को नए मालिक के रूप में। || como novo dono em {=1}.
+^Transferred ownership from (.+) to (.+?)( \(.+\))?$ || मालिकाना हक़ {=1} से {=2} को सौंपा || Transferiu a propriedade de {=1} para {=2}
+^(.+) declined the proposal to make (.+) owner\.$ || {=1} ने {=2} को मालिक बनाने का प्रस्ताव अस्वीकार किया। || {=1} recusou a proposta de tornar {=2} dono.
+^Declined the proposal to make (.+) owner$ || {=1} को मालिक बनाने का प्रस्ताव अस्वीकार किया || Recusou a proposta de tornar {=1} dono
+^What's on at Crew Call: (.+)$ || Crew Call पर क्या चल रहा है: {=1} || O que rola no Crew Call: {=1}
+^/ (.+)$ || / {=1} || / {=1}
+^(£[\d,.]+) a day$ || {=1} प्रति दिन || {=1} por dia
+^(£[\d,.]+) a day · (.+)$ || {=1} प्रति दिन · {=2} || {=1} por dia · {=2}
+^Make (.+) the owner\?$ || {=1} को मालिक बनाएँ? || Tornar {=1} dono?
+^The owner accepts, or, if the owner has graduated or not signed in for 30 days, a second rep agrees\. Only (.+) \(owner\) can change this\.$ || मालिक मंज़ूर करते हैं, या अगर मालिक ग्रेजुएट हो चुके हैं या 30 दिनों से साइन इन नहीं किया, तो दूसरा रेप सहमति देता है। इसे सिर्फ़ {=1} (मालिक) बदल सकते हैं। || O dono aceita ou, se o dono já se formou ou não entra há 30 dias, um segundo representante concorda. Só {=1} (dono) pode mudar isto.
+^(\d+) (?:person|people)$ || {=1} {1|व्यक्ति|लोग} || {=1} {1|pessoa|pessoas}
+^needs (.+)$ || ज़रूरत: {1} || precisa de {1}
+^(.+) \(you\)$ || {=1} (आप) || {=1} (você)
+^Column: (.+)$ || कॉलम: {1} || Coluna: {1}
+^(\d+) locations? on the map$ || नक़्शे पर {=1} {1|लोकेशन|लोकेशन} || {=1} {1|locação|locações} no mapa
+^Not pinned yet: (.+)\. The shoot's owner can pin it from Edit\.$ || अभी पिन नहीं: {=1}। शूट के मालिक बदलें से इसे पिन कर सकते हैं। || Ainda não fixado: {=1}. O responsável pela filmagem pode fixar em Editar.
+^Pinned near (.+)$ || {=1} के पास पिन किया || Fixado perto de {=1}
+^Pin (.+) on the map$ || {1} को नक़्शे पर पिन करें || Fixar {1} no mapa
+^(\d+) selected$ || {=1} चुने || {=1} {1|selecionado|selecionados}
+^(\d+) roles? selected\. Tap ★ to set your main role$ || {=1} {1|रोल|रोल} चुने। अपना मुख्य रोल तय करने के लिए ★ पर टैप करें || {=1} {1|função escolhida|funções escolhidas}. Toque em ★ para definir sua função principal
+^(.+) sees your profile, including your reel and credits\. Your email is only shared if you've chosen to share it\.$ || {=1} आपकी प्रोफ़ाइल देखते हैं, आपकी रील और क्रेडिट समेत। आपका ईमेल सिर्फ़ तभी साझा होता है जब आपने उसे साझा करना चुना हो। || {=1} vê seu perfil, incluindo seu reel e créditos. Seu e-mail só é compartilhado se você escolheu compartilhar.
+^It goes to (.+): (\d+) people\. You can't unsend an email\.$ || यह {1} को जाता है: {=2} लोग। भेजा गया ईमेल वापस नहीं लिया जा सकता। || Vai para {1}: {=2} pessoas. Não dá para desfazer o envio de um e-mail.
+^(\d+) open reports?$ || {=1} खुली {1|रिपोर्ट|रिपोर्ट} || {=1} {1|relato aberto|relatos abertos}
+^(\d+) newsletters? waiting for approval$ || {=1} {1|न्यूज़लेटर|न्यूज़लेटर} मंज़ूरी के इंतज़ार में || {=1} {1|boletim aguardando|boletins aguardando} aprovação
+^(\d+) old profiles? due for deletion$ || {=1} पुरानी {1|प्रोफ़ाइल|प्रोफ़ाइलें} डिलीट होने वाली || {=1} {1|perfil antigo|perfis antigos} para excluir
+^No rep yet for (.+)$ || {1} का अभी कोई रेप नहीं || Ainda sem representante: {1}
+^Handover: (\d+) of (\d+) steps done$ || हैंडओवर: {=2} में से {=1} चरण पूरे || Passagem de bastão: {=1} de {=2} passos feitos
+^(.+) finishes \+(\d+)$ || {1} ख़त्म +{=2} || Fim de {1} +{=2}
+^(.+) finishes$ || {1} ख़त्म || Fim de {1}
+^(MAF\d+) finishes$ || {=1} ख़त्म || Fim de {=1}
+^((?:Autumn|Spring|Summer) \d{4}) starts$ || {1} शुरू || Começa {1}
+^((?:Autumn|Spring|Summer) \d{4}) ends$ || {1} ख़त्म || Termina {1}
+^Started (.+)$ || शुरू: {!1} || Início: {!1}
+^expected to finish (.+)$ || {1} को ख़त्म होने की उम्मीद || término previsto em {1}
+^finishes (\d.+)$ || {1} को ख़त्म होता है || termina em {1}
+^finishes in (.+)$ || {1} में ख़त्म होता है || termina em {1}
+^Expected (\d.+)$ || अपेक्षित {1} || Previsto para {1}
+^In ((?:Autumn|Spring|Summer) \d{4})$ || {1} || {1}
+^(.+) enrolment first day$ || {1} एनरोलमेंट का पहला दिन || {1}, primeiro dia de matrícula
+^(.+) enrolment last day$ || {1} एनरोलमेंट का आख़िरी दिन || {1}, último dia de matrícula
+^ends (\d.+)$ || {1} को ख़त्म || termina em {1}
+^starts (\d.+)$ || {1} को शुरू || começa em {1}
+^The owner is (.+?), with (\d+) admins and a rep for each cohort\.$ || मालिक {=1} हैं, {=2} एडमिन और हर कोहोर्ट के एक रेप के साथ। || O dono é {=1}, com {=2} admins e um representante por turma.
+^Started$ || शुरू हुआ || Começou
+^From (\d+ \w+ \d{4})$ || {1} से || A partir de {1}
+^On (\d+ \w+ \d{4}) \((.+)\) Crew Call moves everyone up on its own and tells them\. Nobody has to edit anything\.$ || {1} ({2}) को Crew Call सबको अपने-आप आगे बढ़ाता है और उन्हें बताता है। किसी को कुछ बदलना नहीं पड़ता। || Em {1} ({2}), o Crew Call passa todo mundo para o período seguinte sozinho e avisa. Ninguém precisa editar nada.
+^Studying now: (.+)$ || अभी पढ़ रहे हैं: {1} || Estudando agora: {1}
+^Studying now: nobody$ || अभी कोई नहीं पढ़ रहा || Ninguém estudando agora
+^Next to start: (.+)$ || अगला शुरू होने वाला: {=1} || Próxima a começar: {=1}
+^([A-Z]+\d+) starts Term 1$ || {=1} टर्म 1 शुरू करता है || {=1} começa o Período 1
+^([A-Z]+\d+) starts$ || {=1} शुरू || Começa {=1}
+^([A-Z]+\d+) becomes Alumni$ || {=1} पूर्व छात्र बनता है || {=1} vira ex-alunos
+^(.+ \d{4}–\d\d) becomes Alumni$ || {1} पूर्व छात्र बनता है || {1} vira ex-alunos
+^(.+) starts (\d+ \w+ \d{4})$ || {1} {2} को शुरू || {1} começa em {2}
+^(.+) \+(\d+)$ || {!1} +{=2} || {!1} +{=2}
+^(\d+) terms?$ || {=1} टर्म || {=1} {1|período|períodos}
+^(\d+) of (\d+)$ || {=2} में से {=1} || {=1} de {=2}
+^(\d+) translation suggestions? to check$ || जाँचने के लिए {=1} अनुवाद {1|सुझाव|सुझाव} || {=1} {1|sugestão|sugestões} de tradução para conferir
+^(\d+) cohorts? studying$ || {=1} कोहोर्ट पढ़ रहे हैं || {=1} {1|turma estudando|turmas estudando}
+^Translate "(.+)"$ || "{1}" का अनुवाद करें || Traduzir "{1}"
+^Thanks: your (.+) translation is now live\.$ || धन्यवाद: आपका {=1} अनुवाद अब लाइव है। || Obrigado: sua tradução ({=1}) já está no ar.
+^New translation suggestion for (.+)\. Open Admin, then Languages\.$ || {=1} के लिए नया अनुवाद सुझाव। एडमिन, फिर भाषाएँ खोलें। || Nova sugestão de tradução ({=1}). Abra Admin, depois Idiomas.
+^Saved (\d+) translations? for (.+)$ || {2} के लिए {=1} {1|अनुवाद|अनुवाद} सेव हुए || {=1} {1|tradução salva|traduções salvas} para {2}
+^(.+) added\. Looking for translations on Wikidata$ || {1} जुड़ा। Wikidata पर अनुवाद खोज रहे हैं || {1} adicionado. Buscando traduções no Wikidata
+^(\d+) translations? for (.+) from Wikidata\. Check them in Admin, Languages$ || Wikidata से {2} के {=1} {1|अनुवाद|अनुवाद}। एडमिन, भाषाएँ में जाँचें || {=1} {1|tradução|traduções} de {2} do Wikidata. Confira em Admin, Idiomas
+^(\d+) drafts added to Suggestions\. Check each one$ || {=1} मसौदे सुझावों में जोड़े गए। हर एक जाँचें || {=1} rascunhos adicionados a Sugestões. Confira cada um
+^(.+) saved\. (\d+) profiles? updated$ || {=1} सेव हुआ। {=2} {2|प्रोफ़ाइल|प्रोफ़ाइलें} अपडेट हुईं || {=1} salvo. {=2} {2|perfil atualizado|perfis atualizados}
+^(MA .+) saved$ || {=1} सेव हुआ || {=1} salvo
+^(MA .+) closed\. Current cohorts carry on until they finish$ || {=1} बंद हुआ। मौजूदा कोहोर्ट ख़त्म होने तक जारी रहेंगे || {=1} fechado. As turmas atuais continuam até terminar
+^(MA .+) reopened$ || {=1} फिर से खुला || {=1} reaberto
+^(.+) added\. Check its details below$ || {=1} जुड़ा। नीचे इसका विवरण जाँचें || {=1} adicionado. Confira os detalhes abaixo

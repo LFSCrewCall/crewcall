@@ -1,0 +1,5 @@
+# The "Wrong word?" page button. Drafts: please have speakers check.
+Wrong word? || ग़लत शब्द? || Palavra errada?
+Tap the words that look wrong. || जो शब्द ग़लत लगें उन पर टैप करें। || Toque nas palavras que parecem erradas.
+Describe it instead || इसके बजाय बताएँ || Descrever em vez disso
+Page || पेज || Página

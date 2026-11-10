@@ -1,0 +1,74 @@
+# About page, open source credits, grouped Admin, key dates and cohort dates
+About Crew Call || О Crew Call || حول Crew Call
+A shared calendar and crew board for London Film School students, run by students. || Общий календарь и доска поиска съёмочной группы для студентов London Film School. Ведут сами студенты. || تقويم مشترك ولوحة لتكوين الطواقم لطلاب London Film School، يديرها الطلاب أنفسهم.
+What Crew Call is || Что такое Crew Call || ما هو Crew Call
+LFS students make films all the time and need crew for them. Crew Call puts every shoot in one place, so you can see what's happening, mark the days you're free, and find the right person for each role. || Студенты LFS постоянно снимают, и им нужна группа. Crew Call собирает все съёмки в одном месте: видно, что происходит, можно отметить свободные дни и найти нужного человека на каждую позицию. || يصنع طلاب LFS الأفلام باستمرار ويحتاجون إلى طواقم لها. يجمع Crew Call كل أيام التصوير في مكان واحد، فترى ما يجري وتحدد الأيام التي تكون فيها متاحًا وتجد الشخص المناسب لكل دور.
+It's free, has no adverts and doesn't track you. It isn't run by the London Film School. || Это бесплатно, без рекламы и без слежки. Сервис не принадлежит London Film School. || الخدمة مجانية وبلا إعلانات ولا تتتبعك. ولا تديرها London Film School.
+Every shoot on one calendar, and who's free on each day. || Все съёмки в одном календаре и кто свободен в какой день. || كل أيام التصوير في تقويم واحد، ومن المتاح في كل يوم.
+Scripts looking for a director, producer or writer. || Сценарии, которым нужен режиссёр, продюсер или сценарист. || سيناريوهات تبحث عن مخرج أو منتج أو كاتب.
+Projects crewing up, as cards, a table, a timeline or a map. || Проекты, которые собирают группу: карточки, таблица, таймлайн или карта. || مشاريع تكوّن طواقمها، كبطاقات أو جدول أو خط زمني أو خريطة.
+Finished films looking for help with festivals, posters and screenings. || Готовые фильмы, которым нужна помощь с фестивалями, постерами и показами. || أفلام منتهية تحتاج مساعدة في المهرجانات والملصقات والعروض.
+Paid jobs and opportunities, checked by admins. || Оплачиваемая работа и возможности, проверенные администраторами. || وظائف وفرص مدفوعة يراجعها المشرفون.
+Find people by role, kit and the days they're free. || Ищите людей по позиции, технике и свободным дням. || ابحث عن الأشخاص حسب الدور والمعدات والأيام المتاحة.
+What you're running, what you've asked to join, and your call times. || Ваши проекты, заявки на участие и время сбора. || ما تديره، وما طلبت الانضمام إليه، ومواعيد حضورك.
+Who runs it || Кто это ведёт || من يديره
+Students run Crew Call for each other. || Студенты ведут Crew Call друг для друга. || يدير الطلاب Crew Call لبعضهم بعضًا.
+Before the owner graduates, they hand it to a rep from a younger cohort, so it carries on. || Перед выпуском владелец передаёт сервис старосте более младшего потока, чтобы всё продолжало работать. || قبل أن يتخرج المالك، يسلّمه لممثل دفعة أحدث حتى يستمر.
+Everything is run from the Admin page, so nobody needs to know code. || Всё настраивается на странице администрирования, программировать не нужно. || تُدار كل الأمور من صفحة الإدارة، فلا يحتاج أحد إلى معرفة البرمجة.
+School calendar || Учебный календарь || تقويم المدرسة
+Terms, enrolment days and when each cohort finishes follow the LFS key dates, and show on the calendar. || Семестры, дни зачисления и окончание каждого потока берутся из ключевых дат LFS и видны в календаре. || تتبع الفصول وأيام التسجيل وموعد انتهاء كل دفعة التواريخ الرئيسية لـ LFS، وتظهر في التقويم.
+Courses || Программы || البرامج
+New cohort every term || Новый поток каждый семестр || دفعة جديدة كل فصل
+One year, starts in September || Один год, начало в сентябре || سنة واحدة، تبدأ في سبتمبر
+Term 1 at the University of Exeter, Terms 2 and 3 at LFS || Первый семестр в Эксетерском университете, второй и третий в LFS || الفصل الأول في جامعة إكستر، والفصلان الثاني والثالث في LFS
+Languages || Языки || اللغات
+Crew Call works in English, Traditional and Simplified Chinese, French, Spanish, Russian, Arabic, Hindi and Portuguese. Film words follow what crews say on set. If something reads oddly, report it and a native speaker can fix it. || Crew Call работает на английском, традиционном и упрощённом китайском, французском, испанском, русском, арабском, хинди и португальском. Киношные термины такие, как говорят на площадке. Если что-то звучит странно, сообщите, и носитель языка поправит. || يعمل Crew Call بالإنجليزية والصينية التقليدية والمبسطة والفرنسية والإسبانية والروسية والعربية والهندية والبرتغالية. تتبع مصطلحات الأفلام ما تقوله الطواقم في موقع التصوير. إذا بدت عبارة غريبة، أبلغ عنها ليصححها متحدث أصلي.
+Built with open source || Сделано на открытом ПО || مبني بالمصادر المفتوحة
+Wherever we can, Crew Call uses open source software and open data, so it stays free and nobody is locked in. || Где возможно, Crew Call использует открытое ПО и открытые данные, чтобы оставаться бесплатным и ни от кого не зависеть. || يستخدم Crew Call البرمجيات مفتوحة المصدر والبيانات المفتوحة كلما أمكن، ليبقى مجانيًا ولا يرتبط بأي جهة.
+Project || Проект || المشروع
+What it does here || Для чего здесь || دوره هنا
+Licence || Лицензия || الترخيص
+Draws the Shoot map || Рисует карту съёмок || يرسم خريطة التصوير
+Map tiles and place data, made by volunteers || Картографическая подложка и данные о местах, созданные волонтёрами || خرائط وبيانات أماكن من إعداد متطوعين
+Finds locations when you type an address || Находит места по введённому адресу || يجد المواقع عند كتابة عنوان
+Dates, months and plurals in every language, built into your browser || Даты, месяцы и формы множественного числа для каждого языка, встроенные в браузер || التواريخ والأشهر وصيغ الجمع لكل لغة، مدمجة في متصفحك
+Turns Traditional Chinese into Simplified Chinese || Переводит традиционный китайский в упрощённый || يحوّل الصينية التقليدية إلى المبسطة
+Used to cross-check crew role names in other languages || Для сверки названий позиций группы на других языках || يُستخدم للتحقق من أسماء أدوار الطاقم في اللغات الأخرى
+Typeface || Шрифт || خط
+Typeface for times and dates || Шрифт для времени и дат || خط الأوقات والتواريخ
+Database and sign-in for the live version || База данных и вход для рабочей версии || قاعدة البيانات وتسجيل الدخول للنسخة الفعلية
+The open standard behind calendar sync || Открытый стандарт синхронизации календарей || المعيار المفتوح وراء مزامنة التقويم
+Not open source || Не открытое ПО || ليست مفتوحة المصدر
+The code is kept on GitHub and the site is hosted on Vercel or GitHub Pages. Emails are sent with Brevo, and LFS Microsoft accounts are used to sign in. These aren't open source, but we only use their free plans, and Crew Call can move away from any of them. || Код хранится на GitHub, сайт размещён на Vercel или GitHub Pages. Письма отправляются через Brevo, а вход идёт через учётные записи Microsoft LFS. Это не открытое ПО, но мы пользуемся только бесплатными тарифами, и Crew Call может отказаться от любого из них. || يُحفظ الكود على GitHub ويُستضاف الموقع على Vercel أو GitHub Pages. تُرسل الرسائل عبر Brevo، ويُسجَّل الدخول بحسابات Microsoft التابعة لـ LFS. هذه الخدمات ليست مفتوحة المصدر، لكننا نستخدم خططها المجانية فقط، ويمكن لـ Crew Call الاستغناء عن أي منها.
+Overview || Обзор || نظرة عامة
+Content || Контент || المحتوى
+Settings and data || Настройки и данные || الإعدادات والبيانات
+Section || Раздел || القسم
+Admin section || Раздел администрирования || قسم الإدارة
+To do || Задачи || المهام
+Read them || Прочитать || اقرأها
+Choose reps || Выбрать старост || اختر الممثلين
+Check || Проверить || راجع
+Nothing needs doing right now. || Сейчас ничего делать не нужно. || لا شيء يحتاج إلى إجراء الآن.
+Coming up || Скоро || قريبًا
+At a glance || Коротко || لمحة سريعة
+Admins || Администраторы || المشرفون
+Live projects || Активные проекты || المشاريع الجارية
+Cohorts with a rep || Потоки со старостой || دفعات لها ممثل
+Invites waiting || Ожидающие приглашения || دعوات بانتظار القبول
+Nothing in the next few months. Add next year's term dates. || В ближайшие месяцы ничего нет. Добавьте даты семестров на следующий год. || لا شيء في الأشهر القادمة. أضف تواريخ فصول العام المقبل.
+Holidays || Каникулы || العطلة
+Enrolment and induction || Зачисление и вводные дни || التسجيل والتعريف
+Enrolment and induction (new students only) || Зачисление и вводные дни (только для новых студентов) || التسجيل والتعريف (للطلاب الجدد فقط)
+New student enrolment || Зачисление новых студентов || تسجيل الطلاب الجدد
+Cohort dates || Даты потоков || تواريخ الدفعات
+When each cohort started and finishes. People stay on their course until it finishes, then become Alumni. LFS sets MA Filmmaking end dates for each intake, so enter the real date when you have it. MA Screenwriting, MA Film Producing and MA Film Marketing starting in September 2026 finish on 24 Sep 2027. || Когда каждый поток начал и закончит учёбу. Студенты остаются на своей программе до её окончания, а потом становятся выпускниками. Дату окончания MA Filmmaking LFS назначает для каждого набора отдельно, поэтому впишите настоящую дату, когда она будет известна. MA Screenwriting, MA Film Producing и MA Film Marketing с началом в сентябре 2026 года заканчиваются 24 сентября 2027 года. || متى بدأت كل دفعة ومتى تنتهي. يبقى كل شخص على برنامجه حتى ينتهي، ثم يصبح من الخريجين. تحدد LFS تاريخ انتهاء MA Filmmaking لكل دفعة، لذا أدخل التاريخ الفعلي عندما تعرفه. تنتهي برامج MA Screenwriting وMA Film Producing وMA Film Marketing التي تبدأ في سبتمبر 2026 في 24 سبتمبر 2027.
+Started || Начало || البداية
+Finishes || Окончание || النهاية
+Date from LFS || Дата от LFS || تاريخ من LFS
+Not known yet || Пока неизвестно || غير معروف بعد
+School dates || Даты школы || تواريخ المدرسة
+International Film Business || Международный кинобизнес || صناعة السينما الدولية
+MA International Film Business || MA International Film Business || ماجستير صناعة السينما الدولية
+
+Nobody has marked this day free. || Никто не отметил этот день как свободный. || لم يحدد أحد هذا اليوم كيوم متاح.
