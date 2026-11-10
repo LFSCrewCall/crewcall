@@ -17,6 +17,7 @@
   // ---------- state (in memory for the prototype) ----------
   const S = JSON.parse(JSON.stringify(window.CC_SEED));
   S.meId = null;
+  S.funds = S.funds || [];
   const persist = () => {};
 
   // ---------- date helpers ----------
@@ -163,6 +164,18 @@
   const openRoles = p => p.roles.filter(r => !r.filledBy);
   const isExt = r => typeof r.filledBy === "string" && r.filledBy.startsWith("ext:");
   const extName = r => r.filledBy.slice(4);
+  // ---------- CLAIMS: people added by name before they joined ----------
+  const normName = x => String(x || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+  const nameHit = (a, b) => { const x = normName(a), y = normName(b); if (!x || !y) return false; if (x === y) return true; const xa = x.split(" "), ya = y.split(" "); return xa.length > 1 && ya.length > 1 && xa[0] === ya[0] && xa[xa.length - 1] === ya[ya.length - 1]; };
+  // every place on a project where someone was typed in by name: roles, a director or producer with no account or email
+  function namedSpots(p) {
+    const out = p.roles.filter(isExt).map(r => ({ p, ref: r.rid, role: r.role, name: extName(r) }));
+    if (!p.dsid && p.director && !p.email && !p.roles.some(r => r.role === "Director" && r.filledBy && !isExt(r))) out.push({ p, ref: "director", role: "Director", name: p.director });
+    prodsOf(p).forEach((x, i) => { if (!x.sid && !x.email) out.push({ p, ref: "producer:" + i, role: "Producer", name: x.name }); });
+    return out;
+  }
+  const claimOf = (p, ref, sid) => S.requests.find(q => q.type === "claim" && q.pid === p.id && q.rid === ref && q.sid === sid && q.status !== "withdrawn");
+  const claimsFor = m => !m ? [] : S.projects.flatMap(namedSpots).filter(x => nameHit(x.name, m.name) && !(m.notMe || []).includes(x.p.id + "|" + x.ref) && !claimOf(x.p, x.ref, m.id) && !onProject(x.p, m.id) && !runs(x.p, m));
   const roleBy = (p, rid) => p.roles.find(r => r.rid === rid);
   const locs = p => p.locations || [];
   const locShort = p => { const l = locs(p); return l.length ? l[0].name + (l.length > 1 ? ` + ${l.length - 1} more` : "") : "Location TBC"; };
@@ -395,6 +408,12 @@
       $("#tbYes").onclick = () => { m.termConfirmed = true; drawHeader(); if (view === "me") loadMe(); toast(`Confirmed: ${m.term}, ${m.cohort}`); };
       $("#tbFix").onclick = () => { setView("me"); setTimeout(() => meForm.cohort.focus(), 50); };
     }
+    const cb = $("#claimBanner"), cl = claimsFor(m);
+    cb.hidden = !cl.length;
+    if (cl.length) {
+      cb.innerHTML = `<p><b>Is this you?</b> <span>${cl.length === 1 ? `Someone added “${esc(cl[0].name)}” as ${esc(cl[0].role)} on ${esc(cl[0].p.title)}.` : `Your name was added by hand to ${cl.length} projects.`}</span> <span>Confirm it's you, and once they approve it's on your profile.</span></p><span class="tb-acts"><button class="btn btn-accent btn-sm" id="cbOpen">Check</button></span>`;
+      $("#cbOpen").onclick = openClaims;
+    }
     const waiting = m ? S.requests.filter(q => q.status === "pending" && project(q.pid) && runs(project(q.pid), m)).length : 0;
     $('[data-view="mine"]').innerHTML = `My shoots${waiting ? ` <span class="tab-n">${waiting}</span>` : ""}`;
   }
@@ -403,7 +422,7 @@
     const m = me(); if (!m) return openSignIn();
     acctMenu.innerHTML = `<p class="am-who"><b>${esc(m.name)}</b><span>${esc(m.email)}</span>${isOwner(m) ? `<span class="tag-admin">Owner</span>` : isAdmin(m) ? `<span class="tag-admin">Admin</span>` : ""}${m.guest ? `<span class="tag-guest">Guest</span>` : ""}</p>
       <button data-go="me">My profile</button><button data-go="mine">My shoots</button>${isAdmin(m) ? `<button data-go="admin">Admin</button>` : ""}
-      <button data-go="scripts">Develop</button><button data-go="post">Post</button><button data-go="release">Release</button><button data-go="paid">Paid</button><button data-install>Add to home screen</button><button data-privacy>Privacy notice</button><button data-go="about">About Crew Call</button>
+      <button data-go="scripts">Develop</button><button data-go="post">Post</button><button data-go="release">Release</button><button data-go="paid">Paid</button><button data-go="fund">Funding</button><button data-install>Add to home screen</button><button data-privacy>Privacy notice</button><button data-go="about">About Crew Call</button>
       ${LIVE ? "" : `<button data-switch>Switch sample person</button>`}<button data-signout>Sign out</button>`;
     acctMenu.hidden = !acctMenu.hidden; acctBtn.setAttribute("aria-expanded", String(!acctMenu.hidden));
   });
@@ -511,13 +530,20 @@
 
   // ---------- views ----------
   let view = "calendar", gatedView = null;
-  const GATED = { crew: ["Sign in to find crew", "Crew profiles, availability and contact details are only visible to signed-in LFS members and invited guests."], mine: ["Sign in to see your shoots", "Projects you run, requests you've sent and shoots you're locked on all live here."], me: ["Sign in to set up your profile", "Add your roles, kit and free days so producers can find you."], scripts: ["Sign in to see Develop", "Scripts and producer pitches are only visible to signed-in LFS members, to protect writers' and producers' ideas."], post: ["Sign in to see Post", "Wrapped shoots looking for editors, colourists, sound designers, composers and VFX. Only visible to signed-in members, to protect unfinished films."], release: ["Sign in to see Release", "Wrapped films looking for posters, trailers, press kits and festival plans. Only visible to signed-in members, to protect unreleased films."], paid: ["Sign in to see paid work", "Paid jobs from students, alumni and industry contacts. Only visible to signed-in members."], admin: ["Admins only", "Sign in with an admin account to manage Crew Call."] };
+  const GATED = { crew: ["Sign in to find crew", "Crew profiles, availability and contact details are only visible to signed-in LFS members and invited guests."], mine: ["Sign in to see your shoots", "Projects you run, requests you've sent and shoots you're locked on all live here."], me: ["Sign in to set up your profile", "Add your roles, kit and free days so producers can find you."], scripts: ["Sign in to see Develop", "Scripts and producer pitches are only visible to signed-in LFS members, to protect writers' and producers' ideas."], post: ["Sign in to see Post", "Wrapped shoots looking for editors, colourists, sound designers, composers and VFX. Only visible to signed-in members, to protect unfinished films."], release: ["Sign in to see Release", "Wrapped films looking for posters, trailers, press kits and festival plans. Only visible to signed-in members, to protect unreleased films."], fund: ["Sign in to see Funding", "Crowdfunding campaigns for LFS films, with their goals and deadlines. Only visible to signed-in members."], paid: ["Sign in to see paid work", "Paid jobs from students, alumni and industry contacts. Only visible to signed-in members."], admin: ["Admins only", "Sign in with an admin account to manage Crew Call."] };
+  // Develop, Shoot, Post and Release sit together under Projects
+  const STAGES = ["scripts", "projects", "post", "release"];
+  let lastStage = "projects";
   const setView = v => {
+    if (v === "stages") v = lastStage;
     if (v === "admin" && me() && !isAdmin()) v = "calendar";
+    if (STAGES.includes(v)) lastStage = v;
     let show = v;
     if (GATED[v] && !me()) { gatedView = v; show = "gate"; } else gatedView = null;
     view = v;
-    $$(".tabs [role=tab]").forEach(b => b.setAttribute("aria-selected", String(b.dataset.view === v)));
+    $$(".tabs [role=tab]").forEach(b => b.setAttribute("aria-selected", String(b.dataset.view === "stages" ? STAGES.includes(v) : b.dataset.view === v)));
+    $("#stageTabs").hidden = !STAGES.includes(v);
+    $$("#stageTabs [data-stage]").forEach(b => { const on = b.dataset.stage === v; b.classList.toggle("on", on); if (on) b.setAttribute("aria-current", "page"); else b.removeAttribute("aria-current"); });
     $$(".view").forEach(s => (s.hidden = s.id !== `view-${show}`));
     if (show === "gate") {
       const [t, d] = GATED[v];
@@ -527,6 +553,7 @@
     window.scrollTo({ top: 0 });
   };
   $$(".tabs [role=tab]").forEach(b => b.addEventListener("click", () => setView(b.dataset.view)));
+  $$("#stageTabs [data-stage]").forEach(b => b.addEventListener("click", () => setView(b.dataset.stage)));
 
   // ---------- CALENDAR ----------
   let calMonth = TODAY.slice(0, 7) + "-01", selDay = TODAY, calMode = "month", editMine = false;
@@ -744,12 +771,14 @@
     const uniq = [...new Set(open.map(r => r.role))], mine = me() && runs(p);
     const waiting = mine ? S.requests.filter(q => q.pid === p.id && q.status === "pending").length : 0;
     const past = isPast(p);
-    return `<article class="card proj-card${past ? " is-dim" : ""}" style="--c:${projColor(p)}">
+    const fu = me() && fundOf(p);
+    return `<article class="card proj-card${past ? " is-dim" : ""}${p.cover ? " has-cover" : ""}" style="--c:${projColor(p)}">
+      ${coverImg(p.cover, "card-cover")}
       <div class="proj-top"><span class="type-tag">${esc(p.type)}</span><span class="term-tag">${esc(p.term)}</span>${past ? `<span class="tag-arch">Wrapped</span>` : ""}${mine ? `<span class="tag-run">You run this</span>` : ""}</div>
       <h3 class="card-t"><button class="link-btn" data-proj="${p.id}">${esc(p.title)}</button></h3>
       <p class="card-sub">${esc(p.director)} · ${esc(locShort(p))}</p>
       <p class="logline">${esc(p.logline)}</p>
-      <p class="dates mono">${p.shoots.map(fmtRange).join(" + ")}${past ? "" : ` · call ${dayInfo(p, projDays(p)[0]).call}`}</p>${p.delivery ? `<p class="small muted">Delivery ${fmtDay(p.delivery)}</p>` : ""}
+      <p class="dates mono">${p.shoots.map(fmtRange).join(" + ")}${past ? "" : ` · call ${dayInfo(p, projDays(p)[0]).call}`}</p>${p.delivery ? `<p class="small muted">Delivery ${fmtDay(p.delivery)}</p>` : ""}${fu ? `<p class="fund-mini"><button class="link-btn" data-fund="${fu.id}">Crowdfunding</button> <span>${fundPct(fu)}% · ${fundLeft(fu)}</span></p>` : ""}
       <div class="crew-bar" aria-label="${filled} of ${p.roles.length} roles filled"><span style="width:${pct}%"></span></div>
       <p class="small muted">${filled}/${p.roles.length} crewed${waiting ? ` · <span class="warn-t">${waiting} request${waiting > 1 ? "s" : ""} waiting</span>` : ""}</p>
       ${uniq.length ? `<div class="chips">${uniq.map(r => `<span class="chip chip-open">${esc(r)}${open.filter(x => x.role === r).length > 1 ? ` ×${open.filter(x => x.role === r).length}` : ""}</span>`).join("")}</div>` : `<p class="small ok">Fully crewed</p>`}
@@ -774,6 +803,7 @@
     </section>`;
   }
 
+  const projTab = {};
   function openProject(id) {
     const p = project(id); if (!p) return;
     const m = me(), mg = canManage(p), days = projDays(p), c = contactOf(p);
@@ -786,13 +816,14 @@
 
     const lockedRows = locked.map(r => {
       const bh = m ? briefHtml(r) : "";
-      if (isExt(r)) return `<li class="lock-row"><span class="role-name">${esc(r.role)}${hodTag(r)}</span><span class="lock-name">${esc(extName(r))} <span class="tag-ext">Not on Crew Call</span></span><span class="lock-mail"></span><span class="lock-acts">${mg && !past ? `<button class="btn btn-quiet btn-xs" data-unfill="${r.rid}" aria-label="Reopen ${esc(r.role)}">Reopen</button>` : ""}</span>${bh}</li>`;
+      if (isExt(r)) { const cq = m && claimOf(p, r.rid, m.id); return `<li class="lock-row"><span class="role-name">${esc(r.role)}${hodTag(r)}</span><span class="lock-name">${esc(extName(r))} <span class="tag-ext">Not on Crew Call</span></span><span class="lock-mail"></span><span class="lock-acts">${mg && !past ? `<button class="btn btn-quiet btn-xs" data-unfill="${r.rid}" aria-label="Reopen ${esc(r.role)}">Reopen</button>` : cq ? (cq.status === "pending" ? `<span class="st st-pending">Sent · waiting</span>` : cq.status === "declined" ? `<span class="st st-no">Not confirmed</span>` : "") : m && !mg && !onProject(p, m.id) ? `<button class="btn btn-quiet btn-xs" data-claimref="${r.rid}">That's me</button>` : ""}</span>${bh}</li>`; }
       const s = student(r.filledBy) || { id: "", name: "Former member", email: "" };
       const sh = myReqFor(p, r.rid, "shadow");
       const canShadow = m && !mg && s.id !== m.id && !past && !onProject(p, m.id);
       const mine = m && s.id === m.id && !past;
-      return `<li class="lock-row${mine ? " is-me" : ""}"><span class="role-name">${esc(r.role)}${hodTag(r)}</span><button class="link-btn lock-name" data-student="${s.id}">${esc(s.name)}${mine ? " (you)" : ""}</button>
-        <span class="lock-mail">${mg && s.email ? `<a href="mailto:${esc(s.email)}" target="_blank" rel="noopener">${esc(s.email)}</a>` : ""}</span>
+      const ncr = s.id ? creditsOf(s).length : 0;
+      return `<li class="lock-row${mine ? " is-me" : ""}"><span class="role-name">${esc(r.role)}${hodTag(r)}</span><span class="lock-who"><button class="link-btn lock-name" data-student="${s.id}">${esc(s.name)}${mine ? " (you)" : ""}</button>${ncr ? `<span class="lock-cr">${ncr === 1 ? "1 credit" : `${ncr} credits`}</span>` : ""}</span>
+        <span class="lock-mail">${mg && s.email ? `<a href="mailto:${esc(s.email)}" target="_blank" rel="noopener">${esc(s.email)}</a>` : m && s.id && s.id !== m.id ? (emailVisible(s, p) ? `<a class="btn btn-quiet btn-xs" href="${mailto(s.email, `About ${p.title}`, `Hi ${first(s.name)},\n\n`)}" target="_blank" rel="noopener">Email</a>` : `<button class="btn btn-quiet btn-xs" data-msg="${s.id}">Message</button>`) : ""}</span>
         <span class="lock-acts">${mine ? `<button class="btn btn-quiet btn-xs" data-stepdown="${r.rid}">Step down</button>` : mg && !past ? `<button class="btn btn-quiet btn-xs" data-unfill="${r.rid}" aria-label="Reopen ${esc(r.role)}">Reopen</button>` : sh ? statusChip(sh) : canShadow ? `<button class="btn btn-quiet btn-xs" data-shadow="${r.rid}">Ask to shadow</button>` : ""}</span>${bh}</li>`;
     }).join("") + p.shadows.map((x, i) => { const s = student(x.sid); return s ? `<li class="lock-row shadow-row"><span class="role-name">Shadow · ${esc(x.role)}</span><button class="link-btn lock-name" data-student="${s.id}">${esc(s.name)}</button><span class="lock-mail"></span><span class="lock-acts">${m && s.id === m.id && !past ? `<button class="btn btn-quiet btn-xs" data-stepdown-sh="${i}">Step down</button>` : mg && !past ? `<button class="btn btn-quiet btn-xs" data-unshadow="${i}">Remove</button>` : ""}</span></li>` : ""; }).join("");
 
@@ -819,6 +850,10 @@
 
     const reqRows = pending.map(q => {
       const s = student(q.sid); if (!s) return "";
+      if (q.type === "claim") return `<li class="rq"><span class="avatar">${initials(s.name)}</span>
+        <span class="rq-body"><span class="rq-top"><button class="link-btn" data-student="${s.id}">${esc(s.name)}</button> <span class="rq-type claim">Is this them? · ${esc(q.role)}</span></span>
+          <span class="rq-meta">Listed as “${esc(q.asName || "")}” · ${ago(q.at)}</span><span class="rq-msg">They've joined Crew Call and say they're the person you added by name. Approve it and it counts as their credit.</span></span>
+        <span class="rq-acts"><button class="btn btn-accent btn-xs" data-accept="${q.id}">Approve</button><button class="btn btn-quiet btn-xs" data-decline="${q.id}">Not them</button></span></li>`;
       const n = freeDaysCount(s, futureDays), clash = q.type === "crew" && days.some(d => bookedOn(s.id, d).length);
       return `<li class="rq"><span class="avatar">${initials(s.name)}</span>
         <span class="rq-body"><span class="rq-top"><button class="link-btn" data-student="${s.id}">${esc(s.name)}</button> <span class="rq-type ${q.type}">${q.type === "shadow" ? "Shadow" : "Crew"} · ${esc(q.role)}</span>${s.guest ? ` <span class="tag-guest">Guest</span>` : ""}</span>
@@ -827,28 +862,45 @@
         <span class="rq-acts"><button class="btn btn-accent btn-xs" data-accept="${q.id}" ${clash ? "disabled" : ""}>Accept</button><button class="btn btn-quiet btn-xs" data-decline="${q.id}">Decline</button></span></li>`;
     }).join("");
 
-    const L = locs(p);
+    const L = locs(p), fu = fundOf(p);
+    const named = namedSpots(p).filter(x => x.ref === "director" || x.ref.startsWith("producer:"));
+    const namedRows = named.map(x => { const cq = m && claimOf(p, x.ref, m.id); return `<li class="lock-row"><span class="role-name">${esc(x.role)}</span><span class="lock-name">${esc(x.name)} <span class="tag-ext">Not on Crew Call</span></span><span class="lock-mail"></span><span class="lock-acts">${cq ? (cq.status === "pending" ? `<span class="st st-pending">Sent · waiting</span>` : "") : m && !mg ? `<button class="btn btn-quiet btn-xs" data-claimref="${esc(x.ref)}">That's me</button>` : ""}</span></li>`; }).join("");
+    const crewN = locked.length + p.shadows.length;
+    const tabs = [["roles", "Open roles", past ? null : open.length], ["sched", "Schedule", days.length], ["crew", "Crew", crewN], ["contact", "Contact", null]].concat(mg ? [["reqs", "Requests", pending.length]] : []);
+    let tab = projTab[p.id] || (mg && pending.length ? "reqs" : open.length && !past ? "roles" : "crew");
+    if (!tabs.some(t => t[0] === tab)) tab = "crew";
+    const panel = (id, html) => `<div class="ptab-panel" id="ptp-${id}" role="tabpanel" aria-labelledby="ptb-${id}" ${tab === id ? "" : "hidden"}>${html}</div>`;
     openModal(`
+      ${coverImg(p.cover, "m-cover")}
       <div class="m-head" style="--c:${projColor(p)}">
         <div class="proj-top"><span class="type-tag">${esc(p.type)}</span><span class="term-tag">${esc(p.term)}</span>${p.archived ? `<span class="tag-arch">Archived</span>` : ""}${past ? `<span class="tag-arch">Wrapped</span>` : ""}</div>
         <h2 id="modalTitle" class="m-title">${esc(p.title)}</h2>
         <p class="card-sub">Directed by ${esc(p.dsid && student(p.dsid) ? student(p.dsid).name : p.director)}${producerNames(p).length ? ` · Produced by ${esc(andList(producerNames(p)))}` : ""}</p>
       </div>
-      ${mg ? `<div class="mg-bar"><span class="mg-tag">${runs(p) ? "You run this project" : "Admin access"}</span><span class="mg-acts">${!past && started(p) && !p.archived ? `<button class="btn btn-accent btn-xs" data-wrap>Wrap shoot</button>` : ""}${past && !p.archived ? (postOf(p) ? `<button class="btn btn-ghost btn-xs" data-inpost>Open in Post</button>` : `<button class="btn btn-accent btn-xs" data-topost>Move to Post</button>`) : ""}${p.wrapped ? `<button class="btn btn-quiet btn-xs" data-unwrap>Undo wrap</button>` : ""}<button class="btn btn-ghost btn-xs" data-edit>Edit</button><button class="btn btn-ghost btn-xs" data-handover>Hand over</button><button class="btn btn-ghost btn-xs" data-archive>${p.archived ? "Restore" : "Archive"}</button><button class="btn btn-danger btn-xs" data-delete>Delete</button></span></div>` : ""}
+      ${mg ? `<div class="mg-bar"><span class="mg-tag">${runs(p) ? "You run this project" : "Admin access"}</span><span class="mg-acts">${!past && started(p) && !p.archived ? `<button class="btn btn-accent btn-xs" data-wrap>Wrap shoot</button>` : ""}${past && !p.archived ? (postOf(p) ? `<button class="btn btn-ghost btn-xs" data-inpost>Open in Post</button>` : `<button class="btn btn-accent btn-xs" data-topost>Move to Post</button>`) : ""}${p.wrapped ? `<button class="btn btn-quiet btn-xs" data-unwrap>Undo wrap</button>` : ""}<button class="btn btn-ghost btn-xs" data-edit>Edit</button>${!fu && !p.archived ? `<button class="btn btn-ghost btn-xs" data-addfund>Add crowdfunding</button>` : ""}<button class="btn btn-ghost btn-xs" data-handover>Hand over</button><button class="btn btn-ghost btn-xs" data-archive>${p.archived ? "Restore" : "Archive"}</button><button class="btn btn-danger btn-xs" data-delete>Delete</button></span></div>` : ""}
       <p class="logline">${esc(p.logline)}</p>
+      ${fu && m ? `<div class="fund-box${fundEnded(fu) ? " is-dim" : ""}"><div class="fb-top"><span class="fb-l">Crowdfunding on ${esc(fu.platform)}</span><span class="fb-left">${fundLeft(fu)}</span></div>${fundBar(fu)}${fundNums(fu)}<div class="fb-acts">${!fundEnded(fu) && fu.url ? `<a class="btn btn-accent btn-xs" href="${esc(fu.url)}" target="_blank" rel="noopener">Back it</a>` : ""}<button class="btn btn-ghost btn-xs" data-fund="${fu.id}">${canEditFund(fu) ? "Update total" : "Details"}</button></div></div>` : ""}
 
-      <section class="sched" aria-labelledby="schedH">
+      <div class="ptabs" role="tablist" aria-label="Project">${tabs.map(([id, l, n]) => `<button type="button" role="tab" class="ptab${tab === id ? " on" : ""}" id="ptb-${id}" aria-controls="ptp-${id}" aria-selected="${tab === id}" data-ptab="${id}">${l}${n != null ? ` <span class="count${id === "reqs" && n ? " count-hot" : ""}">${n}</span>` : ""}</button>`).join("")}</div>
+
+      ${panel("roles", `${past ? `<p class="empty-sm">This shoot has wrapped, so its roles are closed.</p>` : open.length ? `<ul class="role-list">${openRows}</ul>` : `<p class="empty-sm ok">Fully crewed.</p>`}
+        ${!m ? `<p class="proto-note">Sign in to request a role, see contact details and who's free.</p>` : ""}`)}
+
+      ${panel("sched", `<section class="sched" aria-labelledby="schedH">
         <div class="sec-row"><h3 class="dp-sub" id="schedH">Schedule <span class="count">${days.length} day${days.length > 1 ? "s" : ""}</span></h3><button class="btn btn-quiet btn-xs" data-ics>Add to calendar</button></div>
         <ol class="sched-list">${days.map((d, i) => { const inf = dayInfo(p, d); return `<li><span class="sc-day">Day ${i + 1}</span><span class="sc-date">${fmtDay(d)}</span><span class="sc-time mono"><span>Call ${inf.call}</span><span>Wrap ${inf.wrap}${inf.wrap <= inf.call ? " +1" : ""}</span></span><span class="sc-loc">${esc(locName(p, inf.loc))}</span></li>`; }).join("")}</ol>
       </section>
-
       <dl class="meta-list">
         <div><dt>Location${L.length > 1 ? `s (${L.length})` : ""}</dt><dd>${L.length ? `<ul class="loc-list">${L.map(l => `<li><span class="loc-pin" aria-hidden="true"></span><span><span class="loc-name">${esc(l.name)}</span>${l.detail ? `<span class="loc-detail">${esc(l.detail)}</span>` : ""}</span>${mapLinks(l)}</li>`).join("")}</ul>` : `<span class="muted">To be confirmed</span>`}</dd></div>
         ${p.kitNeeded ? `<div><dt>Kit wanted</dt><dd>${esc(p.kitNeeded)}</dd></div>` : ""}
         ${p.delivery ? `<div><dt>Delivery date</dt><dd>${fmtFull(p.delivery)}</dd></div>` : ""}
-      </dl>
+      </dl>`)}
 
-      <section class="contact-box" aria-labelledby="contactH">
+      ${panel("crew", `<p class="muted small">${m ? "Tap a name to see their profile and credits." : "Sign in to see profiles and get in touch."}</p>
+        ${crewN || named.length ? `<ul class="lock-list">${lockedRows}${namedRows}</ul>` : `<p class="empty-sm">No one locked in yet.</p>`}
+        ${mg && locked.length > 1 ? `<a class="btn btn-ghost btn-xs mt" href="mailto:${locked.map(r => (student(r.filledBy) || {}).email).filter(Boolean).join(",")}?subject=${encodeURIComponent(p.title + " crew")}" target="_blank" rel="noopener">Email all locked crew</a>` : ""}`)}
+
+      ${panel("contact", `<section class="contact-box" aria-labelledby="contactH">
         <h3 class="dp-sub" id="contactH">Contact</h3>
         <div class="contact-main">
           <span class="avatar avatar-lg">${initials(c.name)}</span>
@@ -858,19 +910,25 @@
             <p class="contact-mail">${reach(c, p, { subject: `About ${p.title}`, body: `Hi ${first(c.name)},\n\n` })}</p>
           </div>
         </div>
-        <h4 class="lock-h">Locked crew <span class="count">${locked.length + p.shadows.length}</span></h4>
-        ${locked.length ? `<ul class="lock-list">${lockedRows}</ul>` : `<p class="empty-sm">No one locked in yet.</p>`}
-        ${mg && locked.length > 1 ? `<a class="btn btn-ghost btn-xs mt" href="mailto:${locked.map(r => (student(r.filledBy) || {}).email).filter(Boolean).join(",")}?subject=${encodeURIComponent(p.title + " crew")}" target="_blank" rel="noopener">Email all locked crew</a>` : ""}
       </section>
+      ${hubHtml(p, m, mg)}`)}
 
-      ${hubHtml(p, m, mg)}
-
-      ${mg ? `<section class="req-box"><h3 class="dp-sub">Requests waiting <span class="count">${pending.length}</span></h3>${pending.length ? `<ul class="rq-list">${reqRows}</ul>` : `<p class="empty-sm">No requests right now. People who match your open roles are notified when you post or add a role.</p>`}</section>` : ""}
-
-      <h3 class="dp-sub">Open roles <span class="count">${open.length}</span></h3>
-      ${open.length ? `<ul class="role-list">${openRows}</ul>` : `<p class="empty-sm ok">Fully crewed.</p>`}
-      ${!m ? `<p class="proto-note">Sign in to request a role, see contact details and who's free.</p>` : ""}
+      ${mg ? panel("reqs", `<section class="req-box"><h3 class="dp-sub">Requests waiting <span class="count">${pending.length}</span></h3>${pending.length ? `<ul class="rq-list">${reqRows}</ul>` : `<p class="empty-sm">No requests right now. People who match your open roles are notified when you post or add a role.</p>`}</section>`) : ""}
     `);
+    modalBody.querySelectorAll("[data-ptab]").forEach(b => b.addEventListener("click", () => {
+      projTab[p.id] = b.dataset.ptab;
+      modalBody.querySelectorAll("[data-ptab]").forEach(x => { const on = x === b; x.classList.toggle("on", on); x.setAttribute("aria-selected", String(on)); });
+      modalBody.querySelectorAll(".ptab-panel").forEach(x => (x.hidden = x.id !== "ptp-" + b.dataset.ptab));
+    }));
+    modalBody.querySelectorAll(".ptabs").forEach(t => t.addEventListener("keydown", e => {
+      if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
+      const bs = [...t.querySelectorAll("[data-ptab]")], i = bs.indexOf(document.activeElement); if (i < 0) return;
+      const n = bs[(i + (e.key === "ArrowRight" ? 1 : bs.length - 1)) % bs.length]; n.focus(); n.click();
+    }));
+    modalBody.querySelectorAll("[data-student]").forEach(b => (b.onclick = () => b.dataset.student && openStudent(b.dataset.student, p.id)));
+    modalBody.querySelectorAll("[data-claimref]").forEach(b => (b.onclick = () => { const x = namedSpots(p).find(y => y.ref === b.dataset.claimref); if (x) { sendClaim(x); openProject(p.id); } }));
+    modalBody.querySelectorAll("[data-addfund]").forEach(b => (b.onclick = () => openFundForm(null, p)));
+    modalBody.querySelectorAll("[data-fund]").forEach(b => (b.onclick = () => openFund(b.dataset.fund)));
     const q = s => modalBody.querySelectorAll(s);
     q("[data-fill]").forEach(sel => sel.addEventListener("change", () => {
       if (sel.value === "__ext") {
@@ -882,7 +940,7 @@
         cancel.addEventListener("click", () => openProject(p.id));
         const save = () => {
           const nm = inp.value.trim(); if (!nm) { inp.focus(); return; }
-          r.filledBy = "ext:" + nm;
+          r.filledBy = "ext:" + nm; r.extBy = me().id;
           S.requests.filter(x => x.pid === p.id && x.rid === r.rid && x.status === "pending" && x.type === "crew").forEach(x => { x.status = "filled"; notify(x.sid, "update", `The ${r.role} role on ${p.title} has been filled. Thanks for offering.`, p.id); });
           toast(`${nm} listed as ${r.role}`); openProject(p.id); drawHeader(); render();
         };
@@ -900,7 +958,7 @@
     q("[data-shadow]").forEach(b => b.addEventListener("click", () => openRequest(p, b.dataset.shadow, "shadow")));
     q("[data-withdraw]").forEach(b => b.addEventListener("click", () => { S.requests.find(x => x.id === b.dataset.withdraw).status = "withdrawn"; toast("Request withdrawn"); openProject(p.id); render(); }));
     q("[data-accept]").forEach(b => b.addEventListener("click", () => acceptReq(b.dataset.accept)));
-    q("[data-decline]").forEach(b => b.addEventListener("click", () => { const x = S.requests.find(y => y.id === b.dataset.decline); x.status = "declined"; notify(x.sid, "update", `${p.title} has gone with someone else for ${x.role}. Thanks for offering.`, p.id); toast("Declined. They've been told politely."); openProject(p.id); drawHeader(); render(); }));
+    q("[data-decline]").forEach(b => b.addEventListener("click", () => { const x = S.requests.find(y => y.id === b.dataset.decline); x.status = "declined"; notify(x.sid, "update", x.type === "claim" ? `${p.title}'s team say the ${x.role} they listed isn't you. If they're wrong, message them.` : `${p.title} has gone with someone else for ${x.role}. Thanks for offering.`, p.id); toast("Declined. They've been told politely."); openProject(p.id); drawHeader(); render(); }));
     q("[data-ics]").forEach(b => b.addEventListener("click", () => { download(`${p.title.replace(/\W+/g, "-").toLowerCase()}.ics`, buildIcs([p], `Crew Call: ${p.title}`)); toast("Downloaded. This adds the shoot as it is now. To get later changes automatically, use Sync calendar."); }));
     q("[data-edit]").forEach(b => b.addEventListener("click", () => openPostForm(p)));
     q("[data-handover]").forEach(b => b.addEventListener("click", () => openHandOver(p)));
@@ -988,8 +1046,41 @@
     notify(sid, "update", `You're locked in as ${r.role} on ${p.title}. Day 1 is ${fmtDay(d0)}, call ${inf.call} at ${locName(p, inf.loc)}.${hubOf(p).whatsapp ? " The WhatsApp group and key links are in the project." : ""}`, p.id);
     toast(`${s.name} locked in as ${r.role}`); openProject(p.id); drawHeader(); render();
   }
+  // someone who was added by name says it's them; whoever added them (or runs the project) approves
+  function sendClaim(x) {
+    const m = me(); if (!m) return;
+    if (claimOf(x.p, x.ref, m.id)) return toast("Already sent");
+    const r = x.ref.startsWith("producer:") || x.ref === "director" ? null : roleBy(x.p, x.ref);
+    S.requests.push({ id: uid("q"), pid: x.p.id, rid: x.ref, role: x.role, sid: m.id, type: "claim", asName: x.name, msg: "", status: "pending", at: TODAY });
+    const to = (r && r.extBy && student(r.extBy) ? [student(r.extBy)] : managersOf(x.p)).filter(s => s.id !== m.id);
+    (to.length ? to : S.students.filter(s => can("projects", s))).forEach(s => notify(s.id, "request", `${m.name} says they're the ${x.role} you listed as “${x.name}” on ${x.p.title}. Approve it in the project so it counts as their credit.`, x.p.id));
+    toast(`Sent. ${x.p.title}'s team will confirm it.`); drawHeader();
+  }
+  function openClaims() {
+    const m = me(), cl = claimsFor(m); if (!m) return;
+    if (!cl.length) { closeModal(); return drawHeader(); }
+    openModal(`<h2 id="modalTitle" class="m-title">Were you added by name?</h2>
+      <p class="muted">These projects list someone with your name who wasn't on Crew Call yet. If it's you, confirm it: whoever added you approves, then it shows on your profile as a credit.</p>
+      <ul class="claim-list">${cl.map((x, i) => `<li><span class="cl-what"><b>${esc(x.role)}</b> on <button class="link-btn" data-proj="${x.p.id}">${esc(x.p.title)}</button><span class="small muted">Added as “${esc(x.name)}” · ${x.p.shoots.map(fmtRange).join(" + ")}</span></span>
+        <span class="cl-acts"><button class="btn btn-accent btn-xs" data-claimi="${i}">That's me</button><button class="btn btn-quiet btn-xs" data-notme="${i}">Not me</button></span></li>`).join("")}</ul>`);
+    modalBody.querySelectorAll("[data-claimi]").forEach(b => b.onclick = () => { sendClaim(cl[+b.dataset.claimi]); openClaims(); });
+    modalBody.querySelectorAll("[data-notme]").forEach(b => b.onclick = () => { const x = cl[+b.dataset.notme]; m.notMe = [...(m.notMe || []), x.p.id + "|" + x.ref]; toast("Hidden. You won't be asked about that one again."); openClaims(); drawHeader(); });
+  }
+  function applyClaim(q, p) {
+    const s = student(q.sid); if (!s) return;
+    if (q.rid === "director") { if (p.dsid) return toast("The director has changed since they asked"); p.dsid = s.id; p.director = s.name; p.email = ""; }
+    else if (q.rid.startsWith("producer:")) {
+      const ps = prodsOf(p); let x = ps[+q.rid.split(":")[1]];
+      if (!x || x.sid || !nameHit(x.name, q.asName)) x = ps.find(y => !y.sid && nameHit(y.name, q.asName));
+      if (!x) return toast("That name isn't on the project any more"); x.sid = s.id; x.name = s.name; x.email = "";
+    } else { const r = roleBy(p, q.rid); if (!r || !isExt(r)) return toast("That role has changed since they asked"); r.filledBy = s.id; delete r.extBy; }
+    q.status = "accepted";
+    notify(q.sid, "update", `${p.title} confirmed you as ${q.role}. It's on your profile now.`, p.id);
+    toast(`${s.name} confirmed as ${q.role}`); openProject(p.id); drawHeader(); render();
+  }
   function acceptReq(qid) {
     const q = S.requests.find(x => x.id === qid), p = project(q.pid), r = roleBy(p, q.rid);
+    if (q.type === "claim") return applyClaim(q, p);
     if (q.type === "crew") { if (r.filledBy) return toast("That role is already filled"); return lockIn(p, q.rid, q.sid); }
     p.shadows.push({ role: q.role, sid: q.sid }); q.status = "accepted";
     notify(q.sid, "update", `You're shadowing ${q.role} on ${p.title}. Call ${dayInfo(p, projDays(p)[0]).call} on ${fmtDay(projDays(p)[0])}.`, p.id);
@@ -1138,13 +1229,15 @@
       <div class="card-actions">${me() && s.id === me().id ? `<span class="muted small">This is you</span>` : contact}<button class="btn btn-ghost btn-sm" data-student="${s.id}">Profile</button></div>
     </article>`;
   }
-  function openStudent(id) {
+  function openStudent(id, backPid) {
     const s = student(id); if (!s) return;
+    const back = backPid && project(backPid);
     if (!me()) return openSignIn("Sign in to see crew profiles.");
     const booked = live().filter(p => onProject(p, s.id) && isActive(p));
     const credits = creditsOf(s);
     const mine = live().filter(p => isActive(p) && runs(p) && openRoles(p).some(r => s.roles.includes(r.role)));
     openModal(`
+      ${back ? `<button type="button" class="link-btn m-back" data-proj="${back.id}"><span aria-hidden="true">←</span> <span>Back to ${esc(back.title)}</span></button>` : ""}
       <div class="m-head"><div class="crew-top"><span class="avatar avatar-lg">${initials(s.name)}</span>
         <div><h2 id="modalTitle" class="m-title">${esc(s.name)}</h2><p class="card-sub">${esc(s.pathway)} · <span class="term-tag">${esc(tLabel(s))}</span>${s.guest ? ` <span class="tag-guest">Guest${s.invitedBy && student(s.invitedBy) ? `, invited by ${esc(student(s.invitedBy).name)}` : ""}</span>` : ""}</p></div></div></div>
       ${s.bio ? `<p class="logline">${esc(s.bio)}</p>` : ""}
@@ -1249,6 +1342,7 @@
           <div class="range-list" id="postRanges">${(p ? p.shoots : [undefined]).map(r => rangeRow(r)).join("")}</div>
           <button type="button" class="btn btn-ghost btn-sm" id="postRangeAdd">Add another block</button>
           <label class="field mt"><span>Delivery date <small>optional: when post has to be finished. The film stays on Post until then</small></span><input name="delivery" type="date" value="${p && p.delivery ? p.delivery : ""}"></label>
+          ${photoField(p ? p.cover : "")}
         </fieldset>
         <fieldset class="fs"><legend>Call, wrap and location for each day</legend>
           <div id="schedRows"></div>
@@ -1334,6 +1428,7 @@
     $("#hubLinkAdd").addEventListener("click", () => $("#hubLinks").insertAdjacentHTML("beforeend", linkRow()));
     $("#hubLinks").addEventListener("click", e => { if (e.target.closest(".h-del")) e.target.closest(".link-row").remove(); });
 
+    bindPhoto($("#postForm"));
     $("#postForm").addEventListener("submit", e => {
       e.preventDefault(); saveSchedDom();
       const f = new FormData(e.target), err = $("#postErr");
@@ -1371,7 +1466,7 @@
             const clash = pDays.find(d => bookedOn(mem.id, d).some(x => !p || x.id !== p.id));
             if (clash && mem.id !== was) return (err.textContent = `${mem.name} is booked on another shoot on ${fmtDay(clash)}.`);
             r.filledBy = mem.id; if (mem.id !== was) assigned.push(r);
-          } else r.filledBy = "ext:" + who.slice(0, 60);
+          } else { if (r.filledBy !== "ext:" + who.slice(0, 60)) r.extBy = me().id; r.filledBy = "ext:" + who.slice(0, 60); }
         }
         const hod = r._hod != null ? r._hod : isHod(r);
         if (hod === HOD_ROLES.has(r.role)) delete r.hod; else r.hod = hod;
@@ -1381,7 +1476,8 @@
       if (!producers.length && !roles.some(r => r.role === "Producer")) roles.unshift({ role: "Producer", filledBy: null, rid: uid("r") });
       const days = shoots.flatMap(r => daysIn(r.from, r.to)), dayMap = {};
       days.forEach(d => { dayMap[d] = Object.assign({ call: "08:00", wrap: "18:00", loc: 0 }, sched[d] || {}); if (dayMap[d].loc >= locations.length) dayMap[d].loc = 0; });
-      const data = { title: f.get("title").trim(), type: f.get("type"), term: f.get("term"), director: dirMem ? dirMem.name : dirIn, dsid: dirMem ? dirMem.id : null, email: dirMem ? "" : dirEmail, locations, producers, producer: producers[0] || null, logline: f.get("logline").trim(), shoots, kitNeeded: f.get("kitNeeded").trim(), delivery: f.get("delivery") || "", days: dayMap, hub };
+      const data = { title: f.get("title").trim(), type: f.get("type"), term: f.get("term"), director: dirMem ? dirMem.name : dirIn, dsid: dirMem ? dirMem.id : null, email: dirMem ? "" : dirEmail, locations, producers, producer: producers[0] || null, logline: f.get("logline").trim(), shoots, kitNeeded: f.get("kitNeeded").trim(), delivery: f.get("delivery") || "", cover: f.get("cover") || "", days: dayMap, hub };
+      if (p) dropOldCover(p.cover, data.cover);
       if (p) {
         const before = JSON.stringify([p.shoots, p.days]), oldR = new Set(p.roles.map(r => r.rid)), hadWa = hubOf(p).whatsapp;
         Object.assign(p, data); p.roles = roles;
@@ -1660,7 +1756,7 @@
     ]]
   ];
   const lockedPanel = label => `<section class="panel span-2 locked-panel"><h2 class="panel-h">View only</h2><p class="muted">You don't have the ${esc(label)} permission. Ask ${esc(student(S.owner).name)} (owner) or an admin with the People permission to tick it for you.</p></section>`;
-  const exportData = () => download("crew-call-backup.json", JSON.stringify({ exported: TODAY, owner: S.owner, admins: S.admins, adminPerms: S.adminPerms, settings: S.settings, handover: S.handover, lists: C, termDates: C.TERM_DATES, students: S.students, projects: S.projects, requests: S.requests, invites: S.invites, scripts: S.scripts, scriptInterest: S.scriptInterest, releases: S.releases, releaseInterest: S.releaseInterest, posts: S.posts, postInterest: S.postInterest, gigs: S.gigs, gigApps: S.gigApps, reps: S.reps, reports: S.reports, newsletters: S.newsletters, nlAuto: S.nlAuto, ownerProposal: S.ownerProposal, adminVia: S.adminVia, adminLog: S.adminLog, courses: C.COURSES }, null, 2), "application/json");
+  const exportData = () => download("crew-call-backup.json", JSON.stringify({ exported: TODAY, owner: S.owner, admins: S.admins, adminPerms: S.adminPerms, settings: S.settings, handover: S.handover, lists: C, termDates: C.TERM_DATES, students: S.students, projects: S.projects, requests: S.requests, invites: S.invites, scripts: S.scripts, scriptInterest: S.scriptInterest, releases: S.releases, releaseInterest: S.releaseInterest, posts: S.posts, postInterest: S.postInterest, funds: S.funds, gigs: S.gigs, gigApps: S.gigApps, reps: S.reps, reports: S.reports, newsletters: S.newsletters, nlAuto: S.nlAuto, ownerProposal: S.ownerProposal, adminVia: S.adminVia, adminLog: S.adminLog, courses: C.COURSES }, null, 2), "application/json");
 
   // ---------- NEWSLETTER (Admin > Newsletter) ----------
   // Two levels: "news" can design, save and ask for approval; "send" can approve, schedule and send.
@@ -2295,7 +2391,7 @@ ${LIVE ? "" : `<label class="toggle"><input type="checkbox" data-aus="autoSend" 
     if ($("#retainMonths")) $("#retainMonths").addEventListener("change", e => { S.settings.retainMonths = +e.target.value; logAdmin(`Set old profiles to be deleted after ${S.settings.retainMonths} months`); renderAdmin(); });
     on("[data-retwarn]", b => { const s = student(b.dataset.retwarn); notify(s.id, "update", `Your Crew Call profile will be deleted soon because you haven't signed in for a while. Sign in to keep it.`); toast(`Warning sent to ${first(s.name)}`); });
     root.querySelectorAll("[data-retremove]").forEach(b => b.addEventListener("click", () => { const s = student(b.dataset.retremove); confirmBox(`Delete ${s.name}?`, `They haven't signed in for over ${S.settings.retainMonths} months. Their profile is deleted for good. Credits on wrapped shoots stay as text on the project.`, "Delete", () => { removeStudent(s); logAdmin(`Deleted old profile: ${s.name}`); closeModal(); renderAdmin(); toast("Deleted"); }); }));
-    if ($("#restoreFile")) $("#restoreFile").addEventListener("change", e => { const file = e.target.files[0]; if (!file) return; file.text().then(t => { let d; try { d = JSON.parse(t); } catch (_) { return toast("That file isn't a Crew Call backup"); } if (!d.students || !d.projects) return toast("That file isn't a Crew Call backup"); confirmBox("Restore this backup?", `From ${esc(d.exported || "an unknown date")}: ${d.students.length} people and ${d.projects.length} projects. Everything now in Crew Call is replaced.`, "Restore", () => { ["students", "projects", "requests", "invites", "scripts", "scriptInterest", "releases", "releaseInterest", "posts", "postInterest", "gigs", "gigApps", "reps", "reports", "admins", "adminPerms", "adminVia", "settings", "handover", "newsletters", "nlAuto", "adminLog", "customWords", "transFixes"].forEach(k => { if (d[k]) S[k] = d[k]; }); if (d.owner) S.owner = d.owner; if (d.termDates) C.TERM_DATES = d.termDates; if (d.courses) C.COURSES = d.courses; if (!student(S.meId)) S.meId = S.owner; logAdmin(`Restored a backup from ${d.exported || "unknown date"}`); applyTerms(false); refreshCohortFilter(); closeModal(); drawHeader(); render(); toast("Backup restored"); }, false); }); });
+    if ($("#restoreFile")) $("#restoreFile").addEventListener("change", e => { const file = e.target.files[0]; if (!file) return; file.text().then(t => { let d; try { d = JSON.parse(t); } catch (_) { return toast("That file isn't a Crew Call backup"); } if (!d.students || !d.projects) return toast("That file isn't a Crew Call backup"); confirmBox("Restore this backup?", `From ${esc(d.exported || "an unknown date")}: ${d.students.length} people and ${d.projects.length} projects. Everything now in Crew Call is replaced.`, "Restore", () => { ["students", "projects", "requests", "invites", "scripts", "scriptInterest", "releases", "releaseInterest", "posts", "postInterest", "funds", "gigs", "gigApps", "reps", "reports", "admins", "adminPerms", "adminVia", "settings", "handover", "newsletters", "nlAuto", "adminLog", "customWords", "transFixes"].forEach(k => { if (d[k]) S[k] = d[k]; }); if (d.owner) S.owner = d.owner; if (d.termDates) C.TERM_DATES = d.termDates; if (d.courses) C.COURSES = d.courses; if (!student(S.meId)) S.meId = S.owner; logAdmin(`Restored a backup from ${d.exported || "unknown date"}`); applyTerms(false); refreshCohortFilter(); closeModal(); drawHeader(); render(); toast("Backup restored"); }, false); }); });
 
     // access
     if ($("#ownerBtn")) $("#ownerBtn").addEventListener("click", () => {
@@ -2820,7 +2916,7 @@ ${LIVE ? "" : `<label class="toggle"><input type="checkbox" data-aus="autoSend" 
     if (!partial || !root.querySelector(".board-host")) {
       const mine = S.scripts.filter(x => x.by === m.id), waiting = S.scriptInterest.filter(i => mine.some(x => x.id === i.scr) && i.status === "pending").length;
       root.innerHTML = `
-        <div class="view-head"><div><p class="eyebrow">Step 1 of 4</p><h1 class="page-title">Develop</h1><p class="muted">Writers post scripts and producers post pitches, then directors, writers and producers put their hand up. Only signed-in members see this page. Full scripts and pitch decks are only shared with people the poster brings on.</p></div>
+        <div class="view-head"><div><h1 class="page-title">Develop</h1><p class="muted">Writers post scripts and producers post pitches, then directors, writers and producers put their hand up. Only signed-in members see this page. Full scripts and pitch decks are only shared with people the poster brings on.</p></div>
           <div class="head-acts"><button class="btn btn-accent" id="scrPost">Post a script</button><button class="btn btn-ghost" id="pitchPost">Post a pitch</button></div></div>
         ${mine.length ? `<p class="mine-note">You've posted ${mine.length}. ${waiting ? `<b>${waiting} ${waiting === 1 ? "person is" : "people are"} waiting for your reply.</b>` : "Nobody waiting for a reply."}</p>` : ""}
         <div class="board-host" data-fkey="dev"></div>`;
@@ -2971,7 +3067,7 @@ ${LIVE ? "" : `<label class="toggle"><input type="checkbox" data-aus="autoSend" 
     if (!partial || !root.querySelector(".board-host")) {
       const wrapped = myWrappedForPost(m);
       root.innerHTML = `
-        <div class="view-head"><div><p class="eyebrow">Step 3 of 4</p><h1 class="page-title">Post</h1><p class="muted">Wrapped shoots looking for an editor, colourist, sound designer, composer or VFX artist. Post work fits around other shoots, often from home, and every job becomes a credit on your profile.</p></div>
+        <div class="view-head"><div><h1 class="page-title">Post</h1><p class="muted">Wrapped shoots looking for an editor, colourist, sound designer, composer or VFX artist. Post work fits around other shoots, often from home, and every job becomes a credit on your profile.</p></div>
           <div class="head-acts"><button class="btn btn-accent" id="pfNew">List a film for post</button></div></div>
         ${wrapped.length ? `<div class="wrap-note"><p><b>${esc(wrapped.map(p => p.title).join(", "))}</b> ${wrapped.length === 1 ? "has wrapped. Find your post team." : "have wrapped. Find your post team."}</p>${wrapped.map(p => `<button class="btn btn-ghost btn-sm" data-postfrom="${p.id}">List ${esc(p.title)}</button>`).join("")}</div>` : ""}
         <div class="board-host" data-fkey="post"></div>`;
@@ -2989,6 +3085,7 @@ ${LIVE ? "" : `<label class="toggle"><input type="checkbox" data-aus="autoSend" 
     if (x.virtual) {
       const mine = p && runs(p, m);
       return `<article class="card rel-card${dim ? " is-dim" : ""}">
+      ${coverImg(coverOf(x), "card-cover")}
         <div class="proj-top">${tags}</div>
         <h3 class="card-t"><button class="link-btn" data-proj="${x.pid}">${esc(x.title)}</button></h3>
         <p class="card-sub">From the shoot · directed by ${esc(x.byName || "")}</p>
@@ -3001,6 +3098,7 @@ ${LIVE ? "" : `<label class="toggle"><input type="checkbox" data-aus="autoSend" 
     const myInt = S.postInterest.find(i => i.post === x.id && i.sid === m.id && i.status === "pending");
     const waiting = x.by === m.id ? S.postInterest.filter(i => i.post === x.id && i.status === "pending").length : 0;
     return `<article class="card rel-card${dim ? " is-dim" : ""}">
+      ${coverImg(coverOf(x), "card-cover")}
       <div class="proj-top">${tags}</div>
       <h3 class="card-t"><button class="link-btn" data-post="${x.id}">${esc(x.title)}</button></h3>
       <p class="card-sub">Listed by <button class="link-btn" data-student="${x.by}">${esc((student(x.by) || { name: "Former member" }).name)}</button>${p ? ` · shot ${monYear(firstDay(p))}` : ""}${x.runtime ? ` · ${x.runtime} min` : ""}</p>
@@ -3121,7 +3219,7 @@ ${LIVE ? "" : `<label class="toggle"><input type="checkbox" data-aus="autoSend" 
     if (!partial || !root.querySelector(".board-host")) {
       const wrapped = myWrapped(m);
       root.innerHTML = `
-        <div class="view-head"><div><p class="eyebrow">Step 4 of 4</p><h1 class="page-title">Release</h1><p class="muted">Wrapped films looking for help to reach an audience: festival plans, posters, trailers, press kits and socials. A good fit for MA Film Marketing, and every job becomes a credit on your profile.</p></div>
+        <div class="view-head"><div><h1 class="page-title">Release</h1><p class="muted">Wrapped films looking for help to reach an audience: festival plans, posters, trailers, press kits and socials. A good fit for MA Film Marketing, and every job becomes a credit on your profile.</p></div>
           <div class="head-acts"><button class="btn btn-accent" id="relPost">List a film</button></div></div>
         ${wrapped.length ? `<div class="wrap-note"><p><b>${esc(wrapped.map(p => p.title).join(", "))}</b> ${wrapped.length === 1 ? "has" : "have"} wrapped. Get help taking ${wrapped.length === 1 ? "it" : "them"} to festivals.</p>${wrapped.map(p => `<button class="btn btn-ghost btn-sm" data-relfrom="${p.id}">List ${esc(p.title)}</button>`).join("")}</div>` : ""}
         <div class="board-host" data-fkey="rel"></div>`;
@@ -3138,6 +3236,7 @@ ${LIVE ? "" : `<label class="toggle"><input type="checkbox" data-aus="autoSend" 
     const waiting = x.by === m.id ? S.releaseInterest.filter(i => i.rel === x.id && i.status === "pending").length : 0;
     const dl = x.deadline ? daysUntil(x.deadline) : null;
     return `<article class="card rel-card">
+      ${coverImg(coverOf(x), "card-cover")}
       <div class="proj-top"><span class="type-tag">${esc(x.type)}</span>${x.runtime ? `<span class="term-tag">${x.runtime} min</span>` : ""}${x.deadline ? `<span class="term-tag ${dl >= 0 && dl <= 30 ? "tag-soon" : ""}">Deadline ${fmtDay(x.deadline)}</span>` : ""}</div>
       <h3 class="card-t"><button class="link-btn" data-rel="${x.id}">${esc(x.title)}</button></h3>
       <p class="card-sub">Listed by <button class="link-btn" data-student="${x.by}">${esc(w.name)}</button>${x.pid && project(x.pid) ? ` · shot ${monYear(project(x.pid).shoots[0].from)}` : ""}</p>
@@ -3207,6 +3306,173 @@ ${LIVE ? "" : `<label class="toggle"><input type="checkbox" data-aus="autoSend" 
     });
   }
 
+
+  // ---------- PHOTOS: one small 16:9 picture per project or campaign ----------
+  // Shrunk in the browser to about 100 KB before upload, so the free 1 GB of Supabase storage holds thousands.
+  const coverImg = (url, cls) => url && /^(https:|data:image\/)/.test(url) ? `<img class="${cls}" src="${esc(url)}" alt="" loading="lazy" decoding="async">` : "";
+  const coverOf = x => (x && x.cover) || (x && x.pid && project(x.pid) && project(x.pid).cover) || "";
+  function shrinkImage(file, W = 1000, H = 563, q = .78) {
+    return new Promise((ok, no) => {
+      const img = new Image(), u = URL.createObjectURL(file);
+      img.onload = () => {
+        const c = document.createElement("canvas"); c.width = W; c.height = H;
+        const s = Math.max(W / img.naturalWidth, H / img.naturalHeight), w = img.naturalWidth * s, h = img.naturalHeight * s;
+        const g = c.getContext("2d"); g.fillStyle = "#111"; g.fillRect(0, 0, W, H); g.drawImage(img, (W - w) / 2, (H - h) / 2, w, h);
+        URL.revokeObjectURL(u);
+        if (LIVE) c.toBlob(b => b ? ok(b) : no(new Error("Couldn't read that picture")), "image/jpeg", q); else ok(c.toDataURL("image/jpeg", q));
+      };
+      img.onerror = () => { URL.revokeObjectURL(u); no(new Error("That file isn't a picture we can read. Try a JPG or PNG.")); };
+      img.src = u;
+    });
+  }
+  const photoField = (url, hint) => `<div class="field photo-field"><span>Photo <small>${esc(hint || "optional: a still or poster for the card. It's cropped to 16:9 and shrunk to a small file")}</small></span>
+    <div class="ph-row"><div class="ph-prev" data-phprev>${url ? coverImg(url, "ph-img") : `<span class="muted small">No photo</span>`}</div>
+    <div class="ph-acts"><label class="btn btn-ghost btn-sm ph-pick">Choose photo<input type="file" accept="image/jpeg,image/png,image/webp,image/heic" data-phfile></label><button type="button" class="btn btn-quiet btn-sm" data-phx ${url ? "" : "hidden"}>Remove photo</button><span class="small muted" data-phst role="status"></span></div></div>
+    <input type="hidden" name="cover" value="${esc(url || "")}"></div>`;
+  function bindPhoto(form) {
+    const inp = form.querySelector("[data-phfile]"); if (!inp) return;
+    const hid = form.querySelector("[name=cover]"), prev = form.querySelector("[data-phprev]"), x = form.querySelector("[data-phx]"), st = form.querySelector("[data-phst]");
+    const sub = form.querySelector("button.btn-accent:not([type=button])");
+    const show = url => { hid.value = url; prev.innerHTML = url ? coverImg(url, "ph-img") : `<span class="muted small">No photo</span>`; x.hidden = !url; };
+    inp.addEventListener("change", async () => {
+      const file = inp.files[0]; inp.value = ""; if (!file) return;
+      if (file.size > 25e6) return (st.textContent = "That file is over 25 MB. Pick a smaller one.");
+      st.textContent = "Uploading…"; if (sub) sub.disabled = true;
+      try { const out = await shrinkImage(file); show(LIVE ? await window.CC_CLOUDAPI.uploadCover(out) : out); st.textContent = ""; }
+      catch (e) { st.textContent = /bucket|not found|policy|security/i.test(e.message || "") ? "Photos aren't switched on yet: an admin needs to run supabase/storage.sql once." : (e.message || "Couldn't upload that picture"); }
+      if (sub) sub.disabled = false;
+    });
+    x.addEventListener("click", () => show(""));
+  }
+  // after saving: tidy up a photo that was replaced, if this person uploaded it
+  const dropOldCover = (was, now) => { if (LIVE && was && was !== now) window.CC_CLOUDAPI.removeCover(was).catch(() => {}); };
+
+  // ---------- FUNDING: crowdfunding campaigns for LFS films ----------
+  const FUND_SITES = ["Kickstarter", "Indiegogo", "Seed&Spark", "GoFundMe", "Crowdfunder", "Other"];
+  const CURRENCIES = ["£", "€", "$"];
+  const money = (n, cur) => (cur || "£") + Math.round(+n || 0).toLocaleString("en-GB");
+  const fundPct = x => x.goal > 0 ? Math.round((+x.raised || 0) / x.goal * 100) : 0;
+  const fundEnded = x => !!x.deadline && x.deadline < TODAY;
+  const fundGone = x => !!x.deadline && daysUntil(x.deadline) < -30;
+  const fundLeft = x => { const d = daysUntil(x.deadline); return d < 0 ? "Ended" : d === 0 ? "Ends today" : d === 1 ? "1 day left" : `${d} days left`; };
+  const canEditFund = x => { const m = me(); return !!m && (x.by === m.id || isAdmin(m)); };
+  const fundOf = p => S.funds.find(x => x.pid === p.id && !x.hidden && !fundGone(x));
+  const fundItems = () => S.funds.filter(x => !x.hidden && !fundGone(x));
+  const fundBar = x => `<div class="fund-bar" role="img" aria-label="${fundPct(x)}% of the goal raised"><span style="width:${Math.min(100, fundPct(x))}%"></span></div>`;
+  const fundNums = x => `<p class="fund-nums"><b>${money(x.raised, x.cur)}</b> <span class="muted">of ${money(x.goal, x.cur)}</span> <span class="fund-pct">${fundPct(x)}%</span></p>`;
+  const fundCfg = () => ({
+    placeholder: "Search title, director or platform", noun: "campaign", matchHint: "Campaigns for shoots you're on",
+    text: x => [x.title, x.pitch, x.uses, x.platform, (student(x.by) || {}).name, x.type].join(" "),
+    match: (x, m) => !!x.pid && !!project(x.pid) && (onProject(project(x.pid), m.id) || runs(project(x.pid), m)),
+    sink: fundEnded, sinkLabel: "Ended",
+    groups: [
+      { id: "site", label: "Platform", opts: FUND_SITES.filter(t => fundItems().some(x => x.platform === t)), test: (x, v) => x.platform === v },
+      { id: "type", label: "Type", opts: uniqSorted(fundItems().map(x => x.type)), test: (x, v) => x.type === v },
+      { id: "ends", label: "Ends", opts: ["This week", "This month", "Later"], test: (x, v) => { const d = daysUntil(x.deadline); return d >= 0 && (v === "This week" ? d <= 7 : v === "This month" ? d <= 31 : d > 31); } }
+    ],
+    sorts: [["end", "Ending soonest", (a, b) => (a.deadline || "9999").localeCompare(b.deadline || "9999"), x => x.deadline], ["pct", "Closest to goal", (a, b) => fundPct(b) - fundPct(a)], ["new", "Newest", (a, b) => (b.posted || "").localeCompare(a.posted || ""), x => x.posted]],
+    table: { dim: fundEnded, cols: [
+      ["Film", x => `<button class="link-btn bt-t" data-fund="${x.id}">${esc(x.title)}</button><span class="bt-sub">${esc(x.type)}</span>`],
+      ["By", x => esc((student(x.by) || { name: "Former member" }).name), "small"],
+      ["Platform", x => esc(x.platform), "small"],
+      ["Raised", x => `${money(x.raised, x.cur)} <span class="muted">of ${money(x.goal, x.cur)}</span>`, "mono small", x => -fundPct(x)],
+      ["Ends", x => `${fmtFull(x.deadline)}<span class="bt-sub">${fundLeft(x)}</span>`, "mono small", x => x.deadline]
+    ] },
+    timeline: { dim: fundEnded, label: x => `<button class="link-btn bt-t" data-fund="${x.id}">${esc(x.title)}</button>`, sub: x => `${money(x.raised, x.cur)} of ${money(x.goal, x.cur)}`,
+      segs: x => [{ from: x.starts || x.posted || TODAY, to: x.deadline, label: "Ends " + fmtFull(x.deadline) }] }
+  });
+  function renderFund(partial) {
+    const root = $("#view-fund"), m = me();
+    if (!partial || !root.querySelector(".board-host")) {
+      root.innerHTML = `
+        <div class="view-head"><div><h1 class="page-title">Funding</h1><p class="muted">Crowdfunding campaigns for LFS films. Back a classmate's shoot, share it, or post your own with its goal and deadline. The money goes through the platform, never through Crew Call.</p></div>
+          <div class="head-acts"><button class="btn btn-accent" id="fundPost">Post a campaign</button></div></div>
+        <div class="board-host" data-fkey="fund"></div>`;
+      $("#fundPost").onclick = () => openFundForm();
+    }
+    board({ key: "fund", host: root.querySelector(".board-host"), cfg: fundCfg(), items: fundItems(), card: fundCard, partial, redraw: renderFund,
+      empty: `<div class="empty"><p class="empty-t">No campaigns right now</p><p class="muted">Raising money for a shoot? Post your campaign so the school can back it.</p></div>`,
+      after: host => host.querySelectorAll("[data-fund]").forEach(b => b.onclick = () => openFund(b.dataset.fund)) });
+  }
+  function fundCard(x) {
+    const w = student(x.by) || { name: "Former member" }, p = x.pid && project(x.pid), ended = fundEnded(x), d = daysUntil(x.deadline);
+    return `<article class="card fund-card${ended ? " is-dim" : ""}">
+      ${coverImg(coverOf(x), "card-cover")}
+      <div class="proj-top"><span class="type-tag">${esc(x.type)}</span><span class="term-tag">${esc(x.platform)}</span>${ended ? `<span class="tag-arch">Ended</span>` : `<span class="term-tag ${d <= 7 ? "tag-soon" : ""}">${fundLeft(x)}</span>`}</div>
+      <h3 class="card-t"><button class="link-btn" data-fund="${x.id}">${esc(x.title)}</button></h3>
+      <p class="card-sub"><span>By</span> <button class="link-btn" data-student="${x.by}">${esc(w.name)}</button>${p ? ` · <button class="link-btn" data-proj="${p.id}">See the shoot</button>` : ""}</p>
+      <p class="logline">${esc(x.pitch)}</p>
+      ${fundBar(x)}${fundNums(x)}
+      <p class="small muted">Ends ${fmtFull(x.deadline)}</p>
+      <div class="card-actions">${!ended && x.url ? `<a class="btn btn-accent btn-sm" href="${esc(x.url)}" target="_blank" rel="noopener">Back it</a>` : ""}<button class="btn btn-ghost btn-sm" data-fund="${x.id}">${canEditFund(x) ? "Update" : "Details"}</button></div>
+    </article>`;
+  }
+  function openFund(id) {
+    const x = S.funds.find(y => y.id === id); if (!x) return;
+    const w = student(x.by) || { name: "Former member" }, p = x.pid && project(x.pid), ed = canEditFund(x), ended = fundEnded(x);
+    openModal(`
+      ${coverImg(coverOf(x), "m-cover")}
+      <p class="eyebrow">Funding · ${esc(x.platform)}</p>
+      <h2 id="modalTitle" class="m-title">${esc(x.title)}</h2>
+      <p class="card-sub"><span>${esc(x.type)}</span> · <span>by</span> <button class="link-btn" data-student="${x.by}">${esc(w.name)}</button>${p ? ` · <button class="link-btn" data-proj="${p.id}">See the shoot</button>` : ""}</p>
+      <p class="logline">${esc(x.pitch)}</p>
+      ${fundBar(x)}${fundNums(x)}
+      <dl class="meta-list">
+        <div><dt>Deadline</dt><dd>${fmtFull(x.deadline)} · ${fundLeft(x)}</dd></div>
+        ${x.uses ? `<div><dt>What it pays for</dt><dd>${esc(x.uses).replace(/\n/g, "<br>")}</dd></div>` : ""}
+        <div><dt>Campaign</dt><dd>${x.url ? `<a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(hostOf(x.url))}</a> <button class="btn btn-quiet btn-xs" data-copy="${esc(x.url)}">Copy link</button>` : `<span class="muted">No link</span>`}</dd></div>
+      </dl>
+      ${!ended && x.url ? `<div class="form-actions"><a class="btn btn-accent" href="${esc(x.url)}" target="_blank" rel="noopener">Back it on ${esc(x.platform)}</a></div>` : ""}
+      ${ed ? `<h3 class="dp-sub">Update the total</h3><form id="fundUpd" class="fund-upd"><label class="field"><span>Raised so far (${esc(x.cur || "£")})</span><input name="raised" type="number" inputmode="numeric" min="0" step="1" value="${+x.raised || 0}"></label><button class="btn btn-accent btn-sm">Save total</button></form>
+        <div class="form-actions"><button class="btn btn-ghost" id="fundEdit">Edit campaign</button><button class="btn btn-quiet" id="fundDel">Remove</button></div>` : ""}`);
+    bindOpeners(modalBody);
+    if (!ed) addReportLink("campaign", x.id);
+    const u = $("#fundUpd");
+    if (u) u.addEventListener("submit", e => { e.preventDefault(); x.raised = Math.max(0, Math.round(+u.raised.value || 0)); x.updated = TODAY; toast(`Total saved: ${money(x.raised, x.cur)}`); openFund(x.id); renderAfterFund(); });
+    if ($("#fundEdit")) $("#fundEdit").onclick = () => openFundForm(x);
+    if ($("#fundDel")) $("#fundDel").onclick = () => confirmBox(`Remove ${x.title}?`, "The campaign comes off Funding. Nothing changes on the crowdfunding site itself.", "Remove", () => { dropOldCover(x.cover, ""); S.funds.splice(S.funds.indexOf(x), 1); closeModal(); renderAfterFund(); toast("Removed"); });
+  }
+  const renderAfterFund = () => { if (view === "fund") renderFund(); else render(); };
+  function openFundForm(x, fromP) {
+    const m = me(); if (!m) return openSignIn("Sign in to post a campaign.");
+    const mine = S.projects.filter(p => !p.archived && runs(p, m) && !S.funds.some(f => f.pid === p.id && f !== x && !fundGone(f)));
+    const src = x || (fromP ? { pid: fromP.id, title: fromP.title, type: fromP.type, pitch: fromP.logline } : { cur: "£" });
+    openModal(`<h2 id="modalTitle" class="m-title">${x ? "Edit campaign" : "Post a crowdfunding campaign"}</h2>
+      <p class="muted small">Post it once your campaign page is live. People back it on the platform; Crew Call only shows the goal, the total and the deadline.</p>
+      <form id="fundForm" class="stack">
+        ${!x ? `<label class="field"><span>Which film</span><select name="pid"><option value="">A film that isn't on Crew Call yet</option>${mine.map(p => `<option value="${p.id}" ${src.pid === p.id ? "selected" : ""}>${esc(p.title)}</option>`).join("")}</select></label>` : ""}
+        <label class="field"><span>Title</span><input name="title" required maxlength="80" value="${esc(src.title || "")}"></label>
+        <div class="form-grid"><label class="field"><span>Type</span><select name="type">${C.TYPES.map(t => `<option ${src.type === t ? "selected" : ""}>${esc(t)}</option>`).join("")}</select></label>
+        <label class="field"><span>Platform</span><select name="platform">${FUND_SITES.map(t => `<option ${src.platform === t ? "selected" : ""}>${esc(t)}</option>`).join("")}</select></label></div>
+        <label class="field"><span>Campaign link</span><input name="url" required inputmode="url" autocapitalize="off" spellcheck="false" placeholder="kickstarter.com/projects/…" value="${esc(src.url || "")}"></label>
+        <div class="form-grid fund-grid"><label class="field"><span>Currency</span><select name="cur">${CURRENCIES.map(c => `<option ${(src.cur || "£") === c ? "selected" : ""}>${c}</option>`).join("")}</select></label>
+        <label class="field"><span>Goal</span><input name="goal" type="number" inputmode="numeric" min="1" step="1" required value="${src.goal || ""}"></label>
+        <label class="field"><span>Raised so far</span><input name="raised" type="number" inputmode="numeric" min="0" step="1" value="${src.raised || 0}"></label>
+        <label class="field"><span>Deadline</span><input name="deadline" type="date" required min="${x ? "" : TODAY}" value="${src.deadline || ""}"></label></div>
+        <label class="field"><span>Pitch <small>one or two lines</small></span><textarea name="pitch" rows="2" maxlength="220" required>${esc(src.pitch || "")}</textarea></label>
+        <label class="field"><span>What the money pays for <small>optional</small></span><textarea name="uses" rows="3" maxlength="500" placeholder="e.g. location hire, kit, food for 20 crew, festival fees">${esc(src.uses || "")}</textarea></label>
+        ${photoField(src.cover || "", "optional: leave empty to use the shoot's photo")}
+        <p class="form-err" id="fundErr" role="alert"></p>
+        <div class="form-actions"><button class="btn btn-accent">${x ? "Save" : "Post campaign"}</button><button class="btn btn-ghost" type="button" data-close>Cancel</button></div>
+      </form>`);
+    const f = $("#fundForm"); bindPhoto(f);
+    if (f.pid) f.pid.addEventListener("change", () => { const p = project(f.pid.value); if (p) { f.title.value = p.title; f.type.value = p.type; if (!f.pitch.value.trim()) f.pitch.value = p.logline; } });
+    f.addEventListener("submit", e => {
+      e.preventDefault(); const err = $("#fundErr");
+      const url = cleanUrl(f.url.value); if (!url) return (err.textContent = "The campaign link isn't a web address.");
+      const goal = Math.round(+f.goal.value || 0); if (goal < 1) return (err.textContent = "Add the goal.");
+      if (!f.deadline.value) return (err.textContent = "Add the deadline.");
+      const data = { title: f.title.value.trim(), type: f.type.value, platform: f.platform.value, url, cur: f.cur.value, goal, raised: Math.max(0, Math.round(+f.raised.value || 0)), deadline: f.deadline.value, pitch: f.pitch.value.trim(), uses: f.uses.value.trim(), cover: f.cover.value, updated: TODAY };
+      if (x) { dropOldCover(x.cover, data.cover); Object.assign(x, data); }
+      else {
+        const pid = f.pid ? f.pid.value || null : (fromP ? fromP.id : null), it = { id: uid("fu"), by: m.id, pid, posted: TODAY, starts: TODAY, ...data };
+        S.funds.push(it);
+        const p = pid && project(pid);
+        if (p) [...new Set(p.roles.filter(r => r.filledBy && !isExt(r)).map(r => r.filledBy).concat(p.shadows.map(s => s.sid)))].filter(id => id !== m.id).forEach(id => notify(id, "update", `${p.title} is crowdfunding on ${data.platform}: ${money(goal, data.cur)} by ${fmtFull(data.deadline)}. Back it or share it from Funding.`, p.id));
+      }
+      closeModal(); setView("fund"); toast(x ? "Saved" : "Campaign posted");
+    });
+  }
 
   // ---------- PAID: paid work, separate from school shoots (which are in kind) ----------
   const GIG_TYPES = ["Commercial", "Music video", "Corporate or event", "Feature or series", "Short film", "Post-production", "Other"];
@@ -3387,7 +3653,7 @@ ${LIVE ? "" : `<label class="toggle"><input type="checkbox" data-aus="autoSend" 
 
   // ---------- REPORTS ----------
   const REPORT_REASONS = ["Safety on set", "Harassment or bullying", "Discrimination", "Inappropriate content", "Spam or fake profile", "Something else"];
-  const reportTarget = r => r.kind === "project" ? project(r.target) : r.kind === "script" || r.kind === "pitch" ? S.scripts.find(x => x.id === r.target) : r.kind === "film" ? S.releases.find(x => x.id === r.target) : r.kind === "post" ? S.posts.find(x => x.id === r.target) : r.kind === "job" ? S.gigs.find(x => x.id === r.target) : student(r.target);
+  const reportTarget = r => r.kind === "project" ? project(r.target) : r.kind === "script" || r.kind === "pitch" ? S.scripts.find(x => x.id === r.target) : r.kind === "film" ? S.releases.find(x => x.id === r.target) : r.kind === "post" ? S.posts.find(x => x.id === r.target) : r.kind === "job" ? S.gigs.find(x => x.id === r.target) : r.kind === "campaign" ? S.funds.find(x => x.id === r.target) : student(r.target);
   const reportName = r => { if (r.kind === "general") return "Crew Call in general"; const t = reportTarget(r); return t ? (t.title || t.name) : "Removed"; };
   const safetyAdmins = () => S.admins.map(student).filter(a => a && can("safety", a));
   function addReportLink(kind, id) {
@@ -3523,6 +3789,7 @@ ${LIVE ? "" : `<label class="toggle"><input type="checkbox" data-aus="autoSend" 
     if (view === "post") renderPost();
     if (view === "release") renderRelease();
     if (view === "paid") renderPaid();
+    if (view === "fund") renderFund();
   }
   applyTerms(false); refreshCohortFilter(); syncReps();
   drawHeader();
@@ -3531,7 +3798,7 @@ ${LIVE ? "" : `<label class="toggle"><input type="checkbox" data-aus="autoSend" 
   function openHash() {
     const h = decodeURIComponent(location.hash.slice(1)); if (!h) return;
     const [a, b] = h.split("/");
-    const views = { calendar: "calendar", develop: "scripts", scripts: "scripts", shoot: "projects", projects: "projects", post: "post", release: "release", paid: "paid", crew: "crew", mine: "mine", me: "me", admin: "admin" };
+    const views = { calendar: "calendar", develop: "scripts", scripts: "scripts", shoot: "projects", projects: "projects", post: "post", release: "release", funding: "fund", fund: "fund", paid: "paid", crew: "crew", mine: "mine", me: "me", admin: "admin" };
     if (a === "p" && b) { const p = project(b); if (p) { setView("calendar"); openProject(p.id); } else toast("That project isn't on Crew Call any more"); }
     else if (views[a]) { setView(views[a]); if (a === "me" && b) setTimeout(() => { const el = $(b === "days" ? "#daysFs" : b === "notifications" ? "#notifyFs" : ""); if (el) el.scrollIntoView({ block: "start" }); }, 60); }
     else return;

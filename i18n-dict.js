@@ -2017,7 +2017,7 @@ window.CC_I18N = {
 "联系",
 "Contact",
 "Contacto",
-"Контакт",
+"Контакты",
 "التواصل",
 "संपर्क",
 "Contato"
@@ -6511,6 +6511,796 @@ window.CC_I18N = {
 "اختياري: متى يجب أن تنتهي مرحلة ما بعد الإنتاج. يبقى الفيلم في قسم ما بعد الإنتاج حتى ذلك الحين",
 "वैकल्पिक: पोस्ट कब तक पूरा होना है। तब तक फ़िल्म पोस्ट में रहती है",
 "opcional: quando a pós-produção tem de terminar. O filme fica em Pós até lá"
+],
+"Funding": [
+"眾籌",
+"众筹",
+"Financement",
+"Financiación",
+"Сборы",
+"التمويل",
+"फ़ंडिंग",
+"Financiamento"
+],
+"Project stages": [
+"專案階段",
+"项目阶段",
+"Étapes du projet",
+"Etapas del proyecto",
+"Этапы проекта",
+"مراحل المشروع",
+"प्रोजेक्ट के चरण",
+"Etapas do projeto"
+],
+"Crowdfunding": [
+"群眾募資",
+"群众募资",
+"Financement participatif",
+"Micromecenazgo",
+"Краудфандинг",
+"التمويل الجماعي",
+"क्राउडफ़ंडिंग",
+"Financiamento coletivo"
+],
+"Post a campaign": [
+"刊登募資活動",
+"刊登募资活动",
+"Publier une campagne",
+"Publicar una campaña",
+"Разместить кампанию",
+"نشر حملة",
+"कैंपेन पोस्ट करें",
+"Publicar uma campanha"
+],
+"Post campaign": [
+"刊登活動",
+"刊登活动",
+"Publier la campagne",
+"Publicar campaña",
+"Разместить кампанию",
+"نشر الحملة",
+"कैंपेन पोस्ट करें",
+"Publicar campanha"
+],
+"Post a crowdfunding campaign": [
+"刊登群眾募資活動",
+"刊登群众募资活动",
+"Publier une campagne de financement participatif",
+"Publicar una campaña de micromecenazgo",
+"Разместить краудфандинговую кампанию",
+"نشر حملة تمويل جماعي",
+"क्राउडफ़ंडिंग कैंपेन पोस्ट करें",
+"Publicar uma campanha de financiamento coletivo"
+],
+"Edit campaign": [
+"編輯募資活動",
+"编辑募资活动",
+"Modifier la campagne",
+"Editar campaña",
+"Изменить кампанию",
+"تعديل الحملة",
+"कैंपेन बदलें",
+"Editar campanha"
+],
+"Campaign": [
+"募資活動",
+"募资活动",
+"Campagne",
+"Campaña",
+"Кампания",
+"الحملة",
+"कैंपेन",
+"Campanha"
+],
+"Campaign posted": [
+"募資活動已刊登",
+"募资活动已刊登",
+"Campagne publiée",
+"Campaña publicada",
+"Кампания размещена",
+"نُشرت الحملة",
+"कैंपेन पोस्ट हो गया",
+"Campanha publicada"
+],
+"Campaign link": [
+"募資頁連結",
+"募资页链接",
+"Lien de la campagne",
+"Enlace de la campaña",
+"Ссылка на кампанию",
+"رابط الحملة",
+"कैंपेन लिंक",
+"Link da campanha"
+],
+"Campaigns for shoots you're on": [
+"你參與的拍攝的募資活動",
+"你参与的拍摄的募资活动",
+"Campagnes des tournages auxquels vous participez",
+"Campañas de los rodajes en los que estás",
+"Кампании ваших съёмок",
+"حملات التصوير الذي تشارك فيه",
+"आपके शूट के कैंपेन",
+"Campanhas das filmagens de que você participa"
+],
+"No campaigns right now": [
+"目前沒有募資活動",
+"目前没有募资活动",
+"Aucune campagne pour le moment",
+"No hay campañas ahora mismo",
+"Сейчас кампаний нет",
+"لا توجد حملات حاليًا",
+"अभी कोई कैंपेन नहीं",
+"Nenhuma campanha no momento"
+],
+"Raising money for a shoot? Post your campaign so the school can back it.": [
+"正在為拍攝募資嗎？刊登你的活動，讓全校都能支持。",
+"正在为拍摄募资吗？刊登你的活动，让全校都能支持。",
+"Vous financez un tournage ? Publiez votre campagne pour que l'école la soutienne.",
+"¿Recaudas dinero para un rodaje? Publica tu campaña para que la escuela la apoye.",
+"Собираете деньги на съёмки? Разместите кампанию, чтобы школа могла поддержать.",
+"تجمع المال لتصوير؟ انشر حملتك ليدعمها الجميع في المدرسة.",
+"शूट के लिए पैसे जुटा रहे हैं? अपना कैंपेन पोस्ट करें ताकि स्कूल साथ दे सके।",
+"Arrecadando para uma filmagem? Publique sua campanha para a escola apoiar."
+],
+"Back it": [
+"支持",
+"支持",
+"Soutenir",
+"Apoyar",
+"Поддержать",
+"ادعمها",
+"समर्थन करें",
+"Apoiar"
+],
+"Ended": [
+"已結束",
+"已结束",
+"Terminée",
+"Terminada",
+"Завершена",
+"انتهت",
+"समाप्त",
+"Encerrada"
+],
+"Ends today": [
+"今天截止",
+"今天截止",
+"Se termine aujourd'hui",
+"Termina hoy",
+"Заканчивается сегодня",
+"تنتهي اليوم",
+"आज समाप्त",
+"Termina hoje"
+],
+"1 day left": [
+"剩 1 天",
+"剩 1 天",
+"1 jour restant",
+"Queda 1 día",
+"Остался 1 день",
+"بقي يوم واحد",
+"1 दिन बाकी",
+"Falta 1 dia"
+],
+"Ending soonest": [
+"最快截止",
+"最快截止",
+"Fin la plus proche",
+"Termina antes",
+"Скоро заканчиваются",
+"الأقرب انتهاءً",
+"जल्द समाप्त होने वाले",
+"Terminam antes"
+],
+"Closest to goal": [
+"最接近目標",
+"最接近目标",
+"Plus proche de l'objectif",
+"Más cerca del objetivo",
+"Ближе к цели",
+"الأقرب إلى الهدف",
+"लक्ष्य के सबसे क़रीब",
+"Mais perto da meta"
+],
+"Platform": [
+"平台",
+"平台",
+"Plateforme",
+"Plataforma",
+"Платформа",
+"المنصة",
+"प्लेटफ़ॉर्म",
+"Plataforma"
+],
+"Goal": [
+"目標",
+"目标",
+"Objectif",
+"Objetivo",
+"Цель",
+"الهدف",
+"लक्ष्य",
+"Meta"
+],
+"Currency": [
+"貨幣",
+"货币",
+"Devise",
+"Moneda",
+"Валюта",
+"العملة",
+"मुद्रा",
+"Moeda"
+],
+"Pitch": [
+"提案",
+"提案",
+"Pitch",
+"Pitch",
+"Описание",
+"الفكرة",
+"पिच",
+"Apresentação"
+],
+"What the money pays for": [
+"資金用途",
+"资金用途",
+"À quoi sert l'argent",
+"Para qué es el dinero",
+"На что пойдут деньги",
+"فيمَ يُنفق المال",
+"पैसा किस पर ख़र्च होगा",
+"Para que é o dinheiro"
+],
+"What it pays for": [
+"資金用途",
+"资金用途",
+"À quoi ça sert",
+"Para qué es",
+"На что пойдут деньги",
+"فيمَ يُنفق",
+"किस पर ख़र्च होगा",
+"Para que é"
+],
+"Raised": [
+"已募得",
+"已募得",
+"Collecté",
+"Recaudado",
+"Собрано",
+"المبلغ المجموع",
+"जुटाया गया",
+"Arrecadado"
+],
+"Raised so far": [
+"目前已募得",
+"目前已募得",
+"Collecté à ce jour",
+"Recaudado hasta ahora",
+"Собрано на сегодня",
+"المجموع حتى الآن",
+"अब तक जुटाया गया",
+"Arrecadado até agora"
+],
+"Update total": [
+"更新金額",
+"更新金额",
+"Mettre à jour le total",
+"Actualizar total",
+"Обновить сумму",
+"تحديث المجموع",
+"कुल राशि अपडेट करें",
+"Atualizar total"
+],
+"Update the total": [
+"更新金額",
+"更新金额",
+"Mettre à jour le total",
+"Actualizar el total",
+"Обновить сумму",
+"تحديث المجموع",
+"कुल राशि अपडेट करें",
+"Atualizar o total"
+],
+"Save total": [
+"儲存金額",
+"保存金额",
+"Enregistrer le total",
+"Guardar total",
+"Сохранить сумму",
+"حفظ المجموع",
+"कुल राशि सहेजें",
+"Salvar total"
+],
+"Copy link": [
+"複製連結",
+"拷贝链接",
+"Copier le lien",
+"Copiar enlace",
+"Копировать ссылку",
+"نسخ الرابط",
+"लिंक कॉपी करें",
+"Copiar link"
+],
+"No link": [
+"沒有連結",
+"没有链接",
+"Pas de lien",
+"Sin enlace",
+"Нет ссылки",
+"لا يوجد رابط",
+"कोई लिंक नहीं",
+"Sem link"
+],
+"Search title, director or platform": [
+"搜尋片名、導演或平台",
+"搜索片名、导演或平台",
+"Rechercher un titre, un réalisateur ou une plateforme",
+"Buscar título, director o plataforma",
+"Поиск по названию, режиссёру или платформе",
+"ابحث بالعنوان أو المخرج أو المنصة",
+"शीर्षक, निर्देशक या प्लेटफ़ॉर्म खोजें",
+"Buscar título, diretor ou plataforma"
+],
+"Search campaigns": [
+"搜尋募資活動",
+"搜索募资活动",
+"Rechercher des campagnes",
+"Buscar campañas",
+"Поиск кампаний",
+"البحث في الحملات",
+"कैंपेन खोजें",
+"Buscar campanhas"
+],
+"A film that isn't on Crew Call yet": [
+"尚未在 Crew Call 上的影片",
+"尚未在 Crew Call 上的视频",
+"Un film qui n'est pas encore sur Crew Call",
+"Una película que aún no está en Crew Call",
+"Фильм, которого ещё нет в Crew Call",
+"فيلم غير موجود في Crew Call بعد",
+"ऐसी फ़िल्म जो अभी Crew Call पर नहीं है",
+"Um filme que ainda não está no Crew Call"
+],
+"Add crowdfunding": [
+"新增群眾募資",
+"添加群众募资",
+"Ajouter un financement participatif",
+"Añadir micromecenazgo",
+"Добавить краудфандинг",
+"إضافة تمويل جماعي",
+"क्राउडफ़ंडिंग जोड़ें",
+"Adicionar financiamento coletivo"
+],
+"Add the goal.": [
+"請填寫目標金額。",
+"请填写目标金额。",
+"Indiquez l'objectif.",
+"Añade el objetivo.",
+"Укажите цель.",
+"أضف الهدف.",
+"लक्ष्य जोड़ें।",
+"Adicione a meta."
+],
+"Add the deadline.": [
+"請填寫截止日期。",
+"请填写截止日期。",
+"Indiquez la date limite.",
+"Añade la fecha límite.",
+"Укажите срок.",
+"أضف الموعد النهائي.",
+"अंतिम तिथि जोड़ें।",
+"Adicione o prazo."
+],
+"The campaign link isn't a web address.": [
+"募資頁連結不是網址。",
+"募资页链接不是网址。",
+"Le lien de la campagne n'est pas une adresse web.",
+"El enlace de la campaña no es una dirección web.",
+"Ссылка на кампанию — не веб-адрес.",
+"رابط الحملة ليس عنوان ويب.",
+"कैंपेन लिंक वेब पता नहीं है।",
+"O link da campanha não é um endereço web."
+],
+"Sign in to post a campaign.": [
+"登入後才能刊登募資活動。",
+"登录后才能刊登募资活动。",
+"Connectez-vous pour publier une campagne.",
+"Inicia sesión para publicar una campaña.",
+"Войдите, чтобы разместить кампанию.",
+"سجّل الدخول لنشر حملة.",
+"कैंपेन पोस्ट करने के लिए साइन इन करें।",
+"Entre para publicar uma campanha."
+],
+"The campaign comes off Funding. Nothing changes on the crowdfunding site itself.": [
+"活動會從眾籌頁移除，群眾募資網站本身不受影響。",
+"活动会从众筹页移除，群众募资网站本身不受影响。",
+"La campagne disparaît de Financement. Rien ne change sur le site de financement lui-même.",
+"La campaña sale de Financiación. No cambia nada en la web de micromecenazgo.",
+"Кампания исчезнет из раздела «Сборы». На самом сайте краудфандинга ничего не изменится.",
+"تُزال الحملة من قسم التمويل. لا يتغير شيء على موقع التمويل الجماعي نفسه.",
+"कैंपेन फ़ंडिंग से हट जाएगा। क्राउडफ़ंडिंग साइट पर कुछ नहीं बदलेगा।",
+"A campanha sai de Financiamento. Nada muda no site de financiamento coletivo."
+],
+"Crowdfunding campaigns for LFS films. Back a classmate's shoot, share it, or post your own with its goal and deadline. The money goes through the platform, never through Crew Call.": [
+"LFS 影片的群眾募資活動。支持同學的拍攝、分享出去，或刊登你自己的活動與目標和截止日期。款項經由募資平台，絕不經過 Crew Call。",
+"LFS 视频的群众募资活动。支持同学的拍摄、分享出去，或刊登你自己的活动与目标和截止日期。款项经由募资平台，绝不经过 Crew Call。",
+"Les campagnes de financement participatif des films de la LFS. Soutenez le tournage d'un camarade, partagez-le, ou publiez le vôtre avec son objectif et sa date limite. L'argent passe par la plateforme, jamais par Crew Call.",
+"Campañas de micromecenazgo de películas de la LFS. Apoya el rodaje de un compañero, compártelo o publica el tuyo con su objetivo y fecha límite. El dinero pasa por la plataforma, nunca por Crew Call.",
+"Краудфандинговые кампании фильмов LFS. Поддержите съёмки однокурсника, поделитесь ими или разместите свою кампанию с целью и сроком. Деньги идут через платформу, а не через Crew Call.",
+"حملات تمويل جماعي لأفلام LFS. ادعم تصوير زميلك أو شاركه، أو انشر حملتك مع هدفها وموعدها النهائي. يمر المال عبر المنصة، وليس عبر Crew Call أبدًا.",
+"LFS फ़िल्मों के क्राउडफ़ंडिंग कैंपेन। किसी सहपाठी के शूट का समर्थन करें, उसे शेयर करें, या अपना कैंपेन लक्ष्य और अंतिम तिथि के साथ पोस्ट करें। पैसा प्लेटफ़ॉर्म से जाता है, Crew Call से कभी नहीं।",
+"Campanhas de financiamento coletivo de filmes da LFS. Apoie a filmagem de um colega, compartilhe ou publique a sua com meta e prazo. O dinheiro passa pela plataforma, nunca pelo Crew Call."
+],
+"Post it once your campaign page is live. People back it on the platform; Crew Call only shows the goal, the total and the deadline.": [
+"募資頁上線後再刊登。大家在平台上支持；Crew Call 只顯示目標、金額和截止日期。",
+"募资页上线后再刊登。大家在平台上支持；Crew Call 只显示目标、金额和截止日期。",
+"Publiez-la une fois la page de campagne en ligne. Les gens soutiennent sur la plateforme ; Crew Call n'affiche que l'objectif, le total et la date limite.",
+"Publícala cuando la página de la campaña esté activa. La gente apoya en la plataforma; Crew Call solo muestra el objetivo, el total y la fecha límite.",
+"Разместите, когда страница кампании заработает. Поддерживают на платформе; Crew Call показывает только цель, сумму и срок.",
+"انشرها بعد أن تصبح صفحة الحملة متاحة. يدعمها الناس على المنصة؛ ولا يعرض Crew Call سوى الهدف والمجموع والموعد النهائي.",
+"कैंपेन पेज लाइव होने के बाद पोस्ट करें। लोग प्लेटफ़ॉर्म पर समर्थन करते हैं; Crew Call सिर्फ़ लक्ष्य, कुल राशि और अंतिम तिथि दिखाता है।",
+"Publique quando a página da campanha estiver no ar. As pessoas apoiam na plataforma; o Crew Call só mostra a meta, o total e o prazo."
+],
+"e.g. location hire, kit, food for 20 crew, festival fees": [
+"例如場地租金、器材、20 人劇組的餐點、影展報名費",
+"例如场地租金、器材、20 人剧组的餐点、影展报名费",
+"ex. location de décor, matériel, repas pour 20 personnes, frais de festival",
+"p. ej. alquiler de localización, equipo, comida para 20 personas, tasas de festivales",
+"например, аренда локации, техника, еда на 20 человек, взносы фестивалей",
+"مثلًا: استئجار الموقع، المعدات، طعام لعشرين فردًا، رسوم المهرجانات",
+"जैसे लोकेशन किराया, उपकरण, 20 लोगों का खाना, फ़ेस्टिवल फ़ीस",
+"ex.: aluguel de locação, equipamento, comida para 20 pessoas, taxas de festivais"
+],
+"one or two lines": [
+"一兩句話",
+"一两句话",
+"une ou deux lignes",
+"una o dos líneas",
+"одна-две строки",
+"سطر أو سطران",
+"एक-दो पंक्तियाँ",
+"uma ou duas linhas"
+],
+"Photo": [
+"照片",
+"照片",
+"Photo",
+"Foto",
+"Фото",
+"الصورة",
+"फ़ोटो",
+"Foto"
+],
+"Choose photo": [
+"選擇照片",
+"选择照片",
+"Choisir une photo",
+"Elegir foto",
+"Выбрать фото",
+"اختر صورة",
+"फ़ोटो चुनें",
+"Escolher foto"
+],
+"Remove photo": [
+"移除照片",
+"移除照片",
+"Retirer la photo",
+"Quitar foto",
+"Убрать фото",
+"إزالة الصورة",
+"फ़ोटो हटाएँ",
+"Remover foto"
+],
+"No photo": [
+"沒有照片",
+"没有照片",
+"Pas de photo",
+"Sin foto",
+"Нет фото",
+"لا توجد صورة",
+"कोई फ़ोटो नहीं",
+"Sem foto"
+],
+"Uploading…": [
+"上傳中…",
+"上传中…",
+"Envoi…",
+"Subiendo…",
+"Загрузка…",
+"جارٍ الرفع…",
+"अपलोड हो रहा है…",
+"Enviando…"
+],
+"Couldn't read that picture": [
+"無法讀取這張圖片",
+"无法读取这张图片",
+"Impossible de lire cette image",
+"No se pudo leer esa imagen",
+"Не удалось прочитать изображение",
+"تعذّرت قراءة الصورة",
+"वह तस्वीर पढ़ी नहीं जा सकी",
+"Não foi possível ler essa imagem"
+],
+"Couldn't upload that picture": [
+"無法上傳這張圖片",
+"无法上传这张图片",
+"Impossible d'envoyer cette image",
+"No se pudo subir esa imagen",
+"Не удалось загрузить изображение",
+"تعذّر رفع الصورة",
+"वह तस्वीर अपलोड नहीं हो सकी",
+"Não foi possível enviar essa imagem"
+],
+"That file is over 25 MB. Pick a smaller one.": [
+"檔案超過 25 MB，請選較小的檔案。",
+"文件超过 25 MB，请选较小的文件。",
+"Ce fichier dépasse 25 Mo. Choisissez-en un plus petit.",
+"El archivo supera los 25 MB. Elige uno más pequeño.",
+"Файл больше 25 МБ. Выберите файл поменьше.",
+"حجم الملف أكبر من 25 ميغابايت. اختر ملفًا أصغر.",
+"फ़ाइल 25 MB से बड़ी है। छोटी फ़ाइल चुनें।",
+"O arquivo tem mais de 25 MB. Escolha um menor."
+],
+"That file isn't a picture we can read. Try a JPG or PNG.": [
+"這個檔案不是可讀取的圖片，請改用 JPG 或 PNG。",
+"这个文件不是可读取的图片，请改用 JPG 或 PNG。",
+"Ce fichier n'est pas une image lisible. Essayez un JPG ou un PNG.",
+"Ese archivo no es una imagen que podamos leer. Prueba con JPG o PNG.",
+"Этот файл не похож на изображение. Попробуйте JPG или PNG.",
+"هذا الملف ليس صورة يمكن قراءتها. جرّب JPG أو PNG.",
+"यह फ़ाइल पढ़ी जा सकने वाली तस्वीर नहीं है। JPG या PNG आज़माएँ।",
+"Esse arquivo não é uma imagem legível. Tente JPG ou PNG."
+],
+"Photos aren't switched on yet: an admin needs to run supabase/storage.sql once.": [
+"照片功能尚未開啟：管理員需執行一次 supabase/storage.sql。",
+"照片功能尚未打开：管理员需运行一次 supabase/storage.sql。",
+"Les photos ne sont pas encore activées : un admin doit exécuter supabase/storage.sql une fois.",
+"Las fotos aún no están activadas: un administrador debe ejecutar supabase/storage.sql una vez.",
+"Фото пока не включены: администратору нужно один раз запустить supabase/storage.sql.",
+"الصور غير مفعّلة بعد: على المشرف تشغيل supabase/storage.sql مرة واحدة.",
+"फ़ोटो अभी चालू नहीं हैं: एडमिन को एक बार supabase/storage.sql चलाना होगा।",
+"As fotos ainda não estão ativadas: um admin precisa executar supabase/storage.sql uma vez."
+],
+"optional: a still or poster for the card. It's cropped to 16:9 and shrunk to a small file": [
+"選填：卡片用的劇照或海報，會裁成 16:9 並壓縮成小檔案",
+"选填：卡片用的剧照或海报，会裁成 16:9 并压缩成小文件",
+"facultatif : une image ou une affiche pour la carte. Recadrée en 16:9 et réduite en un petit fichier",
+"opcional: un fotograma o póster para la tarjeta. Se recorta a 16:9 y se reduce a un archivo pequeño",
+"необязательно: кадр или постер для карточки. Обрезается до 16:9 и сжимается",
+"اختياري: لقطة أو ملصق للبطاقة. تُقص إلى 16:9 وتُصغّر إلى ملف صغير",
+"वैकल्पिक: कार्ड के लिए स्टिल या पोस्टर। इसे 16:9 में काटकर छोटी फ़ाइल बना दिया जाता है",
+"opcional: um still ou pôster para o cartão. É cortado em 16:9 e reduzido a um arquivo pequeno"
+],
+"Requests": [
+"申請",
+"申请",
+"Demandes",
+"Solicitudes",
+"Заявки",
+"الطلبات",
+"अनुरोध",
+"Pedidos"
+],
+"Approve": [
+"核准",
+"核准",
+"Approuver",
+"Aprobar",
+"Одобрить",
+"موافقة",
+"मंज़ूर करें",
+"Aprovar"
+],
+"Not them": [
+"不是他們",
+"不是他们",
+"Ce n'est pas lui/elle",
+"No es esa persona",
+"Это не он(а)",
+"ليس هو",
+"ये वो नहीं हैं",
+"Não é essa pessoa"
+],
+"That's me": [
+"是我",
+"是我",
+"C'est moi",
+"Soy yo",
+"Это я",
+"هذا أنا",
+"यह मैं हूँ",
+"Sou eu"
+],
+"Not me": [
+"不是我",
+"不是我",
+"Pas moi",
+"No soy yo",
+"Не я",
+"لست أنا",
+"मैं नहीं",
+"Não sou eu"
+],
+"Is this you?": [
+"這是你嗎？",
+"这是你吗？",
+"Est-ce vous ?",
+"¿Eres tú?",
+"Это вы?",
+"هل هذا أنت؟",
+"क्या यह आप हैं?",
+"É você?"
+],
+"Were you added by name?": [
+"你是被以姓名加入的嗎？",
+"你是被以姓名加入的吗？",
+"Avez-vous été ajouté par votre nom ?",
+"¿Te añadieron por tu nombre?",
+"Вас добавили по имени?",
+"هل أُضفت باسمك؟",
+"क्या आपको नाम से जोड़ा गया था?",
+"Você foi adicionado pelo nome?"
+],
+"Sent · waiting": [
+"已送出 · 等待中",
+"已送出 · 等待中",
+"Envoyé · en attente",
+"Enviado · en espera",
+"Отправлено · ожидание",
+"أُرسل · بانتظار الرد",
+"भेजा गया · प्रतीक्षा में",
+"Enviado · aguardando"
+],
+"Not confirmed": [
+"未確認",
+"未确认",
+"Non confirmé",
+"Sin confirmar",
+"Не подтверждено",
+"غير مؤكد",
+"पुष्टि नहीं हुई",
+"Não confirmado"
+],
+"Already sent": [
+"已送出",
+"已送出",
+"Déjà envoyé",
+"Ya enviado",
+"Уже отправлено",
+"أُرسل مسبقًا",
+"पहले ही भेजा गया",
+"Já enviado"
+],
+"Tap a name to see their profile and credits.": [
+"點選姓名查看個人檔案和作品經歷。",
+"点击姓名查看个人文件和作品经历。",
+"Touchez un nom pour voir son profil et ses crédits.",
+"Toca un nombre para ver su perfil y créditos.",
+"Нажмите на имя, чтобы увидеть профиль и работы.",
+"اضغط على اسم لرؤية الملف الشخصي والأعمال.",
+"प्रोफ़ाइल और क्रेडिट देखने के लिए नाम पर टैप करें।",
+"Toque em um nome para ver o perfil e os créditos."
+],
+"Confirm it's you, and once they approve it's on your profile.": [
+"確認是你本人，對方核准後就會出現在你的個人檔案。",
+"确认是你本人，对方核准后就会出现在你的个人文件。",
+"Confirmez que c'est vous ; une fois approuvé, cela apparaît sur votre profil.",
+"Confirma que eres tú y, cuando lo aprueben, aparecerá en tu perfil.",
+"Подтвердите, что это вы, — после одобрения это появится в вашем профиле.",
+"أكّد أنه أنت، وبعد الموافقة سيظهر في ملفك.",
+"पुष्टि करें कि यह आप हैं; मंज़ूरी के बाद यह आपकी प्रोफ़ाइल पर आ जाएगा।",
+"Confirme que é você; depois da aprovação, aparece no seu perfil."
+],
+"These projects list someone with your name who wasn't on Crew Call yet. If it's you, confirm it: whoever added you approves, then it shows on your profile as a credit.": [
+"這些專案列有與你同名、當時尚未加入 Crew Call 的人。如果是你，請確認：加入你的人核准後，就會成為你個人檔案上的作品經歷。",
+"这些项目列有与你同名、当时尚未加入 Crew Call 的人。如果是你，请确认：加入你的人核准后，就会成为你个人文件上的作品经历。",
+"Ces projets mentionnent une personne portant votre nom qui n'était pas encore sur Crew Call. Si c'est vous, confirmez : la personne qui vous a ajouté approuve, puis cela apparaît comme crédit sur votre profil.",
+"Estos proyectos incluyen a alguien con tu nombre que aún no estaba en Crew Call. Si eres tú, confírmalo: quien te añadió lo aprueba y aparecerá como crédito en tu perfil.",
+"В этих проектах указан человек с вашим именем, которого ещё не было в Crew Call. Если это вы, подтвердите: тот, кто вас добавил, одобрит, и работа появится в вашем профиле.",
+"تذكر هذه المشاريع شخصًا باسمك لم يكن على Crew Call بعد. إن كان أنت فأكّد ذلك: يوافق من أضافك، ثم يظهر في ملفك كعمل.",
+"इन प्रोजेक्ट में आपके नाम का कोई व्यक्ति है जो तब Crew Call पर नहीं था। अगर यह आप हैं तो पुष्टि करें: जिसने जोड़ा वह मंज़ूर करेगा, फिर यह आपकी प्रोफ़ाइल पर क्रेडिट के रूप में दिखेगा।",
+"Estes projetos listam alguém com o seu nome que ainda não estava no Crew Call. Se for você, confirme: quem adicionou aprova e aparece no seu perfil como crédito."
+],
+"They've joined Crew Call and say they're the person you added by name. Approve it and it counts as their credit.": [
+"對方已加入 Crew Call，並表示自己就是你以姓名加入的人。核准後就算作他們的作品經歷。",
+"对方已加入 Crew Call，并表示自己就是你以姓名加入的人。核准后就算作他们的作品经历。",
+"Cette personne a rejoint Crew Call et dit être celle que vous avez ajoutée par son nom. Approuvez pour que cela compte comme son crédit.",
+"Se ha unido a Crew Call y dice ser la persona que añadiste por su nombre. Apruébalo y contará como su crédito.",
+"Человек присоединился к Crew Call и говорит, что это его вы добавили по имени. Одобрите — и работа засчитается ему.",
+"انضم إلى Crew Call ويقول إنه الشخص الذي أضفته باسمه. وافق ليُحتسب عملًا له.",
+"वे Crew Call से जुड़ गए हैं और कहते हैं कि आपने उन्हीं को नाम से जोड़ा था। मंज़ूर करें तो यह उनका क्रेडिट बन जाएगा।",
+"A pessoa entrou no Crew Call e diz ser quem você adicionou pelo nome. Aprove e isso conta como crédito dela."
+],
+"Hidden. You won't be asked about that one again.": [
+"已隱藏，之後不會再問你這一筆。",
+"已隐藏，之后不会再问你这一笔。",
+"Masqué. On ne vous le redemandera pas.",
+"Oculto. No se te volverá a preguntar.",
+"Скрыто. Больше об этом не спросим.",
+"أُخفي. لن نسألك عنه مجددًا.",
+"छिपा दिया गया। इसके बारे में फिर नहीं पूछा जाएगा।",
+"Ocultado. Não vamos perguntar sobre isso de novo."
+],
+"That name isn't on the project any more": [
+"這個名字已不在專案中",
+"这个名字已不在项目中",
+"Ce nom n'est plus sur le projet",
+"Ese nombre ya no está en el proyecto",
+"Этого имени больше нет в проекте",
+"هذا الاسم لم يعد في المشروع",
+"यह नाम अब प्रोजेक्ट में नहीं है",
+"Esse nome não está mais no projeto"
+],
+"That role has changed since they asked": [
+"對方提出後這個職位已有變動",
+"对方提出后这个职位已有变动",
+"Ce poste a changé depuis la demande",
+"Ese puesto ha cambiado desde que lo pidieron",
+"Роль изменилась после запроса",
+"تغيّر الدور منذ الطلب",
+"अनुरोध के बाद रोल बदल गया है",
+"A função mudou desde o pedido"
+],
+"The director has changed since they asked": [
+"對方提出後導演已有變動",
+"对方提出后导演已有变动",
+"Le réalisateur a changé depuis la demande",
+"El director ha cambiado desde que lo pidieron",
+"Режиссёр изменился после запроса",
+"تغيّر المخرج منذ الطلب",
+"अनुरोध के बाद निर्देशक बदल गया है",
+"O diretor mudou desde o pedido"
+],
+"This shoot has wrapped, so its roles are closed.": [
+"這個拍攝已殺青，職位已關閉。",
+"这个拍摄已杀青，职位已关闭。",
+"Ce tournage est terminé, ses postes sont donc fermés.",
+"Este rodaje ha terminado, así que sus puestos están cerrados.",
+"Съёмки завершены, роли закрыты.",
+"انتهى التصوير، لذا أُغلقت أدواره.",
+"यह शूट पूरा हो गया है, इसलिए रोल बंद हैं।",
+"Esta filmagem terminou, então as funções estão fechadas."
+],
+"Sign in to see profiles and get in touch.": [
+"登入後才能查看個人檔案並聯絡。",
+"登录后才能查看个人文件并联系。",
+"Connectez-vous pour voir les profils et prendre contact.",
+"Inicia sesión para ver perfiles y ponerte en contacto.",
+"Войдите, чтобы видеть профили и связываться.",
+"سجّل الدخول لرؤية الملفات والتواصل.",
+"प्रोफ़ाइल देखने और संपर्क करने के लिए साइन इन करें।",
+"Entre para ver perfis e entrar em contato."
+],
+"Director · no producer yet": [
+"導演 · 尚無製片",
+"导演 · 尚无制片",
+"Réalisateur · pas encore de producteur",
+"Director · aún sin productor",
+"Режиссёр · продюсера пока нет",
+"المخرج · لا منتج بعد",
+"निर्देशक · अभी कोई प्रोड्यूसर नहीं",
+"Diretor · ainda sem produtor"
+],
+"By": [
+"發起人",
+"发起人",
+"Par",
+"Por",
+"Автор:",
+"بواسطة",
+"द्वारा",
+"Por"
+],
+"by": [
+"發起人",
+"发起人",
+"par",
+"por",
+"автор:",
+"بواسطة",
+"द्वारा",
+"por"
 ],
 "Director": [
 "導演",
@@ -12732,16 +13522,6 @@ window.CC_I18N = {
 "पिन किया",
 "Fixado"
 ],
-"Pitch": [
-"提案",
-"提案",
-"Pitch",
-"Pitch",
-"Питч",
-"فكرة",
-"पिच",
-"Pitch"
-],
 "Pitched": [
 "已提案",
 "已提案",
@@ -15076,9 +15856,9 @@ window.CC_I18N = {
 "{=1} 项作品经历",
 "{=1} {1|crédit|crédits}",
 "{=1} {1|crédito|créditos}",
-"{=1} {1|работа|работы|работ} в титрах",
-"{=1} {1|عمل سابق|عملان سابقان|أعمال سابقة|عملًا سابقًا|عمل سابق}",
-"{=1} {1|क्रेडिट|क्रेडिट}",
+"{=1} {1|работа|работы|работ}",
+"{=1} {1|عمل|عملان|أعمال|عملًا|عمل}",
+"{=1} क्रेडिट",
 "{=1} {1|crédito|créditos}"
 ],
 [
@@ -17907,6 +18687,292 @@ window.CC_I18N = {
 "من التصوير · إخراج {=1}",
 "शूट से · निर्देशक {=1}",
 "Da filmagem · direção de {=1}"
+],
+[
+"^(\\d+) days left$",
+"剩 {=1} 天",
+"剩 {=1} 天",
+"{=1} jours restants",
+"Quedan {=1} días",
+"{1|Остался|Осталось|Осталось} {=1} {1|день|дня|дней}",
+"{1|بقي|بقي|بقيت|بقي|بقي} {=1} {1|يوم|يومان|أيام|يومًا|يوم}",
+"{=1} दिन बाकी",
+"{1|Falta|Faltam} {=1} {1|dia|dias}"
+],
+[
+"^Ends (.+)$",
+"{1}截止",
+"{1}截止",
+"Se termine le {1}",
+"Termina el {1}",
+"Заканчивается {1}",
+"تنتهي {1}",
+"{1} को समाप्त",
+"Termina em {1}"
+],
+[
+"^(\\d+)% of the goal raised$",
+"已募得目標的 {=1}%",
+"已募得目标的 {=1}%",
+"{=1} % de l'objectif collecté",
+"{=1} % del objetivo recaudado",
+"Собрано {=1}% цели",
+"جُمع {=1}% من الهدف",
+"लक्ष्य का {=1}% जुटाया गया",
+"{=1}% da meta arrecadado"
+],
+[
+"^(\\d+)% · (.+)$",
+"{=1}% · {2}",
+"{=1}% · {2}",
+"{=1} % · {2}",
+"{=1} % · {2}",
+"{=1}% · {2}",
+"{=1}% · {2}",
+"{=1}% · {2}",
+"{=1}% · {2}"
+],
+[
+"^(\\d+) campaigns?$",
+"{=1} 個募資活動",
+"{=1} 个募资活动",
+"{=1} {1|campagne|campagnes}",
+"{=1} {1|campaña|campañas}",
+"{=1} {1|кампания|кампании|кампаний}",
+"{=1} {1|حملة|حملتان|حملات|حملةً|حملة}",
+"{=1} कैंपेन",
+"{=1} {1|campanha|campanhas}"
+],
+[
+"^(\\d+) credits?$",
+"{=1} 項作品經歷",
+"{=1} 项作品经历",
+"{=1} {1|crédit|crédits}",
+"{=1} {1|crédito|créditos}",
+"{=1} {1|работа|работы|работ}",
+"{=1} {1|عمل|عملان|أعمال|عملًا|عمل}",
+"{=1} क्रेडिट",
+"{=1} {1|crédito|créditos}"
+],
+[
+"^Back to (.+)$",
+"返回{=1}",
+"返回{=1}",
+"Retour à {=1}",
+"Volver a {=1}",
+"Назад к «{=1}»",
+"العودة إلى {=1}",
+"{=1} पर वापस",
+"Voltar para {=1}"
+],
+[
+"^Back it on (.+)$",
+"到 {=1} 支持",
+"到 {=1} 支持",
+"Soutenir sur {=1}",
+"Apoyar en {=1}",
+"Поддержать на {=1}",
+"ادعمها على {=1}",
+"{=1} पर समर्थन करें",
+"Apoiar no {=1}"
+],
+[
+"^Crowdfunding on (.+)$",
+"在 {=1} 募資",
+"在 {=1} 募资",
+"Financement sur {=1}",
+"Micromecenazgo en {=1}",
+"Краудфандинг на {=1}",
+"تمويل جماعي على {=1}",
+"{=1} पर क्राउडफ़ंडिंग",
+"Financiamento coletivo no {=1}"
+],
+[
+"^Funding · (.+)$",
+"眾籌 · {=1}",
+"众筹 · {=1}",
+"Financement · {=1}",
+"Financiación · {=1}",
+"Сборы · {=1}",
+"التمويل · {=1}",
+"फ़ंडिंग · {=1}",
+"Financiamento · {=1}"
+],
+[
+"^Total saved: (.+)$",
+"金額已儲存：{=1}",
+"金额已保存：{=1}",
+"Total enregistré : {=1}",
+"Total guardado: {=1}",
+"Сумма сохранена: {=1}",
+"حُفظ المجموع: {=1}",
+"कुल राशि सहेजी गई: {=1}",
+"Total salvo: {=1}"
+],
+[
+"^Added as “(.+)” · (.+)$",
+"以「{=1}」加入 · {2}",
+"以「{=1}」加入 · {2}",
+"Ajouté comme « {=1} » · {2}",
+"Añadido como «{=1}» · {2}",
+"Добавлен(а) как «{=1}» · {2}",
+"أُضيف باسم «{=1}» · {2}",
+"“{=1}” के रूप में जोड़ा गया · {2}",
+"Adicionado como “{=1}” · {2}"
+],
+[
+"^Listed as “(.+)” · (.+)$",
+"列為「{=1}」 · {2}",
+"列为「{=1}」 · {2}",
+"Inscrit comme « {=1} » · {2}",
+"Figura como «{=1}» · {2}",
+"Указан(а) как «{=1}» · {2}",
+"مُدرج باسم «{=1}» · {2}",
+"“{=1}” के रूप में दर्ज · {2}",
+"Listado como “{=1}” · {2}"
+],
+[
+"^Is this them\\? · (.+)$",
+"是他們嗎？ · {1}",
+"是他们吗？ · {1}",
+"Est-ce lui/elle ? · {1}",
+"¿Es esa persona? · {1}",
+"Это он(а)? · {1}",
+"هل هذا هو؟ · {1}",
+"क्या ये वही हैं? · {1}",
+"É essa pessoa? · {1}"
+],
+[
+"^Someone added “(.+)” as (.+) on (.+)\\.$",
+"有人將「{=1}」加入《{=3}》擔任{2}。",
+"有人将「{=1}」加入《{=3}》担任{2}。",
+"Quelqu'un a ajouté « {=1} » comme {2} sur {=3}.",
+"Alguien añadió a «{=1}» como {2} en {=3}.",
+"Кто-то добавил «{=1}» как {2} в «{=3}».",
+"أضاف أحدهم «{=1}» بدور {2} في {=3}.",
+"किसी ने “{=1}” को {=3} पर {2} के रूप में जोड़ा।",
+"Alguém adicionou “{=1}” como {2} em {=3}."
+],
+[
+"^Your name was added by hand to (\\d+) projects\\.$",
+"你的名字被手動加入了 {=1} 個專案。",
+"你的名字被手动加入了 {=1} 个项目。",
+"Votre nom a été ajouté à la main sur {=1} projets.",
+"Tu nombre se añadió a mano en {=1} proyectos.",
+"Ваше имя вручную добавили в проекты: {=1}.",
+"أُضيف اسمك يدويًا إلى {=1} مشاريع.",
+"आपका नाम {=1} प्रोजेक्ट में हाथ से जोड़ा गया।",
+"Seu nome foi adicionado à mão em {=1} projetos."
+],
+[
+"^Sent\\. (.+)'s team will confirm it\\.$",
+"已送出。《{=1}》團隊會確認。",
+"已送出。《{=1}》团队会确认。",
+"Envoyé. L'équipe de {=1} va confirmer.",
+"Enviado. El equipo de {=1} lo confirmará.",
+"Отправлено. Команда «{=1}» подтвердит.",
+"أُرسل. سيؤكد فريق {=1} ذلك.",
+"भेज दिया। {=1} की टीम पुष्टि करेगी।",
+"Enviado. A equipe de {=1} vai confirmar."
+],
+[
+"^(.+) confirmed as (.+)$",
+"{=1} 已確認擔任{2}",
+"{=1} 已确认担任{2}",
+"{=1} confirmé comme {2}",
+"{=1} confirmado como {2}",
+"{=1}: подтверждено как {2}",
+"تأكّد {=1} بدور {2}",
+"{=1} की {2} के रूप में पुष्टि हुई",
+"{=1} confirmado como {2}"
+],
+[
+"^(.+) says they're the (.+) you listed as “(.+)” on (.+)\\. Approve it in the project so it counts as their credit\\.$",
+"{=1} 表示自己就是你在《{=4}》列為「{=3}」的{2}。請在專案中核准，才會算作他們的作品經歷。",
+"{=1} 表示自己就是你在《{=4}》列为「{=3}」的{2}。请在项目中核准，才会算作他们的作品经历。",
+"{=1} dit être le poste {2} que vous avez inscrit comme « {=3} » sur {=4}. Approuvez-le dans le projet pour qu'il compte comme son crédit.",
+"{=1} dice ser el {2} que pusiste como «{=3}» en {=4}. Apruébalo en el proyecto para que cuente como su crédito.",
+"{=1} говорит, что это он(а) — {2}, кого вы указали как «{=3}» в «{=4}». Одобрите в проекте, чтобы работа засчиталась.",
+"يقول {=1} إنه {2} الذي أدرجته باسم «{=3}» في {=4}. وافق في المشروع ليُحتسب عملًا له.",
+"{=1} कहते हैं कि वे वही {2} हैं जिन्हें आपने {=4} पर “{=3}” के रूप में दर्ज किया। प्रोजेक्ट में मंज़ूर करें ताकि यह उनका क्रेडिट बने।",
+"{=1} diz ser o {2} que você listou como “{=3}” em {=4}. Aprove no projeto para contar como crédito."
+],
+[
+"^(.+) confirmed you as (.+)\\. It's on your profile now\\.$",
+"《{=1}》已確認你擔任{2}，現在已在你的個人檔案上。",
+"《{=1}》已确认你担任{2}，现在已在你的个人文件上。",
+"{=1} vous a confirmé comme {2}. C'est maintenant sur votre profil.",
+"{=1} te ha confirmado como {2}. Ya está en tu perfil.",
+"«{=1}» подтвердил(а) вас как {2}. Теперь это в вашем профиле.",
+"أكّد {=1} أنك {2}. أصبح في ملفك الآن.",
+"{=1} ने आपको {2} के रूप में पुष्टि की। अब यह आपकी प्रोफ़ाइल पर है।",
+"{=1} confirmou você como {2}. Já está no seu perfil."
+],
+[
+"^(.+)'s team say the (.+) they listed isn't you\\. If they're wrong, message them\\.$",
+"《{=1}》團隊表示他們列的{2}不是你。如果他們弄錯了，請傳訊息給他們。",
+"《{=1}》团队表示他们列的{2}不是你。如果他们弄错了，请传消息给他们。",
+"L'équipe de {=1} dit que le poste {2} inscrit n'est pas vous. S'ils se trompent, écrivez-leur.",
+"El equipo de {=1} dice que el {2} que pusieron no eres tú. Si se equivocan, escríbeles.",
+"Команда «{=1}» говорит, что указанный {2} — не вы. Если они ошиблись, напишите им.",
+"يقول فريق {=1} إن {2} المُدرج ليس أنت. إن كانوا مخطئين فراسلهم.",
+"{=1} की टीम कहती है कि दर्ज {2} आप नहीं हैं। अगर वे ग़लत हैं, तो उन्हें मैसेज करें।",
+"A equipe de {=1} diz que o {2} listado não é você. Se estiverem errados, mande uma mensagem."
+],
+[
+"^(.+) is crowdfunding on (.+): (.+) by (.+)\\. Back it or share it from Funding\\.$",
+"《{=1}》正在 {=2} 募資：{4}前募得 {=3}。可在眾籌頁支持或分享。",
+"《{=1}》正在 {=2} 募资：{4}前募得 {=3}。可在众筹页支持或分享。",
+"{=1} lance un financement sur {=2} : {=3} d'ici le {4}. Soutenez-le ou partagez-le depuis Financement.",
+"{=1} busca micromecenazgo en {=2}: {=3} antes del {4}. Apóyalo o compártelo desde Financiación.",
+"«{=1}» собирает деньги на {=2}: {=3} до {4}. Поддержите или поделитесь в разделе «Сборы».",
+"{=1} يجمع تمويلًا على {=2}: {=3} قبل {4}. ادعمه أو شاركه من قسم التمويل.",
+"{=1} {=2} पर फ़ंड जुटा रहा है: {4} तक {=3}। फ़ंडिंग से समर्थन करें या शेयर करें।",
+"{=1} está arrecadando no {=2}: {=3} até {4}. Apoie ou compartilhe em Financiamento."
+],
+[
+"^(.+) · reopen it in the project window to change$",
+"{=1} · 請在專案視窗重新開放才能更改",
+"{=1} · 请在项目窗口重新开放才能更改",
+"{=1} · rouvrez-le dans la fenêtre du projet pour le changer",
+"{=1} · reábrelo en la ventana del proyecto para cambiarlo",
+"{=1} · чтобы изменить, откройте роль снова в окне проекта",
+"{=1} · أعد فتحه في نافذة المشروع لتغييره",
+"{=1} · बदलने के लिए प्रोजेक्ट विंडो में फिर से खोलें",
+"{=1} · reabra na janela do projeto para mudar"
+],
+[
+"^(.+) · (\\d+) (.+) hidden$",
+"{1} · 已隱藏 {=2} 個（{3}）",
+"{1} · 已隐藏 {=2} 个（{3}）",
+"{1} · {=2} {3} masqués",
+"{1} · {=2} {3} ocultos",
+"{1} · скрыто: {=2} ({3})",
+"{1} · {=2} مخفية ({3})",
+"{1} · {=2} छिपे ({3})",
+"{1} · {=2} ocultos ({3})"
+],
+[
+"^of ([£$€][\\d,]+)$",
+"目標 {=1}",
+"目标 {=1}",
+"sur {=1}",
+"de {=1}",
+"из {=1}",
+"من {=1}",
+"{=1} में से",
+"de {=1}"
+],
+[
+"^Raised so far \\((.+)\\)$",
+"目前已募得（{=1}）",
+"目前已募得（{=1}）",
+"Collecté à ce jour ({=1})",
+"Recaudado hasta ahora ({=1})",
+"Собрано на сегодня ({=1})",
+"المجموع حتى الآن ({=1})",
+"अब तक जुटाया गया ({=1})",
+"Arrecadado até agora ({=1})"
 ]
 ]
 };

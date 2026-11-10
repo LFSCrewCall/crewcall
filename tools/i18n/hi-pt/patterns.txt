@@ -263,3 +263,29 @@
 ^Delivery (.+)$ || डिलीवरी {1} || Entrega {1}
 ^Shooting (.+)$ || शूटिंग {1} || Filmagem {1}
 ^From the shoot · directed by (.+)$ || शूट से · निर्देशक {=1} || Da filmagem · direção de {=1}
+^(\d+) days left$ || {=1} दिन बाकी || {1|Falta|Faltam} {=1} {1|dia|dias}
+^Ends (.+)$ || {1} को समाप्त || Termina em {1}
+^(\d+)% of the goal raised$ || लक्ष्य का {=1}% जुटाया गया || {=1}% da meta arrecadado
+^(\d+)% · (.+)$ || {=1}% · {2} || {=1}% · {2}
+^(\d+) campaigns?$ || {=1} कैंपेन || {=1} {1|campanha|campanhas}
+^(\d+) credits?$ || {=1} क्रेडिट || {=1} {1|crédito|créditos}
+^Back to (.+)$ || {=1} पर वापस || Voltar para {=1}
+^Back it on (.+)$ || {=1} पर समर्थन करें || Apoiar no {=1}
+^Crowdfunding on (.+)$ || {=1} पर क्राउडफ़ंडिंग || Financiamento coletivo no {=1}
+^Funding · (.+)$ || फ़ंडिंग · {=1} || Financiamento · {=1}
+^Total saved: (.+)$ || कुल राशि सहेजी गई: {=1} || Total salvo: {=1}
+^Added as “(.+)” · (.+)$ || “{=1}” के रूप में जोड़ा गया · {2} || Adicionado como “{=1}” · {2}
+^Listed as “(.+)” · (.+)$ || “{=1}” के रूप में दर्ज · {2} || Listado como “{=1}” · {2}
+^Is this them\? · (.+)$ || क्या ये वही हैं? · {1} || É essa pessoa? · {1}
+^Someone added “(.+)” as (.+) on (.+)\.$ || किसी ने “{=1}” को {=3} पर {2} के रूप में जोड़ा। || Alguém adicionou “{=1}” como {2} em {=3}.
+^Your name was added by hand to (\d+) projects\.$ || आपका नाम {=1} प्रोजेक्ट में हाथ से जोड़ा गया। || Seu nome foi adicionado à mão em {=1} projetos.
+^Sent\. (.+)'s team will confirm it\.$ || भेज दिया। {=1} की टीम पुष्टि करेगी। || Enviado. A equipe de {=1} vai confirmar.
+^(.+) confirmed as (.+)$ || {=1} की {2} के रूप में पुष्टि हुई || {=1} confirmado como {2}
+^(.+) says they're the (.+) you listed as “(.+)” on (.+)\. Approve it in the project so it counts as their credit\.$ || {=1} कहते हैं कि वे वही {2} हैं जिन्हें आपने {=4} पर “{=3}” के रूप में दर्ज किया। प्रोजेक्ट में मंज़ूर करें ताकि यह उनका क्रेडिट बने। || {=1} diz ser o {2} que você listou como “{=3}” em {=4}. Aprove no projeto para contar como crédito.
+^(.+) confirmed you as (.+)\. It's on your profile now\.$ || {=1} ने आपको {2} के रूप में पुष्टि की। अब यह आपकी प्रोफ़ाइल पर है। || {=1} confirmou você como {2}. Já está no seu perfil.
+^(.+)'s team say the (.+) they listed isn't you\. If they're wrong, message them\.$ || {=1} की टीम कहती है कि दर्ज {2} आप नहीं हैं। अगर वे ग़लत हैं, तो उन्हें मैसेज करें। || A equipe de {=1} diz que o {2} listado não é você. Se estiverem errados, mande uma mensagem.
+^(.+) is crowdfunding on (.+): (.+) by (.+)\. Back it or share it from Funding\.$ || {=1} {=2} पर फ़ंड जुटा रहा है: {4} तक {=3}। फ़ंडिंग से समर्थन करें या शेयर करें। || {=1} está arrecadando no {=2}: {=3} até {4}. Apoie ou compartilhe em Financiamento.
+^(.+) · reopen it in the project window to change$ || {=1} · बदलने के लिए प्रोजेक्ट विंडो में फिर से खोलें || {=1} · reabra na janela do projeto para mudar
+^(.+) · (\d+) (.+) hidden$ || {1} · {=2} छिपे ({3}) || {1} · {=2} ocultos ({3})
+^of ([£$€][\d,]+)$ || {=1} में से || de {=1}
+^Raised so far \((.+)\)$ || अब तक जुटाया गया ({=1}) || Arrecadado até agora ({=1})

@@ -1,0 +1,80 @@
+Funding || Сборы || التمويل
+Project stages || Этапы проекта || مراحل المشروع
+Crowdfunding || Краудфандинг || التمويل الجماعي
+Post a campaign || Разместить кампанию || نشر حملة
+Post campaign || Разместить кампанию || نشر الحملة
+Post a crowdfunding campaign || Разместить краудфандинговую кампанию || نشر حملة تمويل جماعي
+Edit campaign || Изменить кампанию || تعديل الحملة
+Campaign || Кампания || الحملة
+Campaign posted || Кампания размещена || نُشرت الحملة
+Campaign link || Ссылка на кампанию || رابط الحملة
+Campaigns for shoots you're on || Кампании ваших съёмок || حملات التصوير الذي تشارك فيه
+No campaigns right now || Сейчас кампаний нет || لا توجد حملات حاليًا
+Raising money for a shoot? Post your campaign so the school can back it. || Собираете деньги на съёмки? Разместите кампанию, чтобы школа могла поддержать. || تجمع المال لتصوير؟ انشر حملتك ليدعمها الجميع في المدرسة.
+Back it || Поддержать || ادعمها
+Ended || Завершена || انتهت
+Ends today || Заканчивается сегодня || تنتهي اليوم
+1 day left || Остался 1 день || بقي يوم واحد
+Ending soonest || Скоро заканчиваются || الأقرب انتهاءً
+Closest to goal || Ближе к цели || الأقرب إلى الهدف
+Platform || Платформа || المنصة
+Goal || Цель || الهدف
+Currency || Валюта || العملة
+Pitch || Описание || الفكرة
+What the money pays for || На что пойдут деньги || فيمَ يُنفق المال
+What it pays for || На что пойдут деньги || فيمَ يُنفق
+Raised || Собрано || المبلغ المجموع
+Raised so far || Собрано на сегодня || المجموع حتى الآن
+Update total || Обновить сумму || تحديث المجموع
+Update the total || Обновить сумму || تحديث المجموع
+Save total || Сохранить сумму || حفظ المجموع
+Copy link || Копировать ссылку || نسخ الرابط
+No link || Нет ссылки || لا يوجد رابط
+Search title, director or platform || Поиск по названию, режиссёру или платформе || ابحث بالعنوان أو المخرج أو المنصة
+Search campaigns || Поиск кампаний || البحث في الحملات
+A film that isn't on Crew Call yet || Фильм, которого ещё нет в Crew Call || فيلم غير موجود في Crew Call بعد
+Add crowdfunding || Добавить краудфандинг || إضافة تمويل جماعي
+Add the goal. || Укажите цель. || أضف الهدف.
+Add the deadline. || Укажите срок. || أضف الموعد النهائي.
+The campaign link isn't a web address. || Ссылка на кампанию — не веб-адрес. || رابط الحملة ليس عنوان ويب.
+Sign in to post a campaign. || Войдите, чтобы разместить кампанию. || سجّل الدخول لنشر حملة.
+The campaign comes off Funding. Nothing changes on the crowdfunding site itself. || Кампания исчезнет из раздела «Сборы». На самом сайте краудфандинга ничего не изменится. || تُزال الحملة من قسم التمويل. لا يتغير شيء على موقع التمويل الجماعي نفسه.
+Crowdfunding campaigns for LFS films. Back a classmate's shoot, share it, or post your own with its goal and deadline. The money goes through the platform, never through Crew Call. || Краудфандинговые кампании фильмов LFS. Поддержите съёмки однокурсника, поделитесь ими или разместите свою кампанию с целью и сроком. Деньги идут через платформу, а не через Crew Call. || حملات تمويل جماعي لأفلام LFS. ادعم تصوير زميلك أو شاركه، أو انشر حملتك مع هدفها وموعدها النهائي. يمر المال عبر المنصة، وليس عبر Crew Call أبدًا.
+Post it once your campaign page is live. People back it on the platform; Crew Call only shows the goal, the total and the deadline. || Разместите, когда страница кампании заработает. Поддерживают на платформе; Crew Call показывает только цель, сумму и срок. || انشرها بعد أن تصبح صفحة الحملة متاحة. يدعمها الناس على المنصة؛ ولا يعرض Crew Call سوى الهدف والمجموع والموعد النهائي.
+e.g. location hire, kit, food for 20 crew, festival fees || например, аренда локации, техника, еда на 20 человек, взносы фестивалей || مثلًا: استئجار الموقع، المعدات، طعام لعشرين فردًا، رسوم المهرجانات
+one or two lines || одна-две строки || سطر أو سطران
+Photo || Фото || الصورة
+Choose photo || Выбрать фото || اختر صورة
+Remove photo || Убрать фото || إزالة الصورة
+No photo || Нет фото || لا توجد صورة
+Uploading… || Загрузка… || جارٍ الرفع…
+Couldn't read that picture || Не удалось прочитать изображение || تعذّرت قراءة الصورة
+Couldn't upload that picture || Не удалось загрузить изображение || تعذّر رفع الصورة
+That file is over 25 MB. Pick a smaller one. || Файл больше 25 МБ. Выберите файл поменьше. || حجم الملف أكبر من 25 ميغابايت. اختر ملفًا أصغر.
+That file isn't a picture we can read. Try a JPG or PNG. || Этот файл не похож на изображение. Попробуйте JPG или PNG. || هذا الملف ليس صورة يمكن قراءتها. جرّب JPG أو PNG.
+Photos aren't switched on yet: an admin needs to run supabase/storage.sql once. || Фото пока не включены: администратору нужно один раз запустить supabase/storage.sql. || الصور غير مفعّلة بعد: على المشرف تشغيل supabase/storage.sql مرة واحدة.
+optional: a still or poster for the card. It's cropped to 16:9 and shrunk to a small file || необязательно: кадр или постер для карточки. Обрезается до 16:9 и сжимается || اختياري: لقطة أو ملصق للبطاقة. تُقص إلى 16:9 وتُصغّر إلى ملف صغير
+Contact || Контакты || التواصل
+Requests || Заявки || الطلبات
+Approve || Одобрить || موافقة
+Not them || Это не он(а) || ليس هو
+That's me || Это я || هذا أنا
+Not me || Не я || لست أنا
+Is this you? || Это вы? || هل هذا أنت؟
+Were you added by name? || Вас добавили по имени? || هل أُضفت باسمك؟
+Sent · waiting || Отправлено · ожидание || أُرسل · بانتظار الرد
+Not confirmed || Не подтверждено || غير مؤكد
+Already sent || Уже отправлено || أُرسل مسبقًا
+Tap a name to see their profile and credits. || Нажмите на имя, чтобы увидеть профиль и работы. || اضغط على اسم لرؤية الملف الشخصي والأعمال.
+Confirm it's you, and once they approve it's on your profile. || Подтвердите, что это вы, — после одобрения это появится в вашем профиле. || أكّد أنه أنت، وبعد الموافقة سيظهر في ملفك.
+These projects list someone with your name who wasn't on Crew Call yet. If it's you, confirm it: whoever added you approves, then it shows on your profile as a credit. || В этих проектах указан человек с вашим именем, которого ещё не было в Crew Call. Если это вы, подтвердите: тот, кто вас добавил, одобрит, и работа появится в вашем профиле. || تذكر هذه المشاريع شخصًا باسمك لم يكن على Crew Call بعد. إن كان أنت فأكّد ذلك: يوافق من أضافك، ثم يظهر في ملفك كعمل.
+They've joined Crew Call and say they're the person you added by name. Approve it and it counts as their credit. || Человек присоединился к Crew Call и говорит, что это его вы добавили по имени. Одобрите — и работа засчитается ему. || انضم إلى Crew Call ويقول إنه الشخص الذي أضفته باسمه. وافق ليُحتسب عملًا له.
+Hidden. You won't be asked about that one again. || Скрыто. Больше об этом не спросим. || أُخفي. لن نسألك عنه مجددًا.
+That name isn't on the project any more || Этого имени больше нет в проекте || هذا الاسم لم يعد في المشروع
+That role has changed since they asked || Роль изменилась после запроса || تغيّر الدور منذ الطلب
+The director has changed since they asked || Режиссёр изменился после запроса || تغيّر المخرج منذ الطلب
+This shoot has wrapped, so its roles are closed. || Съёмки завершены, роли закрыты. || انتهى التصوير، لذا أُغلقت أدواره.
+Sign in to see profiles and get in touch. || Войдите, чтобы видеть профили и связываться. || سجّل الدخول لرؤية الملفات والتواصل.
+Director · no producer yet || Режиссёр · продюсера пока нет || المخرج · لا منتج بعد
+By || Автор: || بواسطة
+by || автор: || بواسطة

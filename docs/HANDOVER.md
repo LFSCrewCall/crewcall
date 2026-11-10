@@ -11,6 +11,7 @@ Crew Call is a free, student-run website for LFS students to:
 - find crew by role, term, cohort and kit
 - develop ideas: writers post scripts and producers post pitches looking for a writer or director
 - get wrapped films to festivals: directors list finished films and marketing students offer posters, trailers, press kits and festival plans
+- post a crowdfunding campaign for a film, with its goal and deadline
 - report a problem to the admins
 - request to join a shoot
 
@@ -180,7 +181,7 @@ Every location has an Open in menu: OpenStreetMap, Google Maps or Apple Maps. Cr
 
 ## Develop, Shoot, Post, Release
 
-The app follows a film from idea to audience, in four tabs.
+The top bar is Calendar | Funding | Projects | Paid | Crew (plus My shoots, My profile and Admin). Projects holds the four stages of a film, from idea to audience, in a second row of tabs: 1 Develop, 2 Shoot, 3 Post, 4 Release. Projects remembers the last stage you opened.
 
 - Develop: screenwriters post a script (logline only) and producers post a pitch (an idea, a true story they have access to, or rights they hold). Others put their hand up for a role, and the poster brings people on. Only people brought on see the script or pitch deck link. When it's ready, the poster clicks Turn into a shoot.
 - Shoot: the projects board. Crew request roles here.
@@ -189,6 +190,34 @@ The app follows a film from idea to audience, in four tabs.
 - Release: once a shoot has wrapped, the director or producer sees a prompt to list it. Marketing students (and anyone else) offer festival strategy, poster and key art, trailer, socials, press kit or stills. The screener link is only shown to the team. Each job brought on becomes a credit on that person's profile.
 
 Every board has a search bar, a Matches me switch (shows posts needing a role on your profile), tap-to-filter chips, sorting, and Show more after 12 posts. Filled or fully crewed posts are hidden unless you tick the box in Filters. On phones, Filters opens as a panel from the bottom of the screen, and every dropdown in the app opens as a tap-to-pick list instead.
+
+## Funding
+
+Crowdfunding campaigns for LFS films (Kickstarter, Indiegogo, Seed&Spark, GoFundMe, Crowdfunder or anything else). Members only.
+
+- Anyone can post a campaign from Funding, or the director or producer can click Add crowdfunding in a shoot's window. Linked campaigns show on the shoot card and in its window, and the locked crew get a notification.
+- Each campaign has a platform, link, goal, currency, total raised, deadline, pitch, what the money pays for and an optional photo.
+- The money goes through the platform, never through Crew Call. The total raised is updated by hand: whoever posted it (or an admin) clicks Update in the campaign.
+- After the deadline the campaign is greyed out under Ended, then drops off 30 days later.
+
+## Photos
+
+Projects, Post, Release and Funding posts can have one photo (a still or poster). It is cropped to 16:9 and shrunk to about 100 KB before uploading, so the free Supabase limits (1 GB storage, 5 GB egress a month, see [Supabase pricing](https://supabase.com/pricing)) go a long way.
+
+- To switch photos on, run supabase/storage.sql once: Supabase, SQL Editor, paste the file, Run. It creates a public bucket called covers (JPEG only, 600 KB each). Members can only upload or delete files in their own folder.
+- Until it's run, adding a photo shows "Photos aren't switched on yet".
+
+## Added by name (claims)
+
+When someone is added to a shoot by typing their name ("Someone not on Crew Call", or a director or producer typed in by name), and later joins Crew Call with that name, they see a banner: Is this you?
+
+- They click That's me (or Not me to hide it). Whoever typed the name in (or the project's managers) gets a request: Is this them? Approve or Not them.
+- Approving puts the member on the role, so it shows on their profile as a credit.
+- Names are matched loosely (case and accents ignored). Post-board names aren't included.
+
+## Project window
+
+A shoot's window has tabs: Open roles, Schedule, Crew, Contact and Requests (managers only). Crew lists everyone with their number of credits and an Email or Message button. Tap a name to see their profile, then Back to the project.
 
 ## Privacy and data
 

@@ -23,10 +23,8 @@
   </div>
   <nav class="tabs" role="tablist" aria-label="Sections">
     <button role="tab" data-view="calendar" aria-selected="true">Calendar</button>
-    <button role="tab" data-view="scripts" aria-selected="false">Develop</button>
-    <button role="tab" data-view="projects" aria-selected="false">Shoot</button>
-    <button role="tab" data-view="post" aria-selected="false">Post</button>
-    <button role="tab" data-view="release" aria-selected="false">Release</button>
+    <button role="tab" data-view="fund" aria-selected="false">Funding</button>
+    <button role="tab" data-view="stages" aria-selected="false">Projects</button>
     <button role="tab" data-view="paid" aria-selected="false">Paid</button>
     <button role="tab" data-view="crew" aria-selected="false">Crew</button>
     <button role="tab" data-view="mine" aria-selected="false">My shoots</button>
@@ -43,6 +41,13 @@
 
 <main id="app">
   <div class="term-banner" id="termBanner" role="status" hidden></div>
+  <div class="term-banner claim-banner" id="claimBanner" role="status" hidden></div>
+  <nav class="stage-tabs" id="stageTabs" aria-label="Project stages" hidden>
+    <button type="button" data-stage="scripts"><span class="stg-n" aria-hidden="true">1</span><span>Develop</span></button>
+    <button type="button" data-stage="projects"><span class="stg-n" aria-hidden="true">2</span><span>Shoot</span></button>
+    <button type="button" data-stage="post"><span class="stg-n" aria-hidden="true">3</span><span>Post</span></button>
+    <button type="button" data-stage="release"><span class="stg-n" aria-hidden="true">4</span><span>Release</span></button>
+  </nav>
   <!-- CALENDAR -->
   <section class="view" id="view-calendar" aria-label="Calendar">
     <div class="view-head">
@@ -83,7 +88,7 @@
   <!-- PROJECTS -->
   <section class="view" id="view-projects" hidden aria-label="Shoot">
     <div class="view-head">
-      <div><p class="eyebrow">Step 2 of 4</p><h1 class="page-title">Shoots looking for crew</h1><p class="muted">School shoots are in kind: you work for the credit, the experience and usually food and travel. Paid jobs are under <button type="button" class="link-btn" data-go="paid">Paid</button>.</p></div>
+      <div><h1 class="page-title">Shoots looking for crew</h1><p class="muted">School shoots are in kind: you work for the credit, the experience and usually food and travel. Paid jobs are under <button type="button" class="link-btn" data-go="paid">Paid</button>.</p></div>
       <div class="head-acts"><button class="btn btn-accent" data-action="post">Post a shoot</button></div>
     </div>
     <div id="projList" class="board-host" data-fkey="shoot"></div>
@@ -114,6 +119,7 @@
   <section class="view" id="view-post" hidden aria-label="Post"></section>
   <section class="view" id="view-release" hidden aria-label="Release"></section>
   <section class="view" id="view-paid" hidden aria-label="Paid"></section>
+  <section class="view" id="view-fund" hidden aria-label="Funding"></section>
 
   <!-- MY SHOOTS -->
   <section class="view" id="view-mine" hidden aria-label="My shoots"></section>

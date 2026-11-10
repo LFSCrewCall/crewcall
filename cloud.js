@@ -11,7 +11,7 @@
   window.CC_DEMO = DEMO && !!(CFG.url && CFG.key);
 
   // Which part of the app goes into which kind of record
-  const COLL = { students: "student", projects: "project", scripts: "script", releases: "release", releaseInterest: "releaseInterest", posts: "post", postInterest: "postInterest", scriptInterest: "scriptInterest", newsletters: "newsletter", gigs: "gig", gigApps: "gigApp", requests: "request", notifications: "notification", reports: "report", transFixes: "transFix" };
+  const COLL = { students: "student", projects: "project", scripts: "script", releases: "release", releaseInterest: "releaseInterest", posts: "post", postInterest: "postInterest", funds: "fund", scriptInterest: "scriptInterest", newsletters: "newsletter", gigs: "gig", gigApps: "gigApp", requests: "request", notifications: "notification", reports: "report", transFixes: "transFix" };
   const SINGLE = ["admins", "owner", "adminPerms", "settings", "customWords", "handover", "nlAuto", "adminVia", "reps", "ownerProposal", "adminLog"];
   const CONSTS = ["COURSES", "TERM_DATES", "ROLE_GROUPS", "TERMS", "PATHWAYS", "TYPES", "KIT_CATS"];
   const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
@@ -177,6 +177,19 @@
       await refresh(); return { data };
     },
     async calToken(reset) { const { data, error } = await db.rpc(reset ? "reset_cal_token" : "my_cal_token"); if (error) throw error; return data; },
+    // project and campaign photos live in the public "covers" bucket, one folder per person (see supabase/storage.sql)
+    async uploadCover(blob) {
+      if (!session) throw new Error("Sign in first");
+      const path = `${session.user.id}/${Date.now().toString(36)}${Math.random().toString(36).slice(2, 6)}.jpg`;
+      const { error } = await db.storage.from("covers").upload(path, blob, { contentType: "image/jpeg", cacheControl: "31536000", upsert: false });
+      if (error) throw error;
+      return db.storage.from("covers").getPublicUrl(path).data.publicUrl;
+    },
+    async removeCover(url) {
+      const m = String(url || "").match(/\/storage\/v1\/object\/public\/covers\/(.+)$/);
+      if (!m || !session || !m[1].startsWith(session.user.id + "/")) return;
+      await db.storage.from("covers").remove([decodeURIComponent(m[1])]);
+    },
     funcUrl: (CFG.url || "").replace(/\/$/, "") + "/functions/v1/crewcall",
     saveNow: sync,
     refresh,
