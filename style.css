@@ -1426,3 +1426,19 @@ input[type=date], input[type=time], input[type=month] { cursor: pointer; }
 .mk-done { display: flex; justify-content: flex-end; margin-top: var(--space-4); }
 .cal-keybox .cal-links-h { margin: var(--space-4) 0 0; padding-top: var(--space-3); border-top: 1px solid var(--border); }
 .kit-add { align-items: flex-start; }
+/* v26: one sub-tab row style for Calendar, Filmmakers and Projects; hover menus on the top tabs */
+.stg-ic { display: inline-grid; place-items: center; width: 20px; height: 20px; }
+.stg-ic svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.stg-ic svg .f { fill: currentColor; stroke: none; }
+.stage-tabs button.on .stg-ic { color: var(--accent); }
+.stage-tabs [data-caltoday] { margin-inline-end: var(--space-3); position: relative; }
+.stage-tabs [data-caltoday]::after { content: ""; position: absolute; inset-inline-end: calc(-1 * var(--space-2)); top: 25%; bottom: 25%; width: 1px; background: var(--border); }
+.tab-menu { position: fixed; z-index: 80; min-width: 200px; padding: 6px; background: var(--surface); border: 1px solid var(--border); border-top: 3px solid var(--accent); border-radius: 0 0 var(--r-sm) var(--r-sm); box-shadow: 0 14px 34px rgba(0,0,0,.18); display: grid; gap: 2px; }
+.tab-menu[hidden] { display: none; }
+.tab-menu button { appearance: none; border: 0; background: none; display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-radius: 4px; font: 600 var(--text-sm)/1.1 var(--font-body); color: var(--text); text-align: start; cursor: pointer; white-space: nowrap; }
+.tab-menu button:hover, .tab-menu button:focus-visible { background: var(--surface-2); }
+.tab-menu button.on { background: var(--surface-3); }
+.tab-menu button.on .stg-n { background: var(--text); border-color: var(--text); color: var(--surface); }
+.tab-menu button.on .stg-ic { color: var(--accent); }
+.tab-menu .stg-paid { margin-top: 4px; border-top: 1px solid var(--border); border-radius: 0 0 4px 4px; padding-top: 11px; }
+.tab-menu [data-caltoday] { border-bottom: 1px solid var(--border); border-radius: 4px 4px 0 0; margin-bottom: 4px; }

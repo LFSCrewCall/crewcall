@@ -524,8 +524,9 @@
     const m = me(); if (!m) return openSignIn();
     acctMenu.innerHTML = `<p class="am-who"><b>${esc(m.name)}</b><span>${esc(m.email)}</span>${isOwner(m) ? `<span class="tag-admin">Owner</span>` : isAdmin(m) ? `<span class="tag-admin">Admin</span>` : ""}${m.guest ? `<span class="tag-guest">Guest</span>` : ""}</p>
       <p class="am-h">You</p><button data-go="me">My profile</button><button data-myavail>My availability</button><button data-msgs>Messages${msgUnread() ? ` <span class="tab-n">${msgUnread()}</span>` : ""}</button><button data-go="mine">My Films</button>${isAdmin(m) ? `<button data-go="admin">Admin</button>` : ""}
-      <p class="am-h">Projects</p><button data-go="scripts"><span class="am-n" aria-hidden="true">1</span>Develop</button><button data-go="cast"><span class="am-n" aria-hidden="true">2</span>Casting</button><button data-go="projects"><span class="am-n" aria-hidden="true">3</span>Shoot</button><button data-go="post"><span class="am-n" aria-hidden="true">4</span>Post</button><button data-go="release"><span class="am-n" aria-hidden="true">5</span>Release</button>
-      <p class="am-h">More</p><button data-go="calendar">Calendar</button><button data-go="crew">Crew</button><button data-go="kit">Kit</button><button data-go="fund">Fundraising</button><button data-go="paid">Paid</button>
+      <p class="am-h">Projects</p>${SUBNAV.stages.map(x => `<button data-go="${x.v}"><span class="am-n" aria-hidden="true">${x.n}</span>${x.t}</button>`).join("")}
+      <p class="am-h">Filmmakers</p>${SUBNAV.people.map(x => `<button data-go="${x.v}">${x.t}</button>`).join("")}
+      <p class="am-h">More</p><button data-go="calendar">Calendar</button>
       <p class="am-h">Crew Call</p><button data-install>Add to home screen</button><button data-privacy>Privacy notice</button><button data-go="about">About Crew Call</button>
       ${LIVE ? "" : `<button data-switch>Switch sample person</button>`}<button data-signout>Sign out</button>`;
     acctMenu.hidden = !acctMenu.hidden; acctBtn.setAttribute("aria-expanded", String(!acctMenu.hidden));
@@ -671,23 +672,44 @@
   }
 
   // ---------- views ----------
+  // Sections with a row of sub-tabs under the top bar. Projects: Funding to Release, then Paid. Filmmakers: Crew, Cast, Kit.
+  const SI = {
+    today: '<svg viewBox="0 0 20 20"><rect x="2.5" y="4" width="15" height="13" rx="2"/><path d="M2.5 8h15M6.5 2.5v3M13.5 2.5v3"/><circle cx="10" cy="12.5" r="1.8" class="f"/></svg>',
+    m6: '<svg viewBox="0 0 20 20"><rect x="2" y="3" width="4.5" height="6" rx="1"/><rect x="7.75" y="3" width="4.5" height="6" rx="1"/><rect x="13.5" y="3" width="4.5" height="6" rx="1"/><rect x="2" y="11" width="4.5" height="6" rx="1"/><rect x="7.75" y="11" width="4.5" height="6" rx="1"/><rect x="13.5" y="11" width="4.5" height="6" rx="1"/></svg>',
+    m3: '<svg viewBox="0 0 20 20"><rect x="2" y="4" width="4.5" height="12" rx="1"/><rect x="7.75" y="4" width="4.5" height="12" rx="1"/><rect x="13.5" y="4" width="4.5" height="12" rx="1"/></svg>',
+    m1: '<svg viewBox="0 0 20 20"><rect x="2.5" y="3.5" width="15" height="13.5" rx="2"/><path d="M2.5 7.5h15M7.5 7.5v9.5M12.5 7.5v9.5M2.5 12h15"/></svg>',
+    wk: '<svg viewBox="0 0 20 20"><rect x="2.5" y="3.5" width="15" height="13" rx="2"/><path d="M2.5 7.5h15M6.25 7.5v9M10 7.5v9M13.75 7.5v9"/></svg>',
+    crew: '<svg viewBox="0 0 20 20"><circle cx="7.5" cy="6.5" r="2.8"/><path d="M2.5 16.5c.4-3 2.4-4.8 5-4.8s4.6 1.8 5 4.8"/><circle cx="14" cy="7.5" r="2.2"/><path d="M13.2 11.8c2.3 0 3.9 1.6 4.3 4.2"/></svg>',
+    cast: '<svg viewBox="0 0 20 20"><path d="M10 2.8l2.1 4.4 4.8.6-3.5 3.3.9 4.7L10 13.5l-4.3 2.3.9-4.7-3.5-3.3 4.8-.6z"/></svg>',
+    kit: '<svg viewBox="0 0 20 20"><rect x="2" y="6" width="11.5" height="9" rx="1.6"/><path d="M13.5 9l4.5-2.5v8L13.5 12"/><circle cx="5.5" cy="3.8" r="1.8"/><circle cx="10" cy="3.8" r="1.8"/></svg>'
+  };
+  const SUBNAV = {
+    calendar: [{ a: "today", t: "Today", ic: SI.today }, { m: "6", t: "6 months", ic: SI.m6 }, { m: "3", t: "3 months", ic: SI.m3 }, { m: "1", t: "1 month", ic: SI.m1 }, { m: "week", t: "Week", ic: SI.wk }],
+    people: [{ v: "crew", t: "Crew", ic: SI.crew }, { v: "cast", t: "Cast", ic: SI.cast }, { v: "kit", t: "Kit", ic: SI.kit }],
+    stages: [{ v: "fund", n: 1, t: "Funding" }, { v: "scripts", n: 2, t: "Develop" }, { v: "projects", n: 3, t: "Shoot" }, { v: "post", n: 4, t: "Post" }, { v: "release", n: 5, t: "Release" }, { v: "paid", n: "£", t: "Paid", cls: "stg-paid" }]
+  };
+  const SUB_LABEL = { calendar: "Calendar view", people: "Filmmakers", stages: "Project stages" };
+  const STAGES = SUBNAV.stages.map(x => x.v), CREWV = SUBNAV.people.map(x => x.v);
+  const groupOf = v => (v === "calendar" ? "calendar" : CREWV.includes(v) ? "people" : STAGES.includes(v) ? "stages" : null);
+  const subOn = (x, v) => (x.m ? calMode === x.m : x.v === v);
+  const subBtn = (x, v) => `<button type="button" ${x.v ? `data-stage="${x.v}"` : x.m ? `data-calmode="${x.m}" aria-pressed="${calMode === x.m}"` : `data-caltoday id="todayBtn"`} class="${[x.cls, subOn(x, v) && "on"].filter(Boolean).join(" ")}"${x.v && subOn(x, v) ? ` aria-current="page"` : ""}>${x.n != null ? `<span class="stg-n" aria-hidden="true">${x.n}</span>` : `<span class="stg-ic" aria-hidden="true">${x.ic}</span>`}<span>${x.t}</span></button>`;
+  function drawSubTabs() {
+    const g = groupOf(view), nav = $("#stageTabs");
+    nav.hidden = !g; if (!g) return (nav.innerHTML = "");
+    nav.dataset.group = g; nav.setAttribute("aria-label", SUB_LABEL[g]);
+    nav.innerHTML = SUBNAV[g].map(x => subBtn(x, view)).join("");
+  }
   let view = "calendar", gatedView = null;
-  const GATED = { kit: ["Sign in to see kit", "See who has which kit, so you can borrow, lend or share. Only visible to signed-in LFS members and invited guests."], crew: ["Sign in to find crew", "Crew profiles, availability and contact details are only visible to signed-in LFS members and invited guests."], mine: ["Sign in to see your shoots", "Projects you run, requests you've sent and shoots you're locked on all live here."], me: ["Sign in to set up your profile", "Add your roles, kit and free days so producers can find you."], scripts: ["Sign in to see Develop", "Scripts and producer pitches are only visible to signed-in LFS members, to protect writers' and producers' ideas."], post: ["Sign in to see Post", "Wrapped shoots looking for editors, colourists, sound designers, composers and VFX. Only visible to signed-in members, to protect unfinished films."], release: ["Sign in to see Release", "Wrapped films looking for posters, trailers, press kits and festival plans. Only visible to signed-in members, to protect unreleased films."], fund: ["Sign in to see Fundraising", "Crowdfunding campaigns for LFS films, with their goals and deadlines. Only visible to signed-in members."], paid: ["Sign in to see paid work", "Paid jobs from students, alumni and industry contacts. Only visible to signed-in members."], admin: ["Admins only", "Sign in with an admin account to manage Crew Call."] };
-  // Develop, Casting, Shoot, Post and Release sit together under Projects
-  const STAGES = ["scripts", "cast", "projects", "post", "release", "paid"];
-  const CREWV = ["crew", "kit"];
-  let lastStage = "projects";
+  const GATED = { kit: ["Sign in to see kit", "See who has which kit, so you can borrow, lend or share. Only visible to signed-in LFS members and invited guests."], crew: ["Sign in to find crew", "Crew profiles, availability and contact details are only visible to signed-in LFS members and invited guests."], mine: ["Sign in to see your shoots", "Projects you run, requests you've sent and shoots you're locked on all live here."], me: ["Sign in to set up your profile", "Add your roles, kit and free days so producers can find you."], scripts: ["Sign in to see Develop", "Scripts and producer pitches are only visible to signed-in LFS members, to protect writers' and producers' ideas."], post: ["Sign in to see Post", "Wrapped shoots looking for editors, colourists, sound designers, composers and VFX. Only visible to signed-in members, to protect unfinished films."], release: ["Sign in to see Release", "Wrapped films looking for posters, trailers, press kits and festival plans. Only visible to signed-in members, to protect unreleased films."], fund: ["Sign in to see Funding", "Crowdfunding campaigns for LFS films, with their goals and deadlines. Only visible to signed-in members."], paid: ["Sign in to see paid work", "Paid jobs from students, alumni and industry contacts. Only visible to signed-in members."], admin: ["Admins only", "Sign in with an admin account to manage Crew Call."] };
   const setView = v => {
-    if (v === "stages") v = lastStage;
+    if (v === "stages") v = "projects";
+    if (v === "people") v = "crew";
     if (v === "admin" && me() && !isAdmin()) v = "calendar";
-    if (STAGES.includes(v)) lastStage = v;
     let show = v;
     if (GATED[v] && !me()) { gatedView = v; show = "gate"; } else gatedView = null;
     view = v;
-    $$(".tabs [role=tab]").forEach(b => b.setAttribute("aria-selected", String(b.dataset.view === "stages" ? STAGES.includes(v) : b.dataset.view === "crew" ? CREWV.includes(v) : b.dataset.view === v)));
-    $("#stageTabs").hidden = !STAGES.includes(v);
-    $("#crewTabs").hidden = !CREWV.includes(v);
-    $$("#stageTabs [data-stage], #crewTabs [data-stage]").forEach(b => { const on = b.dataset.stage === v; b.classList.toggle("on", on); if (on) b.setAttribute("aria-current", "page"); else b.removeAttribute("aria-current"); });
+    $$(".tabs [role=tab]").forEach(b => b.setAttribute("aria-selected", String(b.dataset.view === (groupOf(v) || v))));
+    drawSubTabs();
     $$(".view").forEach(s => (s.hidden = s.id !== `view-${show}`));
     if (show === "gate") {
       const [t, d] = GATED[v];
@@ -696,9 +718,36 @@
     } else render();
     window.scrollTo({ top: 0 });
   };
-  $$(".tabs [role=tab]").forEach(b => b.addEventListener("click", () => setView(b.dataset.view)));
-  $$("#stageTabs [data-stage], #crewTabs [data-stage]").forEach(b => b.addEventListener("click", () => setView(b.dataset.stage)));
-
+  $$(".tabs [role=tab]").forEach(b => b.addEventListener("click", () => { hideTabMenu(); setView(b.dataset.view); }));
+  // One handler for the sub-tab row and the hover menu
+  const subClick = e => {
+    const st = e.target.closest("[data-stage]"), cm = e.target.closest("[data-calmode]"), td = e.target.closest("[data-caltoday]");
+    if (!st && !cm && !td) return;
+    hideTabMenu();
+    if (st) return setView(st.dataset.stage);
+    if (view !== "calendar") setView("calendar");
+    if (cm) setCalMode(cm.dataset.calmode); else goToday();
+  };
+  $("#stageTabs").addEventListener("click", subClick);
+  // Hover a top tab (mouse only) to see its sections; clicking the tab itself still opens the main page
+  const tabMenu = $("#tabMenu"); let tmTimer = 0, tmFor = null;
+  const hoverOK = matchMedia("(hover: hover) and (pointer: fine)");
+  function hideTabMenu() { clearTimeout(tmTimer); tabMenu.hidden = true; tmFor = null; }
+  function showTabMenu(b) {
+    const g = ["people", "stages", "calendar"].includes(b.dataset.view) ? b.dataset.view : null;
+    if (!g || !hoverOK.matches) return;
+    clearTimeout(tmTimer); if (tmFor === g && !tabMenu.hidden) return; tmFor = g;
+    tabMenu.innerHTML = SUBNAV[g].map(x => subBtn(x, view).replace('type="button"', 'type="button" role="menuitem"').replace(' id="todayBtn"', "")).join("");
+    tabMenu.dataset.group = g; tabMenu.hidden = false;
+    const r = b.getBoundingClientRect(), w = tabMenu.offsetWidth, rtl = document.documentElement.dir === "rtl";
+    tabMenu.style.top = r.bottom + 6 + "px";
+    tabMenu.style.left = Math.max(8, Math.min(innerWidth - w - 8, rtl ? r.right - w : r.left)) + "px";
+  }
+  $$(".tabs [role=tab]").forEach(b => { b.addEventListener("mouseenter", () => showTabMenu(b)); b.addEventListener("mouseleave", () => { tmTimer = setTimeout(hideTabMenu, 180); }); });
+  tabMenu.addEventListener("mouseenter", () => clearTimeout(tmTimer));
+  tabMenu.addEventListener("mouseleave", () => { tmTimer = setTimeout(hideTabMenu, 180); });
+  tabMenu.addEventListener("click", subClick);
+  addEventListener("scroll", hideTabMenu, { passive: true });
   // ---------- CALENDAR ----------
   // calMode: "6", "3" or "1" months stacked from calMonth down, or "week". 6 months is the default; the choice is remembered on this device.
   let calMonth = TODAY.slice(0, 7) + "-01", selDay = TODAY, calMode = (k => ["6", "3", "1", "week"].includes(k) ? k : "6")(localStorage.getItem("cc-calmode")), editMine = false;
@@ -713,13 +762,13 @@
   };
   $("#prevMonth").onclick = () => shift(-1);
   $("#nextMonth").onclick = () => shift(1);
-  $("#todayBtn").onclick = () => { calMonth = TODAY.slice(0, 7) + "-01"; selDay = TODAY; renderCalendar(); const g = $("#calGrid"); if (g.getBoundingClientRect().top < 0) $("#view-calendar").scrollIntoView({ block: "start" }); };
-  $$("[data-calmode]").forEach(b => b.addEventListener("click", () => {
-    const was = calMode; calMode = b.dataset.calmode; localStorage.setItem("cc-calmode", calMode);
+  const goToday = () => { calMonth = TODAY.slice(0, 7) + "-01"; selDay = TODAY; renderCalendar(); const g = $("#calGrid"); if (g.getBoundingClientRect().top < 0) $("#view-calendar").scrollIntoView({ block: "start" }); };
+  function setCalMode(mode) {
+    const was = calMode; calMode = mode; localStorage.setItem("cc-calmode", calMode);
     if (calMode === "week") { const end = monthAdd(calMonth, +was || 1), inView = d => d >= calMonth && d < end; if (was !== "week" && !inView(selDay)) selDay = inView(TODAY) ? TODAY : calMonth; }
     else if (was === "week") calMonth = selDay.slice(0, 7) + "-01";
     renderCalendar();
-  }));
+  }
   ["#calRole", "#calTerm", "#calShowFree"].forEach(s => $(s).addEventListener("change", renderCalendar));
   $("#editMineBtn").addEventListener("click", () => { if (!me()) return openSignIn("Sign in to mark the days you're free."); editMine = !editMine; renderCalendar(); });
   $("#syncBtn").addEventListener("click", openSync);
@@ -752,7 +801,7 @@
   }
   function renderCalendar() {
     const mine = me(); if (!mine) editMine = false;
-    $$("[data-calmode]").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.calmode === calMode)));
+    $$("[data-calmode]").forEach(b => { const on = b.dataset.calmode === calMode; b.setAttribute("aria-pressed", String(on)); b.classList.toggle("on", on); });
     $("#prevMonth").setAttribute("aria-label", calMode === "week" ? "Previous week" : "Previous month");
     $("#nextMonth").setAttribute("aria-label", calMode === "week" ? "Next week" : "Next month");
     $("#editMineBtn").setAttribute("aria-pressed", String(editMine));
@@ -3855,7 +3904,7 @@ ${LIVE ? "" : `<label class="toggle"><input type="checkbox" data-aus="autoSend" 
     const root = $("#view-fund"), m = me();
     if (!partial || !root.querySelector(".board-host")) {
       root.innerHTML = `
-        <div class="view-head"><div><h1 class="page-title">Fundraising</h1><p class="muted">Crowdfunding campaigns for LFS films. Back a classmate's shoot, share it, or post your own with its goal and deadline. The money goes through the platform, never through Crew Call.</p></div>
+        <div class="view-head"><div><h1 class="page-title">Funding</h1><p class="muted">Crowdfunding campaigns for LFS films. Back a classmate's shoot, share it, or post your own with its goal and deadline. The money goes through the platform, never through Crew Call.</p></div>
           <div class="head-acts"><button class="btn btn-accent" id="fundPost">Post a campaign</button></div></div>
         <div class="board-host" data-fkey="fund"></div>`;
       $("#fundPost").onclick = () => openFundForm();
@@ -3882,7 +3931,7 @@ ${LIVE ? "" : `<label class="toggle"><input type="checkbox" data-aus="autoSend" 
     const w = student(x.by) || { name: "Former member" }, p = x.pid && project(x.pid), ed = canEditFund(x), ended = fundEnded(x);
     openModal(`
       ${coverImg(coverOf(x), "m-cover")}
-      <p class="eyebrow">Fundraising · ${esc(x.platform)}</p>
+      <p class="eyebrow">Funding · ${esc(x.platform)}</p>
       <h2 id="modalTitle" class="m-title">${esc(x.title)}</h2>
       <p class="card-sub"><span>${esc(x.type)}</span> · <span>by</span> <button class="link-btn" data-student="${x.by}">${esc(w.name)}</button>${p ? ` · <button class="link-btn" data-proj="${p.id}">See the shoot</button>` : ""}</p>
       <p class="logline">${esc(x.pitch)}</p>
@@ -3900,7 +3949,7 @@ ${LIVE ? "" : `<label class="toggle"><input type="checkbox" data-aus="autoSend" 
     const u = $("#fundUpd");
     if (u) u.addEventListener("submit", e => { e.preventDefault(); x.raised = Math.max(0, Math.round(+u.raised.value || 0)); x.updated = TODAY; toast(`Total saved: ${money(x.raised, x.cur)}`); openFund(x.id); renderAfterFund(); });
     if ($("#fundEdit")) $("#fundEdit").onclick = () => openFundForm(x);
-    if ($("#fundDel")) $("#fundDel").onclick = () => confirmBox(`Remove ${x.title}?`, "The campaign comes off Fundraising. Nothing changes on the crowdfunding site itself.", "Remove", () => { dropOldCover(x.cover, ""); S.funds.splice(S.funds.indexOf(x), 1); closeModal(); renderAfterFund(); toast("Removed"); });
+    if ($("#fundDel")) $("#fundDel").onclick = () => confirmBox(`Remove ${x.title}?`, "The campaign comes off Funding. Nothing changes on the crowdfunding site itself.", "Remove", () => { dropOldCover(x.cover, ""); S.funds.splice(S.funds.indexOf(x), 1); closeModal(); renderAfterFund(); toast("Removed"); });
   }
   const renderAfterFund = () => { if (view === "fund") renderFund(); else render(); };
   function openFundForm(x, fromP) {

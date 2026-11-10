@@ -275,7 +275,7 @@
 ^Back to (.+)$ || 返回{=1} || Retour à {=1} || Volver a {=1}
 ^Back it on (.+)$ || 到 {=1} 支持 || Soutenir sur {=1} || Apoyar en {=1}
 ^Crowdfunding on (.+)$ || 在 {=1} 募資 || Financement sur {=1} || Micromecenazgo en {=1}
-^Fundraising · (.+)$ || 眾籌 · {=1} || Financement · {=1} || Financiación · {=1}
+^Funding · (.+)$ || 眾籌 · {=1} || Financement · {=1} || Financiación · {=1}
 ^Total saved: (.+)$ || 金額已儲存：{=1} || Total enregistré : {=1} || Total guardado: {=1}
 ^Added as “(.+)” · (.+)$ || 以「{=1}」加入 · {2} || Ajouté comme « {=1} » · {2} || Añadido como «{=1}» · {2}
 ^Listed as “(.+)” · (.+)$ || 列為「{=1}」 · {2} || Inscrit comme « {=1} » · {2} || Figura como «{=1}» · {2}

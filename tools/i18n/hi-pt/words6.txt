@@ -1,4 +1,4 @@
-Fundraising || फ़ंडिंग || Financiamento
+Funding || फ़ंडिंग || Financiamento
 Project stages || प्रोजेक्ट के चरण || Etapas do projeto
 Crowdfunding || क्राउडफ़ंडिंग || Financiamento coletivo
 Post a campaign || कैंपेन पोस्ट करें || Publicar uma campanha
@@ -38,7 +38,7 @@ Add the goal. || लक्ष्य जोड़ें। || Adicione a meta.
 Add the deadline. || अंतिम तिथि जोड़ें। || Adicione o prazo.
 The campaign link isn't a web address. || कैंपेन लिंक वेब पता नहीं है। || O link da campanha não é um endereço web.
 Sign in to post a campaign. || कैंपेन पोस्ट करने के लिए साइन इन करें। || Entre para publicar uma campanha.
-The campaign comes off Fundraising. Nothing changes on the crowdfunding site itself. || कैंपेन फ़ंडिंग से हट जाएगा। क्राउडफ़ंडिंग साइट पर कुछ नहीं बदलेगा। || A campanha sai de Financiamento. Nada muda no site de financiamento coletivo.
+The campaign comes off Funding. Nothing changes on the crowdfunding site itself. || कैंपेन फ़ंडिंग से हट जाएगा। क्राउडफ़ंडिंग साइट पर कुछ नहीं बदलेगा। || A campanha sai de Financiamento. Nada muda no site de financiamento coletivo.
 Crowdfunding campaigns for LFS films. Back a classmate's shoot, share it, or post your own with its goal and deadline. The money goes through the platform, never through Crew Call. || LFS फ़िल्मों के क्राउडफ़ंडिंग कैंपेन। किसी सहपाठी के शूट का समर्थन करें, उसे शेयर करें, या अपना कैंपेन लक्ष्य और अंतिम तिथि के साथ पोस्ट करें। पैसा प्लेटफ़ॉर्म से जाता है, Crew Call से कभी नहीं। || Campanhas de financiamento coletivo de filmes da LFS. Apoie a filmagem de um colega, compartilhe ou publique a sua com meta e prazo. O dinheiro passa pela plataforma, nunca pelo Crew Call.
 Post it once your campaign page is live. People back it on the platform; Crew Call only shows the goal, the total and the deadline. || कैंपेन पेज लाइव होने के बाद पोस्ट करें। लोग प्लेटफ़ॉर्म पर समर्थन करते हैं; Crew Call सिर्फ़ लक्ष्य, कुल राशि और अंतिम तिथि दिखाता है। || Publique quando a página da campanha estiver no ar. As pessoas apoiam na plataforma; o Crew Call só mostra a meta, o total e o prazo.
 e.g. location hire, kit, food for 20 crew, festival fees || जैसे लोकेशन किराया, उपकरण, 20 लोगों का खाना, फ़ेस्टिवल फ़ीस || ex.: aluguel de locação, equipamento, comida para 20 pessoas, taxas de festivais

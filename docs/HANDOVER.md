@@ -186,7 +186,7 @@ Every location has an Open in menu: OpenStreetMap, Google Maps or Apple Maps. Cr
 
 ## Develop, Shoot, Post, Release
 
-The top bar is Calendar | Crew | Fundraising | Projects | My Films. My profile and Admin are in the avatar menu. Projects has a second row of tabs: 1 Develop, 2 Casting, 3 Shoot, 4 Post, 5 Release, and Paid on the right. Crew has two tabs: People and Kit. Projects remembers the last stage you opened.
+The top bar is Calendar | Filmmakers | Projects | My Films. My profile and Admin are in the avatar menu. Each tab has a row of sub-tabs with icons under it, and on a computer hovering a tab shows the same list as a drop-down. Calendar: Today, 6 months, 3 months, 1 month, Week. Filmmakers: Crew, Cast, Kit (clicking Filmmakers opens Crew). Projects: 1 Funding, 2 Develop, 3 Shoot, 4 Post, 5 Release, and £ Paid on the right (clicking Projects opens Shoot).
 
 - Develop: screenwriters post a script (logline only) and producers post a pitch (an idea, a true story they have access to, or rights they hold). Others put their hand up for a role, and the poster brings people on. Only people brought on see the script or pitch deck link. When it's ready, the poster clicks Turn into a shoot.
 - Shoot: the projects board. Crew request roles here.
@@ -202,20 +202,20 @@ People type the first part of their email and pick the ending from a list: @stud
 
 ## Updating the site
 
-When you change the code, raise the version number in two places so phones don't mix old and new files: `CACHE` in sw.js (crewcall-v25) and every `?v=25` in index.html.
+When you change the code, raise the version number in two places so phones don't mix old and new files: `CACHE` in sw.js (crewcall-v26) and every `?v=26` in index.html.
 
-## Fundraising
+## Funding
 
 Crowdfunding campaigns for LFS films (Kickstarter, Indiegogo, Seed&Spark, GoFundMe, Crowdfunder or anything else). Members only.
 
-- Anyone can post a campaign from Fundraising, or the director or producer can click Add crowdfunding in a shoot's window. Linked campaigns show on the shoot card and in its window, and the locked crew get a notification.
+- Anyone can post a campaign from Funding, or the director or producer can click Add crowdfunding in a shoot's window. Linked campaigns show on the shoot card and in its window, and the locked crew get a notification.
 - Each campaign has a platform, link, goal, currency, total raised, deadline, pitch, what the money pays for and an optional photo.
 - The money goes through the platform, never through Crew Call. The total raised is updated by hand: whoever posted it (or an admin) clicks Update in the campaign.
 - After the deadline the campaign is greyed out under Ended, then drops off 30 days later.
 
 ## Photos
 
-Projects, Post, Release and Fundraising posts can have one photo (a still or poster). It is cropped to 16:9 and shrunk to about 100 KB before uploading, so the free Supabase limits (1 GB storage, 5 GB egress a month, see [Supabase pricing](https://supabase.com/pricing)) go a long way.
+Projects, Post, Release and Funding posts can have one photo (a still or poster). It is cropped to 16:9 and shrunk to about 100 KB before uploading, so the free Supabase limits (1 GB storage, 5 GB egress a month, see [Supabase pricing](https://supabase.com/pricing)) go a long way.
 
 - To switch photos on, run supabase/storage.sql once: Supabase, SQL Editor, paste the file, Run. It creates a public bucket called covers (JPEG only, 600 KB each). Members can only upload or delete files in their own folder.
 - Until it's run, adding a photo shows "Photos aren't switched on yet".
@@ -247,7 +247,7 @@ Actor is now called Talent, and there's a new role, Supporting artist. Both sit 
 
 - When posting a shoot, each Talent or Supporting artist row has Character, Playing age and About the part. The Casting box holds an optional casting call link (Backstage, Spotlight, StarNow, Mandy or a form), closing date, pay and notes.
 - The project window has a Cast tab with the casting call, the parts still to cast and the cast list.
-- Casting is stage 2 under Projects. It has two views. Parts lists every open part, with Ask to play and Apply on Backstage when there's a link. Talent (signed-in only) lists everyone with Talent or Supporting artist on their profile, or with an LFS acting credit, so you can contact previous actors.
+- Cast is under Filmmakers (the page is still called Casting). It has two views. Parts lists every open part, with Ask to play and Apply on Backstage when there's a link. Talent (signed-in only) lists everyone with Talent or Supporting artist on their profile, or with an LFS acting credit, so you can contact previous actors.
 
 ## Posting and editing a shoot
 
@@ -282,7 +282,7 @@ Months are stacked with this month at the top; scroll down for later ones. The d
 
 ## Kit
 
-Kit (under Crew, signed-in only) lists every piece of kit people have put on their profiles, with how many people have the same thing, so people can borrow, lend or share.
+Kit (under Filmmakers, signed-in only) lists every piece of kit people have put on their profiles, with how many people have the same thing, so people can borrow, lend or share.
 
 - Items are split on commas, so "Aputure 300d II, 2x Amaran 200x" counts as two. Matching ignores capitals, spaces, punctuation, word order, "Mark II"/"mk2", apertures and quantities like 2x.
 - A built-in list of about 200 common cameras, lenses, lights, grip, sound and other kit (`KIT_CATALOG` in data.js) gives each item its proper name, type and nicknames. "fx3", "Sennheiser 416" and "aputure 300d mk2" become Sony FX3, Sennheiser MKH 416 and Aputure LS 300d II, so similar entries are counted together. Add to the list freely.
@@ -297,7 +297,7 @@ Credits include shoots someone is locked on that haven't wrapped yet, marked Cur
 
 ## Account menu
 
-The avatar menu is grouped: You (My profile, My availability, Messages, My Films, Admin), Projects (1 to 5), More (Calendar, Crew, Kit, Fundraising, Paid) and Crew Call (Add to home screen, Privacy notice, About). The calendar's button is now My availability.
+The avatar menu is grouped: You (My profile, My availability, Messages, My Films, Admin), Projects (1 Funding to 5 Release, and Paid), Filmmakers (Crew, Cast, Kit), More (Calendar) and Crew Call (Add to home screen, Privacy notice, About). The calendar's button is now My availability.
 
 ## Notifications
 

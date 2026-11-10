@@ -6512,7 +6512,7 @@ window.CC_I18N = {
 "वैकल्पिक: पोस्ट कब तक पूरा होना है। तब तक फ़िल्म पोस्ट में रहती है",
 "opcional: quando a pós-produção tem de terminar. O filme fica em Pós até lá"
 ],
-"Fundraising": [
+"Funding": [
 "眾籌",
 "众筹",
 "Financement",
@@ -6912,7 +6912,7 @@ window.CC_I18N = {
 "कैंपेन पोस्ट करने के लिए साइन इन करें।",
 "Entre para publicar uma campanha."
 ],
-"The campaign comes off Fundraising. Nothing changes on the crowdfunding site itself.": [
+"The campaign comes off Funding. Nothing changes on the crowdfunding site itself.": [
 "活動會從眾籌頁移除，群眾募資網站本身不受影響。",
 "活动会从众筹页移除，群众募资网站本身不受影响。",
 "La campagne disparaît de Financement. Rien ne change sur le site de financement lui-même.",
@@ -7557,8 +7557,8 @@ window.CC_I18N = {
 "演员",
 "Distribution",
 "Reparto",
-"Актёрский состав",
-"طاقم التمثيل",
+"Актёры",
+"الممثلون",
 "कलाकार दल",
 "Elenco"
 ],
@@ -12162,7 +12162,7 @@ window.CC_I18N = {
 "पहले से आपकी प्रोफ़ाइल में है",
 "Já está no seu perfil"
 ],
-"Sign in to see Fundraising": [
+"Sign in to see Funding": [
 "登入以查看眾籌",
 "登录以查看众筹",
 "Connectez-vous pour voir les collectes de fonds",
@@ -12171,6 +12171,16 @@ window.CC_I18N = {
 "سجّل الدخول لرؤية جمع التبرعات",
 "फ़ंडरेज़िंग देखने के लिए साइन इन करें",
 "Entre para ver as arrecadações"
+],
+"Filmmakers": [
+"電影人",
+"电影人",
+"Cinéastes",
+"Cineastas",
+"Кинематографисты",
+"صنّاع الأفلام",
+"फ़िल्ममेकर्स",
+"Cineastas"
 ],
 "today": [
 "今天",
@@ -20848,7 +20858,7 @@ window.CC_I18N = {
 "Financiamento coletivo no {=1}"
 ],
 [
-"^Fundraising · (.+)$",
+"^Funding · (.+)$",
 "眾籌 · {=1}",
 "众筹 · {=1}",
 "Financement · {=1}",

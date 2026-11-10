@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Crew Call — MA film projects and crew</title>
 <meta name="description" content="Post film projects, see every shoot on one calendar, and find classmates available for the roles you need.">
-<link rel="stylesheet" href="vendor/fonts/fonts.css?v=25">
-<link rel="stylesheet" href="style.css?v=25">
+<link rel="stylesheet" href="vendor/fonts/fonts.css?v=26">
+<link rel="stylesheet" href="style.css?v=26">
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#000000">
 <link rel="icon" href="icons/icon-192.png" type="image/png">
@@ -23,13 +23,15 @@
   </div>
   <nav class="tabs" role="tablist" aria-label="Sections">
     <button role="tab" data-view="calendar" aria-selected="true">Calendar</button>
-    <button role="tab" data-view="crew" aria-selected="false">Crew</button>
-    <button role="tab" data-view="fund" aria-selected="false">Fundraising</button>
+    <button role="tab" data-view="people" aria-selected="false">Filmmakers</button>
     <button role="tab" data-view="stages" aria-selected="false">Projects</button>
     <button role="tab" data-view="mine" aria-selected="false">My Films</button>
-    <!-- Reached from the sub-tabs and the account menu; kept so links and shortcuts still work -->
-    <button role="tab" data-view="paid" aria-selected="false" hidden>Paid</button>
+    <!-- Reached from the sub-tabs, the hover menus and the account menu; kept so links and shortcuts still work -->
+    <button role="tab" data-view="crew" aria-selected="false" hidden>Crew</button>
+    <button role="tab" data-view="cast" aria-selected="false" hidden>Cast</button>
     <button role="tab" data-view="kit" aria-selected="false" hidden>Kit</button>
+    <button role="tab" data-view="fund" aria-selected="false" hidden>Funding</button>
+    <button role="tab" data-view="paid" aria-selected="false" hidden>Paid</button>
     <button role="tab" data-view="me" aria-selected="false" hidden>My profile</button>
     <button role="tab" data-view="admin" aria-selected="false" hidden>Admin</button>
   </nav>
@@ -41,22 +43,12 @@
     <button class="btn btn-accent" id="postProjectBtn">Post a shoot</button>
   </div>
 </header>
+<div class="tab-menu" id="tabMenu" role="menu" hidden></div>
 
 <main id="app">
   <div class="term-banner" id="termBanner" role="status" hidden></div>
   <div class="term-banner claim-banner" id="claimBanner" role="status" hidden></div>
-  <nav class="stage-tabs" id="stageTabs" aria-label="Project stages" hidden>
-    <button type="button" data-stage="scripts"><span class="stg-n" aria-hidden="true">1</span><span>Develop</span></button>
-    <button type="button" data-stage="cast"><span class="stg-n" aria-hidden="true">2</span><span>Casting</span></button>
-    <button type="button" data-stage="projects"><span class="stg-n" aria-hidden="true">3</span><span>Shoot</span></button>
-    <button type="button" data-stage="post"><span class="stg-n" aria-hidden="true">4</span><span>Post</span></button>
-    <button type="button" data-stage="release"><span class="stg-n" aria-hidden="true">5</span><span>Release</span></button>
-    <button type="button" data-stage="paid" class="stg-paid"><span class="stg-n" aria-hidden="true">£</span><span>Paid</span></button>
-  </nav>
-  <nav class="stage-tabs" id="crewTabs" aria-label="Crew sections" hidden>
-    <button type="button" data-stage="crew"><span>People</span></button>
-    <button type="button" data-stage="kit"><span>Kit</span></button>
-  </nav>
+  <nav class="stage-tabs" id="stageTabs" aria-label="Sections" hidden></nav>
   <!-- CALENDAR -->
   <section class="view" id="view-calendar" aria-label="Calendar">
     <div class="view-head">
@@ -64,8 +56,6 @@
         <button class="icon-btn" id="prevMonth" aria-label="Previous month">‹</button>
         <h1 id="monthLabel" class="page-title">Month</h1>
         <button class="icon-btn" id="nextMonth" aria-label="Next month">›</button>
-        <button class="btn btn-ghost btn-sm" id="todayBtn">Today</button>
-        <div class="seg seg-btn" role="group" aria-label="Calendar view"><button type="button" data-calmode="6" aria-pressed="true">6 months</button><button type="button" data-calmode="3" aria-pressed="false">3 months</button><button type="button" data-calmode="1" id="modeMonth" aria-pressed="false">1 month</button><button type="button" data-calmode="week" id="modeWeek" aria-pressed="false">Week</button></div>
       </div>
       <div class="cal-filters">
         <label class="field-inline">
@@ -142,7 +132,7 @@
   <section class="view" id="view-post" hidden aria-label="Post"></section>
   <section class="view" id="view-release" hidden aria-label="Release"></section>
   <section class="view" id="view-paid" hidden aria-label="Paid"></section>
-  <section class="view" id="view-fund" hidden aria-label="Fundraising"></section>
+  <section class="view" id="view-fund" hidden aria-label="Funding"></section>
   <section class="view" id="view-cast" hidden aria-label="Casting"></section>
 
   <!-- MY SHOOTS -->
@@ -296,11 +286,11 @@
 </div>
 <div class="toast" id="toast" role="status" hidden></div>
 
-<script src="data.js?v=25"></script>
+<script src="data.js?v=26"></script>
 <script src="config.js"></script>
-<script src="emails/digest-template.js?v=25"></script>
-<script src="emails/newsletter-template.js?v=25"></script>
+<script src="emails/digest-template.js?v=26"></script>
+<script src="emails/newsletter-template.js?v=26"></script>
 <!-- cloud.js loads app.js, i18n-dict.js and i18n.js once the data is ready -->
-<script src="cloud.js?v=25"></script>
+<script src="cloud.js?v=26"></script>
 </body>
 </html>

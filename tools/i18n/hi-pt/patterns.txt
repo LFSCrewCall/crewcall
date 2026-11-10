@@ -272,7 +272,7 @@
 ^Back to (.+)$ || {=1} पर वापस || Voltar para {=1}
 ^Back it on (.+)$ || {=1} पर समर्थन करें || Apoiar no {=1}
 ^Crowdfunding on (.+)$ || {=1} पर क्राउडफ़ंडिंग || Financiamento coletivo no {=1}
-^Fundraising · (.+)$ || फ़ंडिंग · {=1} || Financiamento · {=1}
+^Funding · (.+)$ || फ़ंडिंग · {=1} || Financiamento · {=1}
 ^Total saved: (.+)$ || कुल राशि सहेजी गई: {=1} || Total salvo: {=1}
 ^Added as “(.+)” · (.+)$ || “{=1}” के रूप में जोड़ा गया · {2} || Adicionado como “{=1}” · {2}
 ^Listed as “(.+)” · (.+)$ || “{=1}” के रूप में दर्ज · {2} || Listado como “{=1}” · {2}

@@ -8,4 +8,6 @@ Your kit || आपका किट || Seu equipamento
 Kit you can bring or lend. Start typing and pick from the list, so it matches what others have. Separate several with commas. || वह किट जो आप ला या उधार दे सकते हैं। टाइप करना शुरू करें और सूची से चुनें, ताकि यह दूसरों के किट से मेल खाए। कई चीज़ें कॉमा से अलग करें। || Equipamento que você pode levar ou emprestar. Comece a digitar e escolha na lista, para combinar com o dos outros. Separe vários com vírgulas.
 Added to your profile || आपकी प्रोफ़ाइल में जोड़ा गया || Adicionado ao seu perfil
 Already on your profile || पहले से आपकी प्रोफ़ाइल में है || Já está no seu perfil
-Sign in to see Fundraising || फ़ंडरेज़िंग देखने के लिए साइन इन करें || Entre para ver as arrecadações
+Sign in to see Funding || फ़ंडरेज़िंग देखने के लिए साइन इन करें || Entre para ver as arrecadações
+Filmmakers || फ़िल्ममेकर्स || Cineastas
+Cast || कलाकार || Elenco
