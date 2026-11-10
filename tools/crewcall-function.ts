@@ -10,7 +10,7 @@
 // Jobs need the header x-cron-secret, set in supabase/jobs.sql. Emails go through Brevo's HTTP API.
 //
 // Secrets (Edge Functions, Secrets): BREVO_API_KEY, CRON_SECRET, and optionally SITE_URL, SENDER_EMAIL, SENDER_NAME, DAILY_CAP.
-// SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY are provided by Supabase automatically.
+// SUPABASE_URL and the secret key (SUPABASE_SECRET_KEYS, or the older SUPABASE_SERVICE_ROLE_KEY) are provided by Supabase automatically.
 
 import { createClient } from "npm:@supabase/supabase-js@2";
 
@@ -22,7 +22,12 @@ const DEFAULT_CONST: any = /*@@CONST@@*/;
 const env = (k: string, d = "") => Deno.env.get(k) || d;
 const SITE = env("SITE_URL", "https://lfscrewcall.github.io/crewcall/").replace(/\/?$/, "/");
 const CAP = +env("DAILY_CAP", "280"); // Brevo's free plan allows 300 emails a day
-const db = createClient(env("SUPABASE_URL"), env("SUPABASE_SERVICE_ROLE_KEY"), { auth: { persistSession: false } });
+// prefer the new secret key; fall back to the older service role key
+function secretKey() {
+  try { const k = JSON.parse(env("SUPABASE_SECRET_KEYS", "{}")); const v = k.default || Object.values(k)[0]; if (v) return String(v); } catch (_) { /* not set */ }
+  return env("SUPABASE_SERVICE_ROLE_KEY");
+}
+const db = createClient(env("SUPABASE_URL"), secretKey(), { auth: { persistSession: false } });
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
 // ---------- dates (all in London time) ----------
