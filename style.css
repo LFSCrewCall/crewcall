@@ -1141,10 +1141,15 @@ a.link-btn { text-decoration: none; color: inherit; }
 .tl-mband { position: absolute; top: 0; bottom: 0; background: var(--surface); border-inline: 1px solid var(--line-2); opacity: .7; }
 
 /* finished items stay on the board, greyed out */
-.card.is-dim { opacity: .6; filter: grayscale(.7); }
-.card.is-dim:hover, .card.is-dim:focus-within { opacity: .85; }
-.btable tr.is-dim td { opacity: .55; }
-.tl-row.is-dim { opacity: .5; filter: grayscale(.7); }
+.card.is-dim { --dim-ink: #a3a099; background: var(--surface-2); border-color: var(--line); box-shadow: none; filter: grayscale(1); }
+.card.is-dim, .card.is-dim * { color: var(--dim-ink) !important; }
+.card.is-dim :is(.btn, .tag, .chip, [class*="-tag"], .badge) { border-color: var(--line) !important; background: transparent !important; }
+.card.is-dim :is(.btn, button.link-btn, a) { color: #7d7a73 !important; }
+.card.is-dim .card-cover, .card.is-dim img { opacity: .5; }
+.card.is-dim :is(.fund-bar span, .bar span, [class*="bar"] > span) { background: var(--line-3) !important; }
+.btable tr.is-dim td, .btable tr.is-dim td * { color: #a3a099 !important; }
+.tl-row.is-dim { opacity: .5; filter: grayscale(1); }
+.tl-row.is-dim * { color: #8a867f !important; }
 
 /* Projects: Develop, Shoot, Post, Release as one section with stage tabs */
 .stage-tabs { display: flex; gap: 0; margin: 0 0 var(--space-5); border-bottom: 2px solid var(--text); overflow-x: auto; scrollbar-width: none; }
@@ -1224,3 +1229,9 @@ a.link-btn { text-decoration: none; color: inherit; }
 .em-row.is-custom select { flex: 0 0 7.5rem; width: 7.5rem; }
 .em-row input { width: auto; }
 .em-row:not(.is-custom) select { width: auto; }
+
+/* Add me to the crew */
+.addme-box { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2); margin: var(--space-3) 0 0; }
+.cr-add { display: flex; flex-wrap: wrap; align-items: end; gap: var(--space-2); margin-top: var(--space-3); }
+.cr-add .field { flex: 1 1 14rem; margin: 0; }
+.cr-wait { margin-top: var(--space-2); }

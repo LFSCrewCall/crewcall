@@ -82,3 +82,20 @@ Email ending || ईमेल का अंतिम भाग || Final do e-mail
 Other… || अन्य… || Outro…
 That email address doesn't look right. || यह ईमेल पता सही नहीं लगता। || Esse endereço de e-mail não parece certo.
 Email me a sign-in code || मुझे साइन-इन कोड ईमेल करें || Enviar um código de acesso
+Add me to the crew || मुझे क्रू में जोड़ें || Me adicionar à equipe
+Choose… || चुनें… || Escolher…
+Send for approval || मंज़ूरी के लिए भेजें || Enviar para aprovação
+Your role || आपका रोल || Sua função
+Open on this project || इस प्रोजेक्ट में खुले || Abertas neste projeto
+Another role || कोई और रोल || Outra função
+Pick your role. || अपना रोल चुनें। || Escolha sua função.
+Worked on this? || इस पर काम किया था? || Trabalhou nisto?
+Already on this crew? || पहले से इस क्रू में हैं? || Já está nesta equipe?
+Worked on this || इस पर काम किया || Trabalhou nisto
+On the crew || क्रू में || Na equipe
+Missing a credit? || कोई क्रेडिट छूट गया? || Falta um crédito?
+Pick a wrapped project… || पूरा हुआ प्रोजेक्ट चुनें… || Escolha um projeto encerrado…
+Sign in to add yourself to a crew. || क्रू में ख़ुद को जोड़ने के लिए साइन इन करें। || Entre para se adicionar a uma equipe.
+e.g. I covered sound on day 2 || जैसे, दिन 2 पर मैंने साउंड संभाला || ex.: fiz o som no dia 2
+They say they worked on this project. Approve it and it counts as their credit. || वे कहते हैं कि उन्होंने इस प्रोजेक्ट पर काम किया। मंज़ूर करें तो यह उनका क्रेडिट बनेगा। || A pessoa diz que trabalhou neste projeto. Aprove e conta como crédito dela.
+They say they're on this crew. Approve it and they're locked in. || वे कहते हैं कि वे इस क्रू में हैं। मंज़ूर करें तो वे पक्के हो जाएँगे। || A pessoa diz que está nesta equipe. Aprove e ela fica confirmada.

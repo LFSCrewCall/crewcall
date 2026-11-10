@@ -289,3 +289,12 @@
 ^(.+) · (\d+) (.+) hidden$ || {1} · {=2} छिपे ({3}) || {1} · {=2} ocultos ({3})
 ^of ([£$€][\d,]+)$ || {=1} में से || de {=1}
 ^Raised so far \((.+)\)$ || अब तक जुटाया गया ({=1}) || Arrecadado até agora ({=1})
+^(.+) added as (.+)$ || {=1} को {2} के रूप में जोड़ा गया || {=1} adicionado como {2}
+^You asked to be added as (.+)\.$ || आपने {1} के रूप में जुड़ने का अनुरोध किया। || Você pediu para ser adicionado como {1}.
+^Worked on this · (.+)$ || इस पर काम किया · {1} || Trabalhou nisto · {1}
+^On the crew · (.+)$ || क्रू में · {1} || Na equipe · {1}
+^(.+) says they (worked|are working) on (.+) as (.+)\. Approve it in the project's Requests\.$ || {=1} कहते हैं कि वे {=3} पर {4} के रूप में काम कर रहे हैं। प्रोजेक्ट के अनुरोधों में मंज़ूर करें। || {=1} diz que trabalha em {=3} como {4}. Aprove nos pedidos do projeto.
+^(.+) added you to the crew as (.+)\. It's on your profile now\.$ || {=1} ने आपको {2} के रूप में क्रू में जोड़ा। अब यह आपकी प्रोफ़ाइल पर है। || {=1} adicionou você à equipe como {2}. Já está no seu perfil.
+^(.+)'s team didn't confirm you as (.+)\. If that's a mistake, message them\.$ || {=1} की टीम ने आपको {2} के रूप में पुष्टि नहीं की। अगर यह ग़लती है, तो उन्हें मैसेज करें। || A equipe de {=1} não confirmou você como {2}. Se for um erro, mande uma mensagem.
+^Worked on this project\? Pick your role\. (.+) approves it, then it shows on your profile as a credit\.$ || इस प्रोजेक्ट पर काम किया था? अपना रोल चुनें। {=1} मंज़ूर करेंगे, फिर यह आपकी प्रोफ़ाइल पर क्रेडिट के रूप में दिखेगा। || Trabalhou neste projeto? Escolha sua função. {=1} aprova e aparece como crédito no seu perfil.
+^Already agreed to work on this\? Pick your role\. (.+) approves it, then you're locked in and it goes on your calendar\.$ || काम करने की बात पहले से तय है? अपना रोल चुनें। {=1} मंज़ूर करेंगे, फिर आप पक्के और यह आपके कैलेंडर में। || Já combinou de trabalhar nisto? Escolha sua função. {=1} aprova, você fica confirmado e vai para o seu calendário.

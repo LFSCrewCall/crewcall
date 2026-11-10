@@ -197,7 +197,7 @@ People type the first part of their email and pick the ending from a list: @stud
 
 ## Updating the site
 
-When you change the code, raise the version number in two places so phones don't mix old and new files: `CACHE` in sw.js (crewcall-v17) and every `?v=17` in index.html.
+When you change the code, raise the version number in two places so phones don't mix old and new files: `CACHE` in sw.js (crewcall-v18) and every `?v=18` in index.html.
 
 ## Funding
 
@@ -222,6 +222,15 @@ When someone is added to a shoot by typing their name ("Someone not on Crew Call
 - They click That's me (or Not me to hide it). Whoever typed the name in (or the project's managers) gets a request: Is this them? Approve or Not them.
 - Approving puts the member on the role, so it shows on their profile as a credit.
 - Names are matched loosely (case and accents ignored). Post-board names aren't included.
+
+## Adding yourself to a crew
+
+In a project's Crew tab, anyone signed in who isn't on it sees Add me to the crew. They pick their role (an open one, or any other) and can add a message. Whoever runs the project gets it in Requests and clicks Approve or Decline.
+
+- Wrapped project: approving puts them on that role, so it becomes a credit on their profile.
+- Upcoming project: approving locks them in, as if they'd requested the role.
+- If the role isn't on the project, it's added.
+- My profile also has Missing a credit?, which lists wrapped projects to pick from.
 
 ## Project window
 

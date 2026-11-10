@@ -292,3 +292,12 @@
 ^(.+) · (\d+) (.+) hidden$ || {1} · 已隱藏 {=2} 個（{3}） || {1} · {=2} {3} masqués || {1} · {=2} {3} ocultos
 ^of ([£$€][\d,]+)$ || 目標 {=1} || sur {=1} || de {=1}
 ^Raised so far \((.+)\)$ || 目前已募得（{=1}） || Collecté à ce jour ({=1}) || Recaudado hasta ahora ({=1})
+^(.+) added as (.+)$ || {=1} 已加入，擔任{2} || {=1} ajouté comme {2} || {=1} añadido como {2}
+^You asked to be added as (.+)\.$ || 你已申請以{1}加入。 || Vous avez demandé à être ajouté comme {1}. || Pediste que te añadieran como {1}.
+^Worked on this · (.+)$ || 參與過 · {1} || A travaillé dessus · {1} || Trabajó en esto · {1}
+^On the crew · (.+)$ || 在劇組中 · {1} || Dans l'équipe · {1} || En el equipo · {1}
+^(.+) says they (worked|are working) on (.+) as (.+)\. Approve it in the project's Requests\.$ || {=1} 表示參與《{=3}》擔任{4}。請在專案的申請中核准。 || {=1} dit travailler sur {=3} comme {4}. Approuvez-le dans les demandes du projet. || {=1} dice que trabaja en {=3} como {4}. Apruébalo en las solicitudes del proyecto.
+^(.+) added you to the crew as (.+)\. It's on your profile now\.$ || 《{=1}》已把你加入劇組，擔任{2}。現在已在你的個人檔案上。 || {=1} vous a ajouté à l'équipe comme {2}. C'est maintenant sur votre profil. || {=1} te ha añadido al equipo como {2}. Ya está en tu perfil.
+^(.+)'s team didn't confirm you as (.+)\. If that's a mistake, message them\.$ || 《{=1}》團隊沒有確認你擔任{2}。如果弄錯了，請傳訊息給他們。 || L'équipe de {=1} n'a pas confirmé votre poste {2}. Si c'est une erreur, écrivez-leur. || El equipo de {=1} no te confirmó como {2}. Si es un error, escríbeles.
+^Worked on this project\? Pick your role\. (.+) approves it, then it shows on your profile as a credit\.$ || 參與過這個專案？請選擇職位。{=1} 核准後就會成為你個人檔案上的作品經歷。 || Vous avez travaillé sur ce projet ? Choisissez votre poste. {=1} l'approuve, puis il apparaît comme crédit sur votre profil. || ¿Trabajaste en este proyecto? Elige tu puesto. {=1} lo aprueba y aparecerá como crédito en tu perfil.
+^Already agreed to work on this\? Pick your role\. (.+) approves it, then you're locked in and it goes on your calendar\.$ || 已答應參與？請選擇職位。{=1} 核准後你就確定加入，並加到你的行事曆。 || Vous avez déjà accepté d'y travailler ? Choisissez votre poste. {=1} l'approuve, puis vous êtes confirmé et c'est dans votre calendrier. || ¿Ya acordaste trabajar en esto? Elige tu puesto. {=1} lo aprueba y quedas confirmado en tu calendario.

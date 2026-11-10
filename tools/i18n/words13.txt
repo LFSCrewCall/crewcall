@@ -82,3 +82,20 @@ Email ending || 電子郵件網域 || Fin de l'adresse || Final del correo
 Other… || 其他… || Autre… || Otro…
 That email address doesn't look right. || 這個電子郵件地址看起來不正確。 || Cette adresse e-mail semble incorrecte. || Esa dirección de correo no parece correcta.
 Email me a sign-in code || 寄登入碼給我 || M'envoyer un code de connexion || Enviarme un código de acceso
+Add me to the crew || 把我加入劇組 || M'ajouter à l'équipe || Añadirme al equipo
+Choose… || 選擇… || Choisir… || Elegir…
+Send for approval || 送出待核准 || Envoyer pour approbation || Enviar para aprobación
+Your role || 你的職位 || Votre poste || Tu puesto
+Open on this project || 這個專案的空缺 || Ouverts sur ce projet || Abiertos en este proyecto
+Another role || 其他職位 || Un autre poste || Otro puesto
+Pick your role. || 請選擇你的職位。 || Choisissez votre poste. || Elige tu puesto.
+Worked on this? || 參與過這個專案？ || Vous avez travaillé dessus ? || ¿Trabajaste en esto?
+Already on this crew? || 已經是這個劇組的一員？ || Déjà dans cette équipe ? || ¿Ya estás en este equipo?
+Worked on this || 參與過 || A travaillé dessus || Trabajó en esto
+On the crew || 在劇組中 || Dans l'équipe || En el equipo
+Missing a credit? || 缺了一筆作品經歷？ || Il manque un crédit ? || ¿Te falta un crédito?
+Pick a wrapped project… || 選擇已殺青的專案… || Choisir un projet terminé… || Elige un proyecto terminado…
+Sign in to add yourself to a crew. || 登入後才能把自己加入劇組。 || Connectez-vous pour vous ajouter à une équipe. || Inicia sesión para añadirte a un equipo.
+e.g. I covered sound on day 2 || 例如：第 2 天我負責收音 || ex. j'ai fait le son le jour 2 || p. ej. hice el sonido el día 2
+They say they worked on this project. Approve it and it counts as their credit. || 對方表示參與過這個專案。核准後就算作他們的作品經歷。 || Cette personne dit avoir travaillé sur ce projet. Approuvez pour que cela compte comme son crédit. || Dice que trabajó en este proyecto. Apruébalo y contará como su crédito.
+They say they're on this crew. Approve it and they're locked in. || 對方表示已是這個劇組的一員。核准後即確定加入。 || Cette personne dit faire partie de l'équipe. Approuvez pour la confirmer. || Dice que está en este equipo. Apruébalo y quedará confirmado.

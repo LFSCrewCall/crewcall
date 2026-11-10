@@ -7342,6 +7342,176 @@ window.CC_I18N = {
 "मुझे साइन-इन कोड ईमेल करें",
 "Enviar um código de acesso"
 ],
+"Add me to the crew": [
+"把我加入劇組",
+"把我加入剧组",
+"M'ajouter à l'équipe",
+"Añadirme al equipo",
+"Добавить меня в группу",
+"أضفني إلى الطاقم",
+"मुझे क्रू में जोड़ें",
+"Me adicionar à equipe"
+],
+"Choose…": [
+"選擇…",
+"选择…",
+"Choisir…",
+"Elegir…",
+"Выбрать…",
+"اختر…",
+"चुनें…",
+"Escolher…"
+],
+"Send for approval": [
+"送出待核准",
+"送出待核准",
+"Envoyer pour approbation",
+"Enviar para aprobación",
+"Отправить на одобрение",
+"إرسال للموافقة",
+"मंज़ूरी के लिए भेजें",
+"Enviar para aprovação"
+],
+"Your role": [
+"你的職位",
+"你的职位",
+"Votre poste",
+"Tu puesto",
+"Ваша роль",
+"دورك",
+"आपका रोल",
+"Sua função"
+],
+"Open on this project": [
+"這個專案的空缺",
+"这个项目的空缺",
+"Ouverts sur ce projet",
+"Abiertos en este proyecto",
+"Открытые в этом проекте",
+"المتاحة في هذا المشروع",
+"इस प्रोजेक्ट में खुले",
+"Abertas neste projeto"
+],
+"Another role": [
+"其他職位",
+"其他职位",
+"Un autre poste",
+"Otro puesto",
+"Другая роль",
+"دور آخر",
+"कोई और रोल",
+"Outra função"
+],
+"Pick your role.": [
+"請選擇你的職位。",
+"请选择你的职位。",
+"Choisissez votre poste.",
+"Elige tu puesto.",
+"Выберите роль.",
+"اختر دورك.",
+"अपना रोल चुनें।",
+"Escolha sua função."
+],
+"Worked on this?": [
+"參與過這個專案？",
+"参与过这个项目？",
+"Vous avez travaillé dessus ?",
+"¿Trabajaste en esto?",
+"Работали над этим?",
+"هل عملت على هذا؟",
+"इस पर काम किया था?",
+"Trabalhou nisto?"
+],
+"Already on this crew?": [
+"已經是這個劇組的一員？",
+"已经是这个剧组的一员？",
+"Déjà dans cette équipe ?",
+"¿Ya estás en este equipo?",
+"Уже в этой группе?",
+"هل أنت في هذا الطاقم بالفعل؟",
+"पहले से इस क्रू में हैं?",
+"Já está nesta equipe?"
+],
+"Worked on this": [
+"參與過",
+"参与过",
+"A travaillé dessus",
+"Trabajó en esto",
+"Работал(а) над этим",
+"عمل على هذا",
+"इस पर काम किया",
+"Trabalhou nisto"
+],
+"On the crew": [
+"在劇組中",
+"在剧组中",
+"Dans l'équipe",
+"En el equipo",
+"В группе",
+"في الطاقم",
+"क्रू में",
+"Na equipe"
+],
+"Missing a credit?": [
+"缺了一筆作品經歷？",
+"缺了一笔作品经历？",
+"Il manque un crédit ?",
+"¿Te falta un crédito?",
+"Не хватает работы?",
+"ينقصك عمل؟",
+"कोई क्रेडिट छूट गया?",
+"Falta um crédito?"
+],
+"Pick a wrapped project…": [
+"選擇已殺青的專案…",
+"选择已杀青的项目…",
+"Choisir un projet terminé…",
+"Elige un proyecto terminado…",
+"Выберите завершённый проект…",
+"اختر مشروعًا منتهيًا…",
+"पूरा हुआ प्रोजेक्ट चुनें…",
+"Escolha um projeto encerrado…"
+],
+"Sign in to add yourself to a crew.": [
+"登入後才能把自己加入劇組。",
+"登录后才能把自己加入剧组。",
+"Connectez-vous pour vous ajouter à une équipe.",
+"Inicia sesión para añadirte a un equipo.",
+"Войдите, чтобы добавить себя в группу.",
+"سجّل الدخول لتضيف نفسك إلى طاقم.",
+"क्रू में ख़ुद को जोड़ने के लिए साइन इन करें।",
+"Entre para se adicionar a uma equipe."
+],
+"e.g. I covered sound on day 2": [
+"例如：第 2 天我負責收音",
+"例如：第 2 天我负责收音",
+"ex. j'ai fait le son le jour 2",
+"p. ej. hice el sonido el día 2",
+"например, во 2-й день я писал(а) звук",
+"مثلًا: توليت الصوت في اليوم الثاني",
+"जैसे, दिन 2 पर मैंने साउंड संभाला",
+"ex.: fiz o som no dia 2"
+],
+"They say they worked on this project. Approve it and it counts as their credit.": [
+"對方表示參與過這個專案。核准後就算作他們的作品經歷。",
+"对方表示参与过这个项目。核准后就算作他们的作品经历。",
+"Cette personne dit avoir travaillé sur ce projet. Approuvez pour que cela compte comme son crédit.",
+"Dice que trabajó en este proyecto. Apruébalo y contará como su crédito.",
+"Человек говорит, что работал над этим проектом. Одобрите — и работа засчитается ему.",
+"يقول إنه عمل على هذا المشروع. وافق ليُحتسب عملًا له.",
+"वे कहते हैं कि उन्होंने इस प्रोजेक्ट पर काम किया। मंज़ूर करें तो यह उनका क्रेडिट बनेगा।",
+"A pessoa diz que trabalhou neste projeto. Aprove e conta como crédito dela."
+],
+"They say they're on this crew. Approve it and they're locked in.": [
+"對方表示已是這個劇組的一員。核准後即確定加入。",
+"对方表示已是这个剧组的一员。核准后即确定加入。",
+"Cette personne dit faire partie de l'équipe. Approuvez pour la confirmer.",
+"Dice que está en este equipo. Apruébalo y quedará confirmado.",
+"Человек говорит, что он в этой группе. Одобрите — и он закреплён.",
+"يقول إنه في هذا الطاقم. وافق ليُثبَّت.",
+"वे कहते हैं कि वे इस क्रू में हैं। मंज़ूर करें तो वे पक्के हो जाएँगे।",
+"A pessoa diz que está nesta equipe. Aprove e ela fica confirmada."
+],
 "Director": [
 "導演",
 "导演",
@@ -19013,6 +19183,105 @@ window.CC_I18N = {
 "المجموع حتى الآن ({=1})",
 "अब तक जुटाया गया ({=1})",
 "Arrecadado até agora ({=1})"
+],
+[
+"^(.+) added as (.+)$",
+"{=1} 已加入，擔任{2}",
+"{=1} 已加入，担任{2}",
+"{=1} ajouté comme {2}",
+"{=1} añadido como {2}",
+"{=1}: добавлен(а) как {2}",
+"أُضيف {=1} بدور {2}",
+"{=1} को {2} के रूप में जोड़ा गया",
+"{=1} adicionado como {2}"
+],
+[
+"^You asked to be added as (.+)\\.$",
+"你已申請以{1}加入。",
+"你已申请以{1}加入。",
+"Vous avez demandé à être ajouté comme {1}.",
+"Pediste que te añadieran como {1}.",
+"Вы попросили добавить вас как {1}.",
+"طلبت إضافتك بدور {1}.",
+"आपने {1} के रूप में जुड़ने का अनुरोध किया।",
+"Você pediu para ser adicionado como {1}."
+],
+[
+"^Worked on this · (.+)$",
+"參與過 · {1}",
+"参与过 · {1}",
+"A travaillé dessus · {1}",
+"Trabajó en esto · {1}",
+"Работал(а) над этим · {1}",
+"عمل على هذا · {1}",
+"इस पर काम किया · {1}",
+"Trabalhou nisto · {1}"
+],
+[
+"^On the crew · (.+)$",
+"在劇組中 · {1}",
+"在剧组中 · {1}",
+"Dans l'équipe · {1}",
+"En el equipo · {1}",
+"В группе · {1}",
+"في الطاقم · {1}",
+"क्रू में · {1}",
+"Na equipe · {1}"
+],
+[
+"^(.+) says they (worked|are working) on (.+) as (.+)\\. Approve it in the project's Requests\\.$",
+"{=1} 表示參與《{=3}》擔任{4}。請在專案的申請中核准。",
+"{=1} 表示参与《{=3}》担任{4}。请在项目的申请中核准。",
+"{=1} dit travailler sur {=3} comme {4}. Approuvez-le dans les demandes du projet.",
+"{=1} dice que trabaja en {=3} como {4}. Apruébalo en las solicitudes del proyecto.",
+"{=1} говорит, что работает над «{=3}» как {4}. Одобрите в заявках проекта.",
+"يقول {=1} إنه يعمل على {=3} بدور {4}. وافق في طلبات المشروع.",
+"{=1} कहते हैं कि वे {=3} पर {4} के रूप में काम कर रहे हैं। प्रोजेक्ट के अनुरोधों में मंज़ूर करें।",
+"{=1} diz que trabalha em {=3} como {4}. Aprove nos pedidos do projeto."
+],
+[
+"^(.+) added you to the crew as (.+)\\. It's on your profile now\\.$",
+"《{=1}》已把你加入劇組，擔任{2}。現在已在你的個人檔案上。",
+"《{=1}》已把你加入剧组，担任{2}。现在已在你的个人文件上。",
+"{=1} vous a ajouté à l'équipe comme {2}. C'est maintenant sur votre profil.",
+"{=1} te ha añadido al equipo como {2}. Ya está en tu perfil.",
+"«{=1}» добавил(а) вас в группу как {2}. Теперь это в вашем профиле.",
+"أضافك {=1} إلى الطاقم بدور {2}. أصبح في ملفك الآن.",
+"{=1} ने आपको {2} के रूप में क्रू में जोड़ा। अब यह आपकी प्रोफ़ाइल पर है।",
+"{=1} adicionou você à equipe como {2}. Já está no seu perfil."
+],
+[
+"^(.+)'s team didn't confirm you as (.+)\\. If that's a mistake, message them\\.$",
+"《{=1}》團隊沒有確認你擔任{2}。如果弄錯了，請傳訊息給他們。",
+"《{=1}》团队没有确认你担任{2}。如果弄错了，请传消息给他们。",
+"L'équipe de {=1} n'a pas confirmé votre poste {2}. Si c'est une erreur, écrivez-leur.",
+"El equipo de {=1} no te confirmó como {2}. Si es un error, escríbeles.",
+"Команда «{=1}» не подтвердила вас как {2}. Если это ошибка, напишите им.",
+"لم يؤكد فريق {=1} أنك {2}. إن كان ذلك خطأ فراسلهم.",
+"{=1} की टीम ने आपको {2} के रूप में पुष्टि नहीं की। अगर यह ग़लती है, तो उन्हें मैसेज करें।",
+"A equipe de {=1} não confirmou você como {2}. Se for um erro, mande uma mensagem."
+],
+[
+"^Worked on this project\\? Pick your role\\. (.+) approves it, then it shows on your profile as a credit\\.$",
+"參與過這個專案？請選擇職位。{=1} 核准後就會成為你個人檔案上的作品經歷。",
+"参与过这个项目？请选择职位。{=1} 核准后就会成为你个人文件上的作品经历。",
+"Vous avez travaillé sur ce projet ? Choisissez votre poste. {=1} l'approuve, puis il apparaît comme crédit sur votre profil.",
+"¿Trabajaste en este proyecto? Elige tu puesto. {=1} lo aprueba y aparecerá como crédito en tu perfil.",
+"Работали над этим проектом? Выберите роль. {=1} одобрит, и работа появится в вашем профиле.",
+"هل عملت على هذا المشروع؟ اختر دورك. يوافق {=1}، ثم يظهر في ملفك كعمل.",
+"इस प्रोजेक्ट पर काम किया था? अपना रोल चुनें। {=1} मंज़ूर करेंगे, फिर यह आपकी प्रोफ़ाइल पर क्रेडिट के रूप में दिखेगा।",
+"Trabalhou neste projeto? Escolha sua função. {=1} aprova e aparece como crédito no seu perfil."
+],
+[
+"^Already agreed to work on this\\? Pick your role\\. (.+) approves it, then you're locked in and it goes on your calendar\\.$",
+"已答應參與？請選擇職位。{=1} 核准後你就確定加入，並加到你的行事曆。",
+"已答应参与？请选择职位。{=1} 核准后你就确定加入，并加到你的行事历。",
+"Vous avez déjà accepté d'y travailler ? Choisissez votre poste. {=1} l'approuve, puis vous êtes confirmé et c'est dans votre calendrier.",
+"¿Ya acordaste trabajar en esto? Elige tu puesto. {=1} lo aprueba y quedas confirmado en tu calendario.",
+"Уже договорились работать? Выберите роль. {=1} одобрит, и вы закреплены, а съёмки появятся в календаре.",
+"اتفقت بالفعل على العمل؟ اختر دورك. يوافق {=1}، ثم تُثبَّت ويُضاف إلى تقويمك.",
+"काम करने की बात पहले से तय है? अपना रोल चुनें। {=1} मंज़ूर करेंगे, फिर आप पक्के और यह आपके कैलेंडर में।",
+"Já combinou de trabalhar nisto? Escolha sua função. {=1} aprova, você fica confirmado e vai para o seu calendário."
 ]
 ]
 };

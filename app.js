@@ -874,6 +874,10 @@
         <span class="rq-body"><span class="rq-top"><button class="link-btn" data-student="${s.id}">${esc(s.name)}</button> <span class="rq-type claim">Is this them? · ${esc(q.role)}</span></span>
           <span class="rq-meta">Listed as “${esc(q.asName || "")}” · ${ago(q.at)}</span><span class="rq-msg">They've joined Crew Call and say they're the person you added by name. Approve it and it counts as their credit.</span></span>
         <span class="rq-acts"><button class="btn btn-accent btn-xs" data-accept="${q.id}">Approve</button><button class="btn btn-quiet btn-xs" data-decline="${q.id}">Not them</button></span></li>`;
+      if (q.type === "addme") return `<li class="rq"><span class="avatar">${initials(s.name)}</span>
+        <span class="rq-body"><span class="rq-top"><button class="link-btn" data-student="${s.id}">${esc(s.name)}</button> <span class="rq-type claim">${past ? "Worked on this" : "On the crew"} · ${esc(q.role)}</span></span>
+          <span class="rq-meta">${ago(q.at)}</span><span class="rq-msg">${past ? "They say they worked on this project. Approve it and it counts as their credit." : "They say they're on this crew. Approve it and they're locked in."}</span>${q.msg ? `<span class="rq-msg">“${esc(q.msg)}”</span>` : ""}</span>
+        <span class="rq-acts"><button class="btn btn-accent btn-xs" data-accept="${q.id}">Approve</button><button class="btn btn-quiet btn-xs" data-decline="${q.id}">Decline</button></span></li>`;
       const n = freeDaysCount(s, futureDays), clash = q.type === "crew" && days.some(d => bookedOn(s.id, d).length);
       return `<li class="rq"><span class="avatar">${initials(s.name)}</span>
         <span class="rq-body"><span class="rq-top"><button class="link-btn" data-student="${s.id}">${esc(s.name)}</button> <span class="rq-type ${q.type}">${q.type === "shadow" ? "Shadow" : "Crew"} · ${esc(q.role)}</span>${s.guest ? ` <span class="tag-guest">Guest</span>` : ""}</span>
@@ -918,6 +922,7 @@
 
       ${panel("crew", `<p class="muted small">${m ? "Tap a name to see their profile and credits." : "Sign in to see profiles and get in touch."}</p>
         ${crewN || named.length ? `<ul class="lock-list">${lockedRows}${namedRows}</ul>` : `<p class="empty-sm">No one locked in yet.</p>`}
+        ${addMeHtml(p, m, mg)}
         ${mg && locked.length > 1 ? `<a class="btn btn-ghost btn-xs mt" href="mailto:${locked.map(r => (student(r.filledBy) || {}).email).filter(Boolean).join(",")}?subject=${encodeURIComponent(p.title + " crew")}" target="_blank" rel="noopener">Email all locked crew</a>` : ""}`)}
 
       ${panel("contact", `<section class="contact-box" aria-labelledby="contactH">
@@ -948,6 +953,7 @@
     modalBody.querySelectorAll("[data-student]").forEach(b => (b.onclick = () => b.dataset.student && openStudent(b.dataset.student, p.id)));
     modalBody.querySelectorAll("[data-claimref]").forEach(b => (b.onclick = () => { const x = namedSpots(p).find(y => y.ref === b.dataset.claimref); if (x) { sendClaim(x); openProject(p.id); } }));
     modalBody.querySelectorAll("[data-addfund]").forEach(b => (b.onclick = () => openFundForm(null, p)));
+    modalBody.querySelectorAll("[data-addme]").forEach(b => (b.onclick = () => openAddMe(p)));
     modalBody.querySelectorAll("[data-fund]").forEach(b => (b.onclick = () => openFund(b.dataset.fund)));
     const q = s => modalBody.querySelectorAll(s);
     q("[data-fill]").forEach(sel => sel.addEventListener("change", () => {
@@ -978,7 +984,7 @@
     q("[data-shadow]").forEach(b => b.addEventListener("click", () => openRequest(p, b.dataset.shadow, "shadow")));
     q("[data-withdraw]").forEach(b => b.addEventListener("click", () => { S.requests.find(x => x.id === b.dataset.withdraw).status = "withdrawn"; toast("Request withdrawn"); openProject(p.id); render(); }));
     q("[data-accept]").forEach(b => b.addEventListener("click", () => acceptReq(b.dataset.accept)));
-    q("[data-decline]").forEach(b => b.addEventListener("click", () => { const x = S.requests.find(y => y.id === b.dataset.decline); x.status = "declined"; notify(x.sid, "update", x.type === "claim" ? `${p.title}'s team say the ${x.role} they listed isn't you. If they're wrong, message them.` : `${p.title} has gone with someone else for ${x.role}. Thanks for offering.`, p.id); toast("Declined. They've been told politely."); openProject(p.id); drawHeader(); render(); }));
+    q("[data-decline]").forEach(b => b.addEventListener("click", () => { const x = S.requests.find(y => y.id === b.dataset.decline); x.status = "declined"; notify(x.sid, "update", x.type === "claim" ? `${p.title}'s team say the ${x.role} they listed isn't you. If they're wrong, message them.` : x.type === "addme" ? `${p.title}'s team didn't confirm you as ${x.role}. If that's a mistake, message them.` : `${p.title} has gone with someone else for ${x.role}. Thanks for offering.`, p.id); toast("Declined. They've been told politely."); openProject(p.id); drawHeader(); render(); }));
     q("[data-ics]").forEach(b => b.addEventListener("click", () => { download(`${p.title.replace(/\W+/g, "-").toLowerCase()}.ics`, buildIcs([p], `Crew Call: ${p.title}`)); toast("Downloaded. This adds the shoot as it is now. To get later changes automatically, use Sync calendar."); }));
     q("[data-edit]").forEach(b => b.addEventListener("click", () => openPostForm(p)));
     q("[data-handover]").forEach(b => b.addEventListener("click", () => openHandOver(p)));
@@ -1098,9 +1104,58 @@
     notify(q.sid, "update", `${p.title} confirmed you as ${q.role}. It's on your profile now.`, p.id);
     toast(`${s.name} confirmed as ${q.role}`); openProject(p.id); drawHeader(); render();
   }
+  // Members can add themselves to a project's crew (a shoot they worked on, or one they've already agreed to); whoever runs it approves
+  const addMeOf = (p, sid) => S.requests.find(q => q.type === "addme" && q.pid === p.id && q.sid === sid && q.status === "pending");
+  function addMeHtml(p, m, mg) {
+    if (!m || mg || p.archived || onProject(p, m.id)) return "";
+    const q = addMeOf(p, m.id);
+    if (q) return `<p class="addme-box"><span class="st st-pending">Sent · waiting</span> <span class="muted small">You asked to be added as ${esc(q.role)}.</span> <button class="btn btn-quiet btn-xs" data-withdraw="${q.id}">Withdraw</button></p>`;
+    return `<p class="addme-box"><span class="muted small">${isPast(p) ? "Worked on this?" : "Already on this crew?"}</span> <button class="btn btn-ghost btn-xs" data-addme>Add me to the crew</button></p>`;
+  }
+  function openAddMe(p) {
+    const m = me(); if (!m) return openSignIn("Sign in to add yourself to a crew.");
+    const open = p.roles.filter(r => !r.filledBy), past = isPast(p), c = contactOf(p);
+    const mine = new Set([...(m.roles || []), m.primary].filter(Boolean));
+    const others = allRoles().filter(r => !open.some(o => o.role === r));
+    openModal(`<p class="eyebrow">${esc(p.title)}</p>
+      <h2 id="modalTitle" class="m-title">Add me to the crew</h2>
+      <p class="muted">${past ? "Worked on this project? Pick your role." : "Already agreed to work on this? Pick your role."} ${esc(c.name)} approves it, then ${past ? "it shows on your profile as a credit" : "you're locked in and it goes on your calendar"}.</p>
+      <form id="addMeForm">
+        <label class="field"><span>Your role</span><select name="role" required>
+          <option value="">Choose…</option>
+          ${open.length ? `<optgroup label="Open on this project">${open.map(r => `<option value="rid:${r.rid}"${mine.has(r.role) && open.find(o => mine.has(o.role)) === r ? " selected" : ""}>${esc(r.role)}</option>`).join("")}</optgroup>` : ""}
+          <optgroup label="Another role">${others.map(r => `<option value="role:${esc(r)}">${esc(r)}</option>`).join("")}</optgroup>
+        </select></label>
+        <label class="field mt"><span>Message <small>optional</small></span><textarea name="msg" rows="2" maxlength="280" placeholder="e.g. I covered sound on day 2"></textarea></label>
+        <p class="form-err" id="addMeErr" role="alert"></p>
+        <div class="form-actions"><button class="btn btn-accent" type="submit">Send for approval</button><button class="btn btn-ghost" type="button" id="addMeBack">Back to project</button></div>
+      </form>`);
+    $("#addMeBack").onclick = () => openProject(p.id);
+    $("#addMeForm").addEventListener("submit", e => {
+      e.preventDefault(); const v = e.target.role.value; if (!v) return ($("#addMeErr").textContent = "Pick your role.");
+      const r = v.startsWith("rid:") ? roleBy(p, v.slice(4)) : null, role = r ? r.role : v.slice(5);
+      S.requests.push({ id: uid("q"), pid: p.id, rid: r ? r.rid : "", role, sid: m.id, type: "addme", msg: e.target.msg.value.trim(), status: "pending", at: TODAY });
+      const to = managersOf(p).filter(s => s.id !== m.id);
+      (to.length ? to : S.students.filter(s => can("projects", s))).forEach(s => notify(s.id, "request", `${m.name} says they ${past ? "worked" : "are working"} on ${p.title} as ${role}. Approve it in the project's Requests.`, p.id));
+      toast(`Sent. ${p.title}'s team will confirm it.`); openProject(p.id); drawHeader(); render();
+    });
+  }
+  function applyAddMe(q, p) {
+    const s = student(q.sid); if (!s) return;
+    if (onProject(p, s.id)) { q.status = "accepted"; toast(`${s.name} is already on the crew`); return openProject(p.id); }
+    let r = q.rid && roleBy(p, q.rid);
+    if (!r || r.filledBy) r = p.roles.find(x => !x.filledBy && x.role === q.role);
+    if (!r) { r = { role: q.role, filledBy: null, rid: uid("r") }; p.roles.push(r); }
+    if (!isPast(p)) { if (projDays(p).some(d => bookedOn(s.id, d).length)) return toast(`${s.name} is booked on another shoot those days`); q.status = "accepted"; return lockIn(p, r.rid, s.id); }
+    r.filledBy = s.id; q.status = "accepted";
+    S.requests.filter(x => x.pid === p.id && x.rid === r.rid && x.status === "pending" && x.type === "crew").forEach(x => (x.status = "filled"));
+    notify(s.id, "update", `${p.title} added you to the crew as ${r.role}. It's on your profile now.`, p.id);
+    toast(`${s.name} added as ${r.role}`); openProject(p.id); drawHeader(); render();
+  }
   function acceptReq(qid) {
     const q = S.requests.find(x => x.id === qid), p = project(q.pid), r = roleBy(p, q.rid);
     if (q.type === "claim") return applyClaim(q, p);
+    if (q.type === "addme") return applyAddMe(q, p);
     if (q.type === "crew") { if (r.filledBy) return toast("That role is already filled"); return lockIn(p, q.rid, q.sid); }
     p.shadows.push({ role: q.role, sid: q.sid }); q.status = "accepted";
     notify(q.sid, "update", `You're shadowing ${q.role} on ${p.title}. Call ${dayInfo(p, projDays(p)[0]).call} on ${fmtDay(projDays(p)[0])}.`, p.id);
@@ -2595,6 +2650,11 @@ ${LIVE ? "" : `<label class="toggle"><input type="checkbox" data-aus="autoSend" 
     meRoles = new Set(m.roles); mePrimary = m.primary; meKit = [...m.kit]; meLearn = new Set(m.learn);
     const cr = creditsOf(m);
     $("#meCredits").innerHTML = cr.length ? `<ul class="credit-list">${cr.map(x => `<li><span class="cr-role">${x.shadow ? "Shadow " : ""}${esc(x.role)}</span><button type="button" class="link-btn" data-proj="${x.p.id}">${esc(x.p.title)}</button><span class="muted">${esc(x.p.type)} · ${monYear(x.p.shoots[0].from)}</span></li>`).join("")}</ul>` : `<p class="muted small">Once a shoot you're locked on wraps, it's added here automatically.</p>`;
+    { const cand = S.projects.filter(p => !p.archived && isPast(p) && !onProject(p, m.id) && !addMeOf(p, m.id)).sort((x, y) => y.shoots[0].from.localeCompare(x.shoots[0].from)), waiting = S.requests.filter(q => q.type === "addme" && q.sid === m.id && q.status === "pending" && project(q.pid));
+      $("#meCredits").insertAdjacentHTML("beforeend", `${waiting.length ? `<ul class="credit-list cr-wait">${waiting.map(q => `<li><span class="cr-role">${esc(q.role)}</span><button type="button" class="link-btn" data-proj="${q.pid}">${esc(project(q.pid).title)}</button><span class="st st-pending">Sent · waiting</span></li>`).join("")}</ul>` : ""}
+        ${cand.length ? `<div class="cr-add"><label class="field"><span>Missing a credit?</span><select id="crAddSel"><option value="">Pick a wrapped project…</option>${cand.map(p => `<option value="${p.id}">${esc(p.title)} · ${monYear(p.shoots[0].from)}</option>`).join("")}</select></label><button type="button" class="btn btn-ghost btn-sm" id="crAddBtn">Add me to the crew</button></div>` : ""}`);
+      const go = () => { const v = $("#crAddSel").value; if (v) openAddMe(project(v)); };
+      if ($("#crAddBtn")) $("#crAddBtn").onclick = go; }
     bindOpeners($("#meCredits"));
     drawPicker(); drawRolePicker(); drawKit(); drawLearn();
     $("#meSaved").textContent = "";
