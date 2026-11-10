@@ -1,0 +1,34 @@
+# Pilot mode and demo link
+Crew Call is in a small pilot at the moment, so only invited testers can sign in. It opens to every LFS student soon. || Crew Call अभी एक छोटे पायलट में है, इसलिए सिर्फ़ बुलाए गए टेस्टर ही साइन इन कर सकते हैं। यह जल्द ही LFS के सभी छात्रों के लिए खुलेगा। || O Crew Call está em um piloto pequeno no momento, então só testadores convidados podem entrar. Em breve ele abre para todos os alunos da LFS.
+Who can sign in || कौन साइन इन कर सकता है || Quem pode entrar
+Pilot: only the people on the list || पायलट: सिर्फ़ लिस्ट वाले लोग || Piloto: só as pessoas da lista
+Open to every LFS student || LFS के सभी छात्रों के लिए खुला || Aberto a todos os alunos da LFS
+Anyone with an LFS email can sign in. Guests still need an invite from a member. || LFS ईमेल वाला कोई भी साइन इन कर सकता है। गेस्ट को अब भी किसी मेंबर का इनवाइट चाहिए। || Qualquer pessoa com e-mail da LFS pode entrar. Convidados ainda precisam do convite de um membro.
+Admins, the people on the pilot list and guests that members invite can sign in. Anyone else is told Crew Call opens soon. || एडमिन, पायलट लिस्ट वाले लोग और मेंबर के बुलाए गेस्ट साइन इन कर सकते हैं। बाक़ी लोगों को बताया जाता है कि Crew Call जल्द खुलेगा। || Admins, as pessoas da lista piloto e os convidados dos membros podem entrar. Os demais veem que o Crew Call abre em breve.
+You need the People permission to change who can sign in. || कौन साइन इन कर सकता है, यह बदलने के लिए आपको लोग वाली अनुमति चाहिए। || Você precisa da permissão Pessoas para mudar quem pode entrar.
+Pilot list || पायलट लिस्ट || Lista piloto
+Paste LFS emails, one per line or separated by commas || LFS ईमेल पेस्ट करें, हर लाइन में एक या कॉमा से अलग करके || Cole e-mails da LFS, um por linha ou separados por vírgulas
+Emails to add to the pilot || पायलट में जोड़ने के लिए ईमेल || E-mails para adicionar ao piloto
+Add to the pilot || पायलट में जोड़ें || Adicionar ao piloto
+Signed in || साइन इन किया || Entrou
+Not yet || अभी नहीं || Ainda não
+Nobody on the list yet. || लिस्ट में अभी कोई नहीं है। || Ainda não tem ninguém na lista.
+Adding someone doesn't email them. Send them the link yourself, for example on WhatsApp. || किसी को जोड़ने पर उन्हें ईमेल नहीं जाता। लिंक ख़ुद भेजें, जैसे WhatsApp पर। || Adicionar alguém não envia e-mail para a pessoa. Mande o link você mesmo, por exemplo no WhatsApp.
+Copy the Crew Call link || Crew Call का लिंक कॉपी करें || Copiar o link do Crew Call
+Open Crew Call to every LFS student? || Crew Call को LFS के सभी छात्रों के लिए खोलें? || Abrir o Crew Call para todos os alunos da LFS?
+Anyone with an LFS email will be able to sign in straight away. Make sure your email sender can handle the numbers first. || LFS ईमेल वाला कोई भी तुरंत साइन इन कर पाएगा। पहले पक्का कर लें कि आपकी ईमेल भेजने वाली सर्विस इतने लोगों को संभाल सकती है। || Qualquer pessoa com e-mail da LFS vai poder entrar na hora. Antes, confira se o seu serviço de envio de e-mails aguenta esse volume.
+Open it up || खोलें || Abrir
+Crew Call is open to every LFS student || Crew Call अब LFS के सभी छात्रों के लिए खुला है || O Crew Call está aberto a todos os alunos da LFS
+Crew Call is back in pilot mode || Crew Call फिर से पायलट मोड में है || O Crew Call voltou ao modo piloto
+Crew Call is in pilot mode || Crew Call पायलट मोड में है || O Crew Call está em modo piloto
+Only LFS addresses go on the pilot list. Invite anyone else as a guest from My shoots. || पायलट लिस्ट में सिर्फ़ LFS ईमेल जाते हैं। बाक़ी लोगों को मेरे शूट से गेस्ट के तौर पर बुलाएँ। || Só endereços da LFS entram na lista piloto. Convide os demais como convidados em Minhas filmagens.
+Added to the pilot list || पायलट लिस्ट में जोड़ा गया || Adicionado à lista piloto
+Removed from the pilot list || पायलट लिस्ट से हटाया गया || Removido da lista piloto
+Link copied || लिंक कॉपी हो गया || Link copiado
+The code is kept on GitHub and the site is hosted on GitHub Pages. The database and sign-in run on Supabase's hosted service, although Supabase's own software is open source. Emails go through whichever sender the admins set up. We only use free plans, and Crew Call can move away from any of them. || कोड GitHub पर रखा है और साइट GitHub Pages पर होस्ट है। डेटाबेस और साइन इन Supabase की होस्टेड सर्विस पर चलते हैं, हालाँकि Supabase का अपना सॉफ़्टवेयर ओपन सोर्स है। ईमेल उसी सर्विस से जाते हैं जो एडमिन सेट करते हैं। हम सिर्फ़ फ़्री प्लान इस्तेमाल करते हैं, और Crew Call इनमें से किसी को भी छोड़ सकता है। || O código fica no GitHub e o site é hospedado no GitHub Pages. O banco de dados e o login rodam no serviço hospedado do Supabase, embora o software do próprio Supabase seja de código aberto. Os e-mails saem pelo serviço de envio que os admins configurarem. Só usamos planos gratuitos, e o Crew Call pode sair de qualquer um deles.
+This is the demo: sample people, and nothing is saved. || यह डेमो है: नमूने के लोग, और कुछ भी सेव नहीं होता। || Esta é a demo: pessoas de exemplo, e nada é salvo.
+Go to the real Crew Call || असली Crew Call पर जाएँ || Ir para o Crew Call de verdade
+Try the demo || डेमो आज़माएँ || Experimentar a demo
+Want a look first? || पहले देखना चाहते हैं? || Quer dar uma olhada antes?
+Try the demo with sample people || नमूने के लोगों के साथ डेमो आज़माएँ || Experimentar a demo com pessoas de exemplo
+Sample people, and nothing is saved. || नमूने के लोग, और कुछ भी सेव नहीं होता। || Pessoas de exemplo, e nada é salvo.

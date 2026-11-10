@@ -25,6 +25,8 @@ Keep the backups repository private: the backup contains people's profiles. The 
 - **Small mistake (someone deleted a project):** Admin, Privacy and data, Restore from a backup, using a file downloaded from the app.
 - **Whole database lost:** download the latest backup from GitHub Actions, then follow the restore steps in the [Supabase guide](https://supabase.com/docs/guides/platform/migrating-within-supabase/backup-restore), or ask someone who knows databases to do it with you.
 
+- **After restoring the whole database,** run `supabase/jobs.sql` again (with your cron secret) so the email and nightly timers start. Calendar links keep working because they're saved in the database.
+
 ## Each term
 
 Open the Actions tab and check the last few backups are green. If they've turned red, the database password has probably changed. Update the secret.

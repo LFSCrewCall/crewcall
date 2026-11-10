@@ -46,13 +46,6 @@ create or replace function cfg(k text) returns jsonb language sql stable securit
   select data -> 'v' from records where kind = 'config' and id = k
 $$;
 
--- A member is anyone signed in with an LFS email, or someone an LFS member invited.
-create or replace function is_member() returns boolean language sql stable security definer set search_path = public as $$
-  select auth.uid() is not null and (
-    split_part(my_email(), '@', 2) = any ((select lfs_domains from app_meta where id = 1)::text[])
-    or exists (select 1 from records where kind = 'invite' and id = my_email()))
-$$;
-
 create or replace function is_owner() returns boolean language sql stable security definer set search_path = public as $$
   select auth.uid() is not null and coalesce(cfg('owner') #>> '{}', '') = auth.uid()::text
 $$;
@@ -65,13 +58,28 @@ create or replace function has_perm(p text) returns boolean language sql stable 
   select is_owner() or (is_admin() and coalesce(cfg('adminPerms') -> auth.uid()::text ? p, false))
 $$;
 
+-- Who may join: anyone with an LFS email, the first owner, or a guest an LFS member invited.
+create or replace function join_ok(e text) returns boolean language sql stable security definer set search_path = public as $$
+  select lower(e) = lower((select first_owner_email from app_meta where id = 1))
+    or split_part(lower(e), '@', 2) = any ((select lfs_domains from app_meta where id = 1)::text[])
+    or exists (select 1 from records where kind = 'invite' and id = lower(e))
+$$;
+
+-- A member is anyone signed in who may join (see above), plus admins.
+create or replace function is_member() returns boolean language sql stable security definer set search_path = public as $$
+  select auth.uid() is not null and (join_ok(my_email()) or is_admin())
+$$;
+
 -- Directors and producers of a project (by email on the project, or by holding the role)
 create or replace function runs_project(pid text) returns boolean language sql stable security definer set search_path = public as $$
   select auth.uid() is not null and exists (
     select 1 from records p where p.kind = 'project' and p.id = pid and (
       p.owner = auth.uid()
-      or lower(p.data ->> 'email') = my_email()
-      or lower(p.data #>> '{producer,email}') = my_email()
+      or lower(nullif(p.data ->> 'email', '')) = my_email()
+      or lower(nullif(p.data #>> '{producer,email}', '')) = my_email()
+      or p.data ->> 'dsid' = auth.uid()::text
+      or exists (select 1 from jsonb_array_elements(case when jsonb_typeof(p.data -> 'producers') = 'array' then p.data -> 'producers' else '[]'::jsonb end) x
+                 where x ->> 'sid' = auth.uid()::text or lower(nullif(x ->> 'email', '')) = my_email())
       or exists (select 1 from jsonb_array_elements(coalesce(p.data -> 'roles', '[]'::jsonb)) r
                  where r ->> 'role' in ('Director', 'Producer') and r ->> 'filledBy' = auth.uid()::text)))
 $$;
@@ -160,19 +168,21 @@ create policy "fix email" on emails for update using (id = auth.uid() or has_per
 
 -- ---------- 5. What visitors see without signing in ----------
 -- This view deliberately runs with the database's own rights (Supabase may flag it as
--- "security definer"): it shows live projects only, with no emails, producer details or crew hub links.
+-- "security definer"): it shows live projects only, with no emails, producer details, crew hub links or role briefs.
 create or replace view public_projects as
-  select kind, id, data - 'email' - 'producer' - 'hub' - 'crew' as data from records
+  select kind, id,
+    jsonb_set(data - 'email' - 'producer' - 'producers' - 'hub' - 'crew', '{roles}',
+      coalesce((select jsonb_agg(r - 'brief' order by i) from jsonb_array_elements(case when jsonb_typeof(data -> 'roles') = 'array' then data -> 'roles' else '[]'::jsonb end) with ordinality t(r, i)), '[]'::jsonb)) as data
+  from records
   where kind = 'project' and not coalesce((data ->> 'archived')::boolean, false);
 grant select on public_projects to anon, authenticated;
 grant select, insert, update, delete on records, emails to authenticated;
 grant select on records to anon;
 
 -- ---------- 6. Helpers the app calls ----------
--- Can this email join? (LFS address, or invited.) Used before sending a sign-in code.
+-- Can this email join? Used before sending a sign-in code, so nobody gets a code they can't use.
 create or replace function can_join(e text) returns boolean language sql stable security definer set search_path = public as $$
-  select split_part(lower(e), '@', 2) = any ((select lfs_domains from app_meta where id = 1)::text[])
-      or exists (select 1 from records where kind = 'invite' and id = lower(e))
+  select join_ok(e)
 $$;
 grant execute on function can_join(text) to anon, authenticated;
 
@@ -197,3 +207,71 @@ create or replace function forget_user() returns trigger language plpgsql securi
 begin delete from records where kind = 'student' and id = old.id::text; return old; end $$;
 drop trigger if exists on_user_deleted on auth.users;
 create trigger on_user_deleted after delete on auth.users for each row execute function forget_user();
+
+-- Pilot mode was removed: clear anything an earlier version left behind.
+delete from records where kind = 'tester' or (kind = 'config' and id = 'access');
+
+-- ---------- 8. Stepping down and handing over ----------
+-- Anyone put down for a role (or as a shadow) can take themselves off, even though they can't edit the project.
+-- rid is the role's id, or "__shadow:<role>" for a shadow place.
+create or replace function leave_project(pid text, rid text) returns boolean language plpgsql security definer set search_path = public as $$
+declare me text := auth.uid()::text; d jsonb;
+begin
+  if me is null then return false; end if;
+  select data into d from records where kind = 'project' and id = pid for update;
+  if d is null then return false; end if;
+  if left(rid, 9) = '__shadow:' then
+    d := jsonb_set(d, '{shadows}', coalesce((select jsonb_agg(x order by i) from jsonb_array_elements(case when jsonb_typeof(d -> 'shadows') = 'array' then d -> 'shadows' else '[]'::jsonb end) with ordinality t(x, i)
+      where not (x ->> 'sid' = me and x ->> 'role' = substr(rid, 10))), '[]'::jsonb));
+  else
+    if not exists (select 1 from jsonb_array_elements(case when jsonb_typeof(d -> 'roles') = 'array' then d -> 'roles' else '[]'::jsonb end) x where x ->> 'rid' = rid and x ->> 'filledBy' = me) then return false; end if;
+    d := jsonb_set(d, '{roles}', (select jsonb_agg(case when x ->> 'rid' = rid and x ->> 'filledBy' = me then jsonb_set(x, '{filledBy}', 'null'::jsonb) else x end order by i)
+      from jsonb_array_elements(d -> 'roles') with ordinality t(x, i)));
+  end if;
+  update records set data = d where kind = 'project' and id = pid;
+  return true;
+end $$;
+
+-- Hand a project to another member, so it stays theirs after the old producer or director leaves it.
+create or replace function hand_over_project(pid text, to_id uuid) returns boolean language plpgsql security definer set search_path = public as $$
+begin
+  if auth.uid() is null or not (runs_project(pid) or has_perm('projects')) then raise exception 'Only the people running this project can hand it over'; end if;
+  if not exists (select 1 from auth.users where id = to_id) then raise exception 'That person has not signed in to Crew Call yet'; end if;
+  update records set owner = to_id where kind = 'project' and id = pid;
+  return found;
+end $$;
+
+-- ---------- 9. Calendar links and the email server ----------
+-- Each person's private calendar link (read by the crewcall Edge Function). Nobody can read this table directly.
+create table if not exists cal_tokens (
+  uid uuid primary key references auth.users (id) on delete cascade,
+  token text not null unique default replace(gen_random_uuid()::text, '-', ''),
+  made timestamptz not null default now()
+);
+alter table cal_tokens enable row level security;
+
+create or replace function my_cal_token() returns text language plpgsql security definer set search_path = public as $$
+declare t text;
+begin
+  if auth.uid() is null then raise exception 'Sign in first'; end if;
+  insert into cal_tokens (uid) values (auth.uid()) on conflict (uid) do nothing;
+  select token into t from cal_tokens where uid = auth.uid();
+  return t;
+end $$;
+
+create or replace function reset_cal_token() returns text language plpgsql security definer set search_path = public as $$
+begin
+  if auth.uid() is null then raise exception 'Sign in first'; end if;
+  delete from cal_tokens where uid = auth.uid();
+  return my_cal_token();
+end $$;
+
+-- What the email server has already sent, so nothing goes twice. Only the server reads it.
+create table if not exists email_log (
+  key text primary key,
+  at timestamptz not null default now()
+);
+alter table email_log enable row level security;
+
+revoke execute on function leave_project(text, text), hand_over_project(text, uuid), my_cal_token(), reset_cal_token() from public, anon;
+grant execute on function leave_project(text, text), hand_over_project(text, uuid), my_cal_token(), reset_cal_token() to authenticated;

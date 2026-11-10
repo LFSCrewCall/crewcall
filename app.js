@@ -2,7 +2,15 @@
   const C = window.CC_CONST;
   const allRoles = () => Object.values(C.ROLE_GROUPS).flat();
   const LIVE = !!window.CC_CLOUD_ON;
-  if (LIVE) { const pf = document.getElementById("protoFoot"); if (pf) pf.remove(); }
+  const DEMO_URL = location.pathname + "?demo", REAL_URL = location.pathname;
+  if (LIVE) {
+    const pf = document.getElementById("protoFoot"); if (pf) pf.remove();
+    const fl = document.querySelector(".foot-links"); if (fl) fl.insertAdjacentHTML("beforeend", `<a class="link-btn" href="${DEMO_URL}">Try the demo</a>`);
+  }
+  if (window.CC_DEMO) {
+    document.body.insertAdjacentHTML("afterbegin", `<div class="demo-bar" role="note"><span>This is the demo: sample people, and nothing is saved.</span> <a href="${REAL_URL}">Go to the real Crew Call</a></div>`);
+    const pf = document.getElementById("protoFoot"); if (pf) pf.innerHTML = `<span>This is the demo: sample people, and nothing is saved.</span> <a href="${REAL_URL}">Go to the real Crew Call</a>`;
+  }
   let TODAY = LIVE ? new Date().toLocaleDateString("en-CA", { timeZone: "Europe/London" }) : "2026-11-09";
   const PALETTE = ["#e0a100", "#c2410c", "#0054f1", "#6d28d9", "#0f766e", "#be185d", "#4d7c0f", "#57534e"];
 
@@ -207,8 +215,11 @@
   // ---------- accounts and permissions ----------
   const me = () => (S.meId ? student(S.meId) : null);
   const isAdmin = (m = me()) => !!m && S.admins.includes(m.id);
-  const isDirectorOf = (p, m) => !!m && (p.email === m.email || p.roles.some(r => r.role === "Director" && r.filledBy === m.id));
-  const isProducerOf = (p, m) => !!m && ((p.producer && p.producer.email === m.email) || p.roles.some(r => r.role === "Producer" && r.filledBy === m.id));
+  const sameMail = (a, b) => !!a && !!b && a.toLowerCase() === b.toLowerCase();
+  // a project can have several producers: [{ name, email, sid }]. Older projects have a single producer.
+  const prodsOf = p => (Array.isArray(p.producers) ? p.producers : p.producer && p.producer.name ? [p.producer] : []).filter(x => x && x.name);
+  const isDirectorOf = (p, m) => !!m && ((p.dsid && p.dsid === m.id) || sameMail(p.email, m.email) || p.roles.some(r => r.role === "Director" && r.filledBy === m.id));
+  const isProducerOf = (p, m) => !!m && (prodsOf(p).some(x => (x.sid && x.sid === m.id) || sameMail(x.email, m.email)) || p.roles.some(r => r.role === "Producer" && r.filledBy === m.id));
   const runs = (p, m = me()) => isDirectorOf(p, m) || isProducerOf(p, m);
   const PERMS = [
     ["people", "People", "Make or remove admins, remove guests, revoke invites and change sign-in emails"],
@@ -260,18 +271,41 @@
   const hubOf = p => p.hub || (p.hub = { whatsapp: "", links: [], details: "", vis: "crew" });
   const hubEmpty = h => !h.whatsapp && !h.links.length && !h.details;
   const canSeeHub = p => { const m = me(); if (!m) return false; return canManage(p) || onProject(p, m.id) || hubOf(p).vis === "members"; };
+  // the app's own address, for links in emails and newsletters
+  const SITE = LIVE ? location.origin + location.pathname.replace(/index\.html$/, "") : "https://lfscrewcall.github.io/crewcall/";
   const cleanUrl = u => { u = (u || "").trim(); if (!u) return ""; if (!/^https?:\/\//i.test(u)) u = "https://" + u; try { const x = new URL(u); return /^https?:$/.test(x.protocol) ? x.href : ""; } catch (e) { return ""; } };
+  // Show web addresses the short way: vimeo.com/name, not https://www.vimeo.com/name/
+  const shortUrl = u => String(u || "").trim().replace(/^https?:\/\//i, "").replace(/^www\./i, "").replace(/\/$/, "");
+  // Instagram accepts @handle; IMDb accepts a name id like nm1234567
+  const cleanInsta = u => { u = (u || "").trim(); if (!u) return ""; const h = /^@?([A-Za-z0-9._]{1,30})$/.exec(u); return h ? `https://instagram.com/${h[1]}` : cleanUrl(u); };
+  const cleanImdb = u => { u = (u || "").trim(); if (!u) return ""; const h = /^(nm\d{5,9})$/i.exec(u); return h ? `https://www.imdb.com/name/${h[1].toLowerCase()}/` : cleanUrl(u); };
+  const PORTFOLIO = [["reel", "Reel"], ["site", "Website"], ["imdb", "IMDb"], ["insta", "Instagram"]];
+  const portfolioHtml = s => { const a = PORTFOLIO.filter(([k]) => s[k]).map(([k, l]) => `<li><span class="pf-k">${l}</span>${linkTo(s[k], k === "insta" && /instagram\.com\/([^/?#]+)/.test(s[k]) ? "@" + /instagram\.com\/([^/?#]+)/.exec(s[k])[1] : "")}</li>`); return a.length ? `<div><dt>Portfolio</dt><dd><ul class="pf-list">${a.join("")}</ul></dd></div>` : ""; };
+  const linkTo = (u, text) => { const h = cleanUrl(u); return h ? `<a href="${esc(h)}" target="_blank" rel="noopener">${esc(text || shortUrl(h))}</a>` : ""; };
   const plain = h => String(h == null ? "" : h).replace(/<br\s*\/?>/g, " ").replace(/<[^>]+>/g, "").replace(/&amp;/g, "&").replace(/&#39;/g, "'").replace(/&quot;/g, '"').trim();
   const colKey = c => c[3] || (it => plain(c[1](it)).toLowerCase());
   const cmpKey = (a, b) => typeof a === "number" && typeof b === "number" ? a - b : String(a).localeCompare(String(b), undefined, { numeric: true });
   const hostOf = u => { try { return new URL(u).hostname.replace(/^www\./, ""); } catch (e) { return ""; } };
   const managersOf = p => S.students.filter(s => runs(p, s));
+  const producerNames = p => [...new Set([...prodsOf(p).map(x => (x.sid && student(x.sid) ? student(x.sid).name : x.name)), ...p.roles.filter(r => r.role === "Producer" && r.filledBy && !isExt(r) && student(r.filledBy)).map(r => student(r.filledBy).name)])];
+  const andList = a => a.length <= 1 ? a.join("") : a.slice(0, -1).join(", ") + " and " + a[a.length - 1];
+  // heads of department: shown with an HOD label, and each role can carry a brief
+  const HOD_ROLES = new Set(C.HOD_ROLES || ["Producer", "1st AD", "DoP", "Gaffer", "Key Grip", "Sound Recordist", "Sound Designer", "Composer", "Production Designer", "Art Director", "Costume", "Hair & Make-up", "Editor", "Colourist", "VFX", "Line Producer", "Location Manager", "Casting Director"]);
+  const isHod = r => typeof r.hod === "boolean" ? r.hod : HOD_ROLES.has(r.role);
+  const hodTag = r => isHod(r) ? ` <span class="tag-hod" title="Head of department">HOD</span>` : "";
+  const hasBrief = r => !!(r.brief && (r.brief.text || r.brief.url));
+  const briefHtml = (r, open) => hasBrief(r) ? `<details class="brief"${open ? " open" : ""}><summary>Brief for the ${esc(r.role)}</summary>${r.brief.text ? `<p>${esc(r.brief.text).replace(/\n/g, "<br>")}</p>` : ""}${r.brief.url ? `<p class="brief-link">${linkTo(r.brief.url)}</p>` : ""}</details>` : "";
+  // everyone who can be picked for a role or hand-over: people who list the role first
+  const memberLabel = s => `${s.name}${s.cohort ? " · " + s.cohort : s.guest ? " · Guest" : ""}`;
+  const memberOptions = (role, skip = []) => { const ok = S.students.filter(s => !s.incomplete && !skip.includes(s.id)); const a = role ? ok.filter(s => s.roles.includes(role)) : [], b = ok.filter(s => !a.includes(s)).sort((x, y) => x.name.localeCompare(y.name)); return [...a, ...b].map(s => `<option value="${esc(memberLabel(s))}">${role && s.roles.includes(role) ? esc(role) : ""}</option>`).join(""); };
+  const findMember = v => { v = (v || "").trim().toLowerCase(); if (!v) return null; const byL = S.students.filter(s => memberLabel(s).toLowerCase() === v); if (byL.length === 1) return byL[0]; const byN = S.students.filter(s => s.name.toLowerCase() === v); return byN.length === 1 ? byN[0] : null; };
   const contactOf = p => {
     const r = p.roles.find(x => x.role === "Producer" && x.filledBy);
     if (r && student(r.filledBy)) { const st = student(r.filledBy); return { name: st.name, email: st.email, id: st.id, role: "Producer" }; }
-    if (p.producer && p.producer.name) { const st = S.students.find(s => s.email === p.producer.email); return { ...p.producer, id: st && st.id, role: "Producer" }; }
-    const st = S.students.find(s => s.email === p.email);
-    return { name: p.director, email: p.email, id: st && st.id, role: "Director", fallback: true };
+    const pr = prodsOf(p)[0];
+    if (pr) { const st = (pr.sid && student(pr.sid)) || S.students.find(s => sameMail(s.email, pr.email)); return { name: pr.name, email: (st && st.email) || pr.email || "", id: st && st.id, role: "Producer" }; }
+    const st = (p.dsid && student(p.dsid)) || S.students.find(s => sameMail(s.email, p.email));
+    return { name: p.director, email: (st && st.email) || p.email, id: st && st.id, role: "Director", fallback: true };
   };
   // email shown only when signed in AND the person shares it (or it's you / your locked crew)
   const emailVisible = (person, p) => {
@@ -423,7 +457,8 @@
       <form id="siForm" class="si-form"><label class="field"><span>Email</span><input name="email" type="email" required placeholder="name@student.lfs.org.uk" autocomplete="email" value="${esc(email)}"></label><button class="btn btn-accent" type="submit">Email me a sign-in code</button></form>
       <form id="codeForm" class="si-form" hidden><p class="muted small" id="codeSent"></p><label class="field"><span>Code from the email</span><input name="code" inputmode="numeric" autocomplete="one-time-code" required maxlength="10" placeholder="123456"></label><button class="btn btn-accent" type="submit">Sign in</button><button type="button" class="link-btn small" id="codeBack">Use a different email</button></form>
       <p class="form-err" id="siErr" role="alert"></p>
-      <p class="muted small">By signing in you agree to the <button type="button" class="link-btn" data-privacy>privacy notice</button>. Nothing is saved on your device apart from staying signed in.</p>`);
+      <p class="muted small">By signing in you agree to the <button type="button" class="link-btn" data-privacy>privacy notice</button>. Nothing is saved on your device apart from staying signed in.</p>
+      <p class="small demo-link"><span>Want a look first?</span> <a href="${DEMO_URL}">Try the demo with sample people</a></p>`);
     const f = $("#siForm"), cf = $("#codeForm"), err = $("#siErr");
     let addr = "";
     f.addEventListener("submit", async e => {
@@ -617,8 +652,10 @@
   const myFeedProjects = () => { const m = me(); return m ? live().filter(p => !isPast(p) && (onProject(p, m.id) || runs(p, m))) : []; };
   function openSync() {
     const m = me();
+    if (LIVE && !m) return openSignIn("Sign in to get your calendar link.");
     const token = m ? m.id + "x" + (m.email.length * 7919).toString(36) : "public";
-    const feeds = { mine: `webcal://crewcall.lfs.film/feed/${token}/my-shoots.ics`, all: `webcal://crewcall.lfs.film/feed/${token}/all-shoots.ics` };
+    const feedBase = LIVE ? window.CC_CLOUDAPI.funcUrl.replace(/^https:/, "webcal:") + "/cal/" : "webcal://lfscrewcall.github.io/crewcall/feed/";
+    const feeds = { mine: `${feedBase}${token}/my-shoots.ics`, all: `${feedBase}${token}/all-shoots.ics` };
     let feed = m ? "mine" : "all";
     openModal(`
       <h2 id="modalTitle" class="m-title">Sync with your calendar</h2>
@@ -635,7 +672,7 @@
         <section><h3>Google Calendar</h3><ol><li>On a computer, open Google Calendar.</li><li>Next to <b>Other calendars</b>, select <b>+</b>, then <b>From URL</b>.</li><li>Paste the link and select <b>Add calendar</b>.</li></ol></section>
         <section><h3>Apple Calendar</h3><ol><li>Mac: <b>File</b>, then <b>New Calendar Subscription</b>, and paste the link.</li><li>iPhone: tap <b>Add to Apple</b> above, or Settings, Calendar, Accounts, Add Subscribed Calendar.</li></ol></section>
       </div>
-      <p class="proto-note">Prototype: these links go live with the real app. To try it now, download a one-off file and open it in Outlook, Google or Apple Calendar. A file won't update itself.</p>
+      ${LIVE ? `<p class="muted small">This link is personal: anyone with it can see the shoots in it. If you shared it by mistake, <button type="button" class="link-btn" id="feedReset">make a new link</button> and the old one stops working.</p>` : `<p class="proto-note">Demo: these links work in the live app. Here you can download a one-off file instead. A file won't update itself.</p>`}
       <button class="btn btn-ghost btn-sm" id="icsNow">Download .ics file</button>`, true);
     const upd = () => {
       feed = (modalBody.querySelector("[name=feed]:checked") || {}).value || "all";
@@ -648,7 +685,14 @@
     };
     modalBody.querySelectorAll("[name=feed]").forEach(r => r.addEventListener("change", upd)); upd();
     $("#feedCopy").addEventListener("click", () => copy($("#feedUrl").value));
-    [$("#oneOutlook"), $("#oneGoogle"), $("#oneApple")].forEach(a => a.addEventListener("click", e => { e.preventDefault(); toast("Prototype: the feed goes live with the real app. Use Download .ics for now."); }));
+    const links = [$("#oneOutlook"), $("#oneGoogle"), $("#oneApple"), $("#feedCopy")];
+    if (LIVE) {
+      const setTok = t => { feeds.mine = `${feedBase}${t}/my-shoots.ics`; feeds.all = `${feedBase}${t}/all-shoots.ics`; links.forEach(a => a.removeAttribute("aria-disabled")); upd(); };
+      links.forEach(a => a.setAttribute("aria-disabled", "true")); $("#feedUrl").value = "Getting your link…";
+      window.CC_CLOUDAPI.calToken(false).then(setTok).catch(() => { $("#feedUrl").value = "Couldn't get your link. Try again in a minute."; });
+      $("#feedReset").addEventListener("click", () => window.CC_CLOUDAPI.calToken(true).then(t => { setTok(t); toast("New link made. Subscribe again with it; the old one has stopped working."); }).catch(() => toast("Couldn't make a new link")));
+      links.forEach(a => a.addEventListener("click", e => { if (a.getAttribute("aria-disabled")) e.preventDefault(); }, true));
+    } else [$("#oneOutlook"), $("#oneGoogle"), $("#oneApple")].forEach(a => a.addEventListener("click", e => { e.preventDefault(); toast("Demo: calendar links work in the live app. Use Download .ics here."); }));
     $("#icsNow").addEventListener("click", () => {
       const ps = feed === "mine" ? myFeedProjects() : live().filter(p => !isPast(p));
       download(feed === "mine" ? "crew-call-my-shoots.ics" : "crew-call-all-shoots.ics", buildIcs(ps, feed === "mine" ? "Crew Call: my shoots" : "Crew Call: all shoots"));
@@ -733,14 +777,16 @@
     const futureDays = days.filter(d => d >= TODAY);
 
     const lockedRows = locked.map(r => {
-      if (isExt(r)) return `<li class="lock-row"><span class="role-name">${esc(r.role)}</span><span class="lock-name">${esc(extName(r))} <span class="tag-ext">Not on Crew Call</span></span><span class="lock-mail"></span><span class="lock-acts">${mg && !past ? `<button class="btn btn-quiet btn-xs" data-unfill="${r.rid}" aria-label="Reopen ${esc(r.role)}">Reopen</button>` : ""}</span></li>`;
+      const bh = m ? briefHtml(r) : "";
+      if (isExt(r)) return `<li class="lock-row"><span class="role-name">${esc(r.role)}${hodTag(r)}</span><span class="lock-name">${esc(extName(r))} <span class="tag-ext">Not on Crew Call</span></span><span class="lock-mail"></span><span class="lock-acts">${mg && !past ? `<button class="btn btn-quiet btn-xs" data-unfill="${r.rid}" aria-label="Reopen ${esc(r.role)}">Reopen</button>` : ""}</span>${bh}</li>`;
       const s = student(r.filledBy) || { id: "", name: "Former member", email: "" };
       const sh = myReqFor(p, r.rid, "shadow");
       const canShadow = m && !mg && s.id !== m.id && !past && !onProject(p, m.id);
-      return `<li class="lock-row"><span class="role-name">${esc(r.role)}</span><button class="link-btn lock-name" data-student="${s.id}">${esc(s.name)}</button>
+      const mine = m && s.id === m.id && !past;
+      return `<li class="lock-row${mine ? " is-me" : ""}"><span class="role-name">${esc(r.role)}${hodTag(r)}</span><button class="link-btn lock-name" data-student="${s.id}">${esc(s.name)}${mine ? " (you)" : ""}</button>
         <span class="lock-mail">${mg && s.email ? `<a href="mailto:${esc(s.email)}" target="_blank" rel="noopener">${esc(s.email)}</a>` : ""}</span>
-        <span class="lock-acts">${mg && !past ? `<button class="btn btn-quiet btn-xs" data-unfill="${r.rid}" aria-label="Reopen ${esc(r.role)}">Reopen</button>` : sh ? statusChip(sh) : canShadow ? `<button class="btn btn-quiet btn-xs" data-shadow="${r.rid}">Ask to shadow</button>` : ""}</span></li>`;
-    }).join("") + p.shadows.map((x, i) => { const s = student(x.sid); return s ? `<li class="lock-row shadow-row"><span class="role-name">Shadow · ${esc(x.role)}</span><button class="link-btn lock-name" data-student="${s.id}">${esc(s.name)}</button><span class="lock-mail"></span><span class="lock-acts">${mg && !past ? `<button class="btn btn-quiet btn-xs" data-unshadow="${i}">Remove</button>` : ""}</span></li>` : ""; }).join("");
+        <span class="lock-acts">${mine ? `<button class="btn btn-quiet btn-xs" data-stepdown="${r.rid}">Step down</button>` : mg && !past ? `<button class="btn btn-quiet btn-xs" data-unfill="${r.rid}" aria-label="Reopen ${esc(r.role)}">Reopen</button>` : sh ? statusChip(sh) : canShadow ? `<button class="btn btn-quiet btn-xs" data-shadow="${r.rid}">Ask to shadow</button>` : ""}</span>${bh}</li>`;
+    }).join("") + p.shadows.map((x, i) => { const s = student(x.sid); return s ? `<li class="lock-row shadow-row"><span class="role-name">Shadow · ${esc(x.role)}</span><button class="link-btn lock-name" data-student="${s.id}">${esc(s.name)}</button><span class="lock-mail"></span><span class="lock-acts">${m && s.id === m.id && !past ? `<button class="btn btn-quiet btn-xs" data-stepdown-sh="${i}">Step down</button>` : mg && !past ? `<button class="btn btn-quiet btn-xs" data-unshadow="${i}">Remove</button>` : ""}</span></li>` : ""; }).join("");
 
     const openRows = open.map(r => {
       const mr = myReqFor(p, r.rid, "crew");
@@ -754,11 +800,12 @@
       else if (onProject(p, m.id)) acts = `<span class="muted small">You're on this shoot</span>`;
       else acts = `<button class="btn btn-accent btn-xs" data-req="${r.rid}">Request to join</button>`;
       return `<li class="role-row open">
-        <span class="role-name">${esc(r.role)}</span>
+        <span class="role-name">${esc(r.role)}${hodTag(r)}</span>
         <span class="role-who"><span class="chip chip-open">Open</span></span>
         <span class="role-acts">${acts}</span>
         ${m && !past ? `<span class="role-match">${matches.length ? `Free to help: ${matches.map(x => `<button class="match" data-student="${x.s.id}">${esc(x.s.name)} <span class="mono">${x.n === futureDays.length ? "all days" : `${x.n}/${futureDays.length}`}</span></button>`).join("")}` : `<span class="muted">No one with this role has marked these dates free yet.</span>`}
           ${learners.length ? `<span class="learn-line">Wants to shadow: ${learners.map(s => `<button class="match match-learn" data-student="${s.id}">${esc(s.name)}</button>`).join("")}</span>` : ""}</span>` : ""}
+        ${m ? briefHtml(r) : hasBrief(r) ? `<span class="brief muted small">Sign in to read the brief.</span>` : ""}
       </li>`;
     }).join("");
 
@@ -777,9 +824,9 @@
       <div class="m-head" style="--c:${projColor(p)}">
         <div class="proj-top"><span class="type-tag">${esc(p.type)}</span><span class="term-tag">${esc(p.term)}</span>${p.archived ? `<span class="tag-arch">Archived</span>` : ""}${past ? `<span class="tag-arch">Wrapped</span>` : ""}</div>
         <h2 id="modalTitle" class="m-title">${esc(p.title)}</h2>
-        <p class="card-sub">Directed by ${esc(p.director)}${c.role === "Producer" ? ` · Produced by ${esc(c.name)}` : ""}</p>
+        <p class="card-sub">Directed by ${esc(p.dsid && student(p.dsid) ? student(p.dsid).name : p.director)}${producerNames(p).length ? ` · Produced by ${esc(andList(producerNames(p)))}` : ""}</p>
       </div>
-      ${mg ? `<div class="mg-bar"><span class="mg-tag">${runs(p) ? "You run this project" : "Admin access"}</span><span class="mg-acts"><button class="btn btn-ghost btn-xs" data-edit>Edit</button><button class="btn btn-ghost btn-xs" data-archive>${p.archived ? "Restore" : "Archive"}</button><button class="btn btn-danger btn-xs" data-delete>Delete</button></span></div>` : ""}
+      ${mg ? `<div class="mg-bar"><span class="mg-tag">${runs(p) ? "You run this project" : "Admin access"}</span><span class="mg-acts"><button class="btn btn-ghost btn-xs" data-edit>Edit</button><button class="btn btn-ghost btn-xs" data-handover>Hand over</button><button class="btn btn-ghost btn-xs" data-archive>${p.archived ? "Restore" : "Archive"}</button><button class="btn btn-danger btn-xs" data-delete>Delete</button></span></div>` : ""}
       <p class="logline">${esc(p.logline)}</p>
 
       <section class="sched" aria-labelledby="schedH">
@@ -847,11 +894,75 @@
     q("[data-decline]").forEach(b => b.addEventListener("click", () => { const x = S.requests.find(y => y.id === b.dataset.decline); x.status = "declined"; notify(x.sid, "update", `${p.title} has gone with someone else for ${x.role}. Thanks for offering.`, p.id); toast("Declined. They've been told politely."); openProject(p.id); drawHeader(); render(); }));
     q("[data-ics]").forEach(b => b.addEventListener("click", () => { download(`${p.title.replace(/\W+/g, "-").toLowerCase()}.ics`, buildIcs([p], `Crew Call: ${p.title}`)); toast("Downloaded. This adds the shoot as it is now. To get later changes automatically, use Sync calendar."); }));
     q("[data-edit]").forEach(b => b.addEventListener("click", () => openPostForm(p)));
+    q("[data-handover]").forEach(b => b.addEventListener("click", () => openHandOver(p)));
+    q("[data-stepdown]").forEach(b => b.addEventListener("click", () => stepDown(p, b.dataset.stepdown)));
+    q("[data-stepdown-sh]").forEach(b => b.addEventListener("click", () => stepDown(p, null, +b.dataset.stepdownSh)));
     q("[data-archive]").forEach(b => b.addEventListener("click", () => { p.archived = !p.archived; toast(p.archived ? `${p.title} archived. Restore it from My shoots.` : `${p.title} restored`); closeModal(); render(); }));
     q("[data-delete]").forEach(b => b.addEventListener("click", () => deleteProject(p)));
     if (me() && !runs(p)) addReportLink("project", p.id);
   }
 
+  // leave a project you were put down for, or a shadow place
+  function stepDown(p, rid, shIdx) {
+    const m = me(), r = rid ? roleBy(p, rid) : null, sh = shIdx != null ? p.shadows[shIdx] : null;
+    if (!m || (!r && !sh)) return;
+    const what = r ? r.role : `shadow ${sh.role}`;
+    const lead = r && ["Producer", "Director"].includes(r.role) && runs(p, m) && managersOf(p).filter(s => s.id !== m.id).length === 0;
+    confirmBox(`Step down from ${p.title}?`, `You'll come off the project as ${esc(what)} and the producer${prodsOf(p).length > 1 ? "s" : ""} and director are told. ${r ? "The role opens again for others to offer." : ""}${lead ? " You're the only person running this project: use Hand over first so someone else can manage it." : ""}`, "Step down", async () => {
+      const tell = managersOf(p).filter(s => s.id !== m.id).map(s => s.id);
+      if (LIVE) {
+        const res = await window.CC_CLOUDAPI.rpc("leave_project", { pid: p.id, rid: r ? r.rid : "__shadow:" + sh.role });
+        if (res.error) return toast(`Couldn't step down: ${res.error}`);
+      } else if (r) r.filledBy = null; else p.shadows.splice(shIdx, 1);
+      tell.forEach(id => notify(id, "update", `${m.name} stepped down as ${what} on ${p.title}.${r ? " The role is open again." : ""}`, p.id));
+      toast(`You've stepped down as ${what}`); closeModal(); drawHeader(); render();
+      const fresh = project(p.id); if (fresh) openProject(fresh.id);
+    });
+  }
+  // hand a project to someone else: a new producer (e.g. when the producer changes) or a new director
+  function openHandOver(p) {
+    const m = me(); if (!canManage(p)) return;
+    const iAmProd = isProducerOf(p, m), iAmDir = isDirectorOf(p, m);
+    openModal(`<h2 id="modalTitle" class="m-title">Hand over ${esc(p.title)}</h2>
+      <p class="muted small">Use this when the producer or director changes. The new person can edit the project, manage crew and see requests. Everyone else on the project keeps their place.</p>
+      <form id="hoForm" class="form-grid">
+        <label class="field span-2"><span>Hand over to <small>pick a Crew Call member</small></span><input name="who" list="hoList" required autocomplete="off" placeholder="Start typing a name"><datalist id="hoList">${memberOptions("", [m.id])}</datalist></label>
+        <label class="field span-2"><span>As</span><select name="as"><option value="Producer" ${iAmProd || !iAmDir ? "selected" : ""}>Producer (added alongside any other producers)</option><option value="Director" ${iAmDir && !iAmProd ? "selected" : ""}>Director (replaces the current director)</option></select></label>
+        ${iAmProd || iAmDir ? `<label class="toggle span-2"><input type="checkbox" name="off" checked> <span>Take me off the project in that role</span></label>` : ""}
+        <p class="form-err span-2" id="hoErr" role="alert"></p>
+        <div class="form-actions span-2"><button class="btn btn-accent" type="submit">Hand over</button><button class="btn btn-ghost" type="button" id="hoBack">Cancel</button></div>
+      </form>`);
+    $("#hoBack").addEventListener("click", () => openProject(p.id));
+    $("#hoForm").addEventListener("submit", async e => {
+      e.preventDefault(); const f = e.target, to = findMember(f.who.value), as = f.as.value, off = f.off && f.off.checked, err = $("#hoErr");
+      if (!to) return (err.textContent = "Pick someone from the list. They need to be on Crew Call to manage a project.");
+      if (to.id === m.id) return (err.textContent = "Pick someone other than yourself.");
+      if (as === "Producer") {
+        let list = prodsOf(p).map(x => ({ ...x }));
+        if (off) list = list.filter(x => !(x.sid === m.id || sameMail(x.email, m.email)));
+        if (!list.some(x => x.sid === to.id)) list.push({ name: to.name, email: "", sid: to.id });
+        p.producers = list; p.producer = list[0] || null;
+        const mineR = p.roles.find(r => r.role === "Producer" && r.filledBy === m.id), openR = p.roles.find(r => r.role === "Producer" && !r.filledBy);
+        if (!p.roles.some(r => r.role === "Producer" && r.filledBy === to.id)) {
+          if (off && mineR) mineR.filledBy = to.id; else if (openR) openR.filledBy = to.id; else p.roles.unshift({ role: "Producer", filledBy: to.id, rid: uid("r") });
+        }
+        if (off) p.roles.forEach(r => { if (r.role === "Producer" && r.filledBy === m.id) r.filledBy = null; });
+      } else {
+        const wasDir = isDirectorOf(p, m);
+        p.director = to.name; p.dsid = to.id; p.email = "";
+        const dr = p.roles.find(r => r.role === "Director");
+        if (dr) dr.filledBy = to.id; else p.roles.unshift({ role: "Director", filledBy: to.id, rid: uid("r") });
+        // stepping aside as director but staying on: keep managing as a producer
+        if (wasDir && !off && !isProducerOf(p, m)) { p.producers = [...prodsOf(p), { name: m.name, email: "", sid: m.id }]; p.producer = p.producers[0]; }
+      }
+      const tell = managersOf(p).filter(s => s.id !== m.id && s.id !== to.id).map(s => s.id);
+      notify(to.id, "update", `${m.name} handed ${p.title} over to you as ${as}. You can now edit it and manage the crew.`, p.id);
+      tell.forEach(id => notify(id, "update", `${to.name} is now ${as} on ${p.title}${off ? `, taking over from ${m.name}` : ""}.`, p.id));
+      if (LIVE && off) { const res = await window.CC_CLOUDAPI.rpc("hand_over_project", { pid: p.id, to_id: to.id }); if (res.error) return (err.textContent = `Saved, but the project couldn't be moved to ${to.name}: ${res.error}`); }
+      toast(`${p.title} handed over to ${to.name}`); closeModal(); render();
+      if (canManage(p)) openProject(p.id);
+    });
+  }
   function lockIn(p, rid, sid) {
     const r = roleBy(p, rid), s = student(sid);
     if (projDays(p).some(d => bookedOn(sid, d).length)) return toast(`${s.name} is booked on another shoot those days`);
@@ -880,6 +991,7 @@
       <p class="eyebrow">${esc(p.title)}</p>
       <h2 id="modalTitle" class="m-title">${type === "shadow" ? `Ask to shadow the ${esc(r.role)}` : `Request to join as ${esc(r.role)}`}</h2>
       <p class="muted">${esc(contactOf(p).name)} and the director get this straight away and can accept you in one tap. Your email stays private unless you share it.</p>
+      ${type !== "shadow" ? briefHtml(r, true) : ""}
       <div class="req-facts"><span class="badge ${n === fd.length ? "badge-free" : n ? "badge-part" : "badge-off"}">${n === fd.length ? "You're free every shoot day" : `You're free ${n} of ${fd.length} days`}</span>${clash.length ? `<span class="badge badge-off">Booked elsewhere on ${clash.map(fmtDay).join(", ")}</span>` : ""}</div>
       <form id="reqForm">
         ${type === "crew" ? `<div class="seg mt" role="radiogroup" aria-label="Request type"><label><input type="radio" name="t" value="crew" checked> <span>Do the role</span></label><label><input type="radio" name="t" value="shadow"> <span>Shadow and learn</span></label></div>` : ""}
@@ -1030,7 +1142,7 @@
         <div><dt>Free</dt><dd class="mono">${s.avail.filter(r => r.to >= TODAY).length ? s.avail.filter(r => r.to >= TODAY).map(fmtRange).join(", ") : "No dates set"}${s.openToOffers ? ` <span class="muted">· open to offers</span>` : ""}<br><span class="upd">${esc(updatedLabel(s))}</span></dd></div>
         <div><dt>Booked on</dt><dd>${booked.length ? booked.map(p => `<button class="link-btn" data-proj="${p.id}">${esc(p.title)}</button> <span class="mono muted">${p.shoots.map(fmtRange).join(" + ")}</span>`).join("<br>") : `<span class="muted">Nothing yet</span>`}</dd></div>
         <div><dt>Credits</dt><dd>${credits.length ? `<ul class="credit-list">${credits.map(x => `<li><span class="cr-role">${x.shadow ? "Shadow " : ""}${esc(x.role)}</span><button class="link-btn" data-proj="${x.p.id}">${esc(x.p.title)}</button><span class="muted">${esc(x.p.type)} · ${monYear(x.p.shoots[0].from)}</span></li>`).join("")}</ul>` : `<span class="muted">No wrapped shoots yet</span>`}</dd></div>
-        ${s.reel ? `<div><dt>Reel</dt><dd><a href="${esc(cleanUrl(s.reel))}" target="_blank" rel="noopener">${esc(s.reel)}</a></dd></div>` : ""}
+        ${portfolioHtml(s)}
         <div><dt>Contact</dt><dd>${reach(s)}</dd></div>
       </dl>
       ${mine.length ? `<h3 class="dp-sub">Invite to one of your projects</h3>
@@ -1058,6 +1170,7 @@
   $("#postProjectBtn").addEventListener("click", () => openPostForm());
   const rangeRow = (r = { from: "", to: "" }) => `<div class="range-row"><label class="field-inline"><span>From</span><input type="date" class="r-from" value="${r.from}" required></label><label class="field-inline"><span>To</span><input type="date" class="r-to" value="${r.to}"></label><button type="button" class="icon-btn icon-sm r-del" aria-label="Remove dates">×</button></div>`;
   const readRanges = root => [...root.querySelectorAll(".range-row")].map(row => { const f = row.querySelector(".r-from").value, t = row.querySelector(".r-to").value || f; return f ? (t < f ? { from: t, to: f } : { from: f, to: t }) : null; }).filter(Boolean);
+  const prodRow = (x = { name: "", email: "", sid: null }) => { const st = x.sid && student(x.sid); return `<div class="prow"><input class="p-name" list="ccMembers" autocomplete="off" placeholder="Pick a member or type a name" aria-label="Producer" value="${esc(st ? memberLabel(st) : x.name)}"><input class="p-email prow-email" type="email" ${st ? "disabled" : ""} placeholder="${st ? "On Crew Call" : "Email, if they're not on Crew Call"}" aria-label="Producer email" value="${esc(st ? "" : x.email || "")}"><button type="button" class="btn btn-quiet btn-xs p-del">Remove</button></div>`; };
   const locRow = (l = { name: "", detail: "" }) => `<div class="range-row loc-row" ${l.lat != null ? `data-lat="${l.lat}" data-lng="${l.lng}" data-pinned="${esc(l.name)}"` : ""}><input class="l-name" placeholder="Location or postcode, e.g. Campus Studio 1" aria-label="Location name" value="${esc(l.name)}"><input class="l-detail" placeholder="Notes, e.g. interiors" aria-label="Location notes" value="${esc(l.detail)}"><button type="button" class="btn btn-quiet btn-xs l-pin" aria-label="Pin ${esc(l.name || "this location")} on the map">${l.lat != null ? "Pinned" : "Pin on map"}</button><button type="button" class="icon-btn icon-sm l-del" aria-label="Remove location">×</button><span class="l-pin-st small muted" aria-live="polite"></span></div>`;
   // Pinning looks the place up once, when asked, through OpenStreetMap's free Nominatim search (max one lookup a second, no autocomplete).
   // https://operations.osmfoundation.org/policies/nominatim/
@@ -1089,7 +1202,7 @@
     root.addEventListener("input", e => { if (!e.target.classList.contains("l-name")) return; const row = e.target.closest(".loc-row"); if (row.dataset.lat && row.dataset.pinned !== e.target.value.trim()) { delete row.dataset.lat; delete row.dataset.lng; row.querySelector(".l-pin").textContent = "Pin on map"; row.querySelector(".l-pin-st").textContent = ""; } });
   }
 
-  const linkRow = (l = { label: "", url: "" }) => `<div class="range-row link-row"><input class="h-label" placeholder="Label, e.g. Call sheet" aria-label="Link label" value="${esc(l.label)}"><input class="h-url" inputmode="url" placeholder="https://…" aria-label="Link address" value="${esc(l.url)}"><button type="button" class="icon-btn icon-sm h-del" aria-label="Remove link">×</button></div>`;
+  const linkRow = (l = { label: "", url: "" }) => `<div class="range-row link-row"><input class="h-label" placeholder="Label, e.g. Call sheet" aria-label="Link label" value="${esc(l.label)}"><input class="h-url" inputmode="url" autocapitalize="off" spellcheck="false" placeholder="e.g. drive.google.com/…" aria-label="Link address" value="${esc(l.url)}"><button type="button" class="icon-btn icon-sm h-del" aria-label="Remove link">×</button></div>`;
 
   function openPostForm(edit) {
     const m = me(); if (!m) return openSignIn("Sign in to post a project.");
@@ -1105,12 +1218,16 @@
           <label class="field span-2"><span>Project title</span><input name="title" required maxlength="60" value="${esc(p ? p.title : "")}"></label>
           <label class="field"><span>Type</span><select name="type">${C.TYPES.map(t => `<option ${p && p.type === t ? "selected" : ""}>${esc(t)}</option>`).join("")}</select></label>
           <label class="field"><span>Term</span><select name="term">${C.TERMS.map(t => `<option ${(p ? p.term : m.term) === t ? "selected" : ""}>${esc(t)}</option>`).join("")}</select></label>
-          <label class="field"><span>Director name</span><input name="director" required value="${esc(p ? p.director : m.name)}"></label>
-          <label class="field"><span>Director email</span><input name="email" type="email" required value="${esc(p ? p.email : m.email)}"></label>
-          <label class="field"><span>Producer name <small>main contact</small></span><input name="prodName" placeholder="Leave blank if you need one" value="${esc(p && !contactOf(p).fallback ? contactOf(p).name : "")}"></label>
-          <label class="field"><span>Producer email</span><input name="prodEmail" type="email" value="${esc(p && !contactOf(p).fallback ? contactOf(p).email : "")}"></label>
+          <label class="field"><span>Director <small>pick a member or type a name</small></span><input name="director" required list="ccMembers" autocomplete="off" value="${esc(p ? (p.dsid && student(p.dsid) ? memberLabel(student(p.dsid)) : p.director) : memberLabel(m))}"></label>
+          <label class="field"><span>Director email <small>only if they're not on Crew Call</small></span><input name="email" type="email" value="${esc(p && !(p.dsid && student(p.dsid)) ? p.email || "" : "")}"></label>
           <label class="field span-2"><span>Logline</span><textarea name="logline" rows="2" maxlength="200" required>${esc(p ? p.logline : "")}</textarea></label>
         </div>
+        <fieldset class="fs"><legend>Producers <small>they can edit the project and manage crew</small></legend>
+          <div class="prows" id="postProds">${(p ? prodsOf(p) : []).map(x => prodRow(x)).join("")}</div>
+          <button type="button" class="btn btn-ghost btn-sm" id="postProdAdd">Add a producer</button>
+          <p class="muted small">No producer yet? Leave this empty and a Producer role is added for people to offer.</p>
+        </fieldset>
+        <datalist id="ccMembers">${memberOptions("")}</datalist>
         <fieldset class="fs"><legend>Locations</legend>
           <div class="range-list" id="postLocs">${(p && locs(p).length ? locs(p) : [undefined]).map(l => locRow(l)).join("")}</div>
           <button type="button" class="btn btn-ghost btn-sm" id="postLocAdd">Add another location</button>
@@ -1123,13 +1240,14 @@
           <div id="schedRows"></div>
         </fieldset>
         <fieldset class="fs"><legend>Roles</legend>
-          <div class="chips" id="postRoles"></div>
+          <p class="muted small">Already know who's doing a role? Type their name to put them down. People who list the role come first. Use Brief to add notes for a head of department.</p>
+          <div class="rrows" id="postRoles"></div>
           <div class="kit-add"><select id="postRoleSel">${roleOptions("DoP")}</select><input id="postRoleQty" type="number" min="1" max="10" value="1" aria-label="How many"><button type="button" class="btn btn-ghost btn-sm" id="postRoleAdd">Add role</button></div>
           ${p ? "" : `<label class="toggle mt"><input type="checkbox" name="iDirect" checked> <span>List me as Director (filled)</span></label>`}
         </fieldset>
         <fieldset class="fs"><legend>Crew hub: WhatsApp, links and details</legend>
           <p class="muted small">Everything your crew need in one place. Shown only to locked crew, the producer, director and admins, unless you choose otherwise.</p>
-          <label class="field"><span>WhatsApp group invite link <small>optional</small></span><input name="hubWa" inputmode="url" placeholder="https://chat.whatsapp.com/…" value="${esc(p ? hubOf(p).whatsapp : "")}"></label>
+          <label class="field"><span>WhatsApp group invite link <small>optional</small></span><input name="hubWa" inputmode="url" autocapitalize="off" spellcheck="false" placeholder="chat.whatsapp.com/…" value="${esc(p ? hubOf(p).whatsapp : "")}"></label>
           <p class="hub-help muted small">In WhatsApp: open the group, tap its name, then Invite via link, and copy it here.</p>
           <span class="field-lbl">Key links</span>
           <div class="range-list" id="hubLinks">${(p && hubOf(p).links.length ? hubOf(p).links : [undefined]).map(l => linkRow(l)).join("")}</div>
@@ -1143,14 +1261,39 @@
       </form>`, true);
     if (p) $("#postBack").addEventListener("click", () => openProject(p.id));
 
+    const wasFilled = new Set(roles.filter(r => r.filledBy).map(r => r.rid));
+    const dlId = {}; let dlN = 0;
+    const saveRolesDom = () => $$("#postRoles .rrow").forEach(row => { const r = roles[+row.dataset.i]; if (!r) return;
+      const w = row.querySelector(".r-who"); if (w) r._who = w.value;
+      r._hod = row.querySelector(".r-hod").checked; r._bt = row.querySelector(".r-btext").value; r._bu = row.querySelector(".r-burl").value; r._open = !row.querySelector(".rrow-brief").hidden; });
     const drawRoles = () => {
-      $("#postRoles").innerHTML = roles.length ? roles.map((r, i) => r.filledBy
-        ? `<span class="chip chip-locked" title="Reopen this role in the project window to remove it">${esc(r.role)} · ${esc(isExt(r) ? extName(r) : (student(r.filledBy) || { name: "locked" }).name)}</span>`
-        : `<span class="chip chip-open">${esc(r.role)}<button type="button" class="chip-x" data-i="${i}" aria-label="Remove ${esc(r.role)}">×</button></span>`).join("") : `<span class="muted small">No roles added yet.</span>`;
+      saveRolesDom();
+      const lists = [...new Set(roles.filter(r => !wasFilled.has(r.rid)).map(r => r.role))].map(role => { if (!(role in dlId)) dlId[role] = `ccRole${dlN++}`; return `<datalist id="${dlId[role]}">${memberOptions(role)}</datalist>`; }).join("");
+      $("#postRoles").innerHTML = roles.length ? lists + roles.map((r, i) => {
+        const locked = wasFilled.has(r.rid), hod = r._hod != null ? r._hod : isHod(r);
+        const who = r._who != null ? r._who : r.filledBy && !locked ? (isExt(r) ? extName(r) : student(r.filledBy) ? memberLabel(student(r.filledBy)) : "") : "";
+        const bt = r._bt != null ? r._bt : (r.brief && r.brief.text) || "", bu = r._bu != null ? r._bu : shortUrl((r.brief && r.brief.url) || "");
+        const open = r._open != null ? r._open : false;
+        return `<div class="rrow" data-i="${i}"><div class="rrow-top"><span class="rrow-name">${esc(r.role)}${hod ? ` <span class="tag-hod" title="Head of department">HOD</span>` : ""}</span>
+          ${locked ? `<span class="rrow-done rrow-assign">${esc(isExt(r) ? extName(r) : (student(r.filledBy) || { name: "Locked in" }).name)} · reopen it in the project window to change</span>`
+            : `<input class="r-who rrow-assign" list="${dlId[r.role]}" autocomplete="off" placeholder="Open: anyone can offer. Or type a name" aria-label="Who is doing ${esc(r.role)}" value="${esc(who)}">`}
+          <button type="button" class="btn btn-quiet btn-xs r-bt" aria-expanded="${open}">${bt || bu ? "Brief ✓" : "Brief"}</button>
+          ${locked ? "<span></span>" : `<button type="button" class="btn btn-quiet btn-xs r-del" aria-label="Remove ${esc(r.role)}">Remove</button>`}</div>
+          <div class="rrow-brief" ${open ? "" : "hidden"}><label class="toggle"><input type="checkbox" class="r-hod" ${hod ? "checked" : ""}> <span>Head of department</span></label>
+            <label class="field"><span>Brief <small>only people signed in can read it</small></span><textarea class="r-btext" rows="3" maxlength="1500" placeholder="What they need to know: the look, references, budget, kit, deadlines">${esc(bt)}</textarea></label>
+            <label class="field"><span>Brief link <small>optional: a doc, deck or moodboard</small></span><input class="r-burl" inputmode="url" autocapitalize="off" spellcheck="false" placeholder="docs.google.com/…" value="${esc(bu)}"></label></div></div>`;
+      }).join("") : `<span class="muted small">No roles added yet.</span>`;
     };
     drawRoles();
-    $("#postRoles").addEventListener("click", e => { const b = e.target.closest(".chip-x"); if (b) { roles.splice(+b.dataset.i, 1); drawRoles(); } });
-    $("#postRoleAdd").addEventListener("click", () => { const n = Math.max(1, Math.min(10, +$("#postRoleQty").value || 1)); for (let i = 0; i < n; i++) roles.push({ role: $("#postRoleSel").value, filledBy: null, rid: uid("r") }); drawRoles(); });
+    $("#postRoles").addEventListener("click", e => {
+      const d = e.target.closest(".r-del"); if (d) { saveRolesDom(); roles.splice(+d.closest(".rrow").dataset.i, 1); $$("#postRoles .rrow").forEach(x => x.remove()); return drawRoles(); }
+      const b = e.target.closest(".r-bt"); if (b) { const box = b.closest(".rrow").querySelector(".rrow-brief"); box.hidden = !box.hidden; b.setAttribute("aria-expanded", String(!box.hidden)); if (!box.hidden) box.querySelector(".r-btext").focus(); }
+    });
+    $("#postRoles").addEventListener("change", e => { if (e.target.closest(".r-hod")) drawRoles(); });
+    $("#postRoleAdd").addEventListener("click", () => { saveRolesDom(); const n = Math.max(1, Math.min(10, +$("#postRoleQty").value || 1)); for (let i = 0; i < n; i++) roles.push({ role: $("#postRoleSel").value, filledBy: null, rid: uid("r") }); drawRoles(); });
+    $("#postProdAdd").addEventListener("click", () => { $("#postProds").insertAdjacentHTML("beforeend", prodRow()); $("#postProds .prow:last-child .p-name").focus(); });
+    $("#postProds").addEventListener("click", e => { if (e.target.closest(".p-del")) e.target.closest(".prow").remove(); });
+    $("#postProds").addEventListener("input", e => { const n = e.target.closest(".p-name"); if (!n) return; const row = n.closest(".prow"), mem = findMember(n.value), em = row.querySelector(".p-email"); em.disabled = !!mem; em.placeholder = mem ? "On Crew Call" : "Email, if they're not on Crew Call"; });
 
     const locNames = () => [...$("#postLocs").querySelectorAll(".l-name")].map(i => i.value.trim()).filter(Boolean);
     const saveSchedDom = () => $$("#schedRows .sc-row").forEach(row => { sched[row.dataset.d] = { call: row.querySelector(".s-call").value || "08:00", wrap: row.querySelector(".s-wrap").value || "18:00", loc: +row.querySelector(".s-loc").value || 0 }; });
@@ -1186,16 +1329,45 @@
       if (!locations.length) return (err.textContent = "Add at least one location.");
       if (!roles.length) return (err.textContent = "Add at least one role.");
       const waRaw = f.get("hubWa").trim(), wa = cleanUrl(waRaw);
-      if (waRaw && !/^https:\/\/(chat\.whatsapp\.com|wa\.me)\//i.test(wa)) return (err.textContent = "WhatsApp invite links start with https://chat.whatsapp.com/");
+      if (waRaw && !/^https:\/\/(chat\.whatsapp\.com|wa\.me)\//i.test(wa)) return (err.textContent = "WhatsApp invite links start with chat.whatsapp.com/");
       const hubLinks = [...$("#hubLinks").querySelectorAll(".link-row")].map(r => ({ label: r.querySelector(".h-label").value.trim(), url: cleanUrl(r.querySelector(".h-url").value) })).filter(l => l.url);
       if ([...$("#hubLinks").querySelectorAll(".h-url")].some(i => i.value.trim() && !cleanUrl(i.value))) return (err.textContent = "One of the key links isn't a web address.");
       const hub = { whatsapp: wa, links: hubLinks, details: f.get("hubDetails").trim(), vis: f.get("hubVis") };
-      const prodName = f.get("prodName").trim(), prodEmail = f.get("prodEmail").trim();
-      if (prodName && !prodEmail) return (err.textContent = "Add the producer's email so they can sign in and manage the project.");
-      if (!prodName && !roles.some(r => r.role === "Producer")) roles.unshift({ role: "Producer", filledBy: null, rid: uid("r") });
+      // producers
+      const producers = []; let prodErr = "";
+      $$("#postProds .prow").forEach(row => { const nm = row.querySelector(".p-name").value.trim(), em = row.querySelector(".p-email").value.trim(); if (!nm) return; const mem = findMember(nm);
+        if (mem) { if (!producers.some(x => x.sid === mem.id)) producers.push({ name: mem.name, email: "", sid: mem.id }); }
+        else if (!em) prodErr = `Pick ${nm} from the list if they're on Crew Call, or add their email so they can sign in and manage the project.`;
+        else producers.push({ name: nm, email: em, sid: null }); });
+      if (prodErr) return (err.textContent = prodErr);
+      // director
+      const dirIn = f.get("director").trim(), dirMem = findMember(dirIn), dirEmail = f.get("email").trim();
+      if (!dirMem && !dirEmail) return (err.textContent = `Pick the director from the list if they're on Crew Call, or add their email.`);
+      // roles: assignments and briefs
+      saveRolesDom();
+      const pDays = shoots.flatMap(r => daysIn(r.from, r.to));
+      const assigned = [];
+      for (const r of roles) {
+        const bt = (r._bt != null ? r._bt : (r.brief && r.brief.text) || "").trim(), buRaw = (r._bu != null ? r._bu : (r.brief && r.brief.url) || "").trim(), bu = cleanUrl(buRaw);
+        if (buRaw && !bu) return (err.textContent = `The brief link for ${r.role} isn't a web address.`);
+        if (!wasFilled.has(r.rid) && r._who != null) {
+          const who = r._who.trim(), mem = findMember(who), was = r.filledBy;
+          if (!who) r.filledBy = null;
+          else if (mem) {
+            const clash = pDays.find(d => bookedOn(mem.id, d).some(x => !p || x.id !== p.id));
+            if (clash && mem.id !== was) return (err.textContent = `${mem.name} is booked on another shoot on ${fmtDay(clash)}.`);
+            r.filledBy = mem.id; if (mem.id !== was) assigned.push(r);
+          } else r.filledBy = "ext:" + who.slice(0, 60);
+        }
+        const hod = r._hod != null ? r._hod : isHod(r);
+        if (hod === HOD_ROLES.has(r.role)) delete r.hod; else r.hod = hod;
+        if (bt || bu) r.brief = { text: bt.slice(0, 1500), url: bu }; else delete r.brief;
+      }
+      roles.forEach(r => { delete r._who; delete r._hod; delete r._bt; delete r._bu; delete r._open; });
+      if (!producers.length && !roles.some(r => r.role === "Producer")) roles.unshift({ role: "Producer", filledBy: null, rid: uid("r") });
       const days = shoots.flatMap(r => daysIn(r.from, r.to)), dayMap = {};
       days.forEach(d => { dayMap[d] = Object.assign({ call: "08:00", wrap: "18:00", loc: 0 }, sched[d] || {}); if (dayMap[d].loc >= locations.length) dayMap[d].loc = 0; });
-      const data = { title: f.get("title").trim(), type: f.get("type"), term: f.get("term"), director: f.get("director").trim(), email: f.get("email").trim(), locations, producer: prodName ? { name: prodName, email: prodEmail } : null, logline: f.get("logline").trim(), shoots, kitNeeded: f.get("kitNeeded").trim(), days: dayMap, hub };
+      const data = { title: f.get("title").trim(), type: f.get("type"), term: f.get("term"), director: dirMem ? dirMem.name : dirIn, dsid: dirMem ? dirMem.id : null, email: dirMem ? "" : dirEmail, locations, producers, producer: producers[0] || null, logline: f.get("logline").trim(), shoots, kitNeeded: f.get("kitNeeded").trim(), days: dayMap, hub };
       if (p) {
         const before = JSON.stringify([p.shoots, p.days]), oldR = new Set(p.roles.map(r => r.rid)), hadWa = hubOf(p).whatsapp;
         Object.assign(p, data); p.roles = roles;
@@ -1203,6 +1375,7 @@
         S.requests.filter(q => q.pid === p.id && removed.includes(q.rid) && q.status === "pending").forEach(q => { q.status = "closed"; notify(q.sid, "update", `The ${q.role} role on ${p.title} was removed, so your request was closed.`, p.id); });
         if (JSON.stringify([p.shoots, p.days]) !== before) [...new Set([...p.roles.filter(r => r.filledBy).map(r => r.filledBy), ...p.shadows.map(x => x.sid)])].forEach(sid => sid !== m.id && notify(sid, "update", `${p.title} changed: ${p.shoots.map(fmtRange).join(" + ")}, day 1 call ${dayInfo(p, projDays(p)[0]).call}.`, p.id));
         if (hub.whatsapp && hub.whatsapp !== hadWa) [...new Set([...p.roles.filter(r => r.filledBy && !isExt(r)).map(r => r.filledBy), ...p.shadows.map(x => x.sid)])].forEach(sid => sid !== m.id && notify(sid, "update", `${p.title} has a WhatsApp group. The link is in the project's crew hub.`, p.id));
+        tellAssigned(p, assigned, m);
         const n = notifyMatches(p, roles.filter(r => !oldR.has(r.rid)));
         toast(`Saved${n ? `. ${n} matching ${n === 1 ? "person was" : "people were"} told about the new roles` : ""}`);
         openProject(p.id); render();
@@ -1210,11 +1383,24 @@
         if (f.get("iDirect")) roles.unshift({ role: "Director", filledBy: m.id, rid: uid("r") });
         const np = { id: uid("p"), ...data, roles, shadows: [], created: TODAY };
         S.projects.push(np);
+        tellAssigned(np, assigned, m);
         const n = notifyMatches(np, roles);
         closeModal(); calMonth = np.shoots[0].from.slice(0, 7) + "-01"; selDay = np.shoots[0].from;
         toast(`${np.title} posted. ${n} ${n === 1 ? "person" : "people"} with matching roles and free days ${n === 1 ? "was" : "were"} notified.`);
         setView("calendar");
       }
+    });
+  }
+  // people put down for a role while posting or editing: close other offers and tell them, with a way to step down
+  function tellAssigned(p, rs, by) {
+    rs.forEach(r => {
+      S.requests.filter(x => x.pid === p.id && x.rid === r.rid && x.status === "pending" && x.type === "crew").forEach(x => {
+        if (x.sid === r.filledBy) x.status = "accepted";
+        else { x.status = "filled"; notify(x.sid, "update", `The ${r.role} role on ${p.title} has been filled. Thanks for offering.`, p.id); }
+      });
+      if (r.filledBy === by.id) return;
+      const d0 = projDays(p)[0];
+      notify(r.filledBy, "update", `${by.name} put you down as ${r.role} on ${p.title}${d0 ? `, day 1 ${fmtDay(d0)}` : ""}.${hasBrief(r) ? " There's a brief for you in the project." : ""} If that's not right, open the project and choose Step down.`, p.id);
     });
   }
   function notifyMatches(p, roles) {
@@ -1465,7 +1651,7 @@
   }
   const nlCount = a => a === "alias" ? "everyone on the school list" : `${nlRecipients(a).length} ${nlRecipients(a).length === 1 ? "person" : "people"}`;
   function nlItems(b) {
-    const n = Math.max(1, Math.min(6, +b.n || 3)), base = "https://crewcall.example/";
+    const n = Math.max(1, Math.min(6, +b.n || 3)), base = SITE;
     if (b.what === "roles") return live().filter(p => isActive(p) && openRoles(p).length).sort((a, c) => firstDay(a).localeCompare(firstDay(c))).slice(0, n)
       .map(p => ({ title: p.title, meta: `${p.shoots.map(fmtRange).join(" + ")} · ${locShort(p)}`, tags: [...new Set(openRoles(p).map(r => r.role))], url: base + "#p/" + p.id, color: projColor(p) }));
     if (b.what === "shoots") return live().filter(isActive).sort((a, c) => firstDay(a).localeCompare(firstDay(c))).slice(0, n)
@@ -1485,7 +1671,7 @@
   const autoSnap = why => { const a = S.nlAuto; a.versions.unshift({ at: TODAY, by: me().id, why, data: JSON.parse(JSON.stringify(Object.fromEntries(AUTO_KEYS.map(k => [k, a[k]])))) }); };
   const autoMonth = () => MON_LONG[D(TODAY).getUTCMonth()] + " " + D(TODAY).getUTCFullYear();
   const autoNl = (a = S.nlAuto) => ({ subject: (a.subject || "").replace("{month}", autoMonth()), preheader: a.preheader, issue: monYear(TODAY), audience: a.audience, signoff: a.signoff,
-    blocks: [{ t: "heading", text: a.heading }, { t: "text", text: a.intro }, ...a.sections.filter(x => x.on).map(x => ({ t: "auto", what: x.what, n: x.n, title: x.title })), { t: "button", label: "Open Crew Call", url: "https://crewcall.example/" }] });
+    blocks: [{ t: "heading", text: a.heading }, { t: "text", text: a.intro }, ...a.sections.filter(x => x.on).map(x => ({ t: "auto", what: x.what, n: x.n, title: x.title })), { t: "button", label: "Open Crew Call", url: SITE }] });
   function autoNext() {
     const a = S.nlAuto; if (!a.on) return null;
     const nextMon = d => { let x = d; while (D(x).getUTCDay() !== 1) x = addDays(x, 1); return x; };
@@ -1509,9 +1695,9 @@
             <label class="toggle"><input type="checkbox" data-aus="on" ${a.on ? "checked" : ""} ${can("send") ? "" : "disabled"}> <span>Automatic edition on</span></label>
             <label class="field"><span>How often</span><select data-aus="freq" ${can("send") ? "" : "disabled"}><option value="monthly" ${a.freq === "monthly" ? "selected" : ""}>Monthly (first Monday)</option><option value="fortnightly" ${a.freq === "fortnightly" ? "selected" : ""}>Every two weeks (Monday)</option></select></label>
             <label class="field"><span>Send to</span><select data-aus="audience" ${can("send") ? "" : "disabled"}>${nlAudiences().map(([v, l]) => `<option value="${esc(v)}" ${v === a.audience ? "selected" : ""}>${esc(l)}</option>`).join("")}</select></label>
-            <label class="toggle"><input type="checkbox" data-aus="autoSend" ${a.autoSend ? "checked" : ""} ${can("send") ? "" : "disabled"}> <span>Send it without asking</span></label>
+${LIVE ? "" : `<label class="toggle"><input type="checkbox" data-aus="autoSend" ${a.autoSend ? "checked" : ""} ${can("send") ? "" : "disabled"}> <span>Send it without asking</span></label>`}
           </div>
-          <p class="small muted">${a.on ? `Next issue: ${fmtFull(nx)}. ${a.autoSend ? "It goes out by itself at 09:00." : `It's ready as a draft that morning and ${nlHolders("send").map(x => esc(first(x.name))).join(" or ")} gets a notification to check and send it.`}` : "Turned off. Nothing is built or sent."} ${can("send") ? "" : "Only admins with Newsletter: send can change these four settings."}</p>
+          <p class="small muted">${a.on ? `Next issue: ${fmtFull(nx)}. ${a.autoSend && !LIVE ? "It goes out by itself at 09:00." : `It's ready as a draft that morning and ${nlHolders("send").map(x => esc(first(x.name))).join(" or ")} gets a notification to check and send it.`}` : "Turned off. Nothing is built or sent."} ${can("send") ? "" : "Only admins with Newsletter: send can change these four settings."}</p>
           <h3 class="panel-sub">Words</h3>
           ${f("subject", "Subject line", 90, "{month} becomes the month")}${f("preheader", "Preview line", 140)}${f("heading", "Heading", 80)}
           <label class="field"><span>Intro</span><textarea rows="4" data-auf="intro" ${dis}>${esc(a.intro)}</textarea></label>
@@ -1531,10 +1717,13 @@
       <p class="small muted">Last sent ${a.lastSent ? fmtFull(a.lastSent) : "never"}.</p>
     </section>`;
   }
+  // live: the email server picks these up (see supabase/functions/crewcall). The finished email is stored with the issue.
+  const mailOut = (nl, after) => { if (LIVE) nl.mail = { html: nlHtml(nl), after: after || null, state: "queued", at: new Date().toISOString() }; };
+  const mailTest = (holder, x, m) => { if (LIVE) holder.test = { html: nlHtml(x), subject: x.subject, to: m.id, at: new Date().toISOString() }; };
   function nlHtml(nl) {
     const blocks = nl.blocks.map(b => b.t === "auto" ? Object.assign({}, b, { items: nlItems(b), title: b.title || NL_AUTO[b.what] }) : b);
     return window.CrewCallNewsletter({ subject: nl.subject, preheader: nl.preheader, issueLabel: nl.issue, blocks, signoff: nl.signoff, audienceLabel: nlAudLabel(nl.audience),
-      links: { app: "https://crewcall.example/", settings: "https://crewcall.example/#me", unsubscribe: "https://crewcall.example/#me" } });
+      links: { app: SITE, settings: SITE + "#me/notifications", unsubscribe: SITE + "#me/notifications" } });
   }
   const nlWho = id => { const s = student(id); return s ? s.name : "Former member"; };
   // can this person approve and send this newsletter?
@@ -1557,7 +1746,7 @@
     const nl = nlOpen && nlFind(nlOpen);
     if (!nl) {
       const rows = S.newsletters.map(n => { const [lbl, cls] = NL_STATUS[n.status];
-        const meta = n.status === "sent" ? `Sent ${fmtFull(n.sentAt)} by ${esc(nlWho(n.sentBy))} to ${n.recipients == null ? "the school list" : n.recipients + (n.recipients === 1 ? " person" : " people")}${n.approvedBy && n.approvedBy !== n.sentBy ? ` · approved by ${esc(nlWho(n.approvedBy))}` : ""}`
+        const meta = n.status === "sent" ? `Sent ${fmtFull(n.sentAt)} by ${esc(nlWho(n.sentBy))} to ${n.recipients == null ? "the school list" : n.recipients + (n.recipients === 1 ? " person" : " people")}${n.approvedBy && n.approvedBy !== n.sentBy ? ` · approved by ${esc(nlWho(n.approvedBy))}` : ""}${n.mail && n.mail.state === "queued" && n.status === "sent" ? " · being emailed now" : ""}`
           : n.status === "scheduled" ? `Scheduled for ${fmtFull(n.schedDate)} at ${esc(n.schedTime)} · approved by ${esc(nlWho(n.approvedBy))}`
           : n.status === "review" ? `Asked by ${esc(nlWho(n.submittedBy))} on ${fmtFull(n.submittedAt)}` : `Drafted by ${esc(nlWho(n.createdBy))}`;
         return `<li class="nl-row"><div><button type="button" class="link-btn nl-t" data-nlopen="${n.id}">${esc(n.subject || "Untitled newsletter")}</button><span class="muted small">${esc(nlAudLabel(n.audience))} · ${meta}</span></div><span class="st ${cls}">${lbl}</span></li>`; }).join("");
@@ -1566,17 +1755,17 @@
       return who + `<div class="span-2">${mode}</div><section class="panel span-2"><div class="ho-top"><h2 class="panel-h">Newsletters <span class="count">${S.newsletters.length}</span></h2>${can("news") ? `<button class="btn btn-accent btn-sm" id="nlNew">New newsletter</button>` : ""}</div>
         ${can("news") ? "" : `<p class="note-box">View only. You need the Newsletter: draft permission to design one.</p>`}
         ${S.newsletters.length ? `<ul class="nl-list">${rows}</ul>` : `<p class="empty-sm">No newsletters yet.</p>`}
-        <p class="small muted">In the prototype nothing is really emailed. In the live version, sends go from ${esc(S.settings.senderEmail || "the sending address in Email settings")} and people can turn the newsletter off in My profile.</p></section>`;
+        <p class="small muted">${LIVE ? `Emails go from ${esc(S.settings.senderEmail || "the sending address in Email settings")} within about 10 minutes of sending, once the email server is set up (SETUP.md, step 10). People can turn the newsletter off in My profile.` : `Demo: nothing is really emailed here. In the live app, sends go from ${esc(S.settings.senderEmail || "the sending address in Email settings")} and people can turn the newsletter off in My profile.`}</p></section>`;
     }
     const edit = nlMayEdit(nl), dis = edit ? "" : "disabled", [lbl, cls] = NL_STATUS[nl.status];
     const blockForm = (b, i) => {
       const name = b.t === "auto" ? NL_AUTO[b.what] : (NL_BLOCKS.find(x => x[0] === b.t) || [0, b.t])[1];
-      const f = (k, label, type = "text", ph = "") => `<label class="field"><span>${label}</span><input type="${type}" data-nlb="${i}|${k}" value="${esc(b[k] || "")}" placeholder="${esc(ph)}" ${dis}></label>`;
+      const f = (k, label, type = "text", ph = "") => `<label class="field"><span>${label}</span><input ${type === "url" ? `inputmode="url" autocapitalize="off" spellcheck="false"` : `type="${type}"`} data-nlb="${i}|${k}" value="${esc(type === "url" ? shortUrl(b[k] || "") : b[k] || "")}" placeholder="${esc(ph)}" ${dis}></label>`;
       let inner = "";
       if (b.t === "heading") inner = f("text", "Heading");
       if (b.t === "text") inner = `<label class="field"><span>Text</span><textarea rows="4" data-nlb="${i}|text" ${dis}>${esc(b.text || "")}</textarea></label><p class="small muted">Leave a blank line between paragraphs.</p>`;
-      if (b.t === "image") inner = f("url", "Image link", "url", "https://…") + f("alt", "Describe the image") + f("caption", "Caption") + f("link", "Opens when tapped", "url", "https://…");
-      if (b.t === "button") inner = f("label", "Button text") + f("url", "Link", "url", "https://…");
+      if (b.t === "image") inner = f("url", "Image link", "url", "example.com/picture.jpg") + f("alt", "Describe the image") + f("caption", "Caption") + f("link", "Opens when tapped", "url", "example.com");
+      if (b.t === "button") inner = f("label", "Button text") + f("url", "Link", "url", "example.com");
       if (b.t === "auto") inner = `<div class="nl-auto"><label class="field"><span>How many</span><select data-nlb="${i}|n" ${dis}>${[1, 2, 3, 4, 5, 6].map(k => `<option value="${k}" ${+b.n === k ? "selected" : ""}>${k}</option>`).join("")}</select></label>${f("title", "Heading", "text", NL_AUTO[b.what])}</div><p class="small muted">Filled in from Crew Call when it's sent.</p>`;
       return `<li class="nl-block"><div class="nl-bh"><b>${esc(name)}</b>${edit ? `<span class="nl-bacts"><button type="button" class="btn btn-quiet btn-xs" data-nlmove="${i}|-1" aria-label="Move ${esc(name)} up" ${i === 0 ? "disabled" : ""}>↑</button><button type="button" class="btn btn-quiet btn-xs" data-nlmove="${i}|1" aria-label="Move ${esc(name)} down" ${i === nl.blocks.length - 1 ? "disabled" : ""}>↓</button><button type="button" class="btn btn-quiet btn-xs" data-nldel="${i}" aria-label="Remove ${esc(name)}">×</button></span>` : ""}</div>${inner}</li>`;
     };
@@ -1637,7 +1826,7 @@
     if (nb) nb.addEventListener("click", () => {
       if (!can("news")) return;
       const n = { id: uid("nl"), subject: "", preheader: "", issue: monYear(TODAY), audience: "all", signoff: "From the Crew Call admins",
-        blocks: [{ t: "heading", text: "" }, { t: "text", text: "" }, { t: "auto", what: "roles", n: 3 }, { t: "button", label: "Open Crew Call", url: "https://crewcall.example/" }],
+        blocks: [{ t: "heading", text: "" }, { t: "text", text: "" }, { t: "auto", what: "roles", n: 3 }, { t: "button", label: "Open Crew Call", url: SITE }],
         status: "draft", createdBy: m.id, editedBy: m.id, versions: [] };
       S.newsletters.unshift(n); nlOpen = n.id; logAdmin("Started a new newsletter"); again(); const s = root.querySelector('[data-nlf="subject"]'); if (s) s.focus();
     });
@@ -1653,14 +1842,14 @@
       root.querySelectorAll("[data-nlvview]").forEach(b => b.addEventListener("click", () => viewVer(A.versions[+b.dataset.nlvview], "Automatic edition")));
       root.querySelectorAll("[data-nlvback]").forEach(b => b.addEventListener("click", () => { const v = A.versions[+b.dataset.nlvback]; if (!v.data || !can("news")) return; autoSnap("Before restoring an older version"); Object.assign(A, JSON.parse(JSON.stringify(v.data))); logAdmin(`Restored the automatic newsletter to the version from ${fmtFull(v.at)}`); toast("Older version restored"); again(); }));
       const on = (id, fn) => { const b = root.querySelector(id); if (b) b.addEventListener("click", fn); };
-      on("#auTest", () => toast(`Test sent to ${m.email}`));
+      on("#auTest", () => { mailTest(A, autoNl(), m); toast(LIVE ? `Test on its way to ${m.email}. It can take up to 10 minutes.` : `Demo: a test would go to ${m.email}`); });
       on("#auSave", () => { autoSnap("Saved by hand"); toast("Version saved"); again(); });
       on("#auCopy", () => { const x = autoNl(); const n = Object.assign(x, { id: uid("nl"), status: "draft", createdBy: m.id, editedBy: m.id, versions: [] }); S.newsletters.unshift(n); nlMode = "designed"; nlOpen = n.id; logAdmin("Made an editable copy of the automatic newsletter"); toast("Editable copy made"); again(); });
       on("#auSend", () => { if (!can("send")) return; const x = autoNl(), to = nlRecipients(A.audience);
         confirmBox(`Send “${x.subject}” now?`, `It goes to ${esc(nlAudLabel(A.audience))}: ${esc(nlCount(A.audience))}. You can't unsend an email.`, "Send newsletter", () => {
           to.forEach(s => notify(s.id, "news", `New newsletter from the Crew Call admins: “${x.subject}”.`));
           A.lastSent = TODAY; autoSnap(`Sent to ${A.audience === "alias" ? "the school list" : to.length + " people"}`);
-          S.newsletters.unshift(Object.assign(x, { id: uid("nl"), status: "sent", auto: true, createdBy: m.id, editedBy: m.id, approvedBy: m.id, sentBy: m.id, sentAt: TODAY, recipients: A.audience === "alias" ? null : to.length, versions: [] }));
+          S.newsletters.unshift(Object.assign(x, { id: uid("nl"), status: "sent", auto: true, createdBy: m.id, editedBy: m.id, approvedBy: m.id, sentBy: m.id, sentAt: TODAY, recipients: A.audience === "alias" ? null : to.length, versions: [] })); mailOut(x);
           logAdmin(`Sent the automatic newsletter “${x.subject}” to ${to.length} people`); closeModal(); toast(`Newsletter sent to ${to.length} people`); again(); drawHeader(); }, false); });
       return;
     }
@@ -1679,7 +1868,7 @@
     }));
     root.querySelectorAll("[data-nlb]").forEach(inp => inp.addEventListener(inp.tagName === "SELECT" ? "change" : "input", () => {
       if (!nlMayEdit(nl)) return;
-      const [i, k] = inp.dataset.nlb.split("|"); nl.blocks[+i][k] = k === "n" ? +inp.value : inp.value; touched();
+      const [i, k] = inp.dataset.nlb.split("|"); nl.blocks[+i][k] = k === "n" ? +inp.value : inp.inputMode === "url" ? (inp.value.trim() ? cleanUrl(inp.value) || inp.value : "") : inp.value; touched();
     }));
     root.querySelectorAll("[data-nladd]").forEach(b => b.addEventListener("click", () => {
       if (!nlMayEdit(nl)) return;
@@ -1694,7 +1883,7 @@
     const on = (id, fn) => { const b = root.querySelector(id); if (b) b.addEventListener("click", fn); };
     const ready = () => { if (!nl.subject.trim()) { toast("Add a subject line first"); const s = root.querySelector('[data-nlf="subject"]'); if (s) s.focus(); return false; } if (!nl.blocks.length) { toast("Add at least one block"); return false; } return true; };
     on("#nlClose", () => { nlOpen = null; again(); });
-    on("#nlTest", () => { if (!ready()) return; toast(`Test sent to ${m.email}`); });
+    on("#nlTest", () => { if (!ready()) return; mailTest(nl, nl, m); toast(LIVE ? `Test on its way to ${m.email}. It can take up to 10 minutes.` : `Demo: a test would go to ${m.email}`); });
     on("#nlAsk", () => {
       if (!ready()) return;
       Object.assign(nl, { status: "review", submittedBy: m.id, submittedAt: TODAY }); nlSnap(nl, "Asked for approval");
@@ -1703,18 +1892,18 @@
     });
     on("#nlBack", () => { if (!can("send")) return; nl.status = "draft"; if (nl.submittedBy && nl.submittedBy !== m.id) notify(nl.submittedBy, "update", `${m.name} sent the newsletter “${nl.subject}” back to draft. Have a look in Admin, Newsletter.`); logAdmin(`Sent the newsletter “${nl.subject}” back to draft`); toast("Back to draft"); again(); });
     on("#nlDel", () => confirmBox("Delete this newsletter?", "The draft is deleted for everyone. This can't be undone.", "Delete", () => { S.newsletters = S.newsletters.filter(x => x !== nl); logAdmin(`Deleted the newsletter draft “${nl.subject || "Untitled"}”`); nlOpen = null; closeModal(); toast("Newsletter deleted"); again(); }));
-    on("#nlDup", () => { const c = JSON.parse(JSON.stringify(nl)); Object.assign(c, { id: uid("nl"), subject: nl.subject + " (copy)", status: "draft", createdBy: m.id, editedBy: m.id, versions: [] }); ["submittedBy", "submittedAt", "approvedBy", "sentBy", "sentAt", "recipients", "schedDate", "schedTime"].forEach(k => delete c[k]); S.newsletters.unshift(c); nlOpen = c.id; logAdmin(`Copied the newsletter “${nl.subject}”`); toast("Copy made"); again(); });
+    on("#nlDup", () => { const c = JSON.parse(JSON.stringify(nl)); Object.assign(c, { id: uid("nl"), subject: nl.subject + " (copy)", status: "draft", createdBy: m.id, editedBy: m.id, versions: [] }); ["submittedBy", "submittedAt", "approvedBy", "sentBy", "sentAt", "recipients", "schedDate", "schedTime", "mail", "test"].forEach(k => delete c[k]); S.newsletters.unshift(c); nlOpen = c.id; logAdmin(`Copied the newsletter “${nl.subject}”`); toast("Copy made"); again(); });
     on("#nlSave", () => { if (!nlMayEdit(nl)) return; nlSnap(nl, "Saved by hand"); toast("Version saved"); again(); });
     on("#nlAnother", () => { if (!can("news")) return; const c = JSON.parse(JSON.stringify(nl)); const iss = monYear(TODAY);
-      Object.assign(c, { id: uid("nl"), issue: iss, subject: nl.subject.replace(nl.issue, iss), status: "draft", createdBy: m.id, editedBy: m.id, versions: [] }); ["submittedBy", "submittedAt", "approvedBy", "sentBy", "sentAt", "recipients", "schedDate", "schedTime", "auto"].forEach(k => delete c[k]);
+      Object.assign(c, { id: uid("nl"), issue: iss, subject: nl.subject.replace(nl.issue, iss), status: "draft", createdBy: m.id, editedBy: m.id, versions: [] }); ["submittedBy", "submittedAt", "approvedBy", "sentBy", "sentAt", "recipients", "schedDate", "schedTime", "auto", "mail", "test"].forEach(k => delete c[k]);
       S.newsletters.unshift(c); nlOpen = c.id; logAdmin(`Started a new issue from “${nl.subject}”`); toast("New issue started with the same layout. Change the words and send."); again(); });
-    on("#nlUnsched", () => { if (!can("send")) return; nl.status = "draft"; delete nl.schedDate; delete nl.schedTime; logAdmin(`Cancelled the scheduled newsletter “${nl.subject}”`); toast("Schedule cancelled"); again(); });
+    on("#nlUnsched", () => { if (!can("send")) return; nl.status = "draft"; delete nl.schedDate; delete nl.schedTime; delete nl.mail; logAdmin(`Cancelled the scheduled newsletter “${nl.subject}”`); toast("Schedule cancelled"); again(); });
     const audText = () => nl.audience === "alias" ? `the school mass email alias, ${esc(S.settings.schoolAlias)}` : `${esc(nlAudLabel(nl.audience))}: ${esc(nlCount(nl.audience))}`;
     on("#nlSend", () => {
       if (!ready() || !nlMaySend(nl)) return;
       confirmBox(`Send “${nl.subject}” now?`, `It goes to ${audText()}, from ${esc(S.settings.senderName)} &lt;${esc(S.settings.senderEmail || "sender not set up")}&gt;. You can't unsend an email.`, "Send newsletter", () => {
         const to = nlRecipients(nl.audience);
-        Object.assign(nl, { status: "sent", approvedBy: m.id, sentBy: m.id, sentAt: TODAY, recipients: nl.audience === "alias" ? null : to.length }); nlSnap(nl, "Sent");
+        Object.assign(nl, { status: "sent", approvedBy: m.id, sentBy: m.id, sentAt: TODAY, recipients: nl.audience === "alias" ? null : to.length }); mailOut(nl); nlSnap(nl, "Sent");
         to.forEach(s => notify(s.id, "news", `New newsletter from the Crew Call admins: “${nl.subject}”.`));
         if (nl.submittedBy && nl.submittedBy !== m.id) notify(nl.submittedBy, "update", `${m.name} approved and sent your newsletter “${nl.subject}”.`);
         logAdmin(`Sent the newsletter “${nl.subject}” to ${nl.audience === "alias" ? "the school alias" : to.length + " people"}${nl.createdBy !== m.id ? ` (drafted by ${nlWho(nl.createdBy)})` : ""}`);
@@ -1727,7 +1916,7 @@
         <form id="nlSchedForm" class="form-grid"><label class="field"><span>Date</span><input type="date" name="d" required min="${addDays(TODAY, 1)}" value="${addDays(TODAY, 1)}"></label><label class="field"><span>Time</span><input type="time" name="t" required value="09:00"></label>
         <div class="form-actions span-2"><button class="btn btn-accent">Schedule</button><button type="button" class="btn btn-ghost" data-close>Cancel</button></div></form>`);
       $("#nlSchedForm").addEventListener("submit", e => { e.preventDefault(); const f = e.target;
-        Object.assign(nl, { status: "scheduled", approvedBy: m.id, schedDate: f.d.value, schedTime: f.t.value });
+        Object.assign(nl, { status: "scheduled", approvedBy: m.id, schedDate: f.d.value, schedTime: f.t.value }); mailOut(nl, `${f.d.value}T${f.t.value}`);
         if (nl.submittedBy && nl.submittedBy !== m.id) notify(nl.submittedBy, "update", `${m.name} approved your newsletter “${nl.subject}”. It goes out on ${fmtFull(nl.schedDate)}.`);
         logAdmin(`Scheduled the newsletter “${nl.subject}” for ${fmtFull(nl.schedDate)} at ${nl.schedTime}`); closeModal(); toast(`Scheduled for ${fmtFull(nl.schedDate)}`); again(); });
     });
@@ -1978,7 +2167,7 @@
             <li><b>Weblate</b> <span>A translation website where volunteers fix wording without touching code. The build writes files Weblate can read and edit. It's free for open-source projects; the steps are in the translation guide.</span> <a href="https://weblate.org/en/hosting/" target="_blank" rel="noopener">weblate.org</a></li>
             <li><b>LibreTranslate</b> <span>Open-source machine translation you can run on a free server. Drafts only. Always have a speaker check.</span> <a href="https://github.com/LibreTranslate/LibreTranslate" target="_blank" rel="noopener">LibreTranslate</a></li>
           </ul>
-          <form class="kit-add" id="ltForm"><input name="url" type="url" value="${esc(S.settings.ltUrl || "")}" placeholder="LibreTranslate server, e.g. https://translate.example.org" aria-label="LibreTranslate server"><button class="btn btn-ghost btn-sm">Save server</button>${S.settings.ltUrl ? `<button type="button" class="btn btn-ghost btn-sm" id="ltDraft">Draft missing role names</button>` : ""}</form></section>`;
+          <form class="kit-add" id="ltForm"><input name="url" inputmode="url" autocapitalize="off" spellcheck="false" value="${esc(shortUrl(S.settings.ltUrl || ""))}" placeholder="LibreTranslate server, e.g. translate.example.org" aria-label="LibreTranslate server"><button class="btn btn-ghost btn-sm">Save server</button>${S.settings.ltUrl ? `<button type="button" class="btn btn-ghost btn-sm" id="ltDraft">Draft missing role names</button>` : ""}</form></section>`;
     }
 
     if (adminTab === "lists") body = !can("setup") ? lockedPanel("Terms and lists") : `
@@ -2020,7 +2209,9 @@
           <p class="muted small">Shown in the footer and when people sign in. It's a draft: ask LFS to check it before launch.</p>
           <button class="btn btn-ghost btn-sm" data-privacy>Read the privacy notice</button></section>
         <section class="panel span-2"><h2 class="panel-h">Old profiles <span class="count">${due.length}</span></h2>
-          <p class="muted small">Alumni and guests are deleted after <select id="retainMonths" aria-label="Months">${[6, 12, 18, 24].map(n => `<option ${n === S.settings.retainMonths ? "selected" : ""}>${n}</option>`).join("")}</select> months without signing in. The live version does this every night: it emails a warning 30 days before, and keeps the profile if they sign in. Admins are never removed automatically.</p>
+          <p class="muted small">Alumni and guests are deleted after <select id="retainMonths" aria-label="Months">${[6, 12, 18, 24].map(n => `<option ${n === S.settings.retainMonths ? "selected" : ""}>${n}</option>`).join("")}</select> months without signing in. </p>
+          <label class="toggle"><input type="checkbox" id="autoClean" ${S.settings.autoClean !== false ? "checked" : ""}> Delete old profiles automatically each night</label>
+          <p class="muted small">${S.settings.autoClean !== false ? "Each night the server emails a warning 30 days before, keeps the profile if they sign in, and then deletes it." : "Nothing is deleted on its own. The server still emails the warning; delete people by hand below."} The owner and admins are never removed.</p>
           ${due.length ? `<ul class="inv-list">${due.map(({ s, due: d, on }) => `<li><span><button class="link-btn" data-student="${s.id}">${esc(s.name)}</button> <span class="muted small">${esc(tLabel(s))} · last active ${fmtFull(lastSeen(s))}</span></span><span>${d ? `<span class="st st-pending">Due now</span> <button class="btn btn-danger btn-xs" data-retremove="${s.id}">Delete</button>` : `<span class="st">Deletes ${fmtFull(on)}</span> <button class="btn btn-quiet btn-xs" data-retwarn="${s.id}">Send warning</button>`}</span></li>`).join("")}</ul>` : `<p class="empty-sm">Nobody is due.</p>`}</section>
         <section class="panel span-2"><h2 class="panel-h">Backups</h2>
           <p class="muted small">Supabase's free plan doesn't back up your database, so the GitHub repository includes a nightly backup job (see docs/BACKUPS.md). You can also download a copy here at any time, and restore one if something goes wrong.</p>
@@ -2054,6 +2245,7 @@
     on("[data-represolve]", b => { const r = rep(b.dataset.represolve), n = root.querySelector(`[data-repnote="${r.id}"]`); closeRep(r, n ? n.value.trim() : ""); toast("Report closed"); });
     on("[data-rephide]", b => { const r = rep(b.dataset.rephide), t = reportTarget(r); if (r.kind === "project") t.archived = true; else t.hidden = true; closeRep(r, `Hid the ${r.kind}`); toast(`${reportName(r)} hidden`); render(); });
     root.querySelectorAll("[data-repremove]").forEach(b => b.addEventListener("click", () => { const r = rep(b.dataset.repremove), t = reportTarget(r); confirmBox(`Remove ${t.name}?`, "Their profile, availability and requests are deleted, and they're taken off any shoots. They can sign in again later unless you also tell LFS.", "Remove", () => { closeRep(r, "Removed the person"); removeStudent(t); closeModal(); renderAdmin(); drawHeader(); toast("Removed"); }); }));
+    if ($("#autoClean")) $("#autoClean").addEventListener("change", e => { S.settings.autoClean = e.target.checked; logAdmin(e.target.checked ? "Turned on nightly clean-up of old profiles" : "Turned off nightly clean-up of old profiles"); renderAdmin(); });
     if ($("#retainMonths")) $("#retainMonths").addEventListener("change", e => { S.settings.retainMonths = +e.target.value; logAdmin(`Set old profiles to be deleted after ${S.settings.retainMonths} months`); renderAdmin(); });
     on("[data-retwarn]", b => { const s = student(b.dataset.retwarn); notify(s.id, "update", `Your Crew Call profile will be deleted soon because you haven't signed in for a while. Sign in to keep it.`); toast(`Warning sent to ${first(s.name)}`); });
     root.querySelectorAll("[data-retremove]").forEach(b => b.addEventListener("click", () => { const s = student(b.dataset.retremove); confirmBox(`Delete ${s.name}?`, `They haven't signed in for over ${S.settings.retainMonths} months. Their profile is deleted for good. Credits on wrapped shoots stay as text on the project.`, "Delete", () => { removeStudent(s); logAdmin(`Deleted old profile: ${s.name}`); closeModal(); renderAdmin(); toast("Deleted"); }); }));
@@ -2081,7 +2273,7 @@
       if (S.students.some(x => x.email.toLowerCase() === e && x.id !== s.id)) return (err.textContent = "Someone already uses that email.");
       if (!s.guest && !C.LFS_DOMAINS.includes(e.split("@")[1])) return (err.textContent = `Students need an LFS address (${C.LFS_DOMAINS.join(" or ")}).`);
       if (e === old.toLowerCase()) return (err.textContent = "That's already their email.");
-      s.email = e; S.projects.forEach(p => { if (p.email === old) p.email = e; if (p.producer && p.producer.email === old) p.producer.email = e; });
+      s.email = e; S.projects.forEach(p => { if (p.email === old) p.email = e; if (p.producer && p.producer.email === old) p.producer.email = e; (p.producers || []).forEach(x => { if (x.email === old) x.email = e; }); });
       notify(s.id, "update", `${m.name} changed your sign-in email from ${old} to ${e}. Use the new one next time you sign in.`);
       logAdmin(`Changed ${s.name}'s sign-in email from ${old} to ${e}`); toast(`${s.name} now signs in with ${e}`); renderAdmin(); drawHeader();
     });
@@ -2114,7 +2306,7 @@
     root.querySelectorAll("[data-wdrole]").forEach(b => b.addEventListener("click", () => openWikidata(b.dataset.wdrole)));
     if ($("#wdAnyBtn")) $("#wdAnyBtn").addEventListener("click", () => openWikidata($("#wdAny").value));
     if ($("#tfDownload")) $("#tfDownload").addEventListener("click", () => { const blob = new Blob([JSON.stringify(S.customWords, null, 2)], { type: "application/json" }); const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = "app-additions.json"; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 2000); });
-    sub("#ltForm", f => { S.settings.ltUrl = f.url.value.trim(); logAdmin(S.settings.ltUrl ? "Set a LibreTranslate server" : "Removed the LibreTranslate server"); toast("Saved"); renderAdmin(); });
+    sub("#ltForm", f => { S.settings.ltUrl = cleanUrl(f.url.value); logAdmin(S.settings.ltUrl ? "Set a LibreTranslate server" : "Removed the LibreTranslate server"); toast("Saved"); renderAdmin(); });
     if ($("#ltDraft")) $("#ltDraft").addEventListener("click", async () => { toast("Drafting with LibreTranslate…"); let n = 0;
       try { for (const r of allRoles()) { const w = CCLang.lookup(r); for (const l of transLangs()) { if (w[l.code] && w[l.code] !== r) continue; const v = await libreDraft(r, l.code); if (v) { S.transFixes.unshift({ id: uid("tf"), en: r, lang: l.code, now: "", better: v, by: null, source: "LibreTranslate (machine draft)", at: TODAY, status: "open" }); n++; } } } }
       catch (e) { return toast("Couldn't reach the LibreTranslate server"); }
@@ -2233,7 +2425,7 @@
     g.innerHTML = m.incomplete ? "Welcome. Add at least one role and save, and you'll appear in Crew search and on the calendar." : `You're a guest${m.invitedBy && student(m.invitedBy) ? `, invited by ${esc(student(m.invitedBy).name)}` : ""}. You can do everything except invite other people.`;
     meForm.name.value = m.name; meForm.email.value = m.email;
     drawTermFields(m); meForm.pathway.value = m.pathway;
-    meForm.reel.value = m.reel || ""; meForm.bio.value = m.bio || "";
+    meForm.reel.value = shortUrl(m.reel || ""); meForm.site.value = shortUrl(m.site || ""); meForm.imdb.value = shortUrl(m.imdb || ""); meForm.insta.value = m.insta && /instagram\.com\/([^/?#]+)/.test(m.insta) ? "@" + /instagram\.com\/([^/?#]+)/.exec(m.insta)[1] : shortUrl(m.insta || ""); meForm.bio.value = m.bio || "";
     meForm.openToOffers.checked = !!m.openToOffers; meForm.shareEmail.checked = !!m.shareEmail; meForm.hideMe.checked = !!m.hideMe;
     const n = notifyOf(m);
     meForm.nApply.checked = n.apply; meForm.nDigest.checked = n.digest; meForm.nMatch.checked = n.match; meForm.nUpdates.checked = n.updates; meForm.nNews.checked = n.news; meForm.nWhen.value = n.when;
@@ -2286,7 +2478,10 @@
       if (!meForm.cohort.value) { $("#meSaved").textContent = "Pick your course and cohort."; $("#meSaved").className = "save-msg err"; return; }
       setCohort(m, meForm.cohort.value); Object.assign(m, { termFor: termForToday(), termConfirmed: true }); refreshCohortFilter();
     }
-    Object.assign(m, { name: meForm.name.value.trim(), pathway: meForm.pathway.value, reel: cleanUrl(meForm.reel.value), bio: meForm.bio.value.trim(), roles: [...meRoles], primary: mePrimary || [...meRoles][0], learn: [...meLearn], kit: meKit, openToOffers: meForm.openToOffers.checked, shareEmail: meForm.shareEmail.checked, hideMe: meForm.hideMe.checked, notify: readNotify(), updated: TODAY, incomplete: false });
+    const pf = { reel: cleanUrl(meForm.reel.value), site: cleanUrl(meForm.site.value), imdb: cleanImdb(meForm.imdb.value), insta: cleanInsta(meForm.insta.value) };
+    const badPf = PORTFOLIO.find(([k]) => meForm[k].value.trim() && !pf[k]);
+    if (badPf) { $("#meSaved").textContent = `${badPf[1]}: that isn't a web address.`; $("#meSaved").className = "save-msg err"; meForm[badPf[0]].focus(); return; }
+    Object.assign(m, pf, { name: meForm.name.value.trim(), pathway: meForm.pathway.value, bio: meForm.bio.value.trim(), roles: [...meRoles], primary: mePrimary || [...meRoles][0], learn: [...meLearn], kit: meKit, openToOffers: meForm.openToOffers.checked, shareEmail: meForm.shareEmail.checked, hideMe: meForm.hideMe.checked, notify: readNotify(), updated: TODAY, incomplete: false });
     drawHeader(); loadMe();
     $("#meSaved").textContent = m.hideMe ? "Saved. Your profile is hidden from Crew search." : "Saved. You appear in Crew search and the calendar.";
     $("#meSaved").className = "save-msg ok"; toast("Profile saved");
@@ -2329,7 +2524,7 @@
         <p class="dg-free">${it.free ? (it.free === it.total ? "You're free every shoot day" : `You're free ${it.free} of ${it.total} shoot days`) : "You haven't marked these days free"}</p></li>`; };
     const subject = items.length ? `${items.length} shoot${items.length === 1 ? "" : "s"} looking for crew like you this week` : "Crew Call: your week";
     const tn = termNow(), wk = tn ? Math.floor((D(TODAY) - D(tn.start)) / 6048e5) + 1 : 0;
-    const base = "https://crewcall.example/";
+    const base = SITE;
     const lockedLearn = live().filter(p => isActive(p) && !runs(p, m) && !onProject(p, m.id)).flatMap(p => p.roles.filter(r => r.filledBy && !isExt(r) && m.learn.includes(r.role)).map(r => ({ title: p.title, role: r.role, dates: p.shoots.map(fmtRange).join(" + "), url: base + "#p/" + p.id }))).slice(0, 3);
     const data = {
       subject, first: first(m.name), weekLabel: (() => { const want = { mon: 1, sun: 0, fri: 5 }[n.when]; let d = TODAY; while (D(d).getUTCDay() !== want) d = addDays(d, 1); return fmtDay(d); })(),
@@ -2341,14 +2536,14 @@
       learn: lockedLearn,
       updatedAgo: updatedLabel(m).replace("Updated ", "").toLowerCase(),
       sendLabel: `${wd}s at ${time}`,
-      links: { app: base, days: base + "#me/days", settings: base + "#me/notifications", unsubscribe: base + "unsubscribe" }
+      links: { app: base, days: base + "#me/days", settings: base + "#me/notifications", unsubscribe: base + "#me/notifications" }
     };
     const html = window.CrewCallDigest(data);
     return `
       <h2 id="modalTitle" class="m-title">This week's digest</h2>
       <p class="dg-envelope"><span><b>From</b> Crew Call</span><span><b>To</b> ${esc(m.email)}</span><span><b>Subject</b> ${esc(subject)}</span><span><b>Sends</b> ${wd}s at ${time}</span></p>
       <iframe class="dg-frame" title="Email preview" sandbox="allow-popups" srcdoc="${esc(html).replace(/'/g, "&#39;")}"></iframe>
-      <p class="muted small mt">Prototype preview. The live version sends this automatically, and each button opens the shoot in Crew Call.</p>`;
+      <p class="muted small mt">${LIVE ? "This is a preview. The email comes at the time you picked, and each button opens the shoot in Crew Call." : "Demo preview. The live app sends this at the time you picked, and each button opens the shoot in Crew Call."}</p>`;
   }
   $("#digestPreview").addEventListener("click", () => openModal(buildDigest()));
 
@@ -2640,14 +2835,14 @@
         ${pitch ? `<label class="field"><span>What you have</span><input name="source" maxlength="120" placeholder="e.g. Option on a short story, access to a real story, a location" value="${esc(x ? x.source || "" : "")}"></label>` : ""}
         <div class="field"><span>Looking for</span><div class="fchips">${DEV_ROLES.map(r => `<label class="fchip-radio"><input type="checkbox" name="lf" value="${esc(r)}" ${(x ? x.lookingFor : defaults).includes(r) ? "checked" : ""}><span>${esc(r)}</span></label>`).join("")}</div></div>
         ${pitch ? "" : `<label class="field"><span>Hoping to shoot</span><select name="aim"><option value="">Not sure yet</option>${upcoming.map(t => `<option ${x && x.aim === t ? "selected" : ""}>${esc(t)}</option>`).join("")}</select></label>`}
-        <label class="field"><span>${pitch ? "Pitch deck or treatment link" : "Script link"} <small>only shown to you and people you bring on</small></span><input name="link" type="url" inputmode="url" placeholder="https://..." value="${esc(x ? x.link : "")}"></label>
+        <label class="field"><span>${pitch ? "Pitch deck or treatment link" : "Script link"} <small>only shown to you and people you bring on</small></span><input name="link" inputmode="url" autocapitalize="off" spellcheck="false" placeholder="drive.google.com/…" value="${esc(x ? x.link : "")}"></label>
         <p class="form-err" id="scrErr" role="alert"></p>
         <div class="form-actions"><button class="btn btn-accent">${x ? "Save" : "Post"}</button><button class="btn btn-ghost" type="button" data-close>Cancel</button></div>
       </form>`);
     $("#scrForm").addEventListener("submit", e => {
       e.preventDefault(); const f = e.target, lf = [...f.querySelectorAll("[name=lf]:checked")].map(i => i.value);
       if (!lf.length) return ($("#scrErr").textContent = "Pick at least one role you're looking for.");
-      const link = f.link.value.trim(); if (link && !/^https:\/\//.test(link)) return ($("#scrErr").textContent = "Links need to start with https://");
+      const link = cleanUrl(f.link.value); if (f.link.value.trim() && !link) return ($("#scrErr").textContent = "That link isn't a web address.");
       const data = { kind, title: f.title.value.trim(), type: f.type.value, pages: pitch ? null : +f.pages.value, logline: f.logline.value.trim(), source: pitch ? f.source.value.trim() : "", lookingFor: lf, aim: f.aim.value, link };
       if (x) Object.assign(x, data); else S.scripts.push({ id: uid("sc"), by: m.id, attached: [], posted: TODAY, status: "open", ...data });
       closeModal(); renderScripts(); toast(x ? "Saved" : pitch ? "Pitch posted" : "Script posted");
@@ -2755,7 +2950,7 @@
         <div class="field"><span>Help needed</span><div class="fchips">${RELEASE_NEEDS.map(n => `<label class="fchip-radio"><input type="checkbox" name="need" value="${esc(n)}" ${(src.needs || ["Festival strategy", "Poster & key art"]).includes(n) ? "checked" : ""}><span>${esc(n)}</span></label>`).join("")}</div></div>
         <div class="form-grid"><label class="field"><span>Next deadline <small>optional</small></span><input name="deadline" type="date" value="${src.deadline || ""}"></label>
         <label class="field"><span>Festivals or goals</span><input name="festivals" maxlength="120" placeholder="e.g. Encounters, BFI Future Film" value="${esc(src.festivals || "")}"></label></div>
-        <label class="field"><span>Screener link <small>only shown to you and your team</small></span><input name="link" type="url" inputmode="url" placeholder="https://vimeo.com/..." value="${esc(src.link || "")}"></label>
+        <label class="field"><span>Screener link <small>only shown to you and your team</small></span><input name="link" inputmode="url" autocapitalize="off" spellcheck="false" placeholder="vimeo.com/…" value="${esc(src.link || "")}"></label>
         <p class="form-err" id="relErr" role="alert"></p>
         <div class="form-actions"><button class="btn btn-accent">${x ? "Save" : "List film"}</button><button class="btn btn-ghost" type="button" data-close>Cancel</button></div>
       </form>`);
@@ -2764,7 +2959,7 @@
     f.addEventListener("submit", e => {
       e.preventDefault(); const needs = [...f.querySelectorAll("[name=need]:checked")].map(i => i.value);
       if (!needs.length) return ($("#relErr").textContent = "Pick at least one thing you need help with.");
-      const link = f.link.value.trim(); if (link && !/^https:\/\//.test(link)) return ($("#relErr").textContent = "Links need to start with https://");
+      const link = cleanUrl(f.link.value); if (f.link.value.trim() && !link) return ($("#relErr").textContent = "That link isn't a web address.");
       const data = { title: f.title.value.trim(), type: f.type.value, runtime: +f.runtime.value || null, logline: f.logline.value.trim(), needs, deadline: f.deadline.value, festivals: f.festivals.value.trim(), link };
       if (x) Object.assign(x, data); else S.releases.push({ id: uid("rl"), by: m.id, pid: f.pid ? f.pid.value || null : (fromP ? fromP.id : null), attached: [], posted: TODAY, status: "open", ...data });
       closeModal(); renderRelease(); toast(x ? "Saved" : "Film listed");
@@ -2886,7 +3081,7 @@
         <div class="form-grid"><label class="field"><span>Where</span><input name="loc" required maxlength="80" placeholder="e.g. Hackney Wick, or Remote" value="${esc(src.loc || "")}"></label>
         <label class="field"><span>Apply by <small>optional</small></span><input name="deadline" type="date" value="${src.deadline || ""}"></label></div>
         <label class="field"><span>Details</span><textarea name="details" rows="3" maxlength="500" required placeholder="What the job is, hours, kit, and anything people should know">${esc(src.details || "")}</textarea></label>
-        <label class="field"><span>Application link <small>optional, otherwise people reply through Crew Call</small></span><input name="apply" type="url" inputmode="url" placeholder="https://…" value="${esc(src.apply || "")}"></label>
+        <label class="field"><span>Application link <small>optional, otherwise people reply through Crew Call</small></span><input name="apply" inputmode="url" autocapitalize="off" spellcheck="false" placeholder="theirsite.com/apply" value="${esc(src.apply || "")}"></label>
         <p class="form-err" id="gigErr" role="alert"></p>
         <div class="form-actions"><button class="btn btn-accent">${g ? "Save" : "Post job"}</button><button class="btn btn-ghost" type="button" data-close>Cancel</button></div>
       </form>`);
@@ -2896,10 +3091,10 @@
     f.addEventListener("change", e => { if (e.target.name === "role") { const n = [...f.querySelectorAll("[name=role]:checked")].map(i => i.value); $("#gigRoleN").textContent = n.length ? n.join(", ") : "Pick one or more"; } });
     f.addEventListener("submit", e => {
       e.preventDefault();
-      const roles = [...f.querySelectorAll("[name=role]:checked")].map(i => i.value), rate = f.rate.value.trim(), apply = f.apply.value.trim();
+      const roles = [...f.querySelectorAll("[name=role]:checked")].map(i => i.value), rate = f.rate.value.trim(), apply = cleanUrl(f.apply.value);
       if (!roles.length) return ($("#gigErr").textContent = "Pick at least one role.");
       if (!/\d/.test(rate)) return ($("#gigErr").textContent = "Say what it pays, for example £250 a day.");
-      if (apply && !/^https:\/\//.test(apply)) return ($("#gigErr").textContent = "Links need to start with https://");
+      if (f.apply.value.trim() && !apply) return ($("#gigErr").textContent = "That link isn't a web address.");
       const data = { title: f.title.value.trim(), org: f.org.value.trim(), type: f.type.value, roles, rate, payType: f.payType.value, dates: readRanges(f), loc: f.loc.value.trim(), deadline: f.deadline.value, details: f.details.value.trim(), apply };
       if (g) Object.assign(g, data); else S.gigs.unshift({ id: uid("g"), by: m.id, posted: TODAY, status: "open", ...data });
       closeModal(); renderPaid(); toast(g ? "Saved" : "Job posted");
@@ -2986,7 +3181,7 @@
       <div class="prose">
       <p class="muted small">Draft for LFS to check before launch. Last updated ${fmtFull(TODAY)}.</p>
       <h3>Who runs Crew Call</h3><p>Crew Call is run by LFS students for LFS students. The current owner is ${esc(owner ? owner.name : "the owner")}. It isn't run by the London Film School. Questions go to <a href="mailto:${esc(replyAddr())}">${esc(replyAddr())}</a>.</p>
-      <h3>What we keep</h3><ul><li>Your name, LFS email, course and cohort code</li><li>The roles, kit, credits and skills you add, your bio and reel link</li><li>The days you mark as free, the shoots you post, and your crew requests and messages</li><li>Reports you send, and admin actions taken on them</li></ul>
+      <h3>What we keep</h3><ul><li>Your name, LFS email, course and cohort code</li><li>The roles, kit, credits and skills you add, your bio and portfolio links</li><li>The days you mark as free, the shoots you post, and your crew requests and messages</li><li>Reports you send, and admin actions taken on them</li></ul>
       <h3>Who can see it</h3><ul><li>Nothing about people is visible to anyone who isn't signed in. The calendar shows only shoot titles and dates.</li><li>Signed-in members see your profile, unless you hide it.</li><li>Your email is only shown if you choose to share it, or to the producer and director of a shoot you're locked onto.</li><li>Script links are only shown to people the writer attaches.</li><li>Reports are only seen by admins with the Reports and privacy permission.</li></ul>
       <h3>What we don't do</h3><p>No adverts, no tracking cookies, and we never sell or share your data. Data is stored with Supabase in their London region.</p>
       <h3>How long we keep it</h3><p>Once you're an alumnus or a guest, your profile is deleted if you haven't signed in for ${mo} months. We email you 30 days before. Delete your profile any time from My profile.</p>
@@ -3001,7 +3196,7 @@
   }
   // retention: alumni and guests who haven't been active for N months
   const monthsAgo = n => { const d = D(TODAY); d.setUTCMonth(d.getUTCMonth() - n); return iso(d); };
-  const lastSeen = s => s.updated || "2000-01-01";
+  const lastSeen = s => [s.seen, s.updated].filter(Boolean).sort().pop() || "2000-01-01";
   const retentionList = () => {
     const cut = monthsAgo(S.settings.retainMonths), warn = addDays(cut, 30);
     return S.students.filter(s => (s.guest || s.term === "Alumni") && s.id !== S.owner && !S.admins.includes(s.id) && lastSeen(s) < warn)
@@ -3049,6 +3244,7 @@
         <section class="panel"><h2 class="panel-h">What Crew Call is</h2>
           <p>LFS students make films all the time and need crew for them. Crew Call puts every shoot in one place, so you can see what's happening, mark the days you're free, and find the right person for each role.</p>
           <p>It's free, has no adverts and doesn't track you. It isn't run by the London Film School.</p>
+          ${LIVE ? `<p class="demo-link"><a class="btn btn-ghost btn-sm" href="${DEMO_URL}">Try the demo</a> <span class="muted small">Sample people, and nothing is saved.</span></p>` : ""}
           <dl class="about-boards">${boards.map(([b, d]) => `<div><dt>${esc(b)}</dt><dd>${esc(d)}</dd></div>`).join("")}</dl></section>
         <section class="panel"><h2 class="panel-h">Who runs it</h2>
           <p><span>Students run Crew Call for each other.</span> <span>The owner is ${esc(owner ? owner.name : "a student")}, with ${S.admins.length} admins and a rep for each cohort.</span> <span>Before the owner graduates, they hand it to a rep from a younger cohort, so it carries on.</span></p>
@@ -3067,7 +3263,7 @@
           ${OPEN_SOURCE.map(([n, d, l, u]) => `<tr><td><a href="${u}" target="_blank" rel="noopener" data-noi18n>${esc(n)}</a></td><td>${esc(d)}</td><td class="mono small" data-noi18n>${esc(l)}</td></tr>`).join("")}
           </tbody></table></div>
           <h3 class="panel-sub">Not open source</h3>
-          <p class="muted small">The code is kept on GitHub and the site is hosted on Vercel or GitHub Pages. Emails are sent with Brevo, and LFS Microsoft accounts are used to sign in. These aren't open source, but we only use their free plans, and Crew Call can move away from any of them.</p></section>
+          <p class="muted small">The code is kept on GitHub and the site is hosted on GitHub Pages. The database and sign-in run on Supabase's hosted service, although Supabase's own software is open source. Emails go through whichever sender the admins set up. We only use free plans, and Crew Call can move away from any of them.</p></section>
       </div>`;
     bindOpeners($("#view-about"));
     const rb = $("#aboutReport"); if (rb) rb.onclick = () => $("#footReport").click();
@@ -3089,6 +3285,18 @@
   applyTerms(false); refreshCohortFilter(); syncReps();
   drawHeader();
   render();
+  // links from emails and newsletters: #p/<id> opens a project, #me/days and #me/notifications jump to that part of the profile
+  function openHash() {
+    const h = decodeURIComponent(location.hash.slice(1)); if (!h) return;
+    const [a, b] = h.split("/");
+    const views = { calendar: "calendar", develop: "scripts", scripts: "scripts", shoot: "projects", projects: "projects", release: "release", paid: "paid", crew: "crew", mine: "mine", me: "me", admin: "admin" };
+    if (a === "p" && b) { const p = project(b); if (p) { setView("calendar"); openProject(p.id); } else toast("That project isn't on Crew Call any more"); }
+    else if (views[a]) { setView(views[a]); if (a === "me" && b) setTimeout(() => { const el = $(b === "days" ? "#daysFs" : b === "notifications" ? "#notifyFs" : ""); if (el) el.scrollIntoView({ block: "start" }); }, 60); }
+    else return;
+    history.replaceState(null, "", location.pathname + location.search);
+  }
+  openHash();
+  window.addEventListener("hashchange", openHash);
   // for cloud.js: the live data, and a way to redraw after other people's changes arrive
   window.CC_APP = { S, toast, can, cloudSignIn, refresh: () => { applyTerms(false); refreshCohortFilter(); syncReps(); drawHeader(); if (!$("#modal").hidden) return; render(); } };
 })();

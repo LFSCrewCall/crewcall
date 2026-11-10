@@ -24,6 +24,8 @@ It's run by students and is not an official LFS service.
 | `docs/BACKUPS.md` | Nightly backups, and how to restore |
 | `docs/LFS-REQUEST.md` | Draft email asking LFS to OK the name, the mass email alias, privacy and safety contacts |
 | `supabase/schema.sql` | The database (`records`, `emails`) and its privacy rules, ready to paste into Supabase |
+| `supabase/functions/crewcall/index.ts` | The email, calendar and nightly server piece. Built from `tools/crewcall-function.ts` by `python3 tools/build_function.py`, which copies in the email designs, so rebuild after editing either |
+| `supabase/jobs.sql` | Starts the timers that run the server piece (every 10 minutes, hourly and nightly) |
 | `.github/workflows/backup.yml` | The nightly backup job. Move it to the private `crewcall-backups` repository (see `docs/SETUP.md`, step 9) |
 | `manifest.webmanifest`, `sw.js`, `icons/` | Let people add Crew Call to their phone's home screen |
 | `LICENSE` | The MIT licence for Crew Call (see Licence below) |
@@ -44,7 +46,7 @@ Crew Call uses open source and open data wherever it can, so it stays free: Leaf
 
 ## Status
 
-With `config.js` empty, Crew Call runs as a demo with sample people, and nothing is saved. Fill in `config.js` with a Supabase project (see `docs/SETUP.md`) and it becomes the live app: sign-in by emailed code, everything saved in the cloud, and the sample data is no longer shown. Emailed notifications, the digest, newsletter sending and calendar subscription links still need server jobs (listed in `docs/SETUP.md`).
+With `config.js` empty, Crew Call runs as a demo with sample people, and nothing is saved. Fill in `config.js` with a Supabase project (see `docs/SETUP.md`) and it becomes the live app: sign-in by emailed code, everything saved in the cloud, and the sample data is no longer shown. The demo stays available at the live address with `?demo` on the end. Emailed notifications, the digest, newsletter sending, calendar subscription links and the nightly clean-up run in one free Supabase Edge Function (`docs/SETUP.md`, step 10).
 
 ## Rules for this repository
 

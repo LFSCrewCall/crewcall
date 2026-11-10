@@ -4872,6 +4872,996 @@ window.CC_I18N = {
 "भाषा",
 "Idioma"
 ],
+"Crew Call is in a small pilot at the moment, so only invited testers can sign in. It opens to every LFS student soon.": [
+"Crew Call 目前正在小規模試行，只有受邀的測試者可以登入。很快就會開放給所有 LFS 學生。",
+"Crew Call 目前正在小规模试行，只有受邀的测试者可以登录。很快就会开放给所有 LFS 学生。",
+"Crew Call est en phase pilote restreinte : seuls les testeurs invités peuvent se connecter. Il sera bientôt ouvert à tous les étudiants de la LFS.",
+"Crew Call está en una prueba piloto reducida, así que solo pueden entrar los participantes invitados. Pronto se abrirá a todos los estudiantes de la LFS.",
+"Сейчас Crew Call работает в небольшом пилотном режиме, поэтому войти могут только приглашённые тестировщики. Скоро он откроется для всех студентов LFS.",
+"يعمل Crew Call حاليًا في مرحلة تجريبية محدودة، لذا لا يمكن تسجيل الدخول إلا للمختبرين المدعوين. سيُفتح قريبًا لجميع طلاب LFS.",
+"Crew Call अभी एक छोटे पायलट में है, इसलिए सिर्फ़ बुलाए गए टेस्टर ही साइन इन कर सकते हैं। यह जल्द ही LFS के सभी छात्रों के लिए खुलेगा।",
+"O Crew Call está em um piloto pequeno no momento, então só testadores convidados podem entrar. Em breve ele abre para todos os alunos da LFS."
+],
+"Who can sign in": [
+"誰可以登入",
+"谁可以登录",
+"Qui peut se connecter",
+"Quién puede entrar",
+"Кто может войти",
+"من يمكنه تسجيل الدخول",
+"कौन साइन इन कर सकता है",
+"Quem pode entrar"
+],
+"Pilot: only the people on the list": [
+"試行：只限名單上的人",
+"试行：只限名单上的人",
+"Pilote : seulement les personnes de la liste",
+"Piloto: solo las personas de la lista",
+"Пилот: только люди из списка",
+"تجريبي: الأشخاص المدرجون في القائمة فقط",
+"पायलट: सिर्फ़ लिस्ट वाले लोग",
+"Piloto: só as pessoas da lista"
+],
+"Open to every LFS student": [
+"開放給所有 LFS 學生",
+"开放给所有 LFS 学生",
+"Ouvert à tous les étudiants de la LFS",
+"Abierto a todos los estudiantes de la LFS",
+"Открыто для всех студентов LFS",
+"مفتوح لجميع طلاب LFS",
+"LFS के सभी छात्रों के लिए खुला",
+"Aberto a todos os alunos da LFS"
+],
+"Anyone with an LFS email can sign in. Guests still need an invite from a member.": [
+"任何有 LFS 電郵的人都可以登入。訪客仍需成員邀請。",
+"任何有 LFS 电邮的人都可以登录。访客仍需成员邀请。",
+"Toute personne avec une adresse LFS peut se connecter. Les invités ont toujours besoin de l’invitation d’un membre.",
+"Cualquiera con un correo de la LFS puede entrar. Los invitados siguen necesitando la invitación de un miembro.",
+"Войти может любой, у кого есть почта LFS. Гостям по-прежнему нужно приглашение от участника.",
+"يمكن لأي شخص لديه بريد LFS تسجيل الدخول. ولا يزال الضيوف بحاجة إلى دعوة من عضو.",
+"LFS ईमेल वाला कोई भी साइन इन कर सकता है। गेस्ट को अब भी किसी मेंबर का इनवाइट चाहिए।",
+"Qualquer pessoa com e-mail da LFS pode entrar. Convidados ainda precisam do convite de um membro."
+],
+"Admins, the people on the pilot list and guests that members invite can sign in. Anyone else is told Crew Call opens soon.": [
+"管理員、試行名單上的人，以及成員邀請的訪客可以登入。其他人會看到 Crew Call 即將開放的提示。",
+"管理员、试行名单上的人，以及成员邀请的访客可以登录。其他人会看到 Crew Call 即将开放的提示。",
+"Les admins, les personnes de la liste pilote et les invités des membres peuvent se connecter. Les autres voient que Crew Call ouvre bientôt.",
+"Pueden entrar los administradores, las personas de la lista piloto y los invitados de los miembros. A los demás se les avisa de que Crew Call abrirá pronto.",
+"Войти могут админы, люди из пилотного списка и гости, приглашённые участниками. Остальные увидят, что Crew Call скоро откроется.",
+"يمكن للمشرفين والأشخاص المدرجين في القائمة التجريبية والضيوف الذين يدعوهم الأعضاء تسجيل الدخول. أما الآخرون فيُبلَّغون بأن Crew Call سيُفتح قريبًا.",
+"एडमिन, पायलट लिस्ट वाले लोग और मेंबर के बुलाए गेस्ट साइन इन कर सकते हैं। बाक़ी लोगों को बताया जाता है कि Crew Call जल्द खुलेगा।",
+"Admins, as pessoas da lista piloto e os convidados dos membros podem entrar. Os demais veem que o Crew Call abre em breve."
+],
+"You need the People permission to change who can sign in.": [
+"你需要「成員」權限才能更改誰可以登入。",
+"你需要「成员」权限才能更改谁可以登录。",
+"Il faut la permission Personnes pour changer qui peut se connecter.",
+"Necesitas el permiso Personas para cambiar quién puede entrar.",
+"Чтобы менять, кто может войти, нужно право «Люди».",
+"تحتاج إلى صلاحية «الأشخاص» لتغيير من يمكنه تسجيل الدخول.",
+"कौन साइन इन कर सकता है, यह बदलने के लिए आपको लोग वाली अनुमति चाहिए।",
+"Você precisa da permissão Pessoas para mudar quem pode entrar."
+],
+"Pilot list": [
+"試行名單",
+"试行名单",
+"Liste pilote",
+"Lista piloto",
+"Пилотный список",
+"القائمة التجريبية",
+"पायलट लिस्ट",
+"Lista piloto"
+],
+"Paste LFS emails, one per line or separated by commas": [
+"貼上 LFS 電郵，每行一個或用逗號分隔",
+"粘贴 LFS 电邮，每行一个或用逗号分隔",
+"Collez des adresses LFS, une par ligne ou séparées par des virgules",
+"Pega correos de la LFS, uno por línea o separados por comas",
+"Вставьте адреса LFS, по одному в строке или через запятую",
+"الصق عناوين بريد LFS، عنوانًا في كل سطر أو مفصولة بفواصل",
+"LFS ईमेल पेस्ट करें, हर लाइन में एक या कॉमा से अलग करके",
+"Cole e-mails da LFS, um por linha ou separados por vírgulas"
+],
+"Emails to add to the pilot": [
+"要加入試行的電郵",
+"要加入试行的电邮",
+"Adresses à ajouter au pilote",
+"Correos que añadir al piloto",
+"Адреса для пилота",
+"عناوين البريد المراد إضافتها إلى التجربة",
+"पायलट में जोड़ने के लिए ईमेल",
+"E-mails para adicionar ao piloto"
+],
+"Add to the pilot": [
+"加入試行",
+"加入试行",
+"Ajouter au pilote",
+"Añadir al piloto",
+"Добавить в пилот",
+"أضف إلى التجربة",
+"पायलट में जोड़ें",
+"Adicionar ao piloto"
+],
+"Signed in": [
+"已登入",
+"已登录",
+"Connecté",
+"Ha entrado",
+"Вошёл",
+"سجّل الدخول",
+"साइन इन किया",
+"Entrou"
+],
+"Not yet": [
+"尚未",
+"尚未",
+"Pas encore",
+"Todavía no",
+"Пока нет",
+"ليس بعد",
+"अभी नहीं",
+"Ainda não"
+],
+"Nobody on the list yet.": [
+"名單上還沒有人。",
+"名单上还没有人。",
+"Personne sur la liste pour l’instant.",
+"Todavía no hay nadie en la lista.",
+"В списке пока никого нет.",
+"لا يوجد أحد في القائمة بعد.",
+"लिस्ट में अभी कोई नहीं है।",
+"Ainda não tem ninguém na lista."
+],
+"Adding someone doesn't email them. Send them the link yourself, for example on WhatsApp.": [
+"加入名單不會寄電郵給對方。請自己把連結傳給他們，例如用 WhatsApp。",
+"加入名单不会寄电邮给对方。请自己把链接传给他们，例如用 WhatsApp。",
+"Ajouter quelqu’un ne lui envoie pas d’e-mail. Envoyez-lui le lien vous-même, par exemple sur WhatsApp.",
+"Añadir a alguien no le envía ningún correo. Mándale tú el enlace, por ejemplo por WhatsApp.",
+"При добавлении человеку не приходит письмо. Отправьте ему ссылку сами, например в WhatsApp.",
+"لا تُرسل إضافة شخص ما بريدًا إليه. أرسل له الرابط بنفسك، عبر واتساب مثلًا.",
+"किसी को जोड़ने पर उन्हें ईमेल नहीं जाता। लिंक ख़ुद भेजें, जैसे WhatsApp पर।",
+"Adicionar alguém não envia e-mail para a pessoa. Mande o link você mesmo, por exemplo no WhatsApp."
+],
+"Copy the Crew Call link": [
+"複製 Crew Call 連結",
+"拷贝 Crew Call 链接",
+"Copier le lien de Crew Call",
+"Copiar el enlace de Crew Call",
+"Скопировать ссылку на Crew Call",
+"انسخ رابط Crew Call",
+"Crew Call का लिंक कॉपी करें",
+"Copiar o link do Crew Call"
+],
+"Open Crew Call to every LFS student?": [
+"要把 Crew Call 開放給所有 LFS 學生嗎？",
+"要把 Crew Call 开放给所有 LFS 学生吗？",
+"Ouvrir Crew Call à tous les étudiants de la LFS ?",
+"¿Abrir Crew Call a todos los estudiantes de la LFS?",
+"Открыть Crew Call для всех студентов LFS?",
+"هل تريد فتح Crew Call لجميع طلاب LFS؟",
+"Crew Call को LFS के सभी छात्रों के लिए खोलें?",
+"Abrir o Crew Call para todos os alunos da LFS?"
+],
+"Anyone with an LFS email will be able to sign in straight away. Make sure your email sender can handle the numbers first.": [
+"任何有 LFS 電郵的人都能立即登入。請先確認你的寄件服務能應付這個人數。",
+"任何有 LFS 电邮的人都能立即登录。请先确认你的寄件服务能应付这个人数。",
+"Toute personne avec une adresse LFS pourra se connecter tout de suite. Vérifiez d’abord que votre service d’envoi d’e-mails peut suivre.",
+"Cualquiera con un correo de la LFS podrá entrar enseguida. Antes, comprueba que tu servicio de envío de correos puede con ese volumen.",
+"Любой, у кого есть почта LFS, сможет сразу войти. Сначала убедитесь, что ваш сервис отправки писем справится с таким количеством.",
+"سيتمكن أي شخص لديه بريد LFS من تسجيل الدخول فورًا. تأكد أولًا من أن خدمة إرسال البريد لديك تتحمل هذا العدد.",
+"LFS ईमेल वाला कोई भी तुरंत साइन इन कर पाएगा। पहले पक्का कर लें कि आपकी ईमेल भेजने वाली सर्विस इतने लोगों को संभाल सकती है।",
+"Qualquer pessoa com e-mail da LFS vai poder entrar na hora. Antes, confira se o seu serviço de envio de e-mails aguenta esse volume."
+],
+"Open it up": [
+"開放",
+"开放",
+"Ouvrir",
+"Abrir",
+"Открыть",
+"افتحه",
+"खोलें",
+"Abrir"
+],
+"Crew Call is open to every LFS student": [
+"Crew Call 已開放給所有 LFS 學生",
+"Crew Call 已开放给所有 LFS 学生",
+"Crew Call est ouvert à tous les étudiants de la LFS",
+"Crew Call está abierto a todos los estudiantes de la LFS",
+"Crew Call открыт для всех студентов LFS",
+"Crew Call مفتوح الآن لجميع طلاب LFS",
+"Crew Call अब LFS के सभी छात्रों के लिए खुला है",
+"O Crew Call está aberto a todos os alunos da LFS"
+],
+"Crew Call is back in pilot mode": [
+"Crew Call 已回到試行模式",
+"Crew Call 已回到试行模式",
+"Crew Call est repassé en mode pilote",
+"Crew Call ha vuelto al modo piloto",
+"Crew Call снова в пилотном режиме",
+"عاد Crew Call إلى الوضع التجريبي",
+"Crew Call फिर से पायलट मोड में है",
+"O Crew Call voltou ao modo piloto"
+],
+"Crew Call is in pilot mode": [
+"Crew Call 正在試行模式",
+"Crew Call 正在试行模式",
+"Crew Call est en mode pilote",
+"Crew Call está en modo piloto",
+"Crew Call в пилотном режиме",
+"Crew Call في الوضع التجريبي",
+"Crew Call पायलट मोड में है",
+"O Crew Call está em modo piloto"
+],
+"Only LFS addresses go on the pilot list. Invite anyone else as a guest from My shoots.": [
+"試行名單只限 LFS 電郵。其他人請在「我的拍攝」以訪客身分邀請。",
+"试行名单只限 LFS 电邮。其他人请在「我的拍摄」以访客身分邀请。",
+"Seules les adresses LFS vont sur la liste pilote. Invitez les autres comme invités depuis Mes tournages.",
+"En la lista piloto solo van correos de la LFS. Invita a los demás como invitados desde Mis rodajes.",
+"В пилотный список входят только адреса LFS. Остальных пригласите как гостей в разделе «Мои съёмки».",
+"لا تُضاف إلى القائمة التجريبية إلا عناوين LFS. ادعُ الآخرين كضيوف من «تصويراتي».",
+"पायलट लिस्ट में सिर्फ़ LFS ईमेल जाते हैं। बाक़ी लोगों को मेरे शूट से गेस्ट के तौर पर बुलाएँ।",
+"Só endereços da LFS entram na lista piloto. Convide os demais como convidados em Minhas filmagens."
+],
+"Added to the pilot list": [
+"已加入試行名單",
+"已加入试行名单",
+"Ajouté à la liste pilote",
+"Añadido a la lista piloto",
+"Добавлено в пилотный список",
+"أُضيف إلى القائمة التجريبية",
+"पायलट लिस्ट में जोड़ा गया",
+"Adicionado à lista piloto"
+],
+"Removed from the pilot list": [
+"已從試行名單移除",
+"已从试行名单移除",
+"Retiré de la liste pilote",
+"Quitado de la lista piloto",
+"Удалено из пилотного списка",
+"أُزيل من القائمة التجريبية",
+"पायलट लिस्ट से हटाया गया",
+"Removido da lista piloto"
+],
+"Link copied": [
+"已複製連結",
+"已拷贝链接",
+"Lien copié",
+"Enlace copiado",
+"Ссылка скопирована",
+"نُسخ الرابط",
+"लिंक कॉपी हो गया",
+"Link copiado"
+],
+"The code is kept on GitHub and the site is hosted on GitHub Pages. The database and sign-in run on Supabase's hosted service, although Supabase's own software is open source. Emails go through whichever sender the admins set up. We only use free plans, and Crew Call can move away from any of them.": [
+"程式碼存放在 GitHub，網站由 GitHub Pages 託管。資料庫和登入使用 Supabase 的託管服務，不過 Supabase 本身的軟體是開源的。電郵經由管理員設定的寄件服務寄出。我們只使用免費方案，Crew Call 隨時可以改用其他服務。",
+"代码存放在 GitHub，网站由 GitHub Pages 托管。数据库和登录使用 Supabase 的托管服务，不过 Supabase 本身的软件是开源的。电邮经由管理员设置的寄件服务寄出。我们只使用免费方案，Crew Call 随时可以改用其他服务。",
+"Le code est sur GitHub et le site est hébergé sur GitHub Pages. La base de données et la connexion passent par le service hébergé de Supabase, même si le logiciel de Supabase est lui-même open source. Les e-mails partent par le service d’envoi choisi par les admins. Nous n’utilisons que des offres gratuites, et Crew Call peut quitter chacune d’elles.",
+"El código está en GitHub y la web se aloja en GitHub Pages. La base de datos y el inicio de sesión funcionan con el servicio alojado de Supabase, aunque el software de Supabase es de código abierto. Los correos salen por el servicio de envío que configuren los administradores. Solo usamos planes gratuitos, y Crew Call puede dejar cualquiera de ellos.",
+"Код хранится на GitHub, а сайт размещён на GitHub Pages. База данных и вход работают на хостинге Supabase, хотя само ПО Supabase открытое. Письма отправляются через сервис, который настроили админы. Мы пользуемся только бесплатными тарифами, и Crew Call может уйти с любого из них.",
+"يُحفظ الرمز البرمجي على GitHub ويُستضاف الموقع على GitHub Pages. تعمل قاعدة البيانات وتسجيل الدخول على خدمة Supabase المستضافة، مع أن برنامج Supabase نفسه مفتوح المصدر. تُرسل الرسائل عبر خدمة الإرسال التي يعدّها المشرفون. لا نستخدم إلا الخطط المجانية، ويمكن لـ Crew Call الانتقال عن أي منها.",
+"कोड GitHub पर रखा है और साइट GitHub Pages पर होस्ट है। डेटाबेस और साइन इन Supabase की होस्टेड सर्विस पर चलते हैं, हालाँकि Supabase का अपना सॉफ़्टवेयर ओपन सोर्स है। ईमेल उसी सर्विस से जाते हैं जो एडमिन सेट करते हैं। हम सिर्फ़ फ़्री प्लान इस्तेमाल करते हैं, और Crew Call इनमें से किसी को भी छोड़ सकता है।",
+"O código fica no GitHub e o site é hospedado no GitHub Pages. O banco de dados e o login rodam no serviço hospedado do Supabase, embora o software do próprio Supabase seja de código aberto. Os e-mails saem pelo serviço de envio que os admins configurarem. Só usamos planos gratuitos, e o Crew Call pode sair de qualquer um deles."
+],
+"This is the demo: sample people, and nothing is saved.": [
+"這是示範版：使用範例人物，不會儲存任何內容。",
+"这是示范版：使用范例人物，不会保存任何内容。",
+"Ceci est la démo : des personnes fictives, et rien n’est enregistré.",
+"Esto es la demo: personas de ejemplo, y no se guarda nada.",
+"Это демо: вымышленные люди, ничего не сохраняется.",
+"هذا عرض تجريبي: أشخاص افتراضيون، ولا يُحفظ أي شيء.",
+"यह डेमो है: नमूने के लोग, और कुछ भी सेव नहीं होता।",
+"Esta é a demo: pessoas de exemplo, e nada é salvo."
+],
+"Go to the real Crew Call": [
+"前往正式版 Crew Call",
+"前往正式版 Crew Call",
+"Aller au vrai Crew Call",
+"Ir al Crew Call real",
+"Перейти в настоящий Crew Call",
+"انتقل إلى Crew Call الحقيقي",
+"असली Crew Call पर जाएँ",
+"Ir para o Crew Call de verdade"
+],
+"Try the demo": [
+"試用示範版",
+"试用示范版",
+"Essayer la démo",
+"Probar la demo",
+"Попробовать демо",
+"جرّب العرض التجريبي",
+"डेमो आज़माएँ",
+"Experimentar a demo"
+],
+"Want a look first?": [
+"想先看看？",
+"想先看看？",
+"Envie de jeter un œil d’abord ?",
+"¿Quieres echar un vistazo antes?",
+"Хотите сначала посмотреть?",
+"هل تريد إلقاء نظرة أولًا؟",
+"पहले देखना चाहते हैं?",
+"Quer dar uma olhada antes?"
+],
+"Try the demo with sample people": [
+"用範例人物試用示範版",
+"用范例人物试用示范版",
+"Essayer la démo avec des personnes fictives",
+"Probar la demo con personas de ejemplo",
+"Попробовать демо с вымышленными людьми",
+"جرّب العرض التجريبي بأشخاص افتراضيين",
+"नमूने के लोगों के साथ डेमो आज़माएँ",
+"Experimentar a demo com pessoas de exemplo"
+],
+"Sample people, and nothing is saved.": [
+"使用範例人物，不會儲存任何內容。",
+"使用范例人物，不会保存任何内容。",
+"Des personnes fictives, et rien n’est enregistré.",
+"Personas de ejemplo, y no se guarda nada.",
+"Вымышленные люди, ничего не сохраняется.",
+"أشخاص افتراضيون، ولا يُحفظ أي شيء.",
+"नमूने के लोग, और कुछ भी सेव नहीं होता।",
+"Pessoas de exemplo, e nada é salvo."
+],
+"Add a producer": [
+"新增製片人",
+"添加制片人",
+"Ajouter un producteur",
+"Añadir un productor",
+"Добавить продюсера",
+"إضافة منتج",
+"प्रोड्यूसर जोड़ें",
+"Adicionar um produtor"
+],
+"Already know who's doing a role? Type their name to put them down. People who list the role come first. Use Brief to add notes for a head of department.": [
+"已經知道誰負責某個職位？輸入名字即可填上。列出該職位的人會排在前面。用「簡報」為部門主管加上說明。",
+"已经知道谁负责某个职位？输入名字即可填上。列出该职位的人会排在前面。用「演示文稿」为部门主管加上说明。",
+"Vous savez déjà qui occupe un poste ? Tapez son nom pour l’inscrire. Les personnes qui proposent ce poste apparaissent en premier. Utilisez Brief pour ajouter des notes pour un chef de poste.",
+"¿Ya sabes quién hará un puesto? Escribe su nombre para apuntarlo. Primero salen quienes indican ese puesto. Usa Brief para añadir notas para un jefe de departamento.",
+"Уже знаете, кто займёт роль? Введите имя, чтобы записать. Сначала идут те, у кого указана эта роль. В «Бриф» можно добавить заметки для руководителя цеха.",
+"هل تعرف من سيتولى دورًا ما؟ اكتب اسمه لتسجيله. يظهر أولًا من يذكرون هذا الدور. استخدم «الموجز» لإضافة ملاحظات لرئيس القسم.",
+"पहले से पता है कि कोई भूमिका कौन करेगा? नाम लिखकर उन्हें जोड़ें। जिनकी प्रोफ़ाइल में यह भूमिका है, वे पहले दिखते हैं। विभाग प्रमुख के लिए नोट्स जोड़ने के लिए ब्रीफ़ का उपयोग करें।",
+"Já sabe quem vai fazer uma função? Digite o nome para registrar. Quem lista a função aparece primeiro. Use Briefing para adicionar notas para um chefe de departamento."
+],
+"Brief": [
+"簡報",
+"演示文稿",
+"Brief",
+"Brief",
+"Бриф",
+"الموجز",
+"ब्रीफ़",
+"Briefing"
+],
+"Brief link": [
+"簡報連結",
+"演示文稿链接",
+"Lien du brief",
+"Enlace del brief",
+"Ссылка на бриф",
+"رابط الموجز",
+"ब्रीफ़ लिंक",
+"Link do briefing"
+],
+"Brief ✓": [
+"簡報 ✓",
+"演示文稿 ✓",
+"Brief ✓",
+"Brief ✓",
+"Бриф ✓",
+"الموجز ✓",
+"ब्रीफ़ ✓",
+"Briefing ✓"
+],
+"Couldn't get your link. Try again in a minute.": [
+"無法取得你的連結，請稍後再試。",
+"无法取得你的链接，请稍后再试。",
+"Impossible d’obtenir votre lien. Réessayez dans une minute.",
+"No se pudo obtener tu enlace. Inténtalo de nuevo en un minuto.",
+"Не удалось получить ссылку. Попробуйте через минуту.",
+"تعذّر الحصول على رابطك. حاول مجددًا بعد دقيقة.",
+"आपका लिंक नहीं मिल सका। एक मिनट में फिर कोशिश करें।",
+"Não foi possível obter seu link. Tente de novo em um minuto."
+],
+"Couldn't make a new link": [
+"無法建立新連結",
+"无法创建新链接",
+"Impossible de créer un nouveau lien",
+"No se pudo crear un enlace nuevo",
+"Не удалось создать новую ссылку",
+"تعذّر إنشاء رابط جديد",
+"नया लिंक नहीं बन सका",
+"Não foi possível criar um novo link"
+],
+"Delete old profiles automatically each night": [
+"每晚自動刪除舊個人檔案",
+"每晚自动删除旧个人文件",
+"Supprimer automatiquement les anciens profils chaque nuit",
+"Eliminar los perfiles antiguos automáticamente cada noche",
+"Удалять старые профили автоматически каждую ночь",
+"حذف الملفات الشخصية القديمة تلقائيًا كل ليلة",
+"हर रात पुरानी प्रोफ़ाइल अपने-आप हटाएँ",
+"Excluir perfis antigos automaticamente toda noite"
+],
+"Director (replaces the current director)": [
+"導演（取代目前的導演）",
+"导演（取代目前的导演）",
+"Réalisateur (remplace le réalisateur actuel)",
+"Director (sustituye al director actual)",
+"Режиссёр (заменяет текущего)",
+"المخرج (يحل محل المخرج الحالي)",
+"निर्देशक (मौजूदा निर्देशक की जगह)",
+"Diretor (substitui o diretor atual)"
+],
+"Each night the server emails a warning 30 days before, keeps the profile if they sign in, and then deletes it.": [
+"伺服器每晚運作：提前 30 天寄出提醒，若對方登入就保留，否則刪除。",
+"服务器每晚运作：提前 30 天寄出提醒，若对方登录就保留，否则删除。",
+"Chaque nuit, le serveur envoie un avertissement 30 jours avant, garde le profil si la personne se connecte, puis le supprime.",
+"Cada noche el servidor envía un aviso 30 días antes, conserva el perfil si la persona inicia sesión y, si no, lo elimina.",
+"Каждую ночь сервер отправляет предупреждение за 30 дней, сохраняет профиль, если человек вошёл, а затем удаляет его.",
+"يرسل الخادم كل ليلة تحذيرًا قبل 30 يومًا، ويحتفظ بالملف إن سجّل الشخص دخوله، ثم يحذفه.",
+"सर्वर हर रात 30 दिन पहले चेतावनी ईमेल भेजता है, साइन इन करने पर प्रोफ़ाइल रखता है, और फिर उसे हटा देता है।",
+"Toda noite o servidor envia um aviso 30 dias antes, mantém o perfil se a pessoa entrar e depois o exclui."
+],
+"Email, if they're not on Crew Call": [
+"電子郵件（若對方不在 Crew Call 上）",
+"电子邮件（若对方不在 Crew Call 上）",
+"E-mail, s’il n’est pas sur Crew Call",
+"Correo, si no está en Crew Call",
+"Email, если человека нет в Crew Call",
+"البريد الإلكتروني، إن لم يكن على Crew Call",
+"ईमेल, अगर वे Crew Call पर नहीं हैं",
+"E-mail, se a pessoa não estiver no Crew Call"
+],
+"Getting your link…": [
+"正在取得你的連結…",
+"正在取得你的链接…",
+"Récupération de votre lien…",
+"Obteniendo tu enlace…",
+"Получаем ссылку…",
+"جارٍ الحصول على رابطك…",
+"आपका लिंक लाया जा रहा है…",
+"Obtendo seu link…"
+],
+"Hand over": [
+"移交",
+"移交",
+"Transférer",
+"Traspasar",
+"Передать",
+"تسليم",
+"सौंपें",
+"Transferir"
+],
+"Hand over to": [
+"移交給",
+"移交给",
+"Transférer à",
+"Traspasar a",
+"Передать",
+"تسليم إلى",
+"इन्हें सौंपें",
+"Transferir para"
+],
+"Head of department": [
+"部門主管",
+"部门主管",
+"Chef de poste",
+"Jefe de departamento",
+"Руководитель цеха",
+"رئيس القسم",
+"विभाग प्रमुख",
+"Chefe de departamento"
+],
+"HOD": [
+"主管",
+"主管",
+"Chef",
+"Jefe",
+"Рук.",
+"رئيس",
+"प्रमुख",
+"Chefe"
+],
+"Locked in": [
+"已確定",
+"已确定",
+"Confirmé",
+"Confirmado",
+"Утверждено",
+"مؤكَّد",
+"पक्का",
+"Confirmado"
+],
+"New link made. Subscribe again with it; the old one has stopped working.": [
+"已建立新連結。請用它重新訂閱；舊連結已失效。",
+"已创建新链接。请用它重新订阅；旧链接已失效。",
+"Nouveau lien créé. Abonnez-vous à nouveau avec ; l’ancien ne fonctionne plus.",
+"Enlace nuevo creado. Suscríbete otra vez con él; el anterior ya no funciona.",
+"Новая ссылка создана. Подпишитесь заново; старая больше не работает.",
+"تم إنشاء رابط جديد. اشترك مجددًا به؛ لم يعد الرابط القديم يعمل.",
+"नया लिंक बन गया। इससे फिर सब्सक्राइब करें; पुराना लिंक अब काम नहीं करता।",
+"Novo link criado. Assine de novo com ele; o antigo parou de funcionar."
+],
+"No producer yet? Leave this empty and a Producer role is added for people to offer.": [
+"還沒有製片人？留空即可，系統會新增製片人職位讓大家報名。",
+"还没有制片人？留空即可，系统会添加制片人职位让大家报名。",
+"Pas encore de producteur ? Laissez vide et un poste de producteur sera ajouté pour que des personnes se proposent.",
+"¿Aún sin productor? Déjalo vacío y se añade un puesto de Productor para que la gente se ofrezca.",
+"Продюсера пока нет? Оставьте пустым — добавится роль продюсера, на которую можно откликнуться.",
+"لا يوجد منتج بعد؟ اترك هذا فارغًا وسيُضاف دور منتج ليتقدم له الناس.",
+"अभी कोई प्रोड्यूसर नहीं? इसे खाली छोड़ें, लोगों के आवेदन के लिए प्रोड्यूसर भूमिका जुड़ जाएगी।",
+"Ainda sem produtor? Deixe vazio e uma função de Produtor será adicionada para as pessoas se oferecerem."
+],
+"Nothing is deleted on its own. The server still emails the warning; delete people by hand below.": [
+"不會自動刪除任何人。伺服器仍會寄出提醒；請在下方手動刪除。",
+"不会自动删除任何人。服务器仍会寄出提醒；请在下方手动删除。",
+"Rien n’est supprimé automatiquement. Le serveur envoie toujours l’avertissement ; supprimez les personnes à la main ci-dessous.",
+"No se elimina nada automáticamente. El servidor sigue enviando el aviso; elimina a las personas a mano abajo.",
+"Ничего не удаляется само. Сервер всё равно отправляет предупреждение; удаляйте вручную ниже.",
+"لا يُحذف شيء تلقائيًا. يظل الخادم يرسل التحذير؛ احذف الأشخاص يدويًا أدناه.",
+"कुछ भी अपने-आप नहीं हटता। सर्वर फिर भी चेतावनी भेजता है; नीचे हाथ से हटाएँ।",
+"Nada é excluído sozinho. O servidor ainda envia o aviso; exclua as pessoas manualmente abaixo."
+],
+"The owner and admins are never removed.": [
+"擁有者和管理員永遠不會被移除。",
+"拥有者和管理员永远不会被移除。",
+"Le propriétaire et les admins ne sont jamais supprimés.",
+"El propietario y los administradores nunca se eliminan.",
+"Владелец и администраторы никогда не удаляются.",
+"لا يُحذف المالك والمشرفون أبدًا.",
+"मालिक और एडमिन कभी नहीं हटाए जाते।",
+"O dono e os administradores nunca são removidos."
+],
+"On Crew Call": [
+"在 Crew Call 上",
+"在 Crew Call 上",
+"Sur Crew Call",
+"En Crew Call",
+"В Crew Call",
+"على Crew Call",
+"Crew Call पर",
+"No Crew Call"
+],
+"Open: anyone can offer. Or type a name": [
+"開放：任何人都可報名。或輸入名字",
+"开放：任何人都可报名。或输入名字",
+"Ouvert : tout le monde peut se proposer. Ou tapez un nom",
+"Abierto: cualquiera puede ofrecerse. O escribe un nombre",
+"Открыто: откликнуться может любой. Или введите имя",
+"مفتوح: يمكن لأي شخص التقدم. أو اكتب اسمًا",
+"खुला: कोई भी आवेदन कर सकता है। या नाम लिखें",
+"Aberto: qualquer pessoa pode se oferecer. Ou digite um nome"
+],
+"Pick a member or type a name": [
+"選擇成員或輸入名字",
+"选择成员或输入名字",
+"Choisissez un membre ou tapez un nom",
+"Elige a un miembro o escribe un nombre",
+"Выберите участника или введите имя",
+"اختر عضوًا أو اكتب اسمًا",
+"सदस्य चुनें या नाम लिखें",
+"Escolha um membro ou digite um nome"
+],
+"pick a member or type a name": [
+"選擇成員或輸入名字",
+"选择成员或输入名字",
+"choisissez un membre ou tapez un nom",
+"elige a un miembro o escribe un nombre",
+"выберите участника или введите имя",
+"اختر عضوًا أو اكتب اسمًا",
+"सदस्य चुनें या नाम लिखें",
+"escolha um membro ou digite um nome"
+],
+"Pick someone from the list. They need to be on Crew Call to manage a project.": [
+"請從清單中選人。對方必須在 Crew Call 上才能管理專案。",
+"请从清单中选人。对方必须在 Crew Call 上才能管理项目。",
+"Choisissez quelqu’un dans la liste. La personne doit être sur Crew Call pour gérer un projet.",
+"Elige a alguien de la lista. Debe estar en Crew Call para gestionar un proyecto.",
+"Выберите человека из списка. Чтобы управлять проектом, он должен быть в Crew Call.",
+"اختر شخصًا من القائمة. يجب أن يكون على Crew Call لإدارة مشروع.",
+"सूची से किसी को चुनें। प्रोजेक्ट संभालने के लिए उनका Crew Call पर होना ज़रूरी है।",
+"Escolha alguém da lista. A pessoa precisa estar no Crew Call para gerenciar um projeto."
+],
+"Pick someone other than yourself.": [
+"請選擇你以外的人。",
+"请选择你以外的人。",
+"Choisissez quelqu’un d’autre que vous.",
+"Elige a alguien que no seas tú.",
+"Выберите кого-то другого.",
+"اختر شخصًا غيرك.",
+"अपने अलावा किसी और को चुनें।",
+"Escolha alguém que não seja você."
+],
+"Pick the director from the list if they're on Crew Call, or add their email.": [
+"若導演在 Crew Call 上，請從清單中選擇，否則加上其電子郵件。",
+"若导演在 Crew Call 上，请从清单中选择，否则加上其电子邮件。",
+"Choisissez le réalisateur dans la liste s’il est sur Crew Call, sinon ajoutez son e-mail.",
+"Elige al director de la lista si está en Crew Call, o añade su correo.",
+"Выберите режиссёра из списка, если он в Crew Call, или добавьте его email.",
+"اختر المخرج من القائمة إن كان على Crew Call، أو أضف بريده.",
+"अगर निर्देशक Crew Call पर हैं तो सूची से चुनें, वरना उनका ईमेल जोड़ें।",
+"Escolha o diretor na lista se ele estiver no Crew Call, ou adicione o e-mail."
+],
+"Portfolio": [
+"作品集",
+"作品集",
+"Portfolio",
+"Portafolio",
+"Портфолио",
+"ملف الأعمال",
+"पोर्टफ़ोलियो",
+"Portfólio"
+],
+"Portfolio links": [
+"作品集連結",
+"作品集链接",
+"Liens du portfolio",
+"Enlaces del portafolio",
+"Ссылки на портфолио",
+"روابط ملف الأعمال",
+"पोर्टफ़ोलियो लिंक",
+"Links do portfólio"
+],
+"Producer (added alongside any other producers)": [
+"製片人（與其他製片人並列）",
+"制片人（与其他制片人并列）",
+"Producteur (ajouté aux autres producteurs)",
+"Productor (se añade junto a los demás)",
+"Продюсер (добавляется к остальным)",
+"منتج (يُضاف إلى المنتجين الآخرين)",
+"प्रोड्यूसर (बाकी प्रोड्यूसरों के साथ जुड़ता है)",
+"Produtor (adicionado junto aos outros)"
+],
+"Producers": [
+"製片人",
+"制片人",
+"Producteurs",
+"Productores",
+"Продюсеры",
+"المنتجون",
+"प्रोड्यूसर",
+"Produtores"
+],
+"Showreel (Vimeo or YouTube)": [
+"作品集影片（Vimeo 或 YouTube）",
+"作品集视频（Vimeo 或 YouTube）",
+"Bande démo (Vimeo ou YouTube)",
+"Showreel (Vimeo o YouTube)",
+"Шоурил (Vimeo или YouTube)",
+"عرض الأعمال (Vimeo أو YouTube)",
+"शोरील (Vimeo या YouTube)",
+"Showreel (Vimeo ou YouTube)"
+],
+"Sign in to get your calendar link.": [
+"登入以取得你的行事曆連結。",
+"登录以取得你的行事历链接。",
+"Connectez-vous pour obtenir votre lien de calendrier.",
+"Inicia sesión para obtener tu enlace de calendario.",
+"Войдите, чтобы получить ссылку на календарь.",
+"سجّل الدخول للحصول على رابط تقويمك.",
+"अपना कैलेंडर लिंक पाने के लिए साइन इन करें।",
+"Entre para obter seu link de calendário."
+],
+"Sign in to read the brief.": [
+"登入以閱讀簡報。",
+"登录以阅读演示文稿。",
+"Connectez-vous pour lire le brief.",
+"Inicia sesión para leer el brief.",
+"Войдите, чтобы прочитать бриф.",
+"سجّل الدخول لقراءة الموجز.",
+"ब्रीफ़ पढ़ने के लिए साइन इन करें।",
+"Entre para ler o briefing."
+],
+"Start typing a name": [
+"開始輸入名字",
+"开始输入名字",
+"Commencez à taper un nom",
+"Empieza a escribir un nombre",
+"Начните вводить имя",
+"ابدأ بكتابة اسم",
+"नाम लिखना शुरू करें",
+"Comece a digitar um nome"
+],
+"Step down": [
+"退出",
+"退出",
+"Me retirer",
+"Retirarme",
+"Отказаться",
+"الانسحاب",
+"हट जाएँ",
+"Sair da função"
+],
+"Take me off the project in that role": [
+"將我從該專案的此角色移除",
+"将我从该项目的此角色移除",
+"Me retirer du projet dans ce rôle",
+"Quitarme del proyecto en ese papel",
+"Убрать меня из проекта в этой роли",
+"أزلني من المشروع في هذا الدور",
+"मुझे इस भूमिका में प्रोजेक्ट से हटा दें",
+"Me tirar do projeto nessa função"
+],
+"That didn't work": [
+"沒有成功",
+"没有成功",
+"Ça n’a pas marché",
+"No ha funcionado",
+"Не получилось",
+"لم ينجح ذلك",
+"यह काम नहीं किया",
+"Não funcionou"
+],
+"That link isn't a web address.": [
+"那個連結不是網址。",
+"那个链接不是网址。",
+"Ce lien n’est pas une adresse web.",
+"Ese enlace no es una dirección web.",
+"Это не веб-адрес.",
+"هذا الرابط ليس عنوان ويب.",
+"यह लिंक वेब पता नहीं है।",
+"Esse link não é um endereço da web."
+],
+"That project isn't on Crew Call any more": [
+"該專案已不在 Crew Call 上",
+"该项目已不在 Crew Call 上",
+"Ce projet n’est plus sur Crew Call",
+"Ese proyecto ya no está en Crew Call",
+"Этого проекта больше нет в Crew Call",
+"لم يعد هذا المشروع على Crew Call",
+"यह प्रोजेक्ट अब Crew Call पर नहीं है",
+"Esse projeto não está mais no Crew Call"
+],
+"The role opens again for others to offer.": [
+"該職位會重新開放給其他人報名。",
+"该职位会重新开放给其他人报名。",
+"Le poste est rouvert pour que d’autres se proposent.",
+"El puesto se abre de nuevo para que otros se ofrezcan.",
+"Роль снова откроется для откликов.",
+"يُفتح الدور مجددًا ليتقدم له آخرون.",
+"भूमिका दूसरों के आवेदन के लिए फिर खुल जाती है।",
+"A função abre de novo para outras pessoas se oferecerem."
+],
+"The roles, kit, credits and skills you add, your bio and portfolio links": [
+"你新增的職位、器材、作品與技能、自我介紹和作品集連結",
+"你添加的职位、器材、作品与技能、自我介绍和作品集链接",
+"Les postes, le matériel, les crédits et les compétences que vous ajoutez, votre bio et vos liens de portfolio",
+"Los puestos, el equipo, los créditos y las habilidades que añadas, tu biografía y los enlaces de tu portafolio",
+"Роли, техника, работы и навыки, которые вы добавляете, ваше био и ссылки на портфолио",
+"الأدوار والمعدات والأعمال والمهارات التي تضيفها، ونبذتك وروابط ملف أعمالك",
+"आपकी जोड़ी गई भूमिकाएँ, उपकरण, क्रेडिट और कौशल, आपका परिचय और पोर्टफ़ोलियो लिंक",
+"As funções, o equipamento, os créditos e as habilidades que você adiciona, sua bio e os links do portfólio"
+],
+"This is a preview. The email comes at the time you picked, and each button opens the shoot in Crew Call.": [
+"這是預覽。電子郵件會在你選的時間寄出，每個按鈕都會在 Crew Call 開啟該拍攝。",
+"这是预览。电子邮件会在你选的时间寄出，每个按钮都会在 Crew Call 打开该拍摄。",
+"Ceci est un aperçu. L’e-mail arrive à l’heure choisie, et chaque bouton ouvre le tournage dans Crew Call.",
+"Esto es una vista previa. El correo llega a la hora que elegiste y cada botón abre el rodaje en Crew Call.",
+"Это предпросмотр. Письмо придёт в выбранное время, а каждая кнопка открывает съёмку в Crew Call.",
+"هذه معاينة. يصل البريد في الوقت الذي اخترته، وكل زر يفتح التصوير في Crew Call.",
+"यह पूर्वावलोकन है। ईमेल आपके चुने समय पर आता है, और हर बटन Crew Call में शूट खोलता है।",
+"Esta é uma prévia. O e-mail chega no horário escolhido, e cada botão abre a filmagem no Crew Call."
+],
+"Demo preview. The live app sends this at the time you picked, and each button opens the shoot in Crew Call.": [
+"示範預覽。正式版會在你選的時間寄出，每個按鈕都會在 Crew Call 開啟該拍攝。",
+"示范预览。正式版会在你选的时间寄出，每个按钮都会在 Crew Call 打开该拍摄。",
+"Aperçu de démo. L’app réelle l’envoie à l’heure choisie, et chaque bouton ouvre le tournage dans Crew Call.",
+"Vista previa de demo. La app real lo envía a la hora que elegiste y cada botón abre el rodaje en Crew Call.",
+"Демо-предпросмотр. Рабочее приложение отправит это в выбранное время, а каждая кнопка открывает съёмку в Crew Call.",
+"معاينة تجريبية. يرسل التطبيق الفعلي هذا في الوقت الذي اخترته، وكل زر يفتح التصوير في Crew Call.",
+"डेमो पूर्वावलोकन। असली ऐप इसे आपके चुने समय पर भेजता है, और हर बटन Crew Call में शूट खोलता है।",
+"Prévia da demo. O app real envia isso no horário escolhido, e cada botão abre a filmagem no Crew Call."
+],
+"Demo: calendar links work in the live app. Use Download .ics here.": [
+"示範：行事曆連結在正式版可用。這裡請用「下載 .ics」。",
+"示范：行事历链接在正式版可用。这里请用「下载 .ics」。",
+"Démo : les liens de calendrier fonctionnent dans l’app réelle. Utilisez Télécharger .ics ici.",
+"Demo: los enlaces de calendario funcionan en la app real. Aquí usa Descargar .ics.",
+"Демо: ссылки на календарь работают в рабочем приложении. Здесь используйте «Скачать .ics».",
+"تجريبي: تعمل روابط التقويم في التطبيق الفعلي. استخدم تنزيل ‎.ics هنا.",
+"डेमो: कैलेंडर लिंक असली ऐप में काम करते हैं। यहाँ .ics डाउनलोड करें।",
+"Demo: os links de calendário funcionam no app real. Aqui, use Baixar .ics."
+],
+"Demo: these links work in the live app. Here you can download a one-off file instead. A file won't update itself.": [
+"示範：這些連結在正式版可用。這裡可改為下載一次性檔案，檔案不會自動更新。",
+"示范：这些链接在正式版可用。这里可改为下载一次性文件，文件不会自动更新。",
+"Démo : ces liens fonctionnent dans l’app réelle. Ici, vous pouvez télécharger un fichier ponctuel. Un fichier ne se met pas à jour tout seul.",
+"Demo: estos enlaces funcionan en la app real. Aquí puedes descargar un archivo puntual. Un archivo no se actualiza solo.",
+"Демо: эти ссылки работают в рабочем приложении. Здесь можно скачать разовый файл. Файл сам не обновляется.",
+"تجريبي: تعمل هذه الروابط في التطبيق الفعلي. يمكنك هنا تنزيل ملف لمرة واحدة، والملف لا يتحدث تلقائيًا.",
+"डेमो: ये लिंक असली ऐप में काम करते हैं। यहाँ एक बार की फ़ाइल डाउनलोड कर सकते हैं। फ़ाइल अपने-आप अपडेट नहीं होती।",
+"Demo: esses links funcionam no app real. Aqui você pode baixar um arquivo avulso. Um arquivo não se atualiza sozinho."
+],
+"Turned off nightly clean-up of old profiles": [
+"已關閉每晚清理舊個人檔案",
+"已关闭每晚清理旧个人文件",
+"Nettoyage nocturne des anciens profils désactivé",
+"Limpieza nocturna de perfiles antiguos desactivada",
+"Ночная очистка старых профилей выключена",
+"تم إيقاف التنظيف الليلي للملفات القديمة",
+"पुरानी प्रोफ़ाइलों की रात की सफ़ाई बंद की",
+"Limpeza noturna de perfis antigos desativada"
+],
+"Turned on nightly clean-up of old profiles": [
+"已開啟每晚清理舊個人檔案",
+"已打开每晚清理旧个人文件",
+"Nettoyage nocturne des anciens profils activé",
+"Limpieza nocturna de perfiles antiguos activada",
+"Ночная очистка старых профилей включена",
+"تم تشغيل التنظيف الليلي للملفات القديمة",
+"पुरानी प्रोफ़ाइलों की रात की सफ़ाई चालू की",
+"Limpeza noturna de perfis antigos ativada"
+],
+"Use this when the producer or director changes. The new person can edit the project, manage crew and see requests. Everyone else on the project keeps their place.": [
+"製片人或導演更換時使用。新的人可以編輯專案、管理劇組和查看請求。專案上的其他人保持不變。",
+"制片人或导演更换时使用。新的人可以编辑项目、管理剧组和查看请求。项目上的其他人保持不变。",
+"À utiliser quand le producteur ou le réalisateur change. La nouvelle personne peut modifier le projet, gérer l’équipe et voir les demandes. Les autres membres gardent leur place.",
+"Úsalo cuando cambie el productor o el director. La nueva persona puede editar el proyecto, gestionar el equipo y ver las solicitudes. El resto conserva su puesto.",
+"Используйте, когда меняется продюсер или режиссёр. Новый человек сможет редактировать проект, управлять группой и видеть заявки. Остальные сохраняют свои места.",
+"استخدم هذا عند تغيير المنتج أو المخرج. يمكن للشخص الجديد تعديل المشروع وإدارة الطاقم ورؤية الطلبات. ويحتفظ الآخرون بأماكنهم.",
+"प्रोड्यूसर या निर्देशक बदलने पर इसका उपयोग करें। नया व्यक्ति प्रोजेक्ट बदल सकता है, क्रू संभाल सकता है और अनुरोध देख सकता है। बाकी सब अपनी जगह पर रहते हैं।",
+"Use quando o produtor ou o diretor mudar. A nova pessoa pode editar o projeto, gerenciar a equipe e ver os pedidos. Os demais mantêm seus lugares."
+],
+"Website": [
+"網站",
+"网站",
+"Site web",
+"Sitio web",
+"Сайт",
+"الموقع",
+"वेबसाइट",
+"Site"
+],
+"What they need to know: the look, references, budget, kit, deadlines": [
+"對方需要知道的：風格、參考、預算、器材、截止日期",
+"对方需要知道的：风格、参考、预算、器材、截止日期",
+"Ce qu’il faut savoir : le style, les références, le budget, le matériel, les échéances",
+"Lo que necesitan saber: el estilo, las referencias, el presupuesto, el equipo, los plazos",
+"Что нужно знать: стиль, референсы, бюджет, техника, сроки",
+"ما يحتاجون إلى معرفته: الأسلوب والمراجع والميزانية والمعدات والمواعيد",
+"उन्हें क्या जानना है: लुक, संदर्भ, बजट, उपकरण, समय-सीमा",
+"O que precisam saber: o visual, as referências, o orçamento, o equipamento, os prazos"
+],
+"WhatsApp invite links start with chat.whatsapp.com/": [
+"WhatsApp 邀請連結以 chat.whatsapp.com/ 開頭",
+"WhatsApp 邀请链接以 chat.whatsapp.com/ 开头",
+"Les liens d’invitation WhatsApp commencent par chat.whatsapp.com/",
+"Los enlaces de invitación de WhatsApp empiezan por chat.whatsapp.com/",
+"Ссылки-приглашения WhatsApp начинаются с chat.whatsapp.com/",
+"تبدأ روابط دعوة WhatsApp بـ chat.whatsapp.com/",
+"WhatsApp आमंत्रण लिंक chat.whatsapp.com/ से शुरू होते हैं",
+"Links de convite do WhatsApp começam com chat.whatsapp.com/"
+],
+"all optional, no need for https:// or www": [
+"皆為選填，不需要 https:// 或 www",
+"皆为选填，不需要 https:// 或 www",
+"tous facultatifs, pas besoin de https:// ni www",
+"todos opcionales, sin necesidad de https:// ni www",
+"всё необязательно, https:// и www не нужны",
+"كلها اختيارية، لا حاجة إلى https:// أو www",
+"सब वैकल्पिक, https:// या www की ज़रूरत नहीं",
+"tudo opcional, sem precisar de https:// ou www"
+],
+"make a new link": [
+"建立新連結",
+"创建新链接",
+"créer un nouveau lien",
+"crear un enlace nuevo",
+"создать новую ссылку",
+"إنشاء رابط جديد",
+"नया लिंक बनाएँ",
+"criar um novo link"
+],
+"and the old one stops working.": [
+"舊連結就會失效。",
+"旧链接就会失效。",
+"et l’ancien cessera de fonctionner.",
+"y el anterior dejará de funcionar.",
+"и старая перестанет работать.",
+"وسيتوقف الرابط القديم عن العمل.",
+"और पुराना काम करना बंद कर देगा।",
+"e o antigo para de funcionar."
+],
+"This link is personal: anyone with it can see the shoots in it. If you shared it by mistake,": [
+"此連結為個人專用：任何持有者都能看到其中的拍攝。如果不小心分享了，",
+"此链接为个人专用：任何持有者都能看到其中的拍摄。如果不小心分享了，",
+"Ce lien est personnel : toute personne qui l’a peut voir les tournages qu’il contient. Si vous l’avez partagé par erreur,",
+"Este enlace es personal: cualquiera que lo tenga puede ver sus rodajes. Si lo compartiste por error,",
+"Эта ссылка личная: любой, у кого она есть, видит съёмки в ней. Если вы поделились ею по ошибке,",
+"هذا الرابط شخصي: يمكن لأي شخص لديه رؤية التصويرات فيه. إن شاركته عن طريق الخطأ،",
+"यह लिंक निजी है: जिसके पास यह है, वह इसमें शूट देख सकता है। अगर गलती से शेयर हो गया,",
+"Este link é pessoal: quem tiver ele pode ver as filmagens. Se você compartilhou por engano,"
+],
+"months without signing in.": [
+"個月未登入。",
+"个月未登录。",
+"mois sans connexion.",
+"meses sin iniciar sesión.",
+"мес. без входа.",
+"أشهر دون تسجيل الدخول.",
+"महीने बिना साइन इन के।",
+"meses sem entrar."
+],
+"only if they're not on Crew Call": [
+"僅在對方不在 Crew Call 上時",
+"仅在对方不在 Crew Call 上时",
+"seulement s’il n’est pas sur Crew Call",
+"solo si no está en Crew Call",
+"только если человека нет в Crew Call",
+"فقط إن لم يكن على Crew Call",
+"सिर्फ़ अगर वे Crew Call पर नहीं हैं",
+"só se a pessoa não estiver no Crew Call"
+],
+"only people signed in can read it": [
+"僅登入的人可閱讀",
+"仅登录的人可阅读",
+"seules les personnes connectées peuvent le lire",
+"solo lo pueden leer quienes han iniciado sesión",
+"читать могут только вошедшие",
+"يمكن فقط للمسجّلين قراءته",
+"सिर्फ़ साइन इन किए लोग पढ़ सकते हैं",
+"só quem entrou pode ler"
+],
+"optional: a doc, deck or moodboard": [
+"選填：文件、簡報或情緒板",
+"选填：文档、演示文稿或情绪板",
+"facultatif : un document, une présentation ou un moodboard",
+"opcional: un documento, una presentación o un moodboard",
+"необязательно: документ, презентация или мудборд",
+"اختياري: مستند أو عرض أو لوحة إلهام",
+"वैकल्पिक: कोई डॉक, डेक या मूडबोर्ड",
+"opcional: um documento, apresentação ou moodboard"
+],
+"pick a Crew Call member": [
+"選擇 Crew Call 成員",
+"选择 Crew Call 成员",
+"choisissez un membre de Crew Call",
+"elige a un miembro de Crew Call",
+"выберите участника Crew Call",
+"اختر عضوًا في Crew Call",
+"Crew Call सदस्य चुनें",
+"escolha um membro do Crew Call"
+],
+"they can edit the project and manage crew": [
+"對方可以編輯專案和管理劇組",
+"对方可以编辑项目和管理剧组",
+"la personne peut modifier le projet et gérer l’équipe",
+"podrá editar el proyecto y gestionar el equipo",
+"сможет редактировать проект и управлять группой",
+"يمكنه تعديل المشروع وإدارة الطاقم",
+"वे प्रोजेक्ट बदल सकते हैं और क्रू संभाल सकते हैं",
+"a pessoa pode editar o projeto e gerenciar a equipe"
+],
+"Casting Director": [
+"選角指導",
+"选角指导",
+"Directeur de casting",
+"Director de casting",
+"Кастинг-директор",
+"مدير اختيار الممثلين",
+"कास्टिंग निर्देशक",
+"Diretor de elenco"
+],
+"Set a LibreTranslate server": [
+"設定 LibreTranslate 伺服器",
+"设置 LibreTranslate 服务器",
+"Définir un serveur LibreTranslate",
+"Configurar un servidor LibreTranslate",
+"Указать сервер LibreTranslate",
+"تعيين خادم LibreTranslate",
+"LibreTranslate सर्वर सेट करें",
+"Definir um servidor LibreTranslate"
+],
+"Removed the LibreTranslate server": [
+"已移除 LibreTranslate 伺服器",
+"已移除 LibreTranslate 服务器",
+"Serveur LibreTranslate supprimé",
+"Servidor LibreTranslate eliminado",
+"Сервер LibreTranslate удалён",
+"تمت إزالة خادم LibreTranslate",
+"LibreTranslate सर्वर हटाया",
+"Servidor LibreTranslate removido"
+],
 "Director": [
 "導演",
 "导演",

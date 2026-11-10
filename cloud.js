@@ -4,8 +4,11 @@
 // saved to the Supabase database, and people sign in with an emailed code.
 (() => {
   const CFG = window.CC_CLOUD || {};
-  const ON = !!(CFG.url && CFG.key);
+  // Adding ?demo to the address opens the demo (sample people, nothing saved), even on the live site
+  const DEMO = /[?&]demo\b/.test(location.search);
+  const ON = !!(CFG.url && CFG.key) && !DEMO;
   window.CC_CLOUD_ON = ON;
+  window.CC_DEMO = DEMO && !!(CFG.url && CFG.key);
 
   // Which part of the app goes into which kind of record
   const COLL = { students: "student", projects: "project", scripts: "script", releases: "release", releaseInterest: "releaseInterest", scriptInterest: "scriptInterest", newsletters: "newsletter", gigs: "gig", gigApps: "gigApp", requests: "request", notifications: "notification", reports: "report", transFixes: "transFix" };
@@ -154,7 +157,11 @@
     async canJoin(email) { const { data, error } = await db.rpc("can_join", { e: email }); if (error) throw error; return !!data; },
     async sendCode(email) {
       const { error } = await db.auth.signInWithOtp({ email, options: { shouldCreateUser: true, emailRedirectTo: location.origin + location.pathname } });
-      return error ? (error.message || "Couldn't send the code") : "";
+      if (!error) return "";
+      const st = error.status, m = error.message && error.message !== "{}" ? error.message : "";
+      if (st === 429 || /rate limit/i.test(m)) return "Too many codes requested. Wait a while and try again.";
+      if (st >= 500 || !m) return "Couldn't send the email. The email sender settings in Supabase need checking.";
+      return m;
     },
     async verify(email, token) {
       const { error } = await db.auth.verifyOtp({ email, token, type: "email" });
@@ -162,6 +169,15 @@
       location.reload(); return "";
     },
     async signOut() { await sync(); await db.auth.signOut(); location.reload(); },
+    // server-side actions that RLS wouldn't allow as a plain edit (step down, hand over a project)
+    async rpc(name, args) {
+      await sync();
+      const { data, error } = await db.rpc(name, args);
+      if (error) return { error: error.message || "That didn't work" };
+      await refresh(); return { data };
+    },
+    async calToken(reset) { const { data, error } = await db.rpc(reset ? "reset_cal_token" : "my_cal_token"); if (error) throw error; return data; },
+    funcUrl: (CFG.url || "").replace(/\/$/, "") + "/functions/v1/crewcall",
     saveNow: sync,
     refresh,
     status: () => ({ session: !!session, pending: Object.keys(base).length, denied })
@@ -182,6 +198,8 @@
       // what's already in the database counts as saved; anything missing (first run) gets added
       const have = new Set(data.recs.map(r => r.kind + "|" + r.id));
       if (session) { rebase(have); for (const m of data.mails) baseMail[m.id] = J({ id: m.id, email: m.email, share: m.share }); }
+      // note the day this person was last here, so old-profile clean-up never removes someone who still visits
+      if (session) { const m = (window.CC_APP.S.students || []).find(s => s.id === session.user.id), day = new Date().toLocaleDateString("en-CA", { timeZone: "Europe/London" }); if (m && m.seen !== day) m.seen = day; }
       show("");
       if (session) {
         ["click", "change", "submit", "keyup"].forEach(ev => document.addEventListener(ev, soon, true));

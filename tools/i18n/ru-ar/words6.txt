@@ -1,0 +1,34 @@
+# Pilot mode and demo link
+Crew Call is in a small pilot at the moment, so only invited testers can sign in. It opens to every LFS student soon. || Сейчас Crew Call работает в небольшом пилотном режиме, поэтому войти могут только приглашённые тестировщики. Скоро он откроется для всех студентов LFS. || يعمل Crew Call حاليًا في مرحلة تجريبية محدودة، لذا لا يمكن تسجيل الدخول إلا للمختبرين المدعوين. سيُفتح قريبًا لجميع طلاب LFS.
+Who can sign in || Кто может войти || من يمكنه تسجيل الدخول
+Pilot: only the people on the list || Пилот: только люди из списка || تجريبي: الأشخاص المدرجون في القائمة فقط
+Open to every LFS student || Открыто для всех студентов LFS || مفتوح لجميع طلاب LFS
+Anyone with an LFS email can sign in. Guests still need an invite from a member. || Войти может любой, у кого есть почта LFS. Гостям по-прежнему нужно приглашение от участника. || يمكن لأي شخص لديه بريد LFS تسجيل الدخول. ولا يزال الضيوف بحاجة إلى دعوة من عضو.
+Admins, the people on the pilot list and guests that members invite can sign in. Anyone else is told Crew Call opens soon. || Войти могут админы, люди из пилотного списка и гости, приглашённые участниками. Остальные увидят, что Crew Call скоро откроется. || يمكن للمشرفين والأشخاص المدرجين في القائمة التجريبية والضيوف الذين يدعوهم الأعضاء تسجيل الدخول. أما الآخرون فيُبلَّغون بأن Crew Call سيُفتح قريبًا.
+You need the People permission to change who can sign in. || Чтобы менять, кто может войти, нужно право «Люди». || تحتاج إلى صلاحية «الأشخاص» لتغيير من يمكنه تسجيل الدخول.
+Pilot list || Пилотный список || القائمة التجريبية
+Paste LFS emails, one per line or separated by commas || Вставьте адреса LFS, по одному в строке или через запятую || الصق عناوين بريد LFS، عنوانًا في كل سطر أو مفصولة بفواصل
+Emails to add to the pilot || Адреса для пилота || عناوين البريد المراد إضافتها إلى التجربة
+Add to the pilot || Добавить в пилот || أضف إلى التجربة
+Signed in || Вошёл || سجّل الدخول
+Not yet || Пока нет || ليس بعد
+Nobody on the list yet. || В списке пока никого нет. || لا يوجد أحد في القائمة بعد.
+Adding someone doesn't email them. Send them the link yourself, for example on WhatsApp. || При добавлении человеку не приходит письмо. Отправьте ему ссылку сами, например в WhatsApp. || لا تُرسل إضافة شخص ما بريدًا إليه. أرسل له الرابط بنفسك، عبر واتساب مثلًا.
+Copy the Crew Call link || Скопировать ссылку на Crew Call || انسخ رابط Crew Call
+Open Crew Call to every LFS student? || Открыть Crew Call для всех студентов LFS? || هل تريد فتح Crew Call لجميع طلاب LFS؟
+Anyone with an LFS email will be able to sign in straight away. Make sure your email sender can handle the numbers first. || Любой, у кого есть почта LFS, сможет сразу войти. Сначала убедитесь, что ваш сервис отправки писем справится с таким количеством. || سيتمكن أي شخص لديه بريد LFS من تسجيل الدخول فورًا. تأكد أولًا من أن خدمة إرسال البريد لديك تتحمل هذا العدد.
+Open it up || Открыть || افتحه
+Crew Call is open to every LFS student || Crew Call открыт для всех студентов LFS || Crew Call مفتوح الآن لجميع طلاب LFS
+Crew Call is back in pilot mode || Crew Call снова в пилотном режиме || عاد Crew Call إلى الوضع التجريبي
+Crew Call is in pilot mode || Crew Call в пилотном режиме || Crew Call في الوضع التجريبي
+Only LFS addresses go on the pilot list. Invite anyone else as a guest from My shoots. || В пилотный список входят только адреса LFS. Остальных пригласите как гостей в разделе «Мои съёмки». || لا تُضاف إلى القائمة التجريبية إلا عناوين LFS. ادعُ الآخرين كضيوف من «تصويراتي».
+Added to the pilot list || Добавлено в пилотный список || أُضيف إلى القائمة التجريبية
+Removed from the pilot list || Удалено из пилотного списка || أُزيل من القائمة التجريبية
+Link copied || Ссылка скопирована || نُسخ الرابط
+The code is kept on GitHub and the site is hosted on GitHub Pages. The database and sign-in run on Supabase's hosted service, although Supabase's own software is open source. Emails go through whichever sender the admins set up. We only use free plans, and Crew Call can move away from any of them. || Код хранится на GitHub, а сайт размещён на GitHub Pages. База данных и вход работают на хостинге Supabase, хотя само ПО Supabase открытое. Письма отправляются через сервис, который настроили админы. Мы пользуемся только бесплатными тарифами, и Crew Call может уйти с любого из них. || يُحفظ الرمز البرمجي على GitHub ويُستضاف الموقع على GitHub Pages. تعمل قاعدة البيانات وتسجيل الدخول على خدمة Supabase المستضافة، مع أن برنامج Supabase نفسه مفتوح المصدر. تُرسل الرسائل عبر خدمة الإرسال التي يعدّها المشرفون. لا نستخدم إلا الخطط المجانية، ويمكن لـ Crew Call الانتقال عن أي منها.
+This is the demo: sample people, and nothing is saved. || Это демо: вымышленные люди, ничего не сохраняется. || هذا عرض تجريبي: أشخاص افتراضيون، ولا يُحفظ أي شيء.
+Go to the real Crew Call || Перейти в настоящий Crew Call || انتقل إلى Crew Call الحقيقي
+Try the demo || Попробовать демо || جرّب العرض التجريبي
+Want a look first? || Хотите сначала посмотреть? || هل تريد إلقاء نظرة أولًا؟
+Try the demo with sample people || Попробовать демо с вымышленными людьми || جرّب العرض التجريبي بأشخاص افتراضيين
+Sample people, and nothing is saved. || Вымышленные люди, ничего не сохраняется. || أشخاص افتراضيون، ولا يُحفظ أي شيء.

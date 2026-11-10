@@ -1,0 +1,66 @@
+Add a producer || Добавить продюсера || إضافة منتج
+Already know who's doing a role? Type their name to put them down. People who list the role come first. Use Brief to add notes for a head of department. || Уже знаете, кто займёт роль? Введите имя, чтобы записать. Сначала идут те, у кого указана эта роль. В «Бриф» можно добавить заметки для руководителя цеха. || هل تعرف من سيتولى دورًا ما؟ اكتب اسمه لتسجيله. يظهر أولًا من يذكرون هذا الدور. استخدم «الموجز» لإضافة ملاحظات لرئيس القسم.
+Brief || Бриф || الموجز
+Brief link || Ссылка на бриф || رابط الموجز
+Brief ✓ || Бриф ✓ || الموجز ✓
+Couldn't get your link. Try again in a minute. || Не удалось получить ссылку. Попробуйте через минуту. || تعذّر الحصول على رابطك. حاول مجددًا بعد دقيقة.
+Couldn't make a new link || Не удалось создать новую ссылку || تعذّر إنشاء رابط جديد
+Delete old profiles automatically each night || Удалять старые профили автоматически каждую ночь || حذف الملفات الشخصية القديمة تلقائيًا كل ليلة
+Director (replaces the current director) || Режиссёр (заменяет текущего) || المخرج (يحل محل المخرج الحالي)
+Each night the server emails a warning 30 days before, keeps the profile if they sign in, and then deletes it. || Каждую ночь сервер отправляет предупреждение за 30 дней, сохраняет профиль, если человек вошёл, а затем удаляет его. || يرسل الخادم كل ليلة تحذيرًا قبل 30 يومًا، ويحتفظ بالملف إن سجّل الشخص دخوله، ثم يحذفه.
+Email, if they're not on Crew Call || Email, если человека нет в Crew Call || البريد الإلكتروني، إن لم يكن على Crew Call
+Getting your link… || Получаем ссылку… || جارٍ الحصول على رابطك…
+Hand over || Передать || تسليم
+Hand over to || Передать || تسليم إلى
+Head of department || Руководитель цеха || رئيس القسم
+HOD || Рук. || رئيس
+Locked in || Утверждено || مؤكَّد
+New link made. Subscribe again with it; the old one has stopped working. || Новая ссылка создана. Подпишитесь заново; старая больше не работает. || تم إنشاء رابط جديد. اشترك مجددًا به؛ لم يعد الرابط القديم يعمل.
+No producer yet? Leave this empty and a Producer role is added for people to offer. || Продюсера пока нет? Оставьте пустым — добавится роль продюсера, на которую можно откликнуться. || لا يوجد منتج بعد؟ اترك هذا فارغًا وسيُضاف دور منتج ليتقدم له الناس.
+Nothing is deleted on its own. The server still emails the warning; delete people by hand below. || Ничего не удаляется само. Сервер всё равно отправляет предупреждение; удаляйте вручную ниже. || لا يُحذف شيء تلقائيًا. يظل الخادم يرسل التحذير؛ احذف الأشخاص يدويًا أدناه.
+The owner and admins are never removed. || Владелец и администраторы никогда не удаляются. || لا يُحذف المالك والمشرفون أبدًا.
+On Crew Call || В Crew Call || على Crew Call
+Open: anyone can offer. Or type a name || Открыто: откликнуться может любой. Или введите имя || مفتوح: يمكن لأي شخص التقدم. أو اكتب اسمًا
+Pick a member or type a name || Выберите участника или введите имя || اختر عضوًا أو اكتب اسمًا
+pick a member or type a name || выберите участника или введите имя || اختر عضوًا أو اكتب اسمًا
+Pick someone from the list. They need to be on Crew Call to manage a project. || Выберите человека из списка. Чтобы управлять проектом, он должен быть в Crew Call. || اختر شخصًا من القائمة. يجب أن يكون على Crew Call لإدارة مشروع.
+Pick someone other than yourself. || Выберите кого-то другого. || اختر شخصًا غيرك.
+Pick the director from the list if they're on Crew Call, or add their email. || Выберите режиссёра из списка, если он в Crew Call, или добавьте его email. || اختر المخرج من القائمة إن كان على Crew Call، أو أضف بريده.
+Portfolio || Портфолио || ملف الأعمال
+Portfolio links || Ссылки на портфолио || روابط ملف الأعمال
+Producer (added alongside any other producers) || Продюсер (добавляется к остальным) || منتج (يُضاف إلى المنتجين الآخرين)
+Producers || Продюсеры || المنتجون
+Showreel (Vimeo or YouTube) || Шоурил (Vimeo или YouTube) || عرض الأعمال (Vimeo أو YouTube)
+Sign in to get your calendar link. || Войдите, чтобы получить ссылку на календарь. || سجّل الدخول للحصول على رابط تقويمك.
+Sign in to read the brief. || Войдите, чтобы прочитать бриф. || سجّل الدخول لقراءة الموجز.
+Start typing a name || Начните вводить имя || ابدأ بكتابة اسم
+Step down || Отказаться || الانسحاب
+Take me off the project in that role || Убрать меня из проекта в этой роли || أزلني من المشروع في هذا الدور
+That didn't work || Не получилось || لم ينجح ذلك
+That link isn't a web address. || Это не веб-адрес. || هذا الرابط ليس عنوان ويب.
+That project isn't on Crew Call any more || Этого проекта больше нет в Crew Call || لم يعد هذا المشروع على Crew Call
+The role opens again for others to offer. || Роль снова откроется для откликов. || يُفتح الدور مجددًا ليتقدم له آخرون.
+The roles, kit, credits and skills you add, your bio and portfolio links || Роли, техника, работы и навыки, которые вы добавляете, ваше био и ссылки на портфолио || الأدوار والمعدات والأعمال والمهارات التي تضيفها، ونبذتك وروابط ملف أعمالك
+This is a preview. The email comes at the time you picked, and each button opens the shoot in Crew Call. || Это предпросмотр. Письмо придёт в выбранное время, а каждая кнопка открывает съёмку в Crew Call. || هذه معاينة. يصل البريد في الوقت الذي اخترته، وكل زر يفتح التصوير في Crew Call.
+Demo preview. The live app sends this at the time you picked, and each button opens the shoot in Crew Call. || Демо-предпросмотр. Рабочее приложение отправит это в выбранное время, а каждая кнопка открывает съёмку в Crew Call. || معاينة تجريبية. يرسل التطبيق الفعلي هذا في الوقت الذي اخترته، وكل زر يفتح التصوير في Crew Call.
+Demo: calendar links work in the live app. Use Download .ics here. || Демо: ссылки на календарь работают в рабочем приложении. Здесь используйте «Скачать .ics». || تجريبي: تعمل روابط التقويم في التطبيق الفعلي. استخدم تنزيل ‎.ics هنا.
+Demo: these links work in the live app. Here you can download a one-off file instead. A file won't update itself. || Демо: эти ссылки работают в рабочем приложении. Здесь можно скачать разовый файл. Файл сам не обновляется. || تجريبي: تعمل هذه الروابط في التطبيق الفعلي. يمكنك هنا تنزيل ملف لمرة واحدة، والملف لا يتحدث تلقائيًا.
+Turned off nightly clean-up of old profiles || Ночная очистка старых профилей выключена || تم إيقاف التنظيف الليلي للملفات القديمة
+Turned on nightly clean-up of old profiles || Ночная очистка старых профилей включена || تم تشغيل التنظيف الليلي للملفات القديمة
+Use this when the producer or director changes. The new person can edit the project, manage crew and see requests. Everyone else on the project keeps their place. || Используйте, когда меняется продюсер или режиссёр. Новый человек сможет редактировать проект, управлять группой и видеть заявки. Остальные сохраняют свои места. || استخدم هذا عند تغيير المنتج أو المخرج. يمكن للشخص الجديد تعديل المشروع وإدارة الطاقم ورؤية الطلبات. ويحتفظ الآخرون بأماكنهم.
+Website || Сайт || الموقع
+What they need to know: the look, references, budget, kit, deadlines || Что нужно знать: стиль, референсы, бюджет, техника, сроки || ما يحتاجون إلى معرفته: الأسلوب والمراجع والميزانية والمعدات والمواعيد
+WhatsApp invite links start with chat.whatsapp.com/ || Ссылки-приглашения WhatsApp начинаются с chat.whatsapp.com/ || تبدأ روابط دعوة WhatsApp بـ chat.whatsapp.com/
+all optional, no need for https:// or www || всё необязательно, https:// и www не нужны || كلها اختيارية، لا حاجة إلى https:// أو www
+make a new link || создать новую ссылку || إنشاء رابط جديد
+and the old one stops working. || и старая перестанет работать. || وسيتوقف الرابط القديم عن العمل.
+This link is personal: anyone with it can see the shoots in it. If you shared it by mistake, || Эта ссылка личная: любой, у кого она есть, видит съёмки в ней. Если вы поделились ею по ошибке, || هذا الرابط شخصي: يمكن لأي شخص لديه رؤية التصويرات فيه. إن شاركته عن طريق الخطأ،
+months without signing in. || мес. без входа. || أشهر دون تسجيل الدخول.
+only if they're not on Crew Call || только если человека нет в Crew Call || فقط إن لم يكن على Crew Call
+only people signed in can read it || читать могут только вошедшие || يمكن فقط للمسجّلين قراءته
+optional: a doc, deck or moodboard || необязательно: документ, презентация или мудборд || اختياري: مستند أو عرض أو لوحة إلهام
+pick a Crew Call member || выберите участника Crew Call || اختر عضوًا في Crew Call
+they can edit the project and manage crew || сможет редактировать проект и управлять группой || يمكنه تعديل المشروع وإدارة الطاقم
+Casting Director || Кастинг-директор || مدير اختيار الممثلين
+Set a LibreTranslate server || Указать сервер LibreTranslate || تعيين خادم LibreTranslate
+Removed the LibreTranslate server || Сервер LibreTranslate удалён || تمت إزالة خادم LibreTranslate

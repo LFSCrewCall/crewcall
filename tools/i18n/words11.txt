@@ -1,0 +1,67 @@
+# Ownership hand-over, producers, briefs, portfolio links, calendar links and server jobs
+Add a producer || 新增製片人 || Ajouter un producteur || Añadir un productor
+Already know who's doing a role? Type their name to put them down. People who list the role come first. Use Brief to add notes for a head of department. || 已經知道誰負責某個職位？輸入名字即可填上。列出該職位的人會排在前面。用「簡報」為部門主管加上說明。 || Vous savez déjà qui occupe un poste ? Tapez son nom pour l’inscrire. Les personnes qui proposent ce poste apparaissent en premier. Utilisez Brief pour ajouter des notes pour un chef de poste. || ¿Ya sabes quién hará un puesto? Escribe su nombre para apuntarlo. Primero salen quienes indican ese puesto. Usa Brief para añadir notas para un jefe de departamento.
+Brief || 簡報 || Brief || Brief
+Brief link || 簡報連結 || Lien du brief || Enlace del brief
+Brief ✓ || 簡報 ✓ || Brief ✓ || Brief ✓
+Couldn't get your link. Try again in a minute. || 無法取得你的連結，請稍後再試。 || Impossible d’obtenir votre lien. Réessayez dans une minute. || No se pudo obtener tu enlace. Inténtalo de nuevo en un minuto.
+Couldn't make a new link || 無法建立新連結 || Impossible de créer un nouveau lien || No se pudo crear un enlace nuevo
+Delete old profiles automatically each night || 每晚自動刪除舊個人檔案 || Supprimer automatiquement les anciens profils chaque nuit || Eliminar los perfiles antiguos automáticamente cada noche
+Director (replaces the current director) || 導演（取代目前的導演） || Réalisateur (remplace le réalisateur actuel) || Director (sustituye al director actual)
+Each night the server emails a warning 30 days before, keeps the profile if they sign in, and then deletes it. || 伺服器每晚運作：提前 30 天寄出提醒，若對方登入就保留，否則刪除。 || Chaque nuit, le serveur envoie un avertissement 30 jours avant, garde le profil si la personne se connecte, puis le supprime. || Cada noche el servidor envía un aviso 30 días antes, conserva el perfil si la persona inicia sesión y, si no, lo elimina.
+Email, if they're not on Crew Call || 電子郵件（若對方不在 Crew Call 上） || E-mail, s’il n’est pas sur Crew Call || Correo, si no está en Crew Call
+Getting your link… || 正在取得你的連結… || Récupération de votre lien… || Obteniendo tu enlace…
+Hand over || 移交 || Transférer || Traspasar
+Hand over to || 移交給 || Transférer à || Traspasar a
+Head of department || 部門主管 || Chef de poste || Jefe de departamento
+HOD || 主管 || Chef || Jefe
+Locked in || 已確定 || Confirmé || Confirmado
+New link made. Subscribe again with it; the old one has stopped working. || 已建立新連結。請用它重新訂閱；舊連結已失效。 || Nouveau lien créé. Abonnez-vous à nouveau avec ; l’ancien ne fonctionne plus. || Enlace nuevo creado. Suscríbete otra vez con él; el anterior ya no funciona.
+No producer yet? Leave this empty and a Producer role is added for people to offer. || 還沒有製片人？留空即可，系統會新增製片人職位讓大家報名。 || Pas encore de producteur ? Laissez vide et un poste de producteur sera ajouté pour que des personnes se proposent. || ¿Aún sin productor? Déjalo vacío y se añade un puesto de Productor para que la gente se ofrezca.
+Nothing is deleted on its own. The server still emails the warning; delete people by hand below. || 不會自動刪除任何人。伺服器仍會寄出提醒；請在下方手動刪除。 || Rien n’est supprimé automatiquement. Le serveur envoie toujours l’avertissement ; supprimez les personnes à la main ci-dessous. || No se elimina nada automáticamente. El servidor sigue enviando el aviso; elimina a las personas a mano abajo.
+The owner and admins are never removed. || 擁有者和管理員永遠不會被移除。 || Le propriétaire et les admins ne sont jamais supprimés. || El propietario y los administradores nunca se eliminan.
+On Crew Call || 在 Crew Call 上 || Sur Crew Call || En Crew Call
+Open: anyone can offer. Or type a name || 開放：任何人都可報名。或輸入名字 || Ouvert : tout le monde peut se proposer. Ou tapez un nom || Abierto: cualquiera puede ofrecerse. O escribe un nombre
+Pick a member or type a name || 選擇成員或輸入名字 || Choisissez un membre ou tapez un nom || Elige a un miembro o escribe un nombre
+pick a member or type a name || 選擇成員或輸入名字 || choisissez un membre ou tapez un nom || elige a un miembro o escribe un nombre
+Pick someone from the list. They need to be on Crew Call to manage a project. || 請從清單中選人。對方必須在 Crew Call 上才能管理專案。 || Choisissez quelqu’un dans la liste. La personne doit être sur Crew Call pour gérer un projet. || Elige a alguien de la lista. Debe estar en Crew Call para gestionar un proyecto.
+Pick someone other than yourself. || 請選擇你以外的人。 || Choisissez quelqu’un d’autre que vous. || Elige a alguien que no seas tú.
+Pick the director from the list if they're on Crew Call, or add their email. || 若導演在 Crew Call 上，請從清單中選擇，否則加上其電子郵件。 || Choisissez le réalisateur dans la liste s’il est sur Crew Call, sinon ajoutez son e-mail. || Elige al director de la lista si está en Crew Call, o añade su correo.
+Portfolio || 作品集 || Portfolio || Portafolio
+Portfolio links || 作品集連結 || Liens du portfolio || Enlaces del portafolio
+Producer (added alongside any other producers) || 製片人（與其他製片人並列） || Producteur (ajouté aux autres producteurs) || Productor (se añade junto a los demás)
+Producers || 製片人 || Producteurs || Productores
+Showreel (Vimeo or YouTube) || 作品集影片（Vimeo 或 YouTube） || Bande démo (Vimeo ou YouTube) || Showreel (Vimeo o YouTube)
+Sign in to get your calendar link. || 登入以取得你的行事曆連結。 || Connectez-vous pour obtenir votre lien de calendrier. || Inicia sesión para obtener tu enlace de calendario.
+Sign in to read the brief. || 登入以閱讀簡報。 || Connectez-vous pour lire le brief. || Inicia sesión para leer el brief.
+Start typing a name || 開始輸入名字 || Commencez à taper un nom || Empieza a escribir un nombre
+Step down || 退出 || Me retirer || Retirarme
+Take me off the project in that role || 將我從該專案的此角色移除 || Me retirer du projet dans ce rôle || Quitarme del proyecto en ese papel
+That didn't work || 沒有成功 || Ça n’a pas marché || No ha funcionado
+That link isn't a web address. || 那個連結不是網址。 || Ce lien n’est pas une adresse web. || Ese enlace no es una dirección web.
+That project isn't on Crew Call any more || 該專案已不在 Crew Call 上 || Ce projet n’est plus sur Crew Call || Ese proyecto ya no está en Crew Call
+The role opens again for others to offer. || 該職位會重新開放給其他人報名。 || Le poste est rouvert pour que d’autres se proposent. || El puesto se abre de nuevo para que otros se ofrezcan.
+The roles, kit, credits and skills you add, your bio and portfolio links || 你新增的職位、器材、作品與技能、自我介紹和作品集連結 || Les postes, le matériel, les crédits et les compétences que vous ajoutez, votre bio et vos liens de portfolio || Los puestos, el equipo, los créditos y las habilidades que añadas, tu biografía y los enlaces de tu portafolio
+This is a preview. The email comes at the time you picked, and each button opens the shoot in Crew Call. || 這是預覽。電子郵件會在你選的時間寄出，每個按鈕都會在 Crew Call 開啟該拍攝。 || Ceci est un aperçu. L’e-mail arrive à l’heure choisie, et chaque bouton ouvre le tournage dans Crew Call. || Esto es una vista previa. El correo llega a la hora que elegiste y cada botón abre el rodaje en Crew Call.
+Demo preview. The live app sends this at the time you picked, and each button opens the shoot in Crew Call. || 示範預覽。正式版會在你選的時間寄出，每個按鈕都會在 Crew Call 開啟該拍攝。 || Aperçu de démo. L’app réelle l’envoie à l’heure choisie, et chaque bouton ouvre le tournage dans Crew Call. || Vista previa de demo. La app real lo envía a la hora que elegiste y cada botón abre el rodaje en Crew Call.
+Demo: calendar links work in the live app. Use Download .ics here. || 示範：行事曆連結在正式版可用。這裡請用「下載 .ics」。 || Démo : les liens de calendrier fonctionnent dans l’app réelle. Utilisez Télécharger .ics ici. || Demo: los enlaces de calendario funcionan en la app real. Aquí usa Descargar .ics.
+Demo: these links work in the live app. Here you can download a one-off file instead. A file won't update itself. || 示範：這些連結在正式版可用。這裡可改為下載一次性檔案，檔案不會自動更新。 || Démo : ces liens fonctionnent dans l’app réelle. Ici, vous pouvez télécharger un fichier ponctuel. Un fichier ne se met pas à jour tout seul. || Demo: estos enlaces funcionan en la app real. Aquí puedes descargar un archivo puntual. Un archivo no se actualiza solo.
+Turned off nightly clean-up of old profiles || 已關閉每晚清理舊個人檔案 || Nettoyage nocturne des anciens profils désactivé || Limpieza nocturna de perfiles antiguos desactivada
+Turned on nightly clean-up of old profiles || 已開啟每晚清理舊個人檔案 || Nettoyage nocturne des anciens profils activé || Limpieza nocturna de perfiles antiguos activada
+Use this when the producer or director changes. The new person can edit the project, manage crew and see requests. Everyone else on the project keeps their place. || 製片人或導演更換時使用。新的人可以編輯專案、管理劇組和查看請求。專案上的其他人保持不變。 || À utiliser quand le producteur ou le réalisateur change. La nouvelle personne peut modifier le projet, gérer l’équipe et voir les demandes. Les autres membres gardent leur place. || Úsalo cuando cambie el productor o el director. La nueva persona puede editar el proyecto, gestionar el equipo y ver las solicitudes. El resto conserva su puesto.
+Website || 網站 || Site web || Sitio web
+What they need to know: the look, references, budget, kit, deadlines || 對方需要知道的：風格、參考、預算、器材、截止日期 || Ce qu’il faut savoir : le style, les références, le budget, le matériel, les échéances || Lo que necesitan saber: el estilo, las referencias, el presupuesto, el equipo, los plazos
+WhatsApp invite links start with chat.whatsapp.com/ || WhatsApp 邀請連結以 chat.whatsapp.com/ 開頭 || Les liens d’invitation WhatsApp commencent par chat.whatsapp.com/ || Los enlaces de invitación de WhatsApp empiezan por chat.whatsapp.com/
+all optional, no need for https:// or www || 皆為選填，不需要 https:// 或 www || tous facultatifs, pas besoin de https:// ni www || todos opcionales, sin necesidad de https:// ni www
+make a new link || 建立新連結 || créer un nouveau lien || crear un enlace nuevo
+and the old one stops working. || 舊連結就會失效。 || et l’ancien cessera de fonctionner. || y el anterior dejará de funcionar.
+This link is personal: anyone with it can see the shoots in it. If you shared it by mistake, || 此連結為個人專用：任何持有者都能看到其中的拍攝。如果不小心分享了， || Ce lien est personnel : toute personne qui l’a peut voir les tournages qu’il contient. Si vous l’avez partagé par erreur, || Este enlace es personal: cualquiera que lo tenga puede ver sus rodajes. Si lo compartiste por error,
+months without signing in. || 個月未登入。 || mois sans connexion. || meses sin iniciar sesión.
+only if they're not on Crew Call || 僅在對方不在 Crew Call 上時 || seulement s’il n’est pas sur Crew Call || solo si no está en Crew Call
+only people signed in can read it || 僅登入的人可閱讀 || seules les personnes connectées peuvent le lire || solo lo pueden leer quienes han iniciado sesión
+optional: a doc, deck or moodboard || 選填：文件、簡報或情緒板 || facultatif : un document, une présentation ou un moodboard || opcional: un documento, una presentación o un moodboard
+pick a Crew Call member || 選擇 Crew Call 成員 || choisissez un membre de Crew Call || elige a un miembro de Crew Call
+they can edit the project and manage crew || 對方可以編輯專案和管理劇組 || la personne peut modifier le projet et gérer l’équipe || podrá editar el proyecto y gestionar el equipo
+Casting Director || 選角指導 || Directeur de casting || Director de casting
+Set a LibreTranslate server || 設定 LibreTranslate 伺服器 || Définir un serveur LibreTranslate || Configurar un servidor LibreTranslate
+Removed the LibreTranslate server || 已移除 LibreTranslate 伺服器 || Serveur LibreTranslate supprimé || Servidor LibreTranslate eliminado

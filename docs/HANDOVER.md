@@ -51,6 +51,8 @@ There's no shared Gmail. Everything belongs to an organisation with more than on
 | Supabase organisation | The database: every profile, project, free day, request, setting and sign-in, saved in the cloud (London region) | The owner as Owner, reps as Administrator or Developer. Every organisation needs at least one Owner ([Supabase access control](https://supabase.com/docs/guides/platform/access-control)). |
 | Email sender | Sends sign-in codes, alerts, the digest and the newsletter | An LFS shared mailbox, Brevo free or a Gmail used only for sending. Nobody signs in to Crew Call with it. Its login lives in a password manager folder shared with the reps. |
 
+| Brevo API key and cron secret | Let the server piece send emails (`BREVO_API_KEY`) and stop strangers starting its jobs (`CRON_SECRET`). Kept in Supabase, Edge Functions, Secrets; the cron secret is also in Supabase Vault from `supabase/jobs.sql` | Whoever can open the Supabase project. Keep a copy in the shared password manager folder |
+
 - Everyone uses their own school email for GitHub and Supabase. Don't share personal logins.
 - Before leaving, invite the next owner as Owner in both organisations, and wait until they accept.
 
@@ -108,6 +110,10 @@ Everything is saved in the Supabase database, not on anyone's computer. Every ch
 |---|---|---|
 | The site says the database is paused | Supabase pauses free projects after a week with no activity ([Supabase](https://supabase.com/docs/guides/platform/free-project-pausing)) | Sign in to Supabase and select Restore. The weekly digest normally prevents this. |
 | Sign-in codes aren't arriving | The sender's SMTP password changed or was revoked, or its daily limit was hit | Make a new SMTP password (Brevo SMTP keys, or a Gmail app password). Paste it into Supabase under Authentication, then Emails, then SMTP settings. |
+| Brevo says "525 Unauthorized IP address" | Brevo's IP blocking for SMTP keys is on | Brevo, Security, Authorized IPs: Deactivate for SMTP |
+| Notification or newsletter emails stop | The Brevo API key was revoked, or the 300 a day limit was hit | Make a new key in Brevo, SMTP & API, API keys, and paste it into Supabase, Edge Functions, Secrets, `BREVO_API_KEY`. Over-limit emails go the next day on their own |
+| A producer or director has changed | They've left the project | The current producer, director or an admin opens the project and presses Hand over |
+| The nightly backup goes red | The database password changed | Put the new password into the `SUPABASE_DB_URL` secret in `crewcall-backups` |
 | Emails arrive slowly | Supabase's sending limit is too low | In Supabase, raise the email rate limit under Authentication, then Rate Limits. |
 | A new shoot isn't in someone's Outlook | Outlook checks subscribed calendars every few hours and sometimes takes up to a day ([Microsoft](https://support.microsoft.com/en-gb/office/import-or-subscribe-to-a-calendar-in-outlook-com-or-outlook-on-the-web-cff1429c-5af6-41ec-a5b4-74f2c278e98c)) | Wait, or check that they subscribed rather than downloading a one-off file. |
 | Someone's in the wrong term | They skipped the confirm banner | Admin, then Fix someone's term. |
@@ -185,7 +191,7 @@ Every board has a search bar, a Matches me switch (shows posts needing a role on
 ## Privacy and data
 
 - The privacy notice is in the footer and on the sign-in screen. If the owner, help address or retention period changes, it updates by itself.
-- Alumni and guests who haven't signed in for 12 months (change it in Admin, Privacy and data) get a warning email 30 days before, then are deleted. Admins and the owner are never removed automatically.
+- Alumni and guests who haven't signed in for 12 months (change it in Admin, Privacy and data) get a warning email 30 days before, then are deleted by the nightly job. Signing in at any point keeps them. To delete by hand instead, untick Delete old profiles automatically each night in Admin, Privacy and data. Admins and the owner are never removed automatically.
 - Anyone can download their own data or delete their profile from My profile.
 - Backups: see `docs/BACKUPS.md`.
 

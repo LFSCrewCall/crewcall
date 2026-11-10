@@ -1,0 +1,66 @@
+Add a producer || प्रोड्यूसर जोड़ें || Adicionar um produtor
+Already know who's doing a role? Type their name to put them down. People who list the role come first. Use Brief to add notes for a head of department. || पहले से पता है कि कोई भूमिका कौन करेगा? नाम लिखकर उन्हें जोड़ें। जिनकी प्रोफ़ाइल में यह भूमिका है, वे पहले दिखते हैं। विभाग प्रमुख के लिए नोट्स जोड़ने के लिए ब्रीफ़ का उपयोग करें। || Já sabe quem vai fazer uma função? Digite o nome para registrar. Quem lista a função aparece primeiro. Use Briefing para adicionar notas para um chefe de departamento.
+Brief || ब्रीफ़ || Briefing
+Brief link || ब्रीफ़ लिंक || Link do briefing
+Brief ✓ || ब्रीफ़ ✓ || Briefing ✓
+Couldn't get your link. Try again in a minute. || आपका लिंक नहीं मिल सका। एक मिनट में फिर कोशिश करें। || Não foi possível obter seu link. Tente de novo em um minuto.
+Couldn't make a new link || नया लिंक नहीं बन सका || Não foi possível criar um novo link
+Delete old profiles automatically each night || हर रात पुरानी प्रोफ़ाइल अपने-आप हटाएँ || Excluir perfis antigos automaticamente toda noite
+Director (replaces the current director) || निर्देशक (मौजूदा निर्देशक की जगह) || Diretor (substitui o diretor atual)
+Each night the server emails a warning 30 days before, keeps the profile if they sign in, and then deletes it. || सर्वर हर रात 30 दिन पहले चेतावनी ईमेल भेजता है, साइन इन करने पर प्रोफ़ाइल रखता है, और फिर उसे हटा देता है। || Toda noite o servidor envia um aviso 30 dias antes, mantém o perfil se a pessoa entrar e depois o exclui.
+Email, if they're not on Crew Call || ईमेल, अगर वे Crew Call पर नहीं हैं || E-mail, se a pessoa não estiver no Crew Call
+Getting your link… || आपका लिंक लाया जा रहा है… || Obtendo seu link…
+Hand over || सौंपें || Transferir
+Hand over to || इन्हें सौंपें || Transferir para
+Head of department || विभाग प्रमुख || Chefe de departamento
+HOD || प्रमुख || Chefe
+Locked in || पक्का || Confirmado
+New link made. Subscribe again with it; the old one has stopped working. || नया लिंक बन गया। इससे फिर सब्सक्राइब करें; पुराना लिंक अब काम नहीं करता। || Novo link criado. Assine de novo com ele; o antigo parou de funcionar.
+No producer yet? Leave this empty and a Producer role is added for people to offer. || अभी कोई प्रोड्यूसर नहीं? इसे खाली छोड़ें, लोगों के आवेदन के लिए प्रोड्यूसर भूमिका जुड़ जाएगी। || Ainda sem produtor? Deixe vazio e uma função de Produtor será adicionada para as pessoas se oferecerem.
+Nothing is deleted on its own. The server still emails the warning; delete people by hand below. || कुछ भी अपने-आप नहीं हटता। सर्वर फिर भी चेतावनी भेजता है; नीचे हाथ से हटाएँ। || Nada é excluído sozinho. O servidor ainda envia o aviso; exclua as pessoas manualmente abaixo.
+The owner and admins are never removed. || मालिक और एडमिन कभी नहीं हटाए जाते। || O dono e os administradores nunca são removidos.
+On Crew Call || Crew Call पर || No Crew Call
+Open: anyone can offer. Or type a name || खुला: कोई भी आवेदन कर सकता है। या नाम लिखें || Aberto: qualquer pessoa pode se oferecer. Ou digite um nome
+Pick a member or type a name || सदस्य चुनें या नाम लिखें || Escolha um membro ou digite um nome
+pick a member or type a name || सदस्य चुनें या नाम लिखें || escolha um membro ou digite um nome
+Pick someone from the list. They need to be on Crew Call to manage a project. || सूची से किसी को चुनें। प्रोजेक्ट संभालने के लिए उनका Crew Call पर होना ज़रूरी है। || Escolha alguém da lista. A pessoa precisa estar no Crew Call para gerenciar um projeto.
+Pick someone other than yourself. || अपने अलावा किसी और को चुनें। || Escolha alguém que não seja você.
+Pick the director from the list if they're on Crew Call, or add their email. || अगर निर्देशक Crew Call पर हैं तो सूची से चुनें, वरना उनका ईमेल जोड़ें। || Escolha o diretor na lista se ele estiver no Crew Call, ou adicione o e-mail.
+Portfolio || पोर्टफ़ोलियो || Portfólio
+Portfolio links || पोर्टफ़ोलियो लिंक || Links do portfólio
+Producer (added alongside any other producers) || प्रोड्यूसर (बाकी प्रोड्यूसरों के साथ जुड़ता है) || Produtor (adicionado junto aos outros)
+Producers || प्रोड्यूसर || Produtores
+Showreel (Vimeo or YouTube) || शोरील (Vimeo या YouTube) || Showreel (Vimeo ou YouTube)
+Sign in to get your calendar link. || अपना कैलेंडर लिंक पाने के लिए साइन इन करें। || Entre para obter seu link de calendário.
+Sign in to read the brief. || ब्रीफ़ पढ़ने के लिए साइन इन करें। || Entre para ler o briefing.
+Start typing a name || नाम लिखना शुरू करें || Comece a digitar um nome
+Step down || हट जाएँ || Sair da função
+Take me off the project in that role || मुझे इस भूमिका में प्रोजेक्ट से हटा दें || Me tirar do projeto nessa função
+That didn't work || यह काम नहीं किया || Não funcionou
+That link isn't a web address. || यह लिंक वेब पता नहीं है। || Esse link não é um endereço da web.
+That project isn't on Crew Call any more || यह प्रोजेक्ट अब Crew Call पर नहीं है || Esse projeto não está mais no Crew Call
+The role opens again for others to offer. || भूमिका दूसरों के आवेदन के लिए फिर खुल जाती है। || A função abre de novo para outras pessoas se oferecerem.
+The roles, kit, credits and skills you add, your bio and portfolio links || आपकी जोड़ी गई भूमिकाएँ, उपकरण, क्रेडिट और कौशल, आपका परिचय और पोर्टफ़ोलियो लिंक || As funções, o equipamento, os créditos e as habilidades que você adiciona, sua bio e os links do portfólio
+This is a preview. The email comes at the time you picked, and each button opens the shoot in Crew Call. || यह पूर्वावलोकन है। ईमेल आपके चुने समय पर आता है, और हर बटन Crew Call में शूट खोलता है। || Esta é uma prévia. O e-mail chega no horário escolhido, e cada botão abre a filmagem no Crew Call.
+Demo preview. The live app sends this at the time you picked, and each button opens the shoot in Crew Call. || डेमो पूर्वावलोकन। असली ऐप इसे आपके चुने समय पर भेजता है, और हर बटन Crew Call में शूट खोलता है। || Prévia da demo. O app real envia isso no horário escolhido, e cada botão abre a filmagem no Crew Call.
+Demo: calendar links work in the live app. Use Download .ics here. || डेमो: कैलेंडर लिंक असली ऐप में काम करते हैं। यहाँ .ics डाउनलोड करें। || Demo: os links de calendário funcionam no app real. Aqui, use Baixar .ics.
+Demo: these links work in the live app. Here you can download a one-off file instead. A file won't update itself. || डेमो: ये लिंक असली ऐप में काम करते हैं। यहाँ एक बार की फ़ाइल डाउनलोड कर सकते हैं। फ़ाइल अपने-आप अपडेट नहीं होती। || Demo: esses links funcionam no app real. Aqui você pode baixar um arquivo avulso. Um arquivo não se atualiza sozinho.
+Turned off nightly clean-up of old profiles || पुरानी प्रोफ़ाइलों की रात की सफ़ाई बंद की || Limpeza noturna de perfis antigos desativada
+Turned on nightly clean-up of old profiles || पुरानी प्रोफ़ाइलों की रात की सफ़ाई चालू की || Limpeza noturna de perfis antigos ativada
+Use this when the producer or director changes. The new person can edit the project, manage crew and see requests. Everyone else on the project keeps their place. || प्रोड्यूसर या निर्देशक बदलने पर इसका उपयोग करें। नया व्यक्ति प्रोजेक्ट बदल सकता है, क्रू संभाल सकता है और अनुरोध देख सकता है। बाकी सब अपनी जगह पर रहते हैं। || Use quando o produtor ou o diretor mudar. A nova pessoa pode editar o projeto, gerenciar a equipe e ver os pedidos. Os demais mantêm seus lugares.
+Website || वेबसाइट || Site
+What they need to know: the look, references, budget, kit, deadlines || उन्हें क्या जानना है: लुक, संदर्भ, बजट, उपकरण, समय-सीमा || O que precisam saber: o visual, as referências, o orçamento, o equipamento, os prazos
+WhatsApp invite links start with chat.whatsapp.com/ || WhatsApp आमंत्रण लिंक chat.whatsapp.com/ से शुरू होते हैं || Links de convite do WhatsApp começam com chat.whatsapp.com/
+all optional, no need for https:// or www || सब वैकल्पिक, https:// या www की ज़रूरत नहीं || tudo opcional, sem precisar de https:// ou www
+make a new link || नया लिंक बनाएँ || criar um novo link
+and the old one stops working. || और पुराना काम करना बंद कर देगा। || e o antigo para de funcionar.
+This link is personal: anyone with it can see the shoots in it. If you shared it by mistake, || यह लिंक निजी है: जिसके पास यह है, वह इसमें शूट देख सकता है। अगर गलती से शेयर हो गया, || Este link é pessoal: quem tiver ele pode ver as filmagens. Se você compartilhou por engano,
+months without signing in. || महीने बिना साइन इन के। || meses sem entrar.
+only if they're not on Crew Call || सिर्फ़ अगर वे Crew Call पर नहीं हैं || só se a pessoa não estiver no Crew Call
+only people signed in can read it || सिर्फ़ साइन इन किए लोग पढ़ सकते हैं || só quem entrou pode ler
+optional: a doc, deck or moodboard || वैकल्पिक: कोई डॉक, डेक या मूडबोर्ड || opcional: um documento, apresentação ou moodboard
+pick a Crew Call member || Crew Call सदस्य चुनें || escolha um membro do Crew Call
+they can edit the project and manage crew || वे प्रोजेक्ट बदल सकते हैं और क्रू संभाल सकते हैं || a pessoa pode editar o projeto e gerenciar a equipe
+Casting Director || कास्टिंग निर्देशक || Diretor de elenco
+Set a LibreTranslate server || LibreTranslate सर्वर सेट करें || Definir um servidor LibreTranslate
+Removed the LibreTranslate server || LibreTranslate सर्वर हटाया || Servidor LibreTranslate removido

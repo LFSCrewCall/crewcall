@@ -1,0 +1,35 @@
+# Pilot mode: Admin, Access, Who can sign in
+Crew Call is in a small pilot at the moment, so only invited testers can sign in. It opens to every LFS student soon. || Crew Call 目前正在小規模試行，只有受邀的測試者可以登入。很快就會開放給所有 LFS 學生。 || Crew Call est en phase pilote restreinte : seuls les testeurs invités peuvent se connecter. Il sera bientôt ouvert à tous les étudiants de la LFS. || Crew Call está en una prueba piloto reducida, así que solo pueden entrar los participantes invitados. Pronto se abrirá a todos los estudiantes de la LFS.
+Who can sign in || 誰可以登入 || Qui peut se connecter || Quién puede entrar
+Pilot: only the people on the list || 試行：只限名單上的人 || Pilote : seulement les personnes de la liste || Piloto: solo las personas de la lista
+Open to every LFS student || 開放給所有 LFS 學生 || Ouvert à tous les étudiants de la LFS || Abierto a todos los estudiantes de la LFS
+Anyone with an LFS email can sign in. Guests still need an invite from a member. || 任何有 LFS 電郵的人都可以登入。訪客仍需成員邀請。 || Toute personne avec une adresse LFS peut se connecter. Les invités ont toujours besoin de l’invitation d’un membre. || Cualquiera con un correo de la LFS puede entrar. Los invitados siguen necesitando la invitación de un miembro.
+Admins, the people on the pilot list and guests that members invite can sign in. Anyone else is told Crew Call opens soon. || 管理員、試行名單上的人，以及成員邀請的訪客可以登入。其他人會看到 Crew Call 即將開放的提示。 || Les admins, les personnes de la liste pilote et les invités des membres peuvent se connecter. Les autres voient que Crew Call ouvre bientôt. || Pueden entrar los administradores, las personas de la lista piloto y los invitados de los miembros. A los demás se les avisa de que Crew Call abrirá pronto.
+You need the People permission to change who can sign in. || 你需要「成員」權限才能更改誰可以登入。 || Il faut la permission Personnes pour changer qui peut se connecter. || Necesitas el permiso Personas para cambiar quién puede entrar.
+Pilot list || 試行名單 || Liste pilote || Lista piloto
+Paste LFS emails, one per line or separated by commas || 貼上 LFS 電郵，每行一個或用逗號分隔 || Collez des adresses LFS, une par ligne ou séparées par des virgules || Pega correos de la LFS, uno por línea o separados por comas
+Emails to add to the pilot || 要加入試行的電郵 || Adresses à ajouter au pilote || Correos que añadir al piloto
+Add to the pilot || 加入試行 || Ajouter au pilote || Añadir al piloto
+Signed in || 已登入 || Connecté || Ha entrado
+Not yet || 尚未 || Pas encore || Todavía no
+Nobody on the list yet. || 名單上還沒有人。 || Personne sur la liste pour l’instant. || Todavía no hay nadie en la lista.
+Adding someone doesn't email them. Send them the link yourself, for example on WhatsApp. || 加入名單不會寄電郵給對方。請自己把連結傳給他們，例如用 WhatsApp。 || Ajouter quelqu’un ne lui envoie pas d’e-mail. Envoyez-lui le lien vous-même, par exemple sur WhatsApp. || Añadir a alguien no le envía ningún correo. Mándale tú el enlace, por ejemplo por WhatsApp.
+Copy the Crew Call link || 複製 Crew Call 連結 || Copier le lien de Crew Call || Copiar el enlace de Crew Call
+Open Crew Call to every LFS student? || 要把 Crew Call 開放給所有 LFS 學生嗎？ || Ouvrir Crew Call à tous les étudiants de la LFS ? || ¿Abrir Crew Call a todos los estudiantes de la LFS?
+Anyone with an LFS email will be able to sign in straight away. Make sure your email sender can handle the numbers first. || 任何有 LFS 電郵的人都能立即登入。請先確認你的寄件服務能應付這個人數。 || Toute personne avec une adresse LFS pourra se connecter tout de suite. Vérifiez d’abord que votre service d’envoi d’e-mails peut suivre. || Cualquiera con un correo de la LFS podrá entrar enseguida. Antes, comprueba que tu servicio de envío de correos puede con ese volumen.
+Open it up || 開放 || Ouvrir || Abrir
+Crew Call is open to every LFS student || Crew Call 已開放給所有 LFS 學生 || Crew Call est ouvert à tous les étudiants de la LFS || Crew Call está abierto a todos los estudiantes de la LFS
+Crew Call is back in pilot mode || Crew Call 已回到試行模式 || Crew Call est repassé en mode pilote || Crew Call ha vuelto al modo piloto
+Crew Call is in pilot mode || Crew Call 正在試行模式 || Crew Call est en mode pilote || Crew Call está en modo piloto
+Only LFS addresses go on the pilot list. Invite anyone else as a guest from My shoots. || 試行名單只限 LFS 電郵。其他人請在「我的拍攝」以訪客身分邀請。 || Seules les adresses LFS vont sur la liste pilote. Invitez les autres comme invités depuis Mes tournages. || En la lista piloto solo van correos de la LFS. Invita a los demás como invitados desde Mis rodajes.
+Added to the pilot list || 已加入試行名單 || Ajouté à la liste pilote || Añadido a la lista piloto
+Removed from the pilot list || 已從試行名單移除 || Retiré de la liste pilote || Quitado de la lista piloto
+Link copied || 已複製連結 || Lien copié || Enlace copiado
+The code is kept on GitHub and the site is hosted on GitHub Pages. The database and sign-in run on Supabase's hosted service, although Supabase's own software is open source. Emails go through whichever sender the admins set up. We only use free plans, and Crew Call can move away from any of them. || 程式碼存放在 GitHub，網站由 GitHub Pages 託管。資料庫和登入使用 Supabase 的託管服務，不過 Supabase 本身的軟體是開源的。電郵經由管理員設定的寄件服務寄出。我們只使用免費方案，Crew Call 隨時可以改用其他服務。 || Le code est sur GitHub et le site est hébergé sur GitHub Pages. La base de données et la connexion passent par le service hébergé de Supabase, même si le logiciel de Supabase est lui-même open source. Les e-mails partent par le service d’envoi choisi par les admins. Nous n’utilisons que des offres gratuites, et Crew Call peut quitter chacune d’elles. || El código está en GitHub y la web se aloja en GitHub Pages. La base de datos y el inicio de sesión funcionan con el servicio alojado de Supabase, aunque el software de Supabase es de código abierto. Los correos salen por el servicio de envío que configuren los administradores. Solo usamos planes gratuitos, y Crew Call puede dejar cualquiera de ellos.
+# Demo link (?demo)
+This is the demo: sample people, and nothing is saved. || 這是示範版：使用範例人物，不會儲存任何內容。 || Ceci est la démo : des personnes fictives, et rien n’est enregistré. || Esto es la demo: personas de ejemplo, y no se guarda nada.
+Go to the real Crew Call || 前往正式版 Crew Call || Aller au vrai Crew Call || Ir al Crew Call real
+Try the demo || 試用示範版 || Essayer la démo || Probar la demo
+Want a look first? || 想先看看？ || Envie de jeter un œil d’abord ? || ¿Quieres echar un vistazo antes?
+Try the demo with sample people || 用範例人物試用示範版 || Essayer la démo avec des personnes fictives || Probar la demo con personas de ejemplo
+Sample people, and nothing is saved. || 使用範例人物，不會儲存任何內容。 || Des personnes fictives, et rien n’est enregistré. || Personas de ejemplo, y no se guarda nada.
