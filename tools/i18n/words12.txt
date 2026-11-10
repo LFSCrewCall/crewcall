@@ -51,3 +51,16 @@ The request still waiting is closed. || 尚在等待的申請會被關閉。 || 
 Next, list it in Post to find an editor, colourist, sound designer or composer. || 接著把它刊登到後期，找剪接師、調光師、聲音設計或作曲。 || Ensuite, publiez-le en postproduction pour trouver un monteur, un étalonneur, un designer sonore ou un compositeur. || Después, publícalo en Postproducción para encontrar montador, etalonador, diseñador de sonido o compositor.
 The shoot days that came off the calendar go back on, and it returns to the Shoot board. || 先前移除的拍攝日會回到行事曆，它也會回到拍攝看板。 || Les jours de tournage retirés reviennent dans le calendrier, et il revient sur le tableau Tournages. || Los días de rodaje retirados vuelven al calendario y regresa al tablero de Rodajes.
 It returns to the Shoot board until its last shoot day has passed. || 它會回到拍攝看板，直到最後一個拍攝日過去。 || Il revient sur le tableau Tournages jusqu'à son dernier jour de tournage. || Vuelve al tablero de Rodajes hasta que pase su último día de rodaje.
+Delivery date || 交付日期 || Date de livraison || Fecha de entrega
+Delivery || 交付 || Livraison || Entrega
+Delivered || 已交付 || Livré || Entregado
+Delivery soonest || 最快交付 || Livraison la plus proche || Entrega más próxima
+No delivery date || 沒有交付日期 || Pas de date de livraison || Sin fecha de entrega
+Stage || 階段 || Étape || Fase
+Shooting soon || 即將開拍 || Tournage bientôt || Rodaje próximo
+From the shoot || 來自拍攝 || Depuis le tournage || Desde el rodaje
+Add post details || 新增後期資料 || Ajouter les détails de postproduction || Añadir detalles de postproducción
+Request on the shoot || 在拍攝頁申請 || Postuler sur le tournage || Solicitar en el rodaje
+Post roles picked on the shoot show here too. || 在拍攝頁選定的後期職位也會顯示在這裡。 || Les postes de postproduction choisis sur le tournage s'affichent aussi ici. || Los puestos de postproducción elegidos en el rodaje también aparecen aquí.
+post roles on the shoot are added for you || 拍攝頁的後期職位會自動加入 || les postes de postproduction du tournage sont ajoutés pour vous || los puestos de postproducción del rodaje se añaden por ti
+optional: when post has to be finished. The film stays on Post until then || 選填：後期須完成的日期。影片會留在後期頁直到那天 || facultatif : quand la postproduction doit être terminée. Le film reste dans Post jusque-là || opcional: cuándo debe terminar la postproducción. La película se queda en Post hasta entonces

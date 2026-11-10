@@ -51,3 +51,16 @@ The request still waiting is closed. || रुका हुआ अनुरो�
 Next, list it in Post to find an editor, colourist, sound designer or composer. || फिर एडिटर, कलरिस्ट, साउंड डिज़ाइनर या कंपोज़र ढूँढने के लिए इसे पोस्ट-प्रोडक्शन में जोड़ें। || Depois, publique na pós-produção para encontrar montador, colorista, designer de som ou compositor.
 The shoot days that came off the calendar go back on, and it returns to the Shoot board. || हटाए गए शूट दिन कैलेंडर पर लौट आएँगे, और यह शूट बोर्ड पर वापस आ जाएगा। || Os dias de rodagem retirados voltam ao calendário, e volta ao quadro de Rodagens.
 It returns to the Shoot board until its last shoot day has passed. || यह आख़िरी शूट दिन बीतने तक शूट बोर्ड पर लौट आएगा। || Volta ao quadro de Rodagens até passar o último dia de rodagem.
+Delivery date || डिलीवरी की तारीख़ || Data de entrega
+Delivery || डिलीवरी || Entrega
+Delivered || डिलीवर हो गया || Entregue
+Delivery soonest || सबसे पहले डिलीवरी || Entrega mais próxima
+No delivery date || डिलीवरी की तारीख़ नहीं || Sem data de entrega
+Stage || चरण || Etapa
+Shooting soon || जल्द शूटिंग || Filmagem em breve
+From the shoot || शूट से || Da filmagem
+Add post details || पोस्ट की जानकारी जोड़ें || Adicionar detalhes da pós-produção
+Request on the shoot || शूट पर अनुरोध करें || Pedir na filmagem
+Post roles picked on the shoot show here too. || शूट पर चुने गए पोस्ट रोल यहाँ भी दिखते हैं। || As funções de pós-produção escolhidas na filmagem também aparecem aqui.
+post roles on the shoot are added for you || शूट के पोस्ट रोल अपने-आप जुड़ जाते हैं || as funções de pós-produção da filmagem são adicionadas para você
+optional: when post has to be finished. The film stays on Post until then || वैकल्पिक: पोस्ट कब तक पूरा होना है। तब तक फ़िल्म पोस्ट में रहती है || opcional: quando a pós-produção tem de terminar. O filme fica em Pós até lá

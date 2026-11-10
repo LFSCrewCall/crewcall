@@ -263,3 +263,6 @@
 ^(.+) is back on the Shoot board$ || {=1}已回到拍攝看板 || {=1} est de retour sur le tableau Tournages || {=1} vuelve al tablero de Rodajes
 ^The (\d+) shoot days after today come off the calendar, and the crew are told\.$ || 今天之後的 {=1} 個拍攝日會從行事曆移除，並通知劇組。 || Les {=1} jours de tournage après aujourd'hui sont retirés du calendrier, et l'équipe est prévenue. || Los {=1} días de rodaje posteriores a hoy salen del calendario y se avisa al equipo.
 ^The (\d+) requests still waiting are closed\.$ || 尚在等待的 {=1} 個申請會被關閉。 || Les {=1} demandes en attente sont closes. || Las {=1} solicitudes pendientes se cierran.
+^Delivery (.+)$ || 交付 {1} || Livraison {1} || Entrega {1}
+^Shooting (.+)$ || 拍攝 {1} || Tournage {1} || Rodaje {1}
+^From the shoot · directed by (.+)$ || 來自拍攝 · 導演 {=1} || Depuis le tournage · réalisé par {=1} || Desde el rodaje · dirigido por {=1}

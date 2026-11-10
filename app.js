@@ -183,7 +183,10 @@
     const a = e.target.closest("[data-mapapp]"); if (a) { mapPref = a.dataset.mapapp; const me = S.meId && student(S.meId); if (me) me.mapApp = mapPref; }
     document.querySelectorAll("details.map-open[open]").forEach(d => { if (!d.contains(e.target) || a) d.open = false; });
   });
-  const isActive = p => p.shoots.some(r => r.to >= TODAY);
+  const isActive = p => !p.wrapped && p.shoots.some(r => r.to >= TODAY);
+  const lastDay = p => p.shoots.reduce((a, r) => r.to > a ? r.to : a, "");
+  // wrapped shoots stay on the Shoot board, greyed out, until their delivery date (or 30 days after the last shoot day)
+  const shootGone = p => !isActive(p) && (p.delivery ? p.delivery < TODAY : daysUntil(p.wrapped || lastDay(p)) < -30);
   const isPast = p => !!p.wrapped || p.shoots.every(r => r.to < TODAY);
   const started = p => p.shoots.some(r => r.from <= TODAY);
   const postOf = p => (S.posts || []).find(x => x.pid === p.id && !x.hidden);
@@ -708,16 +711,17 @@
   const shootCfg = () => ({
     placeholder: "Search title, director, location", noun: "shoot", matchHint: "Shoots with an open role that's on your profile",
     text: p => [p.title, p.director, contactOf(p).name, ...locs(p).map(l => l.name + " " + l.detail), p.logline].join(" "),
-    match: (p, m) => openRoles(p).some(r => m.roles.includes(r.role)),
+    match: (p, m) => !isPast(p) && openRoles(p).some(r => m.roles.includes(r.role)),
+    sink: p => isPast(p), sinkLabel: "Wrapped",
     groups: [
       { id: "role", multi: true, label: "Role needed", opts: uniqSorted(live().filter(isActive).flatMap(p => openRoles(p).map(r => r.role))), test: (p, v) => openRoles(p).some(r => r.role === v) },
-      { id: "when", label: "Shooting", opts: ["This week", "Next 2 weeks", "This month", "Later"], test: (p, v) => shootWhen(p) === v },
+      { id: "when", label: "Shooting", opts: ["This week", "Next 2 weeks", "This month", "Later"], test: (p, v) => !isPast(p) && shootWhen(p) === v },
       { id: "type", label: "Type", opts: C.TYPES.filter(t => live().some(p => isActive(p) && p.type === t)), test: (p, v) => p.type === v },
       { id: "term", label: "Made by", opts: C.TERMS.filter(t => live().some(p => isActive(p) && p.term === t)), test: (p, v) => p.term === v }
     ],
     sorts: [["soon", "Shooting soonest", (a, b) => firstDay(a).localeCompare(firstDay(b)), firstDay], ["new", "Newest", (a, b) => (b.created || "").localeCompare(a.created || ""), p => p.created], ["open", "Most roles open", (a, b) => openRoles(b).length - openRoles(a).length]],
-    done: p => !openRoles(p).length, doneLabel: "Show fully crewed shoots", doneHidden: "fully crewed",
-    table: { color: projColor, cols: [
+    done: p => !isPast(p) && !openRoles(p).length, doneLabel: "Show fully crewed shoots", doneHidden: "fully crewed",
+    table: { color: projColor, dim: isPast, cols: [
       ["Shoot", p => `<button class="link-btn bt-t" data-proj="${p.id}">${esc(p.title)}</button><span class="bt-sub">${esc(p.type)}</span>`],
       ["Dates", p => `<span class="nowrap">${p.shoots.map(fmtRange).join("<br>")}</span>`, "mono small", p => firstDay(p)],
       ["Call", p => dayInfo(p, projDays(p)[0]).call, "mono small"],
@@ -726,25 +730,26 @@
       ["Crewed", p => { const f = p.roles.length - openRoles(p).length; return `<span class="nowrap">${f}/${p.roles.length}</span>`; }, "mono small", p => (p.roles.length - openRoles(p).length) / p.roles.length],
       ["Open roles", p => { const u = [...new Set(openRoles(p).map(r => r.role))]; return u.length ? `<div class="chips">${u.map(r => `<span class="chip chip-open">${esc(r)}</span>`).join("")}</div>` : `<span class="small ok">Fully crewed</span>`; }, "", p => -openRoles(p).length]
     ] },
-    timeline: { color: projColor, label: p => `<button class="link-btn bt-t" data-proj="${p.id}">${esc(p.title)}</button>`, sub: p => `${p.type} · ${openRoles(p).length ? openRoles(p).length + " open" : "Fully crewed"}`,
+    timeline: { color: projColor, dim: isPast, label: p => `<button class="link-btn bt-t" data-proj="${p.id}">${esc(p.title)}</button>`, sub: p => `${p.type} · ${openRoles(p).length ? openRoles(p).length + " open" : "Fully crewed"}`,
       segs: p => p.shoots.map(r => ({ from: r.from, to: r.to, label: fmtRange(r) })) },
     map: { color: projColor, points: p => locs(p), title: p => p.title, badge: p => openRoles(p).length || "✓", when: p => p.shoots.map(fmtRange).join(" + "),
       popup: (p, l) => { const n = openRoles(p).length; return `<div class="map-pop"><b>${esc(p.title)}</b><span>${esc(l.name)}${l.detail ? ` · ${esc(l.detail)}` : ""}</span><span class="mono">${p.shoots.map(fmtRange).join(" + ")}</span><span>${n ? `${n} open role${n === 1 ? "" : "s"}: ${esc([...new Set(openRoles(p).map(r => r.role))].join(", "))}` : "Fully crewed"}</span><span class="map-pop-acts"><button type="button" class="btn btn-accent btn-xs" data-proj="${p.id}">View roles</button>${mapLinks(l, "Directions")}</span></div>`; } }
   });
   function renderProjects(partial) {
-    board({ key: "shoot", host: $("#projList"), cfg: shootCfg(), items: live().filter(isActive), card: projectCard, partial, redraw: renderProjects,
+    board({ key: "shoot", host: $("#projList"), cfg: shootCfg(), items: live().filter(p => !shootGone(p)), card: projectCard, partial, redraw: renderProjects,
       empty: `<div class="empty"><p class="empty-t">No shoots match</p><p class="muted">Try clearing a filter, or post your own shoot.</p><button class="btn btn-accent btn-sm" data-action="post">Post a shoot</button></div>` });
   }
   function projectCard(p) {
     const open = openRoles(p), filled = p.roles.length - open.length, pct = Math.round((filled / p.roles.length) * 100);
     const uniq = [...new Set(open.map(r => r.role))], mine = me() && runs(p);
     const waiting = mine ? S.requests.filter(q => q.pid === p.id && q.status === "pending").length : 0;
-    return `<article class="card proj-card" style="--c:${projColor(p)}">
-      <div class="proj-top"><span class="type-tag">${esc(p.type)}</span><span class="term-tag">${esc(p.term)}</span>${mine ? `<span class="tag-run">You run this</span>` : ""}</div>
+    const past = isPast(p);
+    return `<article class="card proj-card${past ? " is-dim" : ""}" style="--c:${projColor(p)}">
+      <div class="proj-top"><span class="type-tag">${esc(p.type)}</span><span class="term-tag">${esc(p.term)}</span>${past ? `<span class="tag-arch">Wrapped</span>` : ""}${mine ? `<span class="tag-run">You run this</span>` : ""}</div>
       <h3 class="card-t"><button class="link-btn" data-proj="${p.id}">${esc(p.title)}</button></h3>
       <p class="card-sub">${esc(p.director)} · ${esc(locShort(p))}</p>
       <p class="logline">${esc(p.logline)}</p>
-      <p class="dates mono">${p.shoots.map(fmtRange).join(" + ")} · call ${dayInfo(p, projDays(p)[0]).call}</p>
+      <p class="dates mono">${p.shoots.map(fmtRange).join(" + ")}${past ? "" : ` · call ${dayInfo(p, projDays(p)[0]).call}`}</p>${p.delivery ? `<p class="small muted">Delivery ${fmtDay(p.delivery)}</p>` : ""}
       <div class="crew-bar" aria-label="${filled} of ${p.roles.length} roles filled"><span style="width:${pct}%"></span></div>
       <p class="small muted">${filled}/${p.roles.length} crewed${waiting ? ` · <span class="warn-t">${waiting} request${waiting > 1 ? "s" : ""} waiting</span>` : ""}</p>
       ${uniq.length ? `<div class="chips">${uniq.map(r => `<span class="chip chip-open">${esc(r)}${open.filter(x => x.role === r).length > 1 ? ` ×${open.filter(x => x.role === r).length}` : ""}</span>`).join("")}</div>` : `<p class="small ok">Fully crewed</p>`}
@@ -840,6 +845,7 @@
       <dl class="meta-list">
         <div><dt>Location${L.length > 1 ? `s (${L.length})` : ""}</dt><dd>${L.length ? `<ul class="loc-list">${L.map(l => `<li><span class="loc-pin" aria-hidden="true"></span><span><span class="loc-name">${esc(l.name)}</span>${l.detail ? `<span class="loc-detail">${esc(l.detail)}</span>` : ""}</span>${mapLinks(l)}</li>`).join("")}</ul>` : `<span class="muted">To be confirmed</span>`}</dd></div>
         ${p.kitNeeded ? `<div><dt>Kit wanted</dt><dd>${esc(p.kitNeeded)}</dd></div>` : ""}
+        ${p.delivery ? `<div><dt>Delivery date</dt><dd>${fmtFull(p.delivery)}</dd></div>` : ""}
       </dl>
 
       <section class="contact-box" aria-labelledby="contactH">
@@ -1242,6 +1248,7 @@
         <fieldset class="fs"><legend>Shoot dates</legend>
           <div class="range-list" id="postRanges">${(p ? p.shoots : [undefined]).map(r => rangeRow(r)).join("")}</div>
           <button type="button" class="btn btn-ghost btn-sm" id="postRangeAdd">Add another block</button>
+          <label class="field mt"><span>Delivery date <small>optional: when post has to be finished. The film stays on Post until then</small></span><input name="delivery" type="date" value="${p && p.delivery ? p.delivery : ""}"></label>
         </fieldset>
         <fieldset class="fs"><legend>Call, wrap and location for each day</legend>
           <div id="schedRows"></div>
@@ -1374,7 +1381,7 @@
       if (!producers.length && !roles.some(r => r.role === "Producer")) roles.unshift({ role: "Producer", filledBy: null, rid: uid("r") });
       const days = shoots.flatMap(r => daysIn(r.from, r.to)), dayMap = {};
       days.forEach(d => { dayMap[d] = Object.assign({ call: "08:00", wrap: "18:00", loc: 0 }, sched[d] || {}); if (dayMap[d].loc >= locations.length) dayMap[d].loc = 0; });
-      const data = { title: f.get("title").trim(), type: f.get("type"), term: f.get("term"), director: dirMem ? dirMem.name : dirIn, dsid: dirMem ? dirMem.id : null, email: dirMem ? "" : dirEmail, locations, producers, producer: producers[0] || null, logline: f.get("logline").trim(), shoots, kitNeeded: f.get("kitNeeded").trim(), days: dayMap, hub };
+      const data = { title: f.get("title").trim(), type: f.get("type"), term: f.get("term"), director: dirMem ? dirMem.name : dirIn, dsid: dirMem ? dirMem.id : null, email: dirMem ? "" : dirEmail, locations, producers, producer: producers[0] || null, logline: f.get("logline").trim(), shoots, kitNeeded: f.get("kitNeeded").trim(), delivery: f.get("delivery") || "", days: dayMap, hub };
       if (p) {
         const before = JSON.stringify([p.shoots, p.days]), oldR = new Set(p.roles.map(r => r.rid)), hadWa = hubOf(p).whatsapp;
         Object.assign(p, data); p.roles = roles;
@@ -2604,13 +2611,14 @@ ${LIVE ? "" : `<label class="toggle"><input type="checkbox" data-aus="autoSend" 
     if (cfg.done && !st.all) list = list.filter(it => !cfg.done(it));
     const s = cfg.sorts.find(x => x[0] === st.sort) || cfg.sorts[0];
     list = [...list].sort(s[2]);
+    if (cfg.sink) list = list.filter(it => !cfg.sink(it)).concat(list.filter(cfg.sink));
     const tc = st.tsort && st.view === "table" && cfg.table && cfg.table.cols[st.tsort.i];
     if (tc) { const k = colKey(tc); list = list.map(it => [k(it), it]).sort((a, b) => cmpKey(a[0], b[0]) * st.tsort.dir).map(x => x[1]); }
-    const mk = !tc && s[3] ? it => { const d = s[3](it); return d ? String(d).slice(0, 7) : ""; } : null;
+    const mk = !tc && s[3] ? it => { if (cfg.sink && cfg.sink(it)) return "~" + cfg.sinkLabel; const d = s[3](it); return d ? String(d).slice(0, 7) : ""; } : null;
     return { st, list, shown: st.view === "map" ? list : list.slice(0, st.limit), doneN, mk };
   }
   // ---------- month headings: when a board is sorted by a date, items are grouped under the month ----------
-  const monthName = k => k ? `${MONTH_FULL[+k.slice(5, 7) - 1]} ${k.slice(0, 4)}` : "No date yet";
+  const monthName = k => k && k[0] === "~" ? k.slice(1) : k ? `${MONTH_FULL[+k.slice(5, 7) - 1]} ${k.slice(0, 4)}` : "No date yet";
   // [{ key, label, n, items }] in list order; n counts the whole filtered list, not just what's shown
   function monthGroups(mk, shown, list) {
     if (!mk) return null;
@@ -2648,7 +2656,7 @@ ${LIVE ? "" : `<label class="toggle"><input type="checkbox" data-aus="autoSend" 
   // cfg.timeline = { segs: item => [{ from, to, label, dash }], label: item => html, sub: item => text, color }
   function tableHtml(t, items, ts, groups) {
     return `<div class="tbl-wrap"><table class="btable"><thead><tr>${t.cols.map((c, i) => { const on = ts && ts.i === i; return `<th scope="col" class="${c[2] || ""}${i === 0 ? " bt-first" : ""}" aria-sort="${on ? (ts.dir > 0 ? "ascending" : "descending") : "none"}"><button type="button" class="th-sort" data-tsort="${i}">${esc(c[0])}<span class="th-ar" aria-hidden="true">${on ? (ts.dir > 0 ? "▲" : "▼") : "↕"}</span></button></th>`; }).join("")}</tr></thead>
-      <tbody>${(groups || [{ items }]).map(g => (g.label ? `<tr class="bt-month"><th scope="colgroup" colspan="${t.cols.length}"><span class="bt-month-l">${monthHead(g)}</span></th></tr>` : "") + g.items.map(it => `<tr style="--c:${t.color ? t.color(it) : "var(--accent)"}">${t.cols.map((c, i) => `<td class="${c[2] || ""}${i === 0 ? " bt-first" : ""}">${c[1](it)}</td>`).join("")}</tr>`).join("")).join("")}</tbody></table></div>`;
+      <tbody>${(groups || [{ items }]).map(g => (g.label ? `<tr class="bt-month"><th scope="colgroup" colspan="${t.cols.length}"><span class="bt-month-l">${monthHead(g)}</span></th></tr>` : "") + g.items.map(it => `<tr${t.dim && t.dim(it) ? ` class="is-dim"` : ""} style="--c:${t.color ? t.color(it) : "var(--accent)"}">${t.cols.map((c, i) => `<td class="${c[2] || ""}${i === 0 ? " bt-first" : ""}">${c[1](it)}</td>`).join("")}</tr>`).join("")).join("")}</tbody></table></div>`;
   }
   const dayDiff = (a, b) => Math.round((D(b) - D(a)) / 864e5);
   function timelineHtml(t, items, groups) {
@@ -2668,8 +2676,8 @@ ${LIVE ? "" : `<label class="toggle"><input type="checkbox" data-aus="autoSend" 
     const today = pct(TODAY), tlw = Math.max(640, ticks.length * (monthly ? 90 : 72));
     return `<div class="tl-wrap"><div class="tl" style="--tl-w:${tlw}px">
       <div class="tl-head"><div class="tl-label"></div><div class="tl-track">${ticks.map(d => `<span class="tl-tick" style="left:${pct(d)}%">${tickLbl(d)}</span>`).join("")}<span class="tl-today-lbl${today < 4 ? " tl-start" : ""}" style="left:${today}%">Today</span></div></div>
-      ${rows.map(r => (headAt.has(r.it) ? (g => { const k = g.key, l = k ? pct(k + "-01") : 0, nx = k ? iso(new Date(Date.UTC(+k.slice(0, 4), +k.slice(5, 7), 1))) : null, w = k ? pct(nx) - l : 0;
-          return `<div class="tl-month"><div class="tl-label">${monthHead(g)}</div><div class="tl-track">${w > 0 ? `<span class="tl-mband" style="left:${l}%;width:${w}%"></span>` : ""}</div></div>`; })(headAt.get(r.it)) : "") + `<div class="tl-row" style="--c:${t.color ? t.color(r.it) : "var(--accent)"}"><div class="tl-label">${t.label(r.it)}${t.sub ? `<span class="tl-sub">${esc(t.sub(r.it))}</span>` : ""}</div>
+      ${rows.map(r => (headAt.has(r.it) ? (g => { const k = g.key && g.key[0] !== "~" ? g.key : "", l = k ? pct(k + "-01") : 0, nx = k ? iso(new Date(Date.UTC(+k.slice(0, 4), +k.slice(5, 7), 1))) : null, w = k ? pct(nx) - l : 0;
+          return `<div class="tl-month"><div class="tl-label">${monthHead(g)}</div><div class="tl-track">${w > 0 ? `<span class="tl-mband" style="left:${l}%;width:${w}%"></span>` : ""}</div></div>`; })(headAt.get(r.it)) : "") + `<div class="tl-row${t.dim && t.dim(r.it) ? " is-dim" : ""}" style="--c:${t.color ? t.color(r.it) : "var(--accent)"}"><div class="tl-label">${t.label(r.it)}${t.sub ? `<span class="tl-sub">${esc(t.sub(r.it))}</span>` : ""}</div>
         <div class="tl-track">${ticks.map(d => `<span class="tl-grid" style="left:${pct(d)}%"></span>`).join("")}<span class="tl-today" style="left:${today}%"></span>
           ${r.segs.map(x => { const l = pct(x.from), w = Math.max(pct(addDays(x.to || x.from, 1)) - l, 0.6); const out = w / 100 * tlw < (x.label || "").length * 7 + 12;
             return `<span class="tl-bar${x.dash ? " tl-dash" : ""}" style="left:${l}%;width:${w}%" title="${esc(x.label || "")}">${out ? "" : `<span class="tl-bar-t">${esc(x.label || "")}</span>`}</span>${out ? `<span class="tl-out" style="left:calc(${l + w}% + 6px)">${esc(x.label || "")}</span>` : ""}`; }).join("")}</div></div>`).join("")}
@@ -2907,32 +2915,57 @@ ${LIVE ? "" : `<label class="toggle"><input type="checkbox" data-aus="autoSend" 
   const POST_NEEDS = ["Editing", "Assistant edit", "Colour grade", "Sound design & mix", "Music", "VFX", "Titles & graphics"];
   const POST_ROLE = { "Editing": ["Editor"], "Assistant edit": ["Editor", "DIT"], "Colour grade": ["Colourist"], "Sound design & mix": ["Sound Designer", "Boom Operator", "Sound Recordist"], "Music": ["Composer"], "VFX": ["VFX"], "Titles & graphics": ["VFX", "Key Art & Poster"] };
   const POST_CREDIT = { "Editing": "Editor", "Assistant edit": "Assistant Editor", "Colour grade": "Colourist", "Sound design & mix": "Sound Designer", "Music": "Composer", "VFX": "VFX", "Titles & graphics": "Titles & Graphics" };
+  // post-department roles on a shoot, and the Post need each one covers
+  const POST_DEPT = { "Editor": "Editing", "Colourist": "Colour grade", "VFX": "VFX", "Sound Designer": "Sound design & mix", "Composer": "Music" };
   const POST_WHERE = ["Remote", "On campus", "Either"];
-  const postOpen = x => x.needs.filter(n => !x.attached.some(a => a.need === n));
+  const uniq = a => [...new Set(a)];
+  // a listing's team and needs, including post roles picked on the linked shoot
+  function postTeam(x) {
+    const p = !x.virtual && x.pid && project(x.pid);
+    if (!p) return { needs: x.needs, attached: x.attached };
+    const pr = p.roles.filter(r => POST_DEPT[r.role]);
+    const fromShoot = pr.filter(r => r.filledBy).map(r => isExt(r) ? { sid: null, name: extName(r), need: POST_DEPT[r.role] } : { sid: r.filledBy, need: POST_DEPT[r.role] });
+    return { needs: uniq(x.needs.concat(pr.map(r => POST_DEPT[r.role]))), attached: x.attached.concat(fromShoot.filter(a => !x.attached.some(b => b.sid && b.sid === a.sid && b.need === a.need))) };
+  }
+  const postOpen = x => { const t = postTeam(x); return t.needs.filter(n => !t.attached.some(a => a.need === n)); };
+  const teamName = a => a.name || (student(a.sid) || { name: "Former member" }).name;
+  const postWho = (x, wrap) => wrap ? `<button class="link-btn" data-student="${x.by || ""}">${esc(x.byName || (student(x.by) || { name: "Former member" }).name)}</button>` : esc(x.byName || (student(x.by) || { name: "Former member" }).name);
+  // shoots with post roles (Editor, Colourist, VFX, Sound Designer, Composer) appear in Post on their own, until someone lists them properly
+  const shootPostItems = () => live().filter(p => p.roles.some(r => POST_DEPT[r.role]) && !S.posts.some(x => x.pid === p.id && !x.hidden)).map(p => {
+    const pr = p.roles.filter(r => POST_DEPT[r.role]);
+    return { virtual: true, id: "sp_" + p.id, pid: p.id, by: p.dsid || null, byName: p.director, title: p.title, type: p.type, runtime: null, logline: p.logline, deadline: p.delivery || "", where: "", software: "", footage: "", link: "", posted: firstDay(p), status: "open",
+      needs: uniq(pr.map(r => POST_DEPT[r.role])), attached: pr.filter(r => r.filledBy).map(r => isExt(r) ? { sid: null, name: extName(r), need: POST_DEPT[r.role] } : { sid: r.filledBy, need: POST_DEPT[r.role] }) };
+  });
+  // greyed out once the delivery date has passed; gone 30 days later. Shoot-only items without a delivery date go 60 days after the shoot.
+  const postDim = x => !!x.deadline && x.deadline < TODAY;
+  const postGone = x => x.deadline ? daysUntil(x.deadline) < -30 : x.virtual && isPast(project(x.pid)) && daysUntil(project(x.pid).wrapped || lastDay(project(x.pid))) < -60;
+  const postItems = () => S.posts.filter(x => !x.hidden).concat(shootPostItems()).filter(x => !postGone(x));
   const postCfg = () => ({
     placeholder: "Search title, director or software", noun: "film", matchHint: "Films needing post work your profile roles cover",
-    text: x => [x.title, x.logline, x.software, x.footage, (student(x.by) || {}).name, x.type].join(" "),
-    match: (x, m) => postOpen(x).some(n => (POST_ROLE[n] || []).some(r => m.roles.includes(r) || (m.learn || []).includes(r))),
+    text: x => [x.title, x.logline, x.software, x.footage, x.byName || (student(x.by) || {}).name, x.type].join(" "),
+    match: (x, m) => !postDim(x) && postOpen(x).some(n => (POST_ROLE[n] || []).some(r => m.roles.includes(r) || (m.learn || []).includes(r))),
+    sink: postDim, sinkLabel: "Delivered",
     groups: [
       { id: "need", label: "Help needed", opts: POST_NEEDS, test: (x, v) => postOpen(x).includes(v) },
+      { id: "stage", label: "Stage", opts: ["Shooting soon", "Wrapped"], test: (x, v) => { const p = x.pid && project(x.pid); const wrapped = !p || isPast(p); return v === "Wrapped" ? wrapped : !wrapped; } },
       { id: "where", label: "Where", opts: POST_WHERE, test: (x, v) => x.where === v || (v !== "Either" && x.where === "Either") },
-      { id: "type", label: "Type", opts: uniqSorted(S.posts.map(x => x.type)), test: (x, v) => x.type === v },
-      { id: "due", label: "Deadline", opts: ["Next 30 days", "Next 3 months", "No deadline"], test: (x, v) => v === "No deadline" ? !x.deadline : !!x.deadline && daysUntil(x.deadline) >= 0 && daysUntil(x.deadline) <= (v === "Next 30 days" ? 30 : 92) }
+      { id: "type", label: "Type", opts: uniqSorted(postItems().map(x => x.type)), test: (x, v) => x.type === v },
+      { id: "due", label: "Delivery", opts: ["Next 30 days", "Next 3 months", "No delivery date"], test: (x, v) => v === "No delivery date" ? !x.deadline : !!x.deadline && daysUntil(x.deadline) >= 0 && daysUntil(x.deadline) <= (v === "Next 30 days" ? 30 : 92) }
     ],
-    sorts: [["due", "Deadline soonest", (a, b) => (a.deadline || "9999").localeCompare(b.deadline || "9999"), x => x.deadline], ["new", "Newest", (a, b) => b.posted.localeCompare(a.posted), x => x.posted]],
-    done: x => !postOpen(x).length, doneLabel: "Show films with a full post team", doneHidden: "with a full post team",
-    table: { cols: [
-      ["Film", x => `<button class="link-btn bt-t" data-post="${x.id}">${esc(x.title)}</button><span class="bt-sub">${esc(x.type)}${x.runtime ? ` · ${x.runtime} min` : ""}</span>`],
-      ["Listed by", x => esc((student(x.by) || { name: "Former member" }).name), "small"],
+    sorts: [["due", "Delivery soonest", (a, b) => (a.deadline || "9999").localeCompare(b.deadline || "9999"), x => x.deadline], ["new", "Newest", (a, b) => b.posted.localeCompare(a.posted), x => x.posted]],
+    done: x => !postDim(x) && !postOpen(x).length, doneLabel: "Show films with a full post team", doneHidden: "with a full post team",
+    table: { dim: postDim, cols: [
+      ["Film", x => `<button class="link-btn bt-t" ${x.virtual ? `data-proj="${x.pid}"` : `data-post="${x.id}"`}>${esc(x.title)}</button><span class="bt-sub">${esc(x.type)}${x.runtime ? ` · ${x.runtime} min` : ""}</span>`],
+      ["Listed by", x => x.virtual ? `<span class="small">${esc(x.byName || "")}</span><span class="bt-sub">From the shoot</span>` : postWho(x), "small"],
       ["Help needed", x => postOpen(x).length ? `<div class="chips">${postOpen(x).map(n => `<span class="chip chip-hit">${esc(n)}</span>`).join("")}</div>` : `<span class="small muted">Full team</span>`],
-      ["Deadline", x => x.deadline ? fmtFull(x.deadline) : "None", "mono small", x => x.deadline || "9999"],
+      ["Delivery", x => x.deadline ? fmtFull(x.deadline) : "None", "mono small", x => x.deadline || "9999"],
       ["Where", x => esc(x.where || ""), "small"],
       ["Software", x => esc(x.software || ""), "small"]
     ] },
-    timeline: { label: x => `<button class="link-btn bt-t" data-post="${x.id}">${esc(x.title)}</button>`, sub: x => postOpen(x).length ? "Needs " + postOpen(x).join(", ") : "Full team",
-      segs: x => x.deadline ? [{ from: x.posted, to: x.deadline, label: "Deadline " + fmtFull(x.deadline) }] : [{ from: x.posted, to: addDays(x.posted, 30), label: "No deadline", dash: true }] }
+    timeline: { dim: postDim, label: x => `<button class="link-btn bt-t" ${x.virtual ? `data-proj="${x.pid}"` : `data-post="${x.id}"`}>${esc(x.title)}</button>`, sub: x => postOpen(x).length ? "Needs " + postOpen(x).join(", ") : "Full team",
+      segs: x => { const p = x.pid && project(x.pid), from = p && !isPast(p) ? firstDay(p) : x.posted; return x.deadline ? [{ from, to: x.deadline, label: "Delivery " + fmtFull(x.deadline) }] : [{ from, to: addDays(from, 30), label: "No delivery date", dash: true }]; } }
   });
-  const myWrappedForPost = m => S.projects.filter(p => !p.archived && isPast(p) && runs(p, m) && !S.posts.some(r => r.pid === p.id) && !S.releases.some(r => r.pid === p.id));
+  const myWrappedForPost = m => S.projects.filter(p => !p.archived && isPast(p) && runs(p, m) && !S.posts.some(r => r.pid === p.id && !r.hidden) && !S.releases.some(r => r.pid === p.id));
   function renderPost(partial) {
     const root = $("#view-post"), m = me();
     if (!partial || !root.querySelector(".board-host")) {
@@ -2940,38 +2973,51 @@ ${LIVE ? "" : `<label class="toggle"><input type="checkbox" data-aus="autoSend" 
       root.innerHTML = `
         <div class="view-head"><div><p class="eyebrow">Step 3 of 4</p><h1 class="page-title">Post</h1><p class="muted">Wrapped shoots looking for an editor, colourist, sound designer, composer or VFX artist. Post work fits around other shoots, often from home, and every job becomes a credit on your profile.</p></div>
           <div class="head-acts"><button class="btn btn-accent" id="pfNew">List a film for post</button></div></div>
-        ${wrapped.length ? `<div class="wrap-note"><p><b>${esc(wrapped.map(p => p.title).join(", "))}</b> ${wrapped.length === 1 ? "has" : "have"} wrapped. Find your post team.</p>${wrapped.map(p => `<button class="btn btn-ghost btn-sm" data-postfrom="${p.id}">List ${esc(p.title)}</button>`).join("")}</div>` : ""}
+        ${wrapped.length ? `<div class="wrap-note"><p><b>${esc(wrapped.map(p => p.title).join(", "))}</b> ${wrapped.length === 1 ? "has wrapped. Find your post team." : "have wrapped. Find your post team."}</p>${wrapped.map(p => `<button class="btn btn-ghost btn-sm" data-postfrom="${p.id}">List ${esc(p.title)}</button>`).join("")}</div>` : ""}
         <div class="board-host" data-fkey="post"></div>`;
       $("#pfNew").onclick = () => openPostFilmForm();
       root.querySelectorAll("[data-postfrom]").forEach(b => b.onclick = () => openPostFilmForm(null, project(b.dataset.postfrom)));
     }
-    board({ key: "post", host: root.querySelector(".board-host"), cfg: postCfg(), items: S.posts.filter(x => !x.hidden), card: postCard, partial, redraw: renderPost,
+    board({ key: "post", host: root.querySelector(".board-host"), cfg: postCfg(), items: postItems(), card: postCard, partial, redraw: renderPost,
       empty: `<div class="empty"><p class="empty-t">Nothing matches</p><p class="muted">Try clearing a filter. Directors and producers, list a wrapped shoot to find an editor, colourist or sound designer.</p></div>`,
-      after: host => host.querySelectorAll("[data-post]").forEach(b => b.onclick = () => openPostItem(b.dataset.post)) });
+      after: host => { host.querySelectorAll("[data-post]").forEach(b => b.onclick = () => openPostItem(b.dataset.post)); host.querySelectorAll("[data-postlist]").forEach(b => b.onclick = () => openPostFilmForm(null, project(b.dataset.postlist))); bindOpeners(host); } });
   }
   function postCard(x) {
-    const w = student(x.by) || { name: "Former member" }, m = me(), open = postOpen(x);
+    const m = me(), open = postOpen(x), team = postTeam(x).attached, p = x.pid && project(x.pid), dim = postDim(x);
+    const tags = `<span class="type-tag">${esc(x.type)}</span>${dim ? `<span class="tag-arch">Delivered</span>` : p && !isPast(p) ? `<span class="term-tag">Shooting ${fmtDay(firstDay(p))}</span>` : ""}${x.where ? `<span class="term-tag">${esc(x.where)}</span>` : ""}${x.deadline ? `<span class="term-tag ${!dim && daysUntil(x.deadline) <= 30 ? "tag-soon" : ""}">Delivery ${fmtDay(x.deadline)}</span>` : ""}`;
+    const chips = `<div class="chips">${open.map(n => `<span class="chip chip-hit">Needs ${esc(n)}</span>`).join("")}${team.map(a => `<span class="chip">${esc(a.need)}: ${esc(teamName(a))}</span>`).join("")}</div>`;
+    if (x.virtual) {
+      const mine = p && runs(p, m);
+      return `<article class="card rel-card${dim ? " is-dim" : ""}">
+        <div class="proj-top">${tags}</div>
+        <h3 class="card-t"><button class="link-btn" data-proj="${x.pid}">${esc(x.title)}</button></h3>
+        <p class="card-sub">From the shoot · directed by ${esc(x.byName || "")}</p>
+        <p class="logline">${esc(x.logline)}</p>
+        ${chips}
+        <div class="card-actions">${mine ? `<button class="btn btn-accent btn-sm" data-postlist="${x.pid}">Add post details</button>` : open.length && !dim ? `<button class="btn btn-accent btn-sm" data-proj="${x.pid}">Request on the shoot</button>` : ""}
+          <button class="btn btn-ghost btn-sm" data-proj="${x.pid}">Details</button></div>
+      </article>`;
+    }
     const myInt = S.postInterest.find(i => i.post === x.id && i.sid === m.id && i.status === "pending");
     const waiting = x.by === m.id ? S.postInterest.filter(i => i.post === x.id && i.status === "pending").length : 0;
-    const dl = x.deadline ? daysUntil(x.deadline) : null;
-    return `<article class="card rel-card">
-      <div class="proj-top"><span class="type-tag">${esc(x.type)}</span>${x.where ? `<span class="term-tag">${esc(x.where)}</span>` : ""}${x.deadline ? `<span class="term-tag ${dl >= 0 && dl <= 30 ? "tag-soon" : ""}">Deadline ${fmtDay(x.deadline)}</span>` : ""}</div>
+    return `<article class="card rel-card${dim ? " is-dim" : ""}">
+      <div class="proj-top">${tags}</div>
       <h3 class="card-t"><button class="link-btn" data-post="${x.id}">${esc(x.title)}</button></h3>
-      <p class="card-sub">Listed by <button class="link-btn" data-student="${x.by}">${esc(w.name)}</button>${x.pid && project(x.pid) ? ` · shot ${monYear(project(x.pid).shoots[0].from)}` : ""}${x.runtime ? ` · ${x.runtime} min` : ""}</p>
+      <p class="card-sub">Listed by <button class="link-btn" data-student="${x.by}">${esc((student(x.by) || { name: "Former member" }).name)}</button>${p ? ` · shot ${monYear(firstDay(p))}` : ""}${x.runtime ? ` · ${x.runtime} min` : ""}</p>
       <p class="logline">${esc(x.logline)}</p>
       ${x.software ? `<p class="small muted">${esc(x.software)}</p>` : ""}
-      <div class="chips">${open.map(n => `<span class="chip chip-hit">Needs ${esc(n)}</span>`).join("")}${x.attached.map(a => `<span class="chip">${esc(a.need)}: ${esc((student(a.sid) || { name: "?" }).name)}</span>`).join("")}</div>
+      ${chips}
       <div class="card-actions">${x.by === m.id ? `<button class="btn btn-accent btn-sm" data-post="${x.id}">${waiting ? `${waiting} offer${waiting === 1 ? "" : "s"}` : "Manage"}</button>`
         : myInt ? `<span class="muted small">You've offered ${esc(myInt.need)}</span>`
-        : open.length ? `<button class="btn btn-accent btn-sm" data-post="${x.id}">Offer to help</button>` : `<span class="muted small">Full team</span>`}
+        : open.length && !dim ? `<button class="btn btn-accent btn-sm" data-post="${x.id}">Offer to help</button>` : `<span class="muted small">${dim ? "Delivered" : "Full team"}</span>`}
         <button class="btn btn-ghost btn-sm" data-post="${x.id}">Details</button></div>
     </article>`;
   }
   function openPostItem(id) {
     const x = S.posts.find(y => y.id === id); if (!x) return toast("That film isn't on Crew Call any more");
-    const m = me(), w = student(x.by) || { name: "Former member" }, mine = x.by === m.id;
-    const ints = S.postInterest.filter(i => i.post === x.id), open = postOpen(x), onTeam = x.attached.some(a => a.sid === m.id);
-    const myInt = ints.find(i => i.sid === m.id && i.status === "pending"), p = x.pid && project(x.pid);
+    const m = me(), w = student(x.by) || { name: "Former member" }, mine = x.by === m.id, team = postTeam(x).attached;
+    const ints = S.postInterest.filter(i => i.post === x.id), open = postOpen(x), onTeam = team.some(a => a.sid === m.id);
+    const myInt = ints.find(i => i.sid === m.id && i.status === "pending"), p = x.pid && project(x.pid), dim = postDim(x);
     openModal(`
       <p class="eyebrow">Post</p>
       <h2 id="modalTitle" class="m-title">${esc(x.title)}</h2>
@@ -2979,39 +3025,49 @@ ${LIVE ? "" : `<label class="toggle"><input type="checkbox" data-aus="autoSend" 
       <p class="logline">${esc(x.logline)}</p>
       <dl class="meta-list">
         <div><dt>Help needed</dt><dd><div class="chips">${open.length ? open.map(n => `<span class="chip chip-hit">${esc(n)}</span>`).join("") : `<span class="muted">Full team</span>`}</div></dd></div>
-        <div><dt>On the team</dt><dd>${x.attached.length ? x.attached.map(a => `${esc(a.need)}: <button class="link-btn" data-student="${a.sid}">${esc((student(a.sid) || { name: "?" }).name)}</button>`).join("<br>") : `<span class="muted">Nobody yet</span>`}</dd></div>
-        <div><dt>Deadline</dt><dd>${x.deadline ? fmtFull(x.deadline) : `<span class="muted">None set</span>`}</dd></div>
+        <div><dt>On the team</dt><dd>${team.length ? team.map(a => `${esc(a.need)}: ${a.sid ? `<button class="link-btn" data-student="${a.sid}">${esc(teamName(a))}</button>` : esc(teamName(a))}`).join("<br>") : `<span class="muted">Nobody yet</span>`}</dd></div>
+        <div><dt>Delivery date</dt><dd>${x.deadline ? fmtFull(x.deadline) + (dim ? ` <span class="tag-arch">Delivered</span>` : "") : `<span class="muted">None set</span>`}</dd></div>
         <div><dt>Where</dt><dd>${x.where ? esc(x.where) : `<span class="muted">Not set</span>`}</dd></div>
         ${x.software ? `<div><dt>Software</dt><dd>${esc(x.software)}</dd></div>` : ""}
         ${x.footage ? `<div><dt>Footage</dt><dd>${esc(x.footage)}</dd></div>` : ""}
         <div><dt>Latest cut</dt><dd>${(mine || onTeam) && x.link ? linkTo(x.link, "Watch the latest cut") : mine ? `<span class="muted">No link added</span>` : `<span class="muted">Shared with the team</span>`}</dd></div>
       </dl>
+      ${p && p.roles.some(r => POST_DEPT[r.role]) ? `<p class="small muted">Post roles picked on the shoot show here too.</p>` : ""}
       ${mine ? `<h3 class="dp-sub">Offers</h3>${ints.length ? `<ul class="inv-list">${ints.map(i => { const s = student(i.sid) || { name: "Former member" }; return `<li><span><button class="link-btn" data-student="${i.sid}">${esc(s.name)}</button> for <b>${esc(i.need)}</b>${s.term ? ` <span class="muted small">${esc(tLabel(s))}</span>` : ""}${i.msg ? `<br><span class="muted small">${esc(i.msg)}</span>` : ""}</span><span>${i.status === "pending" ? `<button class="btn btn-accent btn-xs" data-pattach="${i.id}">Bring on</button> <button class="btn btn-quiet btn-xs" data-pdecline="${i.id}">Decline</button>` : `<span class="st ${i.status === "attached" ? "st-ok" : ""}">${i.status === "attached" ? "On the team" : "Declined"}</span>`}</span></li>`; }).join("")}</ul>` : `<p class="empty-sm">No offers yet.</p>`}
-        <div class="form-actions"><button class="btn btn-ghost" id="postEdit">Edit</button>${!S.releases.some(r => r.pid && r.pid === x.pid) || !x.pid ? `<button class="btn btn-ghost" id="postToRel">Picture locked? List it in Release</button>` : ""}<button class="btn btn-quiet" id="postDel">Remove</button></div>`
+        <div class="form-actions"><button class="btn btn-ghost" id="postEdit">Edit</button>${!x.pid || !S.releases.some(r => r.pid === x.pid) ? `<button class="btn btn-ghost" id="postToRel">Picture locked? List it in Release</button>` : ""}<button class="btn btn-quiet" id="postDel">Remove</button></div>`
       : myInt ? `<p class="muted">You've offered to help with ${esc(myInt.need)}. ${esc(first(w.name))} will reply and you'll get a notification. <button class="link-btn" id="postWithdraw">Withdraw</button></p>`
-      : open.length ? `<h3 class="dp-sub">Offer to help</h3><form id="postInt" class="stack"><div class="field"><span>With</span><div class="fchips">${open.map((n, i) => `<label class="fchip-radio"><input type="radio" name="need" value="${esc(n)}" ${i === 0 ? "checked" : ""}><span>${esc(n)}</span></label>`).join("")}</div></div><label class="field"><span>Message to ${esc(first(w.name))}</span><textarea name="msg" rows="3" maxlength="400" placeholder="What you'd do, when you're free, and links to work you've cut, graded or mixed"></textarea></label><div class="form-actions"><button class="btn btn-accent">Send offer</button></div></form>` : ""}`);
+      : open.length && !dim ? `<h3 class="dp-sub">Offer to help</h3><form id="postInt" class="stack"><div class="field"><span>With</span><div class="fchips">${open.map((n, i) => `<label class="fchip-radio"><input type="radio" name="need" value="${esc(n)}" ${i === 0 ? "checked" : ""}><span>${esc(n)}</span></label>`).join("")}</div></div><label class="field"><span>Message to ${esc(first(w.name))}</span><textarea name="msg" rows="3" maxlength="400" placeholder="What you'd do, when you're free, and links to work you've cut, graded or mixed"></textarea></label><div class="form-actions"><button class="btn btn-accent">Send offer</button></div></form>` : ""}`);
     bindOpeners(modalBody);
     if (!mine) addReportLink("post", x.id);
     const f = $("#postInt");
     if (f) f.addEventListener("submit", e => { e.preventDefault(); const need = f.querySelector("[name=need]:checked").value; S.postInterest.push({ id: uid("pi"), post: x.id, sid: m.id, need, msg: f.msg.value.trim(), status: "pending", at: TODAY }); notify(x.by, "request", `${m.name} (${tLabel(m)}) offered to help with ${need} on ${x.title}. Open Post to reply.`); toast(`Offer sent to ${first(w.name)}`); openPostItem(x.id); renderPost(); drawHeader(); });
     const wd = $("#postWithdraw"); if (wd) wd.onclick = () => { S.postInterest.splice(S.postInterest.indexOf(myInt), 1); toast("Withdrawn"); openPostItem(x.id); renderPost(); };
-    modalBody.querySelectorAll("[data-pattach]").forEach(b => b.onclick = () => { const i = S.postInterest.find(y => y.id === b.dataset.pattach); i.status = "attached"; x.attached.push({ sid: i.sid, need: i.need }); S.postInterest.filter(y => y.post === x.id && y.need === i.need && y.status === "pending").forEach(y => { y.status = "declined"; notify(y.sid, "update", `${x.title} has found someone for ${y.need}. Thanks for offering.`); }); notify(i.sid, "update", `${m.name} brought you on to ${x.title} for ${i.need}. The link to the cut is on the film's page in Post, and it's now a credit on your profile.`); toast(`${first(student(i.sid).name)} is on the team`); openPostItem(x.id); renderPost(); });
+    modalBody.querySelectorAll("[data-pattach]").forEach(b => b.onclick = () => {
+      const i = S.postInterest.find(y => y.id === b.dataset.pattach); i.status = "attached";
+      // if the shoot has an open role for this, fill it there too, so Shoot and Post agree
+      const r = p && p.roles.find(r => !r.filledBy && POST_DEPT[r.role] === i.need);
+      if (r) r.filledBy = i.sid; else x.attached.push({ sid: i.sid, need: i.need });
+      S.postInterest.filter(y => y.post === x.id && y.need === i.need && y.status === "pending").forEach(y => { y.status = "declined"; notify(y.sid, "update", `${x.title} has found someone for ${y.need}. Thanks for offering.`); });
+      notify(i.sid, "update", `${m.name} brought you on to ${x.title} for ${i.need}. The link to the cut is on the film's page in Post, and it's now a credit on your profile.`); toast(`${first(student(i.sid).name)} is on the team`); openPostItem(x.id); renderPost(); });
     modalBody.querySelectorAll("[data-pdecline]").forEach(b => b.onclick = () => { const i = S.postInterest.find(y => y.id === b.dataset.pdecline); i.status = "declined"; notify(i.sid, "update", `${x.title} isn't going ahead with your offer for ${i.need} this time. Thanks.`); openPostItem(x.id); renderPost(); });
     if ($("#postEdit")) $("#postEdit").onclick = () => openPostFilmForm(x);
     if ($("#postToRel")) $("#postToRel").onclick = () => { closeModal(); setView("release"); openReleaseForm(null, { id: x.pid, title: x.title, type: x.type, logline: x.logline, runtime: x.runtime, shoots: [] }); };
     if ($("#postDel")) $("#postDel").onclick = () => confirmBox(`Remove ${x.title}?`, "It disappears from Post. People who offered to help are told. Credits stay with the people on the team.", "Remove", () => { S.postInterest.filter(i => i.post === x.id && i.status === "pending").forEach(i => notify(i.sid, "update", `${x.title} has been taken off Post.`)); x.hidden = true; x.status = "closed"; closeModal(); renderPost(); toast("Removed"); });
   }
   function openPostFilmForm(x, fromP) {
-    const m = me(), wrapped = myWrappedForPost(m), src = x || (fromP ? { pid: fromP.id, title: fromP.title, type: fromP.type, logline: fromP.logline } : {});
+    const m = me(), wrapped = myWrappedForPost(m);
+    const fromNeeds = p => { const n = uniq(p.roles.filter(r => POST_DEPT[r.role]).map(r => POST_DEPT[r.role])); return n.length ? n : null; };
+    const src = x || (fromP ? { pid: fromP.id, title: fromP.title, type: fromP.type, logline: fromP.logline, deadline: fromP.delivery || "", needs: fromNeeds(fromP) } : {});
+    const choices = fromP && !wrapped.includes(fromP) ? [fromP].concat(wrapped) : wrapped;
     openModal(`<h2 id="modalTitle" class="m-title">${x ? "Edit film" : "List a film for post"}</h2>
       <form id="pfForm" class="stack">
-        ${!x && wrapped.length ? `<label class="field"><span>Which film</span><select name="pid"><option value="">A film not on Crew Call</option>${wrapped.map(p => `<option value="${p.id}" ${src.pid === p.id ? "selected" : ""}>${esc(p.title)}</option>`).join("")}</select></label>` : ""}
+        ${!x && choices.length ? `<label class="field"><span>Which film</span><select name="pid"><option value="">A film not on Crew Call</option>${choices.map(p => `<option value="${p.id}" ${src.pid === p.id ? "selected" : ""}>${esc(p.title)}</option>`).join("")}</select></label>` : ""}
         <label class="field"><span>Title</span><input name="title" required maxlength="80" value="${esc(src.title || "")}"></label>
         <div class="form-grid"><label class="field"><span>Type</span><select name="type">${C.TYPES.map(t => `<option ${src.type === t ? "selected" : ""}>${esc(t)}</option>`).join("")}</select></label>
         <label class="field"><span>Expected length (minutes)</span><input name="runtime" type="number" inputmode="numeric" min="1" max="240" value="${src.runtime || ""}"></label></div>
         <label class="field"><span>Logline</span><textarea name="logline" rows="2" maxlength="240" required>${esc(src.logline || "")}</textarea></label>
-        <div class="field"><span>Help needed</span><div class="fchips">${POST_NEEDS.map(n => `<label class="fchip-radio"><input type="checkbox" name="need" value="${esc(n)}" ${(src.needs || ["Editing", "Colour grade", "Sound design & mix"]).includes(n) ? "checked" : ""}><span>${esc(n)}</span></label>`).join("")}</div></div>
-        <div class="form-grid"><label class="field"><span>Deadline <small>optional: picture lock, a festival or the school hand-in</small></span><input name="deadline" type="date" value="${src.deadline || ""}"></label>
+        <div class="field"><span>Help needed <small>post roles on the shoot are added for you</small></span><div class="fchips">${POST_NEEDS.map(n => `<label class="fchip-radio"><input type="checkbox" name="need" value="${esc(n)}" ${(src.needs || ["Editing", "Colour grade", "Sound design & mix"]).includes(n) ? "checked" : ""}><span>${esc(n)}</span></label>`).join("")}</div></div>
+        <div class="form-grid"><label class="field"><span>Delivery date <small>optional: picture lock, a festival or the school hand-in</small></span><input name="deadline" type="date" value="${src.deadline || ""}"></label>
         <label class="field"><span>Where</span><select name="where">${POST_WHERE.map(w => `<option ${(src.where || "Either") === w ? "selected" : ""}>${esc(w)}</option>`).join("")}</select></label></div>
         <div class="form-grid"><label class="field"><span>Software <small>optional</small></span><input name="software" maxlength="80" placeholder="e.g. Premiere, Resolve, Avid, Pro Tools" value="${esc(src.software || "")}"></label>
         <label class="field"><span>Footage <small>optional</small></span><input name="footage" maxlength="80" placeholder="e.g. ARRI ProRes 4K, about 2 TB" value="${esc(src.footage || "")}"></label></div>
@@ -3020,13 +3076,16 @@ ${LIVE ? "" : `<label class="toggle"><input type="checkbox" data-aus="autoSend" 
         <div class="form-actions"><button class="btn btn-accent">${x ? "Save" : "List film"}</button><button class="btn btn-ghost" type="button" data-close>Cancel</button></div>
       </form>`);
     const f = $("#pfForm");
-    if (f.pid) f.pid.addEventListener("change", () => { const p = project(f.pid.value); if (p) { f.title.value = p.title; f.type.value = p.type; f.logline.value = p.logline; } });
+    if (f.pid) f.pid.addEventListener("change", () => { const p = project(f.pid.value); if (p) { f.title.value = p.title; f.type.value = p.type; f.logline.value = p.logline; if (p.delivery) f.deadline.value = p.delivery; const n = fromNeeds(p); if (n) f.querySelectorAll("[name=need]").forEach(c => c.checked = n.includes(c.value)); } });
     f.addEventListener("submit", e => {
       e.preventDefault(); const needs = [...f.querySelectorAll("[name=need]:checked")].map(i => i.value);
       if (!needs.length) return ($("#pfErr").textContent = "Pick at least one thing you need help with.");
       const link = cleanUrl(f.link.value); if (f.link.value.trim() && !link) return ($("#pfErr").textContent = "That link isn't a web address.");
       const data = { title: f.title.value.trim(), type: f.type.value, runtime: +f.runtime.value || null, logline: f.logline.value.trim(), needs, deadline: f.deadline.value, where: f.where.value, software: f.software.value.trim(), footage: f.footage.value.trim(), link };
-      if (x) Object.assign(x, data); else S.posts.push({ id: uid("po"), by: m.id, pid: f.pid ? f.pid.value || null : (fromP ? fromP.id : null), attached: [], posted: TODAY, status: "open", ...data });
+      const pid = x ? x.pid : f.pid ? f.pid.value || null : (fromP ? fromP.id : null);
+      if (x) Object.assign(x, data); else S.posts.push({ id: uid("po"), by: m.id, pid, attached: [], posted: TODAY, status: "open", ...data });
+      // keep the shoot's delivery date in step with the listing
+      const lp = pid && project(pid); if (lp && canManage(lp)) lp.delivery = data.deadline;
       closeModal(); renderPost(); toast(x ? "Saved" : "Film listed");
     });
   }

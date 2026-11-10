@@ -260,3 +260,6 @@
 ^(.+) is back on the Shoot board$ || {=1} शूट बोर्ड पर वापस आ गया || {=1} voltou ao quadro de Rodagens
 ^The (\d+) shoot days after today come off the calendar, and the crew are told\.$ || आज के बाद के {=1} शूट दिन कैलेंडर से हट जाएँगे, और क्रू को बताया जाएगा। || Os {=1} dias de rodagem depois de hoje saem do calendário, e a equipa é avisada.
 ^The (\d+) requests still waiting are closed\.$ || रुके हुए {=1} अनुरोध बंद हो जाएँगे। || Os {=1} pedidos pendentes são fechados.
+^Delivery (.+)$ || डिलीवरी {1} || Entrega {1}
+^Shooting (.+)$ || शूटिंग {1} || Filmagem {1}
+^From the shoot · directed by (.+)$ || शूट से · निर्देशक {=1} || Da filmagem · direção de {=1}

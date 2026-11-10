@@ -1139,3 +1139,9 @@ a.link-btn { text-decoration: none; color: inherit; }
 .btable tr.bt-month th, .bt-month-l { text-transform: none; letter-spacing: normal; color: var(--text); }
 .tl-month .tl-track { position: relative; }
 .tl-mband { position: absolute; top: 0; bottom: 0; background: var(--surface); border-inline: 1px solid var(--line-2); opacity: .7; }
+
+/* finished items stay on the board, greyed out */
+.card.is-dim { opacity: .6; filter: grayscale(.7); }
+.card.is-dim:hover, .card.is-dim:focus-within { opacity: .85; }
+.btable tr.is-dim td { opacity: .55; }
+.tl-row.is-dim { opacity: .5; filter: grayscale(.7); }

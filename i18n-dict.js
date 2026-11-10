@@ -6382,6 +6382,136 @@ window.CC_I18N = {
 "यह आख़िरी शूट दिन बीतने तक शूट बोर्ड पर लौट आएगा।",
 "Volta ao quadro de Rodagens até passar o último dia de rodagem."
 ],
+"Delivery date": [
+"交付日期",
+"交付日期",
+"Date de livraison",
+"Fecha de entrega",
+"Дата сдачи",
+"تاريخ التسليم",
+"डिलीवरी की तारीख़",
+"Data de entrega"
+],
+"Delivery": [
+"交付",
+"交付",
+"Livraison",
+"Entrega",
+"Сдача",
+"التسليم",
+"डिलीवरी",
+"Entrega"
+],
+"Delivered": [
+"已交付",
+"已交付",
+"Livré",
+"Entregado",
+"Сдано",
+"تم التسليم",
+"डिलीवर हो गया",
+"Entregue"
+],
+"Delivery soonest": [
+"最快交付",
+"最快交付",
+"Livraison la plus proche",
+"Entrega más próxima",
+"Ближайшая сдача",
+"الأقرب تسليمًا",
+"सबसे पहले डिलीवरी",
+"Entrega mais próxima"
+],
+"No delivery date": [
+"沒有交付日期",
+"没有交付日期",
+"Pas de date de livraison",
+"Sin fecha de entrega",
+"Без даты сдачи",
+"بلا تاريخ تسليم",
+"डिलीवरी की तारीख़ नहीं",
+"Sem data de entrega"
+],
+"Stage": [
+"階段",
+"阶段",
+"Étape",
+"Fase",
+"Этап",
+"المرحلة",
+"चरण",
+"Etapa"
+],
+"Shooting soon": [
+"即將開拍",
+"即将开拍",
+"Tournage bientôt",
+"Rodaje próximo",
+"Скоро съёмки",
+"التصوير قريبًا",
+"जल्द शूटिंग",
+"Filmagem em breve"
+],
+"From the shoot": [
+"來自拍攝",
+"来自拍摄",
+"Depuis le tournage",
+"Desde el rodaje",
+"Со съёмок",
+"من التصوير",
+"शूट से",
+"Da filmagem"
+],
+"Add post details": [
+"新增後期資料",
+"添加后期数据",
+"Ajouter les détails de postproduction",
+"Añadir detalles de postproducción",
+"Добавить детали постпродакшна",
+"أضف تفاصيل ما بعد الإنتاج",
+"पोस्ट की जानकारी जोड़ें",
+"Adicionar detalhes da pós-produção"
+],
+"Request on the shoot": [
+"在拍攝頁申請",
+"在拍摄页申请",
+"Postuler sur le tournage",
+"Solicitar en el rodaje",
+"Подать заявку на съёмках",
+"اطلب عبر صفحة التصوير",
+"शूट पर अनुरोध करें",
+"Pedir na filmagem"
+],
+"Post roles picked on the shoot show here too.": [
+"在拍攝頁選定的後期職位也會顯示在這裡。",
+"在拍摄页选定的后期职位也会显示在这里。",
+"Les postes de postproduction choisis sur le tournage s'affichent aussi ici.",
+"Los puestos de postproducción elegidos en el rodaje también aparecen aquí.",
+"Роли постпродакшна, выбранные на съёмках, тоже видны здесь.",
+"أدوار ما بعد الإنتاج المختارة في التصوير تظهر هنا أيضًا.",
+"शूट पर चुने गए पोस्ट रोल यहाँ भी दिखते हैं।",
+"As funções de pós-produção escolhidas na filmagem também aparecem aqui."
+],
+"post roles on the shoot are added for you": [
+"拍攝頁的後期職位會自動加入",
+"拍摄页的后期职位会自动加入",
+"les postes de postproduction du tournage sont ajoutés pour vous",
+"los puestos de postproducción del rodaje se añaden por ti",
+"роли постпродакшна со съёмок добавляются автоматически",
+"تُضاف أدوار ما بعد الإنتاج من التصوير تلقائيًا",
+"शूट के पोस्ट रोल अपने-आप जुड़ जाते हैं",
+"as funções de pós-produção da filmagem são adicionadas para você"
+],
+"optional: when post has to be finished. The film stays on Post until then": [
+"選填：後期須完成的日期。影片會留在後期頁直到那天",
+"选填：后期须完成的日期。视频会留在后期页直到那天",
+"facultatif : quand la postproduction doit être terminée. Le film reste dans Post jusque-là",
+"opcional: cuándo debe terminar la postproducción. La película se queda en Post hasta entonces",
+"необязательно: когда постпродакшн должен быть закончен. До этой даты фильм остаётся в разделе «Пост»",
+"اختياري: متى يجب أن تنتهي مرحلة ما بعد الإنتاج. يبقى الفيلم في قسم ما بعد الإنتاج حتى ذلك الحين",
+"वैकल्पिक: पोस्ट कब तक पूरा होना है। तब तक फ़िल्म पोस्ट में रहती है",
+"opcional: quando a pós-produção tem de terminar. O filme fica em Pós até lá"
+],
 "Director": [
 "導演",
 "导演",
@@ -17744,6 +17874,39 @@ window.CC_I18N = {
 "ستُغلق الطلبات المعلّقة ({=1}).",
 "रुके हुए {=1} अनुरोध बंद हो जाएँगे।",
 "Os {=1} pedidos pendentes são fechados."
+],
+[
+"^Delivery (.+)$",
+"交付 {1}",
+"交付 {1}",
+"Livraison {1}",
+"Entrega {1}",
+"Сдача {1}",
+"التسليم {1}",
+"डिलीवरी {1}",
+"Entrega {1}"
+],
+[
+"^Shooting (.+)$",
+"拍攝 {1}",
+"拍摄 {1}",
+"Tournage {1}",
+"Rodaje {1}",
+"Съёмки {1}",
+"التصوير {1}",
+"शूटिंग {1}",
+"Filmagem {1}"
+],
+[
+"^From the shoot · directed by (.+)$",
+"來自拍攝 · 導演 {=1}",
+"来自拍摄 · 导演 {=1}",
+"Depuis le tournage · réalisé par {=1}",
+"Desde el rodaje · dirigido por {=1}",
+"Со съёмок · режиссёр {=1}",
+"من التصوير · إخراج {=1}",
+"शूट से · निर्देशक {=1}",
+"Da filmagem · direção de {=1}"
 ]
 ]
 };
