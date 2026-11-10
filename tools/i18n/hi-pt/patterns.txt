@@ -272,7 +272,7 @@
 ^Back to (.+)$ || {=1} पर वापस || Voltar para {=1}
 ^Back it on (.+)$ || {=1} पर समर्थन करें || Apoiar no {=1}
 ^Crowdfunding on (.+)$ || {=1} पर क्राउडफ़ंडिंग || Financiamento coletivo no {=1}
-^Funding · (.+)$ || फ़ंडिंग · {=1} || Financiamento · {=1}
+^Fundraising · (.+)$ || फ़ंडिंग · {=1} || Financiamento · {=1}
 ^Total saved: (.+)$ || कुल राशि सहेजी गई: {=1} || Total salvo: {=1}
 ^Added as “(.+)” · (.+)$ || “{=1}” के रूप में जोड़ा गया · {2} || Adicionado como “{=1}” · {2}
 ^Listed as “(.+)” · (.+)$ || “{=1}” के रूप में दर्ज · {2} || Listado como “{=1}” · {2}
@@ -329,3 +329,5 @@
 ^(\d+) of (\d+) days$ || {=2} में से {=1} दिन || {=1} de {=2} dias
 ^(\d+) (?:people have|person has) this$ || {=1} {1|व्यक्ति के पास है|लोगों के पास है} || {=1} {1|pessoa tem|pessoas têm}
 ^(\d+) items?$ || {=1} {1|चीज़|चीज़ें} || {=1} {1|item|itens}
+^Will be listed as (.+)$ || {=1} के नाम से दिखेगा || Vai aparecer como {=1}
+^(.+) archived\. Restore it from My Films\.$ || {=1} आर्काइव हुआ। इसे मेरी फ़िल्में से वापस लाएँ। || {=1} arquivado. Restaure em Meus filmes.

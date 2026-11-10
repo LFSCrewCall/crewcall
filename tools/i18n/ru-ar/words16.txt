@@ -1,0 +1,11 @@
+# v25: nav, key links, kit pop-up
+Crew sections || Разделы команды || أقسام الطاقم
+Student Portal || Студенческий портал || بوابة الطلاب
+Celcat / Timetable || Celcat / Расписание || Celcat / الجدول الدراسي
+LFS VOD || Видеотека LFS || مكتبة فيديو LFS
+You marked yourself available || Вы отметили, что свободны || حدّدت نفسك متاحًا
+Your kit || Ваше оборудование || معداتك
+Kit you can bring or lend. Start typing and pick from the list, so it matches what others have. Separate several with commas. || Оборудование, которое вы можете принести или одолжить. Начните вводить и выберите из списка, чтобы название совпадало с другими. Несколько позиций разделяйте запятыми. || معدات يمكنك إحضارها أو إعارتها. ابدأ الكتابة واختر من القائمة لتتطابق مع ما لدى الآخرين. افصل بين العناصر بفواصل.
+Added to your profile || Добавлено в профиль || أُضيفت إلى ملفك
+Already on your profile || Уже есть в профиле || موجودة في ملفك بالفعل
+Sign in to see Fundraising || Войдите, чтобы увидеть сборы || سجّل الدخول لرؤية جمع التبرعات

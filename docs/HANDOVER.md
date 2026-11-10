@@ -186,11 +186,11 @@ Every location has an Open in menu: OpenStreetMap, Google Maps or Apple Maps. Cr
 
 ## Develop, Shoot, Post, Release
 
-The top bar is Calendar | Funding | Projects | Paid | Crew (plus My shoots, My profile and Admin). Projects holds the four stages of a film, from idea to audience, in a second row of tabs: 1 Develop, 2 Casting, 3 Shoot, 4 Post, 5 Release. Projects remembers the last stage you opened.
+The top bar is Calendar | Crew | Fundraising | Projects | My Films. My profile and Admin are in the avatar menu. Projects has a second row of tabs: 1 Develop, 2 Casting, 3 Shoot, 4 Post, 5 Release, and Paid on the right. Crew has two tabs: People and Kit. Projects remembers the last stage you opened.
 
 - Develop: screenwriters post a script (logline only) and producers post a pitch (an idea, a true story they have access to, or rights they hold). Others put their hand up for a role, and the poster brings people on. Only people brought on see the script or pitch deck link. When it's ready, the poster clicks Turn into a shoot.
 - Shoot: the projects board. Crew request roles here.
-- Wrap: from the shoot's page or My shoots, whoever runs it clicks Wrap shoot once filming has started. It stays on the Shoot board greyed out under Wrapped (until its delivery date, or 30 days after the last day if there isn't one), crew get the credit, waiting requests close and any shoot days after today come off the calendar (Undo wrap puts them back). Wrap and move to Post opens the Post form straight away. Shoots also count as wrapped automatically after their last day. The shoot form has an optional Delivery date: when post has to be finished.
+- Wrap: from the shoot's page or My Films, whoever runs it clicks Wrap shoot once filming has started. It stays on the Shoot board greyed out under Wrapped (until its delivery date, or 30 days after the last day if there isn't one), crew get the credit, waiting requests close and any shoot days after today come off the calendar (Undo wrap puts them back). Wrap and move to Post opens the Post form straight away. Shoots also count as wrapped automatically after their last day. The shoot form has an optional Delivery date: when post has to be finished.
 - Post: once a shoot has wrapped, the director or producer sees a prompt to list it for post. Editors, colourists, sound designers, composers and VFX artists offer to help with editing, assistant editing, colour grade, sound design and mix, music, VFX or titles and graphics. Post roles picked on the shoot (Editor, Colourist, VFX, Sound Designer, Composer) show on Post automatically: filled ones as the team, open ones as needs, even before anyone lists the film. Bringing someone on fills the shoot's matching role. Each post lists a delivery date (picture lock, a festival or the school hand-in), where the work happens (remote, on campus or either), software and footage. The link to the cut is only shown to the team. Each person brought on gets a credit on their profile (Editor, Colourist, Sound Designer and so on). Once the delivery date passes the film is greyed out under Delivered, then drops off 30 days later. When the picture is locked, the lister clicks Picture locked? List it in Release.
 - Release: once a shoot has wrapped, the director or producer sees a prompt to list it. Marketing students (and anyone else) offer festival strategy, poster and key art, trailer, socials, press kit or stills. The screener link is only shown to the team. Each job brought on becomes a credit on that person's profile.
 
@@ -202,20 +202,20 @@ People type the first part of their email and pick the ending from a list: @stud
 
 ## Updating the site
 
-When you change the code, raise the version number in two places so phones don't mix old and new files: `CACHE` in sw.js (crewcall-v24) and every `?v=24` in index.html.
+When you change the code, raise the version number in two places so phones don't mix old and new files: `CACHE` in sw.js (crewcall-v25) and every `?v=25` in index.html.
 
-## Funding
+## Fundraising
 
 Crowdfunding campaigns for LFS films (Kickstarter, Indiegogo, Seed&Spark, GoFundMe, Crowdfunder or anything else). Members only.
 
-- Anyone can post a campaign from Funding, or the director or producer can click Add crowdfunding in a shoot's window. Linked campaigns show on the shoot card and in its window, and the locked crew get a notification.
+- Anyone can post a campaign from Fundraising, or the director or producer can click Add crowdfunding in a shoot's window. Linked campaigns show on the shoot card and in its window, and the locked crew get a notification.
 - Each campaign has a platform, link, goal, currency, total raised, deadline, pitch, what the money pays for and an optional photo.
 - The money goes through the platform, never through Crew Call. The total raised is updated by hand: whoever posted it (or an admin) clicks Update in the campaign.
 - After the deadline the campaign is greyed out under Ended, then drops off 30 days later.
 
 ## Photos
 
-Projects, Post, Release and Funding posts can have one photo (a still or poster). It is cropped to 16:9 and shrunk to about 100 KB before uploading, so the free Supabase limits (1 GB storage, 5 GB egress a month, see [Supabase pricing](https://supabase.com/pricing)) go a long way.
+Projects, Post, Release and Fundraising posts can have one photo (a still or poster). It is cropped to 16:9 and shrunk to about 100 KB before uploading, so the free Supabase limits (1 GB storage, 5 GB egress a month, see [Supabase pricing](https://supabase.com/pricing)) go a long way.
 
 - To switch photos on, run supabase/storage.sql once: Supabase, SQL Editor, paste the file, Run. It creates a public bucket called covers (JPEG only, 600 KB each). Members can only upload or delete files in their own folder.
 - Until it's run, adding a photo shows "Photos aren't switched on yet".
@@ -274,20 +274,22 @@ Crew is a table, so it stays tidy as it grows. Every row is the same height; any
 
 Months are stacked with this month at the top; scroll down for later ones. The default is 6 months, with 3 months, 1 month and Week as options (remembered on that device). ‹ › move a month at a time, and the button at the bottom jumps to the next block. On a computer the day panel stays on the right as you scroll. On a phone or tablet, tapping a day opens it in a pop-up.
 
-- A key sits at the top of the day panel (on a phone, above the calendar): shoot, crew available, you're booked, you marked it free, UK bank holiday, school date, today.
-- The person-with-a-tick icon on a day means someone is available.
+- A key sits at the top of the day panel (on a phone, above the calendar): shoot, crew available, you're booked, "You: avail" (you marked yourself available), UK bank holiday, school date, today. Under it are Key links: [VLE](https://learn.lfs.org.uk/), [LFS VOD](https://learn.lfs.org.uk/course/view.php?id=18), [Student Portal](https://londonfilmschool.sharepoint.com/sites/students) and [Celcat / Timetable](https://celcatweb.lfs.org.uk/calendar). To change them, edit `LFS_LINKS` in app.js.
+- The green person-with-a-tick icon on a day means someone is available.
 - When you're signed in, days you're booked on are filled light green.
 - UK bank holidays (England and Wales) show in purple. They're built in up to 2028 and refreshed weekly from [GOV.UK](https://www.gov.uk/bank-holidays.json), so new ones appear by themselves.
 - The day panel lists the available crew by name only; tap a name for their profile. Signed-out visitors only see how many.
 
 ## Kit
 
-A Kit tab (signed-in only) lists every piece of kit people have put on their profiles, with how many people have the same thing, so people can borrow, lend or share.
+Kit (under Crew, signed-in only) lists every piece of kit people have put on their profiles, with how many people have the same thing, so people can borrow, lend or share.
 
-- Items are split on commas, so "Aputure 300d II, 2x Amaran 200x" counts as two. Matching ignores capitals, spaces, punctuation and quantities like 2x.
+- Items are split on commas, so "Aputure 300d II, 2x Amaran 200x" counts as two. Matching ignores capitals, spaces, punctuation, word order, "Mark II"/"mk2", apertures and quantities like 2x.
+- A built-in list of about 200 common cameras, lenses, lights, grip, sound and other kit (`KIT_CATALOG` in data.js) gives each item its proper name, type and nicknames. "fx3", "Sennheiser 416" and "aputure 300d mk2" become Sony FX3, Sennheiser MKH 416 and Aputure LS 300d II, so similar entries are counted together. Add to the list freely.
+- Typing kit (on the Kit page or My profile) opens a dropdown of that list plus what others have listed; picking one fills in the type. Anything typed that matches is saved under its proper name.
 - Search, filter by type, and sort by Most people or A–Z.
 - See who opens the list of owners, with their contact buttons (email only if they've chosen to share it).
-- Add your kit goes straight to the Kit tab of My profile.
+- Add your kit opens a pop-up on the Kit page: add or remove kit there and it saves to your profile straight away.
 
 ## Credits
 
@@ -295,7 +297,7 @@ Credits include shoots someone is locked on that haven't wrapped yet, marked Cur
 
 ## Account menu
 
-The avatar menu is grouped: You (My profile, My availability, Messages, My shoots, Admin), Projects (1 to 5), More (Calendar, Crew, Funding, Paid) and Crew Call (Add to home screen, Privacy notice, About). The calendar's button is now My availability.
+The avatar menu is grouped: You (My profile, My availability, Messages, My Films, Admin), Projects (1 to 5), More (Calendar, Crew, Kit, Fundraising, Paid) and Crew Call (Add to home screen, Privacy notice, About). The calendar's button is now My availability.
 
 ## Notifications
 

@@ -5,7 +5,7 @@ Develop || डेवलप || Desenvolver
 Shoot || शूट || Filmagem
 Release || रिलीज़ || Lançamento
 Crew || क्रू || Equipe
-My shoots || मेरे शूट || Minhas filmagens
+My Films || मेरी फ़िल्में || Meus filmes
 My profile || मेरी प्रोफ़ाइल || Meu perfil
 Admin || एडमिन || Admin
 Sign in || साइन इन करें || Entrar

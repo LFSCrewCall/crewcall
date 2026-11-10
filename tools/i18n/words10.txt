@@ -21,7 +21,7 @@ Open it up || 開放 || Ouvrir || Abrir
 Crew Call is open to every LFS student || Crew Call 已開放給所有 LFS 學生 || Crew Call est ouvert à tous les étudiants de la LFS || Crew Call está abierto a todos los estudiantes de la LFS
 Crew Call is back in pilot mode || Crew Call 已回到試行模式 || Crew Call est repassé en mode pilote || Crew Call ha vuelto al modo piloto
 Crew Call is in pilot mode || Crew Call 正在試行模式 || Crew Call est en mode pilote || Crew Call está en modo piloto
-Only LFS addresses go on the pilot list. Invite anyone else as a guest from My shoots. || 試行名單只限 LFS 電郵。其他人請在「我的拍攝」以訪客身分邀請。 || Seules les adresses LFS vont sur la liste pilote. Invitez les autres comme invités depuis Mes tournages. || En la lista piloto solo van correos de la LFS. Invita a los demás como invitados desde Mis rodajes.
+Only LFS addresses go on the pilot list. Invite anyone else as a guest from My Films. || 試行名單只限 LFS 電郵。其他人請在「我的影片」以訪客身分邀請。 || Seules les adresses LFS vont sur la liste pilote. Invitez les autres comme invités depuis Mes films. || En la lista piloto solo van correos de la LFS. Invita a los demás como invitados desde Mis películas.
 Added to the pilot list || 已加入試行名單 || Ajouté à la liste pilote || Añadido a la lista piloto
 Removed from the pilot list || 已從試行名單移除 || Retiré de la liste pilote || Quitado de la lista piloto
 Link copied || 已複製連結 || Lien copié || Enlace copiado

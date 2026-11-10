@@ -21,7 +21,7 @@ Open it up || Открыть || افتحه
 Crew Call is open to every LFS student || Crew Call открыт для всех студентов LFS || Crew Call مفتوح الآن لجميع طلاب LFS
 Crew Call is back in pilot mode || Crew Call снова в пилотном режиме || عاد Crew Call إلى الوضع التجريبي
 Crew Call is in pilot mode || Crew Call в пилотном режиме || Crew Call في الوضع التجريبي
-Only LFS addresses go on the pilot list. Invite anyone else as a guest from My shoots. || В пилотный список входят только адреса LFS. Остальных пригласите как гостей в разделе «Мои съёмки». || لا تُضاف إلى القائمة التجريبية إلا عناوين LFS. ادعُ الآخرين كضيوف من «تصويراتي».
+Only LFS addresses go on the pilot list. Invite anyone else as a guest from My Films. || В пилотный список входят только адреса LFS. Остальных пригласите как гостей в разделе «Мои фильмы». || لا تُضاف إلى القائمة التجريبية إلا عناوين LFS. ادعُ الآخرين كضيوف من «أفلامي».
 Added to the pilot list || Добавлено в пилотный список || أُضيف إلى القائمة التجريبية
 Removed from the pilot list || Удалено из пилотного списка || أُزيل من القائمة التجريبية
 Link copied || Ссылка скопирована || نُسخ الرابط

@@ -52,15 +52,15 @@ window.CC_I18N = {
 "क्रू",
 "Equipe"
 ],
-"My shoots": [
-"我的拍攝",
-"我的拍摄",
-"Mes tournages",
-"Mis rodajes",
-"Мои съёмки",
-"تصويراتي",
-"मेरे शूट",
-"Minhas filmagens"
+"My Films": [
+"我的影片",
+"我的视频",
+"Mes films",
+"Mis películas",
+"Мои фильмы",
+"أفلامي",
+"मेरी फ़िल्में",
+"Meus filmes"
 ],
 "My profile": [
 "我的個人檔案",
@@ -5092,15 +5092,15 @@ window.CC_I18N = {
 "Crew Call पायलट मोड में है",
 "O Crew Call está em modo piloto"
 ],
-"Only LFS addresses go on the pilot list. Invite anyone else as a guest from My shoots.": [
-"試行名單只限 LFS 電郵。其他人請在「我的拍攝」以訪客身分邀請。",
-"试行名单只限 LFS 电邮。其他人请在「我的拍摄」以访客身分邀请。",
-"Seules les adresses LFS vont sur la liste pilote. Invitez les autres comme invités depuis Mes tournages.",
-"En la lista piloto solo van correos de la LFS. Invita a los demás como invitados desde Mis rodajes.",
-"В пилотный список входят только адреса LFS. Остальных пригласите как гостей в разделе «Мои съёмки».",
-"لا تُضاف إلى القائمة التجريبية إلا عناوين LFS. ادعُ الآخرين كضيوف من «تصويراتي».",
-"पायलट लिस्ट में सिर्फ़ LFS ईमेल जाते हैं। बाक़ी लोगों को मेरे शूट से गेस्ट के तौर पर बुलाएँ।",
-"Só endereços da LFS entram na lista piloto. Convide os demais como convidados em Minhas filmagens."
+"Only LFS addresses go on the pilot list. Invite anyone else as a guest from My Films.": [
+"試行名單只限 LFS 電郵。其他人請在「我的影片」以訪客身分邀請。",
+"试行名单只限 LFS 电邮。其他人请在「我的视频」以访客身分邀请。",
+"Seules les adresses LFS vont sur la liste pilote. Invitez les autres comme invités depuis Mes films.",
+"En la lista piloto solo van correos de la LFS. Invita a los demás como invitados desde Mis películas.",
+"В пилотный список входят только адреса LFS. Остальных пригласите как гостей в разделе «Мои фильмы».",
+"لا تُضاف إلى القائمة التجريبية إلا عناوين LFS. ادعُ الآخرين كضيوف من «أفلامي».",
+"पायलट लिस्ट में सिर्फ़ LFS ईमेल जाते हैं। बाक़ी लोगों को मेरी फ़िल्में से गेस्ट के तौर पर बुलाएँ।",
+"Só endereços da LFS entram na lista piloto. Convide os demais como convidados em Meus filmes."
 ],
 "Added to the pilot list": [
 "已加入試行名單",
@@ -6512,7 +6512,7 @@ window.CC_I18N = {
 "वैकल्पिक: पोस्ट कब तक पूरा होना है। तब तक फ़िल्म पोस्ट में रहती है",
 "opcional: quando a pós-produção tem de terminar. O filme fica em Pós até lá"
 ],
-"Funding": [
+"Fundraising": [
 "眾籌",
 "众筹",
 "Financement",
@@ -6912,7 +6912,7 @@ window.CC_I18N = {
 "कैंपेन पोस्ट करने के लिए साइन इन करें।",
 "Entre para publicar uma campanha."
 ],
-"The campaign comes off Funding. Nothing changes on the crowdfunding site itself.": [
+"The campaign comes off Fundraising. Nothing changes on the crowdfunding site itself.": [
 "活動會從眾籌頁移除，群眾募資網站本身不受影響。",
 "活动会从众筹页移除，群众募资网站本身不受影响。",
 "La campagne disparaît de Financement. Rien ne change sur le site de financement lui-même.",
@@ -12071,6 +12071,106 @@ window.CC_I18N = {
 "Android",
 "Android",
 "Android"
+],
+"Crew sections": [
+"劇組分區",
+"剧组分区",
+"Sections de l'équipe",
+"Secciones del equipo",
+"Разделы команды",
+"أقسام الطاقم",
+"क्रू के हिस्से",
+"Seções da equipe"
+],
+"Student Portal": [
+"學生入口網站",
+"学生门户网站",
+"Portail étudiant",
+"Portal del estudiante",
+"Студенческий портал",
+"بوابة الطلاب",
+"स्टूडेंट पोर्टल",
+"Portal do estudante"
+],
+"Celcat / Timetable": [
+"Celcat／時間表",
+"Celcat／时间表",
+"Celcat / Emploi du temps",
+"Celcat / Horario",
+"Celcat / Расписание",
+"Celcat / الجدول الدراسي",
+"Celcat / टाइमटेबल",
+"Celcat / Horário"
+],
+"LFS VOD": [
+"LFS 影片庫",
+"LFS 视频库",
+"VOD de la LFS",
+"VOD de la LFS",
+"Видеотека LFS",
+"مكتبة فيديو LFS",
+"LFS वीडियो लाइब्रेरी",
+"VOD da LFS"
+],
+"You marked yourself available": [
+"你標記自己有空",
+"你标记自己有空",
+"Vous vous êtes indiqué(e) disponible",
+"Te marcaste como disponible",
+"Вы отметили, что свободны",
+"حدّدت نفسك متاحًا",
+"आपने ख़ुद को उपलब्ध बताया",
+"Você se marcou como disponível"
+],
+"Your kit": [
+"你的器材",
+"你的器材",
+"Votre matériel",
+"Tu equipo",
+"Ваше оборудование",
+"معداتك",
+"आपका किट",
+"Seu equipamento"
+],
+"Kit you can bring or lend. Start typing and pick from the list, so it matches what others have. Separate several with commas.": [
+"你可以帶來或借出的器材。開始輸入並從清單中選擇，方便與他人的器材對應。多項請用逗號分隔。",
+"你可以带来或借出的器材。开始输入并从清单中选择，方便与他人的器材对应。多项请用逗号分隔。",
+"Le matériel que vous pouvez apporter ou prêter. Commencez à taper et choisissez dans la liste pour que cela corresponde à celui des autres. Séparez plusieurs éléments par des virgules.",
+"Equipo que puedes traer o prestar. Empieza a escribir y elige de la lista para que coincida con el de los demás. Separa varios con comas.",
+"Оборудование, которое вы можете принести или одолжить. Начните вводить и выберите из списка, чтобы название совпадало с другими. Несколько позиций разделяйте запятыми.",
+"معدات يمكنك إحضارها أو إعارتها. ابدأ الكتابة واختر من القائمة لتتطابق مع ما لدى الآخرين. افصل بين العناصر بفواصل.",
+"वह किट जो आप ला या उधार दे सकते हैं। टाइप करना शुरू करें और सूची से चुनें, ताकि यह दूसरों के किट से मेल खाए। कई चीज़ें कॉमा से अलग करें।",
+"Equipamento que você pode levar ou emprestar. Comece a digitar e escolha na lista, para combinar com o dos outros. Separe vários com vírgulas."
+],
+"Added to your profile": [
+"已加入你的個人檔案",
+"已加入你的个人文件",
+"Ajouté à votre profil",
+"Añadido a tu perfil",
+"Добавлено в профиль",
+"أُضيفت إلى ملفك",
+"आपकी प्रोफ़ाइल में जोड़ा गया",
+"Adicionado ao seu perfil"
+],
+"Already on your profile": [
+"已在你的個人檔案中",
+"已在你的个人文件中",
+"Déjà sur votre profil",
+"Ya está en tu perfil",
+"Уже есть в профиле",
+"موجودة في ملفك بالفعل",
+"पहले से आपकी प्रोफ़ाइल में है",
+"Já está no seu perfil"
+],
+"Sign in to see Fundraising": [
+"登入以查看眾籌",
+"登录以查看众筹",
+"Connectez-vous pour voir les collectes de fonds",
+"Inicia sesión para ver la recaudación",
+"Войдите, чтобы увидеть сборы",
+"سجّل الدخول لرؤية جمع التبرعات",
+"फ़ंडरेज़िंग देखने के लिए साइन इन करें",
+"Entre para ver as arrecadações"
 ],
 "today": [
 "今天",
@@ -20748,7 +20848,7 @@ window.CC_I18N = {
 "Financiamento coletivo no {=1}"
 ],
 [
-"^Funding · (.+)$",
+"^Fundraising · (.+)$",
 "眾籌 · {=1}",
 "众筹 · {=1}",
 "Financement · {=1}",
@@ -21351,6 +21451,28 @@ window.CC_I18N = {
 "{=1} {1|قطعة|قطعتان|قطع|قطعة|قطعة}",
 "{=1} {1|चीज़|चीज़ें}",
 "{=1} {1|item|itens}"
+],
+[
+"^Will be listed as (.+)$",
+"將列為 {=1}",
+"将列为 {=1}",
+"Sera listé comme {=1}",
+"Se mostrará como {=1}",
+"Будет указано как {=1}",
+"ستظهر باسم {=1}",
+"{=1} के नाम से दिखेगा",
+"Vai aparecer como {=1}"
+],
+[
+"^(.+) archived\\. Restore it from My Films\\.$",
+"已封存《{=1}》。可在「我的影片」還原。",
+"已封存《{=1}》。可在「我的视频」还原。",
+"{=1} archivé. Restaurez-le depuis Mes films.",
+"{=1} archivado. Restáuralo desde Mis películas.",
+"«{=1}» в архиве. Восстановить можно в разделе «Мои фильмы».",
+"أُرشف {=1}. يمكنك استعادته من أفلامي.",
+"{=1} आर्काइव हुआ। इसे मेरी फ़िल्में से वापस लाएँ।",
+"{=1} arquivado. Restaure em Meus filmes."
 ]
 ]
 };

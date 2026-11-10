@@ -1,0 +1,11 @@
+# v25: nav, key links, kit pop-up
+Crew sections || 劇組分區 || Sections de l'équipe || Secciones del equipo
+Student Portal || 學生入口網站 || Portail étudiant || Portal del estudiante
+Celcat / Timetable || Celcat／時間表 || Celcat / Emploi du temps || Celcat / Horario
+LFS VOD || LFS 影片庫 || VOD de la LFS || VOD de la LFS
+You marked yourself available || 你標記自己有空 || Vous vous êtes indiqué(e) disponible || Te marcaste como disponible
+Your kit || 你的器材 || Votre matériel || Tu equipo
+Kit you can bring or lend. Start typing and pick from the list, so it matches what others have. Separate several with commas. || 你可以帶來或借出的器材。開始輸入並從清單中選擇，方便與他人的器材對應。多項請用逗號分隔。 || Le matériel que vous pouvez apporter ou prêter. Commencez à taper et choisissez dans la liste pour que cela corresponde à celui des autres. Séparez plusieurs éléments par des virgules. || Equipo que puedes traer o prestar. Empieza a escribir y elige de la lista para que coincida con el de los demás. Separa varios con comas.
+Added to your profile || 已加入你的個人檔案 || Ajouté à votre profil || Añadido a tu perfil
+Already on your profile || 已在你的個人檔案中 || Déjà sur votre profil || Ya está en tu perfil
+Sign in to see Fundraising || 登入以查看眾籌 || Connectez-vous pour voir les collectes de fonds || Inicia sesión para ver la recaudación

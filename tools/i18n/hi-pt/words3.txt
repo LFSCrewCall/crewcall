@@ -21,7 +21,7 @@ Open it up || खोलें || Abrir
 Crew Call is open to every LFS student || Crew Call अब LFS के सभी छात्रों के लिए खुला है || O Crew Call está aberto a todos os alunos da LFS
 Crew Call is back in pilot mode || Crew Call फिर से पायलट मोड में है || O Crew Call voltou ao modo piloto
 Crew Call is in pilot mode || Crew Call पायलट मोड में है || O Crew Call está em modo piloto
-Only LFS addresses go on the pilot list. Invite anyone else as a guest from My shoots. || पायलट लिस्ट में सिर्फ़ LFS ईमेल जाते हैं। बाक़ी लोगों को मेरे शूट से गेस्ट के तौर पर बुलाएँ। || Só endereços da LFS entram na lista piloto. Convide os demais como convidados em Minhas filmagens.
+Only LFS addresses go on the pilot list. Invite anyone else as a guest from My Films. || पायलट लिस्ट में सिर्फ़ LFS ईमेल जाते हैं। बाक़ी लोगों को मेरी फ़िल्में से गेस्ट के तौर पर बुलाएँ। || Só endereços da LFS entram na lista piloto. Convide os demais como convidados em Meus filmes.
 Added to the pilot list || पायलट लिस्ट में जोड़ा गया || Adicionado à lista piloto
 Removed from the pilot list || पायलट लिस्ट से हटाया गया || Removido da lista piloto
 Link copied || लिंक कॉपी हो गया || Link copiado

@@ -3,7 +3,7 @@ Develop || 開發 || Développement || Desarrollo
 Shoot || 拍攝 || Tournages || Rodajes
 Release || 發行 || Diffusion || Estreno
 Crew || 劇組人員 || Équipe || Equipo
-My shoots || 我的拍攝 || Mes tournages || Mis rodajes
+My Films || 我的影片 || Mes films || Mis películas
 My profile || 我的個人檔案 || Mon profil || Mi perfil
 Admin || 管理 || Admin || Administración
 Sign in || 登入 || Se connecter || Iniciar sesión

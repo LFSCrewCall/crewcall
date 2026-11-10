@@ -501,7 +501,7 @@
     $("#msgBtn").setAttribute("aria-label", `Messages${unm ? `, ${unm} unread` : ""}`);
     $("#bellBtn").hidden = !m; $("#bellN").hidden = !unread; $("#bellN").textContent = unread;
     $("#bellBtn").setAttribute("aria-label", `Notifications${unread ? `, ${unread} unread` : ""}`);
-    $('[data-view="admin"]').hidden = !isAdmin();
+    $('[data-view="admin"]').hidden = true; // Admin lives in the account menu
     const tb = $("#termBanner"), needs = m && !m.guest && m.termFor && !m.termConfirmed && studyTerm(m.term);
     tb.hidden = !needs;
     if (needs) {
@@ -517,15 +517,15 @@
       $("#cbOpen").onclick = openClaims;
     }
     const waiting = m ? S.requests.filter(q => q.status === "pending" && project(q.pid) && runs(project(q.pid), m)).length : 0;
-    $('[data-view="mine"]').innerHTML = `My shoots${waiting ? ` <span class="tab-n">${waiting}</span>` : ""}`;
+    $('[data-view="mine"]').innerHTML = `My Films${waiting ? ` <span class="tab-n">${waiting}</span>` : ""}`;
   }
   acctBtn.addEventListener("click", e => {
     e.stopPropagation();
     const m = me(); if (!m) return openSignIn();
     acctMenu.innerHTML = `<p class="am-who"><b>${esc(m.name)}</b><span>${esc(m.email)}</span>${isOwner(m) ? `<span class="tag-admin">Owner</span>` : isAdmin(m) ? `<span class="tag-admin">Admin</span>` : ""}${m.guest ? `<span class="tag-guest">Guest</span>` : ""}</p>
-      <p class="am-h">You</p><button data-go="me">My profile</button><button data-myavail>My availability</button><button data-msgs>Messages${msgUnread() ? ` <span class="tab-n">${msgUnread()}</span>` : ""}</button><button data-go="mine">My shoots</button>${isAdmin(m) ? `<button data-go="admin">Admin</button>` : ""}
+      <p class="am-h">You</p><button data-go="me">My profile</button><button data-myavail>My availability</button><button data-msgs>Messages${msgUnread() ? ` <span class="tab-n">${msgUnread()}</span>` : ""}</button><button data-go="mine">My Films</button>${isAdmin(m) ? `<button data-go="admin">Admin</button>` : ""}
       <p class="am-h">Projects</p><button data-go="scripts"><span class="am-n" aria-hidden="true">1</span>Develop</button><button data-go="cast"><span class="am-n" aria-hidden="true">2</span>Casting</button><button data-go="projects"><span class="am-n" aria-hidden="true">3</span>Shoot</button><button data-go="post"><span class="am-n" aria-hidden="true">4</span>Post</button><button data-go="release"><span class="am-n" aria-hidden="true">5</span>Release</button>
-      <p class="am-h">More</p><button data-go="calendar">Calendar</button><button data-go="crew">Crew</button><button data-go="kit">Kit</button><button data-go="fund">Funding</button><button data-go="paid">Paid</button>
+      <p class="am-h">More</p><button data-go="calendar">Calendar</button><button data-go="crew">Crew</button><button data-go="kit">Kit</button><button data-go="fund">Fundraising</button><button data-go="paid">Paid</button>
       <p class="am-h">Crew Call</p><button data-install>Add to home screen</button><button data-privacy>Privacy notice</button><button data-go="about">About Crew Call</button>
       ${LIVE ? "" : `<button data-switch>Switch sample person</button>`}<button data-signout>Sign out</button>`;
     acctMenu.hidden = !acctMenu.hidden; acctBtn.setAttribute("aria-expanded", String(!acctMenu.hidden));
@@ -632,7 +632,7 @@
       if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(addr)) return (err.textContent = "That email address doesn't look right.");
       const btn = f.querySelector("button"); btn.disabled = true;
       try {
-        if (!(await window.CC_CLOUDAPI.canJoin(addr))) { btn.disabled = false; return (err.textContent = `${addr} isn't an LFS address and hasn't been invited. Ask someone with an LFS email to invite you from My shoots.`); }
+        if (!(await window.CC_CLOUDAPI.canJoin(addr))) { btn.disabled = false; return (err.textContent = `${addr} isn't an LFS address and hasn't been invited. Ask someone with an LFS email to invite you from My Films.`); }
         const m = await window.CC_CLOUDAPI.sendCode(addr);
         btn.disabled = false;
         if (m) return (err.textContent = m);
@@ -662,7 +662,7 @@
     const ex = !liveId && S.students.find(s => s.email.toLowerCase() === e);
     if (ex) return signInAs(ex.id);
     const inv = S.invites.find(i => i.email.toLowerCase() === e && (i.status === "pending" || liveId));
-    if (!isLfs(e) && !inv && !liveId) { if (err) err.textContent = `${raw.trim()} isn't an LFS address and hasn't been invited. Ask someone with an LFS email to invite you from My shoots.`; return; }
+    if (!isLfs(e) && !inv && !liveId) { if (err) err.textContent = `${raw.trim()} isn't an LFS address and hasn't been invited. Ask someone with an LFS email to invite you from My Films.`; return; }
     const st = { id: liveId || uid("s"), name: nameFromEmail(e), email: e, term: inv ? "Guest" : "", cohort: "", course: "", intake: null, termFor: null, termConfirmed: false, pathway: inv ? "External" : C.PATHWAYS[1], roles: [], primary: "", learn: [], kit: [], days: [], reel: "", bio: "", openToOffers: true, shareEmail: false, hideMe: false, incomplete: true, guest: !!inv, invitedBy: inv && inv.by, notify: {}, updated: TODAY };
     syncAvail(st); S.students.push(st);
     if (inv && inv.status === "pending") { inv.status = "joined"; notify(inv.by, "update", `${e} accepted your invite and joined Crew Call.`); }
@@ -672,9 +672,10 @@
 
   // ---------- views ----------
   let view = "calendar", gatedView = null;
-  const GATED = { kit: ["Sign in to see kit", "See who has which kit, so you can borrow, lend or share. Only visible to signed-in LFS members and invited guests."], crew: ["Sign in to find crew", "Crew profiles, availability and contact details are only visible to signed-in LFS members and invited guests."], mine: ["Sign in to see your shoots", "Projects you run, requests you've sent and shoots you're locked on all live here."], me: ["Sign in to set up your profile", "Add your roles, kit and free days so producers can find you."], scripts: ["Sign in to see Develop", "Scripts and producer pitches are only visible to signed-in LFS members, to protect writers' and producers' ideas."], post: ["Sign in to see Post", "Wrapped shoots looking for editors, colourists, sound designers, composers and VFX. Only visible to signed-in members, to protect unfinished films."], release: ["Sign in to see Release", "Wrapped films looking for posters, trailers, press kits and festival plans. Only visible to signed-in members, to protect unreleased films."], fund: ["Sign in to see Funding", "Crowdfunding campaigns for LFS films, with their goals and deadlines. Only visible to signed-in members."], paid: ["Sign in to see paid work", "Paid jobs from students, alumni and industry contacts. Only visible to signed-in members."], admin: ["Admins only", "Sign in with an admin account to manage Crew Call."] };
+  const GATED = { kit: ["Sign in to see kit", "See who has which kit, so you can borrow, lend or share. Only visible to signed-in LFS members and invited guests."], crew: ["Sign in to find crew", "Crew profiles, availability and contact details are only visible to signed-in LFS members and invited guests."], mine: ["Sign in to see your shoots", "Projects you run, requests you've sent and shoots you're locked on all live here."], me: ["Sign in to set up your profile", "Add your roles, kit and free days so producers can find you."], scripts: ["Sign in to see Develop", "Scripts and producer pitches are only visible to signed-in LFS members, to protect writers' and producers' ideas."], post: ["Sign in to see Post", "Wrapped shoots looking for editors, colourists, sound designers, composers and VFX. Only visible to signed-in members, to protect unfinished films."], release: ["Sign in to see Release", "Wrapped films looking for posters, trailers, press kits and festival plans. Only visible to signed-in members, to protect unreleased films."], fund: ["Sign in to see Fundraising", "Crowdfunding campaigns for LFS films, with their goals and deadlines. Only visible to signed-in members."], paid: ["Sign in to see paid work", "Paid jobs from students, alumni and industry contacts. Only visible to signed-in members."], admin: ["Admins only", "Sign in with an admin account to manage Crew Call."] };
   // Develop, Casting, Shoot, Post and Release sit together under Projects
-  const STAGES = ["scripts", "cast", "projects", "post", "release"];
+  const STAGES = ["scripts", "cast", "projects", "post", "release", "paid"];
+  const CREWV = ["crew", "kit"];
   let lastStage = "projects";
   const setView = v => {
     if (v === "stages") v = lastStage;
@@ -683,9 +684,10 @@
     let show = v;
     if (GATED[v] && !me()) { gatedView = v; show = "gate"; } else gatedView = null;
     view = v;
-    $$(".tabs [role=tab]").forEach(b => b.setAttribute("aria-selected", String(b.dataset.view === "stages" ? STAGES.includes(v) : b.dataset.view === v)));
+    $$(".tabs [role=tab]").forEach(b => b.setAttribute("aria-selected", String(b.dataset.view === "stages" ? STAGES.includes(v) : b.dataset.view === "crew" ? CREWV.includes(v) : b.dataset.view === v)));
     $("#stageTabs").hidden = !STAGES.includes(v);
-    $$("#stageTabs [data-stage]").forEach(b => { const on = b.dataset.stage === v; b.classList.toggle("on", on); if (on) b.setAttribute("aria-current", "page"); else b.removeAttribute("aria-current"); });
+    $("#crewTabs").hidden = !CREWV.includes(v);
+    $$("#stageTabs [data-stage], #crewTabs [data-stage]").forEach(b => { const on = b.dataset.stage === v; b.classList.toggle("on", on); if (on) b.setAttribute("aria-current", "page"); else b.removeAttribute("aria-current"); });
     $$(".view").forEach(s => (s.hidden = s.id !== `view-${show}`));
     if (show === "gate") {
       const [t, d] = GATED[v];
@@ -695,7 +697,7 @@
     window.scrollTo({ top: 0 });
   };
   $$(".tabs [role=tab]").forEach(b => b.addEventListener("click", () => setView(b.dataset.view)));
-  $$("#stageTabs [data-stage]").forEach(b => b.addEventListener("click", () => setView(b.dataset.stage)));
+  $$("#stageTabs [data-stage], #crewTabs [data-stage]").forEach(b => b.addEventListener("click", () => setView(b.dataset.stage)));
 
   // ---------- CALENDAR ----------
   // calMode: "6", "3" or "1" months stacked from calMonth down, or "week". 6 months is the default; the choice is remembered on this device.
@@ -763,7 +765,7 @@
       const myFree = mine && mine.days.includes(d), myBooked = mine && bookedOn(mine.id, d).length;
       return { ps, free, myFree, myBooked, cls: [d === TODAY && "today", d === selDay && !editMine && "sel", d < TODAY && "past", out && "out", myFree && "mine", myBooked && "mine-booked", bankHol(d) && "hol"].filter(Boolean).join(" ") };
     };
-    const meTag = c => (mine && (c.myFree || c.myBooked) ? `<span class="me-tag">${c.myBooked ? "You: booked" : "You: free"}</span>` : "");
+    const meTag = c => (mine && (c.myFree || c.myBooked) ? `<span class="me-tag">${c.myBooked ? "You: booked" : "You: avail"}</span>` : "");
     const crewTag = c => (c.free ? `<span class="avail-ic" title="Crew available">${AVAIL_IC}</span>` : "");
     const holTag = d => (bankHol(d) ? `<span class="cal-hol" title="Bank holiday: ${esc(bankHol(d))}">${esc(bankHol(d))}</span>` : "");
     let html = "";
@@ -810,13 +812,15 @@
     renderDayPanel();
   }
   function renderDayPanel() { $("#calKeyTop").innerHTML = calKeyHtml(); $("#dayPanel").innerHTML = calKeyHtml() + dayPanelHtml(selDay); bindOpeners($("#dayPanel")); }
+  const LFS_LINKS = [["VLE", "https://learn.lfs.org.uk/"], ["LFS VOD", "https://learn.lfs.org.uk/course/view.php?id=18"], ["Student Portal", "https://londonfilmschool.sharepoint.com/sites/students"], ["Celcat / Timetable", "https://celcatweb.lfs.org.uk/calendar"]];
   const calKeyHtml = () => `<div class="cal-keybox" aria-label="Key"><p class="eyebrow">Key</p><ul class="cal-keys">
       <li><span class="k-sw k-shoot"></span>Shoot (number = open roles)</li>
       <li><span class="k-ic">${AVAIL_IC}</span>Crew available</li>
-      ${me() ? `<li><span class="k-sw k-booked"></span>You're booked</li><li><span class="k-tag">You: free</span>You marked it free</li>` : ""}
+      ${me() ? `<li><span class="k-sw k-booked"></span>You're booked</li><li><span class="k-tag">You: avail</span>You marked yourself available</li>` : ""}
       <li><span class="k-sw k-hol"></span>UK bank holiday</li>
       <li><span class="k-sw k-school"></span>School date</li>
-      <li><span class="k-sw k-today">9</span>Today</li></ul></div>`;
+      <li><span class="k-sw k-today">9</span>Today</li></ul>
+      <p class="eyebrow cal-links-h">Key links</p><ul class="cal-links">${LFS_LINKS.map(([t, u]) => `<li><a href="${u}" target="_blank" rel="noopener">${t}<span class="ext" aria-hidden="true">↗</span></a></li>`).join("")}</ul></div>`;
   function dayPanelHtml(d) {
     const ps = calProjects(d), free = calFree(d), role = $("#calRole").value, mine = me(), booked = mine ? bookedOn(mine.id, d) : [];
     return `
@@ -1176,7 +1180,7 @@
     q("[data-unwrap]").forEach(b => b.addEventListener("click", () => unwrap(p)));
     q("[data-stepdown]").forEach(b => b.addEventListener("click", () => stepDown(p, b.dataset.stepdown)));
     q("[data-stepdown-sh]").forEach(b => b.addEventListener("click", () => stepDown(p, null, +b.dataset.stepdownSh)));
-    q("[data-archive]").forEach(b => b.addEventListener("click", () => { p.archived = !p.archived; toast(p.archived ? `${p.title} archived. Restore it from My shoots.` : `${p.title} restored`); closeModal(); render(); }));
+    q("[data-archive]").forEach(b => b.addEventListener("click", () => { p.archived = !p.archived; toast(p.archived ? `${p.title} archived. Restore it from My Films.` : `${p.title} restored`); closeModal(); render(); }));
     q("[data-delete]").forEach(b => b.addEventListener("click", () => deleteProject(p)));
     if (me() && !runs(p)) addReportLink("project", p.id);
   }
@@ -1966,7 +1970,7 @@
     const wrappedMine = S.projects.filter(p => runs(p, m) && !p.archived && isPast(p) && !S.releases.some(r => r.pid === p.id)).sort((a, b) => (b.wrapped || b.shoots[b.shoots.length - 1].to).localeCompare(a.wrapped || a.shoots[a.shoots.length - 1].to)).slice(0, 6);
     const wrapCard = p => `<li class="ms-row" style="--c:${projColor(p)}"><button class="ms-t link-btn" data-proj="${p.id}">${esc(p.title)}</button><span class="ms-m">Wrapped ${fmtDay(p.wrapped || p.shoots[p.shoots.length - 1].to)}</span><span class="ms-a">${postOf(p) ? `<button class="btn btn-ghost btn-xs" data-inpostp="${p.id}">Open in Post</button>` : `<button class="btn btn-accent btn-xs" data-topostp="${p.id}">Move to Post</button>`}</span></li>`;
     root.innerHTML = `
-      <div class="view-head"><h1 class="page-title">My shoots</h1><p class="muted">Projects you run, requests you've sent and shoots you're locked on.</p>
+      <div class="view-head"><h1 class="page-title">My Films</h1><p class="muted">Projects you run, requests you've sent and shoots you're locked on.</p>
         <div class="ms-actions"><button class="btn btn-accent btn-sm" data-action="post">Post a shoot</button><button class="btn btn-ghost btn-sm" id="msSync">Sync to Outlook or another calendar</button></div></div>
       <div class="ms-grid">
         <section class="panel"><h2 class="panel-h">Projects I run <span class="count">${active.length}</span></h2>
@@ -2062,7 +2066,7 @@
   }
   // anyone signed in can suggest a better translation; it goes to admins with the Terms and lists permission
   // where someone is in the app, in English, so admins can find the words
-  const VIEW_NAMES = { calendar: "Calendar", projects: "Shoot", scripts: "Develop", post: "Post", release: "Release", paid: "Paid", crew: "Crew", kit: "Kit", mine: "My shoots", me: "My profile", admin: "Admin", about: "About", gate: "Sign-in page" };
+  const VIEW_NAMES = { calendar: "Calendar", projects: "Shoot", scripts: "Develop", post: "Post", release: "Release", paid: "Paid", crew: "Crew", kit: "Kit", mine: "My Films", me: "My profile", admin: "Admin", about: "About", gate: "Sign-in page" };
   const ADMIN_NAMES = { home: "Overview", access: "Access", handover: "Handover", projects: "Projects", reports: "Reports", news: "Newsletter", langs: "Languages", terms: "Terms and cohorts", lists: "Lists", email: "Email", privacy: "Privacy and data", activity: "Activity" };
   const pageName = () => { let n = VIEW_NAMES[view] || view; if (view === "admin") n += ", " + (ADMIN_NAMES[adminTab] || adminTab); return n; };
   function spotOf(el) {
@@ -2943,9 +2947,10 @@ ${LIVE ? "" : `<label class="toggle"><input type="checkbox" data-aus="autoSend" 
     $("#meKit").innerHTML = meKit.length ? `<ul class="kit-list">${meKit.map((k, i) => `<li><span class="kit-cat">${esc(k.cat)}</span>${esc(k.item)}<button type="button" class="chip-x" data-k="${i}" aria-label="Remove ${esc(k.item)}">×</button></li>`).join("")}</ul>` : `<p class="muted small">No kit added. Owning kit makes you much easier to book.</p>`;
   }
   $("#meKit").addEventListener("click", e => { const b = e.target.closest("[data-k]"); if (b) { meKit.splice(+b.dataset.k, 1); drawKit(); } });
-  const addKit = () => { const v = $("#kitItem").value.trim(); if (!v) return; meKit.push({ cat: $("#kitCat").value, item: v }); $("#kitItem").value = ""; drawKit(); };
+  const addKit = () => { const v = $("#kitItem").value.trim(); if (!v) return; addKitTo(meKit, v, $("#kitCat").value); $("#kitItem").value = ""; if (meCombo) meCombo.reset(); drawKit(); meChanged(); };
+  let meCombo = null; setTimeout(() => { meCombo = kitCombo($("#kitItem"), $("#kitCat"), addKit); }, 0);
   $("#kitAddBtn").addEventListener("click", addKit);
-  $("#kitItem").addEventListener("keydown", e => { if (e.key === "Enter") { e.preventDefault(); addKit(); } });
+
 
   // availability picker
   let pickMonth = TODAY.slice(0, 7) + "-01", painting = null;
@@ -3850,7 +3855,7 @@ ${LIVE ? "" : `<label class="toggle"><input type="checkbox" data-aus="autoSend" 
     const root = $("#view-fund"), m = me();
     if (!partial || !root.querySelector(".board-host")) {
       root.innerHTML = `
-        <div class="view-head"><div><h1 class="page-title">Funding</h1><p class="muted">Crowdfunding campaigns for LFS films. Back a classmate's shoot, share it, or post your own with its goal and deadline. The money goes through the platform, never through Crew Call.</p></div>
+        <div class="view-head"><div><h1 class="page-title">Fundraising</h1><p class="muted">Crowdfunding campaigns for LFS films. Back a classmate's shoot, share it, or post your own with its goal and deadline. The money goes through the platform, never through Crew Call.</p></div>
           <div class="head-acts"><button class="btn btn-accent" id="fundPost">Post a campaign</button></div></div>
         <div class="board-host" data-fkey="fund"></div>`;
       $("#fundPost").onclick = () => openFundForm();
@@ -3877,7 +3882,7 @@ ${LIVE ? "" : `<label class="toggle"><input type="checkbox" data-aus="autoSend" 
     const w = student(x.by) || { name: "Former member" }, p = x.pid && project(x.pid), ed = canEditFund(x), ended = fundEnded(x);
     openModal(`
       ${coverImg(coverOf(x), "m-cover")}
-      <p class="eyebrow">Funding · ${esc(x.platform)}</p>
+      <p class="eyebrow">Fundraising · ${esc(x.platform)}</p>
       <h2 id="modalTitle" class="m-title">${esc(x.title)}</h2>
       <p class="card-sub"><span>${esc(x.type)}</span> · <span>by</span> <button class="link-btn" data-student="${x.by}">${esc(w.name)}</button>${p ? ` · <button class="link-btn" data-proj="${p.id}">See the shoot</button>` : ""}</p>
       <p class="logline">${esc(x.pitch)}</p>
@@ -3895,7 +3900,7 @@ ${LIVE ? "" : `<label class="toggle"><input type="checkbox" data-aus="autoSend" 
     const u = $("#fundUpd");
     if (u) u.addEventListener("submit", e => { e.preventDefault(); x.raised = Math.max(0, Math.round(+u.raised.value || 0)); x.updated = TODAY; toast(`Total saved: ${money(x.raised, x.cur)}`); openFund(x.id); renderAfterFund(); });
     if ($("#fundEdit")) $("#fundEdit").onclick = () => openFundForm(x);
-    if ($("#fundDel")) $("#fundDel").onclick = () => confirmBox(`Remove ${x.title}?`, "The campaign comes off Funding. Nothing changes on the crowdfunding site itself.", "Remove", () => { dropOldCover(x.cover, ""); S.funds.splice(S.funds.indexOf(x), 1); closeModal(); renderAfterFund(); toast("Removed"); });
+    if ($("#fundDel")) $("#fundDel").onclick = () => confirmBox(`Remove ${x.title}?`, "The campaign comes off Fundraising. Nothing changes on the crowdfunding site itself.", "Remove", () => { dropOldCover(x.cover, ""); S.funds.splice(S.funds.indexOf(x), 1); closeModal(); renderAfterFund(); toast("Removed"); });
   }
   const renderAfterFund = () => { if (view === "fund") renderFund(); else render(); };
   function openFundForm(x, fromP) {
@@ -4225,7 +4230,7 @@ ${LIVE ? "" : `<label class="toggle"><input type="checkbox" data-aus="autoSend" 
   ];
   function renderAbout() {
     const owner = student(S.owner), nt = nextTerm(), now = termNow();
-    const boards = [["Calendar", "Every shoot on one calendar, and who's free on each day."], ["Develop", "Scripts looking for a director, producer or writer."], ["Shoot", "Projects crewing up, as cards, a table, a timeline or a map."], ["Post", "Wrapped shoots looking for an editor, colourist, sound designer, composer or VFX."], ["Release", "Finished films looking for help with festivals, posters and screenings."], ["Paid", "Paid jobs and opportunities, checked by admins."], ["Crew", "Find people by role, kit and the days they're free."], ["My shoots", "What you're running, what you've asked to join, and your call times."]];
+    const boards = [["Calendar", "Every shoot on one calendar, and who's free on each day."], ["Develop", "Scripts looking for a director, producer or writer."], ["Shoot", "Projects crewing up, as cards, a table, a timeline or a map."], ["Post", "Wrapped shoots looking for an editor, colourist, sound designer, composer or VFX."], ["Release", "Finished films looking for help with festivals, posters and screenings."], ["Paid", "Paid jobs and opportunities, checked by admins."], ["Crew", "Find people by role, kit and the days they're free."], ["My Films", "What you're running, what you've asked to join, and your call times."]];
     $("#view-about").innerHTML = `
       <div class="view-head"><h1 class="page-title">About Crew Call</h1><p class="muted">A shared calendar and crew board for London Film School students, run by students.</p></div>
       <div class="about-grid">
@@ -4375,21 +4380,112 @@ ${LIVE ? "" : `<label class="toggle"><input type="checkbox" data-aus="autoSend" 
   // ---------- KIT: everyone's listed kit, grouped so you can see how many have the same ----------
   // "Aputure 300d II, 2x Amaran 200x" counts as two items. Matching ignores case, spacing, punctuation and quantities like 2x.
   const kitSplit = t => String(t || "").split(/\s*(?:,|\+|;|\s&\s|\sand\s)\s*/i).map(x => x.replace(/^\s*(?:\d+\s*[x×]|[x×]\s*\d+)\s*/i, "").replace(/\s+(?:[x×]\s*\d+)\s*$/i, "").trim()).filter(x => x.length > 1);
-  const kitKey = x => x.toLowerCase().replace(/[^\p{L}\p{N}]+/gu, "");
+  // Loose key for matching: case, spaces, punctuation, "Mark II"/"mk2", apertures, "mm" and a trailing s don't matter.
+  const ROMAN = { 2: "ii", 3: "iii", 4: "iv", 5: "v" };
+  const kitNorm = x => String(x || "").toLowerCase()
+    .replace(/\b(?:mark|mk)\.?\s*(ii|iii|iv|v|[2-5])\b/g, (_, r) => " " + (ROMAN[r] || r))
+    .replace(/\bf\s*\/\s*\d+(?:\.\d+)?\b|\bf\d+\.\d+\b/g, " ").replace(/(\d)\s*mm\b/g, "$1")
+    .replace(/[^\p{L}\p{N}]+/gu, "").replace(/s$/, "");
+  const kitKey = kitNorm;
+  // Catalogue lookup. Proper names win over nicknames; a nickname shared by two items is ignored.
+  const KIT_CAT = (C.KIT_CATALOG || []).map(([cat, name, al]) => ({ cat, name, al: al ? al.split(";") : [] }));
+  const KIT_IDX = (() => {
+    const m = new Map(), weak = new Map();
+    KIT_CAT.forEach(e => m.set(kitNorm(e.name), e));
+    KIT_CAT.forEach(e => {
+      const w = e.name.split(" "), alts = [...e.al];
+      if (w.length > 1 && /\d|[A-Z]{2}/.test(w.slice(1).join(" "))) alts.push(w.slice(1).join(" "));
+      alts.forEach(a => { const k = kitNorm(a); if (!k || m.has(k)) return; weak.set(k, weak.has(k) && weak.get(k) !== e ? null : e); });
+    });
+    weak.forEach((e, k) => { if (e) m.set(k, e); });
+    return m;
+  })();
+  // Fallbacks: drop a leading brand ("Sennheiser 416"), then ignore word order ("Sigma Art 18-35").
+  const KIT_BRANDS = new Set(KIT_CAT.filter(e => e.name.includes(" ")).map(e => e.name.split(" ")[0].toLowerCase()));
+  const kitBag = x => String(x || "").toLowerCase().replace(/\b(?:mark|mk)\.?\s*(ii|iii|iv|v|[2-5])\b/g, (_, r) => " " + (ROMAN[r] || r)).replace(/\bf\s*\/\s*\d+(?:\.\d+)?\b|\bf\d+\.\d+\b/g, " ").replace(/(\d)\s*mm\b/g, "$1").split(/[^\p{L}\p{N}-]+/u).map(w => w.replace(/-/g, "")).filter(Boolean).sort().join(" ");
+  const KIT_BAG = (() => { const m = new Map(); KIT_CAT.forEach(e => { const k = kitBag(e.name); m.set(k, m.has(k) ? null : e); }); return m; })();
+  const kitCanon = t => {
+    const k = kitNorm(t); if (!k) return null;
+    if (KIT_IDX.has(k)) return KIT_IDX.get(k);
+    const w = String(t).trim().split(/\s+/);
+    if (w.length > 1 && KIT_BRANDS.has(w[0].toLowerCase())) { const e = KIT_IDX.get(kitNorm(w.slice(1).join(" "))); if (e && e.name.split(" ")[0].toLowerCase() === w[0].toLowerCase()) return e; }
+    return KIT_BAG.get(kitBag(t)) || null;
+  };
+  // One typed line becomes one or more tidy entries, using the proper name where we know it.
+  const kitEntries = (text, cat) => kitSplit(text).map(x => { const e = kitCanon(x); return e ? { cat: e.cat, item: e.name } : { cat, item: x }; });
+  const addKitTo = (list, text, cat) => { let n = 0; kitEntries(text, cat).forEach(k => { if (!list.some(o => kitNorm(o.item) === kitNorm(k.item))) { list.push(k); n++; } }); return n; };
   function kitItems() {
     const m = new Map();
     S.students.filter(listed).forEach(s => s.kit.forEach(k => kitSplit(k.item).forEach(name => {
-      const key = kitKey(name); if (!key) return;
-      if (!m.has(key)) m.set(key, { key, names: {}, cats: {}, owners: new Map() });
+      const e = kitCanon(name), key = e ? "c:" + e.name : kitNorm(name); if (!key) return;
+      if (!m.has(key)) m.set(key, { key, e, names: {}, cats: {}, owners: new Map() });
       const g = m.get(key); g.names[name] = (g.names[name] || 0) + 1; g.cats[k.cat] = (g.cats[k.cat] || 0) + 1;
       if (!g.owners.has(s.id)) g.owners.set(s.id, { s, text: k.item });
     })));
     const top = o => Object.entries(o).sort((a, b) => b[1] - a[1])[0][0];
-    return [...m.values()].map(g => ({ key: g.key, name: top(g.names), cat: top(g.cats), owners: [...g.owners.values()].sort((a, b) => a.s.name.localeCompare(b.s.name)) }));
+    return [...m.values()].map(g => ({ key: g.key, name: g.e ? g.e.name : top(g.names), cat: g.e ? g.e.cat : top(g.cats), owners: [...g.owners.values()].sort((a, b) => a.s.name.localeCompare(b.s.name)) }));
+  }
+  // Suggestions as you type: the catalogue first, then things other people have listed.
+  function kitSuggest(q, cat) {
+    const n = kitNorm(q), words = q.toLowerCase().split(/\s+/).filter(Boolean);
+    const pool = KIT_CAT.map(e => ({ name: e.name, cat: e.cat, keys: [e.name, ...e.al] }));
+    kitItems().forEach(x => { if (!pool.some(p => p.name === x.name)) pool.push({ name: x.name, cat: x.cat, keys: [x.name], n: x.owners.length }); });
+    if (!n) return pool.filter(p => !cat || p.cat === cat).slice(0, 40);
+    const score = p => { let b = 0; p.keys.forEach((k, i) => { const kk = kitNorm(k); if (kk === n) b = Math.max(b, 5); else if (kk.startsWith(n)) b = Math.max(b, i ? 3 : 4); else if (kk.includes(n)) b = Math.max(b, 2); });
+      if (!b && words.every(w => p.keys.some(k => k.toLowerCase().includes(w)))) b = 1; return b + (p.cat === cat ? 0.5 : 0); };
+    return pool.map(p => [score(p), p]).filter(x => x[0] >= 1).sort((a, b) => b[0] - a[0] || a[1].name.localeCompare(b[1].name)).slice(0, 8).map(x => x[1]);
+  }
+  // Combobox on a kit text box: a dropdown of common kit, filtered as you type. Picking one fills the type too.
+  function kitCombo(input, catSel, onEnter) {
+    const wrap = input.parentElement; wrap.classList.add("kit-combo");
+    const lb = document.createElement("ul"); lb.className = "kit-sugg"; lb.setAttribute("role", "listbox"); lb.id = input.id + "Sugg"; lb.hidden = true; wrap.appendChild(lb);
+    const hint = document.createElement("p"); hint.className = "kit-hint small"; hint.setAttribute("aria-live", "polite"); wrap.after(hint);
+    input.setAttribute("role", "combobox"); input.setAttribute("aria-autocomplete", "list"); input.setAttribute("aria-controls", lb.id); input.setAttribute("aria-expanded", "false"); input.autocomplete = "off";
+    let items = [], act = -1;
+    const close = () => { lb.hidden = true; input.setAttribute("aria-expanded", "false"); input.removeAttribute("aria-activedescendant"); act = -1; };
+    const showHint = () => { const parts = kitSplit(input.value), es = parts.map(kitCanon);
+      hint.textContent = parts.length && es.some((e, i) => e && e.name !== parts[i]) ? `Will be listed as ${es.map((e, i) => (e ? e.name : parts[i])).join(", ")}` : ""; };
+    const draw = () => {
+      const last = input.value.split(/,|;|\+/).pop().trim(); items = kitSuggest(last, catSel.value); act = -1;
+      if (!items.length) return close();
+      let prev = null;
+      lb.innerHTML = items.map((p, i) => { const head = !last && p.cat !== prev ? `<li class="kit-sugg-h" role="presentation">${esc(p.cat)}</li>` : ""; prev = p.cat;
+        return head + `<li role="option" id="${lb.id}-${i}" data-i="${i}" aria-selected="false"><span>${esc(p.name)}</span><span class="small muted">${esc(p.cat)}${p.n ? ` · ${p.n}` : ""}</span></li>`; }).join("");
+      lb.hidden = false; input.setAttribute("aria-expanded", "true");
+    };
+    const mark = () => { lb.querySelectorAll("[role=option]").forEach(li => { const on = +li.dataset.i === act; li.setAttribute("aria-selected", String(on)); if (on) { li.scrollIntoView({ block: "nearest" }); input.setAttribute("aria-activedescendant", li.id); } }); };
+    const pick = i => { const p = items[i]; if (!p) return; const parts = input.value.split(/(,|;|\+)/); parts[parts.length - 1] = (parts.length > 1 ? " " : "") + p.name; input.value = parts.join(""); catSel.value = p.cat; close(); showHint(); input.focus(); };
+    input.addEventListener("focus", draw); input.addEventListener("input", () => { draw(); showHint(); });
+    catSel.addEventListener("change", () => { if (document.activeElement === input) draw(); });
+    input.addEventListener("keydown", e => {
+      if (e.key === "ArrowDown" || e.key === "ArrowUp") { e.preventDefault(); if (lb.hidden) draw(); const n = lb.querySelectorAll("[role=option]").length; if (!n) return; act = e.key === "ArrowDown" ? (act + 1) % n : (act - 1 + n) % n; mark(); }
+      else if (e.key === "Enter") { e.preventDefault(); if (!lb.hidden && act >= 0) pick(act); else { close(); onEnter(); hint.textContent = ""; } }
+      else if (e.key === "Escape" && !lb.hidden) { e.stopPropagation(); close(); }
+    });
+    lb.addEventListener("mousedown", e => { const li = e.target.closest("[role=option]"); if (li) { e.preventDefault(); pick(+li.dataset.i); } });
+    input.addEventListener("blur", () => setTimeout(close, 120));
+    return { reset: () => { hint.textContent = ""; close(); } };
   }
   $("#kitCatF").innerHTML = `<option value="">All kit</option>` + C.KIT_CATS.map(c => `<option value="${esc(c)}">${esc(c)}</option>`).join("");
   ["#kitQ", "#kitCatF", "#kitSort"].forEach(x => $(x).addEventListener("input", () => renderKit()));
-  $("#kitAddMine").addEventListener("click", () => { setView("me"); showMeTab("kit"); });
+  $("#kitAddMine").addEventListener("click", () => openMyKit());
+  function openMyKit() {
+    const m = me(); if (!m) return;
+    openModal(`<h2 id="modalTitle" class="m-title">Your kit</h2>
+      <p class="muted">Kit you can bring or lend. Start typing and pick from the list, so it matches what others have. Separate several with commas.</p>
+      <div class="kit-editor" id="mkList"></div>
+      <div class="kit-add"><select id="mkCat" aria-label="Kit type">${C.KIT_CATS.map(c => `<option>${esc(c)}</option>`).join("")}</select><div class="kit-in"><input id="mkItem" placeholder="e.g. Sony FX3, Aputure 300d, Zoom F6" aria-label="Kit"></div><button type="button" class="btn btn-ghost btn-sm" id="mkAdd">Add kit</button></div>
+      <div class="mk-done"><button type="button" class="btn btn-accent" id="mkDone">Done</button></div>`);
+    const list = modalBody.querySelector("#mkList"), inp = modalBody.querySelector("#mkItem"), cat = modalBody.querySelector("#mkCat");
+    const saved = () => { if (typeof meKit !== "undefined" && S.meId === m.id) { meKit = [...m.kit]; drawKit(); } renderKit(); };
+    const draw = () => { list.innerHTML = m.kit.length ? `<ul class="kit-list">${m.kit.map((k, i) => `<li><span class="kit-cat">${esc(k.cat)}</span>${esc(k.item)}<button type="button" class="chip-x" data-k="${i}" aria-label="Remove ${esc(k.item)}">×</button></li>`).join("")}</ul>` : `<p class="muted small">Nothing yet.</p>`; };
+    const add = () => { const v = inp.value.trim(); if (!v) return; const n = addKitTo(m.kit, v, cat.value); inp.value = ""; combo.reset(); draw(); saved(); toast(n ? "Added to your profile" : "Already on your profile"); };
+    const combo = kitCombo(inp, cat, add);
+    list.addEventListener("click", e => { const b = e.target.closest("[data-k]"); if (b) { m.kit.splice(+b.dataset.k, 1); draw(); saved(); } });
+    modalBody.querySelector("#mkAdd").addEventListener("click", add);
+    modalBody.querySelector("#mkDone").addEventListener("click", () => { if (inp.value.trim()) add(); closeModal(); });
+    draw(); setTimeout(() => inp.focus(), 50);
+  }
   let kitTs = null;
   $("#kitList").addEventListener("click", e => {
     const t = e.target.closest("[data-tsort]"); if (t) { const i = +t.dataset.tsort; kitTs = kitTs && kitTs.i === i ? (kitTs.dir > 0 ? { i, dir: -1 } : null) : { i, dir: 1 }; return renderKit(); }
@@ -4457,5 +4553,5 @@ ${LIVE ? "" : `<label class="toggle"><input type="checkbox" data-aus="autoSend" 
   openHash();
   window.addEventListener("hashchange", openHash);
   // for cloud.js: the live data, and a way to redraw after other people's changes arrive
-  window.CC_APP = { S, toast, can, cloudSignIn, refresh: () => { applyTerms(false); refreshCohortFilter(); syncReps(); drawHeader(); if (!$("#modal").hidden) return; render(); } };
+  window.CC_APP = { S, toast, kitCanon, kitSuggest, can, cloudSignIn, refresh: () => { applyTerms(false); refreshCohortFilter(); syncReps(); drawHeader(); if (!$("#modal").hidden) return; render(); } };
 })();

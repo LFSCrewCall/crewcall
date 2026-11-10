@@ -1,4 +1,4 @@
-Funding || 眾籌 || Financement || Financiación
+Fundraising || 眾籌 || Financement || Financiación
 Project stages || 專案階段 || Étapes du projet || Etapas del proyecto
 Crowdfunding || 群眾募資 || Financement participatif || Micromecenazgo
 Post a campaign || 刊登募資活動 || Publier une campagne || Publicar una campaña
@@ -38,7 +38,7 @@ Add the goal. || 請填寫目標金額。 || Indiquez l'objectif. || Añade el o
 Add the deadline. || 請填寫截止日期。 || Indiquez la date limite. || Añade la fecha límite.
 The campaign link isn't a web address. || 募資頁連結不是網址。 || Le lien de la campagne n'est pas une adresse web. || El enlace de la campaña no es una dirección web.
 Sign in to post a campaign. || 登入後才能刊登募資活動。 || Connectez-vous pour publier une campagne. || Inicia sesión para publicar una campaña.
-The campaign comes off Funding. Nothing changes on the crowdfunding site itself. || 活動會從眾籌頁移除，群眾募資網站本身不受影響。 || La campagne disparaît de Financement. Rien ne change sur le site de financement lui-même. || La campaña sale de Financiación. No cambia nada en la web de micromecenazgo.
+The campaign comes off Fundraising. Nothing changes on the crowdfunding site itself. || 活動會從眾籌頁移除，群眾募資網站本身不受影響。 || La campagne disparaît de Financement. Rien ne change sur le site de financement lui-même. || La campaña sale de Financiación. No cambia nada en la web de micromecenazgo.
 Crowdfunding campaigns for LFS films. Back a classmate's shoot, share it, or post your own with its goal and deadline. The money goes through the platform, never through Crew Call. || LFS 影片的群眾募資活動。支持同學的拍攝、分享出去，或刊登你自己的活動與目標和截止日期。款項經由募資平台，絕不經過 Crew Call。 || Les campagnes de financement participatif des films de la LFS. Soutenez le tournage d'un camarade, partagez-le, ou publiez le vôtre avec son objectif et sa date limite. L'argent passe par la plateforme, jamais par Crew Call. || Campañas de micromecenazgo de películas de la LFS. Apoya el rodaje de un compañero, compártelo o publica el tuyo con su objetivo y fecha límite. El dinero pasa por la plataforma, nunca por Crew Call.
 Post it once your campaign page is live. People back it on the platform; Crew Call only shows the goal, the total and the deadline. || 募資頁上線後再刊登。大家在平台上支持；Crew Call 只顯示目標、金額和截止日期。 || Publiez-la une fois la page de campagne en ligne. Les gens soutiennent sur la plateforme ; Crew Call n'affiche que l'objectif, le total et la date limite. || Publícala cuando la página de la campaña esté activa. La gente apoya en la plataforma; Crew Call solo muestra el objetivo, el total y la fecha límite.
 e.g. location hire, kit, food for 20 crew, festival fees || 例如場地租金、器材、20 人劇組的餐點、影展報名費 || ex. location de décor, matériel, repas pour 20 personnes, frais de festival || p. ej. alquiler de localización, equipo, comida para 20 personas, tasas de festivales

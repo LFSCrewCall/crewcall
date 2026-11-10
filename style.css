@@ -1400,3 +1400,29 @@ input[type=date], input[type=time], input[type=month] { cursor: pointer; }
 .kit-who { flex: 1; min-width: 0; display: flex; align-items: flex-start; gap: var(--space-3); text-align: start; background: none; border: 0; padding: var(--space-2); border-radius: var(--r-sm); }
 .kit-who:hover { background: var(--surface-2); }
 .kit-who > span:last-child { display: flex; flex-direction: column; min-width: 0; }
+/* v25: crew-available icon in green; key links; sub-tabs */
+:root { --avail: #17924a; }
+.avail-ic, .k-ic, .dp-av { color: var(--avail); }
+.avail-ic { opacity: .85; }
+.cal-cell:hover .avail-ic, .cal-cell.sel .avail-ic { opacity: 1; }
+.cal-links-h { margin-top: var(--space-4); }
+.cal-links { list-style: none; margin: var(--space-2) 0 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 4px var(--space-3); }
+.cal-links a { display: inline-flex; align-items: center; gap: 4px; font-size: var(--text-sm); font-weight: 600; color: var(--text); text-decoration: underline; text-decoration-color: var(--border); text-underline-offset: 3px; padding: 3px 0; }
+.cal-links a:hover { text-decoration-color: currentColor; }
+.cal-links .ext { font-size: 11px; color: var(--text-muted); }
+.stage-tabs .stg-paid { margin-inline-start: auto; }
+/* Kit dropdown */
+.kit-in { position: relative; flex: 1; min-width: 180px; display: flex; flex-direction: column; }
+.kit-in input { width: 100%; }
+.kit-sugg { position: absolute; z-index: 60; top: calc(100% + 4px); inset-inline: 0; max-height: 300px; overflow-y: auto; margin: 0; padding: 4px; list-style: none; background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-sm); box-shadow: 0 10px 30px rgba(0,0,0,.14); }
+.kit-sugg[hidden] { display: none; }
+.kit-sugg [role=option] { display: flex; justify-content: space-between; gap: var(--space-3); padding: 8px 10px; border-radius: 4px; cursor: pointer; font-size: var(--text-sm); }
+.kit-sugg [role=option]:hover, .kit-sugg [aria-selected=true] { background: var(--surface-3); }
+.kit-sugg-h { padding: 8px 10px 4px; font: 700 10px/1 var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--accent-text, var(--accent)); }
+.kit-hint { margin: 6px 0 0; color: var(--free); min-height: 0; }
+.kit-hint:empty { display: none; }
+.modal .kit-add { margin-top: var(--space-3); }
+.modal .kit-sugg, #modal .kit-sugg { position: static; margin-top: 4px; max-height: 240px; box-shadow: none; }
+.mk-done { display: flex; justify-content: flex-end; margin-top: var(--space-4); }
+.cal-keybox .cal-links-h { margin: var(--space-4) 0 0; padding-top: var(--space-3); border-top: 1px solid var(--border); }
+.kit-add { align-items: flex-start; }

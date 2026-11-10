@@ -1,4 +1,4 @@
-Funding || Сборы || التمويل
+Fundraising || Сборы || التمويل
 Project stages || Этапы проекта || مراحل المشروع
 Crowdfunding || Краудфандинг || التمويل الجماعي
 Post a campaign || Разместить кампанию || نشر حملة
@@ -38,7 +38,7 @@ Add the goal. || Укажите цель. || أضف الهدف.
 Add the deadline. || Укажите срок. || أضف الموعد النهائي.
 The campaign link isn't a web address. || Ссылка на кампанию — не веб-адрес. || رابط الحملة ليس عنوان ويب.
 Sign in to post a campaign. || Войдите, чтобы разместить кампанию. || سجّل الدخول لنشر حملة.
-The campaign comes off Funding. Nothing changes on the crowdfunding site itself. || Кампания исчезнет из раздела «Сборы». На самом сайте краудфандинга ничего не изменится. || تُزال الحملة من قسم التمويل. لا يتغير شيء على موقع التمويل الجماعي نفسه.
+The campaign comes off Fundraising. Nothing changes on the crowdfunding site itself. || Кампания исчезнет из раздела «Сборы». На самом сайте краудфандинга ничего не изменится. || تُزال الحملة من قسم التمويل. لا يتغير شيء على موقع التمويل الجماعي نفسه.
 Crowdfunding campaigns for LFS films. Back a classmate's shoot, share it, or post your own with its goal and deadline. The money goes through the platform, never through Crew Call. || Краудфандинговые кампании фильмов LFS. Поддержите съёмки однокурсника, поделитесь ими или разместите свою кампанию с целью и сроком. Деньги идут через платформу, а не через Crew Call. || حملات تمويل جماعي لأفلام LFS. ادعم تصوير زميلك أو شاركه، أو انشر حملتك مع هدفها وموعدها النهائي. يمر المال عبر المنصة، وليس عبر Crew Call أبدًا.
 Post it once your campaign page is live. People back it on the platform; Crew Call only shows the goal, the total and the deadline. || Разместите, когда страница кампании заработает. Поддерживают на платформе; Crew Call показывает только цель, сумму и срок. || انشرها بعد أن تصبح صفحة الحملة متاحة. يدعمها الناس على المنصة؛ ولا يعرض Crew Call سوى الهدف والمجموع والموعد النهائي.
 e.g. location hire, kit, food for 20 crew, festival fees || например, аренда локации, техника, еда на 20 человек, взносы фестивалей || مثلًا: استئجار الموقع، المعدات، طعام لعشرين فردًا، رسوم المهرجانات
