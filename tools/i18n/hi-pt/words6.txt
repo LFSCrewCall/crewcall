@@ -78,3 +78,7 @@ Sign in to see profiles and get in touch. || प्रोफ़ाइल दे�
 Director · no producer yet || निर्देशक · अभी कोई प्रोड्यूसर नहीं || Diretor · ainda sem produtor
 By || द्वारा || Por
 by || द्वारा || por
+Email ending || ईमेल का अंतिम भाग || Final do e-mail
+Other… || अन्य… || Outro…
+That email address doesn't look right. || यह ईमेल पता सही नहीं लगता। || Esse endereço de e-mail não parece certo.
+Email me a sign-in code || मुझे साइन-इन कोड ईमेल करें || Enviar um código de acesso

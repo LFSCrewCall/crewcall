@@ -1214,3 +1214,13 @@ a.link-btn { text-decoration: none; color: inherit; }
 .cl-what { display: flex; flex-direction: column; gap: 2px; font-size: var(--text-sm); }
 .cl-acts { display: flex; gap: var(--space-2); }
 .rq-type.claim { background: var(--free-soft); color: var(--free); }
+
+/* Email box with a pick-the-ending dropdown */
+.em-field { margin: 0; min-width: 0; }
+.em-row { display: flex; min-width: 0; border: 1px solid var(--color-border, #c9c4b8); border-radius: var(--radius-sm, 4px); background: var(--color-surface, #fff); }
+.em-row:focus-within { outline: 2px solid var(--color-primary, #0047ff); outline-offset: 1px; }
+.em-row input { flex: 1 1 8rem; min-width: 0; border: 0 !important; outline: none !important; box-shadow: none !important; background: transparent; }
+.em-row select { flex: 0 1 auto; max-width: 55%; min-width: 0; border: 0 !important; border-left: 1px solid var(--color-border, #c9c4b8) !important; border-radius: 0; background-color: var(--color-surface-2, #f3f0e8); box-shadow: none !important; outline: none !important; }
+.em-row.is-custom select { flex: 0 0 7.5rem; width: 7.5rem; }
+.em-row input { width: auto; }
+.em-row:not(.is-custom) select { width: auto; }

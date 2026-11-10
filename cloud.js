@@ -17,7 +17,8 @@
   const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
   const KIND_OF = Object.fromEntries(Object.entries(COLL).map(([k, v]) => [v, k]));
 
-  const load = src => new Promise((ok, no) => { const s = document.createElement("script"); s.src = src; s.async = false; s.onload = ok; s.onerror = () => no(new Error("Couldn't load " + src)); document.body.appendChild(s); });
+  const V = (document.currentScript && /[?&]v=(\w+)/.exec(document.currentScript.src) || [])[1];
+  const load = src => new Promise((ok, no) => { const s = document.createElement("script"); s.src = V ? src + "?v=" + V : src; s.async = false; s.onload = ok; s.onerror = () => no(new Error("Couldn't load " + src)); document.body.appendChild(s); });
   const startApp = async () => { await load("app.js"); await load("i18n-dict.js"); await load("i18n.js"); };
 
   if (!ON) { startApp(); return; }

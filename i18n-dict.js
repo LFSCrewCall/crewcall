@@ -7302,6 +7302,46 @@ window.CC_I18N = {
 "द्वारा",
 "por"
 ],
+"Email ending": [
+"電子郵件網域",
+"电子邮件网域",
+"Fin de l'adresse",
+"Final del correo",
+"Домен почты",
+"نطاق البريد",
+"ईमेल का अंतिम भाग",
+"Final do e-mail"
+],
+"Other…": [
+"其他…",
+"其他…",
+"Autre…",
+"Otro…",
+"Другое…",
+"غير ذلك…",
+"अन्य…",
+"Outro…"
+],
+"That email address doesn't look right.": [
+"這個電子郵件地址看起來不正確。",
+"这个电子邮件地址看起来不正确。",
+"Cette adresse e-mail semble incorrecte.",
+"Esa dirección de correo no parece correcta.",
+"Похоже, адрес почты указан неверно.",
+"يبدو أن عنوان البريد غير صحيح.",
+"यह ईमेल पता सही नहीं लगता।",
+"Esse endereço de e-mail não parece certo."
+],
+"Email me a sign-in code": [
+"寄登入碼給我",
+"寄登录码给我",
+"M'envoyer un code de connexion",
+"Enviarme un código de acceso",
+"Прислать код для входа",
+"أرسل لي رمز الدخول",
+"मुझे साइन-इन कोड ईमेल करें",
+"Enviar um código de acesso"
+],
 "Director": [
 "導演",
 "导演",

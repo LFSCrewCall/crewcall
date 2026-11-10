@@ -78,3 +78,7 @@ Sign in to see profiles and get in touch. || Войдите, чтобы виде
 Director · no producer yet || Режиссёр · продюсера пока нет || المخرج · لا منتج بعد
 By || Автор: || بواسطة
 by || автор: || بواسطة
+Email ending || Домен почты || نطاق البريد
+Other… || Другое… || غير ذلك…
+That email address doesn't look right. || Похоже, адрес почты указан неверно. || يبدو أن عنوان البريد غير صحيح.
+Email me a sign-in code || Прислать код для входа || أرسل لي رمز الدخول

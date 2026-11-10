@@ -191,6 +191,14 @@ The top bar is Calendar | Funding | Projects | Paid | Crew (plus My shoots, My p
 
 Every board has a search bar, a Matches me switch (shows posts needing a role on your profile), tap-to-filter chips, sorting, and Show more after 12 posts. Filled or fully crewed posts are hidden unless you tick the box in Filters. On phones, Filters opens as a panel from the bottom of the screen, and every dropdown in the app opens as a tap-to-pick list instead.
 
+## Signing in
+
+People type the first part of their email and pick the ending from a list: @student.lfs.org.uk (the default), @lfs.org.uk, @gmail.com, @outlook.com, @hotmail.com, @icloud.com, @yahoo.com, or Other… for any other address. Typing an @ switches to a full address automatically. Supabase emails a 6-digit code (see SETUP.md, step 5, for the email templates).
+
+## Updating the site
+
+When you change the code, raise the version number in two places so phones don't mix old and new files: `CACHE` in sw.js (crewcall-v17) and every `?v=17` in index.html.
+
 ## Funding
 
 Crowdfunding campaigns for LFS films (Kickstarter, Indiegogo, Seed&Spark, GoFundMe, Crowdfunder or anything else). Members only.

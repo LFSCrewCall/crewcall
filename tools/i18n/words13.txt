@@ -78,3 +78,7 @@ Sign in to see profiles and get in touch. || 登入後才能查看個人檔案�
 Director · no producer yet || 導演 · 尚無製片 || Réalisateur · pas encore de producteur || Director · aún sin productor
 By || 發起人 || Par || Por
 by || 發起人 || par || por
+Email ending || 電子郵件網域 || Fin de l'adresse || Final del correo
+Other… || 其他… || Autre… || Otro…
+That email address doesn't look right. || 這個電子郵件地址看起來不正確。 || Cette adresse e-mail semble incorrecte. || Esa dirección de correo no parece correcta.
+Email me a sign-in code || 寄登入碼給我 || M'envoyer un code de connexion || Enviarme un código de acceso

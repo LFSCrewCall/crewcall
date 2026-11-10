@@ -452,6 +452,25 @@
 
   // ---------- sign in ----------
   const nameFromEmail = e => e.split("@")[0].split(/[._-]/).filter(x => x && !/^\d+$/.test(x) && x !== "hmu").slice(0, 2).map(x => x[0].toUpperCase() + x.slice(1)).join(" ") || "New member";
+  // Email box for signing in: type the name, pick the ending (LFS first). Typing an @ or picking Other switches to a full address.
+  const MAIL_DOMAINS = ["gmail.com", "outlook.com", "hotmail.com", "icloud.com", "yahoo.com"];
+  function emailField(value = "") {
+    const doms = [...new Set(["student.lfs.org.uk", ...C.LFS_DOMAINS, ...MAIL_DOMAINS])];
+    const [nm, dm] = value.includes("@") ? value.split("@") : [value, doms[0]];
+    const known = doms.includes(dm);
+    return `<div class="field em-field"><span id="emL">Email</span><div class="em-row${known ? "" : " is-custom"}">
+      <input name="email" type="text" required aria-labelledby="emL" autocomplete="email" autocapitalize="none" spellcheck="false" placeholder="${known ? "first.last" : "you@example.com"}" value="${esc(known ? nm : value)}">
+      <select name="emdom" aria-label="Email ending" data-native>${doms.map(d => `<option value="${d}"${known && d === dm ? " selected" : ""}>@${d}</option>`).join("")}<option value="*"${known ? "" : " selected"}>Other…</option></select></div></div>`;
+  }
+  function bindEmailField(form) {
+    const inp = form.email, sel = form.emdom, row = form.querySelector(".em-row");
+    const custom = on => { row.classList.toggle("is-custom", on); inp.type = on ? "email" : "text"; inp.placeholder = on ? "you@example.com" : "first.last"; };
+    sel.addEventListener("change", () => { const on = sel.value === "*"; const v = inp.value.trim(); if (on && v && !v.includes("@")) inp.value = v + "@"; if (!on && v.includes("@")) inp.value = v.split("@")[0]; custom(on); inp.focus(); });
+    // typing an @ switches to a full address; on leaving the box a known ending goes back into the dropdown
+    inp.addEventListener("input", () => { if (sel.value !== "*" && inp.value.includes("@")) { sel.value = "*"; custom(true); } });
+    inp.addEventListener("blur", () => { if (sel.value !== "*") return; const [n, d] = inp.value.trim().toLowerCase().split("@"); const hit = d && [...sel.options].find(o => o.value === d); if (n && hit) { inp.value = n; sel.value = d; custom(false); } });
+    return () => { const v = inp.value.trim().toLowerCase().replace(/\s+/g, ""); return sel.value === "*" ? v : v.split("@")[0] + "@" + sel.value; };
+  }
   function openSignIn(reason) {
     if (LIVE) return openCloudSignIn(reason);
     const samples = [["s3", "Producer on Salt Water and Brick & Bone. Admin."], ["s7", "Directs Salt Water. Admin."], ["s1", "DoP. Has a pending request on Static."], ["s8", "1st AC who wants to learn DoP and Gaffer."], ["s17", "Freelance HMU, joined by invite. Guest."], ["s18", "MA Screenwriting. Has a director interested in Low Tide."], ["s20", "MA Film Marketing. Unit publicist."], ["s11", "Directs Static. Has a request waiting."]];
@@ -462,14 +481,14 @@
       <button class="btn btn-ms" id="msBtn"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="1" y="1" width="8.5" height="8.5" fill="#f25022"/><rect x="10.5" y="1" width="8.5" height="8.5" fill="#7fba00"/><rect x="1" y="10.5" width="8.5" height="8.5" fill="#00a4ef"/><rect x="10.5" y="10.5" width="8.5" height="8.5" fill="#ffb900"/></svg>Continue with Microsoft (LFS)</button>
       <p class="muted small">By signing in you agree to the <button type="button" class="link-btn" data-privacy>privacy notice</button>.</p>
       <p class="or"><span>or, if you were invited</span></p>
-      <form id="siForm" class="si-form"><label class="field"><span>Email</span><input name="email" type="email" required placeholder="name@student.lfs.org.uk or your invited email" autocomplete="email"></label><button class="btn btn-ghost" type="submit">Email me a sign-in link</button></form>
+      <form id="siForm" class="si-form">${emailField()}<button class="btn btn-ghost" type="submit">Email me a sign-in code</button></form>
       <p class="form-err" id="siErr" role="alert"></p>
       <details class="samples" open><summary>Prototype: sign in as a sample person</summary>
         <ul>${samples.map(([id, d]) => `<li><button class="sample" data-as="${id}"><span class="avatar">${initials(student(id).name)}</span><span><b>${esc(student(id).name)}</b><span>${esc(d)}</span></span></button></li>`).join("")}
         <li><button class="sample" data-new><span class="avatar">+</span><span><b>A new LFS student</b><span>Starts with an empty profile.</span></span></button></li></ul>
       </details>`);
     $("#msBtn").addEventListener("click", () => { toast("In the live app this opens the LFS Microsoft login. Try an email or sample person below."); modalBody.querySelector("input[name=email]").focus(); });
-    $("#siForm").addEventListener("submit", e => { e.preventDefault(); signInEmail(e.target.email.value); });
+    { const getMail = bindEmailField($("#siForm")); $("#siForm").addEventListener("submit", e => { e.preventDefault(); signInEmail(getMail()); }); }
     modalBody.querySelectorAll("[data-as]").forEach(b => b.addEventListener("click", () => signInAs(b.dataset.as)));
     modalBody.querySelector("[data-new]").addEventListener("click", () => signInEmail("sam.taylor@student.lfs.org.uk"));
   }
@@ -479,15 +498,16 @@
       <h2 id="modalTitle" class="m-title">Sign in to Crew Call</h2>
       ${reason ? `<p class="signin-reason">${esc(reason)}</p>` : ""}
       <p class="muted">Use your LFS email. Anyone without one, such as a freelance HMU artist, needs an invite from an LFS member first.</p>
-      <form id="siForm" class="si-form"><label class="field"><span>Email</span><input name="email" type="email" required placeholder="name@student.lfs.org.uk" autocomplete="email" value="${esc(email)}"></label><button class="btn btn-accent" type="submit">Email me a sign-in code</button></form>
+      <form id="siForm" class="si-form">${emailField(email)}<button class="btn btn-accent" type="submit">Email me a sign-in code</button></form>
       <form id="codeForm" class="si-form" hidden><p class="muted small" id="codeSent"></p><label class="field"><span>Code from the email</span><input name="code" inputmode="numeric" autocomplete="one-time-code" required maxlength="10" placeholder="123456"></label><button class="btn btn-accent" type="submit">Sign in</button><button type="button" class="link-btn small" id="codeBack">Use a different email</button></form>
       <p class="form-err" id="siErr" role="alert"></p>
       <p class="muted small">By signing in you agree to the <button type="button" class="link-btn" data-privacy>privacy notice</button>. Nothing is saved on your device apart from staying signed in.</p>
       <p class="small demo-link"><span>Want a look first?</span> <a href="${DEMO_URL}">Try the demo with sample people</a></p>`);
-    const f = $("#siForm"), cf = $("#codeForm"), err = $("#siErr");
+    const f = $("#siForm"), cf = $("#codeForm"), err = $("#siErr"), getMail = bindEmailField(f);
     let addr = "";
     f.addEventListener("submit", async e => {
-      e.preventDefault(); err.textContent = ""; addr = f.email.value.trim().toLowerCase();
+      e.preventDefault(); err.textContent = ""; addr = getMail();
+      if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(addr)) return (err.textContent = "That email address doesn't look right.");
       const btn = f.querySelector("button"); btn.disabled = true;
       try {
         if (!(await window.CC_CLOUDAPI.canJoin(addr))) { btn.disabled = false; return (err.textContent = `${addr} isn't an LFS address and hasn't been invited. Ask someone with an LFS email to invite you from My shoots.`); }
@@ -3635,7 +3655,7 @@ ${LIVE ? "" : `<label class="toggle"><input type="checkbox" data-aus="autoSend" 
   document.addEventListener("keydown", e => { if (e.key === "Escape" && !pickSheet.hidden) { e.stopPropagation(); closePicker(); } }, true);
   function syncPickers() {
     if (!usePicker()) return;
-    document.querySelectorAll("select:not([multiple])").forEach(sel => {
+    document.querySelectorAll("select:not([multiple]):not([data-native])").forEach(sel => {
       if (!sel._pbtn) {
         const b = document.createElement("button"); b.type = "button"; b.className = "pick-btn";
         b.addEventListener("click", () => !sel.disabled && openPicker(sel));
