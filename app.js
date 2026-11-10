@@ -210,6 +210,7 @@
     ...p.roles.filter(r => r.filledBy === s.id).map(r => ({ p, role: r.role })),
     ...p.shadows.filter(x => x.sid === s.id).map(x => ({ p, role: x.role, shadow: true }))
   ]).concat((S.releases || []).filter(x => x.pid && project(x.pid)).flatMap(x => x.attached.filter(t => t.sid === s.id).map(t => ({ p: project(x.pid), role: t.need, release: true }))))
+    .concat((S.posts || []).filter(x => x.pid && project(x.pid)).flatMap(x => x.attached.filter(t => t.sid === s.id).map(t => ({ p: project(x.pid), role: POST_CREDIT[t.need] || t.need, post: true }))))
     .sort((a, b) => b.p.shoots[0].from.localeCompare(a.p.shoots[0].from));
 
   // ---------- accounts and permissions ----------
@@ -397,7 +398,7 @@
     const m = me(); if (!m) return openSignIn();
     acctMenu.innerHTML = `<p class="am-who"><b>${esc(m.name)}</b><span>${esc(m.email)}</span>${isOwner(m) ? `<span class="tag-admin">Owner</span>` : isAdmin(m) ? `<span class="tag-admin">Admin</span>` : ""}${m.guest ? `<span class="tag-guest">Guest</span>` : ""}</p>
       <button data-go="me">My profile</button><button data-go="mine">My shoots</button>${isAdmin(m) ? `<button data-go="admin">Admin</button>` : ""}
-      <button data-go="scripts">Develop</button><button data-go="release">Release</button><button data-go="paid">Paid</button><button data-install>Add to home screen</button><button data-privacy>Privacy notice</button><button data-go="about">About Crew Call</button>
+      <button data-go="scripts">Develop</button><button data-go="post">Post</button><button data-go="release">Release</button><button data-go="paid">Paid</button><button data-install>Add to home screen</button><button data-privacy>Privacy notice</button><button data-go="about">About Crew Call</button>
       ${LIVE ? "" : `<button data-switch>Switch sample person</button>`}<button data-signout>Sign out</button>`;
     acctMenu.hidden = !acctMenu.hidden; acctBtn.setAttribute("aria-expanded", String(!acctMenu.hidden));
   });
@@ -505,7 +506,7 @@
 
   // ---------- views ----------
   let view = "calendar", gatedView = null;
-  const GATED = { crew: ["Sign in to find crew", "Crew profiles, availability and contact details are only visible to signed-in LFS members and invited guests."], mine: ["Sign in to see your shoots", "Projects you run, requests you've sent and shoots you're locked on all live here."], me: ["Sign in to set up your profile", "Add your roles, kit and free days so producers can find you."], scripts: ["Sign in to see Develop", "Scripts and producer pitches are only visible to signed-in LFS members, to protect writers' and producers' ideas."], release: ["Sign in to see Release", "Wrapped films looking for posters, trailers, press kits and festival plans. Only visible to signed-in members, to protect unreleased films."], paid: ["Sign in to see paid work", "Paid jobs from students, alumni and industry contacts. Only visible to signed-in members."], admin: ["Admins only", "Sign in with an admin account to manage Crew Call."] };
+  const GATED = { crew: ["Sign in to find crew", "Crew profiles, availability and contact details are only visible to signed-in LFS members and invited guests."], mine: ["Sign in to see your shoots", "Projects you run, requests you've sent and shoots you're locked on all live here."], me: ["Sign in to set up your profile", "Add your roles, kit and free days so producers can find you."], scripts: ["Sign in to see Develop", "Scripts and producer pitches are only visible to signed-in LFS members, to protect writers' and producers' ideas."], post: ["Sign in to see Post", "Wrapped shoots looking for editors, colourists, sound designers, composers and VFX. Only visible to signed-in members, to protect unfinished films."], release: ["Sign in to see Release", "Wrapped films looking for posters, trailers, press kits and festival plans. Only visible to signed-in members, to protect unreleased films."], paid: ["Sign in to see paid work", "Paid jobs from students, alumni and industry contacts. Only visible to signed-in members."], admin: ["Admins only", "Sign in with an admin account to manage Crew Call."] };
   const setView = v => {
     if (v === "admin" && me() && !isAdmin()) v = "calendar";
     let show = v;
@@ -712,7 +713,7 @@
       { id: "type", label: "Type", opts: C.TYPES.filter(t => live().some(p => isActive(p) && p.type === t)), test: (p, v) => p.type === v },
       { id: "term", label: "Made by", opts: C.TERMS.filter(t => live().some(p => isActive(p) && p.term === t)), test: (p, v) => p.term === v }
     ],
-    sorts: [["soon", "Shooting soonest", (a, b) => firstDay(a).localeCompare(firstDay(b))], ["new", "Newest", (a, b) => (b.created || "").localeCompare(a.created || "")], ["open", "Most roles open", (a, b) => openRoles(b).length - openRoles(a).length]],
+    sorts: [["soon", "Shooting soonest", (a, b) => firstDay(a).localeCompare(firstDay(b)), firstDay], ["new", "Newest", (a, b) => (b.created || "").localeCompare(a.created || ""), p => p.created], ["open", "Most roles open", (a, b) => openRoles(b).length - openRoles(a).length]],
     done: p => !openRoles(p).length, doneLabel: "Show fully crewed shoots", doneHidden: "fully crewed",
     table: { color: projColor, cols: [
       ["Shoot", p => `<button class="link-btn bt-t" data-proj="${p.id}">${esc(p.title)}</button><span class="bt-sub">${esc(p.type)}</span>`],
@@ -1522,7 +1523,7 @@
   }
   // anyone signed in can suggest a better translation; it goes to admins with the Terms and lists permission
   // where someone is in the app, in English, so admins can find the words
-  const VIEW_NAMES = { calendar: "Calendar", projects: "Shoot", scripts: "Develop", release: "Release", paid: "Paid", crew: "Crew", mine: "My shoots", me: "My profile", admin: "Admin", about: "About", gate: "Sign-in page" };
+  const VIEW_NAMES = { calendar: "Calendar", projects: "Shoot", scripts: "Develop", post: "Post", release: "Release", paid: "Paid", crew: "Crew", mine: "My shoots", me: "My profile", admin: "Admin", about: "About", gate: "Sign-in page" };
   const ADMIN_NAMES = { home: "Overview", access: "Access", handover: "Handover", projects: "Projects", reports: "Reports", news: "Newsletter", langs: "Languages", terms: "Terms and cohorts", lists: "Lists", email: "Email", privacy: "Privacy and data", activity: "Activity" };
   const pageName = () => { let n = VIEW_NAMES[view] || view; if (view === "admin") n += ", " + (ADMIN_NAMES[adminTab] || adminTab); return n; };
   function spotOf(el) {
@@ -1614,7 +1615,7 @@
     ]]
   ];
   const lockedPanel = label => `<section class="panel span-2 locked-panel"><h2 class="panel-h">View only</h2><p class="muted">You don't have the ${esc(label)} permission. Ask ${esc(student(S.owner).name)} (owner) or an admin with the People permission to tick it for you.</p></section>`;
-  const exportData = () => download("crew-call-backup.json", JSON.stringify({ exported: TODAY, owner: S.owner, admins: S.admins, adminPerms: S.adminPerms, settings: S.settings, handover: S.handover, lists: C, termDates: C.TERM_DATES, students: S.students, projects: S.projects, requests: S.requests, invites: S.invites, scripts: S.scripts, scriptInterest: S.scriptInterest, releases: S.releases, releaseInterest: S.releaseInterest, gigs: S.gigs, gigApps: S.gigApps, reps: S.reps, reports: S.reports, newsletters: S.newsletters, nlAuto: S.nlAuto, ownerProposal: S.ownerProposal, adminVia: S.adminVia, adminLog: S.adminLog, courses: C.COURSES }, null, 2), "application/json");
+  const exportData = () => download("crew-call-backup.json", JSON.stringify({ exported: TODAY, owner: S.owner, admins: S.admins, adminPerms: S.adminPerms, settings: S.settings, handover: S.handover, lists: C, termDates: C.TERM_DATES, students: S.students, projects: S.projects, requests: S.requests, invites: S.invites, scripts: S.scripts, scriptInterest: S.scriptInterest, releases: S.releases, releaseInterest: S.releaseInterest, posts: S.posts, postInterest: S.postInterest, gigs: S.gigs, gigApps: S.gigApps, reps: S.reps, reports: S.reports, newsletters: S.newsletters, nlAuto: S.nlAuto, ownerProposal: S.ownerProposal, adminVia: S.adminVia, adminLog: S.adminLog, courses: C.COURSES }, null, 2), "application/json");
 
   // ---------- NEWSLETTER (Admin > Newsletter) ----------
   // Two levels: "news" can design, save and ask for approval; "send" can approve, schedule and send.
@@ -2249,7 +2250,7 @@ ${LIVE ? "" : `<label class="toggle"><input type="checkbox" data-aus="autoSend" 
     if ($("#retainMonths")) $("#retainMonths").addEventListener("change", e => { S.settings.retainMonths = +e.target.value; logAdmin(`Set old profiles to be deleted after ${S.settings.retainMonths} months`); renderAdmin(); });
     on("[data-retwarn]", b => { const s = student(b.dataset.retwarn); notify(s.id, "update", `Your Crew Call profile will be deleted soon because you haven't signed in for a while. Sign in to keep it.`); toast(`Warning sent to ${first(s.name)}`); });
     root.querySelectorAll("[data-retremove]").forEach(b => b.addEventListener("click", () => { const s = student(b.dataset.retremove); confirmBox(`Delete ${s.name}?`, `They haven't signed in for over ${S.settings.retainMonths} months. Their profile is deleted for good. Credits on wrapped shoots stay as text on the project.`, "Delete", () => { removeStudent(s); logAdmin(`Deleted old profile: ${s.name}`); closeModal(); renderAdmin(); toast("Deleted"); }); }));
-    if ($("#restoreFile")) $("#restoreFile").addEventListener("change", e => { const file = e.target.files[0]; if (!file) return; file.text().then(t => { let d; try { d = JSON.parse(t); } catch (_) { return toast("That file isn't a Crew Call backup"); } if (!d.students || !d.projects) return toast("That file isn't a Crew Call backup"); confirmBox("Restore this backup?", `From ${esc(d.exported || "an unknown date")}: ${d.students.length} people and ${d.projects.length} projects. Everything now in Crew Call is replaced.`, "Restore", () => { ["students", "projects", "requests", "invites", "scripts", "scriptInterest", "releases", "releaseInterest", "gigs", "gigApps", "reps", "reports", "admins", "adminPerms", "adminVia", "settings", "handover", "newsletters", "nlAuto", "adminLog", "customWords", "transFixes"].forEach(k => { if (d[k]) S[k] = d[k]; }); if (d.owner) S.owner = d.owner; if (d.termDates) C.TERM_DATES = d.termDates; if (d.courses) C.COURSES = d.courses; if (!student(S.meId)) S.meId = S.owner; logAdmin(`Restored a backup from ${d.exported || "unknown date"}`); applyTerms(false); refreshCohortFilter(); closeModal(); drawHeader(); render(); toast("Backup restored"); }, false); }); });
+    if ($("#restoreFile")) $("#restoreFile").addEventListener("change", e => { const file = e.target.files[0]; if (!file) return; file.text().then(t => { let d; try { d = JSON.parse(t); } catch (_) { return toast("That file isn't a Crew Call backup"); } if (!d.students || !d.projects) return toast("That file isn't a Crew Call backup"); confirmBox("Restore this backup?", `From ${esc(d.exported || "an unknown date")}: ${d.students.length} people and ${d.projects.length} projects. Everything now in Crew Call is replaced.`, "Restore", () => { ["students", "projects", "requests", "invites", "scripts", "scriptInterest", "releases", "releaseInterest", "posts", "postInterest", "gigs", "gigApps", "reps", "reports", "admins", "adminPerms", "adminVia", "settings", "handover", "newsletters", "nlAuto", "adminLog", "customWords", "transFixes"].forEach(k => { if (d[k]) S[k] = d[k]; }); if (d.owner) S.owner = d.owner; if (d.termDates) C.TERM_DATES = d.termDates; if (d.courses) C.COURSES = d.courses; if (!student(S.meId)) S.meId = S.owner; logAdmin(`Restored a backup from ${d.exported || "unknown date"}`); applyTerms(false); refreshCohortFilter(); closeModal(); drawHeader(); render(); toast("Backup restored"); }, false); }); });
 
     // access
     if ($("#ownerBtn")) $("#ownerBtn").addEventListener("click", () => {
@@ -2567,8 +2568,19 @@ ${LIVE ? "" : `<label class="toggle"><input type="checkbox" data-aus="autoSend" 
     list = [...list].sort(s[2]);
     const tc = st.tsort && st.view === "table" && cfg.table && cfg.table.cols[st.tsort.i];
     if (tc) { const k = colKey(tc); list = list.map(it => [k(it), it]).sort((a, b) => cmpKey(a[0], b[0]) * st.tsort.dir).map(x => x[1]); }
-    return { st, list, shown: st.view === "map" ? list : list.slice(0, st.limit), doneN };
+    const mk = !tc && s[3] ? it => { const d = s[3](it); return d ? String(d).slice(0, 7) : ""; } : null;
+    return { st, list, shown: st.view === "map" ? list : list.slice(0, st.limit), doneN, mk };
   }
+  // ---------- month headings: when a board is sorted by a date, items are grouped under the month ----------
+  const monthName = k => k ? `${MONTH_FULL[+k.slice(5, 7) - 1]} ${k.slice(0, 4)}` : "No date yet";
+  // [{ key, label, n, items }] in list order; n counts the whole filtered list, not just what's shown
+  function monthGroups(mk, shown, list) {
+    if (!mk) return null;
+    const all = {}; list.forEach(it => { const k = mk(it); all[k] = (all[k] || 0) + 1; });
+    const out = []; shown.forEach(it => { const k = mk(it), g = out[out.length - 1]; if (g && g.key === k) g.items.push(it); else out.push({ key: k, label: monthName(k), n: all[k], items: [it] }); });
+    return out.length > 1 ? out : null; // one month only: no heading needed
+  }
+  const monthHead = g => `<span class="mh-t">${esc(g.label)}</span> <span class="count">${g.n}</span>`;
   const VIEWS = [["cards", "Cards"], ["table", "Table"], ["timeline", "Timeline"], ["map", "Map"]];
   const activeN = st => Object.values(st.sel).filter(v => Array.isArray(v) ? v.length : v).length + (st.mine ? 1 : 0);
   const metaHtml = (cfg, res) => { const n = res.list.length, st = res.st; return `<p class="result-meta">${n} ${esc(cfg.noun)}${n === 1 ? "" : "s"}${res.doneN && !st.all ? ` · ${res.doneN} ${esc(cfg.doneHidden)} hidden` : ""}${activeN(st) || st.q ? ` · <button type="button" class="link-btn" data-fclear>Clear filters</button>` : ""}</p>`; };
@@ -2596,13 +2608,14 @@ ${LIVE ? "" : `<label class="toggle"><input type="checkbox" data-aus="autoSend" 
   // o: { key, host, cfg, items, card, empty, after, partial }
   // Table and timeline views for the boards. cfg.table = { cols: [[label, item => html, class]], color }
   // cfg.timeline = { segs: item => [{ from, to, label, dash }], label: item => html, sub: item => text, color }
-  function tableHtml(t, items, ts) {
+  function tableHtml(t, items, ts, groups) {
     return `<div class="tbl-wrap"><table class="btable"><thead><tr>${t.cols.map((c, i) => { const on = ts && ts.i === i; return `<th scope="col" class="${c[2] || ""}${i === 0 ? " bt-first" : ""}" aria-sort="${on ? (ts.dir > 0 ? "ascending" : "descending") : "none"}"><button type="button" class="th-sort" data-tsort="${i}">${esc(c[0])}<span class="th-ar" aria-hidden="true">${on ? (ts.dir > 0 ? "▲" : "▼") : "↕"}</span></button></th>`; }).join("")}</tr></thead>
-      <tbody>${items.map(it => `<tr style="--c:${t.color ? t.color(it) : "var(--accent)"}">${t.cols.map((c, i) => `<td class="${c[2] || ""}${i === 0 ? " bt-first" : ""}">${c[1](it)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
+      <tbody>${(groups || [{ items }]).map(g => (g.label ? `<tr class="bt-month"><th scope="colgroup" colspan="${t.cols.length}"><span class="bt-month-l">${monthHead(g)}</span></th></tr>` : "") + g.items.map(it => `<tr style="--c:${t.color ? t.color(it) : "var(--accent)"}">${t.cols.map((c, i) => `<td class="${c[2] || ""}${i === 0 ? " bt-first" : ""}">${c[1](it)}</td>`).join("")}</tr>`).join("")).join("")}</tbody></table></div>`;
   }
   const dayDiff = (a, b) => Math.round((D(b) - D(a)) / 864e5);
-  function timelineHtml(t, items) {
+  function timelineHtml(t, items, groups) {
     const rows = items.map(it => ({ it, segs: t.segs(it).filter(x => x && x.from) }));
+    const headAt = new Map((groups || []).map(g => [g.items[0], g]));
     const all = rows.flatMap(r => r.segs);
     if (!all.length) return `<p class="empty-sm">No dates to show yet.</p>`;
     let a = [TODAY, ...all.map(x => x.from)].sort()[0], b = all.map(x => x.to || x.from).sort().pop();
@@ -2617,7 +2630,8 @@ ${LIVE ? "" : `<label class="toggle"><input type="checkbox" data-aus="autoSend" 
     const today = pct(TODAY), tlw = Math.max(640, ticks.length * (monthly ? 90 : 72));
     return `<div class="tl-wrap"><div class="tl" style="--tl-w:${tlw}px">
       <div class="tl-head"><div class="tl-label"></div><div class="tl-track">${ticks.map(d => `<span class="tl-tick" style="left:${pct(d)}%">${tickLbl(d)}</span>`).join("")}<span class="tl-today-lbl${today < 4 ? " tl-start" : ""}" style="left:${today}%">Today</span></div></div>
-      ${rows.map(r => `<div class="tl-row" style="--c:${t.color ? t.color(r.it) : "var(--accent)"}"><div class="tl-label">${t.label(r.it)}${t.sub ? `<span class="tl-sub">${esc(t.sub(r.it))}</span>` : ""}</div>
+      ${rows.map(r => (headAt.has(r.it) ? (g => { const k = g.key, l = k ? pct(k + "-01") : 0, nx = k ? iso(new Date(Date.UTC(+k.slice(0, 4), +k.slice(5, 7), 1))) : null, w = k ? pct(nx) - l : 0;
+          return `<div class="tl-month"><div class="tl-label">${monthHead(g)}</div><div class="tl-track">${w > 0 ? `<span class="tl-mband" style="left:${l}%;width:${w}%"></span>` : ""}</div></div>`; })(headAt.get(r.it)) : "") + `<div class="tl-row" style="--c:${t.color ? t.color(r.it) : "var(--accent)"}"><div class="tl-label">${t.label(r.it)}${t.sub ? `<span class="tl-sub">${esc(t.sub(r.it))}</span>` : ""}</div>
         <div class="tl-track">${ticks.map(d => `<span class="tl-grid" style="left:${pct(d)}%"></span>`).join("")}<span class="tl-today" style="left:${today}%"></span>
           ${r.segs.map(x => { const l = pct(x.from), w = Math.max(pct(addDays(x.to || x.from, 1)) - l, 0.6); const out = w / 100 * tlw < (x.label || "").length * 7 + 12;
             return `<span class="tl-bar${x.dash ? " tl-dash" : ""}" style="left:${l}%;width:${w}%" title="${esc(x.label || "")}">${out ? "" : `<span class="tl-bar-t">${esc(x.label || "")}</span>`}</span>${out ? `<span class="tl-out" style="left:calc(${l + w}% + 6px)">${esc(x.label || "")}</span>` : ""}`; }).join("")}</div></div>`).join("")}
@@ -2680,7 +2694,9 @@ ${LIVE ? "" : `<label class="toggle"><input type="checkbox" data-aus="autoSend" 
   function board(o) {
     const res = runBoard(o.key, o.items, o.cfg), host = o.host;
     const view = (o.cfg[res.st.view] || res.st.view === "cards") ? res.st.view : "cards";
-    const listHtml = !res.shown.length ? o.empty : view === "table" ? tableHtml(o.cfg.table, res.shown, res.st.tsort) : view === "timeline" ? timelineHtml(o.cfg.timeline, res.shown) : view === "map" ? mapHtml(o.cfg.map, res.list) : res.shown.map(o.card).join("");
+    const groups = view === "map" ? null : monthGroups(res.mk, res.shown, res.list);
+    const listHtml = !res.shown.length ? o.empty : view === "table" ? tableHtml(o.cfg.table, res.shown, res.st.tsort, groups) : view === "timeline" ? timelineHtml(o.cfg.timeline, res.shown, groups) : view === "map" ? mapHtml(o.cfg.map, res.list)
+      : groups ? groups.map(g => `<h3 class="month-h">${monthHead(g)}</h3>` + g.items.map(o.card).join("")).join("") : res.shown.map(o.card).join("");
     const listCls = view === "cards" ? "card-grid blist" : `blist blist-${view}`;
     if (o.partial && host.querySelector(".fbar")) {
       host.querySelector(".blist").className = listCls;
@@ -2740,7 +2756,7 @@ ${LIVE ? "" : `<label class="toggle"><input type="checkbox" data-aus="autoSend" 
       { id: "type", label: "Type", opts: uniqSorted(S.scripts.map(x => x.type)), test: (x, v) => x.type === v },
       { id: "aim", label: "Hoping to shoot", opts: [...new Set(S.scripts.map(x => x.aim).filter(Boolean))].sort((a, b) => termOrder(a) - termOrder(b)), test: (x, v) => x.aim === v }
     ],
-    sorts: [["new", "Newest", (a, b) => b.posted.localeCompare(a.posted)], ["aim", "Shooting soonest", (a, b) => termOrder(a.aim) - termOrder(b.aim)], ["short", "Shortest script", (a, b) => (a.pages || 999) - (b.pages || 999)]],
+    sorts: [["new", "Newest", (a, b) => b.posted.localeCompare(a.posted), x => x.posted], ["aim", "Shooting soonest", (a, b) => termOrder(a.aim) - termOrder(b.aim)], ["short", "Shortest script", (a, b) => (a.pages || 999) - (b.pages || 999)]],
     done: x => !scriptOpen(x).length || x.status === "project", doneLabel: "Show posts that are fully attached", doneHidden: "fully attached",
     table: { cols: [
       ["Title", x => `<button class="link-btn bt-t" data-scr="${x.id}">${esc(x.title)}</button><span class="bt-sub">${isPitch(x) ? "Producer pitch" : x.pages + " page" + (x.pages === 1 ? "" : "s")}</span>`],
@@ -2758,7 +2774,7 @@ ${LIVE ? "" : `<label class="toggle"><input type="checkbox" data-aus="autoSend" 
     if (!partial || !root.querySelector(".board-host")) {
       const mine = S.scripts.filter(x => x.by === m.id), waiting = S.scriptInterest.filter(i => mine.some(x => x.id === i.scr) && i.status === "pending").length;
       root.innerHTML = `
-        <div class="view-head"><div><p class="eyebrow">Step 1 of 3</p><h1 class="page-title">Develop</h1><p class="muted">Writers post scripts and producers post pitches, then directors, writers and producers put their hand up. Only signed-in members see this page. Full scripts and pitch decks are only shared with people the poster brings on.</p></div>
+        <div class="view-head"><div><p class="eyebrow">Step 1 of 4</p><h1 class="page-title">Develop</h1><p class="muted">Writers post scripts and producers post pitches, then directors, writers and producers put their hand up. Only signed-in members see this page. Full scripts and pitch decks are only shared with people the poster brings on.</p></div>
           <div class="head-acts"><button class="btn btn-accent" id="scrPost">Post a script</button><button class="btn btn-ghost" id="pitchPost">Post a pitch</button></div></div>
         ${mine.length ? `<p class="mine-note">You've posted ${mine.length}. ${waiting ? `<b>${waiting} ${waiting === 1 ? "person is" : "people are"} waiting for your reply.</b>` : "Nobody waiting for a reply."}</p>` : ""}
         <div class="board-host" data-fkey="dev"></div>`;
@@ -2837,7 +2853,7 @@ ${LIVE ? "" : `<label class="toggle"><input type="checkbox" data-aus="autoSend" 
         ${pitch ? "" : `<label class="field"><span>Hoping to shoot</span><select name="aim"><option value="">Not sure yet</option>${upcoming.map(t => `<option ${x && x.aim === t ? "selected" : ""}>${esc(t)}</option>`).join("")}</select></label>`}
         <label class="field"><span>${pitch ? "Pitch deck or treatment link" : "Script link"} <small>only shown to you and people you bring on</small></span><input name="link" inputmode="url" autocapitalize="off" spellcheck="false" placeholder="drive.google.com/…" value="${esc(x ? x.link : "")}"></label>
         <p class="form-err" id="scrErr" role="alert"></p>
-        <div class="form-actions"><button class="btn btn-accent">${x ? "Save" : "Post"}</button><button class="btn btn-ghost" type="button" data-close>Cancel</button></div>
+        <div class="form-actions"><button class="btn btn-accent">${x ? "Save" : "Publish"}</button><button class="btn btn-ghost" type="button" data-close>Cancel</button></div>
       </form>`);
     $("#scrForm").addEventListener("submit", e => {
       e.preventDefault(); const f = e.target, lf = [...f.querySelectorAll("[name=lf]:checked")].map(i => i.value);
@@ -2846,6 +2862,134 @@ ${LIVE ? "" : `<label class="toggle"><input type="checkbox" data-aus="autoSend" 
       const data = { kind, title: f.title.value.trim(), type: f.type.value, pages: pitch ? null : +f.pages.value, logline: f.logline.value.trim(), source: pitch ? f.source.value.trim() : "", lookingFor: lf, aim: f.aim.value, link };
       if (x) Object.assign(x, data); else S.scripts.push({ id: uid("sc"), by: m.id, attached: [], posted: TODAY, status: "open", ...data });
       closeModal(); renderScripts(); toast(x ? "Saved" : pitch ? "Pitch posted" : "Script posted");
+    });
+  }
+
+  // ---------- POST: wrapped shoots looking for editors, colourists, sound, music and VFX ----------
+  const POST_NEEDS = ["Editing", "Assistant edit", "Colour grade", "Sound design & mix", "Music", "VFX", "Titles & graphics"];
+  const POST_ROLE = { "Editing": ["Editor"], "Assistant edit": ["Editor", "DIT"], "Colour grade": ["Colourist"], "Sound design & mix": ["Sound Designer", "Boom Operator", "Sound Recordist"], "Music": ["Composer"], "VFX": ["VFX"], "Titles & graphics": ["VFX", "Key Art & Poster"] };
+  const POST_CREDIT = { "Editing": "Editor", "Assistant edit": "Assistant Editor", "Colour grade": "Colourist", "Sound design & mix": "Sound Designer", "Music": "Composer", "VFX": "VFX", "Titles & graphics": "Titles & Graphics" };
+  const POST_WHERE = ["Remote", "On campus", "Either"];
+  const postOpen = x => x.needs.filter(n => !x.attached.some(a => a.need === n));
+  const postCfg = () => ({
+    placeholder: "Search title, director or software", noun: "film", matchHint: "Films needing post work your profile roles cover",
+    text: x => [x.title, x.logline, x.software, x.footage, (student(x.by) || {}).name, x.type].join(" "),
+    match: (x, m) => postOpen(x).some(n => (POST_ROLE[n] || []).some(r => m.roles.includes(r) || (m.learn || []).includes(r))),
+    groups: [
+      { id: "need", label: "Help needed", opts: POST_NEEDS, test: (x, v) => postOpen(x).includes(v) },
+      { id: "where", label: "Where", opts: POST_WHERE, test: (x, v) => x.where === v || (v !== "Either" && x.where === "Either") },
+      { id: "type", label: "Type", opts: uniqSorted(S.posts.map(x => x.type)), test: (x, v) => x.type === v },
+      { id: "due", label: "Deadline", opts: ["Next 30 days", "Next 3 months", "No deadline"], test: (x, v) => v === "No deadline" ? !x.deadline : !!x.deadline && daysUntil(x.deadline) >= 0 && daysUntil(x.deadline) <= (v === "Next 30 days" ? 30 : 92) }
+    ],
+    sorts: [["due", "Deadline soonest", (a, b) => (a.deadline || "9999").localeCompare(b.deadline || "9999"), x => x.deadline], ["new", "Newest", (a, b) => b.posted.localeCompare(a.posted), x => x.posted]],
+    done: x => !postOpen(x).length, doneLabel: "Show films with a full post team", doneHidden: "with a full post team",
+    table: { cols: [
+      ["Film", x => `<button class="link-btn bt-t" data-post="${x.id}">${esc(x.title)}</button><span class="bt-sub">${esc(x.type)}${x.runtime ? ` · ${x.runtime} min` : ""}</span>`],
+      ["Listed by", x => esc((student(x.by) || { name: "Former member" }).name), "small"],
+      ["Help needed", x => postOpen(x).length ? `<div class="chips">${postOpen(x).map(n => `<span class="chip chip-hit">${esc(n)}</span>`).join("")}</div>` : `<span class="small muted">Full team</span>`],
+      ["Deadline", x => x.deadline ? fmtFull(x.deadline) : "None", "mono small", x => x.deadline || "9999"],
+      ["Where", x => esc(x.where || ""), "small"],
+      ["Software", x => esc(x.software || ""), "small"]
+    ] },
+    timeline: { label: x => `<button class="link-btn bt-t" data-post="${x.id}">${esc(x.title)}</button>`, sub: x => postOpen(x).length ? "Needs " + postOpen(x).join(", ") : "Full team",
+      segs: x => x.deadline ? [{ from: x.posted, to: x.deadline, label: "Deadline " + fmtFull(x.deadline) }] : [{ from: x.posted, to: addDays(x.posted, 30), label: "No deadline", dash: true }] }
+  });
+  const myWrappedForPost = m => S.projects.filter(p => !p.archived && isPast(p) && runs(p, m) && !S.posts.some(r => r.pid === p.id) && !S.releases.some(r => r.pid === p.id));
+  function renderPost(partial) {
+    const root = $("#view-post"), m = me();
+    if (!partial || !root.querySelector(".board-host")) {
+      const wrapped = myWrappedForPost(m);
+      root.innerHTML = `
+        <div class="view-head"><div><p class="eyebrow">Step 3 of 4</p><h1 class="page-title">Post</h1><p class="muted">Wrapped shoots looking for an editor, colourist, sound designer, composer or VFX artist. Post work fits around other shoots, often from home, and every job becomes a credit on your profile.</p></div>
+          <div class="head-acts"><button class="btn btn-accent" id="pfNew">List a film for post</button></div></div>
+        ${wrapped.length ? `<div class="wrap-note"><p><b>${esc(wrapped.map(p => p.title).join(", "))}</b> ${wrapped.length === 1 ? "has" : "have"} wrapped. Find your post team.</p>${wrapped.map(p => `<button class="btn btn-ghost btn-sm" data-postfrom="${p.id}">List ${esc(p.title)}</button>`).join("")}</div>` : ""}
+        <div class="board-host" data-fkey="post"></div>`;
+      $("#pfNew").onclick = () => openPostFilmForm();
+      root.querySelectorAll("[data-postfrom]").forEach(b => b.onclick = () => openPostFilmForm(null, project(b.dataset.postfrom)));
+    }
+    board({ key: "post", host: root.querySelector(".board-host"), cfg: postCfg(), items: S.posts.filter(x => !x.hidden), card: postCard, partial, redraw: renderPost,
+      empty: `<div class="empty"><p class="empty-t">Nothing matches</p><p class="muted">Try clearing a filter. Directors and producers, list a wrapped shoot to find an editor, colourist or sound designer.</p></div>`,
+      after: host => host.querySelectorAll("[data-post]").forEach(b => b.onclick = () => openPostItem(b.dataset.post)) });
+  }
+  function postCard(x) {
+    const w = student(x.by) || { name: "Former member" }, m = me(), open = postOpen(x);
+    const myInt = S.postInterest.find(i => i.post === x.id && i.sid === m.id && i.status === "pending");
+    const waiting = x.by === m.id ? S.postInterest.filter(i => i.post === x.id && i.status === "pending").length : 0;
+    const dl = x.deadline ? daysUntil(x.deadline) : null;
+    return `<article class="card rel-card">
+      <div class="proj-top"><span class="type-tag">${esc(x.type)}</span>${x.where ? `<span class="term-tag">${esc(x.where)}</span>` : ""}${x.deadline ? `<span class="term-tag ${dl >= 0 && dl <= 30 ? "tag-soon" : ""}">Deadline ${fmtDay(x.deadline)}</span>` : ""}</div>
+      <h3 class="card-t"><button class="link-btn" data-post="${x.id}">${esc(x.title)}</button></h3>
+      <p class="card-sub">Listed by <button class="link-btn" data-student="${x.by}">${esc(w.name)}</button>${x.pid && project(x.pid) ? ` · shot ${monYear(project(x.pid).shoots[0].from)}` : ""}${x.runtime ? ` · ${x.runtime} min` : ""}</p>
+      <p class="logline">${esc(x.logline)}</p>
+      ${x.software ? `<p class="small muted">${esc(x.software)}</p>` : ""}
+      <div class="chips">${open.map(n => `<span class="chip chip-hit">Needs ${esc(n)}</span>`).join("")}${x.attached.map(a => `<span class="chip">${esc(a.need)}: ${esc((student(a.sid) || { name: "?" }).name)}</span>`).join("")}</div>
+      <div class="card-actions">${x.by === m.id ? `<button class="btn btn-accent btn-sm" data-post="${x.id}">${waiting ? `${waiting} offer${waiting === 1 ? "" : "s"}` : "Manage"}</button>`
+        : myInt ? `<span class="muted small">You've offered ${esc(myInt.need)}</span>`
+        : open.length ? `<button class="btn btn-accent btn-sm" data-post="${x.id}">Offer to help</button>` : `<span class="muted small">Full team</span>`}
+        <button class="btn btn-ghost btn-sm" data-post="${x.id}">Details</button></div>
+    </article>`;
+  }
+  function openPostItem(id) {
+    const x = S.posts.find(y => y.id === id); if (!x) return toast("That film isn't on Crew Call any more");
+    const m = me(), w = student(x.by) || { name: "Former member" }, mine = x.by === m.id;
+    const ints = S.postInterest.filter(i => i.post === x.id), open = postOpen(x), onTeam = x.attached.some(a => a.sid === m.id);
+    const myInt = ints.find(i => i.sid === m.id && i.status === "pending"), p = x.pid && project(x.pid);
+    openModal(`
+      <p class="eyebrow">Post</p>
+      <h2 id="modalTitle" class="m-title">${esc(x.title)}</h2>
+      <p class="card-sub">${esc(x.type)}${x.runtime ? ` · ${x.runtime} min` : ""} · listed by <button class="link-btn" data-student="${x.by}">${esc(w.name)}</button>${p ? ` · <button class="link-btn" data-proj="${p.id}">See the shoot</button>` : ""}</p>
+      <p class="logline">${esc(x.logline)}</p>
+      <dl class="meta-list">
+        <div><dt>Help needed</dt><dd><div class="chips">${open.length ? open.map(n => `<span class="chip chip-hit">${esc(n)}</span>`).join("") : `<span class="muted">Full team</span>`}</div></dd></div>
+        <div><dt>On the team</dt><dd>${x.attached.length ? x.attached.map(a => `${esc(a.need)}: <button class="link-btn" data-student="${a.sid}">${esc((student(a.sid) || { name: "?" }).name)}</button>`).join("<br>") : `<span class="muted">Nobody yet</span>`}</dd></div>
+        <div><dt>Deadline</dt><dd>${x.deadline ? fmtFull(x.deadline) : `<span class="muted">None set</span>`}</dd></div>
+        <div><dt>Where</dt><dd>${x.where ? esc(x.where) : `<span class="muted">Not set</span>`}</dd></div>
+        ${x.software ? `<div><dt>Software</dt><dd>${esc(x.software)}</dd></div>` : ""}
+        ${x.footage ? `<div><dt>Footage</dt><dd>${esc(x.footage)}</dd></div>` : ""}
+        <div><dt>Latest cut</dt><dd>${(mine || onTeam) && x.link ? linkTo(x.link, "Watch the latest cut") : mine ? `<span class="muted">No link added</span>` : `<span class="muted">Shared with the team</span>`}</dd></div>
+      </dl>
+      ${mine ? `<h3 class="dp-sub">Offers</h3>${ints.length ? `<ul class="inv-list">${ints.map(i => { const s = student(i.sid) || { name: "Former member" }; return `<li><span><button class="link-btn" data-student="${i.sid}">${esc(s.name)}</button> for <b>${esc(i.need)}</b>${s.term ? ` <span class="muted small">${esc(tLabel(s))}</span>` : ""}${i.msg ? `<br><span class="muted small">${esc(i.msg)}</span>` : ""}</span><span>${i.status === "pending" ? `<button class="btn btn-accent btn-xs" data-pattach="${i.id}">Bring on</button> <button class="btn btn-quiet btn-xs" data-pdecline="${i.id}">Decline</button>` : `<span class="st ${i.status === "attached" ? "st-ok" : ""}">${i.status === "attached" ? "On the team" : "Declined"}</span>`}</span></li>`; }).join("")}</ul>` : `<p class="empty-sm">No offers yet.</p>`}
+        <div class="form-actions"><button class="btn btn-ghost" id="postEdit">Edit</button>${!S.releases.some(r => r.pid && r.pid === x.pid) || !x.pid ? `<button class="btn btn-ghost" id="postToRel">Picture locked? List it in Release</button>` : ""}<button class="btn btn-quiet" id="postDel">Remove</button></div>`
+      : myInt ? `<p class="muted">You've offered to help with ${esc(myInt.need)}. ${esc(first(w.name))} will reply and you'll get a notification. <button class="link-btn" id="postWithdraw">Withdraw</button></p>`
+      : open.length ? `<h3 class="dp-sub">Offer to help</h3><form id="postInt" class="stack"><div class="field"><span>With</span><div class="fchips">${open.map((n, i) => `<label class="fchip-radio"><input type="radio" name="need" value="${esc(n)}" ${i === 0 ? "checked" : ""}><span>${esc(n)}</span></label>`).join("")}</div></div><label class="field"><span>Message to ${esc(first(w.name))}</span><textarea name="msg" rows="3" maxlength="400" placeholder="What you'd do, when you're free, and links to work you've cut, graded or mixed"></textarea></label><div class="form-actions"><button class="btn btn-accent">Send offer</button></div></form>` : ""}`);
+    bindOpeners(modalBody);
+    if (!mine) addReportLink("post", x.id);
+    const f = $("#postInt");
+    if (f) f.addEventListener("submit", e => { e.preventDefault(); const need = f.querySelector("[name=need]:checked").value; S.postInterest.push({ id: uid("pi"), post: x.id, sid: m.id, need, msg: f.msg.value.trim(), status: "pending", at: TODAY }); notify(x.by, "request", `${m.name} (${tLabel(m)}) offered to help with ${need} on ${x.title}. Open Post to reply.`); toast(`Offer sent to ${first(w.name)}`); openPostItem(x.id); renderPost(); drawHeader(); });
+    const wd = $("#postWithdraw"); if (wd) wd.onclick = () => { S.postInterest.splice(S.postInterest.indexOf(myInt), 1); toast("Withdrawn"); openPostItem(x.id); renderPost(); };
+    modalBody.querySelectorAll("[data-pattach]").forEach(b => b.onclick = () => { const i = S.postInterest.find(y => y.id === b.dataset.pattach); i.status = "attached"; x.attached.push({ sid: i.sid, need: i.need }); S.postInterest.filter(y => y.post === x.id && y.need === i.need && y.status === "pending").forEach(y => { y.status = "declined"; notify(y.sid, "update", `${x.title} has found someone for ${y.need}. Thanks for offering.`); }); notify(i.sid, "update", `${m.name} brought you on to ${x.title} for ${i.need}. The link to the cut is on the film's page in Post, and it's now a credit on your profile.`); toast(`${first(student(i.sid).name)} is on the team`); openPostItem(x.id); renderPost(); });
+    modalBody.querySelectorAll("[data-pdecline]").forEach(b => b.onclick = () => { const i = S.postInterest.find(y => y.id === b.dataset.pdecline); i.status = "declined"; notify(i.sid, "update", `${x.title} isn't going ahead with your offer for ${i.need} this time. Thanks.`); openPostItem(x.id); renderPost(); });
+    if ($("#postEdit")) $("#postEdit").onclick = () => openPostFilmForm(x);
+    if ($("#postToRel")) $("#postToRel").onclick = () => { closeModal(); setView("release"); openReleaseForm(null, { id: x.pid, title: x.title, type: x.type, logline: x.logline, runtime: x.runtime, shoots: [] }); };
+    if ($("#postDel")) $("#postDel").onclick = () => confirmBox(`Remove ${x.title}?`, "It disappears from Post. People who offered to help are told. Credits stay with the people on the team.", "Remove", () => { S.postInterest.filter(i => i.post === x.id && i.status === "pending").forEach(i => notify(i.sid, "update", `${x.title} has been taken off Post.`)); x.hidden = true; x.status = "closed"; closeModal(); renderPost(); toast("Removed"); });
+  }
+  function openPostFilmForm(x, fromP) {
+    const m = me(), wrapped = myWrappedForPost(m), src = x || (fromP ? { pid: fromP.id, title: fromP.title, type: fromP.type, logline: fromP.logline } : {});
+    openModal(`<h2 id="modalTitle" class="m-title">${x ? "Edit film" : "List a film for post"}</h2>
+      <form id="pfForm" class="stack">
+        ${!x && wrapped.length ? `<label class="field"><span>Which film</span><select name="pid"><option value="">A film not on Crew Call</option>${wrapped.map(p => `<option value="${p.id}" ${src.pid === p.id ? "selected" : ""}>${esc(p.title)}</option>`).join("")}</select></label>` : ""}
+        <label class="field"><span>Title</span><input name="title" required maxlength="80" value="${esc(src.title || "")}"></label>
+        <div class="form-grid"><label class="field"><span>Type</span><select name="type">${C.TYPES.map(t => `<option ${src.type === t ? "selected" : ""}>${esc(t)}</option>`).join("")}</select></label>
+        <label class="field"><span>Expected length (minutes)</span><input name="runtime" type="number" inputmode="numeric" min="1" max="240" value="${src.runtime || ""}"></label></div>
+        <label class="field"><span>Logline</span><textarea name="logline" rows="2" maxlength="240" required>${esc(src.logline || "")}</textarea></label>
+        <div class="field"><span>Help needed</span><div class="fchips">${POST_NEEDS.map(n => `<label class="fchip-radio"><input type="checkbox" name="need" value="${esc(n)}" ${(src.needs || ["Editing", "Colour grade", "Sound design & mix"]).includes(n) ? "checked" : ""}><span>${esc(n)}</span></label>`).join("")}</div></div>
+        <div class="form-grid"><label class="field"><span>Deadline <small>optional: picture lock, a festival or the school hand-in</small></span><input name="deadline" type="date" value="${src.deadline || ""}"></label>
+        <label class="field"><span>Where</span><select name="where">${POST_WHERE.map(w => `<option ${(src.where || "Either") === w ? "selected" : ""}>${esc(w)}</option>`).join("")}</select></label></div>
+        <div class="form-grid"><label class="field"><span>Software <small>optional</small></span><input name="software" maxlength="80" placeholder="e.g. Premiere, Resolve, Avid, Pro Tools" value="${esc(src.software || "")}"></label>
+        <label class="field"><span>Footage <small>optional</small></span><input name="footage" maxlength="80" placeholder="e.g. ARRI ProRes 4K, about 2 TB" value="${esc(src.footage || "")}"></label></div>
+        <label class="field"><span>Link to the cut or rushes <small>only shown to you and your team</small></span><input name="link" inputmode="url" autocapitalize="off" spellcheck="false" placeholder="vimeo.com/… or drive.google.com/…" value="${esc(src.link ? shortUrl(src.link) : "")}"></label>
+        <p class="form-err" id="pfErr" role="alert"></p>
+        <div class="form-actions"><button class="btn btn-accent">${x ? "Save" : "List film"}</button><button class="btn btn-ghost" type="button" data-close>Cancel</button></div>
+      </form>`);
+    const f = $("#pfForm");
+    if (f.pid) f.pid.addEventListener("change", () => { const p = project(f.pid.value); if (p) { f.title.value = p.title; f.type.value = p.type; f.logline.value = p.logline; } });
+    f.addEventListener("submit", e => {
+      e.preventDefault(); const needs = [...f.querySelectorAll("[name=need]:checked")].map(i => i.value);
+      if (!needs.length) return ($("#pfErr").textContent = "Pick at least one thing you need help with.");
+      const link = cleanUrl(f.link.value); if (f.link.value.trim() && !link) return ($("#pfErr").textContent = "That link isn't a web address.");
+      const data = { title: f.title.value.trim(), type: f.type.value, runtime: +f.runtime.value || null, logline: f.logline.value.trim(), needs, deadline: f.deadline.value, where: f.where.value, software: f.software.value.trim(), footage: f.footage.value.trim(), link };
+      if (x) Object.assign(x, data); else S.posts.push({ id: uid("po"), by: m.id, pid: f.pid ? f.pid.value || null : (fromP ? fromP.id : null), attached: [], posted: TODAY, status: "open", ...data });
+      closeModal(); renderPost(); toast(x ? "Saved" : "Film listed");
     });
   }
 
@@ -2862,7 +3006,7 @@ ${LIVE ? "" : `<label class="toggle"><input type="checkbox" data-aus="autoSend" 
       { id: "type", label: "Type", opts: uniqSorted(S.releases.map(x => x.type)), test: (x, v) => x.type === v },
       { id: "due", label: "Deadline", opts: ["Next 30 days", "Next 3 months", "No deadline"], test: (x, v) => v === "No deadline" ? !x.deadline : !!x.deadline && daysUntil(x.deadline) >= 0 && daysUntil(x.deadline) <= (v === "Next 30 days" ? 30 : 92) }
     ],
-    sorts: [["due", "Deadline soonest", (a, b) => (a.deadline || "9999").localeCompare(b.deadline || "9999")], ["new", "Newest", (a, b) => b.posted.localeCompare(a.posted)]],
+    sorts: [["due", "Deadline soonest", (a, b) => (a.deadline || "9999").localeCompare(b.deadline || "9999"), x => x.deadline], ["new", "Newest", (a, b) => b.posted.localeCompare(a.posted), x => x.posted]],
     done: x => !relOpen(x).length, doneLabel: "Show films with a full team", doneHidden: "with a full team",
     table: { cols: [
       ["Film", x => `<button class="link-btn bt-t" data-rel="${x.id}">${esc(x.title)}</button><span class="bt-sub">${esc(x.type)}${x.runtime ? ` · ${x.runtime} min` : ""}</span>`],
@@ -2880,7 +3024,7 @@ ${LIVE ? "" : `<label class="toggle"><input type="checkbox" data-aus="autoSend" 
     if (!partial || !root.querySelector(".board-host")) {
       const wrapped = myWrapped(m);
       root.innerHTML = `
-        <div class="view-head"><div><p class="eyebrow">Step 3 of 3</p><h1 class="page-title">Release</h1><p class="muted">Wrapped films looking for help to reach an audience: festival plans, posters, trailers, press kits and socials. A good fit for MA Film Marketing, and every job becomes a credit on your profile.</p></div>
+        <div class="view-head"><div><p class="eyebrow">Step 4 of 4</p><h1 class="page-title">Release</h1><p class="muted">Wrapped films looking for help to reach an audience: festival plans, posters, trailers, press kits and socials. A good fit for MA Film Marketing, and every job becomes a credit on your profile.</p></div>
           <div class="head-acts"><button class="btn btn-accent" id="relPost">List a film</button></div></div>
         ${wrapped.length ? `<div class="wrap-note"><p><b>${esc(wrapped.map(p => p.title).join(", "))}</b> ${wrapped.length === 1 ? "has" : "have"} wrapped. Get help taking ${wrapped.length === 1 ? "it" : "them"} to festivals.</p>${wrapped.map(p => `<button class="btn btn-ghost btn-sm" data-relfrom="${p.id}">List ${esc(p.title)}</button>`).join("")}</div>` : ""}
         <div class="board-host" data-fkey="rel"></div>`;
@@ -2983,7 +3127,7 @@ ${LIVE ? "" : `<label class="toggle"><input type="checkbox" data-aus="autoSend" 
       { id: "type", label: "Type", opts: GIG_TYPES.filter(t => S.gigs.some(g => g.type === t)), test: (g, v) => g.type === v },
       { id: "pay", label: "Pay", opts: PAY_TYPES, test: (g, v) => g.payType === v }
     ],
-    sorts: [["soon", "Working soonest", (a, b) => gigFirst(a).localeCompare(gigFirst(b))], ["due", "Apply by soonest", (a, b) => (a.deadline || "9999").localeCompare(b.deadline || "9999")], ["new", "Newest", (a, b) => b.posted.localeCompare(a.posted)]],
+    sorts: [["soon", "Working soonest", (a, b) => gigFirst(a).localeCompare(gigFirst(b)), gigFirst], ["due", "Apply by soonest", (a, b) => (a.deadline || "9999").localeCompare(b.deadline || "9999"), g => g.deadline], ["new", "Newest", (a, b) => b.posted.localeCompare(a.posted), g => g.posted]],
     done: g => !gigOpen(g), doneLabel: "Show filled and closed jobs", doneHidden: "filled or closed",
     table: { cols: [
       ["Job", g => `<button class="link-btn bt-t" data-gig="${g.id}">${esc(g.title)}</button><span class="bt-sub">${esc(g.org)} · ${esc(g.type)}</span>`],
@@ -3146,7 +3290,7 @@ ${LIVE ? "" : `<label class="toggle"><input type="checkbox" data-aus="autoSend" 
 
   // ---------- REPORTS ----------
   const REPORT_REASONS = ["Safety on set", "Harassment or bullying", "Discrimination", "Inappropriate content", "Spam or fake profile", "Something else"];
-  const reportTarget = r => r.kind === "project" ? project(r.target) : r.kind === "script" || r.kind === "pitch" ? S.scripts.find(x => x.id === r.target) : r.kind === "film" ? S.releases.find(x => x.id === r.target) : r.kind === "job" ? S.gigs.find(x => x.id === r.target) : student(r.target);
+  const reportTarget = r => r.kind === "project" ? project(r.target) : r.kind === "script" || r.kind === "pitch" ? S.scripts.find(x => x.id === r.target) : r.kind === "film" ? S.releases.find(x => x.id === r.target) : r.kind === "post" ? S.posts.find(x => x.id === r.target) : r.kind === "job" ? S.gigs.find(x => x.id === r.target) : student(r.target);
   const reportName = r => { if (r.kind === "general") return "Crew Call in general"; const t = reportTarget(r); return t ? (t.title || t.name) : "Removed"; };
   const safetyAdmins = () => S.admins.map(student).filter(a => a && can("safety", a));
   function addReportLink(kind, id) {
@@ -3191,7 +3335,7 @@ ${LIVE ? "" : `<label class="toggle"><input type="checkbox" data-aus="autoSend" 
   function downloadMyData() {
     const m = me(); if (!m) return;
     const mineP = S.projects.filter(p => onProject(p, m.id) || runs(p, m));
-    download(`crew-call-my-data-${m.id}.json`, JSON.stringify({ exported: TODAY, profile: m, projects: mineP.map(p => ({ id: p.id, title: p.title, shoots: p.shoots, myRoles: p.roles.filter(r => r.filledBy === m.id).map(r => r.role) })), requests: S.requests.filter(q => q.sid === m.id), notifications: S.notifications.filter(n => n.to === m.id), scripts: S.scripts.filter(x => x.by === m.id), scriptInterest: S.scriptInterest.filter(i => i.sid === m.id), releases: S.releases.filter(x => x.by === m.id), releaseInterest: S.releaseInterest.filter(i => i.sid === m.id), reportsSent: S.reports.filter(r => r.by === m.id).map(r => ({ at: r.at, reason: r.reason, about: reportName(r), status: r.status })) }, null, 2), "application/json");
+    download(`crew-call-my-data-${m.id}.json`, JSON.stringify({ exported: TODAY, profile: m, projects: mineP.map(p => ({ id: p.id, title: p.title, shoots: p.shoots, myRoles: p.roles.filter(r => r.filledBy === m.id).map(r => r.role) })), requests: S.requests.filter(q => q.sid === m.id), notifications: S.notifications.filter(n => n.to === m.id), scripts: S.scripts.filter(x => x.by === m.id), scriptInterest: S.scriptInterest.filter(i => i.sid === m.id), releases: S.releases.filter(x => x.by === m.id), releaseInterest: S.releaseInterest.filter(i => i.sid === m.id), posts: S.posts.filter(x => x.by === m.id), postInterest: S.postInterest.filter(i => i.sid === m.id), reportsSent: S.reports.filter(r => r.by === m.id).map(r => ({ at: r.at, reason: r.reason, about: reportName(r), status: r.status })) }, null, 2), "application/json");
     toast("Downloaded your data");
   }
   // retention: alumni and guests who haven't been active for N months
@@ -3237,7 +3381,7 @@ ${LIVE ? "" : `<label class="toggle"><input type="checkbox" data-aus="autoSend" 
   ];
   function renderAbout() {
     const owner = student(S.owner), nt = nextTerm(), now = termNow();
-    const boards = [["Calendar", "Every shoot on one calendar, and who's free on each day."], ["Develop", "Scripts looking for a director, producer or writer."], ["Shoot", "Projects crewing up, as cards, a table, a timeline or a map."], ["Release", "Finished films looking for help with festivals, posters and screenings."], ["Paid", "Paid jobs and opportunities, checked by admins."], ["Crew", "Find people by role, kit and the days they're free."], ["My shoots", "What you're running, what you've asked to join, and your call times."]];
+    const boards = [["Calendar", "Every shoot on one calendar, and who's free on each day."], ["Develop", "Scripts looking for a director, producer or writer."], ["Shoot", "Projects crewing up, as cards, a table, a timeline or a map."], ["Post", "Wrapped shoots looking for an editor, colourist, sound designer, composer or VFX."], ["Release", "Finished films looking for help with festivals, posters and screenings."], ["Paid", "Paid jobs and opportunities, checked by admins."], ["Crew", "Find people by role, kit and the days they're free."], ["My shoots", "What you're running, what you've asked to join, and your call times."]];
     $("#view-about").innerHTML = `
       <div class="view-head"><h1 class="page-title">About Crew Call</h1><p class="muted">A shared calendar and crew board for London Film School students, run by students.</p></div>
       <div class="about-grid">
@@ -3279,6 +3423,7 @@ ${LIVE ? "" : `<label class="toggle"><input type="checkbox" data-aus="autoSend" 
     if (view === "me") loadMe();
     if (view === "admin") renderAdmin();
     if (view === "scripts") renderScripts();
+    if (view === "post") renderPost();
     if (view === "release") renderRelease();
     if (view === "paid") renderPaid();
   }
@@ -3289,7 +3434,7 @@ ${LIVE ? "" : `<label class="toggle"><input type="checkbox" data-aus="autoSend" 
   function openHash() {
     const h = decodeURIComponent(location.hash.slice(1)); if (!h) return;
     const [a, b] = h.split("/");
-    const views = { calendar: "calendar", develop: "scripts", scripts: "scripts", shoot: "projects", projects: "projects", release: "release", paid: "paid", crew: "crew", mine: "mine", me: "me", admin: "admin" };
+    const views = { calendar: "calendar", develop: "scripts", scripts: "scripts", shoot: "projects", projects: "projects", post: "post", release: "release", paid: "paid", crew: "crew", mine: "mine", me: "me", admin: "admin" };
     if (a === "p" && b) { const p = project(b); if (p) { setView("calendar"); openProject(p.id); } else toast("That project isn't on Crew Call any more"); }
     else if (views[a]) { setView(views[a]); if (a === "me" && b) setTimeout(() => { const el = $(b === "days" ? "#daysFs" : b === "notifications" ? "#notifyFs" : ""); if (el) el.scrollIntoView({ block: "start" }); }, 60); }
     else return;

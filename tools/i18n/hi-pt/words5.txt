@@ -1,0 +1,40 @@
+# Post board
+Assistant edit || असिस्टेंट एडिट || Assistência de montagem
+Colour grade || कलर ग्रेड || Correção de cor
+Sound design & mix || साउंड डिज़ाइन और मिक्स || Design de som e mixagem
+Music || संगीत || Música
+Titles & graphics || टाइटल और ग्राफ़िक्स || Títulos e grafismo
+On campus || कैंपस पर || No campus
+Either || कोई भी || Tanto faz
+Expected length (minutes) || अनुमानित लंबाई (मिनट) || Duração prevista (minutos)
+Footage || फ़ुटेज || Material filmado
+Software || सॉफ़्टवेयर || Software
+Films needing post work your profile roles cover || ऐसी फ़िल्में जिन्हें आपकी प्रोफ़ाइल की भूमिकाओं वाला पोस्ट-प्रोडक्शन काम चाहिए || Filmes que precisam de pós-produção nas funções do seu perfil
+Link to the cut or rushes || कट या रशेज़ का लिंक || Link do corte ou do material bruto
+List a film for post || पोस्ट-प्रोडक्शन के लिए फ़िल्म जोड़ें || Publicar um filme para pós-produção
+Picture locked? List it in Release || पिक्चर लॉक हो गई? इसे रिलीज़ में जोड़ें || Corte fechado? Publique em Lançamento
+Search title, director or software || टाइटल, डायरेक्टर या सॉफ़्टवेयर खोजें || Pesquisar título, diretor ou software
+Show films with a full post team || पूरी पोस्ट टीम वाली फ़िल्में दिखाएँ || Mostrar filmes com a equipa de pós-produção completa
+with a full post team || पूरी पोस्ट टीम वाली || com a equipa de pós-produção completa
+Watch the latest cut || नया कट देखें || Ver o último corte
+Latest cut || नया कट || Último corte
+Wrapped shoots looking for an editor, colourist, sound designer, composer or VFX artist. Post work fits around other shoots, often from home, and every job becomes a credit on your profile. || पूरी हो चुकी शूटिंग जिन्हें एडिटर, कलरिस्ट, साउंड डिज़ाइनर, कंपोज़र या VFX आर्टिस्ट चाहिए। पोस्ट का काम दूसरी शूटिंग के साथ हो जाता है, अक्सर घर से, और हर काम आपकी प्रोफ़ाइल पर क्रेडिट बनता है। || Rodagens terminadas à procura de montador, colorista, designer de som, compositor ou artista de VFX. A pós-produção encaixa entre outras rodagens, muitas vezes a partir de casa, e cada trabalho vira um crédito no seu perfil.
+e.g. ARRI ProRes 4K, about 2 TB || जैसे ARRI ProRes 4K, लगभग 2 TB || ex. ARRI ProRes 4K, cerca de 2 TB
+e.g. Premiere, Resolve, Avid, Pro Tools || जैसे Premiere, Resolve, Avid, Pro Tools || ex. Premiere, Resolve, Avid, Pro Tools
+vimeo.com/… or drive.google.com/… || vimeo.com/… या drive.google.com/… || vimeo.com/… ou drive.google.com/…
+Sign in to see Post || पोस्ट-प्रोडक्शन देखने के लिए साइन इन करें || Entre para ver a pós-produção
+Wrapped shoots looking for editors, colourists, sound designers, composers and VFX. Only visible to signed-in members, to protect unfinished films. || पूरी हो चुकी शूटिंग जिन्हें एडिटर, कलरिस्ट, साउंड डिज़ाइनर, कंपोज़र और VFX चाहिए। अधूरी फ़िल्मों की सुरक्षा के लिए यह सिर्फ़ साइन इन किए सदस्यों को दिखता है। || Rodagens terminadas à procura de montadores, coloristas, designers de som, compositores e VFX. Só membros com sessão iniciada veem, para proteger filmes por terminar.
+Wrapped shoots looking for an editor, colourist, sound designer, composer or VFX. || पूरी हो चुकी शूटिंग जिन्हें एडिटर, कलरिस्ट, साउंड डिज़ाइनर, कंपोज़र या VFX चाहिए। || Rodagens terminadas à procura de montador, colorista, designer de som, compositor ou VFX.
+has wrapped. Find your post team. || की शूटिंग पूरी हो गई। अपनी पोस्ट टीम ढूँढें। || terminou a rodagem. Encontre a sua equipa de pós-produção.
+have wrapped. Find your post team. || की शूटिंग पूरी हो गई। अपनी पोस्ट टीम ढूँढें। || terminaram a rodagem. Encontre a sua equipa de pós-produção.
+Edit film || फ़िल्म बदलें || Editar filme
+optional: picture lock, a festival or the school hand-in || वैकल्पिक: पिक्चर लॉक, कोई फ़ेस्टिवल या स्कूल में जमा करने की तारीख़ || opcional: fecho do corte, um festival ou a entrega na escola
+What you'd do, when you're free, and links to work you've cut, graded or mixed || आप क्या करेंगे, कब खाली हैं, और आपके एडिट, ग्रेड या मिक्स किए काम के लिंक || O que faria, quando está livre e links de trabalhos que montou, coloriu ou misturou
+Try clearing a filter. Directors and producers, list a wrapped shoot to find an editor, colourist or sound designer. || कोई फ़िल्टर हटाकर देखें। डायरेक्टर और प्रोड्यूसर, एडिटर, कलरिस्ट या साउंड डिज़ाइनर ढूँढने के लिए पूरी हुई शूटिंग जोड़ें। || Tente limpar um filtro. Realizadores e produtores, publiquem uma rodagem terminada para encontrar montador, colorista ou designer de som.
+It disappears from Post. People who offered to help are told. Credits stay with the people on the team. || यह पोस्ट-प्रोडक्शन से हट जाएगी। मदद की पेशकश करने वालों को बताया जाएगा। टीम के लोगों के क्रेडिट बने रहेंगे। || Desaparece da pós-produção. Quem se ofereceu para ajudar é avisado. Os créditos ficam com a equipa.
+That film isn't on Crew Call any more || यह फ़िल्म अब Crew Call पर नहीं है || Esse filme já não está no Crew Call
+Film || फ़िल्म || Filme
+film || फ़िल्म || filme
+films || फ़िल्में || filmes
+Assistant Editor || असिस्टेंट एडिटर || Assistente de montagem
+Titles & Graphics || टाइटल और ग्राफ़िक्स || Títulos e grafismo

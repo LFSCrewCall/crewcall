@@ -1122,3 +1122,20 @@ a.link-btn { text-decoration: none; color: inherit; }
 }
 .lock-row .brief, .role-row .brief { grid-column: 1 / -1; margin-top: 0; }
 .lock-row.is-me .lock-name { font-weight: 600; }
+
+/* ---------- month headings on the boards (cards, table, timeline) ---------- */
+.month-h { grid-column: 1 / -1; display: flex; align-items: center; gap: var(--space-2); margin: var(--space-4) 0 calc(-1 * var(--space-1)); padding-bottom: var(--space-2); border-bottom: 2px solid var(--text); font: 800 var(--text-lg)/1.1 var(--font-display); letter-spacing: -.01em; }
+.card-grid > .month-h:first-child { margin-top: 0; }
+.btable tr.bt-month th { background: var(--surface-3); padding: 0; border-top: 2px solid var(--text); text-align: start; }
+.bt-month-l { position: sticky; inset-inline-start: 0; display: inline-flex; align-items: center; gap: var(--space-2); padding: .5rem .8rem; font: 700 var(--text-sm)/1.2 var(--font-display); }
+.btable tr.bt-month .count { background: var(--surface); }
+.tl-month { display: grid; grid-template-columns: 12rem 1fr; border-top: 2px solid var(--text); border-bottom: 1px solid var(--line-2); background: var(--surface-3); }
+.tl-month .tl-label { background: var(--surface-3); border-left-color: transparent; display: flex; align-items: center; gap: var(--space-2); padding: .45rem .8rem; font: 700 var(--text-sm)/1.2 var(--font-display); white-space: nowrap; }
+.tl-month .count { background: var(--surface); }
+@media (max-width: 700px) {
+  .tl-month { grid-template-columns: 8.5rem 1fr; }
+  .month-h { font-size: var(--text-base); }
+}
+.btable tr.bt-month th, .bt-month-l { text-transform: none; letter-spacing: normal; color: var(--text); }
+.tl-month .tl-track { position: relative; }
+.tl-mband { position: absolute; top: 0; bottom: 0; background: var(--surface); border-inline: 1px solid var(--line-2); opacity: .7; }

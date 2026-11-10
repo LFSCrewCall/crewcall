@@ -135,6 +135,15 @@ window.CC_SEED = {
     { id: "rl1", by: "s7", pid: "p9", title: "Glasshouse", type: "Short fiction", runtime: 11, logline: "A botanist sleeps in her greenhouse to stop a thief.", needs: ["Festival strategy", "Poster & key art", "Trailer", "Press kit"], attached: [{ sid: "s20", need: "Festival strategy" }], deadline: "2026-12-01", festivals: "Clermont-Ferrand, Encounters", link: "https://vimeo.com/", posted: "2026-11-03", status: "open" },
     { id: "rl2", by: "s13", pid: null, title: "Moth Season", type: "Short fiction", runtime: 14, logline: "A teenage beekeeper hides a swarm in her nan's council flat.", needs: ["Poster & key art", "Socials & BTS", "Press kit"], attached: [], deadline: "2027-02-01", festivals: "BFI Future Film, Aesthetica", link: "", posted: "2026-10-25", status: "open" }
   ];
+  // wrapped shoots looking for editors, colourists, sound and music
+  S.posts = [
+    { id: "po1", by: "s14", pid: "p10", title: "Northern Line", type: "Documentary", runtime: 12, logline: "Buskers who've played the same tunnel for twenty years.", needs: ["Editing", "Colour grade", "Sound design & mix"], attached: [{ sid: "s21", need: "Editing" }], deadline: "2026-12-14", where: "Either", software: "Premiere, Resolve", footage: "FX6 XAVC, about 900 GB", link: "https://drive.google.com/", posted: "2026-10-02", status: "open" },
+    { id: "po2", by: "s13", pid: null, title: "Moth Season", type: "Short fiction", runtime: 14, logline: "A teenage beekeeper hides a swarm in her nan's council flat.", needs: ["Music", "VFX", "Titles & graphics"], attached: [], deadline: "2027-01-18", where: "Remote", software: "Resolve, After Effects", footage: "", link: "", posted: "2026-11-02", status: "open" },
+    { id: "po3", by: "s5", pid: null, title: "Low Tide", type: "Short fiction", runtime: 9, logline: "Two brothers race the tide to scatter their father's ashes.", needs: ["Colour grade", "Sound design & mix"], attached: [], deadline: "", where: "On campus", software: "Avid, Pro Tools", footage: "ARRI ProRes 4K, about 2 TB", link: "", posted: "2026-11-07", status: "open" }
+  ];
+  S.postInterest = [
+    { id: "pi1", post: "po1", sid: "s4", need: "Colour grade", msg: "I graded two Term 3 docs in Resolve. Free most evenings in December.", status: "pending", at: "2026-11-05" }
+  ];
   S.releaseInterest = [
     { id: "ri1", rel: "rl1", sid: "s12", need: "Poster & key art", msg: "I took stills on the shoot. Happy to build a poster from frames.", status: "pending", at: "2026-11-06" }
   ];

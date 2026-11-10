@@ -65,3 +65,4 @@ they can edit the project and manage crew || 對方可以編輯專案和管理�
 Casting Director || 選角指導 || Directeur de casting || Director de casting
 Set a LibreTranslate server || 設定 LibreTranslate 伺服器 || Définir un serveur LibreTranslate || Configurar un servidor LibreTranslate
 Removed the LibreTranslate server || 已移除 LibreTranslate 伺服器 || Serveur LibreTranslate supprimé || Servidor LibreTranslate eliminado
+No date yet || 尚無日期 || Pas encore de date || Sin fecha todavía

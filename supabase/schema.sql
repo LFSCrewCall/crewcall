@@ -118,6 +118,7 @@ create or replace function can_read(k text, rid text, d jsonb, own uuid) returns
     when k = 'gigApp' then d ->> 'sid' = auth.uid()::text or posted('gig', d ->> 'gig')
     when k = 'scriptInterest' then d ->> 'sid' = auth.uid()::text or posted('script', d ->> 'scr')
     when k = 'releaseInterest' then d ->> 'sid' = auth.uid()::text or posted('release', d ->> 'rel')
+    when k = 'postInterest' then d ->> 'sid' = auth.uid()::text or posted('post', d ->> 'post')
     else true end
 $$;
 
@@ -128,11 +129,12 @@ create or replace function can_write(k text, rid text, d jsonb, own uuid) return
     when not is_member() then false
     when k = 'student' then rid = auth.uid()::text or has_perm('people') or has_perm('setup') or has_perm('safety')
     when k = 'project' then runs_project(rid) or has_perm('projects') or (own = auth.uid())
-    when k in ('script', 'release', 'gig') then own = auth.uid() or d ->> 'by' = auth.uid()::text or has_perm('projects')
+    when k in ('script', 'release', 'post', 'gig') then own = auth.uid() or d ->> 'by' = auth.uid()::text or has_perm('projects')
     when k = 'request' then d ->> 'sid' = auth.uid()::text or runs_project(d ->> 'pid') or has_perm('projects')
     when k = 'gigApp' then d ->> 'sid' = auth.uid()::text or posted('gig', d ->> 'gig')
     when k = 'scriptInterest' then d ->> 'sid' = auth.uid()::text or posted('script', d ->> 'scr')
     when k = 'releaseInterest' then d ->> 'sid' = auth.uid()::text or posted('release', d ->> 'rel')
+    when k = 'postInterest' then d ->> 'sid' = auth.uid()::text or posted('post', d ->> 'post')
     when k = 'notification' then d ->> 'to' = auth.uid()::text or own = auth.uid() or has_perm('people')
     when k = 'report' then has_perm('safety')
     when k = 'newsletter' then has_perm('news') or has_perm('send')

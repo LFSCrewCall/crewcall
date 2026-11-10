@@ -111,7 +111,8 @@ Pitch deck or treatment link || पिच डेक या ट्रीटमे
 only shown to you and people you bring on || सिर्फ़ आपको और टीम में लिए लोगों को दिखता है || só aparece para você e para quem você chamar
 only shown to you and your team || सिर्फ़ आपको और आपकी टीम को दिखता है || só aparece para você e sua equipe
 Not sure yet || अभी तय नहीं || Ainda não sei
-Post || पोस्ट करें || Publicar
+Publish || पोस्ट करें || Publicar
+Post || पोस्ट-प्रोडक्शन || Pós-produção
 Save || सेव करें || Salvar
 Cancel || रद्द करें || Cancelar
 Close || बंद करें || Fechar

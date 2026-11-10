@@ -1112,11 +1112,11 @@ window.CC_I18N = {
 "अभी तय नहीं",
 "Ainda não sei"
 ],
-"Post": [
-"後期",
-"后期",
-"Postproduction",
-"Postproducción",
+"Publish": [
+"發布",
+"发布",
+"Publier",
+"Publicar",
 "Опубликовать",
 "نشر",
 "पोस्ट करें",
@@ -5862,6 +5862,406 @@ window.CC_I18N = {
 "LibreTranslate सर्वर हटाया",
 "Servidor LibreTranslate removido"
 ],
+"No date yet": [
+"尚無日期",
+"尚无日期",
+"Pas encore de date",
+"Sin fecha todavía",
+"Даты пока нет",
+"لا يوجد تاريخ بعد",
+"अभी कोई तारीख नहीं",
+"Ainda sem data"
+],
+"Assistant edit": [
+"助理剪接",
+"助理剪接",
+"Assistanat montage",
+"Ayudantía de montaje",
+"Ассистент монтажа",
+"مساعدة في المونتاج",
+"असिस्टेंट एडिट",
+"Assistência de montagem"
+],
+"Colour grade": [
+"調光",
+"调光",
+"Étalonnage",
+"Etalonaje",
+"Цветокоррекция",
+"تصحيح الألوان",
+"कलर ग्रेड",
+"Correção de cor"
+],
+"Sound design & mix": [
+"聲音設計與混音",
+"声音设计与混音",
+"Design sonore et mixage",
+"Diseño de sonido y mezcla",
+"Звуковой дизайн и сведение",
+"تصميم الصوت والمكساج",
+"साउंड डिज़ाइन और मिक्स",
+"Design de som e mixagem"
+],
+"Music": [
+"音樂",
+"音乐",
+"Musique",
+"Música",
+"Музыка",
+"الموسيقى",
+"संगीत",
+"Música"
+],
+"Titles & graphics": [
+"字幕與圖像",
+"字幕与图像",
+"Génériques et graphisme",
+"Títulos y grafismo",
+"Титры и графика",
+"العناوين والرسوميات",
+"टाइटल और ग्राफ़िक्स",
+"Títulos e grafismo"
+],
+"On campus": [
+"校內",
+"校内",
+"Sur le campus",
+"En el campus",
+"В кампусе",
+"في الحرم الجامعي",
+"कैंपस पर",
+"No campus"
+],
+"Either": [
+"皆可",
+"皆可",
+"Peu importe",
+"Cualquiera",
+"Не важно",
+"أيّهما",
+"कोई भी",
+"Tanto faz"
+],
+"Expected length (minutes)": [
+"預計片長（分鐘）",
+"预计片长（分钟）",
+"Durée prévue (minutes)",
+"Duración prevista (minutos)",
+"Ожидаемая длительность (минуты)",
+"المدة المتوقعة (بالدقائق)",
+"अनुमानित लंबाई (मिनट)",
+"Duração prevista (minutos)"
+],
+"Footage": [
+"素材",
+"素材",
+"Rushes",
+"Material",
+"Материал",
+"المادة المصوّرة",
+"फ़ुटेज",
+"Material filmado"
+],
+"Software": [
+"軟體",
+"软件",
+"Logiciels",
+"Software",
+"Программы",
+"البرامج",
+"सॉफ़्टवेयर",
+"Software"
+],
+"Films needing post work your profile roles cover": [
+"需要你個人檔案職位所涵蓋的後期工作的影片",
+"需要你个人文件职位所涵盖的后期工作的视频",
+"Films qui ont besoin d'une postproduction correspondant aux postes de votre profil",
+"Películas que necesitan postproducción en los puestos de tu perfil",
+"Фильмы, которым нужен постпродакшн по ролям из вашего профиля",
+"أفلام تحتاج إلى أعمال ما بعد الإنتاج تغطيها أدوار ملفك",
+"ऐसी फ़िल्में जिन्हें आपकी प्रोफ़ाइल की भूमिकाओं वाला पोस्ट-प्रोडक्शन काम चाहिए",
+"Filmes que precisam de pós-produção nas funções do seu perfil"
+],
+"Link to the cut or rushes": [
+"剪接版本或素材連結",
+"剪接版本或素材链接",
+"Lien vers le montage ou les rushes",
+"Enlace al montaje o al material",
+"Ссылка на монтаж или исходники",
+"رابط المونتاج أو المادة الخام",
+"कट या रशेज़ का लिंक",
+"Link do corte ou do material bruto"
+],
+"List a film for post": [
+"刊登後期影片",
+"刊登后期视频",
+"Publier un film en postproduction",
+"Publicar una película en postproducción",
+"Разместить фильм для постпродакшна",
+"أضف فيلمًا لما بعد الإنتاج",
+"पोस्ट-प्रोडक्शन के लिए फ़िल्म जोड़ें",
+"Publicar um filme para pós-produção"
+],
+"Picture locked? List it in Release": [
+"已定剪？刊登到發行",
+"已定剪？刊登到发行",
+"Montage image verrouillé ? Publiez-le dans Diffusion",
+"¿Montaje cerrado? Publícala en Estreno",
+"Монтаж утверждён? Разместите в «Выпуске»",
+"المونتاج نهائي؟ أضفه إلى الإصدار",
+"पिक्चर लॉक हो गई? इसे रिलीज़ में जोड़ें",
+"Corte fechado? Publique em Lançamento"
+],
+"Search title, director or software": [
+"搜尋片名、導演或軟體",
+"搜索片名、导演或软件",
+"Rechercher un titre, un réalisateur ou un logiciel",
+"Busca por título, director o software",
+"Поиск по названию, режиссёру или программе",
+"ابحث بالعنوان أو المخرج أو البرنامج",
+"टाइटल, डायरेक्टर या सॉफ़्टवेयर खोजें",
+"Pesquisar título, diretor ou software"
+],
+"Show films with a full post team": [
+"顯示後期團隊已齊的影片",
+"显示后期团队已齐的视频",
+"Afficher les films dont l'équipe de postproduction est complète",
+"Mostrar películas con el equipo de postproducción completo",
+"Показать фильмы с полной командой постпродакшна",
+"اعرض الأفلام التي اكتمل فريق ما بعد الإنتاج فيها",
+"पूरी पोस्ट टीम वाली फ़िल्में दिखाएँ",
+"Mostrar filmes com a equipa de pós-produção completa"
+],
+"with a full post team": [
+"後期團隊已齊",
+"后期团队已齐",
+"dont l'équipe de postproduction est complète",
+"con el equipo de postproducción completo",
+"с полной командой постпродакшна",
+"التي اكتمل فريق ما بعد الإنتاج فيها",
+"पूरी पोस्ट टीम वाली",
+"com a equipa de pós-produção completa"
+],
+"Watch the latest cut": [
+"觀看最新剪接版本",
+"观看最新剪接版本",
+"Voir le dernier montage",
+"Ver el último montaje",
+"Смотреть последнюю версию монтажа",
+"شاهد أحدث نسخة مونتاج",
+"नया कट देखें",
+"Ver o último corte"
+],
+"Latest cut": [
+"最新剪接版本",
+"最新剪接版本",
+"Dernier montage",
+"Último montaje",
+"Последняя версия монтажа",
+"أحدث نسخة مونتاج",
+"नया कट",
+"Último corte"
+],
+"Wrapped shoots looking for an editor, colourist, sound designer, composer or VFX artist. Post work fits around other shoots, often from home, and every job becomes a credit on your profile.": [
+"已殺青、正在尋找剪接師、調光師、聲音設計、作曲或視覺特效的拍攝。後期工作可以配合其他拍攝，常常在家就能做，每份工作都會成為你個人檔案上的作品經歷。",
+"已杀青、正在寻找剪接师、调光师、声音设计、作曲或视觉特效的拍摄。后期工作可以配合其他拍摄，常常在家就能做，每份工作都会成为你个人文件上的作品经历。",
+"Tournages terminés qui cherchent un monteur, un étalonneur, un designer sonore, un compositeur ou un artiste VFX. La postproduction s'organise autour des autres tournages, souvent depuis chez soi, et chaque mission devient un crédit sur votre profil.",
+"Rodajes terminados que buscan montador, etalonador, diseñador de sonido, compositor o artista VFX. La postproducción encaja con otros rodajes, a menudo desde casa, y cada trabajo se convierte en un crédito en tu perfil.",
+"Завершённые съёмки ищут монтажёра, колориста, саунд-дизайнера, композитора или VFX-художника. Постпродакшн легко совместить с другими съёмками, часто из дома, и каждая работа становится титром в вашем профиле.",
+"تصويرات انتهت وتبحث عن مونتير أو مصحّح ألوان أو مصمّم صوت أو مؤلف موسيقي أو فنان مؤثرات بصرية. يتناسب عمل ما بعد الإنتاج مع التصويرات الأخرى، وغالبًا من المنزل، وكل عمل يصبح رصيدًا في ملفك.",
+"पूरी हो चुकी शूटिंग जिन्हें एडिटर, कलरिस्ट, साउंड डिज़ाइनर, कंपोज़र या VFX आर्टिस्ट चाहिए। पोस्ट का काम दूसरी शूटिंग के साथ हो जाता है, अक्सर घर से, और हर काम आपकी प्रोफ़ाइल पर क्रेडिट बनता है।",
+"Rodagens terminadas à procura de montador, colorista, designer de som, compositor ou artista de VFX. A pós-produção encaixa entre outras rodagens, muitas vezes a partir de casa, e cada trabalho vira um crédito no seu perfil."
+],
+"e.g. ARRI ProRes 4K, about 2 TB": [
+"例如 ARRI ProRes 4K，約 2 TB",
+"例如 ARRI ProRes 4K，约 2 TB",
+"ex. ARRI ProRes 4K, environ 2 To",
+"p. ej. ARRI ProRes 4K, unos 2 TB",
+"напр. ARRI ProRes 4K, около 2 ТБ",
+"مثلًا ARRI ProRes 4K، حوالي 2 تيرابايت",
+"जैसे ARRI ProRes 4K, लगभग 2 TB",
+"ex. ARRI ProRes 4K, cerca de 2 TB"
+],
+"e.g. Premiere, Resolve, Avid, Pro Tools": [
+"例如 Premiere、Resolve、Avid、Pro Tools",
+"例如 Premiere、Resolve、Avid、Pro Tools",
+"ex. Premiere, Resolve, Avid, Pro Tools",
+"p. ej. Premiere, Resolve, Avid, Pro Tools",
+"напр. Premiere, Resolve, Avid, Pro Tools",
+"مثلًا Premiere وResolve وAvid وPro Tools",
+"जैसे Premiere, Resolve, Avid, Pro Tools",
+"ex. Premiere, Resolve, Avid, Pro Tools"
+],
+"vimeo.com/… or drive.google.com/…": [
+"vimeo.com/… 或 drive.google.com/…",
+"vimeo.com/… 或 drive.google.com/…",
+"vimeo.com/… ou drive.google.com/…",
+"vimeo.com/… o drive.google.com/…",
+"vimeo.com/… или drive.google.com/…",
+"vimeo.com/… أو drive.google.com/…",
+"vimeo.com/… या drive.google.com/…",
+"vimeo.com/… ou drive.google.com/…"
+],
+"Sign in to see Post": [
+"登入以查看後期",
+"登录以查看后期",
+"Connectez-vous pour voir la postproduction",
+"Inicia sesión para ver Postproducción",
+"Войдите, чтобы увидеть постпродакшн",
+"سجّل الدخول لرؤية ما بعد الإنتاج",
+"पोस्ट-प्रोडक्शन देखने के लिए साइन इन करें",
+"Entre para ver a pós-produção"
+],
+"Wrapped shoots looking for editors, colourists, sound designers, composers and VFX. Only visible to signed-in members, to protect unfinished films.": [
+"已殺青、正在尋找剪接師、調光師、聲音設計、作曲與視覺特效的拍攝。只有已登入的成員看得到，以保護未完成的影片。",
+"已杀青、正在寻找剪接师、调光师、声音设计、作曲与视觉特效的拍摄。只有已登录的成员看得到，以保护未完成的视频。",
+"Tournages terminés qui cherchent monteurs, étalonneurs, designers sonores, compositeurs et VFX. Visible uniquement par les membres connectés, pour protéger les films non terminés.",
+"Rodajes terminados que buscan montadores, etalonadores, diseñadores de sonido, compositores y VFX. Solo lo ven los miembros con sesión iniciada, para proteger las películas sin terminar.",
+"Завершённые съёмки ищут монтажёров, колористов, саунд-дизайнеров, композиторов и VFX. Видно только вошедшим участникам, чтобы защитить незаконченные фильмы.",
+"تصويرات انتهت وتبحث عن مونتيرين ومصحّحي ألوان ومصمّمي صوت ومؤلفين موسيقيين ومؤثرات بصرية. يظهر فقط للأعضاء المسجّلين، لحماية الأفلام غير المكتملة.",
+"पूरी हो चुकी शूटिंग जिन्हें एडिटर, कलरिस्ट, साउंड डिज़ाइनर, कंपोज़र और VFX चाहिए। अधूरी फ़िल्मों की सुरक्षा के लिए यह सिर्फ़ साइन इन किए सदस्यों को दिखता है।",
+"Rodagens terminadas à procura de montadores, coloristas, designers de som, compositores e VFX. Só membros com sessão iniciada veem, para proteger filmes por terminar."
+],
+"Wrapped shoots looking for an editor, colourist, sound designer, composer or VFX.": [
+"已殺青、正在尋找剪接師、調光師、聲音設計、作曲或視覺特效的拍攝。",
+"已杀青、正在寻找剪接师、调光师、声音设计、作曲或视觉特效的拍摄。",
+"Tournages terminés qui cherchent un monteur, un étalonneur, un designer sonore, un compositeur ou des VFX.",
+"Rodajes terminados que buscan montador, etalonador, diseñador de sonido, compositor o VFX.",
+"Завершённые съёмки ищут монтажёра, колориста, саунд-дизайнера, композитора или VFX.",
+"تصويرات انتهت وتبحث عن مونتير أو مصحّح ألوان أو مصمّم صوت أو مؤلف موسيقي أو مؤثرات بصرية.",
+"पूरी हो चुकी शूटिंग जिन्हें एडिटर, कलरिस्ट, साउंड डिज़ाइनर, कंपोज़र या VFX चाहिए।",
+"Rodagens terminadas à procura de montador, colorista, designer de som, compositor ou VFX."
+],
+"has wrapped. Find your post team.": [
+"已殺青。找到你的後期團隊。",
+"已杀青。找到你的后期团队。",
+"est terminé. Trouvez votre équipe de postproduction.",
+"ha terminado el rodaje. Encuentra tu equipo de postproducción.",
+"— съёмки завершены. Найдите команду постпродакшна.",
+"انتهى تصويره. ابحث عن فريق ما بعد الإنتاج.",
+"की शूटिंग पूरी हो गई। अपनी पोस्ट टीम ढूँढें।",
+"terminou a rodagem. Encontre a sua equipa de pós-produção."
+],
+"have wrapped. Find your post team.": [
+"已殺青。找到你的後期團隊。",
+"已杀青。找到你的后期团队。",
+"sont terminés. Trouvez votre équipe de postproduction.",
+"han terminado el rodaje. Encuentra tu equipo de postproducción.",
+"— съёмки завершены. Найдите команду постпродакшна.",
+"انتهى تصويرها. ابحث عن فريق ما بعد الإنتاج.",
+"की शूटिंग पूरी हो गई। अपनी पोस्ट टीम ढूँढें।",
+"terminaram a rodagem. Encontre a sua equipa de pós-produção."
+],
+"Edit film": [
+"編輯影片",
+"编辑视频",
+"Modifier le film",
+"Editar película",
+"Изменить фильм",
+"تعديل الفيلم",
+"फ़िल्म बदलें",
+"Editar filme"
+],
+"optional: picture lock, a festival or the school hand-in": [
+"選填：定剪、影展或學校繳交日期",
+"选填：定剪、影展或学校缴交日期",
+"facultatif : verrouillage du montage, un festival ou le rendu à l'école",
+"opcional: cierre de montaje, un festival o la entrega en la escuela",
+"необязательно: утверждение монтажа, фестиваль или сдача в школе",
+"اختياري: إنهاء المونتاج أو مهرجان أو موعد التسليم في المدرسة",
+"वैकल्पिक: पिक्चर लॉक, कोई फ़ेस्टिवल या स्कूल में जमा करने की तारीख़",
+"opcional: fecho do corte, um festival ou a entrega na escola"
+],
+"What you'd do, when you're free, and links to work you've cut, graded or mixed": [
+"你會做什麼、什麼時候有空，以及你剪接、調光或混音過的作品連結",
+"你会做什么、什么时候有空，以及你剪接、调光或混音过的作品链接",
+"Ce que vous feriez, quand vous êtes libre, et des liens vers des films que vous avez montés, étalonnés ou mixés",
+"Qué harías, cuándo estás libre y enlaces a trabajos que hayas montado, etalonado o mezclado",
+"Что вы сделаете, когда свободны, и ссылки на работы, которые вы монтировали, красили или сводили",
+"ما الذي ستفعله ومتى تكون متاحًا، وروابط لأعمال قمت بمونتاجها أو تصحيح ألوانها أو مكساجها",
+"आप क्या करेंगे, कब खाली हैं, और आपके एडिट, ग्रेड या मिक्स किए काम के लिंक",
+"O que faria, quando está livre e links de trabalhos que montou, coloriu ou misturou"
+],
+"Try clearing a filter. Directors and producers, list a wrapped shoot to find an editor, colourist or sound designer.": [
+"試著清除篩選條件。導演和製片，刊登已殺青的拍攝來找剪接師、調光師或聲音設計。",
+"试着清除筛选条件。导演和制片，刊登已杀青的拍摄来找剪接师、调光师或声音设计。",
+"Essayez d'enlever un filtre. Réalisateurs et producteurs, publiez un tournage terminé pour trouver un monteur, un étalonneur ou un designer sonore.",
+"Prueba a quitar un filtro. Directores y productores, publicad un rodaje terminado para encontrar montador, etalonador o diseñador de sonido.",
+"Попробуйте снять фильтр. Режиссёры и продюсеры, разместите завершённые съёмки, чтобы найти монтажёра, колориста или саунд-дизайнера.",
+"جرّب إزالة أحد المرشّحات. أيها المخرجون والمنتجون، أضيفوا تصويرًا منتهيًا للعثور على مونتير أو مصحّح ألوان أو مصمّم صوت.",
+"कोई फ़िल्टर हटाकर देखें। डायरेक्टर और प्रोड्यूसर, एडिटर, कलरिस्ट या साउंड डिज़ाइनर ढूँढने के लिए पूरी हुई शूटिंग जोड़ें।",
+"Tente limpar um filtro. Realizadores e produtores, publiquem uma rodagem terminada para encontrar montador, colorista ou designer de som."
+],
+"It disappears from Post. People who offered to help are told. Credits stay with the people on the team.": [
+"它會從後期消失，提出幫忙的人會收到通知。團隊成員的作品經歷會保留。",
+"它会从后期消失，提出帮忙的人会收到通知。团队成员的作品经历会保留。",
+"Il disparaît de la postproduction. Les personnes qui ont proposé leur aide sont prévenues. Les crédits restent à l'équipe.",
+"Desaparece de Postproducción. Se avisa a quienes ofrecieron ayuda. Los créditos se quedan con el equipo.",
+"Фильм исчезнет из постпродакшна. Предложившим помощь придёт уведомление. Титры остаются у команды.",
+"سيختفي من ما بعد الإنتاج. سيُبلَّغ من عرضوا المساعدة. تبقى الأرصدة لأعضاء الفريق.",
+"यह पोस्ट-प्रोडक्शन से हट जाएगी। मदद की पेशकश करने वालों को बताया जाएगा। टीम के लोगों के क्रेडिट बने रहेंगे।",
+"Desaparece da pós-produção. Quem se ofereceu para ajudar é avisado. Os créditos ficam com a equipa."
+],
+"That film isn't on Crew Call any more": [
+"這部影片已不在 Crew Call 上",
+"这部视频已不在 Crew Call 上",
+"Ce film n'est plus sur Crew Call",
+"Esa película ya no está en Crew Call",
+"Этого фильма больше нет в Crew Call",
+"هذا الفيلم لم يعد على Crew Call",
+"यह फ़िल्म अब Crew Call पर नहीं है",
+"Esse filme já não está no Crew Call"
+],
+"Film": [
+"影片",
+"视频",
+"Film",
+"Película",
+"Фильм",
+"الفيلم",
+"फ़िल्म",
+"Filme"
+],
+"film": [
+"部影片",
+"部视频",
+"film",
+"película",
+"фильм",
+"فيلم",
+"फ़िल्म",
+"filme"
+],
+"films": [
+"部影片",
+"部视频",
+"films",
+"películas",
+"фильмов",
+"أفلام",
+"फ़िल्में",
+"filmes"
+],
+"Assistant Editor": [
+"助理剪接師",
+"助理剪接师",
+"Assistant monteur",
+"Ayudante de montaje",
+"Ассистент монтажёра",
+"مساعد المونتير",
+"असिस्टेंट एडिटर",
+"Assistente de montagem"
+],
+"Titles & Graphics": [
+"字幕與圖像",
+"字幕与图像",
+"Génériques et graphisme",
+"Títulos y grafismo",
+"Титры и графика",
+"العناوين والرسوميات",
+"टाइटल और ग्राफ़िक्स",
+"Títulos e grafismo"
+],
 "Director": [
 "導演",
 "导演",
@@ -6301,6 +6701,16 @@ window.CC_I18N = {
 "الديكور والأزياء",
 "आर्ट और कॉस्ट्यूम",
 "Arte e figurino"
+],
+"Post": [
+"後期",
+"后期",
+"Postproduction",
+"Postproducción",
+"Постпродакшн",
+"ما بعد الإنتاج",
+"पोस्ट-प्रोडक्शन",
+"Pós-produção"
 ],
 "Marketing": [
 "行銷",

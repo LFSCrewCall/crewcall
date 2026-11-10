@@ -178,12 +178,13 @@ Every location has an Open in menu: OpenStreetMap, Google Maps or Apple Maps. Cr
 - For each report: read it, act (hide the project or script, or remove the person), write a short note, then click Mark dealt with. The person who reported it is told.
 - Admins are students, not investigators. Pass anything about safety, harassment or discrimination to LFS Student Services. Record the LFS contact here once you have it: [LFS contact].
 
-## Develop, Shoot, Release
+## Develop, Shoot, Post, Release
 
-The app follows a film from idea to audience, in three tabs.
+The app follows a film from idea to audience, in four tabs.
 
 - Develop: screenwriters post a script (logline only) and producers post a pitch (an idea, a true story they have access to, or rights they hold). Others put their hand up for a role, and the poster brings people on. Only people brought on see the script or pitch deck link. When it's ready, the poster clicks Turn into a shoot.
 - Shoot: the projects board. Crew request roles here.
+- Post: once a shoot has wrapped, the director or producer sees a prompt to list it for post. Editors, colourists, sound designers, composers and VFX artists offer to help with editing, assistant editing, colour grade, sound design and mix, music, VFX or titles and graphics. Each post lists a deadline (picture lock, a festival or the school hand-in), where the work happens (remote, on campus or either), software and footage. The link to the cut is only shown to the team. Each person brought on gets a credit on their profile (Editor, Colourist, Sound Designer and so on). When the picture is locked, the lister clicks Picture locked? List it in Release.
 - Release: once a shoot has wrapped, the director or producer sees a prompt to list it. Marketing students (and anyone else) offer festival strategy, poster and key art, trailer, socials, press kit or stills. The screener link is only shown to the team. Each job brought on becomes a credit on that person's profile.
 
 Every board has a search bar, a Matches me switch (shows posts needing a role on your profile), tap-to-filter chips, sorting, and Show more after 12 posts. Filled or fully crewed posts are hidden unless you tick the box in Filters. On phones, Filters opens as a panel from the bottom of the screen, and every dropdown in the app opens as a tap-to-pick list instead.

@@ -64,3 +64,4 @@ they can edit the project and manage crew || сможет редактирова
 Casting Director || Кастинг-директор || مدير اختيار الممثلين
 Set a LibreTranslate server || Указать сервер LibreTranslate || تعيين خادم LibreTranslate
 Removed the LibreTranslate server || Сервер LibreTranslate удалён || تمت إزالة خادم LibreTranslate
+No date yet || Даты пока нет || لا يوجد تاريخ بعد

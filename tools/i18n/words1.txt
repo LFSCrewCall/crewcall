@@ -109,7 +109,7 @@ Pitch deck or treatment link || 提案簡報或故事大綱連結 || Lien du dos
 only shown to you and people you bring on || 只有你和你邀請的人看得到 || visible seulement par vous et les personnes retenues || solo lo ven tú y las personas que incorpores
 only shown to you and your team || 只有你和你的團隊看得到 || visible seulement par vous et votre équipe || solo lo ven tú y tu equipo
 Not sure yet || 還不確定 || Pas encore sûr || Aún no lo sé
-Post || 發布 || Publier || Publicar
+Publish || 發布 || Publier || Publicar
 Save || 儲存 || Enregistrer || Guardar
 Cancel || 取消 || Annuler || Cancelar
 Close || 關閉 || Fermer || Cerrar

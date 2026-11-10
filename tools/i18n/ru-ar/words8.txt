@@ -1,0 +1,40 @@
+# Post board
+Assistant edit || Ассистент монтажа || مساعدة في المونتاج
+Colour grade || Цветокоррекция || تصحيح الألوان
+Sound design & mix || Звуковой дизайн и сведение || تصميم الصوت والمكساج
+Music || Музыка || الموسيقى
+Titles & graphics || Титры и графика || العناوين والرسوميات
+On campus || В кампусе || في الحرم الجامعي
+Either || Не важно || أيّهما
+Expected length (minutes) || Ожидаемая длительность (минуты) || المدة المتوقعة (بالدقائق)
+Footage || Материал || المادة المصوّرة
+Software || Программы || البرامج
+Films needing post work your profile roles cover || Фильмы, которым нужен постпродакшн по ролям из вашего профиля || أفلام تحتاج إلى أعمال ما بعد الإنتاج تغطيها أدوار ملفك
+Link to the cut or rushes || Ссылка на монтаж или исходники || رابط المونتاج أو المادة الخام
+List a film for post || Разместить фильм для постпродакшна || أضف فيلمًا لما بعد الإنتاج
+Picture locked? List it in Release || Монтаж утверждён? Разместите в «Выпуске» || المونتاج نهائي؟ أضفه إلى الإصدار
+Search title, director or software || Поиск по названию, режиссёру или программе || ابحث بالعنوان أو المخرج أو البرنامج
+Show films with a full post team || Показать фильмы с полной командой постпродакшна || اعرض الأفلام التي اكتمل فريق ما بعد الإنتاج فيها
+with a full post team || с полной командой постпродакшна || التي اكتمل فريق ما بعد الإنتاج فيها
+Watch the latest cut || Смотреть последнюю версию монтажа || شاهد أحدث نسخة مونتاج
+Latest cut || Последняя версия монтажа || أحدث نسخة مونتاج
+Wrapped shoots looking for an editor, colourist, sound designer, composer or VFX artist. Post work fits around other shoots, often from home, and every job becomes a credit on your profile. || Завершённые съёмки ищут монтажёра, колориста, саунд-дизайнера, композитора или VFX-художника. Постпродакшн легко совместить с другими съёмками, часто из дома, и каждая работа становится титром в вашем профиле. || تصويرات انتهت وتبحث عن مونتير أو مصحّح ألوان أو مصمّم صوت أو مؤلف موسيقي أو فنان مؤثرات بصرية. يتناسب عمل ما بعد الإنتاج مع التصويرات الأخرى، وغالبًا من المنزل، وكل عمل يصبح رصيدًا في ملفك.
+e.g. ARRI ProRes 4K, about 2 TB || напр. ARRI ProRes 4K, около 2 ТБ || مثلًا ARRI ProRes 4K، حوالي 2 تيرابايت
+e.g. Premiere, Resolve, Avid, Pro Tools || напр. Premiere, Resolve, Avid, Pro Tools || مثلًا Premiere وResolve وAvid وPro Tools
+vimeo.com/… or drive.google.com/… || vimeo.com/… или drive.google.com/… || vimeo.com/… أو drive.google.com/…
+Sign in to see Post || Войдите, чтобы увидеть постпродакшн || سجّل الدخول لرؤية ما بعد الإنتاج
+Wrapped shoots looking for editors, colourists, sound designers, composers and VFX. Only visible to signed-in members, to protect unfinished films. || Завершённые съёмки ищут монтажёров, колористов, саунд-дизайнеров, композиторов и VFX. Видно только вошедшим участникам, чтобы защитить незаконченные фильмы. || تصويرات انتهت وتبحث عن مونتيرين ومصحّحي ألوان ومصمّمي صوت ومؤلفين موسيقيين ومؤثرات بصرية. يظهر فقط للأعضاء المسجّلين، لحماية الأفلام غير المكتملة.
+Wrapped shoots looking for an editor, colourist, sound designer, composer or VFX. || Завершённые съёмки ищут монтажёра, колориста, саунд-дизайнера, композитора или VFX. || تصويرات انتهت وتبحث عن مونتير أو مصحّح ألوان أو مصمّم صوت أو مؤلف موسيقي أو مؤثرات بصرية.
+has wrapped. Find your post team. || — съёмки завершены. Найдите команду постпродакшна. || انتهى تصويره. ابحث عن فريق ما بعد الإنتاج.
+have wrapped. Find your post team. || — съёмки завершены. Найдите команду постпродакшна. || انتهى تصويرها. ابحث عن فريق ما بعد الإنتاج.
+Edit film || Изменить фильм || تعديل الفيلم
+optional: picture lock, a festival or the school hand-in || необязательно: утверждение монтажа, фестиваль или сдача в школе || اختياري: إنهاء المونتاج أو مهرجان أو موعد التسليم في المدرسة
+What you'd do, when you're free, and links to work you've cut, graded or mixed || Что вы сделаете, когда свободны, и ссылки на работы, которые вы монтировали, красили или сводили || ما الذي ستفعله ومتى تكون متاحًا، وروابط لأعمال قمت بمونتاجها أو تصحيح ألوانها أو مكساجها
+Try clearing a filter. Directors and producers, list a wrapped shoot to find an editor, colourist or sound designer. || Попробуйте снять фильтр. Режиссёры и продюсеры, разместите завершённые съёмки, чтобы найти монтажёра, колориста или саунд-дизайнера. || جرّب إزالة أحد المرشّحات. أيها المخرجون والمنتجون، أضيفوا تصويرًا منتهيًا للعثور على مونتير أو مصحّح ألوان أو مصمّم صوت.
+It disappears from Post. People who offered to help are told. Credits stay with the people on the team. || Фильм исчезнет из постпродакшна. Предложившим помощь придёт уведомление. Титры остаются у команды. || سيختفي من ما بعد الإنتاج. سيُبلَّغ من عرضوا المساعدة. تبقى الأرصدة لأعضاء الفريق.
+That film isn't on Crew Call any more || Этого фильма больше нет в Crew Call || هذا الفيلم لم يعد على Crew Call
+Film || Фильм || الفيلم
+film || фильм || فيلم
+films || фильмов || أفلام
+Assistant Editor || Ассистент монтажёра || مساعد المونتير
+Titles & Graphics || Титры и графика || العناوين والرسوميات

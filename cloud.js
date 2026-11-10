@@ -11,7 +11,7 @@
   window.CC_DEMO = DEMO && !!(CFG.url && CFG.key);
 
   // Which part of the app goes into which kind of record
-  const COLL = { students: "student", projects: "project", scripts: "script", releases: "release", releaseInterest: "releaseInterest", scriptInterest: "scriptInterest", newsletters: "newsletter", gigs: "gig", gigApps: "gigApp", requests: "request", notifications: "notification", reports: "report", transFixes: "transFix" };
+  const COLL = { students: "student", projects: "project", scripts: "script", releases: "release", releaseInterest: "releaseInterest", posts: "post", postInterest: "postInterest", scriptInterest: "scriptInterest", newsletters: "newsletter", gigs: "gig", gigApps: "gigApp", requests: "request", notifications: "notification", reports: "report", transFixes: "transFix" };
   const SINGLE = ["admins", "owner", "adminPerms", "settings", "customWords", "handover", "nlAuto", "adminVia", "reps", "ownerProposal", "adminLog"];
   const CONSTS = ["COURSES", "TERM_DATES", "ROLE_GROUPS", "TERMS", "PATHWAYS", "TYPES", "KIT_CATS"];
   const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;

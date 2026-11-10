@@ -1,0 +1,9 @@
+# Never upload passwords or keys
+.env
+.env.*
+*.key
+secrets*
+# System files
+.DS_Store
+Thumbs.db
+node_modules/

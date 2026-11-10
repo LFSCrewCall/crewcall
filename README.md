@@ -33,7 +33,7 @@ It's run by students and is not an official LFS service.
 ## Admin and handover
 
 - One owner and any number of admins. The owner ticks each admin's permissions (People, Projects, Terms and lists, Email settings, Reports and privacy, Newsletter: draft, Newsletter: send) and can transfer ownership. Each cohort has a rep, who is an admin and can propose a new owner when the owner leaves.
-- Develop, Shoot, Release and Paid boards each switch between cards, a table and a timeline. Paid is for paid outside work; school shoots are in kind.
+- Develop, Shoot, Post, Release and Paid boards each switch between cards, a table and a timeline. Paid is for paid outside work; school shoots are in kind.
 - The newsletter has designed issues (with saved versions and Send another) and an automatic edition built from Crew Call each month.
 - Admin opens on an Overview (a to-do list, coming school dates and stats). The rest is grouped: People (Access, Handover), Content (Projects, Reports, Newsletter, Languages), School calendar (Terms and cohorts, Lists) and Settings and data (Email, Privacy and data, Activity). On a phone the sections are in a dropdown.
 - The calendar shows LFS key dates: enrolment and induction days, term starts and ends, and the day each cohort finishes.

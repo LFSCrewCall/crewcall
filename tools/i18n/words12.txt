@@ -1,0 +1,40 @@
+# Post board
+Assistant edit || 助理剪接 || Assistanat montage || Ayudantía de montaje
+Colour grade || 調光 || Étalonnage || Etalonaje
+Sound design & mix || 聲音設計與混音 || Design sonore et mixage || Diseño de sonido y mezcla
+Music || 音樂 || Musique || Música
+Titles & graphics || 字幕與圖像 || Génériques et graphisme || Títulos y grafismo
+On campus || 校內 || Sur le campus || En el campus
+Either || 皆可 || Peu importe || Cualquiera
+Expected length (minutes) || 預計片長（分鐘） || Durée prévue (minutes) || Duración prevista (minutos)
+Footage || 素材 || Rushes || Material
+Software || 軟體 || Logiciels || Software
+Films needing post work your profile roles cover || 需要你個人檔案職位所涵蓋的後期工作的影片 || Films qui ont besoin d'une postproduction correspondant aux postes de votre profil || Películas que necesitan postproducción en los puestos de tu perfil
+Link to the cut or rushes || 剪接版本或素材連結 || Lien vers le montage ou les rushes || Enlace al montaje o al material
+List a film for post || 刊登後期影片 || Publier un film en postproduction || Publicar una película en postproducción
+Picture locked? List it in Release || 已定剪？刊登到發行 || Montage image verrouillé ? Publiez-le dans Diffusion || ¿Montaje cerrado? Publícala en Estreno
+Search title, director or software || 搜尋片名、導演或軟體 || Rechercher un titre, un réalisateur ou un logiciel || Busca por título, director o software
+Show films with a full post team || 顯示後期團隊已齊的影片 || Afficher les films dont l'équipe de postproduction est complète || Mostrar películas con el equipo de postproducción completo
+with a full post team || 後期團隊已齊 || dont l'équipe de postproduction est complète || con el equipo de postproducción completo
+Watch the latest cut || 觀看最新剪接版本 || Voir le dernier montage || Ver el último montaje
+Latest cut || 最新剪接版本 || Dernier montage || Último montaje
+Wrapped shoots looking for an editor, colourist, sound designer, composer or VFX artist. Post work fits around other shoots, often from home, and every job becomes a credit on your profile. || 已殺青、正在尋找剪接師、調光師、聲音設計、作曲或視覺特效的拍攝。後期工作可以配合其他拍攝，常常在家就能做，每份工作都會成為你個人檔案上的作品經歷。 || Tournages terminés qui cherchent un monteur, un étalonneur, un designer sonore, un compositeur ou un artiste VFX. La postproduction s'organise autour des autres tournages, souvent depuis chez soi, et chaque mission devient un crédit sur votre profil. || Rodajes terminados que buscan montador, etalonador, diseñador de sonido, compositor o artista VFX. La postproducción encaja con otros rodajes, a menudo desde casa, y cada trabajo se convierte en un crédito en tu perfil.
+e.g. ARRI ProRes 4K, about 2 TB || 例如 ARRI ProRes 4K，約 2 TB || ex. ARRI ProRes 4K, environ 2 To || p. ej. ARRI ProRes 4K, unos 2 TB
+e.g. Premiere, Resolve, Avid, Pro Tools || 例如 Premiere、Resolve、Avid、Pro Tools || ex. Premiere, Resolve, Avid, Pro Tools || p. ej. Premiere, Resolve, Avid, Pro Tools
+vimeo.com/… or drive.google.com/… || vimeo.com/… 或 drive.google.com/… || vimeo.com/… ou drive.google.com/… || vimeo.com/… o drive.google.com/…
+Sign in to see Post || 登入以查看後期 || Connectez-vous pour voir la postproduction || Inicia sesión para ver Postproducción
+Wrapped shoots looking for editors, colourists, sound designers, composers and VFX. Only visible to signed-in members, to protect unfinished films. || 已殺青、正在尋找剪接師、調光師、聲音設計、作曲與視覺特效的拍攝。只有已登入的成員看得到，以保護未完成的影片。 || Tournages terminés qui cherchent monteurs, étalonneurs, designers sonores, compositeurs et VFX. Visible uniquement par les membres connectés, pour protéger les films non terminés. || Rodajes terminados que buscan montadores, etalonadores, diseñadores de sonido, compositores y VFX. Solo lo ven los miembros con sesión iniciada, para proteger las películas sin terminar.
+Wrapped shoots looking for an editor, colourist, sound designer, composer or VFX. || 已殺青、正在尋找剪接師、調光師、聲音設計、作曲或視覺特效的拍攝。 || Tournages terminés qui cherchent un monteur, un étalonneur, un designer sonore, un compositeur ou des VFX. || Rodajes terminados que buscan montador, etalonador, diseñador de sonido, compositor o VFX.
+has wrapped. Find your post team. || 已殺青。找到你的後期團隊。 || est terminé. Trouvez votre équipe de postproduction. || ha terminado el rodaje. Encuentra tu equipo de postproducción.
+have wrapped. Find your post team. || 已殺青。找到你的後期團隊。 || sont terminés. Trouvez votre équipe de postproduction. || han terminado el rodaje. Encuentra tu equipo de postproducción.
+Edit film || 編輯影片 || Modifier le film || Editar película
+optional: picture lock, a festival or the school hand-in || 選填：定剪、影展或學校繳交日期 || facultatif : verrouillage du montage, un festival ou le rendu à l'école || opcional: cierre de montaje, un festival o la entrega en la escuela
+What you'd do, when you're free, and links to work you've cut, graded or mixed || 你會做什麼、什麼時候有空，以及你剪接、調光或混音過的作品連結 || Ce que vous feriez, quand vous êtes libre, et des liens vers des films que vous avez montés, étalonnés ou mixés || Qué harías, cuándo estás libre y enlaces a trabajos que hayas montado, etalonado o mezclado
+Try clearing a filter. Directors and producers, list a wrapped shoot to find an editor, colourist or sound designer. || 試著清除篩選條件。導演和製片，刊登已殺青的拍攝來找剪接師、調光師或聲音設計。 || Essayez d'enlever un filtre. Réalisateurs et producteurs, publiez un tournage terminé pour trouver un monteur, un étalonneur ou un designer sonore. || Prueba a quitar un filtro. Directores y productores, publicad un rodaje terminado para encontrar montador, etalonador o diseñador de sonido.
+It disappears from Post. People who offered to help are told. Credits stay with the people on the team. || 它會從後期消失，提出幫忙的人會收到通知。團隊成員的作品經歷會保留。 || Il disparaît de la postproduction. Les personnes qui ont proposé leur aide sont prévenues. Les crédits restent à l'équipe. || Desaparece de Postproducción. Se avisa a quienes ofrecieron ayuda. Los créditos se quedan con el equipo.
+That film isn't on Crew Call any more || 這部影片已不在 Crew Call 上 || Ce film n'est plus sur Crew Call || Esa película ya no está en Crew Call
+Film || 影片 || Film || Película
+film || 部影片 || film || película
+films || 部影片 || films || películas
+Assistant Editor || 助理剪接師 || Assistant monteur || Ayudante de montaje
+Titles & Graphics || 字幕與圖像 || Génériques et graphisme || Títulos y grafismo
