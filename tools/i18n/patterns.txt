@@ -326,3 +326,9 @@
 ^(\d+) other roles?$ || 另有 {=1} 個職位 || {=1} {1|autre poste|autres postes} || {=1} {1|puesto más|puestos más}
 ^(\d+) months?$ || {=1} 個月 || {=1} mois || {=1} {1|mes|meses}
 ^Show the next (\d+) months$ || 顯示接下來 {=1} 個月 || Afficher les {=1} mois suivants || Mostrar los {=1} meses siguientes
+^Bank holiday: (.+)$ || 公眾假期：{1} || Jour férié : {1} || Festivo: {1}
+^(\d+) (?:people are|person is) available\.$ || {=1} 人有空。 || {=1} {1|personne est disponible|personnes sont disponibles}. || {=1} {1|persona está disponible|personas están disponibles}.
+^All (\d+) days$ || 全部 {=1} 天 || Les {=1} jours || Los {=1} días
+^(\d+) of (\d+) days$ || {=2} 天中的 {=1} 天 || {=1} jour(s) sur {=2} || {=1} de {=2} días
+^(\d+) (?:people have|person has) this$ || {=1} 人擁有 || {=1} {1|personne l'a|personnes l'ont} || {=1} {1|persona lo tiene|personas lo tienen}
+^(\d+) items?$ || {=1} 件 || {=1} {1|article|articles} || {=1} {1|artículo|artículos}

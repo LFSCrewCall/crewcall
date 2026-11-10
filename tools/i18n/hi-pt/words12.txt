@@ -1,0 +1,34 @@
+# v24: calendar key, bank holidays, crew Available, Kit page
+Key || संकेत || Legenda
+Shoot (number = open roles) || शूट (संख्या = खाली रोल) || Filmagem (número = funções em aberto)
+You're booked || आप बुक हैं || Você está escalado(a)
+You marked it free || आपने इसे खाली बताया || Você marcou como livre
+UK bank holiday || यूके सार्वजनिक छुट्टी || Feriado no Reino Unido
+School date || स्कूल की तारीख || Data da escola
+New Year's Day || नववर्ष दिवस || Dia de Ano Novo
+Good Friday || गुड फ्राइडे || Sexta-feira Santa
+Easter Monday || ईस्टर सोमवार || Segunda-feira de Páscoa
+Early May bank holiday || मई की शुरुआत की छुट्टी || Feriado do início de maio
+Spring bank holiday || वसंत की छुट्टी || Feriado da primavera
+Summer bank holiday || गर्मी की छुट्टी || Feriado de verão
+Christmas Day || क्रिसमस || Natal
+Boxing Day || बॉक्सिंग डे || Boxing Day
+You're booked on || आप इस पर बुक हैं: || Você está escalado(a) em
+Available crew || उपलब्ध क्रू || Equipe disponível
+Available || उपलब्ध || Disponível
+That day || उस दिन || Nesse dia
+Everything people have listed on their profiles, and how many have the same. Find someone to borrow from, lend to or share with. || लोगों ने अपनी प्रोफ़ाइल में जो कुछ लिखा है, और कितनों के पास वही चीज़ है। उधार लेने, देने या साझा करने के लिए किसी को ढूँढें। || Tudo o que as pessoas listaram nos perfis, e quantas têm o mesmo. Encontre alguém para pedir emprestado, emprestar ou compartilhar.
+Add your kit || अपना किट जोड़ें || Adicionar seu equipamento
+Search kit, e.g. FX3, C-stand, lav || किट खोजें, जैसे FX3, C-stand, लैव || Buscar equipamento, ex.: FX3, C-stand, lapela
+All kit || सारा किट || Todo o equipamento
+Most people || सबसे ज़्यादा लोग || Mais pessoas
+A–Z || A–Z || A–Z
+Who has it || किसके पास है || Quem tem
+See who || देखें कौन || Ver quem
+No kit matches. || कोई किट नहीं मिला। || Nenhum equipamento encontrado.
+Try another word, or add your own kit so others can find it. || कोई दूसरा शब्द आज़माएँ, या अपना किट जोड़ें ताकि दूसरे उसे ढूँढ सकें। || Tente outra palavra, ou adicione seu equipamento para que outros o encontrem.
+Ask to borrow, lend or share. Agree who looks after it and when it comes back before it leaves. || उधार लेने, देने या साझा करने के लिए पूछें। सामान जाने से पहले तय कर लें कि उसकी ज़िम्मेदारी किसकी है और वह कब लौटेगा। || Peça emprestado, empreste ou compartilhe. Antes de o equipamento sair, combinem quem cuida dele e quando ele volta.
+Sign in to see kit || किट देखने के लिए साइन इन करें || Entre para ver o equipamento
+See who has which kit, so you can borrow, lend or share. Only visible to signed-in LFS members and invited guests. || देखें किसके पास कौन-सा किट है, ताकि आप उधार ले, दे या साझा कर सकें। केवल साइन इन किए LFS सदस्यों और आमंत्रित मेहमानों को दिखता है। || Veja quem tem qual equipamento para pedir emprestado, emprestar ou compartilhar. Visível só para membros da LFS conectados e convidados.
+Kit type || किट का प्रकार || Tipo de equipamento
+Sort kit || किट क्रम से लगाएँ || Ordenar equipamento

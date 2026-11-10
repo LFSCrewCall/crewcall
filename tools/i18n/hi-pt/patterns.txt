@@ -323,3 +323,9 @@
 ^(\d+) other roles?$ || {=1} और {1|रोल|रोल} || {=1} {1|outra função|outras funções}
 ^(\d+) months?$ || {=1} {1|महीना|महीने} || {=1} {1|mês|meses}
 ^Show the next (\d+) months$ || अगले {=1} महीने दिखाएँ || Mostrar os próximos {=1} meses
+^Bank holiday: (.+)$ || सार्वजनिक छुट्टी: {1} || Feriado: {1}
+^(\d+) (?:people are|person is) available\.$ || {=1} {1|व्यक्ति उपलब्ध है|लोग उपलब्ध हैं}। || {=1} {1|pessoa está disponível|pessoas estão disponíveis}.
+^All (\d+) days$ || सभी {=1} दिन || Todos os {=1} dias
+^(\d+) of (\d+) days$ || {=2} में से {=1} दिन || {=1} de {=2} dias
+^(\d+) (?:people have|person has) this$ || {=1} {1|व्यक्ति के पास है|लोगों के पास है} || {=1} {1|pessoa tem|pessoas têm}
+^(\d+) items?$ || {=1} {1|चीज़|चीज़ें} || {=1} {1|item|itens}

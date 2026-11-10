@@ -8952,6 +8952,336 @@ window.CC_I18N = {
 "लेखन",
 "Roteiro"
 ],
+"Key": [
+"圖例",
+"图例",
+"Légende",
+"Leyenda",
+"Обозначения",
+"مفتاح الرموز",
+"संकेत",
+"Legenda"
+],
+"Shoot (number = open roles)": [
+"拍攝（數字 = 空缺職位）",
+"拍摄（数字 = 空缺职位）",
+"Tournage (chiffre = postes ouverts)",
+"Rodaje (número = puestos libres)",
+"Съёмка (число = открытые роли)",
+"تصوير (الرقم = الأدوار الشاغرة)",
+"शूट (संख्या = खाली रोल)",
+"Filmagem (número = funções em aberto)"
+],
+"You're booked": [
+"你已被安排",
+"你已被安排",
+"Vous êtes engagé(e)",
+"Estás reservado/a",
+"Вы заняты на съёмке",
+"أنت محجوز",
+"आप बुक हैं",
+"Você está escalado(a)"
+],
+"You marked it free": [
+"你標記為有空",
+"你标记为有空",
+"Vous l'avez indiqué libre",
+"Lo marcaste como libre",
+"Вы отметили как свободный",
+"حدّدته متاحًا",
+"आपने इसे खाली बताया",
+"Você marcou como livre"
+],
+"UK bank holiday": [
+"英國公眾假期",
+"英国公众假期",
+"Jour férié britannique",
+"Festivo en Reino Unido",
+"Праздник в Великобритании",
+"عطلة رسمية في المملكة المتحدة",
+"यूके सार्वजनिक छुट्टी",
+"Feriado no Reino Unido"
+],
+"School date": [
+"學校日期",
+"学校日期",
+"Date de l'école",
+"Fecha de la escuela",
+"Дата школы",
+"موعد المدرسة",
+"स्कूल की तारीख",
+"Data da escola"
+],
+"New Year's Day": [
+"元旦",
+"元旦",
+"Jour de l'An",
+"Año Nuevo",
+"Новый год",
+"رأس السنة الميلادية",
+"नववर्ष दिवस",
+"Dia de Ano Novo"
+],
+"Good Friday": [
+"耶穌受難日",
+"耶稣受难日",
+"Vendredi saint",
+"Viernes Santo",
+"Страстная пятница",
+"الجمعة العظيمة",
+"गुड फ्राइडे",
+"Sexta-feira Santa"
+],
+"Easter Monday": [
+"復活節星期一",
+"复活节星期一",
+"Lundi de Pâques",
+"Lunes de Pascua",
+"Пасхальный понедельник",
+"اثنين الفصح",
+"ईस्टर सोमवार",
+"Segunda-feira de Páscoa"
+],
+"Early May bank holiday": [
+"五月初公眾假期",
+"五月初公众假期",
+"Jour férié de début mai",
+"Festivo de principios de mayo",
+"Праздник начала мая",
+"عطلة أوائل مايو",
+"मई की शुरुआत की छुट्टी",
+"Feriado do início de maio"
+],
+"Spring bank holiday": [
+"春季公眾假期",
+"春季公众假期",
+"Jour férié de printemps",
+"Festivo de primavera",
+"Весенний праздник",
+"عطلة الربيع",
+"वसंत की छुट्टी",
+"Feriado da primavera"
+],
+"Summer bank holiday": [
+"夏季公眾假期",
+"夏季公众假期",
+"Jour férié d'été",
+"Festivo de verano",
+"Летний праздник",
+"عطلة الصيف",
+"गर्मी की छुट्टी",
+"Feriado de verão"
+],
+"Christmas Day": [
+"聖誕節",
+"圣诞节",
+"Noël",
+"Navidad",
+"Рождество",
+"عيد الميلاد",
+"क्रिसमस",
+"Natal"
+],
+"Boxing Day": [
+"節禮日",
+"节礼日",
+"Lendemain de Noël",
+"San Esteban",
+"День подарков",
+"يوم الصناديق",
+"बॉक्सिंग डे",
+"Boxing Day"
+],
+"You're booked on": [
+"你已被安排參與",
+"你已被安排参与",
+"Vous êtes engagé(e) sur",
+"Estás reservado/a en",
+"Вы заняты на",
+"أنت محجوز في",
+"आप इस पर बुक हैं:",
+"Você está escalado(a) em"
+],
+"Available crew": [
+"有空的劇組人員",
+"有空的剧组人员",
+"Équipe disponible",
+"Equipo disponible",
+"Свободная команда",
+"الطاقم المتاح",
+"उपलब्ध क्रू",
+"Equipe disponível"
+],
+"Available": [
+"有空",
+"有空",
+"Disponible",
+"Disponible",
+"Свободны",
+"متاح",
+"उपलब्ध",
+"Disponível"
+],
+"That day": [
+"當天",
+"当天",
+"Ce jour-là",
+"Ese día",
+"В этот день",
+"ذلك اليوم",
+"उस दिन",
+"Nesse dia"
+],
+"Everything people have listed on their profiles, and how many have the same. Find someone to borrow from, lend to or share with.": [
+"大家在個人檔案中列出的所有器材，以及有多少人擁有相同器材。找人借用、借出或共用。",
+"大家在个人文件中列出的所有器材，以及有多少人拥有相同器材。找人借用、借出或共用。",
+"Tout ce que les gens ont indiqué sur leur profil, et combien ont la même chose. Trouvez quelqu'un à qui emprunter, prêter ou partager.",
+"Todo lo que la gente ha puesto en su perfil y cuántos tienen lo mismo. Encuentra a alguien para pedir prestado, prestar o compartir.",
+"Всё, что люди указали в профилях, и сколько у кого то же самое. Найдите, у кого взять, кому одолжить или с кем поделиться.",
+"كل ما أدرجه الناس في ملفاتهم، وكم شخصًا يملك الشيء نفسه. ابحث عمّن تستعير منه أو تعيره أو تتشارك معه.",
+"लोगों ने अपनी प्रोफ़ाइल में जो कुछ लिखा है, और कितनों के पास वही चीज़ है। उधार लेने, देने या साझा करने के लिए किसी को ढूँढें।",
+"Tudo o que as pessoas listaram nos perfis, e quantas têm o mesmo. Encontre alguém para pedir emprestado, emprestar ou compartilhar."
+],
+"Add your kit": [
+"新增你的器材",
+"添加你的器材",
+"Ajouter votre matériel",
+"Añade tu equipo",
+"Добавить своё оборудование",
+"أضف معداتك",
+"अपना किट जोड़ें",
+"Adicionar seu equipamento"
+],
+"Search kit, e.g. FX3, C-stand, lav": [
+"搜尋器材，例如 FX3、C 架、領夾咪",
+"搜索器材，例如 FX3、C 架、领夹咪",
+"Rechercher du matériel, ex. FX3, C-stand, micro-cravate",
+"Buscar equipo, p. ej. FX3, C-stand, micro de corbata",
+"Поиск оборудования, напр. FX3, C-stand, петличка",
+"ابحث عن المعدات، مثل FX3 أو C-stand أو ميكروفون لاسلكي",
+"किट खोजें, जैसे FX3, C-stand, लैव",
+"Buscar equipamento, ex.: FX3, C-stand, lapela"
+],
+"All kit": [
+"所有器材",
+"所有器材",
+"Tout le matériel",
+"Todo el equipo",
+"Всё оборудование",
+"كل المعدات",
+"सारा किट",
+"Todo o equipamento"
+],
+"Most people": [
+"最多人",
+"最多人",
+"Le plus de personnes",
+"Más personas",
+"Больше всего людей",
+"الأكثر انتشارًا",
+"सबसे ज़्यादा लोग",
+"Mais pessoas"
+],
+"A–Z": [
+"A–Z",
+"A–Z",
+"A–Z",
+"A–Z",
+"А–Я",
+"أ–ي",
+"A–Z",
+"A–Z"
+],
+"Who has it": [
+"誰擁有",
+"谁拥有",
+"Qui l'a",
+"Quién lo tiene",
+"У кого есть",
+"من يملكها",
+"किसके पास है",
+"Quem tem"
+],
+"See who": [
+"查看是誰",
+"查看是谁",
+"Voir qui",
+"Ver quién",
+"Посмотреть кто",
+"اعرف من",
+"देखें कौन",
+"Ver quem"
+],
+"No kit matches.": [
+"沒有符合的器材。",
+"没有符合的器材。",
+"Aucun matériel ne correspond.",
+"Ningún equipo coincide.",
+"Ничего не найдено.",
+"لا توجد معدات مطابقة.",
+"कोई किट नहीं मिला।",
+"Nenhum equipamento encontrado."
+],
+"Try another word, or add your own kit so others can find it.": [
+"試試其他字詞，或新增你的器材讓其他人找到。",
+"试试其他字词，或添加你的器材让其他人找到。",
+"Essayez un autre mot, ou ajoutez votre matériel pour que d'autres le trouvent.",
+"Prueba otra palabra o añade tu equipo para que otros lo encuentren.",
+"Попробуйте другое слово или добавьте своё оборудование, чтобы его нашли другие.",
+"جرّب كلمة أخرى، أو أضف معداتك ليجدها الآخرون.",
+"कोई दूसरा शब्द आज़माएँ, या अपना किट जोड़ें ताकि दूसरे उसे ढूँढ सकें।",
+"Tente outra palavra, ou adicione seu equipamento para que outros o encontrem."
+],
+"Ask to borrow, lend or share. Agree who looks after it and when it comes back before it leaves.": [
+"詢問借用、借出或共用。器材借出前，先講好由誰負責保管及何時歸還。",
+"询问借用、借出或共用。器材借出前，先讲好由谁负责保管及何时归还。",
+"Demandez à emprunter, prêter ou partager. Avant que le matériel parte, convenez de qui en est responsable et de quand il revient.",
+"Pide prestado, presta o comparte. Antes de que salga, acordad quién se hace responsable y cuándo se devuelve.",
+"Попросите взять, одолжите или поделитесь. Заранее договоритесь, кто отвечает за оборудование и когда его вернут.",
+"اطلب الاستعارة أو الإعارة أو المشاركة. اتفقوا قبل خروج المعدات على من يعتني بها ومتى تُعاد.",
+"उधार लेने, देने या साझा करने के लिए पूछें। सामान जाने से पहले तय कर लें कि उसकी ज़िम्मेदारी किसकी है और वह कब लौटेगा।",
+"Peça emprestado, empreste ou compartilhe. Antes de o equipamento sair, combinem quem cuida dele e quando ele volta."
+],
+"Sign in to see kit": [
+"登入以查看器材",
+"登录以查看器材",
+"Connectez-vous pour voir le matériel",
+"Inicia sesión para ver el equipo",
+"Войдите, чтобы увидеть оборудование",
+"سجّل الدخول لرؤية المعدات",
+"किट देखने के लिए साइन इन करें",
+"Entre para ver o equipamento"
+],
+"See who has which kit, so you can borrow, lend or share. Only visible to signed-in LFS members and invited guests.": [
+"查看誰擁有哪些器材，方便借用、借出或共用。只有已登入的 LFS 成員及受邀嘉賓可見。",
+"查看谁拥有哪些器材，方便借用、借出或共用。只有已登录的 LFS 成员及受邀嘉宾可见。",
+"Voyez qui a quel matériel pour emprunter, prêter ou partager. Visible uniquement par les membres LFS connectés et les invités.",
+"Mira quién tiene qué equipo para pedir prestado, prestar o compartir. Solo visible para miembros de LFS con sesión iniciada e invitados.",
+"Смотрите, у кого какое оборудование, чтобы брать, одалживать или делиться. Видно только вошедшим участникам LFS и приглашённым гостям.",
+"اعرف من يملك أي معدات لتستعير أو تعير أو تتشارك. لا يراها إلا أعضاء LFS المسجّلون والضيوف المدعوون.",
+"देखें किसके पास कौन-सा किट है, ताकि आप उधार ले, दे या साझा कर सकें। केवल साइन इन किए LFS सदस्यों और आमंत्रित मेहमानों को दिखता है।",
+"Veja quem tem qual equipamento para pedir emprestado, emprestar ou compartilhar. Visível só para membros da LFS conectados e convidados."
+],
+"Kit type": [
+"器材類型",
+"器材类型",
+"Type de matériel",
+"Tipo de equipo",
+"Тип оборудования",
+"نوع المعدات",
+"किट का प्रकार",
+"Tipo de equipamento"
+],
+"Sort kit": [
+"排序器材",
+"排序器材",
+"Trier le matériel",
+"Ordenar equipo",
+"Сортировать оборудование",
+"ترتيب المعدات",
+"किट क्रम से लगाएँ",
+"Ordenar equipamento"
+],
 "Director": [
 "導演",
 "导演",
@@ -20955,6 +21285,72 @@ window.CC_I18N = {
 "عرض الأشهر الـ{=1} التالية",
 "अगले {=1} महीने दिखाएँ",
 "Mostrar os próximos {=1} meses"
+],
+[
+"^Bank holiday: (.+)$",
+"公眾假期：{1}",
+"公众假期：{1}",
+"Jour férié : {1}",
+"Festivo: {1}",
+"Праздник: {1}",
+"عطلة رسمية: {1}",
+"सार्वजनिक छुट्टी: {1}",
+"Feriado: {1}"
+],
+[
+"^(\\d+) (?:people are|person is) available\\.$",
+"{=1} 人有空。",
+"{=1} 人有空。",
+"{=1} {1|personne est disponible|personnes sont disponibles}.",
+"{=1} {1|persona está disponible|personas están disponibles}.",
+"{=1} {1|человек свободен|человека свободны|человек свободны}.",
+"{=1} {1|شخص متاح|شخصان متاحان|أشخاص متاحون|شخصًا متاحًا|شخص متاح}.",
+"{=1} {1|व्यक्ति उपलब्ध है|लोग उपलब्ध हैं}।",
+"{=1} {1|pessoa está disponível|pessoas estão disponíveis}."
+],
+[
+"^All (\\d+) days$",
+"全部 {=1} 天",
+"全部 {=1} 天",
+"Les {=1} jours",
+"Los {=1} días",
+"Все {=1} {1|день|дня|дней}",
+"كل الأيام ({=1})",
+"सभी {=1} दिन",
+"Todos os {=1} dias"
+],
+[
+"^(\\d+) of (\\d+) days$",
+"{=2} 天中的 {=1} 天",
+"{=2} 天中的 {=1} 天",
+"{=1} jour(s) sur {=2}",
+"{=1} de {=2} días",
+"{=1} из {=2} дн.",
+"{=1} من {=2} أيام",
+"{=2} में से {=1} दिन",
+"{=1} de {=2} dias"
+],
+[
+"^(\\d+) (?:people have|person has) this$",
+"{=1} 人擁有",
+"{=1} 人拥有",
+"{=1} {1|personne l'a|personnes l'ont}",
+"{=1} {1|persona lo tiene|personas lo tienen}",
+"Есть у {=1} {1|человека|человек|человек}",
+"يملكها {=1} {1|شخص|شخصان|أشخاص|شخصًا|شخص}",
+"{=1} {1|व्यक्ति के पास है|लोगों के पास है}",
+"{=1} {1|pessoa tem|pessoas têm}"
+],
+[
+"^(\\d+) items?$",
+"{=1} 件",
+"{=1} 件",
+"{=1} {1|article|articles}",
+"{=1} {1|artículo|artículos}",
+"{=1} {1|предмет|предмета|предметов}",
+"{=1} {1|قطعة|قطعتان|قطع|قطعة|قطعة}",
+"{=1} {1|चीज़|चीज़ें}",
+"{=1} {1|item|itens}"
 ]
 ]
 };

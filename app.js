@@ -360,6 +360,16 @@
     items.forEach(v => { const o = document.createElement("option"); o.value = v; o.textContent = v; el.appendChild(o); });
   };
   const roleOptions = (sel = "") => Object.entries(C.ROLE_GROUPS).map(([g, rs]) => `<optgroup label="${esc(g)}">${rs.map(r => `<option ${r === sel ? "selected" : ""}>${esc(r)}</option>`).join("")}</optgroup>`).join("");
+  const AVAIL_IC = `<svg class="crew-ic" viewBox="0 0 16 16" aria-hidden="true"><circle cx="6.5" cy="4.8" r="2.4"/><path d="M1.8 13.8c0-2.6 2-4.5 4.7-4.5 1 0 1.9.3 2.6.7"/><path d="M9.6 12.3l1.8 1.8 3.2-3.6"/></svg>`;
+  // UK bank holidays (England and Wales): built in for 2025 to 2028, refreshed from GOV.UK when online
+  let BANK_HOL = Object.assign({}, C.BANK_HOLIDAYS || {}, (() => { try { return JSON.parse(localStorage.getItem("cc-bankhol") || "{}").days || {}; } catch (e) { return {}; } })());
+  const bankHol = d => BANK_HOL[d] || "";
+  (() => { let st = {}; try { st = JSON.parse(localStorage.getItem("cc-bankhol") || "{}"); } catch (e) {}
+    if (st.at && Date.now() - st.at < 7 * 864e5) return;
+    fetch("https://www.gov.uk/bank-holidays.json").then(r => r.ok ? r.json() : null).then(j => { if (!j || !j["england-and-wales"]) return;
+      const days = {}; j["england-and-wales"].events.forEach(e => { days[e.date] = String(e.title).replace(/\u2019/g, "'"); });
+      localStorage.setItem("cc-bankhol", JSON.stringify({ at: Date.now(), days })); BANK_HOL = Object.assign({}, C.BANK_HOLIDAYS || {}, days);
+      if (typeof view !== "undefined" && view === "calendar") renderCalendar(); }).catch(() => {}); })();
   const CREW_IC = `<svg class="crew-ic" viewBox="0 0 16 16" aria-hidden="true"><circle cx="6" cy="5" r="2.3"/><path d="M1.8 13.5c0-2.4 1.9-4.2 4.2-4.2s4.2 1.8 4.2 4.2"/><circle cx="11.4" cy="5.6" r="1.8"/><path d="M11 9.4c1.9.2 3.3 1.8 3.3 4"/></svg>`;
   const download = (name, text, type = "text/calendar") => {
     const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([text], { type })); a.download = name;
@@ -515,7 +525,7 @@
     acctMenu.innerHTML = `<p class="am-who"><b>${esc(m.name)}</b><span>${esc(m.email)}</span>${isOwner(m) ? `<span class="tag-admin">Owner</span>` : isAdmin(m) ? `<span class="tag-admin">Admin</span>` : ""}${m.guest ? `<span class="tag-guest">Guest</span>` : ""}</p>
       <p class="am-h">You</p><button data-go="me">My profile</button><button data-myavail>My availability</button><button data-msgs>Messages${msgUnread() ? ` <span class="tab-n">${msgUnread()}</span>` : ""}</button><button data-go="mine">My shoots</button>${isAdmin(m) ? `<button data-go="admin">Admin</button>` : ""}
       <p class="am-h">Projects</p><button data-go="scripts"><span class="am-n" aria-hidden="true">1</span>Develop</button><button data-go="cast"><span class="am-n" aria-hidden="true">2</span>Casting</button><button data-go="projects"><span class="am-n" aria-hidden="true">3</span>Shoot</button><button data-go="post"><span class="am-n" aria-hidden="true">4</span>Post</button><button data-go="release"><span class="am-n" aria-hidden="true">5</span>Release</button>
-      <p class="am-h">More</p><button data-go="calendar">Calendar</button><button data-go="crew">Crew</button><button data-go="fund">Funding</button><button data-go="paid">Paid</button>
+      <p class="am-h">More</p><button data-go="calendar">Calendar</button><button data-go="crew">Crew</button><button data-go="kit">Kit</button><button data-go="fund">Funding</button><button data-go="paid">Paid</button>
       <p class="am-h">Crew Call</p><button data-install>Add to home screen</button><button data-privacy>Privacy notice</button><button data-go="about">About Crew Call</button>
       ${LIVE ? "" : `<button data-switch>Switch sample person</button>`}<button data-signout>Sign out</button>`;
     acctMenu.hidden = !acctMenu.hidden; acctBtn.setAttribute("aria-expanded", String(!acctMenu.hidden));
@@ -662,7 +672,7 @@
 
   // ---------- views ----------
   let view = "calendar", gatedView = null;
-  const GATED = { crew: ["Sign in to find crew", "Crew profiles, availability and contact details are only visible to signed-in LFS members and invited guests."], mine: ["Sign in to see your shoots", "Projects you run, requests you've sent and shoots you're locked on all live here."], me: ["Sign in to set up your profile", "Add your roles, kit and free days so producers can find you."], scripts: ["Sign in to see Develop", "Scripts and producer pitches are only visible to signed-in LFS members, to protect writers' and producers' ideas."], post: ["Sign in to see Post", "Wrapped shoots looking for editors, colourists, sound designers, composers and VFX. Only visible to signed-in members, to protect unfinished films."], release: ["Sign in to see Release", "Wrapped films looking for posters, trailers, press kits and festival plans. Only visible to signed-in members, to protect unreleased films."], fund: ["Sign in to see Funding", "Crowdfunding campaigns for LFS films, with their goals and deadlines. Only visible to signed-in members."], paid: ["Sign in to see paid work", "Paid jobs from students, alumni and industry contacts. Only visible to signed-in members."], admin: ["Admins only", "Sign in with an admin account to manage Crew Call."] };
+  const GATED = { kit: ["Sign in to see kit", "See who has which kit, so you can borrow, lend or share. Only visible to signed-in LFS members and invited guests."], crew: ["Sign in to find crew", "Crew profiles, availability and contact details are only visible to signed-in LFS members and invited guests."], mine: ["Sign in to see your shoots", "Projects you run, requests you've sent and shoots you're locked on all live here."], me: ["Sign in to set up your profile", "Add your roles, kit and free days so producers can find you."], scripts: ["Sign in to see Develop", "Scripts and producer pitches are only visible to signed-in LFS members, to protect writers' and producers' ideas."], post: ["Sign in to see Post", "Wrapped shoots looking for editors, colourists, sound designers, composers and VFX. Only visible to signed-in members, to protect unfinished films."], release: ["Sign in to see Release", "Wrapped films looking for posters, trailers, press kits and festival plans. Only visible to signed-in members, to protect unreleased films."], fund: ["Sign in to see Funding", "Crowdfunding campaigns for LFS films, with their goals and deadlines. Only visible to signed-in members."], paid: ["Sign in to see paid work", "Paid jobs from students, alumni and industry contacts. Only visible to signed-in members."], admin: ["Admins only", "Sign in with an admin account to manage Crew Call."] };
   // Develop, Casting, Shoot, Post and Release sit together under Projects
   const STAGES = ["scripts", "cast", "projects", "post", "release"];
   let lastStage = "projects";
@@ -724,7 +734,7 @@
     const mine = me();
     if (editMine) { if (d < TODAY) return toast("That day has passed"); if (bookedOn(mine.id, d).length) return toast("You're booked on a shoot that day"); toggleDay(mine, d); selDay = d; renderCalendar(); return; }
     selDay = d; renderCalendar();
-    if (narrowCal()) { openModal(`<div class="day-panel day-pop">${dayPanelHtml(d).replace('class="dp-title"', 'id="modalTitle" class="dp-title m-title"')}</div>`); bindOpeners(modalBody); }
+    if (narrowCal()) { openModal(`<div class="day-panel day-pop">${calKeyHtml()}${dayPanelHtml(d).replace('class="dp-title"', 'id="modalTitle" class="dp-title m-title"')}</div>`); bindOpeners(modalBody); }
   }
   // LFS key dates shown on the calendar: enrolment, term starts and ends, and when cohorts finish
   function keyDatesOn(d) {
@@ -751,10 +761,11 @@
     const cell = (d, out) => {
       const ps = calProjects(d), free = showFree && calFree(d).length;
       const myFree = mine && mine.days.includes(d), myBooked = mine && bookedOn(mine.id, d).length;
-      return { ps, free, myFree, myBooked, cls: [d === TODAY && "today", d === selDay && !editMine && "sel", d < TODAY && "past", out && "out", myFree && "mine", myBooked && "mine-booked"].filter(Boolean).join(" ") };
+      return { ps, free, myFree, myBooked, cls: [d === TODAY && "today", d === selDay && !editMine && "sel", d < TODAY && "past", out && "out", myFree && "mine", myBooked && "mine-booked", bankHol(d) && "hol"].filter(Boolean).join(" ") };
     };
     const meTag = c => (mine && (c.myFree || c.myBooked) ? `<span class="me-tag">${c.myBooked ? "You: booked" : "You: free"}</span>` : "");
-    const crewTag = c => (c.free ? `<span class="avail-ic" title="Crew available">${CREW_IC}</span>` : "");
+    const crewTag = c => (c.free ? `<span class="avail-ic" title="Crew available">${AVAIL_IC}</span>` : "");
+    const holTag = d => (bankHol(d) ? `<span class="cal-hol" title="Bank holiday: ${esc(bankHol(d))}">${esc(bankHol(d))}</span>` : "");
     let html = "";
     const wkHead = `<div class="cal-grid-head" aria-hidden="true">${["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].map(x => `<span>${x}</span>`).join("")}</div>`;
     if (calMode === "week") {
@@ -763,7 +774,7 @@
       for (let i = 0; i < 7; i++) {
         const d = addDays(ws, i), c = cell(d, false), dd = D(d);
         html += `<div class="wk-col ${c.cls}">
-          <button class="wk-head" data-day="${d}" aria-label="${fmtDay(d)}${c.free ? ", crew available" : ""}"><span class="wk-dow">${WD[dd.getUTCDay()]}</span><span class="wk-num">${dd.getUTCDate()}</span>${crewTag(c)}</button>${keyDatesOn(d).map(k => `<span class="cal-key">${esc(k)}</span>`).join("")}
+          <button class="wk-head" data-day="${d}" aria-label="${fmtDay(d)}${c.free ? ", crew available" : ""}"><span class="wk-dow">${WD[dd.getUTCDay()]}</span><span class="wk-num">${dd.getUTCDate()}</span>${crewTag(c)}</button>${holTag(d)}${keyDatesOn(d).map(k => `<span class="cal-key">${esc(k)}</span>`).join("")}
           <div class="wk-items">${c.ps.length ? c.ps.map(p => { const inf = dayInfo(p, d); return `<button class="wk-item" data-proj="${p.id}" style="--c:${projColor(p)}"><span class="wk-t">${esc(p.title)}</span><span class="wk-time mono">${callWrap(inf)}</span><span class="wk-loc">${esc(locName(p, inf.loc))}</span>${openRoles(p).length ? `<span class="wk-open">${openRoles(p).length} open</span>` : `<span class="wk-open done">Crewed</span>`}</button>`; }).join("") : `<p class="wk-empty">No shoots</p>`}</div>
           ${meTag(c)}</div>`;
       }
@@ -786,8 +797,8 @@
           if (out && stacked) { cells += `<span class="cal-cell blank" aria-hidden="true"></span>`; continue; }
           const c = cell(d, out);
           const chips = c.ps.slice(0, 3).map(p => `<span class="cal-chip" style="--c:${projColor(p)}"><span class="cal-chip-t">${esc(p.title)}</span>${openRoles(p).length ? `<span class="cal-chip-n">${openRoles(p).length}</span>` : ""}</span>`).join("");
-          cells += `<button class="cal-cell ${c.cls}" data-day="${d}" aria-label="${fmtDay(d)}: ${c.ps.length} shoot${c.ps.length === 1 ? "" : "s"}${c.free ? ", crew available" : ""}">
-            <span class="cal-num">${dd.getUTCDate()}</span>${(kd => kd.length ? `<span class="cal-key" title="${esc(kd.join(", "))}">${esc(kd[0])}${kd.length > 1 ? ` +${kd.length - 1}` : ""}</span>` : "")(keyDatesOn(d))}<span class="cal-chips">${chips}${c.ps.length > 3 ? `<span class="cal-more">+${c.ps.length - 3} more</span>` : ""}</span>${meTag(c)}${crewTag(c)}</button>`;
+          cells += `<button class="cal-cell ${c.cls}" data-day="${d}" aria-label="${fmtDay(d)}: ${c.ps.length} shoot${c.ps.length === 1 ? "" : "s"}${c.free ? ", crew available" : ""}${c.myBooked ? ", you're booked" : ""}${bankHol(d) ? ", bank holiday" : ""}">
+            <span class="cal-num">${dd.getUTCDate()}</span>${holTag(d)}${(kd => kd.length ? `<span class="cal-key" title="${esc(kd.join(", "))}">${esc(kd[0])}${kd.length > 1 ? ` +${kd.length - 1}` : ""}</span>` : "")(keyDatesOn(d))}<span class="cal-chips">${chips}${c.ps.length > 3 ? `<span class="cal-more">+${c.ps.length - 3} more</span>` : ""}</span>${meTag(c)}${crewTag(c)}</button>`;
         }
         html += `<section class="cal-month" aria-label="${mName(m)}">${stacked ? `<h2 class="cal-mh">${mName(m)}</h2>` : ""}${wkHead}<div class="${gcls}">${cells}</div></section>`;
       }
@@ -798,11 +809,20 @@
     }
     renderDayPanel();
   }
-  function renderDayPanel() { $("#dayPanel").innerHTML = dayPanelHtml(selDay); bindOpeners($("#dayPanel")); }
+  function renderDayPanel() { $("#calKeyTop").innerHTML = calKeyHtml(); $("#dayPanel").innerHTML = calKeyHtml() + dayPanelHtml(selDay); bindOpeners($("#dayPanel")); }
+  const calKeyHtml = () => `<div class="cal-keybox" aria-label="Key"><p class="eyebrow">Key</p><ul class="cal-keys">
+      <li><span class="k-sw k-shoot"></span>Shoot (number = open roles)</li>
+      <li><span class="k-ic">${AVAIL_IC}</span>Crew available</li>
+      ${me() ? `<li><span class="k-sw k-booked"></span>You're booked</li><li><span class="k-tag">You: free</span>You marked it free</li>` : ""}
+      <li><span class="k-sw k-hol"></span>UK bank holiday</li>
+      <li><span class="k-sw k-school"></span>School date</li>
+      <li><span class="k-sw k-today">9</span>Today</li></ul></div>`;
   function dayPanelHtml(d) {
-    const ps = calProjects(d), free = calFree(d), role = $("#calRole").value;
+    const ps = calProjects(d), free = calFree(d), role = $("#calRole").value, mine = me(), booked = mine ? bookedOn(mine.id, d) : [];
     return `
       <div class="dp-head"><p class="eyebrow">${d === TODAY ? "Today" : "Selected day"}</p><h2 class="dp-title">${fmtDay(d)}</h2></div>
+      ${booked.length ? `<p class="dp-booked">You're booked on ${booked.map(p => `<button class="link-btn" data-proj="${p.id}">${esc(p.title)}</button>`).join(", ")}</p>` : ""}
+      ${bankHol(d) ? `<p class="dp-hol">Bank holiday: ${esc(bankHol(d))}</p>` : ""}
       ${(k => k.length ? `<h3 class="dp-sub">School dates</h3><ul class="dp-key">${k.map(x => `<li>${esc(x)}</li>`).join("")}</ul>` : "")(keyDatesOn(d))}
       <h3 class="dp-sub">Shooting <span class="count">${ps.length}</span></h3>
       ${ps.length ? ps.map(p => { const inf = dayInfo(p, d); return `
@@ -811,10 +831,9 @@
           <span class="dp-proj-m"><span class="mono">Call ${inf.call} · Wrap ${inf.wrap}</span> · ${esc(locName(p, inf.loc))}</span>
           <span class="dp-proj-r">${openRoles(p).length ? `${openRoles(p).length} open: ${esc([...new Set(openRoles(p).map(r => r.role))].slice(0, 4).join(", "))}` : "Fully crewed"}</span>
         </button>`; }).join("") : `<p class="empty-sm">No shoots${role ? ` needing a ${esc(role)}` : ""} on this day.</p>`}
-      <h3 class="dp-sub">Free ${role ? esc(role) + "s" : "crew"} <span class="count">${free.length}</span></h3>
-      ${!me() ? `<p class="empty-sm">${free.length} ${free.length === 1 ? "person is" : "people are"} free. <button class="link-btn" data-signin>Sign in</button> to see who.</p>` :
-        free.length ? `<ul class="dp-crew">${free.map(s => `<li><button class="dp-person" data-student="${s.id}"><span class="avatar">${initials(s.name)}</span>
-          <span><span class="dp-person-n">${esc(s.name)} <span class="term-tag">${esc(tLabel(s))}</span></span><span class="dp-person-r">${esc(s.roles.join(" · "))}${s.kit.length ? ` <span class="kit-flag">Kit</span>` : ""}</span></span></button></li>`).join("")}</ul>`
+      <h3 class="dp-sub"><span class="dp-av">${AVAIL_IC}</span>Available ${role ? esc(role) + "s" : "crew"} <span class="count">${free.length}</span></h3>
+      ${!mine ? `<p class="empty-sm">${free.length} ${free.length === 1 ? "person is" : "people are"} available. <button class="link-btn" data-signin>Sign in</button> to see who.</p>` :
+        free.length ? `<ul class="dp-names">${free.map(s => `<li><button class="dp-name" data-student="${s.id}">${esc(s.name)}</button></li>`).join("")}</ul>`
         : `<p class="empty-sm">Nobody${role ? ` who does ${esc(role)}` : ""} has marked this day free.</p>`}`;
   }
 
@@ -1446,8 +1465,8 @@
   fillDepts();
   const crewRoles = new Set();
   let crewTs = null;
-  const availBadge = (s, n, days) => days ? (n === days.length ? `<span class="badge badge-free">Free all ${days.length} day${days.length > 1 ? "s" : ""}</span>` : n > 0 ? `<span class="badge badge-part">Free ${n} of ${days.length} days</span>` : `<span class="badge badge-off">Open to offers</span>`)
-    : (nextFree(s) ? `<span class="badge badge-free">Free ${esc(nextFree(s))}</span>` : `<span class="badge badge-off">${s.openToOffers ? "Open to offers" : "No dates set"}</span>`);
+  const availBadge = (s, n, days) => days ? (n === days.length ? `<span class="badge badge-free">${days.length === 1 ? "That day" : `All ${days.length} days`}</span>` : n > 0 ? `<span class="badge badge-part">${n} of ${days.length} days</span>` : `<span class="badge badge-off">Open to offers</span>`)
+    : (nextFree(s) ? `<span class="badge badge-free">${esc(nextFree(s))}</span>` : `<span class="badge badge-off">${s.openToOffers ? "Open to offers" : "No dates set"}</span>`);
   const crewContact = s => me() && s.id === me().id ? `<span class="muted small">This is you</span>` : emailVisible(s) ? `<a class="btn btn-accent btn-xs" href="${mailto(s.email, "Crewing up: are you free?", `Hi ${first(s.name)},\n\nI found you on Crew Call. `)}" target="_blank" rel="noopener">Email</a>` : `<button class="btn btn-accent btn-xs" data-msg="${s.id}">Message</button>`;
   // [label, (row, days) => html, class, sort key, full text on hover]
   // Every row is the same height: anything that doesn't fit is cut off with … and shown in full on hover or in the profile
@@ -1482,10 +1501,10 @@
   const CREW_COLS_ALL = [
     ["Name", x => `<button class="link-btn bt-t" data-student="${x.s.id}">${esc(x.s.name)}${prefTag(x.s)}</button>${x.s.guest ? ` <span class="tag-guest">Guest</span>` : ""}<span class="bt-sub">${esc(x.s.pathway)}</span>`, "cw-name", x => x.s.name, x => [x.s.name, x.s.pref, x.s.pathway].filter(Boolean).join(" · "), "name"],
     ["Departments", x => famIcons(x.s), "cw-dept", x => { const f = famsOf(x.s)[0]; return f ? FAM_ORDER.indexOf(f[0]) : 99; }, null, "dept"],
-    ["Main role", x => x.s.primary ? `<span class="chip chip-primary ${crewRoles.has(x.s.primary) ? "chip-hit" : ""}">${esc(x.s.primary)}</span>` : `<span class="muted small">None</span>`, "cw-main", x => x.s.primary || "~", x => x.s.primary || "", "main"],
-    ["Also does", x => { const o = x.s.roles.filter(r => r !== x.s.primary); if (!o.length) return `<span class="muted small">None</span>`; const hit = o.filter(r => crewRoles.has(r)), rest = o.filter(r => !crewRoles.has(r)), sh = [...hit, ...rest]; return `<span class="chips-1">${roleChips(sh.slice(0, 1))}${sh.length > 1 ? `<span class="more-n">+${sh.length - 1}</span>` : ""}</span>`; }, "cw-also", x => x.s.roles.filter(r => r !== x.s.primary).length ? -x.s.roles.length : 1, x => x.s.roles.filter(r => r !== x.s.primary).join(", "), "also"],
-    ["Free", (x, days) => availBadge(x.s, x.n, days), "cw-free", x => x.n != null ? -x.n : (x.s.avail.find(r => r.to >= TODAY) || { from: "9999" }).from, null, "free"],
-    ["Kit", x => x.s.kit.length ? esc(x.s.kit.map(k => k.item).join(", ")) : `<span class="muted">None</span>`, "small cw-kit", x => -x.s.kit.length, x => x.s.kit.map(k => k.item).join(", "), "kit"],
+    ["Main role", x => x.s.primary ? `<span class="chip chip-primary ${crewRoles.has(x.s.primary) ? "chip-hit" : ""}">${esc(x.s.primary)}</span>` : `<span class="muted small">None</span>`, "cw-main", x => x.s.primary || "~", x => x.s.primary || "", "main", true],
+    ["Also does", x => { const o = x.s.roles.filter(r => r !== x.s.primary); if (!o.length) return `<span class="muted small">None</span>`; const hit = o.filter(r => crewRoles.has(r)), rest = o.filter(r => !crewRoles.has(r)), sh = [...hit, ...rest]; return `<span class="chips-1">${roleChips(sh.slice(0, 1))}${sh.length > 1 ? `<span class="more-n">+${sh.length - 1}</span>` : ""}</span>`; }, "cw-also", x => x.s.roles.filter(r => r !== x.s.primary).length ? -x.s.roles.length : 1, x => x.s.roles.filter(r => r !== x.s.primary).join(", "), "also", true],
+    ["Available", (x, days) => availBadge(x.s, x.n, days), "cw-free", x => x.n != null ? -x.n : (x.s.avail.find(r => r.to >= TODAY) || { from: "9999" }).from, null, "free"],
+    ["Kit", x => x.s.kit.length ? esc(x.s.kit.map(k => k.item).join(", ")) : `<span class="muted">None</span>`, "small cw-kit", x => -x.s.kit.length, x => x.s.kit.map(k => k.item).join(", "), "kit", true],
     ["Credits", x => String(creditsOf(x.s).length), "mono small cw-cred", x => -creditsOf(x.s).length, null, "credits"],
     ["Based in", x => x.s.based ? esc(x.s.based) : `<span class="muted">Not set</span>`, "small cw-based", x => (x.s.based || "~").toLowerCase(), x => [x.s.based, x.s.from ? "from " + x.s.from : ""].filter(Boolean).join(", "), "based", true],
     ["Term", x => `<span class="term-tag">${esc(tLabel(x.s))}</span>`, "small cw-term", x => C.TERMS.indexOf(x.s.term), x => tLabel(x.s), "term", true],
@@ -2043,7 +2062,7 @@
   }
   // anyone signed in can suggest a better translation; it goes to admins with the Terms and lists permission
   // where someone is in the app, in English, so admins can find the words
-  const VIEW_NAMES = { calendar: "Calendar", projects: "Shoot", scripts: "Develop", post: "Post", release: "Release", paid: "Paid", crew: "Crew", mine: "My shoots", me: "My profile", admin: "Admin", about: "About", gate: "Sign-in page" };
+  const VIEW_NAMES = { calendar: "Calendar", projects: "Shoot", scripts: "Develop", post: "Post", release: "Release", paid: "Paid", crew: "Crew", kit: "Kit", mine: "My shoots", me: "My profile", admin: "Admin", about: "About", gate: "Sign-in page" };
   const ADMIN_NAMES = { home: "Overview", access: "Access", handover: "Handover", projects: "Projects", reports: "Reports", news: "Newsletter", langs: "Languages", terms: "Terms and cohorts", lists: "Lists", email: "Email", privacy: "Privacy and data", activity: "Activity" };
   const pageName = () => { let n = VIEW_NAMES[view] || view; if (view === "admin") n += ", " + (ADMIN_NAMES[adminTab] || adminTab); return n; };
   function spotOf(el) {
@@ -4353,6 +4372,57 @@ ${LIVE ? "" : `<label class="toggle"><input type="checkbox" data-aus="autoSend" 
     wire($("#talList"));
   }
 
+  // ---------- KIT: everyone's listed kit, grouped so you can see how many have the same ----------
+  // "Aputure 300d II, 2x Amaran 200x" counts as two items. Matching ignores case, spacing, punctuation and quantities like 2x.
+  const kitSplit = t => String(t || "").split(/\s*(?:,|\+|;|\s&\s|\sand\s)\s*/i).map(x => x.replace(/^\s*(?:\d+\s*[x×]|[x×]\s*\d+)\s*/i, "").replace(/\s+(?:[x×]\s*\d+)\s*$/i, "").trim()).filter(x => x.length > 1);
+  const kitKey = x => x.toLowerCase().replace(/[^\p{L}\p{N}]+/gu, "");
+  function kitItems() {
+    const m = new Map();
+    S.students.filter(listed).forEach(s => s.kit.forEach(k => kitSplit(k.item).forEach(name => {
+      const key = kitKey(name); if (!key) return;
+      if (!m.has(key)) m.set(key, { key, names: {}, cats: {}, owners: new Map() });
+      const g = m.get(key); g.names[name] = (g.names[name] || 0) + 1; g.cats[k.cat] = (g.cats[k.cat] || 0) + 1;
+      if (!g.owners.has(s.id)) g.owners.set(s.id, { s, text: k.item });
+    })));
+    const top = o => Object.entries(o).sort((a, b) => b[1] - a[1])[0][0];
+    return [...m.values()].map(g => ({ key: g.key, name: top(g.names), cat: top(g.cats), owners: [...g.owners.values()].sort((a, b) => a.s.name.localeCompare(b.s.name)) }));
+  }
+  $("#kitCatF").innerHTML = `<option value="">All kit</option>` + C.KIT_CATS.map(c => `<option value="${esc(c)}">${esc(c)}</option>`).join("");
+  ["#kitQ", "#kitCatF", "#kitSort"].forEach(x => $(x).addEventListener("input", () => renderKit()));
+  $("#kitAddMine").addEventListener("click", () => { setView("me"); showMeTab("kit"); });
+  let kitTs = null;
+  $("#kitList").addEventListener("click", e => {
+    const t = e.target.closest("[data-tsort]"); if (t) { const i = +t.dataset.tsort; kitTs = kitTs && kitTs.i === i ? (kitTs.dir > 0 ? { i, dir: -1 } : null) : { i, dir: 1 }; return renderKit(); }
+    const b = e.target.closest("[data-kit]"); if (b) openKit(b.dataset.kit);
+  });
+  const ownerLine = o => { const n = o.length, shown = o.slice(0, 3).map(x => first(x.s.name)); return esc(shown.join(", ")) + (n > 3 ? ` +${n - 3}` : ""); };
+  const KIT_COLS = [
+    ["Kit", x => `<button type="button" class="link-btn bt-t" data-kit="${esc(x.key)}">${esc(x.name)}</button>`, "kw-item", x => x.name.toLowerCase()],
+    ["Type", x => esc(x.cat), "small kw-cat", x => C.KIT_CATS.indexOf(x.cat)],
+    ["People", x => `<span class="kit-n${x.owners.length > 1 ? " many" : ""}">${x.owners.length}</span>`, "kw-n", x => -x.owners.length],
+    ["Who has it", x => `<span class="small">${ownerLine(x.owners)}</span>`, "kw-who", x => x.owners[0].s.name],
+    ["", x => `<button type="button" class="btn btn-ghost btn-xs" data-kit="${esc(x.key)}">See who</button>`, "kw-act", x => 0]
+  ];
+  function renderKit() {
+    const q = kitKey($("#kitQ").value), cat = $("#kitCatF").value, srt = $("#kitSort").value;
+    let list = kitItems().filter(x => !cat || x.cat === cat).filter(x => !q || x.key.includes(q) || x.owners.some(o => kitKey(o.text).includes(q)));
+    list.sort(srt === "az" ? (a, b) => a.name.localeCompare(b.name) : (a, b) => b.owners.length - a.owners.length || a.name.localeCompare(b.name));
+    const tc = kitTs && KIT_COLS[kitTs.i]; if (tc) list = list.map(x => [tc[3](x), x]).sort((a, b) => cmpKey(a[0], b[0]) * kitTs.dir).map(x => x[1]);
+    const people = new Set(list.flatMap(x => x.owners.map(o => o.s.id))).size;
+    $("#kitMeta").innerHTML = `<span>${list.length} ${list.length === 1 ? "item" : "items"}</span> · <span>${people} ${people === 1 ? "person" : "people"}</span>`;
+    $("#kitList").innerHTML = list.length ? tableHtml({ color: () => "transparent", cols: KIT_COLS.map(c => [c[0], x => `<div class="cell">${c[1](x)}</div>`, c[2], c[3]]) }, list, kitTs)
+      : `<div class="empty"><p class="empty-t">No kit matches.</p><p class="muted">Try another word, or add your own kit so others can find it.</p></div>`;
+  }
+  function openKit(key) {
+    const x = kitItems().find(k => k.key === key); if (!x) return;
+    const m = me();
+    openModal(`<h2 id="modalTitle" class="m-title">${esc(x.name)}</h2>
+      <p class="muted">${esc(x.cat)} · ${x.owners.length === 1 ? "1 person has this" : `${x.owners.length} people have this`}</p>
+      <p class="small kit-tip">Ask to borrow, lend or share. Agree who looks after it and when it comes back before it leaves.</p>
+      <ul class="kit-owners">${x.owners.map(o => `<li><button type="button" class="kit-who" data-student="${o.s.id}"><span class="avatar">${initials(o.s.name)}</span><span><span class="dp-person-n">${esc(o.s.name)}${o.s.id === (m && m.id) ? ` <span class="muted small">(you)</span>` : ""}</span>${kitKey(o.text) !== key ? `<span class="dp-person-r">${esc(o.text)}</span>` : ""}</span></button>${crewContact(o.s)}</li>`).join("")}</ul>`);
+    bindOpeners(modalBody);
+  }
+
   function render() {
     if (view === "about") renderAbout();
     if (view === "calendar") renderCalendar();
@@ -4360,6 +4430,7 @@ ${LIVE ? "" : `<label class="toggle"><input type="checkbox" data-aus="autoSend" 
     if (view === "cast") renderCast();
     if (!me()) return;
     if (view === "crew") renderCrew();
+    if (view === "kit") renderKit();
     if (view === "mine") renderMine();
     if (view === "me") loadMe();
     if (view === "admin") renderAdmin();
@@ -4376,7 +4447,7 @@ ${LIVE ? "" : `<label class="toggle"><input type="checkbox" data-aus="autoSend" 
   function openHash() {
     const h = decodeURIComponent(location.hash.slice(1)); if (!h) return;
     const [a, b] = h.split("/");
-    const views = { calendar: "calendar", develop: "scripts", scripts: "scripts", shoot: "projects", projects: "projects", post: "post", release: "release", funding: "fund", fund: "fund", casting: "cast", cast: "cast", paid: "paid", crew: "crew", mine: "mine", me: "me", admin: "admin" };
+    const views = { calendar: "calendar", develop: "scripts", scripts: "scripts", shoot: "projects", projects: "projects", post: "post", release: "release", funding: "fund", fund: "fund", casting: "cast", cast: "cast", paid: "paid", crew: "crew", kit: "kit", mine: "mine", me: "me", admin: "admin" };
     if ((a === "msg" || a === "messages") && me()) { if (b) openThread(b); else openMessages(); history.replaceState(null, "", location.pathname + location.search); return; }
     if (a === "p" && b) { const p = project(b); if (p) { setView("calendar"); openProject(p.id); } else toast("That project isn't on Crew Call any more"); }
     else if (views[a]) { setView(views[a]); if (a === "me" && b) { showMeTab(b === "notifications" ? "settings" : b); setTimeout(() => { const el = $(b === "days" ? "#daysFs" : b === "notifications" ? "#notifyFs" : ""); if (el) el.scrollIntoView({ block: "start" }); }, 60); } }
