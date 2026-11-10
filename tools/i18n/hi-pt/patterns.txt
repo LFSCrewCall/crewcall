@@ -321,3 +321,5 @@
 ^(\d+) groups? · (\d+) new$ || {=1} समूह · {=2} नई || {=1} {1|grupo|grupos} · {=2} {2|nova|novas}
 ^Main role: (.+)$ || मुख्य रोल: {1} || Função principal: {1}
 ^(\d+) other roles?$ || {=1} और {1|रोल|रोल} || {=1} {1|outra função|outras funções}
+^(\d+) months?$ || {=1} {1|महीना|महीने} || {=1} {1|mês|meses}
+^Show the next (\d+) months$ || अगले {=1} महीने दिखाएँ || Mostrar os próximos {=1} meses

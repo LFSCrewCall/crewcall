@@ -1,0 +1,12 @@
+# v23: stacked calendar, crew columns, current credits
+Departments || विभाग || Departamentos
+Columns || कॉलम || Colunas
+Show extra columns || और कॉलम दिखाएँ || Mostrar mais colunas
+Scroll the table || टेबल स्क्रॉल करें || Rolar a tabela
+Scroll left || बाएँ स्क्रॉल करें || Rolar para a esquerda
+Scroll right || दाएँ स्क्रॉल करें || Rolar para a direita
+Current || अभी चल रहा || Atual
+No credits yet || अभी कोई क्रेडिट नहीं || Ainda sem créditos
+Once you're locked on a shoot, it's added here automatically. You don't have to wait for it to wrap. || जैसे ही आप किसी शूट पर पक्के होते हैं, वह यहाँ अपने-आप जुड़ जाता है। शूट खत्म होने का इंतज़ार नहीं करना पड़ता। || Assim que você é confirmado numa filmagem, ela é adicionada aqui automaticamente. Não precisa esperar terminar.
+main role || मुख्य रोल || função principal
+Writing || लेखन || Roteiro

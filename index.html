@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Crew Call — MA film projects and crew</title>
 <meta name="description" content="Post film projects, see every shoot on one calendar, and find classmates available for the roles you need.">
-<link rel="stylesheet" href="vendor/fonts/fonts.css?v=22">
-<link rel="stylesheet" href="style.css?v=22">
+<link rel="stylesheet" href="vendor/fonts/fonts.css?v=23">
+<link rel="stylesheet" href="style.css?v=23">
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#000000">
 <link rel="icon" href="icons/icon-192.png" type="image/png">
@@ -58,7 +58,7 @@
         <h1 id="monthLabel" class="page-title">Month</h1>
         <button class="icon-btn" id="nextMonth" aria-label="Next month">›</button>
         <button class="btn btn-ghost btn-sm" id="todayBtn">Today</button>
-        <div class="seg seg-btn" role="group" aria-label="Calendar view"><button type="button" id="modeMonth" aria-pressed="true">Month</button><button type="button" id="modeWeek" aria-pressed="false">Week</button></div>
+        <div class="seg seg-btn" role="group" aria-label="Calendar view"><button type="button" data-calmode="6" aria-pressed="true">6 months</button><button type="button" data-calmode="3" aria-pressed="false">3 months</button><button type="button" data-calmode="1" id="modeMonth" aria-pressed="false">1 month</button><button type="button" data-calmode="week" id="modeWeek" aria-pressed="false">Week</button></div>
       </div>
       <div class="cal-filters">
         <label class="field-inline">
@@ -77,10 +77,7 @@
     </div>
     <div class="cal-layout">
       <div class="cal-wrap">
-        <div class="cal-grid-head" aria-hidden="true">
-          <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
-        </div>
-        <div class="cal-grid" id="calGrid"></div>
+        <div class="cal-months" id="calGrid"></div>
         <p class="legend"><span class="lg"><span class="dot dot-shoot"></span>Shoot day (number = open roles)</span><span class="lg"><span class="crew-key" aria-hidden="true"><svg class="crew-ic" viewBox="0 0 16 16"><circle cx="6" cy="5" r="2.3"/><path d="M1.8 13.5c0-2.4 1.9-4.2 4.2-4.2s4.2 1.8 4.2 4.2"/><circle cx="11.4" cy="5.6" r="1.8"/><path d="M11 9.4c1.9.2 3.3 1.8 3.3 4"/></svg></span>Crew available that day (matches filters)</span></p>
       </div>
       <aside class="day-panel" id="dayPanel" aria-live="polite"></aside>
@@ -112,7 +109,9 @@
       <div class="crew-bar2" id="crewRoleChips"></div>
     </div>
     <div class="crew-meta-row"><p class="result-meta" id="crewMeta"></p>
-      <div class="crew-ctl"><label class="fsort"><span>Sort</span><select id="crewSort" aria-label="Sort crew"><option value="best">Best match</option><option value="name">Name A–Z</option><option value="updated">Recently updated</option><option value="credits">Most credits</option><option value="kit">Most kit</option></select></label></div></div>
+      <div class="crew-ctl"><label class="fsort"><span>Sort</span><select id="crewSort" aria-label="Sort crew"><option value="name" selected>Name A–Z</option><option value="best">Best match</option><option value="updated">Recently updated</option><option value="credits">Most credits</option><option value="kit">Most kit</option></select></label>
+        <div class="colmenu" id="crewColMenu"><button type="button" class="btn btn-ghost btn-sm" id="crewColBtn" aria-haspopup="true" aria-expanded="false">Columns</button><div class="colmenu-pop" id="crewColPop" hidden><p class="small muted">Show extra columns</p></div></div>
+        <span class="tbl-scroll" aria-label="Scroll the table" role="group"><button type="button" class="icon-btn" data-tscroll="-1" aria-label="Scroll left">‹</button><button type="button" class="icon-btn" data-tscroll="1" aria-label="Scroll right">›</button></span></div></div>
     <div class="blist-table crew-tbl" id="crewList"></div>
   </section>
 
@@ -275,11 +274,11 @@
 </div>
 <div class="toast" id="toast" role="status" hidden></div>
 
-<script src="data.js?v=22"></script>
+<script src="data.js?v=23"></script>
 <script src="config.js"></script>
-<script src="emails/digest-template.js?v=22"></script>
-<script src="emails/newsletter-template.js?v=22"></script>
+<script src="emails/digest-template.js?v=23"></script>
+<script src="emails/newsletter-template.js?v=23"></script>
 <!-- cloud.js loads app.js, i18n-dict.js and i18n.js once the data is ready -->
-<script src="cloud.js?v=22"></script>
+<script src="cloud.js?v=23"></script>
 </body>
 </html>

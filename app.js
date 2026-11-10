@@ -226,9 +226,10 @@
   const updatedLabel = st => { if (!st.updated) return ""; const n = Math.round((D(TODAY) - D(st.updated)) / 864e5); return n <= 0 ? "Updated today" : n === 1 ? "Updated yesterday" : `Updated ${n} days ago`; };
   const toggleDay = (st, d, on) => { const has = st.days.includes(d); const want = on === undefined ? !has : on; if (want && !has) st.days.push(d); if (!want && has) st.days = st.days.filter(x => x !== d); syncAvail(st); st.updated = TODAY; };
   const nextFree = s => { const f = (s.avail || []).filter(r => r.to >= TODAY); return f.length ? f.map(r => fmtRange({ from: r.from < TODAY ? TODAY : r.from, to: r.to })).slice(0, 2).join(", ") : null; };
-  const creditsOf = s => S.projects.filter(p => !p.archived && isPast(p)).flatMap(p => [
-    ...p.roles.filter(r => r.filledBy === s.id).map(r => ({ p, role: r.role, character: r.character || "" })),
-    ...p.shadows.filter(x => x.sid === s.id).map(x => ({ p, role: x.role, shadow: true }))
+  // Credits include shoots that are still going (locked on, not wrapped yet), marked Current
+  const creditsOf = s => S.projects.filter(p => !p.archived).flatMap(p => [
+    ...p.roles.filter(r => r.filledBy === s.id).map(r => ({ p, role: r.role, character: r.character || "", current: !isPast(p) })),
+    ...p.shadows.filter(x => x.sid === s.id).map(x => ({ p, role: x.role, shadow: true, current: !isPast(p) }))
   ]).concat((S.releases || []).filter(x => x.pid && project(x.pid)).flatMap(x => x.attached.filter(t => t.sid === s.id).map(t => ({ p: project(x.pid), role: t.need, release: true }))))
     .concat((S.posts || []).filter(x => x.pid && project(x.pid)).flatMap(x => x.attached.filter(t => t.sid === s.id).map(t => ({ p: project(x.pid), role: POST_CREDIT[t.need] || t.need, post: true }))))
     .sort((a, b) => b.p.shoots[0].from.localeCompare(a.p.shoots[0].from));
@@ -687,19 +688,26 @@
   $$("#stageTabs [data-stage]").forEach(b => b.addEventListener("click", () => setView(b.dataset.stage)));
 
   // ---------- CALENDAR ----------
-  let calMonth = TODAY.slice(0, 7) + "-01", selDay = TODAY, calMode = "month", editMine = false;
+  // calMode: "6", "3" or "1" months stacked from calMonth down, or "week". 6 months is the default; the choice is remembered on this device.
+  let calMonth = TODAY.slice(0, 7) + "-01", selDay = TODAY, calMode = (k => ["6", "3", "1", "week"].includes(k) ? k : "6")(localStorage.getItem("cc-calmode")), editMine = false;
+  const monthAdd = (m, n) => { const d = D(m); d.setUTCMonth(d.getUTCMonth() + n); return iso(d); };
+  const narrowCal = () => window.innerWidth <= 1080;
   fillSelect($("#calRole"), allRoles());
   fillSelect($("#calTerm"), C.TERMS);
   const shift = n => {
     if (calMode === "week") { selDay = addDays(selDay, 7 * n); calMonth = selDay.slice(0, 7) + "-01"; }
-    else { const d = D(calMonth); d.setUTCMonth(d.getUTCMonth() + n); calMonth = iso(d); }
+    else calMonth = monthAdd(calMonth, n);
     renderCalendar();
   };
   $("#prevMonth").onclick = () => shift(-1);
   $("#nextMonth").onclick = () => shift(1);
-  $("#todayBtn").onclick = () => { calMonth = TODAY.slice(0, 7) + "-01"; selDay = TODAY; renderCalendar(); };
-  $("#modeMonth").onclick = () => { calMode = "month"; calMonth = selDay.slice(0, 7) + "-01"; renderCalendar(); };
-  $("#modeWeek").onclick = () => { calMode = "week"; if (selDay.slice(0, 7) !== calMonth.slice(0, 7)) selDay = calMonth; renderCalendar(); };
+  $("#todayBtn").onclick = () => { calMonth = TODAY.slice(0, 7) + "-01"; selDay = TODAY; renderCalendar(); const g = $("#calGrid"); if (g.getBoundingClientRect().top < 0) $("#view-calendar").scrollIntoView({ block: "start" }); };
+  $$("[data-calmode]").forEach(b => b.addEventListener("click", () => {
+    const was = calMode; calMode = b.dataset.calmode; localStorage.setItem("cc-calmode", calMode);
+    if (calMode === "week") { const end = monthAdd(calMonth, +was || 1), inView = d => d >= calMonth && d < end; if (was !== "week" && !inView(selDay)) selDay = inView(TODAY) ? TODAY : calMonth; }
+    else if (was === "week") calMonth = selDay.slice(0, 7) + "-01";
+    renderCalendar();
+  }));
   ["#calRole", "#calTerm", "#calShowFree"].forEach(s => $(s).addEventListener("change", renderCalendar));
   $("#editMineBtn").addEventListener("click", () => { if (!me()) return openSignIn("Sign in to mark the days you're free."); editMine = !editMine; renderCalendar(); });
   $("#syncBtn").addEventListener("click", openSync);
@@ -715,7 +723,8 @@
   function dayClick(d) {
     const mine = me();
     if (editMine) { if (d < TODAY) return toast("That day has passed"); if (bookedOn(mine.id, d).length) return toast("You're booked on a shoot that day"); toggleDay(mine, d); selDay = d; renderCalendar(); return; }
-    selDay = d; renderCalendar(); if (window.innerWidth < 960) $("#dayPanel").scrollIntoView({ behavior: "smooth", block: "start" });
+    selDay = d; renderCalendar();
+    if (narrowCal()) { openModal(`<div class="day-panel day-pop">${dayPanelHtml(d).replace('class="dp-title"', 'id="modalTitle" class="dp-title m-title"')}</div>`); bindOpeners(modalBody); }
   }
   // LFS key dates shown on the calendar: enrolment, term starts and ends, and when cohorts finish
   function keyDatesOn(d) {
@@ -731,17 +740,14 @@
   }
   function renderCalendar() {
     const mine = me(); if (!mine) editMine = false;
-    $("#modeMonth").setAttribute("aria-pressed", String(calMode === "month"));
-    $("#modeWeek").setAttribute("aria-pressed", String(calMode === "week"));
+    $$("[data-calmode]").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.calmode === calMode)));
     $("#prevMonth").setAttribute("aria-label", calMode === "week" ? "Previous week" : "Previous month");
     $("#nextMonth").setAttribute("aria-label", calMode === "week" ? "Next week" : "Next month");
     $("#editMineBtn").setAttribute("aria-pressed", String(editMine));
     $("#editMineBtn").textContent = editMine ? "Done editing" : "My availability";
     $("#editHint").hidden = !editMine;
-    const grid = $("#calGrid"), showFree = $("#calShowFree").checked;
-    grid.classList.toggle("editing", editMine);
-    grid.classList.toggle("week", calMode === "week");
-    $(".cal-grid-head").hidden = calMode === "week";
+    const box = $("#calGrid"), showFree = $("#calShowFree").checked, gcls = `cal-grid${editMine ? " editing" : ""}`;
+    box.classList.toggle("is-stacked", calMode !== "week" && calMode !== "1");
     const cell = (d, out) => {
       const ps = calProjects(d), free = showFree && calFree(d).length;
       const myFree = mine && mine.days.includes(d), myBooked = mine && bookedOn(mine.id, d).length;
@@ -750,6 +756,7 @@
     const meTag = c => (mine && (c.myFree || c.myBooked) ? `<span class="me-tag">${c.myBooked ? "You: booked" : "You: free"}</span>` : "");
     const crewTag = c => (c.free ? `<span class="avail-ic" title="Crew available">${CREW_IC}</span>` : "");
     let html = "";
+    const wkHead = `<div class="cal-grid-head" aria-hidden="true">${["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].map(x => `<span>${x}</span>`).join("")}</div>`;
     if (calMode === "week") {
       const ws = mondayOf(selDay), we = addDays(ws, 6);
       $("#monthLabel").textContent = `${fmtRange({ from: ws, to: we })} ${D(we).getUTCFullYear()}`;
@@ -760,29 +767,41 @@
           <div class="wk-items">${c.ps.length ? c.ps.map(p => { const inf = dayInfo(p, d); return `<button class="wk-item" data-proj="${p.id}" style="--c:${projColor(p)}"><span class="wk-t">${esc(p.title)}</span><span class="wk-time mono">${callWrap(inf)}</span><span class="wk-loc">${esc(locName(p, inf.loc))}</span>${openRoles(p).length ? `<span class="wk-open">${openRoles(p).length} open</span>` : `<span class="wk-open done">Crewed</span>`}</button>`; }).join("") : `<p class="wk-empty">No shoots</p>`}</div>
           ${meTag(c)}</div>`;
       }
-      grid.innerHTML = html;
-      grid.querySelectorAll(".wk-head").forEach(b => b.addEventListener("click", () => dayClick(b.dataset.day)));
-      bindOpeners(grid);
+      box.innerHTML = `<div class="${gcls} week">${html}</div>`;
+      box.querySelectorAll(".wk-head").forEach(b => b.addEventListener("click", () => dayClick(b.dataset.day)));
+      bindOpeners(box);
     } else {
-      const m = D(calMonth);
-      $("#monthLabel").textContent = `${MONTH_FULL[m.getUTCMonth()]} ${m.getUTCFullYear()}`;
-      const off = (m.getUTCDay() + 6) % 7, start = addDays(calMonth, -off);
-      const last = new Date(Date.UTC(m.getUTCFullYear(), m.getUTCMonth() + 1, 0));
-      const total = Math.ceil((off + last.getUTCDate()) / 7) * 7;
-      for (let i = 0; i < total; i++) {
-        const d = addDays(start, i), dd = D(d), c = cell(d, dd.getUTCMonth() !== m.getUTCMonth());
-        const chips = c.ps.slice(0, 3).map(p => `<span class="cal-chip" style="--c:${projColor(p)}"><span class="cal-chip-t">${esc(p.title)}</span>${openRoles(p).length ? `<span class="cal-chip-n">${openRoles(p).length}</span>` : ""}</span>`).join("");
-        html += `<button class="cal-cell ${c.cls}" data-day="${d}" aria-label="${fmtDay(d)}: ${c.ps.length} shoot${c.ps.length === 1 ? "" : "s"}${c.free ? ", crew available" : ""}">
-          <span class="cal-num">${dd.getUTCDate()}</span>${(k => k.length ? `<span class="cal-key" title="${esc(k.join(", "))}">${esc(k[0])}${k.length > 1 ? ` +${k.length - 1}` : ""}</span>` : "")(keyDatesOn(d))}<span class="cal-chips">${chips}${c.ps.length > 3 ? `<span class="cal-more">+${c.ps.length - 3} more</span>` : ""}</span>${meTag(c)}${crewTag(c)}</button>`;
+      // months stacked top to bottom, this month first; scroll down for later months
+      const n = +calMode, stacked = n > 1, lastM = D(monthAdd(calMonth, n - 1));
+      const mName = m => `${MONTH_FULL[m.getUTCMonth()]} ${m.getUTCFullYear()}`;
+      $("#monthLabel").textContent = stacked ? `${MONTH_FULL[D(calMonth).getUTCMonth()]}${D(calMonth).getUTCFullYear() !== lastM.getUTCFullYear() ? " " + D(calMonth).getUTCFullYear() : ""} – ${mName(lastM)}` : mName(D(calMonth));
+      for (let k = 0; k < n; k++) {
+        const mIso = monthAdd(calMonth, k), m = D(mIso);
+        const off = (m.getUTCDay() + 6) % 7, start = addDays(mIso, -off);
+        const last = new Date(Date.UTC(m.getUTCFullYear(), m.getUTCMonth() + 1, 0));
+        const total = Math.ceil((off + last.getUTCDate()) / 7) * 7;
+        let cells = "";
+        for (let i = 0; i < total; i++) {
+          const d = addDays(start, i), dd = D(d), out = dd.getUTCMonth() !== m.getUTCMonth();
+          if (out && stacked) { cells += `<span class="cal-cell blank" aria-hidden="true"></span>`; continue; }
+          const c = cell(d, out);
+          const chips = c.ps.slice(0, 3).map(p => `<span class="cal-chip" style="--c:${projColor(p)}"><span class="cal-chip-t">${esc(p.title)}</span>${openRoles(p).length ? `<span class="cal-chip-n">${openRoles(p).length}</span>` : ""}</span>`).join("");
+          cells += `<button class="cal-cell ${c.cls}" data-day="${d}" aria-label="${fmtDay(d)}: ${c.ps.length} shoot${c.ps.length === 1 ? "" : "s"}${c.free ? ", crew available" : ""}">
+            <span class="cal-num">${dd.getUTCDate()}</span>${(kd => kd.length ? `<span class="cal-key" title="${esc(kd.join(", "))}">${esc(kd[0])}${kd.length > 1 ? ` +${kd.length - 1}` : ""}</span>` : "")(keyDatesOn(d))}<span class="cal-chips">${chips}${c.ps.length > 3 ? `<span class="cal-more">+${c.ps.length - 3} more</span>` : ""}</span>${meTag(c)}${crewTag(c)}</button>`;
+        }
+        html += `<section class="cal-month" aria-label="${mName(m)}">${stacked ? `<h2 class="cal-mh">${mName(m)}</h2>` : ""}${wkHead}<div class="${gcls}">${cells}</div></section>`;
       }
-      grid.innerHTML = html;
-      grid.querySelectorAll(".cal-cell").forEach(b => b.addEventListener("click", () => dayClick(b.dataset.day)));
+      if (stacked) html += `<button type="button" class="btn btn-ghost btn-sm cal-later" id="calLater">Show the next ${n} months</button>`;
+      box.innerHTML = html;
+      box.querySelectorAll(".cal-cell[data-day]").forEach(b => b.addEventListener("click", () => dayClick(b.dataset.day)));
+      const lt = $("#calLater"); if (lt) lt.onclick = () => { calMonth = monthAdd(calMonth, n); renderCalendar(); $("#view-calendar").scrollIntoView({ block: "start" }); };
     }
     renderDayPanel();
   }
-  function renderDayPanel() {
-    const d = selDay, ps = calProjects(d), free = calFree(d), role = $("#calRole").value;
-    $("#dayPanel").innerHTML = `
+  function renderDayPanel() { $("#dayPanel").innerHTML = dayPanelHtml(selDay); bindOpeners($("#dayPanel")); }
+  function dayPanelHtml(d) {
+    const ps = calProjects(d), free = calFree(d), role = $("#calRole").value;
+    return `
       <div class="dp-head"><p class="eyebrow">${d === TODAY ? "Today" : "Selected day"}</p><h2 class="dp-title">${fmtDay(d)}</h2></div>
       ${(k => k.length ? `<h3 class="dp-sub">School dates</h3><ul class="dp-key">${k.map(x => `<li>${esc(x)}</li>`).join("")}</ul>` : "")(keyDatesOn(d))}
       <h3 class="dp-sub">Shooting <span class="count">${ps.length}</span></h3>
@@ -797,7 +816,6 @@
         free.length ? `<ul class="dp-crew">${free.map(s => `<li><button class="dp-person" data-student="${s.id}"><span class="avatar">${initials(s.name)}</span>
           <span><span class="dp-person-n">${esc(s.name)} <span class="term-tag">${esc(tLabel(s))}</span></span><span class="dp-person-r">${esc(s.roles.join(" · "))}${s.kit.length ? ` <span class="kit-flag">Kit</span>` : ""}</span></span></button></li>`).join("")}</ul>`
         : `<p class="empty-sm">Nobody${role ? ` who does ${esc(role)}` : ""} has marked this day free.</p>`}`;
-    bindOpeners($("#dayPanel"));
   }
 
   // ---------- calendar sync (.ics) ----------
@@ -1428,6 +1446,56 @@
   fillDepts();
   const crewRoles = new Set();
   let crewTs = null;
+  const availBadge = (s, n, days) => days ? (n === days.length ? `<span class="badge badge-free">Free all ${days.length} day${days.length > 1 ? "s" : ""}</span>` : n > 0 ? `<span class="badge badge-part">Free ${n} of ${days.length} days</span>` : `<span class="badge badge-off">Open to offers</span>`)
+    : (nextFree(s) ? `<span class="badge badge-free">Free ${esc(nextFree(s))}</span>` : `<span class="badge badge-off">${s.openToOffers ? "Open to offers" : "No dates set"}</span>`);
+  const crewContact = s => me() && s.id === me().id ? `<span class="muted small">This is you</span>` : emailVisible(s) ? `<a class="btn btn-accent btn-xs" href="${mailto(s.email, "Crewing up: are you free?", `Hi ${first(s.name)},\n\nI found you on Crew Call. `)}" target="_blank" rel="noopener">Email</a>` : `<button class="btn btn-accent btn-xs" data-msg="${s.id}">Message</button>`;
+  // [label, (row, days) => html, class, sort key, full text on hover]
+  // Every row is the same height: anything that doesn't fit is cut off with … and shown in full on hover or in the profile
+  const roleChips = (rs, cls = "") => rs.map(r => `<span class="chip ${cls} ${crewRoles.has(r) ? "chip-hit" : ""}">${esc(r)}</span>`).join("");
+  // Department icons: one per kind of work someone does. Hover, focus or tap an icon to see their roles in it.
+  const FAM_ROLE = { Director: "Directing", "1st AD": "Directing", "2nd AD": "Directing", "Script Supervisor": "Directing", Runner: "Directing", Producer: "Producing", Screenwriter: "Writing", Composer: "Music" };
+  const FAM_GROUP = { "Direction & production": "Directing", "Production office": "Producing", Camera: "Camera", "Lighting & grip": "Lighting & grip", Sound: "Sound", "Art & costume": "Art & costume", Post: "Post", Marketing: "Marketing", Cast: "Cast" };
+  const FAM_ORDER = ["Directing", "Producing", "Writing", "Camera", "Lighting & grip", "Sound", "Music", "Art & costume", "Post", "Marketing", "Cast", "Other"];
+  const FAM_SVG = {
+    Directing: `<path d="M4 10h16v9a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z"/><path d="M4 10l-.6-3.2 15.7-3 .6 3.2z"/><path d="M8 6.2l2.6 3M13 5.3l2.6 3"/>`,
+    Producing: `<rect x="5" y="4.5" width="14" height="16" rx="1.5"/><path d="M9 4.5V3h6v1.5M8.5 10h7M8.5 13.5h7M8.5 17h4"/>`,
+    Writing: `<path d="M4 20l4-1 10-10-3-3L5 16z"/><path d="M13.5 7.5l3 3"/>`,
+    Camera: `<rect x="3" y="9" width="12" height="10" rx="1.5"/><path d="M15 12.5l6-3v9l-6-3z"/><circle cx="6.5" cy="5.5" r="2.2"/><circle cx="11.5" cy="5.5" r="2.2"/>`,
+    "Lighting & grip": `<path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/>`,
+    Sound: `<rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21M8.5 21h7"/>`,
+    Music: `<path d="M9 18V5l11-2v13"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="17.5" cy="16" r="2.5"/>`,
+    "Art & costume": `<path d="M12 3a9 9 0 1 0 0 18c1.1 0 1.8-.9 1.5-1.9-.3-1 .3-2.1 1.4-2.1H17a4 4 0 0 0 4-4c0-5.5-4-10-9-10z"/><circle cx="7.5" cy="11" r="1.2"/><circle cx="10.5" cy="7" r="1.2"/><circle cx="15.5" cy="7.5" r="1.2"/>`,
+    Post: `<circle cx="6" cy="6" r="2.6"/><circle cx="6" cy="18" r="2.6"/><path d="M8.2 7.5L20 18M8.2 16.5L20 6"/>`,
+    Marketing: `<path d="M3 10v4h3l9 5V5L6 10z"/><path d="M18 9a4 4 0 0 1 0 6"/>`,
+    Cast: `<path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8L3.5 9.7l5.9-.9z"/>`,
+    Other: `<circle cx="6" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="18" cy="12" r="1.6"/>`
+  };
+  const famOf = r => FAM_ROLE[r] || FAM_GROUP[deptOf(r)] || "Other";
+  const T = x => (window.CCLang ? CCLang.tr(x) : x);
+  const famsOf = s => { const m = new Map(); [s.primary, ...s.roles.filter(r => r !== s.primary)].filter(Boolean).forEach(r => { const f = famOf(r); if (!m.has(f)) m.set(f, []); m.get(f).push(r); });
+    return [...m].sort((a, b) => (a[1].includes(s.primary) ? -1 : 0) - (b[1].includes(s.primary) ? -1 : 0) || FAM_ORDER.indexOf(a[0]) - FAM_ORDER.indexOf(b[0])); };
+  const famIcons = s => { const fs = famsOf(s); if (!fs.length) return `<span class="muted small">None</span>`;
+    return `<span class="dics">${fs.map(([f, rs]) => { const main = rs.includes(s.primary), hit = rs.some(r => crewRoles.has(r)), tip = `${T(f)}: ${rs.map(r => T(r) + (r === s.primary ? ` (${T("main role")})` : "")).join(", ")}`;
+      return `<button type="button" class="dic${main ? " is-main" : ""}${hit ? " is-hit" : ""}" data-tip="${esc(tip)}" aria-label="${esc(tip)}"><svg viewBox="0 0 24 24" aria-hidden="true">${FAM_SVG[f]}</svg></button>`; }).join("")}</span>`; };
+  // [label, (row, days) => html, class, sort key, full text on hover, key, hidden unless switched on in Columns]
+  // Every row is the same height: anything that doesn't fit is cut off with … and shown in full on hover or in the profile
+  const CREW_COLS_ALL = [
+    ["Name", x => `<button class="link-btn bt-t" data-student="${x.s.id}">${esc(x.s.name)}${prefTag(x.s)}</button>${x.s.guest ? ` <span class="tag-guest">Guest</span>` : ""}<span class="bt-sub">${esc(x.s.pathway)}</span>`, "cw-name", x => x.s.name, x => [x.s.name, x.s.pref, x.s.pathway].filter(Boolean).join(" · "), "name"],
+    ["Departments", x => famIcons(x.s), "cw-dept", x => { const f = famsOf(x.s)[0]; return f ? FAM_ORDER.indexOf(f[0]) : 99; }, null, "dept"],
+    ["Main role", x => x.s.primary ? `<span class="chip chip-primary ${crewRoles.has(x.s.primary) ? "chip-hit" : ""}">${esc(x.s.primary)}</span>` : `<span class="muted small">None</span>`, "cw-main", x => x.s.primary || "~", x => x.s.primary || "", "main"],
+    ["Also does", x => { const o = x.s.roles.filter(r => r !== x.s.primary); if (!o.length) return `<span class="muted small">None</span>`; const hit = o.filter(r => crewRoles.has(r)), rest = o.filter(r => !crewRoles.has(r)), sh = [...hit, ...rest]; return `<span class="chips-1">${roleChips(sh.slice(0, 1))}${sh.length > 1 ? `<span class="more-n">+${sh.length - 1}</span>` : ""}</span>`; }, "cw-also", x => x.s.roles.filter(r => r !== x.s.primary).length ? -x.s.roles.length : 1, x => x.s.roles.filter(r => r !== x.s.primary).join(", "), "also"],
+    ["Free", (x, days) => availBadge(x.s, x.n, days), "cw-free", x => x.n != null ? -x.n : (x.s.avail.find(r => r.to >= TODAY) || { from: "9999" }).from, null, "free"],
+    ["Kit", x => x.s.kit.length ? esc(x.s.kit.map(k => k.item).join(", ")) : `<span class="muted">None</span>`, "small cw-kit", x => -x.s.kit.length, x => x.s.kit.map(k => k.item).join(", "), "kit"],
+    ["Credits", x => String(creditsOf(x.s).length), "mono small cw-cred", x => -creditsOf(x.s).length, null, "credits"],
+    ["Based in", x => x.s.based ? esc(x.s.based) : `<span class="muted">Not set</span>`, "small cw-based", x => (x.s.based || "~").toLowerCase(), x => [x.s.based, x.s.from ? "from " + x.s.from : ""].filter(Boolean).join(", "), "based", true],
+    ["Term", x => `<span class="term-tag">${esc(tLabel(x.s))}</span>`, "small cw-term", x => C.TERMS.indexOf(x.s.term), x => tLabel(x.s), "term", true],
+    ["Updated", x => esc(updatedLabel(x.s)), "small cw-upd", x => -(D(x.s.updated || "2000-01-01").getTime()), null, "updated", true],
+    ["Contact", x => crewContact(x.s), "cw-contact", x => (emailVisible(x.s) ? 0 : 1), null, "contact"]
+  ];
+  const CREW_OPT = CREW_COLS_ALL.filter(c => c[6]);
+  let crewShow = (() => { try { return new Set(JSON.parse(localStorage.getItem("cc-crewcols") || "[]")); } catch (e) { return new Set(); } })();
+  let CREW_COLS = [];
+  const crewCols = () => (CREW_COLS = CREW_COLS_ALL.filter(c => !c[6] || crewShow.has(c[5])));
   function drawCrewChips() {
     const learn = $("#crewLearn") && $("#crewLearn").checked;
     $("#crewRoleChips").innerHTML = mselHtml("crewRoles", "Roles", allRoles(), [...crewRoles]) + `<label class="toggle crew-learn"><input type="checkbox" id="crewLearn" ${learn ? "checked" : ""}> <span>Include people who want to shadow</span></label>`;
@@ -1436,6 +1504,14 @@
   drawCrewChips();
   $("#crewRoleChips").addEventListener("msel", e => { crewRoles.clear(); e.detail.values.forEach(v => crewRoles.add(v)); renderCrew(); });
   $("#crewSort").addEventListener("change", () => { crewTs = null; renderCrew(); });
+  // Columns: Based in, Term and Updated are hidden unless switched on. Remembered on this device.
+  const drawColMenu = () => { $("#crewColPop").innerHTML = `<p class="small muted">Show extra columns</p>${CREW_OPT.map(c => `<label class="toggle"><input type="checkbox" value="${c[5]}" ${crewShow.has(c[5]) ? "checked" : ""}> <span>${esc(c[0])}</span></label>`).join("")}`; };
+  drawColMenu();
+  $("#crewColBtn").addEventListener("click", () => { const p = $("#crewColPop"), open = p.hidden; p.hidden = !open; $("#crewColBtn").setAttribute("aria-expanded", String(open)); });
+  document.addEventListener("click", e => { if (!e.target.closest("#crewColMenu") && !$("#crewColPop").hidden) { $("#crewColPop").hidden = true; $("#crewColBtn").setAttribute("aria-expanded", "false"); } });
+  $("#crewColPop").addEventListener("change", e => { const v = e.target.value; e.target.checked ? crewShow.add(v) : crewShow.delete(v); localStorage.setItem("cc-crewcols", JSON.stringify([...crewShow])); crewTs = null; renderCrew(); });
+  $$("[data-tscroll]").forEach(b => b.addEventListener("click", () => { const w = $("#crewList .tbl-wrap"); if (!w) return; const rtl = document.dir === "rtl"; w.scrollBy({ left: +b.dataset.tscroll * (rtl ? -1 : 1) * Math.max(200, w.clientWidth * .6), behavior: "smooth" }); }));
+  document.addEventListener("cc:lang", () => { if (!$("#view-crew").hidden) renderCrew(); });
   $("#view-crew").addEventListener("click", e => {
     const t = e.target.closest("#crewList [data-tsort]");
     if (t) { const i = +t.dataset.tsort; crewTs = crewTs && crewTs.i === i ? (crewTs.dir > 0 ? { i, dir: -1 } : null) : { i, dir: 1 }; renderCrew(); }
@@ -1449,7 +1525,7 @@
     const dept = $("#crewDept").value, inDept = r => (C.ROLE_GROUPS[dept] || []).includes(r);
     const days = from ? daysIn(from, to) : null, term = $("#crewTerm").value, cohort = $("#crewCohort").value, kitOnly = $("#crewKitOnly").checked, learn = $("#crewLearn") && $("#crewLearn").checked;
     let list = S.students.filter(listed)
-      .filter(s => !q || [s.name, s.pref, s.bio, s.pathway, s.based, s.from, ...s.roles, ...s.learn, ...s.kit.map(k => k.item + " " + k.cat)].join(" ").toLowerCase().includes(q))
+      .filter(s => !q || [s.name, s.pref, s.bio, s.pathway, s.based, s.from, ...s.roles, ...s.learn, ...s.roles.map(deptOf), ...s.roles.map(famOf), ...s.kit.map(k => k.item + " " + k.cat)].join(" ").toLowerCase().includes(q))
       .filter(s => !crewRoles.size || s.roles.some(r => crewRoles.has(r)) || (learn && s.learn.some(r => crewRoles.has(r))))
       .filter(s => !dept || s.roles.some(inDept) || (learn && s.learn.some(inDept)))
       .filter(s => !term || s.term === term).filter(s => !cohort || s.cohort === cohort).filter(s => !kitOnly || s.kit.length)
@@ -1460,7 +1536,7 @@
     list.sort(srt === "name" ? byName : srt === "updated" ? (a, b) => (b.s.updated || "").localeCompare(a.s.updated || "") || byName(a, b)
       : srt === "credits" ? (a, b) => creditsOf(b.s).length - creditsOf(a.s).length || byName(a, b) : srt === "kit" ? (a, b) => b.s.kit.length - a.s.kit.length || byName(a, b)
       : (a, b) => (days ? b.n - a.n : 0) || hits(b.s) - hits(a.s) || (nextFree(a.s) ? 0 : 1) - (nextFree(b.s) ? 0 : 1) || byName(a, b));
-    const tc = crewTs && CREW_COLS[crewTs.i];
+    crewCols(); const tc = crewTs && CREW_COLS[crewTs.i];
     if (tc) { const k = colKey(tc); list = list.map(x => [k(x), x]).sort((a, b) => cmpKey(a[0], b[0]) * crewTs.dir).map(x => x[1]); }
     const full = days ? list.filter(x => x.n === days.length).length : null;
     $("#crewMeta").textContent = days ? `${list.length} ${list.length === 1 ? "person" : "people"} · ${full} free for all of ${fmtRange({ from, to })}` : `${list.length} ${list.length === 1 ? "person" : "people"}${crewRoles.size ? ` who do ${[...crewRoles].join(" or ")}` : dept ? ` in ${dept}` : ""}. Add dates to check availability.`;
@@ -1468,25 +1544,6 @@
       : tableHtml({ color: () => "transparent", cols: CREW_COLS.map(c => [c[0], x => `<div class="cell"${c[4] ? ` title="${esc(c[4](x))}"` : ""}>${c[1](x, days)}</div>`, c[2], c[3]]) }, list, crewTs);
     bindOpeners($("#crewList"));
   }
-  const availBadge = (s, n, days) => days ? (n === days.length ? `<span class="badge badge-free">Free all ${days.length} day${days.length > 1 ? "s" : ""}</span>` : n > 0 ? `<span class="badge badge-part">Free ${n} of ${days.length} days</span>` : `<span class="badge badge-off">Open to offers</span>`)
-    : (nextFree(s) ? `<span class="badge badge-free">Free ${esc(nextFree(s))}</span>` : `<span class="badge badge-off">${s.openToOffers ? "Open to offers" : "No dates set"}</span>`);
-  const crewContact = s => me() && s.id === me().id ? `<span class="muted small">This is you</span>` : emailVisible(s) ? `<a class="btn btn-accent btn-xs" href="${mailto(s.email, "Crewing up: are you free?", `Hi ${first(s.name)},\n\nI found you on Crew Call. `)}" target="_blank" rel="noopener">Email</a>` : `<button class="btn btn-accent btn-xs" data-msg="${s.id}">Message</button>`;
-  // [label, (row, days) => html, class, sort key, full text on hover]
-  // Every row is the same height: anything that doesn't fit is cut off with … and shown in full on hover or in the profile
-  const roleChips = (rs, cls = "") => rs.map(r => `<span class="chip ${cls} ${crewRoles.has(r) ? "chip-hit" : ""}">${esc(r)}</span>`).join("");
-  const CREW_COLS = [
-    ["Name", x => `<button class="link-btn bt-t" data-student="${x.s.id}">${esc(x.s.name)}${prefTag(x.s)}</button>${x.s.guest ? ` <span class="tag-guest">Guest</span>` : ""}<span class="bt-sub">${esc(x.s.pathway)}</span>`, "c-name", x => x.s.name, x => [x.s.name, x.s.pref, x.s.pathway].filter(Boolean).join(" · ")],
-    ["Department", x => esc(deptOf(x.s.primary || x.s.roles[0]) || "") || `<span class="muted">Not set</span>`, "small", x => deptOf(x.s.primary || x.s.roles[0]) || "~", x => [...new Set(x.s.roles.map(deptOf).filter(Boolean))].join(", ")],
-    ["Main role", x => x.s.primary ? `<span class="chip chip-primary ${crewRoles.has(x.s.primary) ? "chip-hit" : ""}">${esc(x.s.primary)}</span>` : `<span class="muted small">None</span>`, "", x => x.s.primary || "~", x => x.s.primary || ""],
-    ["Also does", x => { const o = x.s.roles.filter(r => r !== x.s.primary); if (!o.length) return `<span class="muted small">None</span>`; const hit = o.filter(r => crewRoles.has(r)), rest = o.filter(r => !crewRoles.has(r)), sh = [...hit, ...rest]; return `<span class="chips-1">${roleChips(sh.slice(0, 1))}${sh.length > 1 ? `<span class="more-n">+${sh.length - 1}</span>` : ""}</span>`; }, "", x => -x.s.roles.length, x => x.s.roles.filter(r => r !== x.s.primary).join(", ")],
-    ["Based in", x => x.s.based ? esc(x.s.based) : `<span class="muted">Not set</span>`, "small", x => (x.s.based || "~").toLowerCase(), x => [x.s.based, x.s.from ? "from " + x.s.from : ""].filter(Boolean).join(", ")],
-    ["Term", x => `<span class="term-tag">${esc(tLabel(x.s))}</span>`, "small", x => C.TERMS.indexOf(x.s.term), x => tLabel(x.s)],
-    ["Free", (x, days) => availBadge(x.s, x.n, days), "", x => x.n != null ? -x.n : (x.s.avail.find(r => r.to >= TODAY) || { from: "9999" }).from],
-    ["Kit", x => x.s.kit.length ? esc(x.s.kit.map(k => k.item).join(", ")) : `<span class="muted">None</span>`, "small", x => -x.s.kit.length, x => x.s.kit.map(k => k.item).join(", ")],
-    ["Credits", x => String(creditsOf(x.s).length), "mono small", x => -creditsOf(x.s).length],
-    ["Updated", x => esc(updatedLabel(x.s)), "small", x => -(D(x.s.updated || "2000-01-01").getTime())],
-    ["Contact", x => crewContact(x.s), "", x => (emailVisible(x.s) ? 0 : 1)]
-  ];
   const pinIco = `<svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.1-7-11.5a7 7 0 0 1 14 0C19 14.9 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>`;
   function openStudent(id, backPid) {
     const s = student(id); if (!s) return;
@@ -1508,7 +1565,7 @@
         <div><dt>Kit</dt><dd>${s.kit.length ? `<ul class="kit-list">${s.kit.map(k => `<li><span class="kit-cat">${esc(k.cat)}</span>${esc(k.item)}</li>`).join("")}</ul>` : `<span class="muted">No kit listed</span>`}</dd></div>
         <div><dt>Free</dt><dd class="mono">${s.avail.filter(r => r.to >= TODAY).length ? s.avail.filter(r => r.to >= TODAY).map(fmtRange).join(", ") : "No dates set"}${s.openToOffers ? ` <span class="muted">· open to offers</span>` : ""}<br><span class="upd">${esc(updatedLabel(s))}</span></dd></div>
         <div><dt>Booked on</dt><dd>${booked.length ? booked.map(p => `<button class="link-btn" data-proj="${p.id}">${esc(p.title)}</button> <span class="mono muted">${p.shoots.map(fmtRange).join(" + ")}</span>`).join("<br>") : `<span class="muted">Nothing yet</span>`}</dd></div>
-        <div><dt>Credits</dt><dd>${credits.length ? `<ul class="credit-list">${credits.map(x => `<li><span class="cr-role">${x.shadow ? "Shadow " : ""}${esc(x.role)}</span><button class="link-btn" data-proj="${x.p.id}">${esc(x.p.title)}</button><span class="muted">${esc(x.p.type)} · ${monYear(x.p.shoots[0].from)}</span></li>`).join("")}</ul>` : `<span class="muted">No wrapped shoots yet</span>`}</dd></div>
+        <div><dt>Credits</dt><dd>${credits.length ? `<ul class="credit-list">${credits.map(x => `<li><span class="cr-role">${x.shadow ? "Shadow " : ""}${esc(x.role)}</span><button class="link-btn" data-proj="${x.p.id}">${esc(x.p.title)}</button><span class="muted">${esc(x.p.type)} · ${monYear(x.p.shoots[0].from)}</span>${x.current ? `<span class="cr-now">Current</span>` : ""}</li>`).join("")}</ul>` : `<span class="muted">No credits yet</span>`}</dd></div>
         ${portfolioHtml(s)}
         <div><dt>Contact</dt><dd>${reach(s)}</dd></div>
       </dl>
@@ -2923,7 +2980,7 @@ ${LIVE ? "" : `<label class="toggle"><input type="checkbox" data-aus="autoSend" 
     meForm.querySelector(`[name=nScope][value=${n.scope}]`).checked = true; syncDigestOpts();
     meRoles = new Set(m.roles); mePrimary = m.primary; meKit = [...m.kit]; meLearn = new Set(m.learn);
     const cr = creditsOf(m);
-    $("#meCredits").innerHTML = cr.length ? `<ul class="credit-list">${cr.map(x => `<li><span class="cr-role">${x.shadow ? "Shadow " : ""}${esc(x.role)}</span><button type="button" class="link-btn" data-proj="${x.p.id}">${esc(x.p.title)}</button><span class="muted">${esc(x.p.type)} · ${monYear(x.p.shoots[0].from)}</span></li>`).join("")}</ul>` : `<p class="muted small">Once a shoot you're locked on wraps, it's added here automatically.</p>`;
+    $("#meCredits").innerHTML = cr.length ? `<ul class="credit-list">${cr.map(x => `<li><span class="cr-role">${x.shadow ? "Shadow " : ""}${esc(x.role)}</span><button type="button" class="link-btn" data-proj="${x.p.id}">${esc(x.p.title)}</button><span class="muted">${esc(x.p.type)} · ${monYear(x.p.shoots[0].from)}</span>${x.current ? `<span class="cr-now">Current</span>` : ""}</li>`).join("")}</ul>` : `<p class="muted small">Once you're locked on a shoot, it's added here automatically. You don't have to wait for it to wrap.</p>`;
     { const cand = S.projects.filter(p => !p.archived && isPast(p) && !onProject(p, m.id) && !addMeOf(p, m.id)).sort((x, y) => y.shoots[0].from.localeCompare(x.shoots[0].from)), waiting = S.requests.filter(q => q.type === "addme" && q.sid === m.id && q.status === "pending" && project(q.pid));
       $("#meCredits").insertAdjacentHTML("beforeend", `${waiting.length ? `<ul class="credit-list cr-wait">${waiting.map(q => `<li><span class="cr-role">${esc(q.role)}</span><button type="button" class="link-btn" data-proj="${q.pid}">${esc(project(q.pid).title)}</button><span class="st st-pending">Sent · waiting</span></li>`).join("")}</ul>` : ""}
         ${cand.length ? `<div class="cr-add"><label class="field"><span>Missing a credit?</span><select id="crAddSel"><option value="">Pick a wrapped project…</option>${cand.map(p => `<option value="${p.id}">${esc(p.title)} · ${monYear(p.shoots[0].from)}</option>`).join("")}</select></label><button type="button" class="btn btn-ghost btn-sm" id="crAddBtn">Add me to the crew</button></div>` : ""}`);
@@ -3158,6 +3215,16 @@ ${LIVE ? "" : `<label class="toggle"><input type="checkbox" data-aus="autoSend" 
             return `<span class="tl-bar${x.dash ? " tl-dash" : ""}" style="left:${l}%;width:${w}%" title="${esc(x.label || "")}">${out ? "" : `<span class="tl-bar-t">${esc(x.label || "")}</span>`}</span>${out ? `<span class="tl-out" style="left:calc(${l + w}% + 6px)">${esc(x.label || "")}</span>` : ""}`; }).join("")}</div></div>`).join("")}
     </div></div>`;
   }
+  // Small tooltips for [data-tip]: hover or focus on a computer, tap on a phone
+  const tipEl = document.createElement("div"); tipEl.className = "cc-tip"; tipEl.setAttribute("role", "tooltip"); tipEl.hidden = true; document.body.appendChild(tipEl);
+  let tipFor = null;
+  const tipShow = el => { tipFor = el; tipEl.textContent = el.dataset.tip; tipEl.hidden = false; const r = el.getBoundingClientRect(), w = tipEl.offsetWidth, h = tipEl.offsetHeight;
+    let x = Math.min(Math.max(8, r.left + r.width / 2 - w / 2), window.innerWidth - w - 8), y = r.top - h - 8; if (y < 8) y = r.bottom + 8; tipEl.style.left = x + "px"; tipEl.style.top = y + "px"; };
+  const tipHide = () => { tipFor = null; tipEl.hidden = true; };
+  document.addEventListener("mouseover", e => { const el = e.target.closest && e.target.closest("[data-tip]"); if (el && el !== tipFor) tipShow(el); else if (!el && tipFor) tipHide(); });
+  document.addEventListener("focusin", e => { const el = e.target.closest && e.target.closest("[data-tip]"); if (el) tipShow(el); else if (tipFor) tipHide(); });
+  document.addEventListener("click", e => { const el = e.target.closest && e.target.closest("[data-tip]"); if (el) tipShow(el); else if (tipFor) tipHide(); });
+  document.addEventListener("scroll", () => { if (tipFor) tipHide(); }, true);
   // a soft edge on the locked title column once the table is scrolled sideways
   document.addEventListener("scroll", e => { const t = e.target; if (t && t.classList && t.classList.contains("tbl-wrap")) t.classList.toggle("scrolled", Math.abs(t.scrollLeft) > 2); }, true);
   // ---------- MAP VIEW: Leaflet (open source) with OpenStreetMap tiles, both free ----------

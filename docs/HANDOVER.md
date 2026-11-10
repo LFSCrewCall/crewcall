@@ -202,7 +202,7 @@ People type the first part of their email and pick the ending from a list: @stud
 
 ## Updating the site
 
-When you change the code, raise the version number in two places so phones don't mix old and new files: `CACHE` in sw.js (crewcall-v22) and every `?v=22` in index.html.
+When you change the code, raise the version number in two places so phones don't mix old and new files: `CACHE` in sw.js (crewcall-v23) and every `?v=23` in index.html.
 
 ## Funding
 
@@ -263,7 +263,20 @@ In Roles, filled roles can be changed too: change or clear the name, or press Re
 
 ## Crew
 
-Crew is a table, so it stays tidy as it grows. Every row is the same height; anything too long is cut short with "…" (hover to see it all) and extra roles show as +2. Filter by department (Camera, Sound and so on), roles, term, cohort, kit and free dates.
+Crew is a table, so it stays tidy as it grows. Every row is the same height; anything too long is cut short with "…" (hover to see it all) and extra roles show as +2. Filter by department (Camera, Sound and so on), roles, term, cohort, kit and free dates. Searching a department name works too.
+
+- Sorted A to Z by name to start with (Sort has Best match and the others).
+- Columns, in order: Name, Departments, Main role, Also does, Free, Kit, Credits, Contact. Based in, Term and Updated are hidden; switch them on under Columns (remembered on that device).
+- The table scrolls sideways (trackpad, Shift + mouse wheel, swipe, or the ‹ › buttons), with names locked on the left.
+- Departments shows one icon per kind of work: clapperboard (directing, ADs, script supervisor, runner), clipboard (producing and production office), pen (writing), camera, bulb (lighting and grip), microphone (sound), note (music), palette (art and costume), scissors (post), megaphone (marketing), star (cast). The red icon is their main role. Hover, or tap on a phone, to see the roles.
+
+## Calendar
+
+Months are stacked with this month at the top; scroll down for later ones. The default is 6 months, with 3 months, 1 month and Week as options (remembered on that device). ‹ › move a month at a time, and the button at the bottom jumps to the next block. On a computer the day panel stays on the right as you scroll. On a phone or tablet, tapping a day opens it in a pop-up.
+
+## Credits
+
+Credits include shoots someone is locked on that haven't wrapped yet, marked Current, as well as wrapped ones.
 
 ## Account menu
 

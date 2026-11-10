@@ -1,0 +1,12 @@
+# v23: stacked calendar, crew columns, current credits
+Departments || Отделы || الأقسام
+Columns || Столбцы || الأعمدة
+Show extra columns || Показать другие столбцы || إظهار أعمدة إضافية
+Scroll the table || Прокрутить таблицу || تمرير الجدول
+Scroll left || Прокрутить влево || تمرير لليسار
+Scroll right || Прокрутить вправо || تمرير لليمين
+Current || Сейчас || حالي
+No credits yet || Пока нет работ || لا توجد أعمال بعد
+Once you're locked on a shoot, it's added here automatically. You don't have to wait for it to wrap. || Как только вас утвердили на съёмку, она добавляется сюда автоматически. Ждать окончания съёмок не нужно. || بمجرد تثبيتك في تصوير، يُضاف هنا تلقائيًا. لا داعي لانتظار انتهاء التصوير.
+main role || основная роль || الدور الرئيسي
+Writing || Сценарий || الكتابة

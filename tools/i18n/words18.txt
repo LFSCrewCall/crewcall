@@ -1,0 +1,12 @@
+# v23: stacked calendar, crew columns, current credits
+Departments || 部門 || Départements || Departamentos
+Columns || 欄位 || Colonnes || Columnas
+Show extra columns || 顯示更多欄位 || Afficher d'autres colonnes || Mostrar más columnas
+Scroll the table || 捲動表格 || Faire défiler le tableau || Desplazar la tabla
+Scroll left || 向左捲動 || Défiler à gauche || Desplazar a la izquierda
+Scroll right || 向右捲動 || Défiler à droite || Desplazar a la derecha
+Current || 進行中 || En cours || En curso
+No credits yet || 尚無作品經歷 || Pas encore de crédits || Aún no hay créditos
+Once you're locked on a shoot, it's added here automatically. You don't have to wait for it to wrap. || 一旦你確定加入某個拍攝，它就會自動加到這裡，不必等到殺青。 || Dès que vous êtes confirmé sur un tournage, il s'ajoute ici automatiquement. Inutile d'attendre la fin du tournage. || En cuanto te confirman en un rodaje, se añade aquí automáticamente. No hace falta esperar a que termine.
+main role || 主要職位 || poste principal || puesto principal
+Writing || 編劇 || Écriture || Guion

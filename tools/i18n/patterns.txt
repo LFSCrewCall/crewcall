@@ -324,3 +324,5 @@
 ^(\d+) groups? · (\d+) new$ || {=1} 組 · {=2} 則新通知 || {=1} {1|groupe|groupes} · {=2} {2|nouveau|nouveaux} || {=1} {1|grupo|grupos} · {=2} {2|nuevo|nuevos}
 ^Main role: (.+)$ || 主要職位：{1} || Poste principal : {1} || Puesto principal: {1}
 ^(\d+) other roles?$ || 另有 {=1} 個職位 || {=1} {1|autre poste|autres postes} || {=1} {1|puesto más|puestos más}
+^(\d+) months?$ || {=1} 個月 || {=1} mois || {=1} {1|mes|meses}
+^Show the next (\d+) months$ || 顯示接下來 {=1} 個月 || Afficher les {=1} mois suivants || Mostrar los {=1} meses siguientes

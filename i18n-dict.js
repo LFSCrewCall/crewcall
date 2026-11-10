@@ -8842,6 +8842,116 @@ window.CC_I18N = {
 "अभी कोई रोल नहीं",
 "Ainda sem funções"
 ],
+"Departments": [
+"部門",
+"部门",
+"Départements",
+"Departamentos",
+"Отделы",
+"الأقسام",
+"विभाग",
+"Departamentos"
+],
+"Columns": [
+"欄位",
+"字段",
+"Colonnes",
+"Columnas",
+"Столбцы",
+"الأعمدة",
+"कॉलम",
+"Colunas"
+],
+"Show extra columns": [
+"顯示更多欄位",
+"显示更多字段",
+"Afficher d'autres colonnes",
+"Mostrar más columnas",
+"Показать другие столбцы",
+"إظهار أعمدة إضافية",
+"और कॉलम दिखाएँ",
+"Mostrar mais colunas"
+],
+"Scroll the table": [
+"捲動表格",
+"卷动表格",
+"Faire défiler le tableau",
+"Desplazar la tabla",
+"Прокрутить таблицу",
+"تمرير الجدول",
+"टेबल स्क्रॉल करें",
+"Rolar a tabela"
+],
+"Scroll left": [
+"向左捲動",
+"向左卷动",
+"Défiler à gauche",
+"Desplazar a la izquierda",
+"Прокрутить влево",
+"تمرير لليسار",
+"बाएँ स्क्रॉल करें",
+"Rolar para a esquerda"
+],
+"Scroll right": [
+"向右捲動",
+"向右卷动",
+"Défiler à droite",
+"Desplazar a la derecha",
+"Прокрутить вправо",
+"تمرير لليمين",
+"दाएँ स्क्रॉल करें",
+"Rolar para a direita"
+],
+"Current": [
+"進行中",
+"进行中",
+"En cours",
+"En curso",
+"Сейчас",
+"حالي",
+"अभी चल रहा",
+"Atual"
+],
+"No credits yet": [
+"尚無作品經歷",
+"尚无作品经历",
+"Pas encore de crédits",
+"Aún no hay créditos",
+"Пока нет работ",
+"لا توجد أعمال بعد",
+"अभी कोई क्रेडिट नहीं",
+"Ainda sem créditos"
+],
+"Once you're locked on a shoot, it's added here automatically. You don't have to wait for it to wrap.": [
+"一旦你確定加入某個拍攝，它就會自動加到這裡，不必等到殺青。",
+"一旦你确定加入某个拍摄，它就会自动加到这里，不必等到杀青。",
+"Dès que vous êtes confirmé sur un tournage, il s'ajoute ici automatiquement. Inutile d'attendre la fin du tournage.",
+"En cuanto te confirman en un rodaje, se añade aquí automáticamente. No hace falta esperar a que termine.",
+"Как только вас утвердили на съёмку, она добавляется сюда автоматически. Ждать окончания съёмок не нужно.",
+"بمجرد تثبيتك في تصوير، يُضاف هنا تلقائيًا. لا داعي لانتظار انتهاء التصوير.",
+"जैसे ही आप किसी शूट पर पक्के होते हैं, वह यहाँ अपने-आप जुड़ जाता है। शूट खत्म होने का इंतज़ार नहीं करना पड़ता।",
+"Assim que você é confirmado numa filmagem, ela é adicionada aqui automaticamente. Não precisa esperar terminar."
+],
+"main role": [
+"主要職位",
+"主要职位",
+"poste principal",
+"puesto principal",
+"основная роль",
+"الدور الرئيسي",
+"मुख्य रोल",
+"função principal"
+],
+"Writing": [
+"編劇",
+"编剧",
+"Écriture",
+"Guion",
+"Сценарий",
+"الكتابة",
+"लेखन",
+"Roteiro"
+],
 "Director": [
 "導演",
 "导演",
@@ -20823,6 +20933,28 @@ window.CC_I18N = {
 "{=1} {1|دور آخر|دوران آخران|أدوار أخرى|دورًا آخر|دور آخر}",
 "{=1} और {1|रोल|रोल}",
 "{=1} {1|outra função|outras funções}"
+],
+[
+"^(\\d+) months?$",
+"{=1} 個月",
+"{=1} 个月",
+"{=1} mois",
+"{=1} {1|mes|meses}",
+"{=1} {1|месяц|месяца|месяцев}",
+"{=1} {1|شهر|شهران|أشهر|شهرًا|شهر}",
+"{=1} {1|महीना|महीने}",
+"{=1} {1|mês|meses}"
+],
+[
+"^Show the next (\\d+) months$",
+"顯示接下來 {=1} 個月",
+"显示接下来 {=1} 个月",
+"Afficher les {=1} mois suivants",
+"Mostrar los {=1} meses siguientes",
+"Показать следующие {=1} {1|месяц|месяца|месяцев}",
+"عرض الأشهر الـ{=1} التالية",
+"अगले {=1} महीने दिखाएँ",
+"Mostrar os próximos {=1} meses"
 ]
 ]
 };
