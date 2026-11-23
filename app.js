@@ -1160,6 +1160,13 @@
     const nb = $("#shNative"); if (nb) nb.addEventListener("click", () => navigator.share({ title: shareSubject(d), text: shareText(d, o).replace(/\n[^\n]*\n?$/, ""), url: d.url }).catch(() => {}));
   }
 
+  // Who a project lead can assign to a role: people with that role first, then everyone else on Crew Call.
+  const fillOpts = (r, days, label) => {
+    const opt = s => { const busy = days.some(d => bookedOn(s.id, d).length); return `<option value="${s.id}" ${busy ? "disabled" : ""}>${esc(s.name)}${busy ? " (booked on another shoot)" : ""}</option>`; };
+    const ppl = S.students.filter(s => listed(s) && !s.hideMe).sort((a, b) => a.name.localeCompare(b.name));
+    const has = ppl.filter(s => s.roles.includes(r.role) || s.primary === r.role), rest = ppl.filter(s => !has.includes(s));
+    return (has.length ? `<optgroup label="${esc(r.role)} on their profile">${has.map(opt).join("")}</optgroup>` : "") + (rest.length ? `<optgroup label="${has.length ? "Everyone else" : "Everyone on Crew Call"}">${rest.map(opt).join("")}</optgroup>` : "");
+  };
   function openProject(id) {
     const p = project(id); if (!p) return;
     const m = me(), mg = canManage(p), days = projDays(p), c = contactOf(p);
@@ -1172,7 +1179,7 @@
 
     const lockRow = r => {
       const bh = m ? briefHtml(r) : "";
-      if (isExt(r)) { const cq = m && claimOf(p, r.rid, m.id); return `<li class="lock-row"><span class="role-name">${isCast(r) ? partLabel(r) : esc(r.role) + hodTag(r)}</span><span class="lock-name">${esc(extName(r))} <span class="tag-ext">Not on Crew Call</span></span><span class="lock-mail"></span><span class="lock-acts">${mg ? `<button class="btn btn-quiet btn-xs" data-unfill="${r.rid}" aria-label="Reopen ${esc(r.role)}">Reopen</button>` : cq ? (cq.status === "pending" ? `<span class="st st-pending">Sent · waiting</span>` : cq.status === "declined" ? `<span class="st st-no">Not confirmed</span>` : "") : m && !mg && !onProject(p, m.id) ? `<button class="btn btn-quiet btn-xs" data-claimref="${r.rid}">That's me</button>` : ""}</span>${bh}</li>`; }
+      if (isExt(r)) { const cq = m && claimOf(p, r.rid, m.id); return `<li class="lock-row"><span class="role-name">${isCast(r) ? partLabel(r) : esc(r.role) + hodTag(r)}</span><span class="lock-name">${esc(extName(r))} <span class="tag-ext">Not on Crew Call</span></span><span class="lock-mail"></span><span class="lock-acts">${mg && !past ? `<select class="fill-sel" data-fill="${r.rid}" aria-label="Assign ${esc(r.role)} to someone on Crew Call"><option value="">Assign to a member…</option>${fillOpts(r, days)}</select>` : ""}${mg ? `<button class="btn btn-quiet btn-xs" data-unfill="${r.rid}" aria-label="Reopen ${esc(r.role)}">Reopen</button>` : cq ? (cq.status === "pending" ? `<span class="st st-pending">Sent · waiting</span>` : cq.status === "declined" ? `<span class="st st-no">Not confirmed</span>` : "") : m && !mg && !onProject(p, m.id) ? `<button class="btn btn-quiet btn-xs" data-claimref="${r.rid}">That's me</button>` : ""}</span>${bh}</li>`; }
       const s = student(r.filledBy) || { id: "", name: "Former member", email: "" };
       const sh = myReqFor(p, r.rid, "shadow");
       const canShadow = m && !mg && s.id !== m.id && !past && !onProject(p, m.id);
@@ -1192,7 +1199,7 @@
       let acts;
       if (past && !mg) acts = "";
       else if (!m) acts = `<button class="btn btn-ghost btn-xs" data-signin>Sign in to request</button>`;
-      else if (mg) acts = `<select class="fill-sel" data-fill="${r.rid}" aria-label="Mark ${esc(r.role)} as filled"><option value="">Mark filled…</option><option value="__ext">Someone not on Crew Call…</option>${S.students.filter(s => listed(s) && s.roles.includes(r.role)).map(s => { const busy = days.some(d => bookedOn(s.id, d).length); return `<option value="${s.id}" ${busy ? "disabled" : ""}>${esc(s.name)}${busy ? " (booked on another shoot)" : ""}</option>`; }).join("")}</select>`;
+      else if (mg) acts = `<select class="fill-sel" data-fill="${r.rid}" aria-label="Mark ${esc(r.role)} as filled"><option value="">Assign to…</option><option value="__ext">Someone not on Crew Call…</option>${fillOpts(r, days)}</select>`;
       else if (mr) acts = statusChip(mr) + (mr.status === "pending" ? ` <button class="btn btn-quiet btn-xs" data-withdraw="${mr.id}">Withdraw</button>` : "");
       else if (onProject(p, m.id)) acts = `<span class="muted small">You're on this shoot</span>`;
       else acts = `<button class="btn btn-accent btn-xs" data-req="${r.rid}">Request to join</button>`;
@@ -1314,6 +1321,7 @@
         cancel.addEventListener("click", () => openProject(p.id));
         const save = () => {
           const nm = inp.value.trim(); if (!nm) { inp.focus(); return; }
+          const mem = findMember(nm); if (mem) return lockIn(p, r.rid, mem.id);
           r.filledBy = "ext:" + nm; r.extBy = me().id;
           S.requests.filter(x => x.pid === p.id && x.rid === r.rid && x.status === "pending" && x.type === "crew").forEach(x => { x.status = "filled"; notify(x.sid, "update", `The ${r.role} role on ${p.title} has been filled. Thanks for offering.`, p.id); });
           toast(`${nm} listed as ${r.role}`); openProject(p.id); drawHeader(); render();
@@ -1413,6 +1421,8 @@
     const r = roleBy(p, rid), s = student(sid);
     if (projDays(p).some(d => bookedOn(sid, d).length)) return toast(`${s.name} is booked on another shoot those days`);
     r.filledBy = sid;
+    S.requests.filter(x => x.pid === p.id && x.rid === rid && x.status === "pending" && x.type === "claim").forEach(x => { x.status = x.sid === sid ? "accepted" : "declined"; });
+    delete r.extBy;
     S.requests.filter(x => x.pid === p.id && x.rid === rid && x.status === "pending" && x.type === "crew").forEach(x => {
       if (x.sid === sid) x.status = "accepted";
       else { x.status = "filled"; notify(x.sid, "update", `The ${r.role} role on ${p.title} has been filled. Thanks for offering.`, p.id); }
@@ -1737,7 +1747,8 @@
     if (!me()) return openSignIn("Sign in to see crew profiles.");
     const booked = live().filter(p => onProject(p, s.id) && isActive(p));
     const credits = creditsOf(s);
-    const mine = live().filter(p => isActive(p) && runs(p) && openRoles(p).some(r => s.roles.includes(r.role)));
+    const mine = me() && s.id !== me().id ? live().filter(p => isActive(p) && runs(p) && openRoles(p).length) : [];
+    const roleOpts = p => { const seen = new Set(), rs = openRoles(p).filter(r => !seen.has(r.role) && seen.add(r.role)); const fit = r => s.roles.includes(r.role) || s.primary === r.role; return rs.filter(fit).concat(rs.filter(r => !fit(r))).map(r => `<option value="${p.id}|${r.rid}">${esc(p.title)} · ${esc(r.role)}${fit(r) ? " ✓" : ""}</option>`).join(""); };
     openModal(`
       ${back ? `<button type="button" class="link-btn m-back" data-proj="${back.id}"><span aria-hidden="true">←</span> <span>Back to ${esc(back.title)}</span></button>` : ""}
       <div class="m-head"><div class="crew-top"><span class="avatar avatar-lg">${initials(s.name)}</span>
@@ -1755,12 +1766,16 @@
         ${portfolioHtml(s)}
         <div><dt>Contact</dt><dd>${reach(s)}</dd></div>
       </dl>
-      ${mine.length ? `<h3 class="dp-sub">Invite to one of your projects</h3>
-      <div class="invite"><select id="inviteSel">${mine.map(p => [...new Set(openRoles(p).filter(r => s.roles.includes(r.role)).map(r => r.role))].map(r => `<option value="${p.id}|${esc(r)}">${esc(p.title)} — ${esc(r)}</option>`).join("")).join("")}</select><button class="btn btn-accent btn-sm" id="inviteBtn">Send invite</button></div>` : ""}`);
+      ${mine.length ? `<h3 class="dp-sub">Add to one of your projects</h3>
+      <div class="invite"><select id="inviteSel" aria-label="Project and role">${mine.map(p => `<optgroup label="${esc(p.title)}">${roleOpts(p)}</optgroup>`).join("")}</select><button class="btn btn-accent btn-sm" id="assignBtn">Assign to role</button><button class="btn btn-ghost btn-sm" id="inviteBtn">Invite to request</button></div>
+      <p class="muted small">Assign to role locks ${esc(first(s.name))} in straight away and tells them. Invite to request asks them to put their name forward first. ✓ means it's one of their roles.</p>` : ""}`);
+    const pick = () => { const [pid, rid] = $("#inviteSel").value.split("|"), p = project(pid); return { p, r: roleBy(p, rid) }; };
+    const ab = modalBody.querySelector("#assignBtn");
+    if (ab) ab.addEventListener("click", () => { const { p, r } = pick(); lockIn(p, r.rid, s.id); });
     const btn = modalBody.querySelector("#inviteBtn");
     if (btn) btn.addEventListener("click", () => {
-      const [pid, role] = $("#inviteSel").value.split("|"), p = project(pid);
-      notify(s.id, "invite", `${me().name} would like you as ${role} on ${p.title} (${p.shoots.map(fmtRange).join(" + ")}). Open the project to request the role.`, pid);
+      const { p, r } = pick();
+      notify(s.id, "invite", `${me().name} would like you as ${r.role} on ${p.title} (${p.shoots.map(fmtRange).join(" + ")}). Open the project to request the role.`, p.id);
       toast(`Invite sent to ${first(s.name)}`);
     });
     if (me() && s.id !== me().id) addReportLink("person", s.id);

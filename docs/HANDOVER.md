@@ -202,7 +202,7 @@ People type the first part of their email and pick the ending from a list: @stud
 
 ## Updating the site
 
-When you change the code, raise the version number in two places so phones don't mix old and new files: `CACHE` in sw.js (crewcall-v27) and every `?v=27` in index.html.
+When you change the code, raise the version number in two places so phones don't mix old and new files: `CACHE` in sw.js (crewcall-v28) and every `?v=28` in index.html.
 
 ## Funding
 
@@ -265,6 +265,15 @@ Actor is now called Talent, and there's a new role, Supporting artist. Both sit 
 The form has tabs: Basics, Dates and places, Roles, Casting and Crew hub. Pop-ups with tabs stay one size, and the tab bar stays at the top while you scroll, so switching tabs doesn't make the window jump. If something's missing when you post, it jumps to the right tab and says what to add.
 
 In Roles, filled roles can be changed too: change or clear the name, or press Remove. Whoever was taken off gets a notification when you save. Managers (and admins with Projects) can also reopen or fill roles on wrapped shoots, to fix credits. Anything long in Crew Call uses tabs like this.
+
+## Assigning people to roles
+
+Whoever runs a shoot can put someone straight into a role. They're locked in at once and get a notification with Day 1's call time. They don't have to request it first.
+
+- In the shoot's window, open roles have an Assign to… list. People with that role on their profile come first, then everyone else on Crew Call. Anyone booked on another shoot those days is greyed out.
+- Someone not on Crew Call… adds a name. If the name matches a member, they're assigned as that member instead.
+- Anyone added by name (marked Not on Crew Call) has an Assign to a member… list in the Crew tab, so you can swap them for the right member without reopening the role. Any "Is this you?" claims on that role are settled.
+- On someone's profile, Add to one of your projects lists every open role on shoots you run (✓ means it's one of their roles). Assign to role locks them in. Invite to request sends the old invite, so they put their name forward first.
 
 ## Paid roles and perks
 
