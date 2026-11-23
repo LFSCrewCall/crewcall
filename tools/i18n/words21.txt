@@ -1,0 +1,12 @@
+# v27: share a project by email (EN || zh-Hant || fr || es)
+Share by email || 透過電郵分享 || Partager par e-mail || Compartir por correo
+An email-ready version of this shoot with the dates, call times and open roles, and a link back to Crew Call. Crew names and emails are left out. || 這個拍攝的電郵版本，包含日期、集合時間和空缺職位，並附上返回 Crew Call 的連結。不會包含劇組成員的名字和電郵。 || Une version prête à envoyer par e-mail de ce tournage, avec les dates, les heures de convocation et les postes ouverts, et un lien vers Crew Call. Les noms et e-mails de l'équipe ne sont pas inclus. || Una versión de este rodaje lista para enviar por correo, con las fechas, las horas de citación y los puestos abiertos, y un enlace a Crew Call. Los nombres y correos del equipo no se incluyen.
+Note at the top || 開頭的留言 || Note en haut || Nota al principio
+Hi all, we're crewing up for… || 大家好，我們正在為……招募劇組 || Bonjour à tous, on monte l'équipe pour… || Hola a todos, estamos buscando equipo para…
+Include || 包含 || Inclure || Incluir
+Dates and call times || 日期和集合時間 || Dates et heures de convocation || Fechas y horas de citación
+Copy email || 複製電郵 || Copier l'e-mail || Copiar correo
+Open in email app || 在電郵應用程式中開啟 || Ouvrir dans l'app e-mail || Abrir en la app de correo
+Share… || 分享… || Partager… || Compartir…
+Copy email keeps the layout: paste it into Gmail, Outlook or Apple Mail. Open in email app sends a plain-text version. || 複製電郵會保留版面：貼到 Gmail、Outlook 或 Apple Mail 即可。在電郵應用程式中開啟則會傳送純文字版本。 || Copier l'e-mail garde la mise en page : collez-le dans Gmail, Outlook ou Apple Mail. Ouvrir dans l'app e-mail envoie une version texte brut. || Copiar correo mantiene el diseño: pégalo en Gmail, Outlook o Apple Mail. Abrir en la app de correo envía una versión en texto plano.
+Copied. Paste it into a new email, and use the subject above || 已複製。貼到新電郵中，並使用上方的主旨 || Copié. Collez-le dans un nouvel e-mail et utilisez l'objet ci-dessus || Copiado. Pégalo en un correo nuevo y usa el asunto de arriba

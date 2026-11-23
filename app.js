@@ -1048,6 +1048,118 @@
       ${c.pay ? `<p class="cb-pay">${esc(c.pay)}</p>` : ""}${c.notes ? `<p class="cb-notes">${esc(c.notes)}</p>` : ""}
       ${c.link && !closed && !past ? `<a class="btn btn-accent btn-xs" href="${esc(c.link)}" target="_blank" rel="noopener">Apply on ${esc(castSite(c.link))}</a>` : ""}</div>`;
   }
+  // ---------- share a project by email ----------
+  // Builds an email-ready version of a shoot: dates, call times, locations, open roles and parts, with a link back.
+  // Only things already public on the project are included: no crew names, emails or briefs.
+  let shareOpts = { note: "", to: "", dates: true, locs: true, roles: true, cast: true, logline: true, perks: true };
+  const shareData = p => {
+    const days = projDays(p), up = days.filter(d => d >= TODAY), use = up.length ? up : days;
+    const group = rs => { const seen = {}, out = []; rs.forEach(r => { const k = r.role + "|" + (r.character || "").toLowerCase() + "|" + (r.paid ? r.pay || "Paid" : ""); if (seen[k]) seen[k].n++; else out.push(seen[k] = { r, n: 1 }); }); return out; };
+    const open = past => past ? [] : p.roles.filter(r => !r.filledBy);
+    const o = open(isPast(p));
+    const k = perksOf(p);
+    return {
+      url: SITE + "#p/" + encodeURIComponent(p.id), title: p.title, type: p.type, term: p.term, logline: p.logline || "",
+      dir: p.dsid && student(p.dsid) ? student(p.dsid).name : p.director, prods: producerNames(p),
+      span: use.length ? (use.length === 1 ? fmtDay(use[0]) : fmtRange({ from: use[0], to: use[use.length - 1] })) + " " + D(use[use.length - 1]).getUTCFullYear() : "",
+      nDays: use.length,
+      days: use.map(d => { const inf = dayInfo(p, d); return { date: fmtDay(d), call: inf.call, wrap: inf.wrap + (inf.wrap <= inf.call ? " +1" : ""), loc: locName(p, inf.loc) }; }),
+      locs: locs(p).map(l => l.name).filter(Boolean),
+      roles: group(o.filter(r => !isCast(r))).map(x => ({ name: x.r.role, n: x.n, hod: isHod(x.r), pay: x.r.paid ? x.r.pay || "Paid" : "" })),
+      cast: group(o.filter(isCast)).map(x => ({ name: [x.r.character, x.r.role, x.r.age].filter(Boolean).join(", "), n: x.n, pay: x.r.paid ? x.r.pay || "Paid" : "" })),
+      castCloses: castOf(p).closes || "",
+      perks: PERKS.filter(x => k[x[0]]).map(x => x[1]),
+      delivery: p.delivery ? fmtFull(p.delivery) : ""
+    };
+  };
+  const MAX_DAYS = 10;
+  const shareSubject = d => `${d.title}: ${d.roles.length || d.cast.length ? "crew wanted" : "shoot dates"}${d.span ? ", " + d.span : ""}`;
+  const shareText = (d, o) => {
+    const L = [];
+    if (o.note.trim()) L.push(o.note.trim(), "");
+    L.push(d.title.toUpperCase(), [d.type, d.term].filter(Boolean).join(" · "), `Directed by ${d.dir}${d.prods.length ? " · Produced by " + andList(d.prods) : ""}`);
+    if (o.logline && d.logline) L.push("", d.logline);
+    if (o.dates && d.days.length) { L.push("", `DATES · ${d.nDays === 1 ? "1 day" : d.nDays + " days"}`); d.days.slice(0, MAX_DAYS).forEach(x => L.push(`${x.date} · call ${x.call}, wrap ${x.wrap} · ${x.loc}`)); if (d.days.length > MAX_DAYS) L.push(`and ${d.days.length - MAX_DAYS} more days`); }
+    if (o.locs && d.locs.length) { L.push("", d.locs.length > 1 ? "LOCATIONS" : "LOCATION"); d.locs.forEach(x => L.push("- " + x)); }
+    if (o.roles && d.roles.length) { L.push("", "OPEN ROLES"); d.roles.forEach(x => L.push(`- ${x.name}${x.n > 1 ? ` (${x.n} needed)` : ""}${x.hod ? " · HOD" : ""}${x.pay ? " · " + x.pay : ""}`)); }
+    if (o.cast && d.cast.length) { L.push("", "PARTS TO CAST"); d.cast.forEach(x => L.push(`- ${x.name}${x.n > 1 ? ` (${x.n} needed)` : ""}${x.pay ? " · " + x.pay : ""}`)); if (d.castCloses) L.push(`Casting closes ${fmtFull(d.castCloses)}`); }
+    if (o.perks && d.perks.length) L.push("", "Crew get: " + d.perks.join(", "));
+    L.push("", d.roles.length || d.cast.length ? "See the roles and ask to join on Crew Call:" : "See the shoot on Crew Call:", d.url);
+    return L.join("\n");
+  };
+  // Email-safe HTML: tables and inline styles only, so it pastes cleanly into Gmail, Outlook and Apple Mail.
+  const shareHtml = (d, o, color) => {
+    const e = esc, f = "font-family:Helvetica,Arial,sans-serif;", h = t => `<tr><td style="${f}padding:22px 28px 6px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6b6a66">${t}</td></tr>`;
+    const li = (a, b) => `<tr><td style="${f}padding:8px 0;border-top:1px solid #e6e4dd;font-size:15px;color:#111">${a}</td><td align="right" style="${f}padding:8px 0;border-top:1px solid #e6e4dd;font-size:13px;color:#6b6a66;white-space:nowrap">${b}</td></tr>`;
+    const list = rows => `<tr><td style="padding:0 28px"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse">${rows}</table></td></tr>`;
+    const tag = (t, bg, c) => `<span style="display:inline-block;padding:1px 6px;margin-left:6px;border-radius:3px;background:${bg};color:${c};font-size:11px;font-weight:700">${e(t)}</span>`;
+    let rows = "";
+    if (o.note.trim()) rows += `<tr><td style="${f}padding:24px 28px 0;font-size:15px;line-height:1.5;color:#111">${e(o.note.trim()).replace(/\n/g, "<br>")}</td></tr>`;
+    rows += `<tr><td style="${f}padding:24px 28px 0;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:${color}">${e([d.type, d.term].filter(Boolean).join(" · "))}</td></tr>
+      <tr><td style="${f}padding:6px 28px 0;font-size:28px;line-height:1.15;font-weight:800;color:#111">${e(d.title)}</td></tr>
+      <tr><td style="${f}padding:6px 28px 0;font-size:14px;color:#55544f">Directed by ${e(d.dir)}${d.prods.length ? " · Produced by " + e(andList(d.prods)) : ""}</td></tr>`;
+    if (d.span && o.dates) rows += `<tr><td style="padding:14px 28px 0"><span style="${f}display:inline-block;padding:6px 10px;background:#f4f3eb;border:1px solid #dbdad7;font-family:Menlo,Consolas,monospace;font-size:14px;color:#111">${e(d.span)} · ${d.nDays === 1 ? "1 day" : d.nDays + " days"}</span></td></tr>`;
+    if (o.logline && d.logline) rows += `<tr><td style="${f}padding:14px 28px 0;font-size:15px;line-height:1.5;color:#111">${e(d.logline)}</td></tr>`;
+    if (o.dates && d.days.length) { rows += h("Schedule") + list(d.days.slice(0, MAX_DAYS).map(x => li(`<b>${e(x.date)}</b><br><span style="font-size:13px;color:#6b6a66">${e(x.loc)}</span>`, `<span style="font-family:Menlo,Consolas,monospace">Call ${e(x.call)} · Wrap ${e(x.wrap)}</span>`)).join("") + (d.days.length > MAX_DAYS ? li(`and ${d.days.length - MAX_DAYS} more days`, "") : "")); }
+    if (o.locs && d.locs.length) rows += h(d.locs.length > 1 ? "Locations" : "Location") + list(d.locs.map(x => li(e(x), "")).join(""));
+    if (o.roles && d.roles.length) rows += h(`Open roles · ${d.roles.reduce((a, x) => a + x.n, 0)}`) + list(d.roles.map(x => li(e(x.name) + (x.hod ? tag("HOD", "#111", "#fff") : "") + (x.n > 1 ? tag(x.n + " needed", "#ffe3e1", "#c80000") : ""), x.pay ? tag(x.pay, "#111", "#fff") : "In kind")).join(""));
+    if (o.cast && d.cast.length) rows += h(`Parts to cast · ${d.cast.reduce((a, x) => a + x.n, 0)}`) + list(d.cast.map(x => li(e(x.name) + (x.n > 1 ? tag(x.n + " needed", "#ffe3e1", "#c80000") : ""), x.pay ? tag(x.pay, "#111", "#fff") : "")).join("") + (d.castCloses ? li(`<span style="font-size:13px;color:#6b6a66">Casting closes ${e(fmtFull(d.castCloses))}</span>`, "") : ""));
+    if (o.perks && d.perks.length) rows += `<tr><td style="${f}padding:18px 28px 0;font-size:14px;color:#111"><b>Crew get:</b> ${e(d.perks.join(" · "))}</td></tr>`;
+    rows += `<tr><td style="padding:24px 28px 28px"><a href="${e(d.url)}" style="${f}display:inline-block;padding:12px 20px;background:#ff0000;color:#000;font-size:15px;font-weight:700;text-decoration:none">${d.roles.length || d.cast.length ? "See the roles and ask to join" : "See the shoot"}</a></td></tr>`;
+    return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;background:#f4f3eb"><tr><td align="center" style="padding:16px 8px">
+      <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="border-collapse:collapse;width:100%;max-width:600px;background:#fff;border:1px solid #dbdad7">
+      <tr><td style="${f}padding:12px 28px;background:#000;color:#fff;font-size:15px;font-weight:800">Crew Call <span style="font-weight:400;color:#9a958b;font-size:12px">· London Film School</span></td></tr>
+      <tr><td style="height:4px;background:${color};font-size:0;line-height:0">&nbsp;</td></tr>
+      ${rows}
+      <tr><td style="${f}padding:14px 28px;border-top:1px solid #e6e4dd;font-size:12px;color:#6b6a66">Sent from Crew Call, run by LFS students. Sign in to see who's on the crew and get in touch.</td></tr>
+      </table></td></tr></table>`;
+  };
+  function openShareEmail(p) {
+    const d = shareData(p), color = projColor(p), o = shareOpts;
+    if (o.pid !== p.id) Object.assign(o, { pid: p.id, note: "", to: "" });
+    const ck = (k, l, n) => n ? `<label class="fchip-radio"><input type="checkbox" data-sh="${k}" ${o[k] ? "checked" : ""}><span>${l}</span></label>` : "";
+    openModal(`
+      <button type="button" class="link-btn m-back" id="shBack"><span aria-hidden="true">←</span> <span>Back to ${esc(p.title)}</span></button>
+      <h2 id="modalTitle" class="m-title">Share by email</h2>
+      <p class="muted">An email-ready version of this shoot with the dates, call times and open roles, and a link back to Crew Call. Crew names and emails are left out.</p>
+      <div class="sh-grid">
+        <div class="stack">
+          <label class="field"><span>To <small>optional</small></span><input id="shTo" type="email" multiple inputmode="email" autocapitalize="off" spellcheck="false" placeholder="name@lfs.org.uk, …" value="${esc(o.to)}"></label>
+          <label class="field"><span>Note at the top <small>optional</small></span><textarea id="shNote" rows="3" placeholder="Hi all, we're crewing up for…">${esc(o.note)}</textarea></label>
+          <fieldset class="field"><legend>Include</legend><div class="fchips">${ck("dates", "Dates and call times", d.days.length)}${ck("locs", "Locations", d.locs.length)}${ck("roles", "Open roles", d.roles.length)}${ck("cast", "Parts to cast", d.cast.length)}${ck("logline", "Logline", d.logline)}${ck("perks", "What crew get", d.perks.length)}</div></fieldset>
+          <div class="sh-acts">
+            <button type="button" class="btn btn-accent" id="shCopy">Copy email</button>
+            <a class="btn btn-ghost" id="shMail" target="_blank" rel="noopener">Open in email app</a>
+            ${navigator.share ? `<button type="button" class="btn btn-ghost" id="shNative">Share…</button>` : ""}
+            <button type="button" class="btn btn-quiet" id="shLink">Copy link</button>
+          </div>
+          <p class="muted small">Copy email keeps the layout: paste it into Gmail, Outlook or Apple Mail. Open in email app sends a plain-text version.</p>
+        </div>
+        <div class="sh-prev-wrap"><div class="sh-prev-h"><b>Preview</b><span class="muted small" id="shSubj" translate="no"></span></div><div class="sh-prev" id="shPrev" translate="no"></div></div>
+      </div>`, true);
+    const draw = () => {
+      const s = shareSubject(d);
+      $("#shPrev").innerHTML = shareHtml(d, o, color);
+      $("#shSubj").textContent = s;
+      $("#shMail").href = mailto(o.to.trim(), s, shareText(d, o));
+    };
+    draw();
+    $("#shTo").addEventListener("input", e => { o.to = e.target.value; draw(); });
+    $("#shNote").addEventListener("input", e => { o.note = e.target.value; draw(); });
+    modalBody.querySelectorAll("[data-sh]").forEach(b => b.addEventListener("change", () => { o[b.dataset.sh] = b.checked; draw(); }));
+    $("#shBack").addEventListener("click", () => openProject(p.id));
+    $("#shCopy").addEventListener("click", async () => {
+      const html = shareHtml(d, o, color), text = shareText(d, o);
+      try {
+        if (!window.ClipboardItem) throw 0;
+        await navigator.clipboard.write([new ClipboardItem({ "text/html": new Blob([html], { type: "text/html" }), "text/plain": new Blob([text], { type: "text/plain" }) })]);
+        toast("Copied. Paste it into a new email, and use the subject above");
+      } catch (e) { copy(text); }
+    });
+    $("#shLink").addEventListener("click", () => copy(d.url));
+    const nb = $("#shNative"); if (nb) nb.addEventListener("click", () => navigator.share({ title: shareSubject(d), text: shareText(d, o).replace(/\n[^\n]*\n?$/, ""), url: d.url }).catch(() => {}));
+  }
+
   function openProject(id) {
     const p = project(id); if (!p) return;
     const m = me(), mg = canManage(p), days = projDays(p), c = contactOf(p);
@@ -1128,6 +1240,7 @@
         <div class="proj-top"><span class="type-tag">${esc(p.type)}</span><span class="term-tag">${esc(p.term)}</span>${p.archived ? `<span class="tag-arch">Archived</span>` : ""}${past ? `<span class="tag-arch">Wrapped</span>` : ""}</div>
         <h2 id="modalTitle" class="m-title">${esc(p.title)}</h2>
         <p class="card-sub">Directed by ${esc(p.dsid && student(p.dsid) ? student(p.dsid).name : p.director)}${producerNames(p).length ? ` · Produced by ${esc(andList(producerNames(p)))}` : ""}</p>
+        ${!p.archived ? `<p class="m-share"><button type="button" class="btn btn-ghost btn-xs" data-shareemail><svg class="sh-ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg> Share by email</button></p>` : ""}
       </div>
       ${mg ? `<div class="mg-bar"><span class="mg-tag">${runs(p) ? "You run this project" : "Admin access"}</span><span class="mg-acts">${!past && started(p) && !p.archived ? `<button class="btn btn-accent btn-xs" data-wrap>Wrap shoot</button>` : ""}${past && !p.archived ? (postOf(p) ? `<button class="btn btn-ghost btn-xs" data-inpost>Open in Post</button>` : `<button class="btn btn-accent btn-xs" data-topost>Move to Post</button>`) : ""}${p.wrapped ? `<button class="btn btn-quiet btn-xs" data-unwrap>Undo wrap</button>` : ""}<button class="btn btn-ghost btn-xs" data-edit>Edit</button>${!fu && !p.archived ? `<button class="btn btn-ghost btn-xs" data-addfund>Add crowdfunding</button>` : ""}<button class="btn btn-ghost btn-xs" data-handover>Hand over</button><button class="btn btn-ghost btn-xs" data-archive>${p.archived ? "Restore" : "Archive"}</button><button class="btn btn-danger btn-xs" data-delete>Delete</button></span></div>` : ""}
       <p class="logline">${esc(p.logline)}</p>
@@ -1220,6 +1333,7 @@
     q("[data-withdraw]").forEach(b => b.addEventListener("click", () => { S.requests.find(x => x.id === b.dataset.withdraw).status = "withdrawn"; toast("Request withdrawn"); openProject(p.id); render(); }));
     q("[data-accept]").forEach(b => b.addEventListener("click", () => acceptReq(b.dataset.accept)));
     q("[data-decline]").forEach(b => b.addEventListener("click", () => { const x = S.requests.find(y => y.id === b.dataset.decline); x.status = "declined"; notify(x.sid, "update", x.type === "claim" ? `${p.title}'s team say the ${x.role} they listed isn't you. If they're wrong, message them.` : x.type === "addme" ? `${p.title}'s team didn't confirm you as ${x.role}. If that's a mistake, message them.` : `${p.title} has gone with someone else for ${x.role}. Thanks for offering.`, p.id); toast("Declined. They've been told politely."); openProject(p.id); drawHeader(); render(); }));
+    q("[data-shareemail]").forEach(b => b.addEventListener("click", () => openShareEmail(p)));
     q("[data-ics]").forEach(b => b.addEventListener("click", () => { download(`${p.title.replace(/\W+/g, "-").toLowerCase()}.ics`, buildIcs([p], `Crew Call: ${p.title}`)); toast("Downloaded. This adds the shoot as it is now. To get later changes automatically, use Sync calendar."); }));
     q("[data-edit]").forEach(b => b.addEventListener("click", () => openPostForm(p)));
     q("[data-handover]").forEach(b => b.addEventListener("click", () => openHandOver(p)));

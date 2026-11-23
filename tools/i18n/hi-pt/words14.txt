@@ -1,0 +1,13 @@
+# v27: share by email (EN || hi || pt)
+Share by email || ईमेल से शेयर करें || Compartilhar por e-mail
+An email-ready version of this shoot with the dates, call times and open roles, and a link back to Crew Call. Crew names and emails are left out. || इस शूट का ईमेल के लिए तैयार रूप, जिसमें तारीखें, कॉल टाइम और खुले रोल हैं, और Crew Call का लिंक। क्रू के नाम और ईमेल शामिल नहीं होते। || Uma versão desta filmagem pronta para e-mail, com as datas, os horários de chamada e as funções abertas, e um link para o Crew Call. Nomes e e-mails da equipe ficam de fora.
+Note at the top || ऊपर एक नोट || Nota no topo
+Hi all, we're crewing up for… || सभी को नमस्ते, हम इसके लिए क्रू जुटा रहे हैं… || Oi, pessoal, estamos montando a equipe para…
+Include || शामिल करें || Incluir
+Dates and call times || तारीखें और कॉल टाइम || Datas e horários de chamada
+Copy email || ईमेल कॉपी करें || Copiar e-mail
+Open in email app || ईमेल ऐप में खोलें || Abrir no app de e-mail
+Share… || शेयर करें… || Compartilhar…
+Copy email keeps the layout: paste it into Gmail, Outlook or Apple Mail. Open in email app sends a plain-text version. || ईमेल कॉपी करें से लेआउट बना रहता है: इसे Gmail, Outlook या Apple Mail में पेस्ट करें। ईमेल ऐप में खोलें सादा टेक्स्ट भेजता है। || Copiar e-mail mantém o layout: cole no Gmail, Outlook ou Apple Mail. Abrir no app de e-mail envia uma versão em texto simples.
+Copied. Paste it into a new email, and use the subject above || कॉपी हो गया। इसे नए ईमेल में पेस्ट करें और ऊपर वाला विषय इस्तेमाल करें || Copiado. Cole em um novo e-mail e use o assunto acima
+Logline || लॉगलाइन || Logline

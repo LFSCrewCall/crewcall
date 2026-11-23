@@ -12182,6 +12182,116 @@ window.CC_I18N = {
 "फ़िल्ममेकर्स",
 "Cineastas"
 ],
+"Share by email": [
+"透過電郵分享",
+"透过电邮分享",
+"Partager par e-mail",
+"Compartir por correo",
+"Поделиться по почте",
+"مشاركة عبر البريد الإلكتروني",
+"ईमेल से शेयर करें",
+"Compartilhar por e-mail"
+],
+"An email-ready version of this shoot with the dates, call times and open roles, and a link back to Crew Call. Crew names and emails are left out.": [
+"這個拍攝的電郵版本，包含日期、集合時間和空缺職位，並附上返回 Crew Call 的連結。不會包含劇組成員的名字和電郵。",
+"这个拍摄的电邮版本，包含日期、集合时间和空缺职位，并附上返回 Crew Call 的链接。不会包含剧组成员的名字和电邮。",
+"Une version prête à envoyer par e-mail de ce tournage, avec les dates, les heures de convocation et les postes ouverts, et un lien vers Crew Call. Les noms et e-mails de l'équipe ne sont pas inclus.",
+"Una versión de este rodaje lista para enviar por correo, con las fechas, las horas de citación y los puestos abiertos, y un enlace a Crew Call. Los nombres y correos del equipo no se incluyen.",
+"Версия этих съёмок для письма: даты, время сбора, открытые роли и ссылка на Crew Call. Имена и почта команды не включаются.",
+"نسخة جاهزة للبريد الإلكتروني من هذا التصوير تتضمن التواريخ وأوقات الحضور والأدوار الشاغرة، ورابطًا إلى Crew Call. لا تُضمَّن أسماء الطاقم ولا بريدهم الإلكتروني.",
+"इस शूट का ईमेल के लिए तैयार रूप, जिसमें तारीखें, कॉल टाइम और खुले रोल हैं, और Crew Call का लिंक। क्रू के नाम और ईमेल शामिल नहीं होते।",
+"Uma versão desta filmagem pronta para e-mail, com as datas, os horários de chamada e as funções abertas, e um link para o Crew Call. Nomes e e-mails da equipe ficam de fora."
+],
+"Note at the top": [
+"開頭的留言",
+"开头的留言",
+"Note en haut",
+"Nota al principio",
+"Заметка в начале",
+"ملاحظة في الأعلى",
+"ऊपर एक नोट",
+"Nota no topo"
+],
+"Hi all, we're crewing up for…": [
+"大家好，我們正在為……招募劇組",
+"大家好，我们正在为……招募剧组",
+"Bonjour à tous, on monte l'équipe pour…",
+"Hola a todos, estamos buscando equipo para…",
+"Всем привет, собираем команду на…",
+"مرحبًا بالجميع، نجمع طاقمًا لـ…",
+"सभी को नमस्ते, हम इसके लिए क्रू जुटा रहे हैं…",
+"Oi, pessoal, estamos montando a equipe para…"
+],
+"Include": [
+"包含",
+"包含",
+"Inclure",
+"Incluir",
+"Включить",
+"تضمين",
+"शामिल करें",
+"Incluir"
+],
+"Dates and call times": [
+"日期和集合時間",
+"日期和集合时间",
+"Dates et heures de convocation",
+"Fechas y horas de citación",
+"Даты и время сбора",
+"التواريخ وأوقات الحضور",
+"तारीखें और कॉल टाइम",
+"Datas e horários de chamada"
+],
+"Copy email": [
+"複製電郵",
+"拷贝电邮",
+"Copier l'e-mail",
+"Copiar correo",
+"Скопировать письмо",
+"نسخ الرسالة",
+"ईमेल कॉपी करें",
+"Copiar e-mail"
+],
+"Open in email app": [
+"在電郵應用程式中開啟",
+"在电邮应用程序中打开",
+"Ouvrir dans l'app e-mail",
+"Abrir en la app de correo",
+"Открыть в почтовом приложении",
+"فتح في تطبيق البريد",
+"ईमेल ऐप में खोलें",
+"Abrir no app de e-mail"
+],
+"Share…": [
+"分享…",
+"分享…",
+"Partager…",
+"Compartir…",
+"Поделиться…",
+"مشاركة…",
+"शेयर करें…",
+"Compartilhar…"
+],
+"Copy email keeps the layout: paste it into Gmail, Outlook or Apple Mail. Open in email app sends a plain-text version.": [
+"複製電郵會保留版面：貼到 Gmail、Outlook 或 Apple Mail 即可。在電郵應用程式中開啟則會傳送純文字版本。",
+"拷贝电邮会保留版面：贴到 Gmail、Outlook 或 Apple Mail 即可。在电邮应用程序中打开则会发送纯文字版本。",
+"Copier l'e-mail garde la mise en page : collez-le dans Gmail, Outlook ou Apple Mail. Ouvrir dans l'app e-mail envoie une version texte brut.",
+"Copiar correo mantiene el diseño: pégalo en Gmail, Outlook o Apple Mail. Abrir en la app de correo envía una versión en texto plano.",
+"«Скопировать письмо» сохраняет оформление: вставьте его в Gmail, Outlook или Apple Mail. «Открыть в почтовом приложении» отправляет простой текст.",
+"«نسخ الرسالة» يحافظ على التنسيق: الصقها في Gmail أو Outlook أو Apple Mail. «فتح في تطبيق البريد» يرسل نسخة نصية بسيطة.",
+"ईमेल कॉपी करें से लेआउट बना रहता है: इसे Gmail, Outlook या Apple Mail में पेस्ट करें। ईमेल ऐप में खोलें सादा टेक्स्ट भेजता है।",
+"Copiar e-mail mantém o layout: cole no Gmail, Outlook ou Apple Mail. Abrir no app de e-mail envia uma versão em texto simples."
+],
+"Copied. Paste it into a new email, and use the subject above": [
+"已複製。貼到新電郵中，並使用上方的主旨",
+"已拷贝。贴到新电邮中，并使用上方的主旨",
+"Copié. Collez-le dans un nouvel e-mail et utilisez l'objet ci-dessus",
+"Copiado. Pégalo en un correo nuevo y usa el asunto de arriba",
+"Скопировано. Вставьте в новое письмо и используйте тему выше",
+"تم النسخ. الصقها في رسالة جديدة واستخدم الموضوع أعلاه",
+"कॉपी हो गया। इसे नए ईमेल में पेस्ट करें और ऊपर वाला विषय इस्तेमाल करें",
+"Copiado. Cole em um novo e-mail e use o assunto acima"
+],
 "today": [
 "今天",
 "今天",

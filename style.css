@@ -1442,3 +1442,16 @@ input[type=date], input[type=time], input[type=month] { cursor: pointer; }
 .tab-menu button.on .stg-ic { color: var(--accent); }
 .tab-menu .stg-paid { margin-top: 4px; border-top: 1px solid var(--border); border-radius: 0 0 4px 4px; padding-top: 11px; }
 .tab-menu [data-caltoday] { border-bottom: 1px solid var(--border); border-radius: 4px 4px 0 0; margin-bottom: 4px; }
+
+/* v27: share a project by email */
+.m-share { margin-top: var(--space-3); }
+.m-share .btn { gap: 6px; }
+.sh-ic { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+.sh-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: var(--space-6); margin-top: var(--space-4); align-items: start; }
+.sh-acts { display: flex; flex-wrap: wrap; gap: 8px; }
+.sh-prev-wrap { position: sticky; top: 0; min-width: 0; }
+.sh-prev-h { display: flex; justify-content: space-between; align-items: baseline; gap: var(--space-3); margin-bottom: 6px; flex-wrap: wrap; }
+.sh-prev-h .muted { overflow-wrap: anywhere; }
+.sh-prev { border: 1px solid var(--line); max-height: 70vh; overflow: auto; background: #f4f3eb; color: #111; direction: ltr; text-align: left; }
+.sh-prev table { color: #111; }
+@media (max-width: 760px) { .sh-grid { grid-template-columns: 1fr; } .sh-prev-wrap { position: static; } .sh-prev { max-height: none; } }

@@ -202,7 +202,7 @@ People type the first part of their email and pick the ending from a list: @stud
 
 ## Updating the site
 
-When you change the code, raise the version number in two places so phones don't mix old and new files: `CACHE` in sw.js (crewcall-v26) and every `?v=26` in index.html.
+When you change the code, raise the version number in two places so phones don't mix old and new files: `CACHE` in sw.js (crewcall-v27) and every `?v=27` in index.html.
 
 ## Funding
 
@@ -236,6 +236,17 @@ In a project's Crew tab, anyone signed in who isn't on it sees Add me to the cre
 - Upcoming project: approving locks them in, as if they'd requested the role.
 - If the role isn't on the project, it's added.
 - My profile also has Missing a credit?, which lists wrapped projects to pick from.
+
+## Sharing a shoot by email
+
+Every shoot's window (except archived ones) has a Share by email button under the title. It opens an email-ready version of the shoot: the type and term, director and producers, logline, upcoming shoot days with call and wrap times and locations, open roles (HOD and pay shown, repeats grouped), parts to cast, what crew get, and a button linking back to the shoot on Crew Call (#p/<id>). Crew names, emails and role briefs are never included.
+
+- Tick what to include, and add an optional To address and a note for the top.
+- Copy email copies a formatted version (simple tables and inline styles, no images), so it pastes properly into Gmail, Outlook or Apple Mail. The suggested subject is shown above the preview.
+- Open in email app opens a new email with the subject and a plain-text version filled in.
+- Share… (phones) uses the phone's share sheet, and Copy link copies just the link.
+- The email itself is always in English, whatever language the app is set to.
+- Nothing is sent from Crew Call's server, so it doesn't use any of the free email allowance.
 
 ## Project window
 

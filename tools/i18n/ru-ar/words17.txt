@@ -1,0 +1,12 @@
+# v27: share by email (EN || ru || ar)
+Share by email || Поделиться по почте || مشاركة عبر البريد الإلكتروني
+An email-ready version of this shoot with the dates, call times and open roles, and a link back to Crew Call. Crew names and emails are left out. || Версия этих съёмок для письма: даты, время сбора, открытые роли и ссылка на Crew Call. Имена и почта команды не включаются. || نسخة جاهزة للبريد الإلكتروني من هذا التصوير تتضمن التواريخ وأوقات الحضور والأدوار الشاغرة، ورابطًا إلى Crew Call. لا تُضمَّن أسماء الطاقم ولا بريدهم الإلكتروني.
+Note at the top || Заметка в начале || ملاحظة في الأعلى
+Hi all, we're crewing up for… || Всем привет, собираем команду на… || مرحبًا بالجميع، نجمع طاقمًا لـ…
+Include || Включить || تضمين
+Dates and call times || Даты и время сбора || التواريخ وأوقات الحضور
+Copy email || Скопировать письмо || نسخ الرسالة
+Open in email app || Открыть в почтовом приложении || فتح في تطبيق البريد
+Share… || Поделиться… || مشاركة…
+Copy email keeps the layout: paste it into Gmail, Outlook or Apple Mail. Open in email app sends a plain-text version. || «Скопировать письмо» сохраняет оформление: вставьте его в Gmail, Outlook или Apple Mail. «Открыть в почтовом приложении» отправляет простой текст. || «نسخ الرسالة» يحافظ على التنسيق: الصقها في Gmail أو Outlook أو Apple Mail. «فتح في تطبيق البريد» يرسل نسخة نصية بسيطة.
+Copied. Paste it into a new email, and use the subject above || Скопировано. Вставьте в новое письмо и используйте тему выше || تم النسخ. الصقها في رسالة جديدة واستخدم الموضوع أعلاه
