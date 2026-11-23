@@ -9,6 +9,7 @@
 //   POST .../functions/v1/crewcall?job=mail     notification emails, newsletters, test sends   (every 10 minutes)
 //   POST .../functions/v1/crewcall?job=digest   weekly digests that are due this hour           (every hour)
 //   POST .../functions/v1/crewcall?job=nightly  term move-up, old-profile warnings and clean-up  (every night)
+//   POST .../functions/v1/crewcall?job=share    "Send from Crew Call" in a shoot's Share by email (signed-in project leads)
 // Jobs need the header x-cron-secret, set in supabase/jobs.sql. Emails go through Brevo's HTTP API.
 //
 // Secrets (Edge Functions, Secrets): BREVO_API_KEY, CRON_SECRET, and optionally SITE_URL, SENDER_EMAIL, SENDER_NAME, DAILY_CAP.
@@ -203,7 +204,98 @@ import { createClient } from "npm:@supabase/supabase-js@2";
   root.CrewCallNewsletter = render;
   if (typeof module !== "undefined") module.exports = render;
 })(typeof window !== "undefined" ? window : globalThis);
-const DEFAULT_CONST: any = {"FIRST_OWNER":"chanchrisna.lee@student.lfs.org.uk","ROLE_GROUPS":{"Direction & production":["Director","Producer","Screenwriter","1st AD","2nd AD","Script Supervisor","Runner"],"Production office":["Line Producer","Production Manager","Production Coordinator","Location Manager"],"Camera":["DoP","Camera Operator","1st AC / Focus Puller","2nd AC","DIT","Stills / BTS"],"Lighting & grip":["Gaffer","Spark","Key Grip","Grip"],"Sound":["Sound Recordist","Boom Operator","Sound Designer","Composer"],"Art & costume":["Production Designer","Art Director","Costume","Hair & Make-up"],"Post":["Editor","Colourist","VFX"],"Marketing":["Unit Publicist","Social Media & BTS","Key Art & Poster","Festival Strategy"],"Cast":["Talent","Supporting artist"]},"TERMS":["Term 1","Term 2","Term 3","Term 4","Term 5","Graduation term","Screenwriting","Producing","Film Marketing","International Film Business","Alumni","Guest"],"PROGRESSION":["Term 1","Term 2","Term 3","Term 4","Term 5","Graduation term","Alumni"],"COURSES":[{"id":"MAF","name":"MA Filmmaking","every":"term","prefix":"MAF","terms":6,"ends":"gradterm","endByIntake":{},"anchor":{"code":217,"term":4,"periodId":"2026-aut"}},{"id":"MASW","name":"MA Screenwriting","every":"year","prefix":"","label":"Screenwriting","terms":3,"ends":"sept","endByIntake":{"2026":"2027-09-24"}},{"id":"MAFP","name":"MA Film Producing","every":"year","prefix":"","label":"Producing","terms":3,"ends":"sept","endByIntake":{"2026":"2027-09-24"}},{"id":"MAFM","name":"MA Film Marketing","every":"year","prefix":"","label":"Film Marketing","terms":3,"ends":"sept","endByIntake":{"2026":"2027-09-24"}},{"id":"MAIFB","name":"MA International Film Business","every":"year","prefix":"","label":"International Film Business","terms":3,"ends":"summer","endByIntake":{},"note":"Term 1 at the University of Exeter, Terms 2 and 3 at LFS"}],"LOCK_WEEKS":2,"TERM_DATES":[{"id":"2026-aut","name":"Autumn 2026","start":"2026-09-14","end":"2026-12-04","enrol":["2026-09-10","2026-09-11"]},{"id":"2027-spr","name":"Spring 2027","start":"2027-01-11","end":"2027-04-02","enrol":["2027-01-07","2027-01-08"]},{"id":"2027-sum","name":"Summer 2027","start":"2027-05-04","end":"2027-07-23","enrol":["2027-04-29","2027-04-30"]},{"id":"2027-aut","name":"Autumn 2027","start":"2027-09-13","end":"2027-12-03","enrol":["2027-09-09","2027-09-10"]},{"id":"2028-spr","name":"Spring 2028","start":"2028-01-10","end":"2028-03-31","enrol":["2028-01-06","2028-01-07"]},{"id":"2028-sum","name":"Summer 2028","start":"2028-05-02","end":"2028-07-21","enrol":["2028-04-27","2028-04-28"]},{"id":"2028-aut","name":"Autumn 2028","start":"2028-09-11","end":"2028-12-01","enrol":["2028-09-07","2028-09-08"]},{"id":"2029-spr","name":"Spring 2029","start":"2029-01-08","end":"2029-03-30","enrol":["2029-01-04","2029-01-05"]},{"id":"2029-sum","name":"Summer 2029","start":"2029-04-30","end":"2029-07-20","enrol":["2029-04-26","2029-04-27"]}],"LFS_DOMAINS":["lfs.org.uk","student.lfs.org.uk"],"PATHWAYS":["External","Directing","Producing","Cinematography","Editing","Sound","Production Design","Screenwriting","Film Marketing","International Film Business","Documentary"],"TYPES":["Short fiction","Documentary","Music video","Commercial","Experimental","Graduation film"],"KIT_CATS":["Camera","Lenses","Lighting","Grip","Sound","Other"]};
+// emails/share-template.js
+/* Crew Call "share a shoot by email".
+   Builds the email from a shoot, as HTML with inline styles (works in Outlook, Gmail and Apple Mail) and as plain text.
+   Used by the app's Share by email preview and, in the live version, by the server when you press Send from Crew Call.
+   Only things already public on the shoot go in: no crew names, emails or role briefs. Edit this file only. */
+(function (root) {
+  var PALETTE = ["#e0a100", "#c2410c", "#0054f1", "#6d28d9", "#0f766e", "#be185d", "#4d7c0f", "#57534e"];
+  var MON = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], WD = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  var MAX_DAYS = 10;
+  function D(s) { return new Date(s + "T00:00:00Z"); }
+  function iso(d) { return d.toISOString().slice(0, 10); }
+  function daysIn(a, b) { var out = [], c = D(a), g = 0; while (iso(c) <= b && g++ < 400) { out.push(iso(c)); c.setUTCDate(c.getUTCDate() + 1); } return out; }
+  function fmtDay(s) { var d = D(s); return WD[d.getUTCDay()] + " " + d.getUTCDate() + " " + MON[d.getUTCMonth()]; }
+  function fmtFull(s) { var d = D(s); return d.getUTCDate() + " " + MON[d.getUTCMonth()] + " " + d.getUTCFullYear(); }
+  function fmtRange(a, b) { var x = D(a), y = D(b); if (a === b) return fmtDay(a); if (x.getUTCMonth() === y.getUTCMonth()) return x.getUTCDate() + "–" + y.getUTCDate() + " " + MON[y.getUTCMonth()]; return x.getUTCDate() + " " + MON[x.getUTCMonth()] + " – " + y.getUTCDate() + " " + MON[y.getUTCMonth()]; }
+  function e(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
+  function andList(a) { return a.length <= 1 ? a.join("") : a.slice(0, -1).join(", ") + " and " + a[a.length - 1]; }
+  var PERKS = [["meals", "Meals"], ["travel", "Travel"], ["credit", "Credit"]];
+
+  // ctx: { today: "YYYY-MM-DD", site: "https://…/", name: id => name or "", isCast: role => bool, isHod: roleObj => bool }
+  function data(p, ctx) {
+    var days = (p.shoots || []).reduce(function (a, r) { return a.concat(daysIn(r.from, r.to)); }, []);
+    var up = days.filter(function (d) { return d >= ctx.today; }), use = up.length ? up : days;
+    var past = !!p.wrapped || !up.length;
+    var locs = p.locations || [];
+    var locName = function (i) { return locs[i] ? locs[i].name : "Location TBC"; };
+    var group = function (rs) { var seen = {}, out = []; rs.forEach(function (r) { var k = r.role + "|" + (r.character || "").toLowerCase() + "|" + (r.paid ? r.pay || "Paid" : ""); if (seen[k]) seen[k].n++; else out.push(seen[k] = { r: r, n: 1 }); }); return out; };
+    var open = past ? [] : (p.roles || []).filter(function (r) { return !r.filledBy; });
+    var prods = (Array.isArray(p.producers) ? p.producers : p.producer && p.producer.name ? [p.producer] : []).filter(function (x) { return x && x.name; }).map(function (x) { return (x.sid && ctx.name(x.sid)) || x.name; });
+    (p.roles || []).forEach(function (r) { if (r.role === "Producer" && r.filledBy && String(r.filledBy).indexOf("ext:") !== 0) { var n = ctx.name(r.filledBy); if (n && prods.indexOf(n) < 0) prods.push(n); } });
+    var k = p.perks || {}, last = use[use.length - 1];
+    return {
+      url: ctx.site + "#p/" + encodeURIComponent(p.id), title: p.title || "", type: p.type || "", term: p.term || "", logline: p.logline || "",
+      dir: (p.dsid && ctx.name(p.dsid)) || p.director || "", prods: prods,
+      color: PALETTE[(parseInt(String(p.id).replace(/\D/g, ""), 10) || String(p.id).length) % PALETTE.length],
+      span: use.length ? (use.length === 1 ? fmtDay(use[0]) : fmtRange(use[0], last)) + " " + D(last).getUTCFullYear() : "",
+      nDays: use.length,
+      days: use.map(function (d) { var inf = Object.assign({ call: "08:00", wrap: "18:00", loc: 0 }, (p.days || {})[d] || {}); return { date: fmtDay(d), call: inf.call, wrap: inf.wrap + (inf.wrap <= inf.call ? " +1" : ""), loc: locName(inf.loc) }; }),
+      locs: locs.map(function (l) { return l.name; }).filter(Boolean),
+      roles: group(open.filter(function (r) { return !ctx.isCast(r.role); })).map(function (x) { return { name: x.r.role, n: x.n, hod: ctx.isHod(x.r), pay: x.r.paid ? x.r.pay || "Paid" : "" }; }),
+      cast: group(open.filter(function (r) { return ctx.isCast(r.role); })).map(function (x) { return { name: [x.r.character, x.r.role, x.r.age].filter(Boolean).join(", "), n: x.n, pay: x.r.paid ? x.r.pay || "Paid" : "" }; }),
+      castCloses: (p.casting && p.casting.closes) ? fmtFull(p.casting.closes) : "",
+      perks: PERKS.filter(function (x) { return k[x[0]]; }).map(function (x) { return x[1]; })
+    };
+  }
+  function wanted(d) { return d.roles.length || d.cast.length; }
+  function subject(d) { return d.title + ": " + (wanted(d) ? "crew wanted" : "shoot dates") + (d.span ? ", " + d.span : ""); }
+  // o: { note, dates, locs, roles, cast, logline, perks, from }  (from = sender's name, shown when sent by Crew Call)
+  function text(d, o) {
+    var L = [];
+    if ((o.note || "").trim()) L.push(o.note.trim(), "");
+    L.push(d.title.toUpperCase(), [d.type, d.term].filter(Boolean).join(" · "), "Directed by " + d.dir + (d.prods.length ? " · Produced by " + andList(d.prods) : ""));
+    if (o.logline && d.logline) L.push("", d.logline);
+    if (o.dates && d.days.length) { L.push("", "DATES · " + (d.nDays === 1 ? "1 day" : d.nDays + " days")); d.days.slice(0, MAX_DAYS).forEach(function (x) { L.push(x.date + " · call " + x.call + ", wrap " + x.wrap + " · " + x.loc); }); if (d.days.length > MAX_DAYS) L.push("and " + (d.days.length - MAX_DAYS) + " more days"); }
+    if (o.locs && d.locs.length) { L.push("", d.locs.length > 1 ? "LOCATIONS" : "LOCATION"); d.locs.forEach(function (x) { L.push("- " + x); }); }
+    if (o.roles && d.roles.length) { L.push("", "OPEN ROLES"); d.roles.forEach(function (x) { L.push("- " + x.name + (x.n > 1 ? " (" + x.n + " needed)" : "") + (x.hod ? " · HOD" : "") + (x.pay ? " · " + x.pay : "")); }); }
+    if (o.cast && d.cast.length) { L.push("", "PARTS TO CAST"); d.cast.forEach(function (x) { L.push("- " + x.name + (x.n > 1 ? " (" + x.n + " needed)" : "") + (x.pay ? " · " + x.pay : "")); }); if (d.castCloses) L.push("Casting closes " + d.castCloses); }
+    if (o.perks && d.perks.length) L.push("", "Crew get: " + d.perks.join(", "));
+    L.push("", wanted(d) ? "See the roles and ask to join on Crew Call:" : "See the shoot on Crew Call:", d.url, "");
+    return L.join("\n");
+  }
+  function html(d, o) {
+    var f = "font-family:Helvetica,Arial,sans-serif;", color = d.color;
+    var h = function (t) { return '<tr><td style="' + f + 'padding:22px 28px 6px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6b6a66">' + t + "</td></tr>"; };
+    var li = function (a, b) { return '<tr><td style="' + f + 'padding:8px 0;border-top:1px solid #e6e4dd;font-size:15px;color:#111">' + a + '</td><td align="right" style="' + f + 'padding:8px 0;border-top:1px solid #e6e4dd;font-size:13px;color:#6b6a66;white-space:nowrap">' + b + "</td></tr>"; };
+    var list = function (rows) { return '<tr><td style="padding:0 28px"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse">' + rows + "</table></td></tr>"; };
+    var tag = function (t, bg, c) { return '<span style="display:inline-block;padding:1px 6px;margin-left:6px;border-radius:3px;background:' + bg + ";color:" + c + ';font-size:11px;font-weight:700">' + e(t) + "</span>"; };
+    var sum = function (a) { return a.reduce(function (s, x) { return s + x.n; }, 0); };
+    var rows = "";
+    if (o.from) rows += '<tr><td style="' + f + 'padding:20px 28px 0;font-size:13px;color:#6b6a66">' + e(o.from) + " shared this shoot with you on Crew Call. Reply to this email to reach them.</td></tr>";
+    if ((o.note || "").trim()) rows += '<tr><td style="' + f + 'padding:' + (o.from ? "12px" : "24px") + ' 28px 0;font-size:15px;line-height:1.5;color:#111">' + e(o.note.trim()).replace(/\n/g, "<br>") + "</td></tr>";
+    rows += '<tr><td style="' + f + "padding:24px 28px 0;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:" + color + '">' + e([d.type, d.term].filter(Boolean).join(" · ")) + "</td></tr>" +
+      '<tr><td style="' + f + 'padding:6px 28px 0;font-size:28px;line-height:1.15;font-weight:800;color:#111">' + e(d.title) + "</td></tr>" +
+      '<tr><td style="' + f + 'padding:6px 28px 0;font-size:14px;color:#55544f">Directed by ' + e(d.dir) + (d.prods.length ? " · Produced by " + e(andList(d.prods)) : "") + "</td></tr>";
+    if (d.span && o.dates) rows += '<tr><td style="padding:14px 28px 0"><span style="display:inline-block;padding:6px 10px;background:#f4f3eb;border:1px solid #dbdad7;font-family:Menlo,Consolas,monospace;font-size:14px;color:#111">' + e(d.span) + " · " + (d.nDays === 1 ? "1 day" : d.nDays + " days") + "</span></td></tr>";
+    if (o.logline && d.logline) rows += '<tr><td style="' + f + 'padding:14px 28px 0;font-size:15px;line-height:1.5;color:#111">' + e(d.logline) + "</td></tr>";
+    if (o.dates && d.days.length) rows += h("Schedule") + list(d.days.slice(0, MAX_DAYS).map(function (x) { return li("<b>" + e(x.date) + '</b><br><span style="font-size:13px;color:#6b6a66">' + e(x.loc) + "</span>", '<span style="font-family:Menlo,Consolas,monospace">Call ' + e(x.call) + " · Wrap " + e(x.wrap) + "</span>"); }).join("") + (d.days.length > MAX_DAYS ? li("and " + (d.days.length - MAX_DAYS) + " more days", "") : ""));
+    if (o.locs && d.locs.length) rows += h(d.locs.length > 1 ? "Locations" : "Location") + list(d.locs.map(function (x) { return li(e(x), ""); }).join(""));
+    if (o.roles && d.roles.length) rows += h("Open roles · " + sum(d.roles)) + list(d.roles.map(function (x) { return li(e(x.name) + (x.hod ? tag("HOD", "#111", "#fff") : "") + (x.n > 1 ? tag(x.n + " needed", "#ffe3e1", "#c80000") : ""), x.pay ? tag(x.pay, "#111", "#fff") : "In kind"); }).join(""));
+    if (o.cast && d.cast.length) rows += h("Parts to cast · " + sum(d.cast)) + list(d.cast.map(function (x) { return li(e(x.name) + (x.n > 1 ? tag(x.n + " needed", "#ffe3e1", "#c80000") : ""), x.pay ? tag(x.pay, "#111", "#fff") : ""); }).join("") + (d.castCloses ? li('<span style="font-size:13px;color:#6b6a66">Casting closes ' + e(d.castCloses) + "</span>", "") : ""));
+    if (o.perks && d.perks.length) rows += '<tr><td style="' + f + 'padding:18px 28px 0;font-size:14px;color:#111"><b>Crew get:</b> ' + e(d.perks.join(" · ")) + "</td></tr>";
+    rows += '<tr><td style="padding:24px 28px 28px"><a href="' + e(d.url) + '" style="' + f + 'display:inline-block;padding:12px 20px;background:#ff0000;color:#000;font-size:15px;font-weight:700;text-decoration:none">' + (wanted(d) ? "See the roles and ask to join" : "See the shoot") + "</a></td></tr>";
+    return '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;background:#f4f3eb"><tr><td align="center" style="padding:16px 8px">' +
+      '<table role="presentation" width="600" cellpadding="0" cellspacing="0" style="border-collapse:collapse;width:100%;max-width:600px;background:#fff;border:1px solid #dbdad7">' +
+      '<tr><td style="' + f + 'padding:12px 28px;background:#000;color:#fff;font-size:15px;font-weight:800">Crew Call <span style="font-weight:400;color:#9a958b;font-size:12px">· London Film School</span></td></tr>' +
+      '<tr><td style="height:4px;background:' + color + ';font-size:0;line-height:0">&nbsp;</td></tr>' + rows +
+      '<tr><td style="' + f + 'padding:14px 28px;border-top:1px solid #e6e4dd;font-size:12px;color:#6b6a66">Sent from Crew Call, run by LFS students. Sign in to see who\'s on the crew and get in touch.</td></tr>' +
+      "</table></td></tr></table>";
+  }
+  root.CCShareEmail = { data: data, subject: subject, text: text, html: html, MAX_DAYS: MAX_DAYS };
+})(typeof window !== "undefined" ? window : globalThis);
+const DEFAULT_CONST: any = {"FIRST_OWNER":"chanchrisna.lee@student.lfs.org.uk","ROLE_GROUPS":{"Direction & production":["Director","Producer","Screenwriter","1st AD","2nd AD","Script Supervisor","Runner"],"Production office":["Line Producer","Production Manager","Production Coordinator","Location Manager"],"Camera":["DoP","Camera Operator","1st AC / Focus Puller","2nd AC","DIT","Stills / BTS"],"Lighting & grip":["Gaffer","Spark","Key Grip","Grip"],"Sound":["Sound Recordist","Boom Operator","Sound Designer","Composer"],"Art & costume":["Production Designer","Art Director","Costume","Hair & Make-up"],"Post":["Editor","Colourist","VFX"],"Marketing":["Unit Publicist","Social Media & BTS","Key Art & Poster","Festival Strategy"],"Cast":["Talent","Supporting artist"]},"TERMS":["Term 1","Term 2","Term 3","Term 4","Term 5","Graduation term","Screenwriting","Producing","Film Marketing","International Film Business","Alumni","Guest"],"PROGRESSION":["Term 1","Term 2","Term 3","Term 4","Term 5","Graduation term","Alumni"],"COURSES":[{"id":"MAF","name":"MA Filmmaking","every":"term","prefix":"MAF","terms":6,"ends":"gradterm","endByIntake":{},"anchor":{"code":217,"term":4,"periodId":"2026-aut"}},{"id":"MASW","name":"MA Screenwriting","every":"year","prefix":"","label":"Screenwriting","terms":3,"ends":"sept","endByIntake":{"2026":"2027-09-24"}},{"id":"MAFP","name":"MA Film Producing","every":"year","prefix":"","label":"Producing","terms":3,"ends":"sept","endByIntake":{"2026":"2027-09-24"}},{"id":"MAFM","name":"MA Film Marketing","every":"year","prefix":"","label":"Film Marketing","terms":3,"ends":"sept","endByIntake":{"2026":"2027-09-24"}},{"id":"MAIFB","name":"MA International Film Business","every":"year","prefix":"","label":"International Film Business","terms":3,"ends":"summer","endByIntake":{},"note":"Term 1 at the University of Exeter, Terms 2 and 3 at LFS"}],"LOCK_WEEKS":2,"TERM_DATES":[{"id":"2026-aut","name":"Autumn 2026","start":"2026-09-14","end":"2026-12-04","enrol":["2026-09-10","2026-09-11"]},{"id":"2027-spr","name":"Spring 2027","start":"2027-01-11","end":"2027-04-02","enrol":["2027-01-07","2027-01-08"]},{"id":"2027-sum","name":"Summer 2027","start":"2027-05-04","end":"2027-07-23","enrol":["2027-04-29","2027-04-30"]},{"id":"2027-aut","name":"Autumn 2027","start":"2027-09-13","end":"2027-12-03","enrol":["2027-09-09","2027-09-10"]},{"id":"2028-spr","name":"Spring 2028","start":"2028-01-10","end":"2028-03-31","enrol":["2028-01-06","2028-01-07"]},{"id":"2028-sum","name":"Summer 2028","start":"2028-05-02","end":"2028-07-21","enrol":["2028-04-27","2028-04-28"]},{"id":"2028-aut","name":"Autumn 2028","start":"2028-09-11","end":"2028-12-01","enrol":["2028-09-07","2028-09-08"]},{"id":"2029-spr","name":"Spring 2029","start":"2029-01-08","end":"2029-03-30","enrol":["2029-01-04","2029-01-05"]},{"id":"2029-sum","name":"Summer 2029","start":"2029-04-30","end":"2029-07-20","enrol":["2029-04-26","2029-04-27"]}],"LFS_DOMAINS":["lfs.org.uk","student.lfs.org.uk"],"PATHWAYS":["External","Directing","Producing","Cinematography","Editing","Sound","Production Design","Screenwriting","Film Marketing","International Film Business","Documentary"],"TYPES":["Short fiction","Documentary","Music video","Commercial","Experimental","Graduation film"],"KIT_CATS":["Camera","Lenses","Lighting","Grip","Sound","Other"],"KIT_CATALOG":[["Camera","Sony FX3"],["Camera","Sony FX30"],["Camera","Sony FX6"],["Camera","Sony FX9"],["Camera","Sony Venice 2","venice"],["Camera","Sony Burano"],["Camera","Sony A7S III","a7siii;a7s3;a7s mark iii"],["Camera","Sony A7 IV","a7iv;a74"],["Camera","Sony A7 III","a7iii;a73"],["Camera","Sony FS7"],["Camera","Sony ZV-E1"],["Camera","Canon EOS C70","c70"],["Camera","Canon EOS C300 Mark III","c300 iii;c300 mk3;c300"],["Camera","Canon EOS C500 Mark II","c500;c500 ii"],["Camera","Canon EOS R5 C","r5c"],["Camera","Canon EOS R5","r5"],["Camera","Canon EOS R6 Mark II","r6 ii;r6"],["Camera","Canon EOS 5D Mark IV","5d iv;5d mk4;5d"],["Camera","Canon XA60","xa60"],["Camera","Blackmagic Pocket Cinema Camera 4K","bmpcc 4k;pocket 4k;bmpcc4k"],["Camera","Blackmagic Pocket Cinema Camera 6K Pro","bmpcc 6k pro;pocket 6k pro"],["Camera","Blackmagic Pocket Cinema Camera 6K G2","bmpcc 6k g2;pocket 6k g2"],["Camera","Blackmagic Pocket Cinema Camera 6K","bmpcc 6k;pocket 6k;bmpcc6k"],["Camera","Blackmagic Cinema Camera 6K","bmcc 6k"],["Camera","Blackmagic PYXIS 6K","pyxis"],["Camera","Blackmagic URSA Mini Pro 12K","ursa 12k;ursa mini pro"],["Camera","ARRI ALEXA Mini","alexa mini"],["Camera","ARRI ALEXA Mini LF","alexa mini lf;mini lf"],["Camera","ARRI ALEXA 35","alexa 35"],["Camera","ARRI AMIRA","amira"],["Camera","RED KOMODO 6K","komodo;red komodo"],["Camera","RED KOMODO-X","komodo x"],["Camera","RED V-RAPTOR","vraptor;v raptor"],["Camera","Panasonic Lumix GH5","gh5"],["Camera","Panasonic Lumix GH6","gh6"],["Camera","Panasonic Lumix GH7","gh7"],["Camera","Panasonic Lumix S5 II","s5ii;s5 mk2;s5"],["Camera","Panasonic Lumix S1H","s1h"],["Camera","Panasonic AU-EVA1","eva1"],["Camera","Fujifilm X-H2S","xh2s"],["Camera","Fujifilm X-T4","xt4"],["Camera","Nikon Z6 II","z6ii;z6"],["Camera","Nikon Z8","z8"],["Camera","DJI Ronin 4D","ronin 4d"],["Camera","DJI Osmo Pocket 3","osmo pocket;pocket 3"],["Camera","DJI Mini 4 Pro drone","mini 4 pro;dji mini;drone"],["Camera","GoPro HERO12 Black","gopro;hero12"],["Camera","Bolex H16 (16mm)","bolex;bolex h16"],["Camera","ARRI SR3 (16mm)","sr3;arri sr"],["Camera","Super 8 camera","super 8;super8"],["Lenses","Sigma 18-35mm f/1.8 Art","sigma 18-35;18-35"],["Lenses","Sigma 24-70mm f/2.8 Art","sigma 24-70"],["Lenses","Sigma 50mm f/1.4 Art","sigma 50 art"],["Lenses","Sigma Cine primes","sigma cine;sigma ff high speed primes"],["Lenses","Canon EF 24-105mm f/4L","24-105;canon 24-105"],["Lenses","Canon EF 70-200mm f/2.8L","70-200;canon 70-200"],["Lenses","Canon EF 50mm f/1.8","nifty fifty;canon 50mm"],["Lenses","Canon CN-E primes","cne;cn-e"],["Lenses","Sony FE 24-70mm f/2.8 GM II","sony 24-70;24-70 gm"],["Lenses","Sony FE 16-35mm f/2.8 GM","sony 16-35;16-35 gm"],["Lenses","Sony FE 85mm f/1.8","sony 85"],["Lenses","Samyang Xeen primes","xeen;rokinon xeen"],["Lenses","Samyang VDSLR cine primes","samyang cine;rokinon cine"],["Lenses","DZOFilm Vespid primes","vespid;dzo vespid"],["Lenses","DZOFilm Pictor zooms","pictor"],["Lenses","Zeiss CP.3 primes","cp3;cp.3;zeiss cp3"],["Lenses","Zeiss Super Speeds","super speeds"],["Lenses","Cooke S4/i primes","cooke s4;s4i"],["Lenses","Cooke Panchro/i Classic","panchro"],["Lenses","Sirui anamorphic lenses","sirui"],["Lenses","Laowa Nanomorph anamorphic","nanomorph"],["Lenses","Tokina 11-16mm f/2.8","tokina 11-16"],["Lenses","Helios 44-2 58mm","helios;helios 44"],["Lenses","Metabones Speed Booster","speedbooster;speed booster"],["Lenses","Viltrox EF-E adapter","viltrox"],["Lenses","Variable ND filter","vari nd;variable nd;vnd"],["Lenses","Tiffen Black Pro-Mist","black pro mist;bpm;promist"],["Lenses","ND filter set","nd filters"],["Lenses","Matte box","mattebox"],["Lenses","Follow focus"],["Lenses","Tilta Nucleus-M wireless follow focus","nucleus;nucleus m;tilta nucleus"],["Lighting","Aputure LS 300d II","aputure 300d ii;300d ii;300d mk2;aputure 300d;300d"],["Lighting","Aputure LS 600d Pro","600d pro;600d"],["Lighting","Aputure LS 1200d Pro","1200d"],["Lighting","Aputure LS 60x","ls 60x"],["Lighting","Aputure MC","aputure mc"],["Lighting","Aputure Light Dome II","light dome;lightdome"],["Lighting","Aputure Lantern","lantern"],["Lighting","Amaran 200x","200x;amaran 200"],["Lighting","Amaran 200d","200d"],["Lighting","Amaran 100x","100x"],["Lighting","Amaran 60x","60x"],["Lighting","Amaran F21c","f21c"],["Lighting","Amaran PT4c tube","pt4c"],["Lighting","Nanlite Forza 60","forza 60"],["Lighting","Nanlite Forza 300","forza 300"],["Lighting","Nanlite PavoTube II 30C","pavotube 30c;pavotube"],["Lighting","Nanlite PavoTube II 15C","pavotube 15c"],["Lighting","Astera Titan Tube","titan tube;astera"],["Lighting","Godox SL60W","sl60w;sl60"],["Lighting","Godox VL300","vl300"],["Lighting","ARRI SkyPanel S60-C","skypanel;s60"],["Lighting","Litepanels Astra","astra"],["Lighting","Kino Flo","kinoflo"],["Lighting","Dedolight kit","dedo;dedolight"],["Lighting","Tungsten Fresnel (650W)","650;fresnel;redhead"],["Lighting","Bi-colour LED panel","led panel;bicolour panel;bicolor led panel"],["Lighting","5-in-1 reflector","reflector"],["Lighting","Softbox"],["Lighting","Gels (CTO / CTB)","gels;cto;ctb"],["Lighting","Hazer","haze machine;smoke machine"],["Grip","C-stand","cstand;c stand;century stand"],["Grip","Combo stand"],["Grip","Light stand"],["Grip","Sandbags","sandbag"],["Grip","Apple boxes","apple box"],["Grip","Flags","flag;floppy"],["Grip","6x6 frame","6x6;6 frame"],["Grip","8x8 frame","8x8"],["Grip","12x12 butterfly","12x12"],["Grip","Super clamps","super clamp;clamps"],["Grip","Slider","camera slider"],["Grip","Dolly with track","dolly;track"],["Grip","Doorway dolly"],["Grip","Easyrig","easy rig"],["Grip","DJI RS 3 Pro","rs3 pro;rs3"],["Grip","DJI RS 4 Pro","rs4 pro;rs4"],["Grip","DJI RS 4"],["Grip","DJI Ronin 2","ronin 2"],["Grip","Zhiyun Crane 4","zhiyun;crane"],["Grip","Shoulder rig"],["Grip","Sachtler Flowtech tripod","flowtech;sachtler tripod"],["Grip","Sachtler FSB 8 head","fsb8;fsb 8"],["Grip","Manfrotto 504X head","504x;manfrotto 504"],["Grip","Manfrotto tripod","manfrotto"],["Grip","Tripod","sticks"],["Grip","Jib","crane jib"],["Grip","Car mount","suction mount"],["Sound","Zoom F6","f6"],["Sound","Zoom F8n Pro","f8n;f8"],["Sound","Zoom F3","zoom f3"],["Sound","Zoom H5","h5"],["Sound","Zoom H6","h6"],["Sound","Zoom H4n Pro","h4n"],["Sound","Tascam DR-40X","dr40x;dr-40"],["Sound","Sound Devices MixPre-3 II","mixpre 3;mixpre-3"],["Sound","Sound Devices MixPre-6 II","mixpre 6;mixpre-6;mixpre"],["Sound","Sound Devices 633","633"],["Sound","Sound Devices 833","833"],["Sound","Sennheiser MKH 416","416;mkh416"],["Sound","Sennheiser MKH 50","mkh50;mkh 50"],["Sound","Sennheiser ME66","me66"],["Sound","Sennheiser EW G4 lav kit","ew g4;g4;sennheiser lav;g4 lav"],["Sound","Rode NTG3","ntg3"],["Sound","Rode NTG4+","ntg4"],["Sound","Rode NTG5","ntg5"],["Sound","Rode VideoMic Pro+","videomic"],["Sound","Rode Wireless GO II","wireless go;rode go"],["Sound","Rode Wireless PRO","rode wireless pro"],["Sound","DJI Mic 2","dji mic"],["Sound","Deity S-Mic 2","s-mic;smic 2"],["Sound","Deity Theos wireless","theos"],["Sound","Sanken COS-11D lav","cos11;cos-11"],["Sound","Audio-Technica AT4053b","at4053"],["Sound","Boom pole","boompole;boom"],["Sound","Rycote blimp","blimp;rycote"],["Sound","Deadcat","dead cat;windjammer"],["Sound","Sony MDR-7506 headphones","7506;mdr7506"],["Other","Atomos Ninja V","ninja v;ninja"],["Other","Atomos Shinobi","shinobi"],["Other","SmallHD Focus 7","smallhd;focus 7"],["Other","Teradek Bolt","bolt"],["Other","Hollyland Mars 400S Pro","mars 400;hollyland"],["Other","Accsoon CineEye","cineeye"],["Other","Field monitor","monitor"],["Other","V-mount batteries","vmount;v mount;v-lock"],["Other","Gold mount batteries","gold mount"],["Other","NP-F batteries","npf;np-f970"],["Other","SSD / hard drives","hard drive;ssd;samsung t7"],["Other","Clapperboard","slate;clapper"],["Other","DaVinci Resolve Studio","resolve;davinci;davinci resolve"],["Other","Adobe Premiere Pro","premiere"],["Other","Adobe After Effects","after effects;ae"],["Other","Avid Media Composer","avid"],["Other","Final Cut Pro","fcp;final cut"],["Other","DaVinci Resolve Speed Editor","speed editor"],["Other","Pro Tools","protools"],["Other","MacBook Pro","macbook"],["Other","Projector"],["Other","Car"],["Other","Van"],["Other","Full driving licence","driving licence;drivers licence;license"],["Other","Walkie-talkies","walkies;radios"],["Other","Make-up kit","makeup kit;make up kit"],["Other","Gazebo"]],"BANK_HOLIDAYS":{"2025-01-01":"New Year's Day","2025-04-18":"Good Friday","2025-04-21":"Easter Monday","2025-05-05":"Early May bank holiday","2025-05-26":"Spring bank holiday","2025-08-25":"Summer bank holiday","2025-12-25":"Christmas Day","2025-12-26":"Boxing Day","2026-01-01":"New Year's Day","2026-04-03":"Good Friday","2026-04-06":"Easter Monday","2026-05-04":"Early May bank holiday","2026-05-25":"Spring bank holiday","2026-08-31":"Summer bank holiday","2026-12-25":"Christmas Day","2026-12-28":"Boxing Day","2027-01-01":"New Year's Day","2027-03-26":"Good Friday","2027-03-29":"Easter Monday","2027-05-03":"Early May bank holiday","2027-05-31":"Spring bank holiday","2027-08-30":"Summer bank holiday","2027-12-27":"Christmas Day","2027-12-28":"Boxing Day","2028-01-03":"New Year's Day","2028-04-14":"Good Friday","2028-04-17":"Easter Monday","2028-05-01":"Early May bank holiday","2028-05-29":"Spring bank holiday","2028-08-28":"Summer bank holiday","2028-12-25":"Christmas Day","2028-12-26":"Boxing Day"}};
 
 const env = (k: string, d = "") => Deno.env.get(k) || d;
 const SITE = env("SITE_URL", "https://lfscrewcall.github.io/crewcall/").replace(/\/?$/, "/");
@@ -374,13 +466,14 @@ const logged = async (keys: string[]) => {
 };
 const mark = (key: string) => db.from("email_log").upsert({ key }, { onConflict: "key", ignoreDuplicates: true });
 class CapReached extends Error {}
-async function send(S: any, to: { email: string; name?: string }, subject: string, html: string, key: string) {
+async function send(S: any, to: { email: string; name?: string }, subject: string, html: string, key: string, extra: { replyTo?: { email: string; name?: string }; senderName?: string; text?: string } = {}) {
   if ((await countToday()) >= CAP) throw new CapReached("Daily email limit reached");
   const body: any = {
-    sender: { email: env("SENDER_EMAIL", S.settings.senderEmail || "lfscrewcall@gmail.com"), name: env("SENDER_NAME", S.settings.senderName || "Crew Call") },
+    sender: { email: env("SENDER_EMAIL", S.settings.senderEmail || "lfscrewcall@gmail.com"), name: extra.senderName || env("SENDER_NAME", S.settings.senderName || "Crew Call") },
     to: [{ email: to.email, ...(to.name ? { name: to.name } : {}) }], subject, htmlContent: html
   };
-  if (S.settings.replyTo) body.replyTo = { email: S.settings.replyTo };
+  if (extra.text) body.textContent = extra.text;
+  if (extra.replyTo) body.replyTo = extra.replyTo; else if (S.settings.replyTo) body.replyTo = { email: S.settings.replyTo };
   const r = await fetch("https://api.brevo.com/v3/smtp/email", { method: "POST", headers: { "api-key": env("BREVO_API_KEY"), "content-type": "application/json", accept: "application/json" }, body: JSON.stringify(body) });
   if (!r.ok) throw new Error(`Brevo ${r.status}: ${(await r.text()).slice(0, 300)}`);
   await mark(key); sentToday++;
@@ -606,12 +699,61 @@ async function calendar(token: string, which: string) {
   return new Response(buildIcs(S, list, which === "my" ? "Crew Call: my shoots" : "Crew Call: all shoots"), { headers: { "content-type": "text/calendar; charset=utf-8", "cache-control": "max-age=900" } });
 }
 
+
+// ---------- "Send from Crew Call" in a shoot's Share by email ----------
+// The browser sends the person's sign-in token, the shoot id, the addresses, a note and what to include.
+// The server checks they run the shoot (or are the owner, or an admin with Projects), builds the email itself
+// from emails/share-template.js, and sends one copy per address with replies going to the sender.
+const SHARE_MAX = 25, SHARE_PER_DAY = 60, SHARE_RESERVE = 30; // keep some of the daily allowance for notifications
+const CORS = { "access-control-allow-origin": "*", "access-control-allow-headers": "authorization, content-type, apikey, x-client-info", "access-control-allow-methods": "POST, OPTIONS" };
+const reply = (o: any, status = 200) => new Response(JSON.stringify(o), { status, headers: { ...CORS, "content-type": "application/json" } });
+async function jobShare(req: Request) {
+  const token = (req.headers.get("authorization") || "").replace(/^Bearer\s+/i, "");
+  if (!token) return reply({ error: "Sign in again, then try sending." }, 401);
+  const { data: u, error: ue } = await db.auth.getUser(token);
+  if (ue || !u?.user) return reply({ error: "Your sign-in has run out. Sign in again, then try sending." }, 401);
+  let b: any; try { b = await req.json(); } catch (_) { return reply({ error: "Bad request." }, 400); }
+  const { S, C } = await load(["student", "project", "config"]);
+  const m = S.students.find((s: any) => s.id === u.user.id);
+  if (!m || m.guest) return reply({ error: "Only LFS members can send from Crew Call." }, 403);
+  const p = S.projects.find((x: any) => x.id === String(b.pid || ""));
+  if (!p || p.archived) return reply({ error: "That shoot isn't on Crew Call any more." }, 404);
+  const ap = (S.adminPerms || {})[m.id];
+  const admin = (S.admins || []).includes(m.id) && (Array.isArray(ap) ? ap.includes("projects") : !!(ap && ap.projects));
+  if (!(runs(p, m) || S.owner === m.id || admin)) return reply({ error: "Only the director, producers or an admin can send this shoot from Crew Call." }, 403);
+  const ok = (e: string) => /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(e);
+  const to = [...new Set((Array.isArray(b.to) ? b.to : []).map((x: any) => String(x).trim().toLowerCase()).filter(ok))] as string[];
+  if (!to.length) return reply({ error: "Add at least one email address." }, 400);
+  if (to.length > SHARE_MAX) return reply({ error: `Send to up to ${SHARE_MAX} at a time.` }, 400);
+  const today = london().date, pre = `share:${m.id}:${today}:`;
+  const { count: mine } = await db.from("email_log").select("key", { count: "exact", head: true }).like("key", pre + "%");
+  if ((mine || 0) + to.length > SHARE_PER_DAY) return reply({ error: `That would go over ${SHARE_PER_DAY} shared emails today. Try again tomorrow, or use Open in Outlook.` }, 429);
+  if ((await countToday()) + to.length > CAP - SHARE_RESERVE) return reply({ error: "Crew Call has nearly used today's free email allowance. Use Open in Outlook or Copy email instead, or try again tomorrow." }, 429);
+  const castSet = new Set(["Talent", "Supporting artist", ...Object.entries(C.ROLE_GROUPS || {}).filter(([g]) => /cast|talent|actor/i.test(g)).flatMap(([, rs]: any) => rs)]);
+  const hodSet = new Set(C.HOD_ROLES || ["Producer", "1st AD", "DoP", "Gaffer", "Key Grip", "Sound Recordist", "Sound Designer", "Composer", "Production Designer", "Art Director", "Costume", "Hair & Make-up", "Editor", "Colourist", "VFX", "Line Producer", "Location Manager", "Casting Director"]);
+  const SE = (globalThis as any).CCShareEmail;
+  const d = SE.data(p, { today, site: SITE, name: (id: string) => (S.students.find((s: any) => s.id === id) || {}).name || "", isCast: (r: string) => castSet.has(r), isHod: (r: any) => typeof r.hod === "boolean" ? r.hod : hodSet.has(r.role) });
+  const o0 = b.opts || {}, o = { note: String(b.note || "").slice(0, 1000), from: m.name, dates: o0.dates !== false, locs: o0.locs !== false, roles: o0.roles !== false, cast: o0.cast !== false, logline: o0.logline !== false, perks: o0.perks !== false };
+  const html = SE.html(d, o), text = SE.text(d, o), subject = SE.subject(d);
+  const have = await logged(to.map(e => pre + p.id + ":" + e));
+  let sent = 0, skipped = 0;
+  for (const e of to) {
+    const key = pre + p.id + ":" + e;
+    if (have.has(key)) { skipped++; continue; }
+    try { await send(S, { email: e }, subject, html, key, { replyTo: m.email ? { email: m.email, name: m.name } : undefined, senderName: `${m.name} via Crew Call`, text }); sent++; }
+    catch (err) { if (err instanceof CapReached) return reply({ sent, skipped, error: `Sent to ${sent}, then hit today's email limit. Use Open in Outlook for the rest.` }, 429); throw err; }
+  }
+  return reply({ sent, skipped });
+}
+
 // ---------- entry point ----------
 Deno.serve(async (req: Request) => {
   const url = new URL(req.url);
   const cal = /\/cal\/([A-Za-z0-9]{16,64})\/(my|all)-shoots\.ics$/.exec(url.pathname);
   try {
     if (req.method === "GET" && cal) return await calendar(cal[1], cal[2]);
+    if (req.method === "OPTIONS") return new Response("ok", { headers: CORS });
+    if (req.method === "POST" && url.searchParams.get("job") === "share") { sentToday = -1; return await jobShare(req); }
     if (req.method !== "POST") return new Response("Crew Call server is running.", { headers: { "content-type": "text/plain" } });
     if (!env("CRON_SECRET") || req.headers.get("x-cron-secret") !== env("CRON_SECRET")) return new Response("Not allowed", { status: 401 });
     sentToday = -1;

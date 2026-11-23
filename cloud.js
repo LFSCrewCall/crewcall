@@ -196,6 +196,17 @@
       await db.storage.from("covers").remove([decodeURIComponent(m[1])]);
     },
     funcUrl: (CFG.url || "").replace(/\/$/, "") + "/functions/v1/crewcall",
+    // Share a shoot by email: the server checks you run the shoot, builds the email itself and sends it through Brevo.
+    async shareSend(body) {
+      const t = (await db.auth.getSession()).data.session;
+      if (!t) return { error: "Sign in again, then try sending." };
+      let r;
+      try { r = await fetch(window.CC_CLOUDAPI.funcUrl + "?job=share", { method: "POST", headers: { "content-type": "application/json", authorization: "Bearer " + t.access_token }, body: JSON.stringify(body) }); }
+      catch (e) { return { error: "Couldn't reach Crew Call's server. Check your connection, or use Open in Outlook instead." }; }
+      const j = await r.json().catch(() => ({}));
+      if (r.status === 401 && !j.error) return { error: "Sending isn't switched on yet: the Crew Call server needs updating (see the handover). Use Open in Outlook or Copy email for now." };
+      return r.ok ? j : { error: j.error || `The server said no (${r.status}).` };
+    },
     saveNow: sync,
     refresh,
     status: () => ({ session: !!session, pending: Object.keys(base).length, denied })

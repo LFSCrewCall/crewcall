@@ -1455,3 +1455,6 @@ input[type=date], input[type=time], input[type=month] { cursor: pointer; }
 .sh-prev { border: 1px solid var(--line); max-height: 70vh; overflow: auto; background: #f4f3eb; color: #111; direction: ltr; text-align: left; }
 .sh-prev table { color: #111; }
 @media (max-width: 760px) { .sh-grid { grid-template-columns: 1fr; } .sh-prev-wrap { position: static; } .sh-prev { max-height: none; } }
+.sh-confirm { border: 1px solid var(--line-2); border-left: 3px solid var(--accent); background: var(--surface-2); padding: var(--space-3) var(--space-4); }
+.sh-confirm p { margin: 0 0 var(--space-3); font-size: var(--text-sm); }
+.sh-err { color: var(--accent-text); font-size: var(--text-sm); margin: 0; }

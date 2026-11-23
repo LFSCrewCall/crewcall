@@ -7,6 +7,7 @@
 //   POST .../functions/v1/crewcall?job=mail     notification emails, newsletters, test sends   (every 10 minutes)
 //   POST .../functions/v1/crewcall?job=digest   weekly digests that are due this hour           (every hour)
 //   POST .../functions/v1/crewcall?job=nightly  term move-up, old-profile warnings and clean-up  (every night)
+//   POST .../functions/v1/crewcall?job=share    "Send from Crew Call" in a shoot's Share by email (signed-in project leads)
 // Jobs need the header x-cron-secret, set in supabase/jobs.sql. Emails go through Brevo's HTTP API.
 //
 // Secrets (Edge Functions, Secrets): BREVO_API_KEY, CRON_SECRET, and optionally SITE_URL, SENDER_EMAIL, SENDER_NAME, DAILY_CAP.
@@ -17,6 +18,7 @@ import { createClient } from "npm:@supabase/supabase-js@2";
 // ---------- email designs and default lists, copied in from the app by the build script ----------
 /*@@DIGEST@@*/
 /*@@NEWSLETTER@@*/
+/*@@SHARE@@*/
 const DEFAULT_CONST: any = /*@@CONST@@*/;
 
 const env = (k: string, d = "") => Deno.env.get(k) || d;
@@ -188,13 +190,14 @@ const logged = async (keys: string[]) => {
 };
 const mark = (key: string) => db.from("email_log").upsert({ key }, { onConflict: "key", ignoreDuplicates: true });
 class CapReached extends Error {}
-async function send(S: any, to: { email: string; name?: string }, subject: string, html: string, key: string) {
+async function send(S: any, to: { email: string; name?: string }, subject: string, html: string, key: string, extra: { replyTo?: { email: string; name?: string }; senderName?: string; text?: string } = {}) {
   if ((await countToday()) >= CAP) throw new CapReached("Daily email limit reached");
   const body: any = {
-    sender: { email: env("SENDER_EMAIL", S.settings.senderEmail || "lfscrewcall@gmail.com"), name: env("SENDER_NAME", S.settings.senderName || "Crew Call") },
+    sender: { email: env("SENDER_EMAIL", S.settings.senderEmail || "lfscrewcall@gmail.com"), name: extra.senderName || env("SENDER_NAME", S.settings.senderName || "Crew Call") },
     to: [{ email: to.email, ...(to.name ? { name: to.name } : {}) }], subject, htmlContent: html
   };
-  if (S.settings.replyTo) body.replyTo = { email: S.settings.replyTo };
+  if (extra.text) body.textContent = extra.text;
+  if (extra.replyTo) body.replyTo = extra.replyTo; else if (S.settings.replyTo) body.replyTo = { email: S.settings.replyTo };
   const r = await fetch("https://api.brevo.com/v3/smtp/email", { method: "POST", headers: { "api-key": env("BREVO_API_KEY"), "content-type": "application/json", accept: "application/json" }, body: JSON.stringify(body) });
   if (!r.ok) throw new Error(`Brevo ${r.status}: ${(await r.text()).slice(0, 300)}`);
   await mark(key); sentToday++;
@@ -420,12 +423,61 @@ async function calendar(token: string, which: string) {
   return new Response(buildIcs(S, list, which === "my" ? "Crew Call: my shoots" : "Crew Call: all shoots"), { headers: { "content-type": "text/calendar; charset=utf-8", "cache-control": "max-age=900" } });
 }
 
+
+// ---------- "Send from Crew Call" in a shoot's Share by email ----------
+// The browser sends the person's sign-in token, the shoot id, the addresses, a note and what to include.
+// The server checks they run the shoot (or are the owner, or an admin with Projects), builds the email itself
+// from emails/share-template.js, and sends one copy per address with replies going to the sender.
+const SHARE_MAX = 25, SHARE_PER_DAY = 60, SHARE_RESERVE = 30; // keep some of the daily allowance for notifications
+const CORS = { "access-control-allow-origin": "*", "access-control-allow-headers": "authorization, content-type, apikey, x-client-info", "access-control-allow-methods": "POST, OPTIONS" };
+const reply = (o: any, status = 200) => new Response(JSON.stringify(o), { status, headers: { ...CORS, "content-type": "application/json" } });
+async function jobShare(req: Request) {
+  const token = (req.headers.get("authorization") || "").replace(/^Bearer\s+/i, "");
+  if (!token) return reply({ error: "Sign in again, then try sending." }, 401);
+  const { data: u, error: ue } = await db.auth.getUser(token);
+  if (ue || !u?.user) return reply({ error: "Your sign-in has run out. Sign in again, then try sending." }, 401);
+  let b: any; try { b = await req.json(); } catch (_) { return reply({ error: "Bad request." }, 400); }
+  const { S, C } = await load(["student", "project", "config"]);
+  const m = S.students.find((s: any) => s.id === u.user.id);
+  if (!m || m.guest) return reply({ error: "Only LFS members can send from Crew Call." }, 403);
+  const p = S.projects.find((x: any) => x.id === String(b.pid || ""));
+  if (!p || p.archived) return reply({ error: "That shoot isn't on Crew Call any more." }, 404);
+  const ap = (S.adminPerms || {})[m.id];
+  const admin = (S.admins || []).includes(m.id) && (Array.isArray(ap) ? ap.includes("projects") : !!(ap && ap.projects));
+  if (!(runs(p, m) || S.owner === m.id || admin)) return reply({ error: "Only the director, producers or an admin can send this shoot from Crew Call." }, 403);
+  const ok = (e: string) => /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(e);
+  const to = [...new Set((Array.isArray(b.to) ? b.to : []).map((x: any) => String(x).trim().toLowerCase()).filter(ok))] as string[];
+  if (!to.length) return reply({ error: "Add at least one email address." }, 400);
+  if (to.length > SHARE_MAX) return reply({ error: `Send to up to ${SHARE_MAX} at a time.` }, 400);
+  const today = london().date, pre = `share:${m.id}:${today}:`;
+  const { count: mine } = await db.from("email_log").select("key", { count: "exact", head: true }).like("key", pre + "%");
+  if ((mine || 0) + to.length > SHARE_PER_DAY) return reply({ error: `That would go over ${SHARE_PER_DAY} shared emails today. Try again tomorrow, or use Open in Outlook.` }, 429);
+  if ((await countToday()) + to.length > CAP - SHARE_RESERVE) return reply({ error: "Crew Call has nearly used today's free email allowance. Use Open in Outlook or Copy email instead, or try again tomorrow." }, 429);
+  const castSet = new Set(["Talent", "Supporting artist", ...Object.entries(C.ROLE_GROUPS || {}).filter(([g]) => /cast|talent|actor/i.test(g)).flatMap(([, rs]: any) => rs)]);
+  const hodSet = new Set(C.HOD_ROLES || ["Producer", "1st AD", "DoP", "Gaffer", "Key Grip", "Sound Recordist", "Sound Designer", "Composer", "Production Designer", "Art Director", "Costume", "Hair & Make-up", "Editor", "Colourist", "VFX", "Line Producer", "Location Manager", "Casting Director"]);
+  const SE = (globalThis as any).CCShareEmail;
+  const d = SE.data(p, { today, site: SITE, name: (id: string) => (S.students.find((s: any) => s.id === id) || {}).name || "", isCast: (r: string) => castSet.has(r), isHod: (r: any) => typeof r.hod === "boolean" ? r.hod : hodSet.has(r.role) });
+  const o0 = b.opts || {}, o = { note: String(b.note || "").slice(0, 1000), from: m.name, dates: o0.dates !== false, locs: o0.locs !== false, roles: o0.roles !== false, cast: o0.cast !== false, logline: o0.logline !== false, perks: o0.perks !== false };
+  const html = SE.html(d, o), text = SE.text(d, o), subject = SE.subject(d);
+  const have = await logged(to.map(e => pre + p.id + ":" + e));
+  let sent = 0, skipped = 0;
+  for (const e of to) {
+    const key = pre + p.id + ":" + e;
+    if (have.has(key)) { skipped++; continue; }
+    try { await send(S, { email: e }, subject, html, key, { replyTo: m.email ? { email: m.email, name: m.name } : undefined, senderName: `${m.name} via Crew Call`, text }); sent++; }
+    catch (err) { if (err instanceof CapReached) return reply({ sent, skipped, error: `Sent to ${sent}, then hit today's email limit. Use Open in Outlook for the rest.` }, 429); throw err; }
+  }
+  return reply({ sent, skipped });
+}
+
 // ---------- entry point ----------
 Deno.serve(async (req: Request) => {
   const url = new URL(req.url);
   const cal = /\/cal\/([A-Za-z0-9]{16,64})\/(my|all)-shoots\.ics$/.exec(url.pathname);
   try {
     if (req.method === "GET" && cal) return await calendar(cal[1], cal[2]);
+    if (req.method === "OPTIONS") return new Response("ok", { headers: CORS });
+    if (req.method === "POST" && url.searchParams.get("job") === "share") { sentToday = -1; return await jobShare(req); }
     if (req.method !== "POST") return new Response("Crew Call server is running.", { headers: { "content-type": "text/plain" } });
     if (!env("CRON_SECRET") || req.headers.get("x-cron-secret") !== env("CRON_SECRET")) return new Response("Not allowed", { status: 401 });
     sentToday = -1;

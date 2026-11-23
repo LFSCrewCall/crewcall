@@ -202,7 +202,7 @@ People type the first part of their email and pick the ending from a list: @stud
 
 ## Updating the site
 
-When you change the code, raise the version number in two places so phones don't mix old and new files: `CACHE` in sw.js (crewcall-v28) and every `?v=28` in index.html.
+When you change the code, raise the version number in two places so phones don't mix old and new files: `CACHE` in sw.js (crewcall-v29) and every `?v=29` in index.html.
 
 ## Funding
 
@@ -246,7 +246,23 @@ Every shoot's window (except archived ones) has a Share by email button under th
 - Open in email app opens a new email with the subject and a plain-text version filled in.
 - Share… (phones) uses the phone's share sheet, and Copy link copies just the link.
 - The email itself is always in English, whatever language the app is set to.
-- Nothing is sent from Crew Call's server, so it doesn't use any of the free email allowance.
+- Open in Outlook starts a new email in Outlook on the web (outlook.office.com) with the To, subject and a plain-text version filled in. It's for people whose email lives in the browser rather than a mail app. If they're signed out, Outlook asks them to sign in first, then opens the draft.
+- Send from Crew Call (directors, producers and admins only, signed in) emails the shoot straight away. Crew Call shows a confirm box first. Each person gets their own copy (no one sees the other addresses), it comes from "Name via Crew Call", and replies go to the sender's own email.
+- Limits for Send from Crew Call: up to 25 addresses per send, 60 a day per person, and the same address isn't sent the same shoot twice in a day. It uses the free Brevo allowance (300 a day), and always leaves 30 a day spare for the reminders and digests. Copy email, Open in Outlook and Open in email app don't use the allowance.
+- The email itself is built from emails/share-template.js, the same file the server uses, so the preview always matches what's sent.
+
+### Switching on Send from Crew Call (one-off)
+
+Send from Crew Call needs the newer server code. Until this is done, pressing it shows "Sending isn't switched on yet". Everything else works as before.
+
+1. Open [Supabase](https://supabase.com/dashboard) and choose the Crew Call project.
+2. Go to Edge Functions, then crewcall, then the Code tab.
+3. In GitHub, open supabase/functions/crewcall/index.ts, press Raw, select all and copy.
+4. Back in Supabase, select all the old code, paste the new code over it, and press Deploy.
+5. In the function's Details or Settings, check Verify JWT is still off (Crew Call checks the sign-in itself).
+6. On the site, open a shoot you run, press Share by email, put your own address in To, and press Send from Crew Call. The email should arrive within a minute.
+
+Redo steps 2 to 4 whenever supabase/functions/crewcall/index.ts changes.
 
 ## Project window
 

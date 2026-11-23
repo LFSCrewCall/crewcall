@@ -1052,70 +1052,23 @@
   // Builds an email-ready version of a shoot: dates, call times, locations, open roles and parts, with a link back.
   // Only things already public on the project are included: no crew names, emails or briefs.
   let shareOpts = { note: "", to: "", dates: true, locs: true, roles: true, cast: true, logline: true, perks: true };
-  const shareData = p => {
-    const days = projDays(p), up = days.filter(d => d >= TODAY), use = up.length ? up : days;
-    const group = rs => { const seen = {}, out = []; rs.forEach(r => { const k = r.role + "|" + (r.character || "").toLowerCase() + "|" + (r.paid ? r.pay || "Paid" : ""); if (seen[k]) seen[k].n++; else out.push(seen[k] = { r, n: 1 }); }); return out; };
-    const open = past => past ? [] : p.roles.filter(r => !r.filledBy);
-    const o = open(isPast(p));
-    const k = perksOf(p);
-    return {
-      url: SITE + "#p/" + encodeURIComponent(p.id), title: p.title, type: p.type, term: p.term, logline: p.logline || "",
-      dir: p.dsid && student(p.dsid) ? student(p.dsid).name : p.director, prods: producerNames(p),
-      span: use.length ? (use.length === 1 ? fmtDay(use[0]) : fmtRange({ from: use[0], to: use[use.length - 1] })) + " " + D(use[use.length - 1]).getUTCFullYear() : "",
-      nDays: use.length,
-      days: use.map(d => { const inf = dayInfo(p, d); return { date: fmtDay(d), call: inf.call, wrap: inf.wrap + (inf.wrap <= inf.call ? " +1" : ""), loc: locName(p, inf.loc) }; }),
-      locs: locs(p).map(l => l.name).filter(Boolean),
-      roles: group(o.filter(r => !isCast(r))).map(x => ({ name: x.r.role, n: x.n, hod: isHod(x.r), pay: x.r.paid ? x.r.pay || "Paid" : "" })),
-      cast: group(o.filter(isCast)).map(x => ({ name: [x.r.character, x.r.role, x.r.age].filter(Boolean).join(", "), n: x.n, pay: x.r.paid ? x.r.pay || "Paid" : "" })),
-      castCloses: castOf(p).closes || "",
-      perks: PERKS.filter(x => k[x[0]]).map(x => x[1]),
-      delivery: p.delivery ? fmtFull(p.delivery) : ""
-    };
+  // The email itself is built by emails/share-template.js, shared with the server so preview and sent email match.
+  const SH = () => window.CCShareEmail;
+  const shareData = p => SH().data(p, { today: TODAY, site: SITE, name: id => (student(id) || {}).name || "", isCast: r => isCast(r), isHod: r => isHod(r) });
+  const shareSubject = d => SH().subject(d);
+  const shareText = (d, o) => SH().text(d, o);
+  const shareHtml = (d, o) => SH().html(d, o);
+  // Outlook on the web: compose with the subject and plain-text body filled in. Going through /owa/?redirectTo keeps spaces right if they still need to sign in.
+  const outlookUrl = (to, subject, body) => {
+    const enc = v => encodeURIComponent(v).replace(/\./g, "%2E");
+    const target = `https://outlook.office.com/mail/deeplink/compose?to=${enc(to)}&subject=${enc(subject)}&body=${enc(body.replace(/\n/g, "\r\n"))}`;
+    return "https://outlook.office.com/owa/?state=1&redirectTo=" + btoa(target).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
   };
-  const MAX_DAYS = 10;
-  const shareSubject = d => `${d.title}: ${d.roles.length || d.cast.length ? "crew wanted" : "shoot dates"}${d.span ? ", " + d.span : ""}`;
-  const shareText = (d, o) => {
-    const L = [];
-    if (o.note.trim()) L.push(o.note.trim(), "");
-    L.push(d.title.toUpperCase(), [d.type, d.term].filter(Boolean).join(" · "), `Directed by ${d.dir}${d.prods.length ? " · Produced by " + andList(d.prods) : ""}`);
-    if (o.logline && d.logline) L.push("", d.logline);
-    if (o.dates && d.days.length) { L.push("", `DATES · ${d.nDays === 1 ? "1 day" : d.nDays + " days"}`); d.days.slice(0, MAX_DAYS).forEach(x => L.push(`${x.date} · call ${x.call}, wrap ${x.wrap} · ${x.loc}`)); if (d.days.length > MAX_DAYS) L.push(`and ${d.days.length - MAX_DAYS} more days`); }
-    if (o.locs && d.locs.length) { L.push("", d.locs.length > 1 ? "LOCATIONS" : "LOCATION"); d.locs.forEach(x => L.push("- " + x)); }
-    if (o.roles && d.roles.length) { L.push("", "OPEN ROLES"); d.roles.forEach(x => L.push(`- ${x.name}${x.n > 1 ? ` (${x.n} needed)` : ""}${x.hod ? " · HOD" : ""}${x.pay ? " · " + x.pay : ""}`)); }
-    if (o.cast && d.cast.length) { L.push("", "PARTS TO CAST"); d.cast.forEach(x => L.push(`- ${x.name}${x.n > 1 ? ` (${x.n} needed)` : ""}${x.pay ? " · " + x.pay : ""}`)); if (d.castCloses) L.push(`Casting closes ${fmtFull(d.castCloses)}`); }
-    if (o.perks && d.perks.length) L.push("", "Crew get: " + d.perks.join(", "));
-    L.push("", d.roles.length || d.cast.length ? "See the roles and ask to join on Crew Call:" : "See the shoot on Crew Call:", d.url);
-    return L.join("\n");
-  };
-  // Email-safe HTML: tables and inline styles only, so it pastes cleanly into Gmail, Outlook and Apple Mail.
-  const shareHtml = (d, o, color) => {
-    const e = esc, f = "font-family:Helvetica,Arial,sans-serif;", h = t => `<tr><td style="${f}padding:22px 28px 6px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6b6a66">${t}</td></tr>`;
-    const li = (a, b) => `<tr><td style="${f}padding:8px 0;border-top:1px solid #e6e4dd;font-size:15px;color:#111">${a}</td><td align="right" style="${f}padding:8px 0;border-top:1px solid #e6e4dd;font-size:13px;color:#6b6a66;white-space:nowrap">${b}</td></tr>`;
-    const list = rows => `<tr><td style="padding:0 28px"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse">${rows}</table></td></tr>`;
-    const tag = (t, bg, c) => `<span style="display:inline-block;padding:1px 6px;margin-left:6px;border-radius:3px;background:${bg};color:${c};font-size:11px;font-weight:700">${e(t)}</span>`;
-    let rows = "";
-    if (o.note.trim()) rows += `<tr><td style="${f}padding:24px 28px 0;font-size:15px;line-height:1.5;color:#111">${e(o.note.trim()).replace(/\n/g, "<br>")}</td></tr>`;
-    rows += `<tr><td style="${f}padding:24px 28px 0;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:${color}">${e([d.type, d.term].filter(Boolean).join(" · "))}</td></tr>
-      <tr><td style="${f}padding:6px 28px 0;font-size:28px;line-height:1.15;font-weight:800;color:#111">${e(d.title)}</td></tr>
-      <tr><td style="${f}padding:6px 28px 0;font-size:14px;color:#55544f">Directed by ${e(d.dir)}${d.prods.length ? " · Produced by " + e(andList(d.prods)) : ""}</td></tr>`;
-    if (d.span && o.dates) rows += `<tr><td style="padding:14px 28px 0"><span style="${f}display:inline-block;padding:6px 10px;background:#f4f3eb;border:1px solid #dbdad7;font-family:Menlo,Consolas,monospace;font-size:14px;color:#111">${e(d.span)} · ${d.nDays === 1 ? "1 day" : d.nDays + " days"}</span></td></tr>`;
-    if (o.logline && d.logline) rows += `<tr><td style="${f}padding:14px 28px 0;font-size:15px;line-height:1.5;color:#111">${e(d.logline)}</td></tr>`;
-    if (o.dates && d.days.length) { rows += h("Schedule") + list(d.days.slice(0, MAX_DAYS).map(x => li(`<b>${e(x.date)}</b><br><span style="font-size:13px;color:#6b6a66">${e(x.loc)}</span>`, `<span style="font-family:Menlo,Consolas,monospace">Call ${e(x.call)} · Wrap ${e(x.wrap)}</span>`)).join("") + (d.days.length > MAX_DAYS ? li(`and ${d.days.length - MAX_DAYS} more days`, "") : "")); }
-    if (o.locs && d.locs.length) rows += h(d.locs.length > 1 ? "Locations" : "Location") + list(d.locs.map(x => li(e(x), "")).join(""));
-    if (o.roles && d.roles.length) rows += h(`Open roles · ${d.roles.reduce((a, x) => a + x.n, 0)}`) + list(d.roles.map(x => li(e(x.name) + (x.hod ? tag("HOD", "#111", "#fff") : "") + (x.n > 1 ? tag(x.n + " needed", "#ffe3e1", "#c80000") : ""), x.pay ? tag(x.pay, "#111", "#fff") : "In kind")).join(""));
-    if (o.cast && d.cast.length) rows += h(`Parts to cast · ${d.cast.reduce((a, x) => a + x.n, 0)}`) + list(d.cast.map(x => li(e(x.name) + (x.n > 1 ? tag(x.n + " needed", "#ffe3e1", "#c80000") : ""), x.pay ? tag(x.pay, "#111", "#fff") : "")).join("") + (d.castCloses ? li(`<span style="font-size:13px;color:#6b6a66">Casting closes ${e(fmtFull(d.castCloses))}</span>`, "") : ""));
-    if (o.perks && d.perks.length) rows += `<tr><td style="${f}padding:18px 28px 0;font-size:14px;color:#111"><b>Crew get:</b> ${e(d.perks.join(" · "))}</td></tr>`;
-    rows += `<tr><td style="padding:24px 28px 28px"><a href="${e(d.url)}" style="${f}display:inline-block;padding:12px 20px;background:#ff0000;color:#000;font-size:15px;font-weight:700;text-decoration:none">${d.roles.length || d.cast.length ? "See the roles and ask to join" : "See the shoot"}</a></td></tr>`;
-    return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;background:#f4f3eb"><tr><td align="center" style="padding:16px 8px">
-      <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="border-collapse:collapse;width:100%;max-width:600px;background:#fff;border:1px solid #dbdad7">
-      <tr><td style="${f}padding:12px 28px;background:#000;color:#fff;font-size:15px;font-weight:800">Crew Call <span style="font-weight:400;color:#9a958b;font-size:12px">· London Film School</span></td></tr>
-      <tr><td style="height:4px;background:${color};font-size:0;line-height:0">&nbsp;</td></tr>
-      ${rows}
-      <tr><td style="${f}padding:14px 28px;border-top:1px solid #e6e4dd;font-size:12px;color:#6b6a66">Sent from Crew Call, run by LFS students. Sign in to see who's on the crew and get in touch.</td></tr>
-      </table></td></tr></table>`;
-  };
+  const SHARE_MAX = 25;
+  const shareRecipients = v => { const parts = [...new Set(String(v || "").split(/[\s,;]+/).map(x => x.trim().replace(/^<|>$/g, "").toLowerCase()).filter(Boolean))]; return { ok: parts.filter(x => /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(x)), bad: parts.filter(x => !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(x)) }; };
   function openShareEmail(p) {
-    const d = shareData(p), color = projColor(p), o = shareOpts;
+    const d = shareData(p), o = shareOpts, m = me();
+    const canSend = !!m && !m.guest && (runs(p) || canManage(p));
     if (o.pid !== p.id) Object.assign(o, { pid: p.id, note: "", to: "" });
     const ck = (k, l, n) => n ? `<label class="fchip-radio"><input type="checkbox" data-sh="${k}" ${o[k] ? "checked" : ""}><span>${l}</span></label>` : "";
     openModal(`
@@ -1128,20 +1081,24 @@
           <label class="field"><span>Note at the top <small>optional</small></span><textarea id="shNote" rows="3" placeholder="Hi all, we're crewing up for…">${esc(o.note)}</textarea></label>
           <fieldset class="field"><legend>Include</legend><div class="fchips">${ck("dates", "Dates and call times", d.days.length)}${ck("locs", "Locations", d.locs.length)}${ck("roles", "Open roles", d.roles.length)}${ck("cast", "Parts to cast", d.cast.length)}${ck("logline", "Logline", d.logline)}${ck("perks", "What crew get", d.perks.length)}</div></fieldset>
           <div class="sh-acts">
-            <button type="button" class="btn btn-accent" id="shCopy">Copy email</button>
+            ${canSend ? `<button type="button" class="btn btn-accent" id="shSend">Send from Crew Call</button>` : ""}
+            <a class="btn btn-ghost" id="shOutlook" target="_blank" rel="noopener">Open in Outlook</a>
+            <button type="button" class="btn ${canSend ? "btn-ghost" : "btn-accent"}" id="shCopy">Copy email</button>
             <a class="btn btn-ghost" id="shMail" target="_blank" rel="noopener">Open in email app</a>
             ${navigator.share ? `<button type="button" class="btn btn-ghost" id="shNative">Share…</button>` : ""}
             <button type="button" class="btn btn-quiet" id="shLink">Copy link</button>
           </div>
-          <p class="muted small">Copy email keeps the layout: paste it into Gmail, Outlook or Apple Mail. Open in email app sends a plain-text version.</p>
+          <div class="sh-confirm" id="shConfirm" hidden></div><p class="sh-err" id="shErr" role="alert" hidden></p>
+          <p class="muted small">${canSend ? `Send from Crew Call emails it straight away to the addresses above (up to ${SHARE_MAX} at a time), with replies coming to you. ` : ""}Open in Outlook starts a new email in Outlook on the web. Copy email keeps the layout for pasting into any email. Open in Outlook and Open in email app send a plain-text version.</p>
         </div>
         <div class="sh-prev-wrap"><div class="sh-prev-h"><b>Preview</b><span class="muted small" id="shSubj" translate="no"></span></div><div class="sh-prev" id="shPrev" translate="no"></div></div>
       </div>`, true);
     const draw = () => {
       const s = shareSubject(d);
-      $("#shPrev").innerHTML = shareHtml(d, o, color);
+      $("#shPrev").innerHTML = shareHtml(d, o);
       $("#shSubj").textContent = s;
       $("#shMail").href = mailto(o.to.trim(), s, shareText(d, o));
+      $("#shOutlook").href = outlookUrl(o.to.trim(), s, shareText(d, o));
     };
     draw();
     $("#shTo").addEventListener("input", e => { o.to = e.target.value; draw(); });
@@ -1149,7 +1106,7 @@
     modalBody.querySelectorAll("[data-sh]").forEach(b => b.addEventListener("change", () => { o[b.dataset.sh] = b.checked; draw(); }));
     $("#shBack").addEventListener("click", () => openProject(p.id));
     $("#shCopy").addEventListener("click", async () => {
-      const html = shareHtml(d, o, color), text = shareText(d, o);
+      const html = shareHtml(d, o), text = shareText(d, o);
       try {
         if (!window.ClipboardItem) throw 0;
         await navigator.clipboard.write([new ClipboardItem({ "text/html": new Blob([html], { type: "text/html" }), "text/plain": new Blob([text], { type: "text/plain" }) })]);
@@ -1157,6 +1114,28 @@
       } catch (e) { copy(text); }
     });
     $("#shLink").addEventListener("click", () => copy(d.url));
+    const sb = $("#shSend"), errEl = $("#shErr");
+    if (sb) sb.addEventListener("click", async () => {
+      const list = shareRecipients(o.to);
+      const fail = t => { errEl.textContent = t; errEl.hidden = false; };
+      errEl.hidden = true;
+      if (!list.ok.length) return fail("Add at least one email address in To.");
+      if (list.bad.length) return fail(`These don't look like email addresses: ${list.bad.join(", ")}`);
+      if (list.ok.length > SHARE_MAX) return fail(`That's ${list.ok.length} addresses. Send to up to ${SHARE_MAX} at a time.`);
+      const cf = $("#shConfirm");
+      cf.innerHTML = `<p><b>Send to ${list.ok.length === 1 ? esc(list.ok[0]) : list.ok.length + " people"}?</b> They get the email as it looks in the preview, from “${esc(m.name)} via Crew Call”, and replies come to you. Everyone gets their own copy, so no one sees the other addresses.</p><div class="sh-acts"><button type="button" class="btn btn-accent btn-sm" id="shGo">Send now</button><button type="button" class="btn btn-ghost btn-sm" id="shNo">Cancel</button></div>`;
+      cf.hidden = false; $("#shGo").focus();
+      $("#shNo").onclick = () => { cf.hidden = true; sb.focus(); };
+      $("#shGo").onclick = async () => {
+        const go = $("#shGo"); go.disabled = true; go.textContent = "Sending…";
+        try {
+          const r = LIVE ? await window.CC_CLOUDAPI.shareSend({ pid: p.id, to: list.ok, note: o.note.trim().slice(0, 1000), opts: { dates: o.dates, locs: o.locs, roles: o.roles, cast: o.cast, logline: o.logline, perks: o.perks } }) : { sent: list.ok.length, demo: true };
+          if (r.error) throw new Error(r.error);
+          toast(r.demo ? `Demo: this would email ${r.sent === 1 ? "1 person" : r.sent + " people"}` : `Sent to ${r.sent === 1 ? "1 person" : r.sent + " people"}${r.skipped ? `. ${r.skipped} already had it today` : ""}`);
+          o.to = ""; openProject(p.id);
+        } catch (e) { cf.hidden = true; fail(String(e.message || e)); }
+      };
+    });
     const nb = $("#shNative"); if (nb) nb.addEventListener("click", () => navigator.share({ title: shareSubject(d), text: shareText(d, o).replace(/\n[^\n]*\n?$/, ""), url: d.url }).catch(() => {}));
   }
 
